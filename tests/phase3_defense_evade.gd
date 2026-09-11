@@ -96,6 +96,12 @@ func _initialize() -> void:
 		var config := load(config_path) as Phase3DebugMatchConfig
 		if config == null or not config.is_valid_definition():
 			failures.append("debug comparison config failed: %s" % config_path)
+	# The config is developer-only and swaps scenes before profile construction;
+	# it never creates a saved selection or a release UI path.
+	controller.phase3_debug_match = load("res://assets/combat/debug/nabi_vs_ja_hyun.tres") as Phase3DebugMatchConfig
+	controller.call("_apply_phase3_debug_match")
+	if controller.player.fighter_id != &"nabi" or controller.training_dummy.fighter_id != &"ja-hyun" or not controller.call("_configure_fighters"):
+		failures.append("debug comparison config did not configure Nabi versus Ja-hyun")
 
 	instance.queue_free()
 	if failures.is_empty():
