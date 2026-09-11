@@ -10,6 +10,7 @@ signal match_ended(winner_id: StringName)
 @export var loadout_catalog: LoadoutCatalog
 @export var player_selection: LoadoutSelection
 @export var training_dummy_selection: LoadoutSelection
+@export var phase3_debug_match: Phase3DebugMatchConfig
 
 var tick := 0
 var paused := false
@@ -23,11 +24,41 @@ var _last_player_direction: CombatIntent.Direction = CombatIntent.Direction.NEUT
 func _ready() -> void:
 	if player == null: player = get_node("../World/Player") as FighterController
 	if training_dummy == null: training_dummy = get_node("../World/TrainingDummy") as FighterController
+	_apply_phase3_debug_match()
 	if not _configure_fighters():
 		paused = true
 		push_error("Match did not start because loadout construction failed.")
 		return
 	reset_match()
+
+
+func _apply_phase3_debug_match() -> void:
+	if phase3_debug_match == null:
+		return
+	if not OS.is_debug_build() or not phase3_debug_match.is_valid_definition():
+		push_error("Phase 3 debug match is only valid in a debug build with two fighter scenes.")
+		return
+	var world := player.get_parent()
+	var player_position := player.global_position
+	var dummy_position := training_dummy.global_position
+	world.remove_child(player)
+	world.remove_child(training_dummy)
+	player.queue_free()
+	training_dummy.queue_free()
+	player = phase3_debug_match.player_fighter_scene.instantiate() as FighterController
+	training_dummy = phase3_debug_match.training_dummy_fighter_scene.instantiate() as FighterController
+	player.name = "Player"
+	training_dummy.name = "TrainingDummy"
+	world.add_child(player)
+	world.add_child(training_dummy)
+	player.global_position = player_position
+	training_dummy.global_position = dummy_position
+	var player_loadout := LoadoutSelection.new()
+	player_loadout.character_id = player.fighter_id
+	var dummy_loadout := LoadoutSelection.new()
+	dummy_loadout.character_id = training_dummy.fighter_id
+	player_selection = player_loadout
+	training_dummy_selection = dummy_loadout
 
 
 func _physics_process(_delta: float) -> void:

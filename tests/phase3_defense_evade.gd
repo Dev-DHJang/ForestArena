@@ -92,6 +92,10 @@ func _initialize() -> void:
 		if not result.succeeded() or not fighter.configure_profile(result.profile):
 			failures.append("base comparison profile failed: %s" % fighter.fighter_id)
 		fighter.queue_free()
+	for config_path: String in ["res://assets/combat/debug/ja_hyun_vs_myo_ryung.tres", "res://assets/combat/debug/myo_ryung_vs_nabi.tres", "res://assets/combat/debug/nabi_vs_ja_hyun.tres"]:
+		var config := load(config_path) as Phase3DebugMatchConfig
+		if config == null or not config.is_valid_definition():
+			failures.append("debug comparison config failed: %s" % config_path)
 
 	instance.queue_free()
 	if failures.is_empty():

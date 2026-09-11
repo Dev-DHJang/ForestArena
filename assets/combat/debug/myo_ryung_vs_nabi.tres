@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Phase3DebugMatchConfig" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/phase3_debug_match_config.gd" id="1_config"]
+[ext_resource type="PackedScene" path="res://scenes/fighters/myo_ryung_fighter.tscn" id="2_myo"]
+[ext_resource type="PackedScene" path="res://scenes/fighters/nabi_fighter.tscn" id="3_nabi"]
+
+[resource]
+script = ExtResource("1_config")
+player_fighter_scene = ExtResource("2_myo")
+training_dummy_fighter_scene = ExtResource("3_nabi")
