@@ -10,8 +10,8 @@
     "separate_buttons": ["jump", "action", "grab_support", "ultimate"],
     "edge_states": ["press", "hold", "release"],
     "direction_lock": "Direction and facing are fixed on activation; attacks never auto-track or auto-turn. Air forward/back uses facing at activation.",
-    "action_button_evolution": "The current dash action expands in Phase 3: neutral hold guards, side press evades, and side hold after an evade dashes.",
-    "grab_support_visibility": "Show grab_support while guard begins; it is valid only during the short grace after guard release."
+    "action_button_evolution": "Accepted ADR-013 Phase 3 defense/evade slice reinterprets the current dash action: neutral hold guards, side press evades, and side hold after an evade dashes. It adds no InputMap ID.",
+    "grab_support_visibility": "grab_support is an accepted later ADR-013 scope item; do not show it during the defense/evade-only slice."
   },
   "system_rules": {
     "damage_model": "cumulative-percent-knockback",
@@ -53,7 +53,7 @@
     "side_press": "short evade step",
     "side_hold_after_evade": "dash",
     "air": "one aerial evade per airtime",
-    "guard_to_grab": "grab support becomes available during a short grace after guard release",
+    "guard_to_grab": "Deferred accepted ADR-013 follow-up: grab support becomes available during a short grace after guard release.",
     "guard_rules": "normal attacks are guardable; grabs answer guard; holding guard and receiving guarded hits deplete durability, and exhaustion breaks guard; no high/low guard or precision parry in the initial rule."
   },
   "visual_production_policy": {

@@ -13,15 +13,15 @@ func _initialize() -> void:
 	controller.reset_match()
 	for index: int in 30: fighter.step_tick(controller.rules)
 
-	# Ground acceleration and dash lock use CharacterStats and fixed ticks.
+	# Ground acceleration and Phase 3 action/evade lock use fixed ticks.
 	fighter.consume_intent(_intent(fighter, &"move", CombatIntent.Direction.RIGHT, CombatIntent.Edge.PRESS), controller.rules)
 	for index: int in 5: fighter.step_tick(controller.rules)
 	if fighter.velocity.x <= 0.0 or fighter.velocity.x > fighter.character_data.base_stats.ground_speed: failures.append("ground acceleration contract failed")
 	fighter.consume_intent(_intent(fighter, &"dash", CombatIntent.Direction.RIGHT), controller.rules)
-	var dash_velocity := fighter.velocity.x
+	if fighter.state != FighterController.State.EVADE_GROUND: failures.append("side action did not enter ground evade")
 	fighter.consume_intent(_intent(fighter, &"move", CombatIntent.Direction.LEFT, CombatIntent.Edge.PRESS), controller.rules)
 	fighter.step_tick(controller.rules)
-	if fighter.state != FighterController.State.DASH or fighter.velocity.x != dash_velocity: failures.append("dash direction was not locked")
+	if fighter.state != FighterController.State.EVADE_GROUND or fighter.velocity.x <= 0.0: failures.append("evade direction was not locked")
 
 	# Startup/active/recovery and a single whiff light buffer.
 	controller.reset_match()

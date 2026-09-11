@@ -91,7 +91,7 @@ func _draw() -> void:
 	draw_circle(pad.get_center(), minf(pad.size.x, pad.size.y) * 0.42, Color(0.13, 0.18, 0.28, 0.72))
 	for item: Dictionary in [{"text": "↑", "offset": Vector2(-8, -42)}, {"text": "↓", "offset": Vector2(-8, 52)}, {"text": "←", "offset": Vector2(-68, 6)}, {"text": "→", "offset": Vector2(48, 6)}]:
 		draw_string(ThemeDB.fallback_font, pad.get_center() + item.offset, item.text, HORIZONTAL_ALIGNMENT_LEFT, -1, 26, Color.WHITE)
-	var labels := ["DASH", "JUMP", "LIGHT", "HEAVY", "SPECIAL"]
+	var labels := ["ACTION", "JUMP", "LIGHT", "HEAVY", "SPECIAL"]
 	for index: int in 5:
 		var rect := Rect2(size.x * (0.51 + index * 0.095), size.y * 0.76, size.x * 0.08, size.y * 0.14)
 		draw_rect(rect, Color(0.13, 0.18, 0.28, 0.72), true)

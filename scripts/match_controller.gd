@@ -83,10 +83,8 @@ func pause_match(value: bool) -> void:
 	if value:
 		_queued_intents.clear()
 		_last_player_direction = CombatIntent.Direction.NEUTRAL
-		player.input_direction = CombatIntent.Direction.NEUTRAL
-		player.buffered_intent = null
-		training_dummy.input_direction = CombatIntent.Direction.NEUTRAL
-		training_dummy.buffered_intent = null
+		player.release_transient_input(rules)
+		training_dummy.release_transient_input(rules)
 
 
 func snapshot() -> Dictionary:
@@ -112,6 +110,8 @@ func _poll_player_input() -> void:
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.PRESS, _context_for(player)))
 		elif Input.is_action_just_released(action):
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.RELEASE, _context_for(player)))
+		elif action == &"dash" and Input.is_action_pressed(action):
+			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.HOLD, _context_for(player)))
 
 
 func _process_intents() -> void:
@@ -154,6 +154,12 @@ func _resolve_hits() -> void:
 	for hit: Dictionary in candidates:
 		var attack: AttackData = hit.attack
 		var target: FighterController = hit.target
+		if target.state == FighterController.State.GUARD:
+			target.apply_guarded_hit(attack, rules)
+			hit.source.register_landed_hit(attack)
+			_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
+			_hit_counts["%s:last" % hit.key] = tick
+			continue
 		var damage_after := float(hit.target_damage) + attack.damage
 		var speed := (attack.base_knockback + damage_after * attack.knockback_growth) / target._stats().weight
 		var direction := _launch_direction(attack, hit.source_position, hit.target_position, hit.source_facing, hit.source_direction)

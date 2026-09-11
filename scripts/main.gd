@@ -47,5 +47,5 @@ func _render_snapshot(snapshot: Dictionary) -> void:
 		suffix = " · SUDDEN DEATH %d" % snapshot.sudden_death_round
 	if not String(snapshot.get("winner_id", "")).is_empty():
 		suffix = " · 승자: %s" % snapshot.winner_id
-	readout.text = "자현 %d%% · %d STOCK    묘령 %d%% · %d STOCK%s" % [roundi(first.damage_percent), first.stocks, roundi(second.damage_percent), second.stocks, suffix]
-	debug_readout.text = "tick %d  %s:%s  %s:%s" % [snapshot.tick, first.state, first.attack_id, second.state, second.attack_id]
+	readout.text = "%s %d%% · %d STOCK · G %.0f    %s %d%% · %d STOCK · G %.0f%s" % [first.id, roundi(first.damage_percent), first.stocks, float(first.get("guard_durability", 0.0)), second.id, roundi(second.damage_percent), second.stocks, float(second.get("guard_durability", 0.0)), suffix]
+	debug_readout.text = "tick %d  %s:%s evade %d  %s:%s evade %d" % [snapshot.tick, first.state, first.attack_id, int(first.get("aerial_evades", 0)), second.state, second.attack_id, int(second.get("aerial_evades", 0))]
