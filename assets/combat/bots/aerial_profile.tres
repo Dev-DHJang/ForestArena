@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BotCommandProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/bot_command_profile.gd" id="1_profile"]
+
+[resource]
+script = ExtResource("1_profile")
+profile_id = &"aerial"
+decision_interval_ticks = 9
+preferred_distance_min = 100.0
+preferred_distance_max = 230.0
+aggression_percent = 70
+aerial_percent = 58
+guard_percent = 16
+evade_percent = 34
+grab_percent = 5
+heavy_percent = 24
+special_percent = 34
+ultimate_percent = 78

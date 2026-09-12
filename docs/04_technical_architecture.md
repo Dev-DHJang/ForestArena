@@ -24,9 +24,9 @@
 
 `docs/character-appearance-v01.json`은 승인 로스터의 외형 경계와 작은 화면 식별 규칙을 소유한다. `character_id`와 `concept_asset_id`로 CharacterData·manifest의 승인 콘셉트와 연결하지만 Resource 또는 manifest 스키마를 확장하지 않는다. 외형 계약은 표현 소비자만 사용하며 전투 JSON과 런타임 프로필에는 복제하지 않는다.
 
-조합 순서는 CharacterData, 누적 JobData, AccessoryData이며 결과는 RuntimeCombatProfile이다. 정확한 병합 우선순위와 실패 방식은 Phase 2 계약에서 버전과 함께 확정한다.
+조합 순서는 CharacterData, 누적 JobData, AccessoryData이며 결과는 RuntimeCombatProfile이다. v2는 CombatRules의 불변 CombatTuningData를 복사하고 JobData의 제한된 CombatTuningModifier만 결과 프로필에 적용한다. source Resource는 절대 변경하지 않으며 캐릭터 ID 분기로 전투 수치를 정하지 않는다.
 
-`docs/attack-system-v01.json`은 구현 전 공격 콘셉트의 검사 가능한 원본이다. Phase 2에서는 이를 그대로 런타임 Resource로 읽지 않고, versioned MoveSetData·AttackData로 분리한다. 미래 `CombatIntent`는 `action_id`, 4방향 `direction`, `press|hold|release` edge, 지상/공중 문맥을 담는다. 입력 예약, 취소 창, 피해와 hitbox는 이 콘셉트 JSON이나 VisualAdapter가 소유하지 않는다.
+`docs/attack-system-v01.json`은 구현 전 공격 콘셉트의 검사 가능한 원본이다. 런타임은 versioned MoveSetData·AttackData로 분리하며, v2 CombatIntent는 `action_id`, 4방향 `direction`, `press|hold|release` edge, 지상/공중 문맥을 담는다. `MatchController`는 로컬과 결정론 봇 명령 소스를 같은 intent 경로로 소비한다. 입력 예약, 취소 창, 피해와 hitbox는 이 콘셉트 JSON이나 VisualAdapter가 소유하지 않는다.
 
 ## 2D 런타임 경계
 

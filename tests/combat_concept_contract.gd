@@ -59,8 +59,8 @@ func _validate_input_contract(concept: Dictionary, failures: PackedStringArray) 
 		failures.append("direction-lock policy is missing")
 	if not String(contract.get("action_button_evolution", "")).contains("dash action") or not String(contract.get("action_button_evolution", "")).contains("neutral hold guards"):
 		failures.append("action button evolution is missing")
-	if not String(contract.get("grab_support_visibility", "")).contains("do not show it during the defense/evade-only slice"):
-		failures.append("grab support deferral rule is missing")
+	if not String(contract.get("grab_support_visibility", "")).contains("post-guard grace"):
+		failures.append("grab support visibility rule is missing")
 
 
 func _validate_system_rules(concept: Dictionary, failures: PackedStringArray) -> void:

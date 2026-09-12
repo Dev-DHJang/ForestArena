@@ -11,8 +11,19 @@ const DPAD_IDS := {
 }
 const ACTION_DEFAULT_ID := "fa.ui.combat.action.default"
 const ACTION_PRESSED_ID := "fa.ui.combat.action.pressed"
-const ACTIONS: Array[StringName] = [&"dash", &"jump", &"attack_light", &"attack_heavy", &"attack_special"]
-const ACTION_LABELS := ["ACTION", "JUMP", "LIGHT", "HEAVY", "SPECIAL"]
+const ACTIONS: Array[StringName] = [&"dash", &"jump", &"attack_light", &"attack_heavy", &"attack_special", &"grab_support", &"ultimate"]
+const ACTION_LABELS := ["ACTION", "JUMP", "LIGHT", "HEAVY", "SPECIAL", "GRAB", "ULT"]
+## Normalized rectangles keep every action inside the right-hand safe area while
+## preserving the Phase 1 five-button layout as a compact staggered cluster.
+const ACTION_RECTS := {
+	&"dash": Rect2(0.50, 0.79, 0.075, 0.14),
+	&"jump": Rect2(0.59, 0.68, 0.075, 0.14),
+	&"attack_light": Rect2(0.68, 0.79, 0.075, 0.14),
+	&"attack_heavy": Rect2(0.77, 0.68, 0.075, 0.14),
+	&"attack_special": Rect2(0.86, 0.79, 0.075, 0.14),
+	&"grab_support": Rect2(0.86, 0.58, 0.075, 0.14),
+	&"ultimate": Rect2(0.77, 0.49, 0.075, 0.14),
+}
 var _touch_actions: Dictionary[int, StringName] = {}
 var _action_touch_counts: Dictionary[StringName, int] = {}
 var _dpad_visual: TextureRect
@@ -21,9 +32,13 @@ var _textures: Dictionary[String, Texture2D] = {}
 var _last_dpad_action: StringName = &""
 var _missing_resource_ids: PackedStringArray = []
 var _missing_label: Label
+var _action_visibility: Dictionary[StringName, bool] = {}
 
 
 func _ready() -> void:
+	_ensure_phase3_input_actions()
+	for action: StringName in ACTIONS:
+		_action_visibility[action] = action != &"grab_support"
 	_load_visual_resources()
 	_build_visuals()
 	_layout_visuals()
@@ -105,9 +120,11 @@ func _layout_visuals() -> void:
 	_dpad_visual.position = pad.get_center() - Vector2.ONE * pad_side * 0.5
 	_dpad_visual.size = Vector2.ONE * pad_side
 	for index: int in ACTIONS.size():
-		var visual: TextureRect = _action_visuals[ACTIONS[index]]
-		visual.position = Vector2(viewport_size.x * (0.51 + index * 0.095), viewport_size.y * 0.76)
-		visual.size = Vector2(viewport_size.x * 0.08, viewport_size.y * 0.14)
+		var action: StringName = ACTIONS[index]
+		var visual: TextureRect = _action_visuals[action]
+		var normalized: Rect2 = ACTION_RECTS[action]
+		visual.position = normalized.position * viewport_size
+		visual.size = normalized.size * viewport_size
 	_missing_label.position = Vector2(viewport_size.x * 0.48, viewport_size.y * 0.70)
 	_missing_label.size = Vector2(viewport_size.x * 0.50, 32.0)
 
@@ -139,7 +156,41 @@ func handle_pointer_event(event: InputEvent) -> void:
 
 
 func release_all_touches() -> void:
-	for touch_index: int in _touch_actions.keys(): _release(touch_index)
+	for touch_index: int in _touch_actions.keys():
+		_release(touch_index)
+	# Also clear actions pressed by a keyboard/controller before focus loss. Main
+	# repeats this defensively because mobile pause notifications can arrive in
+	# either node order.
+	for action: StringName in ACTIONS:
+		Input.action_release(action)
+		_action_touch_counts[action] = 0
+	_last_dpad_action = &""
+	_refresh_visuals()
+
+
+func set_action_visible(action: StringName, visible: bool) -> void:
+	if action not in ACTIONS:
+		return
+	_action_visibility[action] = visible
+	var visual: TextureRect = _action_visuals.get(action)
+	if visual != null:
+		visual.visible = visible
+	if not visible:
+		for touch_index: int in _touch_actions.keys():
+			if _touch_actions[touch_index] == action:
+				_release(touch_index)
+
+
+func is_action_visible(action: StringName) -> bool:
+	return bool(_action_visibility.get(action, false))
+
+
+func _ensure_phase3_input_actions() -> void:
+	# project.godot remains the durable input contract. Runtime registration lets
+	# this isolated UI stay safe while the v2 combat contract lands in parallel.
+	for action: StringName in [&"grab_support", &"ultimate"]:
+		if not InputMap.has_action(action):
+			InputMap.add_action(action)
 
 
 func _assign(index: int, position: Vector2) -> void:
@@ -184,7 +235,9 @@ func _refresh_visuals() -> void:
 	_dpad_visual.texture = _textures.get(DPAD_IDS.get(_last_dpad_action, DPAD_IDS[&""]))
 	for action: StringName in ACTIONS:
 		var state_id := ACTION_PRESSED_ID if int(_action_touch_counts.get(action, 0)) > 0 else ACTION_DEFAULT_ID
-		(_action_visuals[action] as TextureRect).texture = _textures.get(state_id)
+		var visual := _action_visuals[action] as TextureRect
+		visual.texture = _textures.get(state_id)
+		visual.visible = bool(_action_visibility.get(action, true))
 
 
 func _resource_texture(logical_id: String) -> Texture2D:
@@ -214,12 +267,14 @@ func _action_for(position: Vector2) -> StringName:
 		if delta.length() < minf(pad.size.x, pad.size.y) * 0.20: return &""
 		if absf(delta.x) >= absf(delta.y): return &"move_right" if delta.x > 0.0 else &"move_left"
 		return &"move_down" if delta.y > 0.0 else &"move_up"
-	var usable := inverse_lerp(size.x * 0.50, size.x * (1.0 - SAFE_EDGE_RATIO), position.x)
-	if usable < 0.20: return &"dash"
-	if usable < 0.40: return &"jump"
-	if usable < 0.60: return &"attack_light"
-	if usable < 0.80: return &"attack_heavy"
-	return &"attack_special"
+	for action: StringName in ACTIONS:
+		if not bool(_action_visibility.get(action, true)):
+			continue
+		var normalized_rect: Rect2 = ACTION_RECTS[action]
+		var action_rect := Rect2(normalized_rect.position * size, normalized_rect.size * size)
+		if action_rect.has_point(position):
+			return action
+	return &""
 
 
 func _notification(what: int) -> void:

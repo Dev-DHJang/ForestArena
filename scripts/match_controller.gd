@@ -11,6 +11,16 @@ signal match_ended(winner_id: StringName)
 @export var player_selection: LoadoutSelection
 @export var training_dummy_selection: LoadoutSelection
 @export var phase3_debug_match: Phase3DebugMatchConfig
+@export var bot_profile: BotCommandProfile
+@export var bot_seed: int = 3001
+@export var playtest_scenario_id: StringName = &"manual"
+@export var telemetry_enabled := false
+
+const BOT_PROFILE_PATHS := {
+	&"spacing": "res://assets/combat/bots/spacing_profile.tres",
+	&"aerial": "res://assets/combat/bots/aerial_profile.tres",
+	&"close": "res://assets/combat/bots/close_profile.tres",
+}
 
 var tick := 0
 var paused := false
@@ -19,6 +29,8 @@ var sudden_death_round := 0
 var _queued_intents: Array[CombatIntent] = []
 var _hit_counts: Dictionary = {}
 var _last_player_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
+var _bot_source: DeterministicBotCommandSource
+var _telemetry := Phase3PlaytestTelemetry.new()
 
 
 func _ready() -> void:
@@ -29,6 +41,7 @@ func _ready() -> void:
 		paused = true
 		push_error("Match did not start because loadout construction failed.")
 		return
+	_configure_bot()
 	reset_match()
 
 
@@ -73,6 +86,9 @@ func step_fixed_tick(poll_local_input := true) -> void:
 	if paused or not winner_id.is_empty(): return
 	tick += 1
 	if poll_local_input: _poll_player_input()
+	if _bot_source != null:
+		for intent: CombatIntent in _bot_source.commands_for_tick(tick, snapshot()):
+			submit_intent(intent)
 	_process_intents()
 	player.step_tick(rules)
 	training_dummy.step_tick(rules)
@@ -82,6 +98,8 @@ func step_fixed_tick(poll_local_input := true) -> void:
 
 
 func reset_match() -> void:
+	if _telemetry.is_match_active():
+		_telemetry.cancel_match()
 	tick = 0
 	paused = false
 	winner_id = &""
@@ -91,15 +109,53 @@ func reset_match() -> void:
 	_last_player_direction = CombatIntent.Direction.NEUTRAL
 	player.reset_for_match(rules)
 	training_dummy.reset_for_match(rules)
+	if telemetry_enabled:
+		_telemetry.begin_match(playtest_scenario_id, bot_seed, [
+			{"slot": &"player", "character_id": player_selection.character_id, "job_id": player_selection.job_id},
+			{"slot": &"dummy", "character_id": training_dummy_selection.character_id, "job_id": training_dummy_selection.job_id, "bot_profile_id": &"" if bot_profile == null else bot_profile.profile_id},
+		], rules.physics_ticks_per_second)
 	snapshot_changed.emit(snapshot())
+
+
+func configure_debug_match(config: Dictionary) -> bool:
+	if not OS.is_debug_build() or loadout_catalog == null:
+		return false
+	var player_character := StringName(config.get("player_character_id", &""))
+	var dummy_character := StringName(config.get("dummy_character_id", &""))
+	var selected_bot := StringName(config.get("bot_profile_id", &"spacing"))
+	if loadout_catalog.character_by_id(player_character) == null or loadout_catalog.character_by_id(dummy_character) == null or not BOT_PROFILE_PATHS.has(selected_bot):
+		return false
+	player_selection.character_id = player_character
+	player_selection.job_id = StringName(config.get("player_job_id", &""))
+	training_dummy_selection.character_id = dummy_character
+	training_dummy_selection.job_id = StringName(config.get("dummy_job_id", &""))
+	player.fighter_id = player_character
+	player.character_data = loadout_catalog.character_by_id(player_character)
+	training_dummy.fighter_id = dummy_character
+	training_dummy.character_data = loadout_catalog.character_by_id(dummy_character)
+	bot_profile = load(BOT_PROFILE_PATHS[selected_bot]) as BotCommandProfile
+	bot_seed = int(config.get("seed", 3001))
+	playtest_scenario_id = StringName(config.get("scenario_id", &"manual"))
+	telemetry_enabled = true
+	if not _configure_fighters():
+		return false
+	_configure_bot()
+	reset_match()
+	return true
+
+
+func _configure_bot() -> void:
+	_bot_source = null
+	if bot_profile != null and bot_profile.is_valid_definition():
+		_bot_source = DeterministicBotCommandSource.new(bot_profile, bot_seed, training_dummy.fighter_id, player.fighter_id)
 
 
 func _configure_fighters() -> bool:
 	if loadout_catalog == null or player_selection == null or training_dummy_selection == null:
 		push_error("Match requires a LoadoutCatalog and two LoadoutSelections.")
 		return false
-	var player_result := LoadoutBuilder.build(player_selection, loadout_catalog)
-	var dummy_result := LoadoutBuilder.build(training_dummy_selection, loadout_catalog)
+	var player_result := LoadoutBuilder.build(player_selection, loadout_catalog, rules.combat_tuning)
+	var dummy_result := LoadoutBuilder.build(training_dummy_selection, loadout_catalog, rules.combat_tuning)
 	if not player_result.succeeded() or not dummy_result.succeeded():
 		push_error("Loadout build failed: player=%s dummy=%s" % [player_result.error_codes, dummy_result.error_codes])
 		return false
@@ -136,7 +192,7 @@ func _poll_player_input() -> void:
 		_last_player_direction = direction
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
-	for action: StringName in [&"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special"]:
+	for action: StringName in [&"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special", &"grab_support", &"ultimate"]:
 		if Input.is_action_just_pressed(action):
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.PRESS, _context_for(player)))
 		elif Input.is_action_just_released(action):
@@ -157,7 +213,25 @@ func _process_intents() -> void:
 	)
 	for intent: CombatIntent in due:
 		var fighter := _fighter_by_id(intent.fighter_id)
-		if fighter != null: fighter.consume_intent(intent, rules)
+		if fighter == null:
+			continue
+		var was_ultimate_used := fighter.ultimate_used
+		var charge_before := fighter.charge_ticks
+		fighter.consume_intent(intent, rules)
+		if _telemetry.is_match_active():
+			_telemetry.record_action(intent.action_id)
+			if intent.action_id == &"dash" and intent.edge == CombatIntent.Edge.PRESS and intent.direction in [CombatIntent.Direction.LEFT, CombatIntent.Direction.RIGHT]:
+				_telemetry.record_evade(false)
+			elif intent.action_id == &"grab_support" and intent.edge == CombatIntent.Edge.PRESS:
+				_telemetry.record_grab(false)
+			elif intent.action_id == &"attack_heavy" and intent.edge == CombatIntent.Edge.RELEASE:
+				var tuning := fighter.runtime_profile.combat_tuning
+				var stage := &"normal" if charge_before < tuning.charge_start_ticks else &"maximum" if charge_before >= tuning.charge_max_ticks else &"charged"
+				_telemetry.record_charge_stage(stage)
+			elif intent.action_id == &"attack_special" and fighter.diagnostic == "special_cooldown_active":
+				_telemetry.record_special_cooldown_violation()
+			if not was_ultimate_used and fighter.ultimate_used:
+				_telemetry.record_ultimate_use()
 
 
 func _resolve_hits() -> void:
@@ -171,33 +245,51 @@ func _resolve_hits() -> void:
 			if count >= source.active_attack.max_hits_per_target: continue
 			var last_tick: int = _hit_counts.get("%s:last" % key, -999)
 			if count > 0 and tick - last_tick < source.active_attack.rehit_interval_ticks: continue
-			if target.invulnerability_ticks > 0 or target.state == FighterController.State.RING_OUT: continue
+			if target.state == FighterController.State.RING_OUT: continue
+			if target.is_invulnerable():
+				if _telemetry.is_match_active() and target.state in [FighterController.State.EVADE_GROUND, FighterController.State.EVADE_AIR]:
+					_telemetry.record_evade(true)
+				continue
 			candidates.append({
 				"source": source, "target": target, "attack": source.active_attack, "key": key,
+				"activation_serial": source.activation_serial,
 				"source_position": source.global_position, "target_position": target.global_position,
 				"source_facing": source.locked_facing, "target_damage": target.damage_percent,
 				"source_direction": source.locked_direction,
 				"target_direction": target.input_direction,
 			})
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		return "%s:%s:%s" % [a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%s:%s:%s" % [b.source.fighter_id, b.target.fighter_id, b.attack.attack_id]
+		var left_priority := 1 if a.attack.is_grab() else 0
+		var right_priority := 1 if b.attack.is_grab() else 0
+		return "%d:%s:%s:%s" % [left_priority, a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%d:%s:%s:%s" % [right_priority, b.source.fighter_id, b.target.fighter_id, b.attack.attack_id]
 	)
 	for hit: Dictionary in candidates:
 		var attack: AttackData = hit.attack
+		var source: FighterController = hit.source
 		var target: FighterController = hit.target
-		if target.state == FighterController.State.GUARD:
-			target.apply_guarded_hit(attack, rules)
-			hit.source.register_landed_hit(attack)
+		if source.active_attack != attack or source.activation_serial != int(hit.activation_serial) or source.state != FighterController.State.ATTACK_ACTIVE:
+			continue
+		var resolved_damage := source.resolved_attack_damage()
+		if target.state == FighterController.State.GUARD and not attack.is_grab():
+			target.apply_guarded_hit(attack, rules, resolved_damage)
+			if not attack.is_ultimate(): source.register_landed_hit(attack)
+			if _telemetry.is_match_active(): _telemetry.record_guard(true)
 			_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 			_hit_counts["%s:last" % hit.key] = tick
 			continue
-		var damage_after := float(hit.target_damage) + attack.damage
-		var speed := (attack.base_knockback + damage_after * attack.knockback_growth) / target._stats().weight
+		var damage_after := float(hit.target_damage) + resolved_damage
+		var speed := (source.resolved_attack_base_knockback() + damage_after * attack.knockback_growth) / target._stats().weight
 		var direction := _launch_direction(attack, hit.source_position, hit.target_position, hit.source_facing, hit.source_direction)
 		direction = direction.rotated(_di_angle(hit.target_direction))
 		var stun := clampi(roundi(speed / 20.0), rules.hitstun_min_ticks, rules.hitstun_max_ticks)
-		target.apply_hit(attack, direction * speed, stun)
-		hit.source.register_landed_hit(attack)
+		target.apply_hit(attack, direction * speed, stun, resolved_damage)
+		source.register_landed_hit(attack)
+		source.add_ultimate_from_damage(resolved_damage, true)
+		target.add_ultimate_from_damage(resolved_damage, false)
+		if _telemetry.is_match_active():
+			_telemetry.record_ultimate_charge(resolved_damage * (source.runtime_profile.combat_tuning.ultimate_dealt_damage_gain_multiplier + target.runtime_profile.combat_tuning.ultimate_received_damage_gain_multiplier))
+			if attack.is_grab(): _telemetry.record_grab(true)
+			if attack.is_ultimate(): _telemetry.record_ultimate_hit()
 		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 		_hit_counts["%s:last" % hit.key] = tick
 
@@ -210,7 +302,9 @@ func _resolve_ring_outs() -> void:
 			ring_outs.append(fighter)
 	if ring_outs.is_empty(): return
 	var final_simultaneous := ring_outs.size() == 2 and player.stocks == 1 and training_dummy.stocks == 1
-	for fighter: FighterController in ring_outs: fighter.ring_out(rules)
+	for fighter: FighterController in ring_outs:
+		fighter.ring_out(rules)
+		if _telemetry.is_match_active(): _telemetry.record_ring_out(fighter.fighter_id)
 	if final_simultaneous:
 		sudden_death_round += 1
 		player.begin_sudden_death(rules)
@@ -222,6 +316,7 @@ func _resolve_ring_outs() -> void:
 			player.state = FighterController.State.MATCH_ENDED
 			training_dummy.state = FighterController.State.MATCH_ENDED
 			match_ended.emit(winner_id)
+			if _telemetry.is_match_active(): _telemetry.finish_match(winner_id, tick, snapshot_hash())
 			return
 
 

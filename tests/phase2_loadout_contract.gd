@@ -10,7 +10,7 @@ func _init() -> void:
 	var base: LoadoutSelection = load("res://assets/loadouts/default_ja_hyun_selection.tres")
 	var character: CharacterData = catalog.character_by_id(&"ja-hyun")
 	_check(character != null and character.schema_version == 2 and character.base_move_set != null, "CharacterData v2 owns a MoveSetData")
-	_check(character.base_move_set.attacks().size() == 14, "Ja-Hyun external moveset preserves all Phase 1 attacks")
+	_check(character.base_move_set.attacks().size() >= 14, "Ja-Hyun external moveset preserves all Phase 1 attacks")
 	var base_result := LoadoutBuilder.build(base, catalog)
 	_check(base_result.succeeded(), "character-only selection builds")
 	var result := LoadoutBuilder.build(fixture, catalog)

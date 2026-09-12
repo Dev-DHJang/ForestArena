@@ -61,7 +61,7 @@ func _initialize() -> void:
 	fighter.aerial_attacks_remaining = 0
 	if fighter.call("_select_attack", _intent(fighter, &"attack_heavy", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR)) != null: failures.append("aerial attack limit was not enforced")
 
-	# Up special is once per airtime; side/down specials are explicit no-ops.
+	# Up special is once per airtime and Phase 3 directions share its cooldown.
 	fighter.aerial_attacks_remaining = 2
 	fighter.up_special_available = true
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.UP, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
@@ -71,7 +71,7 @@ func _initialize() -> void:
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.UP, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
 	if fighter.active_attack != null: failures.append("second airborne up special was accepted")
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
-	if not fighter.diagnostic.contains("Phase 3"): failures.append("deferred special did not emit a no-op diagnostic")
+	if fighter.diagnostic != "special_cooldown_active": failures.append("shared special cooldown did not reject another direction")
 
 	instance.queue_free()
 	if failures.is_empty():

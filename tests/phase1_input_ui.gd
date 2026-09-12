@@ -23,7 +23,7 @@ func _initialize() -> void:
 	var restart_style := restart.get_theme_stylebox("normal") as StyleBoxTexture
 	if restart_style == null or restart_style.texture == null: failures.append("restart button resource was not applied")
 	if dpad_visual.texture == null or dash_visual.texture == null: failures.append("touch control resources were not applied")
-	if not (dash_visual.get_child(0) is Label) or (dash_visual.get_child(0) as Label).text != "DASH":
+	if not (dash_visual.get_child(0) is Label) or (dash_visual.get_child(0) as Label).text != "ACTION":
 		failures.append("action button label is not native Godot text")
 	if not (instance.get_node("Interface/ResourceWarnings") as Label).text.is_empty():
 		failures.append("registered combat UI resources reported as missing")

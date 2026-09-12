@@ -10,22 +10,24 @@ func _initialize() -> void:
 	controller.set_physics_process(false)
 	var player := controller.player
 	var dummy := controller.training_dummy
+	var tuning := controller.rules.combat_tuning
 	controller.reset_match()
 	for index: int in 30:
 		player.step_tick(controller.rules)
 		_dummy_step(dummy, controller.rules)
 	if not controller.rules.is_valid_definition() or controller.rules.schema_version != 2:
 		failures.append("CombatRules v2 definition is invalid")
-	if controller.rules.guard_max_durability != 100.0 or controller.rules.evade_speed != 480.0:
+	if tuning.guard_max_durability != 100.0 or tuning.evade_speed != 480.0:
 		failures.append("Phase 3 tuning defaults drifted")
 
 	# Neutral action guards, drains, blocks normal attacks, and cleanly releases.
 	player.consume_intent(_intent(player, &"dash", CombatIntent.Direction.NEUTRAL, CombatIntent.Edge.PRESS), controller.rules)
+	for index: int in tuning.guard_hold_delay_ticks: player.step_tick(controller.rules)
 	if player.state != FighterController.State.GUARD:
 		failures.append("neutral action did not enter guard")
 	var before_hold := player.guard_durability
 	player.step_tick(controller.rules)
-	if not is_equal_approx(player.guard_durability, before_hold - controller.rules.guard_hold_drain_per_tick):
+	if not is_equal_approx(player.guard_durability, before_hold - tuning.guard_hold_drain_per_tick(controller.rules.physics_ticks_per_second)):
 		failures.append("guard hold drain mismatch")
 	player.global_position = Vector2(640, 520)
 	dummy.global_position = Vector2(680, 520)
@@ -37,7 +39,8 @@ func _initialize() -> void:
 	controller.call("_resolve_hits")
 	if player.damage_percent != 0.0 or player.state != FighterController.State.GUARD:
 		failures.append("guarded normal hit dealt damage or knockback")
-	if not is_equal_approx(player.guard_durability, before_guard_hit - dummy.active_attack.damage * controller.rules.guard_hit_drain_damage_multiplier):
+	var expected_guard_cost := maxf(tuning.guard_hit_minimum_cost, dummy.active_attack.damage * tuning.guard_hit_damage_multiplier * dummy.active_attack.guard_damage_multiplier)
+	if not is_equal_approx(player.guard_durability, before_guard_hit - expected_guard_cost):
 		failures.append("guard hit durability cost mismatch")
 	player.consume_intent(_intent(player, &"dash", CombatIntent.Direction.NEUTRAL, CombatIntent.Edge.RELEASE), controller.rules)
 	player.step_tick(controller.rules)
@@ -48,15 +51,16 @@ func _initialize() -> void:
 	controller.reset_match()
 	for index: int in 30: player.step_tick(controller.rules)
 	player.consume_intent(_intent(player, &"dash", CombatIntent.Direction.NEUTRAL), controller.rules)
-	player.guard_durability = dummy.attacks[0].damage * controller.rules.guard_hit_drain_damage_multiplier
+	for index: int in tuning.guard_hold_delay_ticks: player.step_tick(controller.rules)
+	player.guard_durability = maxf(tuning.guard_hit_minimum_cost, dummy.attacks[0].damage * tuning.guard_hit_damage_multiplier)
 	player.apply_guarded_hit(dummy.attacks[0], controller.rules)
 	if player.state != FighterController.State.GUARD_BREAK:
 		failures.append("empty guard did not break")
 	player.consume_intent(_intent(player, &"dash", CombatIntent.Direction.NEUTRAL), controller.rules)
 	if player.state != FighterController.State.GUARD_BREAK:
 		failures.append("guard re-entered during guard break")
-	for index: int in controller.rules.guard_break_ticks: player.step_tick(controller.rules)
-	if player.state == FighterController.State.GUARD_BREAK or player.guard_durability != controller.rules.guard_max_durability:
+	for index: int in tuning.guard_break_ticks: player.step_tick(controller.rules)
+	if player.state == FighterController.State.GUARD_BREAK or player.guard_durability != tuning.guard_max_durability:
 		failures.append("guard break recovery mismatch")
 
 	# Side action evades with a lock, then holding it becomes the legacy dash.
@@ -64,10 +68,10 @@ func _initialize() -> void:
 	for index: int in 30: player.step_tick(controller.rules)
 	player.consume_intent(_intent(player, &"dash", CombatIntent.Direction.RIGHT), controller.rules)
 	player.consume_intent(_intent(player, &"dash", CombatIntent.Direction.RIGHT, CombatIntent.Edge.HOLD), controller.rules)
-	if player.state != FighterController.State.EVADE_GROUND or player.invulnerability_ticks != controller.rules.evade_invulnerability_ticks:
+	if player.state != FighterController.State.EVADE_GROUND or player.evade_cooldown_ticks != tuning.evade_cooldown_ticks:
 		failures.append("ground evade did not initialize")
 	player.consume_intent(_intent(player, &"move", CombatIntent.Direction.LEFT), controller.rules)
-	for index: int in controller.rules.ground_evade_ticks: player.step_tick(controller.rules)
+	for index: int in tuning.evade_total_ticks: player.step_tick(controller.rules)
 	if player.state != FighterController.State.DASH or player.velocity.x <= 0.0:
 		failures.append("held side action did not become locked dash")
 

@@ -18,19 +18,7 @@ extends Resource
 @export var ring_right: float = 1440.0
 @export var ring_top: float = -240.0
 @export var ring_bottom: float = 820.0
-## Phase 3 defense/evade prototype tuning. These values belong to the match
-## rules resource so playtest changes never mutate a character or loadout.
-@export var guard_max_durability: float = 100.0
-@export var guard_hold_drain_per_tick: float = 0.5
-@export var guard_hit_drain_damage_multiplier: float = 4.0
-@export var guard_regen_delay_ticks: int = 30
-@export var guard_regen_per_tick: float = 1.0
-@export var guard_break_ticks: int = 45
-@export var ground_evade_ticks: int = 12
-@export var air_evade_ticks: int = 12
-@export var evade_invulnerability_ticks: int = 6
-@export var evade_speed: float = 480.0
-@export var aerial_evades_per_airtime: int = 1
+@export var combat_tuning: CombatTuningData = CombatTuningData.new()
 
 
 func is_valid_definition() -> bool:
@@ -46,15 +34,5 @@ func is_valid_definition() -> bool:
 		and di_max_degrees >= 0.0 \
 		and respawn_delay_ticks > 0 \
 		and respawn_invulnerability_ticks > 0 \
-		and guard_max_durability > 0.0 \
-		and guard_hold_drain_per_tick > 0.0 \
-		and guard_hit_drain_damage_multiplier > 0.0 \
-		and guard_regen_delay_ticks >= 0 \
-		and guard_regen_per_tick > 0.0 \
-		and guard_break_ticks > 0 \
-		and ground_evade_ticks > 0 \
-		and air_evade_ticks > 0 \
-		and evade_invulnerability_ticks > 0 \
-		and evade_invulnerability_ticks <= mini(ground_evade_ticks, air_evade_ticks) \
-		and evade_speed > 0.0 \
-		and aerial_evades_per_airtime >= 0
+		and combat_tuning != null \
+		and combat_tuning.is_valid_definition()

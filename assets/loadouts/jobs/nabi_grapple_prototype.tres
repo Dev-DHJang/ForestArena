@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="JobData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1_job"]
+[ext_resource type="Script" path="res://scripts/data/combat_tuning_modifier.gd" id="2_tuning"]
+[ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="3_stat"]
+
+[sub_resource type="Resource" id="GrabStartup"]
+script = ExtResource("2_tuning")
+field = 6
+operation = 2
+value = 6.0
+
+[sub_resource type="Resource" id="GrabRecovery"]
+script = ExtResource("2_tuning")
+field = 7
+operation = 2
+value = 22.0
+
+[sub_resource type="Resource" id="GroundSpeed"]
+script = ExtResource("3_stat")
+field = 2
+operation = 0
+value = 18.0
+
+[resource]
+script = ExtResource("1_job")
+schema_version = 2
+job_id = &"nabi-grapple-prototype"
+stat_modifiers = Array[ExtResource("3_stat")]([SubResource("GroundSpeed")])
+combat_tuning_modifiers = Array[ExtResource("2_tuning")]([SubResource("GrabStartup"), SubResource("GrabRecovery")])
+added_passive_ids = Array[StringName]([&"fast-grab-prototype", &"close-pressure-prototype"])
+added_tags = Array[StringName]([&"phase3-job", &"grapple-specialist"])

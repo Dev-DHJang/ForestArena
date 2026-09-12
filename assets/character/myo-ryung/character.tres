@@ -28,5 +28,6 @@ combat_role = "고기동 공중 압박형"
 tags = Array[StringName]([&"rabbit", &"aerial", &"mobile"])
 move_slot_ids = Array[StringName]([&"myo-ryung-light-hop", &"myo-ryung-heavy-kick", &"myo-ryung-skybound"])
 passive_description = "빠른 이동과 공중 위치 선점을 지향한다. 실제 효과는 향후 PassiveData에서 정의한다."
+job_tree_ids = Array[StringName]([&"myo-ryung-aerial-prototype"])
 base_stats = SubResource("CharacterStats_myo_ryung")
 base_move_set = ExtResource("1_frejg")

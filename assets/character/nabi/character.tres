@@ -27,5 +27,6 @@ combat_role = "기동형 근접 압박가"
 tags = Array[StringName]([&"cat-theme", &"striker", &"mobile", &"white-tail"])
 move_slot_ids = Array[StringName]([&"nabi-claw-jab", &"nabi-pounce-slash", &"nabi-guard-rake"])
 passive_description = "빠른 진입 뒤 짧은 거리에서 압박을 이어가는 것을 지향한다. 실제 효과는 향후 PassiveData에서 정의한다."
+job_tree_ids = Array[StringName]([&"nabi-grapple-prototype"])
 base_stats = SubResource("CharacterStats_nabi")
 base_move_set = ExtResource("1_ys87v")
