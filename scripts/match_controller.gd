@@ -219,9 +219,12 @@ func _process_intents() -> void:
 		var charge_before := fighter.charge_ticks
 		fighter.consume_intent(intent, rules)
 		if _telemetry.is_match_active():
-			_telemetry.record_action(intent.action_id)
+			if intent.edge == CombatIntent.Edge.PRESS:
+				_telemetry.record_action(intent.action_id)
 			if intent.action_id == &"dash" and intent.edge == CombatIntent.Edge.PRESS and intent.direction in [CombatIntent.Direction.LEFT, CombatIntent.Direction.RIGHT]:
 				_telemetry.record_evade(false)
+			elif intent.action_id == &"dash" and intent.edge == CombatIntent.Edge.PRESS and intent.direction == CombatIntent.Direction.NEUTRAL:
+				_telemetry.record_guard(false)
 			elif intent.action_id == &"grab_support" and intent.edge == CombatIntent.Edge.PRESS:
 				_telemetry.record_grab(false)
 			elif intent.action_id == &"attack_heavy" and intent.edge == CombatIntent.Edge.RELEASE:

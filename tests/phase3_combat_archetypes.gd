@@ -144,9 +144,15 @@ func _test_bot_and_telemetry(controller: MatchController) -> void:
 	var telemetry := Phase3PlaytestTelemetry.new()
 	_check(telemetry.begin_match(&"contract", 77, [{"slot": &"player", "character_id": &"ja-hyun"}, {"slot": &"dummy", "character_id": &"myo-ryung", "bot_profile_id": &"spacing"}]), "telemetry match did not begin")
 	telemetry.record_action(&"attack_light")
+	telemetry.record_guard(false)
+	telemetry.record_guard(true)
+	telemetry.record_evade(false)
+	telemetry.record_evade(true)
+	telemetry.record_grab(false)
 	telemetry.record_grab(true)
 	var aggregate := telemetry.aggregate_snapshot()
-	_check(int(aggregate.aggregates.action_counts.attack_light) == 1 and int(aggregate.aggregates.grab.successes) == 1, "telemetry aggregate drifted")
+	_check(int(aggregate.aggregates.action_counts.attack_light) == 1 and int(aggregate.aggregates.grab.attempts) == 1 and int(aggregate.aggregates.grab.successes) == 1, "telemetry grab aggregate drifted")
+	_check(int(aggregate.aggregates.defense.guard_attempts) == 1 and int(aggregate.aggregates.defense.guard_successes) == 1 and int(aggregate.aggregates.defense.evade_attempts) == 1 and int(aggregate.aggregates.defense.evade_successes) == 1, "telemetry defense aggregate drifted")
 	telemetry.cancel_match()
 
 

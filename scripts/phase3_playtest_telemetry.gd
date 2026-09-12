@@ -63,27 +63,30 @@ func record_guard(success: bool) -> void:
 	if not _active:
 		return
 	var defense: Dictionary = _aggregates()["defense"]
-	defense["guard_attempts"] = int(defense["guard_attempts"]) + 1
 	if success:
 		defense["guard_successes"] = int(defense["guard_successes"]) + 1
+	else:
+		defense["guard_attempts"] = int(defense["guard_attempts"]) + 1
 
 
 func record_evade(success: bool) -> void:
 	if not _active:
 		return
 	var defense: Dictionary = _aggregates()["defense"]
-	defense["evade_attempts"] = int(defense["evade_attempts"]) + 1
 	if success:
 		defense["evade_successes"] = int(defense["evade_successes"]) + 1
+	else:
+		defense["evade_attempts"] = int(defense["evade_attempts"]) + 1
 
 
 func record_grab(success: bool) -> void:
 	if not _active:
 		return
 	var grab: Dictionary = _aggregates()["grab"]
-	grab["attempts"] = int(grab["attempts"]) + 1
 	if success:
 		grab["successes"] = int(grab["successes"]) + 1
+	else:
+		grab["attempts"] = int(grab["attempts"]) + 1
 
 
 func record_charge_stage(stage_id: StringName) -> void:
