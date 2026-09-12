@@ -36,7 +36,7 @@ func _ready() -> void:
 	_render_snapshot(match_controller.snapshot())
 	debug_readout.visible = OS.is_debug_build()
 	if debug_launcher.visible:
-		match_controller.pause_match(true)
+		_set_debug_launcher_visible(true)
 
 
 func _apply_resource_ui() -> void:
@@ -222,4 +222,11 @@ func _set_debug_launcher_visible(value: bool) -> void:
 	if value:
 		touch.release_all_touches()
 	debug_launcher.visible = value
+	# The launcher is a pre-match development surface. Hide live HUD and touch
+	# affordances while it is open so the 1280×720 landscape layout has one
+	# readable hierarchy instead of overlapping match state behind the panel.
+	for node: CanvasItem in [touch, hud_panel, readout, restart, debug_readout, resource_warnings, player_combat_readout, dummy_combat_readout, player_status, dummy_status]:
+		node.visible = not value
+	$Interface/PhaseLabel.visible = not value
+	debug_launcher_button.visible = OS.is_debug_build() and not value
 	match_controller.pause_match(value)
