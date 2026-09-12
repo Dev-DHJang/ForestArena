@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_ubwin"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-light-01"
 action_id = &"attack_light"
 combo_step = 1
@@ -25,7 +25,7 @@ attack = SubResource("Resource_ubwin")
 
 [sub_resource type="Resource" id="Resource_7euij"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-light-02"
 action_id = &"attack_light"
 combo_step = 2
@@ -44,7 +44,7 @@ attack = SubResource("Resource_7euij")
 
 [sub_resource type="Resource" id="Resource_5v3ll"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-light-03"
 action_id = &"attack_light"
 combo_step = 3
@@ -63,7 +63,7 @@ attack = SubResource("Resource_5v3ll")
 
 [sub_resource type="Resource" id="Resource_s7nve"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-light-04"
 action_id = &"attack_light"
 combo_step = 4
@@ -83,7 +83,7 @@ attack = SubResource("Resource_s7nve")
 
 [sub_resource type="Resource" id="Resource_hg573"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-light-up"
 action_id = &"attack_light"
 input_direction = 3
@@ -103,7 +103,7 @@ attack = SubResource("Resource_hg573")
 
 [sub_resource type="Resource" id="Resource_kyaw8"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-light-down"
 action_id = &"attack_light"
 input_direction = 4
@@ -123,7 +123,7 @@ attack = SubResource("Resource_kyaw8")
 
 [sub_resource type="Resource" id="Resource_ynkrq"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-heavy-side"
 action_id = &"attack_heavy"
 chargeable = true
@@ -147,7 +147,7 @@ attack = SubResource("Resource_ynkrq")
 
 [sub_resource type="Resource" id="Resource_mxocc"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-heavy-up"
 action_id = &"attack_heavy"
 chargeable = true
@@ -173,7 +173,7 @@ attack = SubResource("Resource_mxocc")
 
 [sub_resource type="Resource" id="Resource_u230v"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-heavy-down"
 action_id = &"attack_heavy"
 chargeable = true
@@ -198,7 +198,7 @@ attack = SubResource("Resource_u230v")
 
 [sub_resource type="Resource" id="Resource_uxk10"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-dash-light"
 action_id = &"attack_light"
 input_direction = 5
@@ -218,7 +218,7 @@ attack = SubResource("Resource_uxk10")
 
 [sub_resource type="Resource" id="Resource_afynq"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-dash-heavy"
 action_id = &"attack_heavy"
 input_direction = 5
@@ -239,7 +239,7 @@ attack = SubResource("Resource_afynq")
 
 [sub_resource type="Resource" id="Resource_vjyvg"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-air-light"
 action_id = &"attack_light"
 input_direction = 6
@@ -259,7 +259,7 @@ attack = SubResource("Resource_vjyvg")
 
 [sub_resource type="Resource" id="Resource_4d71a"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-air-heavy"
 action_id = &"attack_heavy"
 input_direction = 6
@@ -280,7 +280,7 @@ attack = SubResource("Resource_4d71a")
 
 [sub_resource type="Resource" id="Resource_7uisy"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-special-neutral"
 action_id = &"attack_special"
 cooldown_group = &"myo-ryung-special"
@@ -303,7 +303,7 @@ attack = SubResource("Resource_7uisy")
 
 [sub_resource type="Resource" id="Resource_j5kct"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-special-up"
 action_id = &"attack_special"
 cooldown_group = &"myo-ryung-special"
@@ -326,12 +326,12 @@ slot_id = &"myo-ryung-special-up"
 attack = SubResource("Resource_j5kct")
 
 
-[sub_resource type="Resource" id="P3_myo_ryung_special_side"]
+[sub_resource type="Resource" id="P3_myo_ryung_special_forward"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
-attack_id = &"myo-ryung-special-side"
+schema_version = 3
+attack_id = &"myo-ryung-special-forward"
 action_id = &"attack_special"
-input_direction = 5
+input_direction = 1
 activation_context = 2
 startup_ticks = 9
 active_ticks = 4
@@ -343,17 +343,16 @@ cooldown_group = &"myo-ryung-special"
 cooldown_ticks = 180
 visual_state_id = &"special_side"
 
-[sub_resource type="Resource" id="P3_myo_ryung_special_side_slot"]
+[sub_resource type="Resource" id="P3_myo_ryung_special_forward_slot"]
 script = ExtResource("2_tdn5r")
-slot_id = &"myo-ryung-special-side"
-attack = SubResource("P3_myo_ryung_special_side")
+slot_id = &"myo-ryung-special-forward"
+attack = SubResource("P3_myo_ryung_special_forward")
 
 [sub_resource type="Resource" id="P3_myo_ryung_special_down"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-special-down"
 action_id = &"attack_special"
-launch_vector = Vector2(0.4, 0.65)
 input_direction = 4
 activation_context = 2
 startup_ticks = 11
@@ -371,77 +370,9 @@ script = ExtResource("2_tdn5r")
 slot_id = &"myo-ryung-special-down"
 attack = SubResource("P3_myo_ryung_special_down")
 
-[sub_resource type="Resource" id="P3_myo_ryung_grab_forward"]
-script = ExtResource("3_ur7mu")
-schema_version = 2
-attack_id = &"myo-ryung-grab-forward"
-action_id = &"grab_support"
-input_direction = 1
-activation_context = 0
-startup_ticks = 8
-active_ticks = 3
-recovery_ticks = 30
-damage = 7.0
-base_knockback = 210.0
-knockback_growth = 2.5
-attack_kind = 1
-guard_damage_multiplier = 0.0
-visual_state_id = &"grab_forward"
-
-[sub_resource type="Resource" id="P3_myo_ryung_grab_forward_slot"]
-script = ExtResource("2_tdn5r")
-slot_id = &"myo-ryung-grab-forward"
-attack = SubResource("P3_myo_ryung_grab_forward")
-
-[sub_resource type="Resource" id="P3_myo_ryung_grab_up"]
-script = ExtResource("3_ur7mu")
-schema_version = 2
-attack_id = &"myo-ryung-grab-up"
-action_id = &"grab_support"
-launch_vector = Vector2(0.2, -1.0)
-input_direction = 3
-activation_context = 0
-startup_ticks = 8
-active_ticks = 3
-recovery_ticks = 30
-damage = 6.0
-base_knockback = 190.0
-knockback_growth = 2.2
-attack_kind = 1
-guard_damage_multiplier = 0.0
-visual_state_id = &"grab_up"
-
-[sub_resource type="Resource" id="P3_myo_ryung_grab_up_slot"]
-script = ExtResource("2_tdn5r")
-slot_id = &"myo-ryung-grab-up"
-attack = SubResource("P3_myo_ryung_grab_up")
-
-[sub_resource type="Resource" id="P3_myo_ryung_grab_down"]
-script = ExtResource("3_ur7mu")
-schema_version = 2
-attack_id = &"myo-ryung-grab-down"
-action_id = &"grab_support"
-launch_vector = Vector2(0.4, 0.65)
-input_direction = 4
-activation_context = 0
-startup_ticks = 8
-active_ticks = 3
-recovery_ticks = 30
-damage = 8.0
-base_knockback = 225.0
-knockback_growth = 2.6
-attack_kind = 1
-guard_damage_multiplier = 0.0
-visual_state_id = &"grab_down"
-
-[sub_resource type="Resource" id="P3_myo_ryung_grab_down_slot"]
-script = ExtResource("2_tdn5r")
-slot_id = &"myo-ryung-grab-down"
-attack = SubResource("P3_myo_ryung_grab_down")
-
 [sub_resource type="Resource" id="P3_myo_ryung_ultimate_capture"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-ultimate-capture"
 action_id = &"ultimate"
 input_direction = 0
@@ -452,7 +383,7 @@ recovery_ticks = 28
 damage = 4.0
 base_knockback = 80.0
 knockback_growth = 0.8
-attack_kind = 2
+attack_kind = 1
 ultimate_cost = 100.0
 ultimate_followup = false
 visual_state_id = &"ultimate_capture"
@@ -464,7 +395,7 @@ attack = SubResource("P3_myo_ryung_ultimate_capture")
 
 [sub_resource type="Resource" id="P3_myo_ryung_ultimate_followup"]
 script = ExtResource("3_ur7mu")
-schema_version = 2
+schema_version = 3
 attack_id = &"myo-ryung-ultimate-followup"
 action_id = &"ultimate"
 input_direction = 0
@@ -475,7 +406,7 @@ recovery_ticks = 24
 damage = 5.0
 base_knockback = 150.0
 knockback_growth = 2.0
-attack_kind = 2
+attack_kind = 1
 ultimate_followup = true
 max_hits_per_target = 3
 rehit_interval_ticks = 4
@@ -489,5 +420,6 @@ attack = SubResource("P3_myo_ryung_ultimate_followup")
 [resource]
 script = ExtResource("1_dmj0l")
 move_set_id = &"myo-ryung.base"
-slots = Array[ExtResource("2_tdn5r")]([SubResource("Resource_bb3s0"), SubResource("Resource_3y5yb"), SubResource("Resource_j3cmh"), SubResource("Resource_l5evo"), SubResource("Resource_nqrk0"), SubResource("Resource_nie57"), SubResource("Resource_k01ml"), SubResource("Resource_hyjey"), SubResource("Resource_o1j7m"), SubResource("Resource_2cew7"), SubResource("Resource_nhvq1"), SubResource("Resource_tohgj"), SubResource("Resource_fnocj"), SubResource("Resource_4wf7n"), SubResource("Resource_l16su"), SubResource("P3_myo_ryung_special_side_slot"), SubResource("P3_myo_ryung_special_down_slot"), SubResource("P3_myo_ryung_grab_forward_slot"), SubResource("P3_myo_ryung_grab_up_slot"), SubResource("P3_myo_ryung_grab_down_slot"), SubResource("P3_myo_ryung_ultimate_capture_slot"), SubResource("P3_myo_ryung_ultimate_followup_slot")])
+slots = Array[ExtResource("2_tdn5r")]([SubResource("Resource_bb3s0"), SubResource("Resource_3y5yb"), SubResource("Resource_j3cmh"), SubResource("Resource_l5evo"), SubResource("Resource_nqrk0"), SubResource("Resource_nie57"), SubResource("Resource_k01ml"), SubResource("Resource_hyjey"), SubResource("Resource_o1j7m"), SubResource("Resource_2cew7"), SubResource("Resource_nhvq1"), SubResource("Resource_tohgj"), SubResource("Resource_fnocj"), SubResource("Resource_4wf7n"), SubResource("Resource_l16su"), SubResource("P3_myo_ryung_special_forward_slot"), SubResource("P3_myo_ryung_special_down_slot"), SubResource("P3_myo_ryung_ultimate_capture_slot"), SubResource("P3_myo_ryung_ultimate_followup_slot")])
 combo_count = 4
+schema_version = 2

@@ -14,7 +14,6 @@ const SCHEMA_VERSION := 1
 @export_range(0, 100, 1) var aerial_percent: int = 15
 @export_range(0, 100, 1) var guard_percent: int = 30
 @export_range(0, 100, 1) var evade_percent: int = 20
-@export_range(0, 100, 1) var grab_percent: int = 10
 @export_range(0, 100, 1) var heavy_percent: int = 20
 @export_range(0, 100, 1) var special_percent: int = 25
 @export_range(0, 100, 1) var ultimate_percent: int = 70
@@ -30,7 +29,6 @@ func is_valid_definition() -> bool:
 		and _is_percent(aerial_percent) \
 		and _is_percent(guard_percent) \
 		and _is_percent(evade_percent) \
-		and _is_percent(grab_percent) \
 		and _is_percent(heavy_percent) \
 		and _is_percent(special_percent) \
 		and _is_percent(ultimate_percent)

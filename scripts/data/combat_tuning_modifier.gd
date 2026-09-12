@@ -2,17 +2,15 @@ class_name CombatTuningModifier
 extends Resource
 
 enum Field {
-	GUARD_MAX_DURABILITY,
-	GUARD_HOLD_DRAIN_PER_SECOND,
-	GUARD_REGEN_PER_SECOND,
-	EVADE_TOTAL_TICKS,
-	EVADE_COOLDOWN_TICKS,
-	EVADE_SPEED,
-	GRAB_STARTUP_TICKS,
-	GRAB_FAILURE_RECOVERY_TICKS,
-	CHARGE_MAX_TICKS,
-	SPECIAL_COOLDOWN_TICKS,
-	AERIAL_SPECIAL_IMPULSE_MULTIPLIER,
+	GUARD_MAX_DURABILITY = 0,
+	GUARD_HOLD_DRAIN_PER_SECOND = 1,
+	GUARD_REGEN_PER_SECOND = 2,
+	EVADE_TOTAL_TICKS = 3,
+	EVADE_COOLDOWN_TICKS = 4,
+	EVADE_SPEED = 5,
+	CHARGE_MAX_TICKS = 8,
+	SPECIAL_COOLDOWN_TICKS = 9,
+	AERIAL_SPECIAL_IMPULSE_MULTIPLIER = 10,
 }
 enum Operation { ADD, MULTIPLY, SET }
 
@@ -33,11 +31,7 @@ func field_key() -> StringName:
 		&"evade_total_ticks",
 		&"evade_cooldown_ticks",
 		&"evade_speed",
-		&"grab_startup_ticks",
-		&"grab_failure_recovery_ticks",
-		&"charge_max_ticks",
-		&"special_cooldown_ticks",
-		&"aerial_special_impulse_multiplier",
+		&"", &"", &"charge_max_ticks", &"special_cooldown_ticks", &"aerial_special_impulse_multiplier",
 	][field]
 
 
@@ -49,7 +43,7 @@ func apply_to(tuning: CombatTuningData) -> void:
 		Operation.ADD: next = current + value
 		Operation.MULTIPLY: next = current * value
 		Operation.SET: pass
-	if field in [Field.EVADE_TOTAL_TICKS, Field.EVADE_COOLDOWN_TICKS, Field.GRAB_STARTUP_TICKS, Field.GRAB_FAILURE_RECOVERY_TICKS, Field.CHARGE_MAX_TICKS, Field.SPECIAL_COOLDOWN_TICKS]:
+	if field in [Field.EVADE_TOTAL_TICKS, Field.EVADE_COOLDOWN_TICKS, Field.CHARGE_MAX_TICKS, Field.SPECIAL_COOLDOWN_TICKS]:
 		tuning.set(key, roundi(next))
 	else:
 		tuning.set(key, next)

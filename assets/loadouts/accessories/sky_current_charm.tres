@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="AccessoryData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1_accessory"]
+[ext_resource type="Script" path="res://scripts/data/accessory_effect_data.gd" id="2_effect"]
+[ext_resource type="Script" path="res://scripts/data/combat_tuning_modifier.gd" id="3_tuning"]
+
+[sub_resource type="Resource" id="Cooldown"]
+script = ExtResource("3_tuning")
+field = 9
+operation = 0
+value = -15.0
+
+[sub_resource type="Resource" id="Impulse"]
+script = ExtResource("3_tuning")
+field = 10
+operation = 1
+value = 1.1
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2_effect")
+effect_id = &"sky-aerial-specialist"
+required_all_tags = Array[StringName]([&"aerial-specialist"])
+combat_tuning_modifiers = Array[ExtResource("3_tuning")]([SubResource("Cooldown"), SubResource("Impulse")])
+
+[resource]
+script = ExtResource("1_accessory")
+schema_version = 2
+accessory_id = &"sky-current-charm"
+conditional_effects = Array[ExtResource("2_effect")]([SubResource("Effect")])

@@ -18,7 +18,6 @@ func _initialize() -> void:
 	var restart := instance.get_node("Interface/Restart") as Button
 	var dpad_visual := touch.get_node("DPadVisual") as TextureRect
 	var dash_visual := touch.get_node("DashVisual") as TextureRect
-	var grab_visual := touch.get_node("GrabSupportVisual") as TextureRect
 	var launcher := instance.get_node("Interface/Phase3DebugLauncher") as Phase3DebugLauncher
 	if background.texture == null: failures.append("combat background resource was not applied")
 	if hud_panel.texture == null: failures.append("HUD panel resource was not applied")
@@ -31,15 +30,9 @@ func _initialize() -> void:
 		failures.append("registered combat UI resources reported as missing")
 	if launcher.visible and (touch.visible or hud_panel.visible):
 		failures.append("debug launcher left live HUD or touch controls visible")
-	if touch.call("is_action_visible", &"grab_support") or grab_visual.visible:
-		failures.append("conditional grab button is visible outside guard grace")
-	touch.call("set_action_visible", &"grab_support", true)
-	if not touch.call("is_action_visible", &"grab_support") or not grab_visual.visible:
-		failures.append("conditional grab button did not become visible")
-	touch.call("_press", 23, &"grab_support")
-	touch.call("set_action_visible", &"grab_support", false)
-	if Input.is_action_pressed(&"grab_support") or grab_visual.visible:
-		failures.append("hiding conditional grab button left a stuck input")
+	var ultimate_visual := touch.get_node("UltimateVisual") as TextureRect
+	if not touch.call("is_action_visible", &"ultimate") or not ultimate_visual.visible:
+		failures.append("ultimate button is not visible")
 
 	# Resource visuals follow the same press/release state as semantic input.
 	touch.call("_press", 21, &"move_up")

@@ -47,7 +47,7 @@ For physical-device pairing and reconnect instructions, see
 - 승인된 선행 콘텐츠: 자현·묘령·나비의 CharacterData와 콘셉트 등록, 세 캐릭터의 idle/run/stationary jump 모션 패키지. 이는 Phase 1 전투 완료나 현재 런타임 장면 연결을 뜻하지 않는다.
 - 공격 체계: 세 fighter의 공격은 외부 `AttackData`·`MoveSetData` 리소스로 보존되며, Phase 1의 실제 공격·판정·입력 UI가 동작한다.
 - UI 설계 기반: 24개 `SCR_*` 화면, 61개 `IMG/*` 요구 에셋과 로컬 Penpot MCP 작업 계약을 확정했다. 실제 Godot 화면·이미지·Penpot 파일은 아직 만들지 않았다.
-- Phase 3 전투: 가드·회피·잡기·차지·방향 특수기·궁극기, 세 전문 직업, 결정론 봇, 개발 전용 런처, 읽기 전용 HUD와 로컬 JSONL 텔레메트리를 구현했다. 정식 선택 UI는 추가하지 않았다.
+- Phase 3 전투: 가드·회피·차지·네 방향 특수기·필살기, 세 전문 직업, 결정론 봇, 개발 전용 런처, 읽기 전용 HUD와 로컬 JSONL 텔레메트리를 구현했다. 정식 선택 UI는 추가하지 않았다.
 - 로컬 검증 완료: Android debug APK export, arm64 에뮬레이터 설치·가로 실행·중단/복귀와 20:9 시각 검사.
 - 미확인: 실제 Galaxy S23 Ultra의 18개 3-stock 매치, 10분 연속 전투의 60 FPS/p95 16.7ms, 터치·중단/복귀 성능.
-- 미구현: 정식 선택 UI(SCR_06–SCR_08), 저장·성장·경제, 복수 장신구·태그 시너지, 오디오와 온라인 기능.
+- Phase 4: 단일 장신구의 태그 시너지와 기술 교체를 구현했다. 정식 선택 UI(SCR_06–SCR_08), 저장·성장·경제, 복수 장신구, 오디오와 온라인 기능은 미구현이다.

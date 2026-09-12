@@ -1,6 +1,6 @@
 extends Node2D
 
-const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special", &"grab_support", &"ultimate"]
+const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]
 const HUD_PANEL_ID := "fa.ui.panel.panel.dark.l"
 const RESTART_NORMAL_ID := "fa.ui.button.base.btn.secondary.m.default"
 const RESTART_PRESSED_ID := "fa.ui.button.base.btn.secondary.m.pressed"
@@ -118,8 +118,6 @@ func _render_snapshot(snapshot: Dictionary) -> void:
 	dummy_combat_readout.text = _combat_status_text(second)
 	_update_status_badge(player_status, first, 0)
 	_update_status_badge(dummy_status, second, 1)
-	var grab_available := bool(first.get("grab_support_available", first.get("can_grab_support", false))) or int(first.get("grab_grace_ticks", first.get("grab_window_ticks", 0))) > 0
-	touch.set_action_visible(&"grab_support", grab_available)
 	debug_readout.text = "tick %d  %s:%s evade %s  %s:%s evade %s" % [snapshot.tick, first.state, first.attack_id, _evade_text(first), second.state, second.attack_id, _evade_text(second)]
 
 
@@ -132,7 +130,7 @@ func _combat_status_text(fighter: Dictionary) -> String:
 	var cooldown_text := _cooldown_text(fighter)
 	var ultimate_max := float(fighter.get("ultimate_max_gauge", fighter.get("ultimate_max", 100.0)))
 	var ultimate_value := float(fighter.get("ultimate_gauge", fighter.get("ultimate_meter", 0.0)))
-	var ultimate_text := "ULT %.0f/%.0f" % [ultimate_value, ultimate_max]
+	var ultimate_text := "필살기 %.0f/%.0f" % [ultimate_value, ultimate_max]
 	if bool(fighter.get("ultimate_used", fighter.get("ultimate_used_this_stock", false))):
 		ultimate_text += " · USED"
 	return "%s · EVADE %s · %s · %s" % [guard_text, _evade_text(fighter), cooldown_text, ultimate_text]

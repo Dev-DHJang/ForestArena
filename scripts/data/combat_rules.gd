@@ -1,7 +1,7 @@
 class_name CombatRules
 extends Resource
 
-@export var schema_version: int = 2
+@export var schema_version: int = 3
 @export var physics_ticks_per_second: int = 60
 @export var stocks_per_fighter: int = 3
 @export var ground_acceleration: float = 3000.0
@@ -22,7 +22,7 @@ extends Resource
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 2 \
+	return schema_version == 3 \
 		and physics_ticks_per_second == 60 \
 		and stocks_per_fighter > 0 \
 		and ground_acceleration > 0.0 \

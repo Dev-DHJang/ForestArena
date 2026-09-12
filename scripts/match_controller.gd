@@ -192,7 +192,7 @@ func _poll_player_input() -> void:
 		_last_player_direction = direction
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
-	for action: StringName in [&"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special", &"grab_support", &"ultimate"]:
+	for action: StringName in [&"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]:
 		if Input.is_action_just_pressed(action):
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.PRESS, _context_for(player)))
 		elif Input.is_action_just_released(action):
@@ -225,8 +225,6 @@ func _process_intents() -> void:
 				_telemetry.record_evade(false)
 			elif intent.action_id == &"dash" and intent.edge == CombatIntent.Edge.PRESS and intent.direction == CombatIntent.Direction.NEUTRAL:
 				_telemetry.record_guard(false)
-			elif intent.action_id == &"grab_support" and intent.edge == CombatIntent.Edge.PRESS:
-				_telemetry.record_grab(false)
 			elif intent.action_id == &"attack_heavy" and intent.edge == CombatIntent.Edge.RELEASE:
 				var tuning := fighter.runtime_profile.combat_tuning
 				var stage := &"normal" if charge_before < tuning.charge_start_ticks else &"maximum" if charge_before >= tuning.charge_max_ticks else &"charged"
@@ -261,11 +259,7 @@ func _resolve_hits() -> void:
 				"source_direction": source.locked_direction,
 				"target_direction": target.input_direction,
 			})
-	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
-		var left_priority := 1 if a.attack.is_grab() else 0
-		var right_priority := 1 if b.attack.is_grab() else 0
-		return "%d:%s:%s:%s" % [left_priority, a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%d:%s:%s:%s" % [right_priority, b.source.fighter_id, b.target.fighter_id, b.attack.attack_id]
-	)
+	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return "%s:%s:%s" % [a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%s:%s:%s" % [b.source.fighter_id, b.target.fighter_id, b.attack.attack_id])
 	for hit: Dictionary in candidates:
 		var attack: AttackData = hit.attack
 		var source: FighterController = hit.source
@@ -273,10 +267,11 @@ func _resolve_hits() -> void:
 		if source.active_attack != attack or source.activation_serial != int(hit.activation_serial) or source.state != FighterController.State.ATTACK_ACTIVE:
 			continue
 		var resolved_damage := source.resolved_attack_damage()
-		if target.state == FighterController.State.GUARD and not attack.is_grab():
+		if target.state == FighterController.State.GUARD:
 			target.apply_guarded_hit(attack, rules, resolved_damage)
 			if not attack.is_ultimate(): source.register_landed_hit(attack)
 			if _telemetry.is_match_active(): _telemetry.record_guard(true)
+			if _telemetry.is_match_active(): _telemetry.record_attack_outcome(attack, true)
 			_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 			_hit_counts["%s:last" % hit.key] = tick
 			continue
@@ -290,8 +285,8 @@ func _resolve_hits() -> void:
 		source.add_ultimate_from_damage(resolved_damage, true)
 		target.add_ultimate_from_damage(resolved_damage, false)
 		if _telemetry.is_match_active():
+			_telemetry.record_attack_outcome(attack, true)
 			_telemetry.record_ultimate_charge(resolved_damage * (source.runtime_profile.combat_tuning.ultimate_dealt_damage_gain_multiplier + target.runtime_profile.combat_tuning.ultimate_received_damage_gain_multiplier))
-			if attack.is_grab(): _telemetry.record_grab(true)
 			if attack.is_ultimate(): _telemetry.record_ultimate_hit()
 		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 		_hit_counts["%s:last" % hit.key] = tick

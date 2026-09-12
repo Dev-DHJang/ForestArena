@@ -87,11 +87,9 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 	if distance > profile.preferred_distance_max or _roll(tick, match_snapshot, &"engage") >= profile.aggression_percent:
 		return commands
 	var action_roll := _roll(tick, match_snapshot, &"action")
-	if action_roll < profile.grab_percent:
-		commands.append(CombatIntent.new(tick, fighter_id, &"grab_support", direction, CombatIntent.Edge.PRESS, context))
-	elif action_roll < profile.grab_percent + profile.special_percent:
+	if action_roll < profile.special_percent:
 		commands.append(CombatIntent.new(tick, fighter_id, &"attack_special", _attack_direction(tick, match_snapshot, context), CombatIntent.Edge.PRESS, context))
-	elif action_roll < profile.grab_percent + profile.special_percent + profile.heavy_percent:
+	elif action_roll < profile.special_percent + profile.heavy_percent:
 		commands.append(CombatIntent.new(tick, fighter_id, &"attack_heavy", direction, CombatIntent.Edge.PRESS, context))
 	else:
 		commands.append(CombatIntent.new(tick, fighter_id, &"attack_light", direction, CombatIntent.Edge.PRESS, context))

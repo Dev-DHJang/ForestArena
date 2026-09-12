@@ -12,7 +12,7 @@ const CHARACTERS := [
 const JOB_BY_CHARACTER := {
 	"ja-hyun": {"label": "자현 · 방어 원형", "id": "ja-hyun-guard-prototype"},
 	"myo-ryung": {"label": "묘령 · 공중 원형", "id": "myo-ryung-aerial-prototype"},
-	"nabi": {"label": "나비 · 잡기 원형", "id": "nabi-grapple-prototype"},
+	"nabi": {"label": "나비 · 근접압박 원형", "id": "nabi-close-pressure-prototype"},
 }
 const BOT_PROFILES := [
 	{"label": "간격형", "id": "spacing"},

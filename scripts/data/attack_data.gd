@@ -4,9 +4,9 @@ extends Resource
 enum InputDirection { NEUTRAL, FORWARD, BACK, UP, DOWN, ANY_HORIZONTAL, OMNI }
 enum ActivationContext { GROUND, AIR, BOTH }
 enum LaunchMode { VECTOR, TOWARD_SOURCE }
-enum AttackKind { NORMAL, GRAB, ULTIMATE }
+enum AttackKind { NORMAL, ULTIMATE }
 
-@export var schema_version: int = 2
+@export var schema_version: int = 3
 @export var attack_id: StringName
 @export var action_id: StringName
 @export var input_direction: InputDirection = InputDirection.NEUTRAL
@@ -42,7 +42,7 @@ enum AttackKind { NORMAL, GRAB, ULTIMATE }
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 2 \
+	return schema_version == 3 \
 		and not attack_id.is_empty() \
 		and not action_id.is_empty() \
 		and combo_step >= 0 \
@@ -66,10 +66,6 @@ func is_valid_definition() -> bool:
 		and (attack_kind != AttackKind.ULTIMATE or ultimate_followup or ultimate_cost > 0.0) \
 		and (attack_kind == AttackKind.ULTIMATE or not ultimate_followup) \
 		and not visual_state_id.is_empty()
-
-
-func is_grab() -> bool:
-	return attack_kind == AttackKind.GRAB
 
 
 func is_ultimate() -> bool:

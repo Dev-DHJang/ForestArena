@@ -32,7 +32,6 @@ var guard_regen_delay_ticks := 0
 var guard_held := false
 var guard_break_ticks := 0
 var guard_hold_ticks := 0
-var grab_grace_ticks := 0
 var evade_ticks := 0
 var evade_elapsed_ticks := 0
 var evade_cooldown_ticks := 0
@@ -120,7 +119,6 @@ func reset_for_match(rules: CombatRules) -> void:
 	guard_held = false
 	guard_break_ticks = 0
 	guard_hold_ticks = 0
-	grab_grace_ticks = 0
 	evade_ticks = 0
 	evade_elapsed_ticks = 0
 	evade_cooldown_ticks = 0
@@ -160,9 +158,6 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 			_release_charge(rules)
 		return
 	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.MATCH_ENDED, State.HITSTUN, State.KNOCKBACK, State.GUARD, State.GUARD_BREAK, State.EVADE_GROUND, State.EVADE_AIR, State.CHARGE]:
-		return
-	if intent.action_id == &"grab_support":
-		_try_grab(intent)
 		return
 	if intent.action_id == &"ultimate":
 		_try_ultimate(intent, rules)
@@ -345,7 +340,6 @@ func ring_out(rules: CombatRules) -> bool:
 	guard_held = false
 	action_held = false
 	guard_hold_ticks = 0
-	grab_grace_ticks = 0
 	charge_ticks = 0
 	guard_regen_delay_ticks = 0
 	aerial_evades_remaining = 0
@@ -381,7 +375,7 @@ func snapshot() -> Dictionary:
 		"invulnerability_ticks": invulnerability_ticks, "respawn_ticks": respawn_ticks,
 		"air_jumps": air_jumps_remaining, "air_attacks": aerial_attacks_remaining, "up_special": up_special_available,
 		"guard_durability": snappedf(guard_durability, 0.001), "guard_regen_delay_ticks": guard_regen_delay_ticks,
-		"guard_max_durability": snappedf(_active_tuning().guard_max_durability, 0.001), "grab_grace_ticks": grab_grace_ticks,
+		"guard_max_durability": snappedf(_active_tuning().guard_max_durability, 0.001),
 		"evade_available": evade_cooldown_ticks <= 0, "evade_cooldown_ticks": evade_cooldown_ticks, "aerial_evades": aerial_evades_remaining,
 		"charge_ticks": charge_ticks, "special_cooldowns": _cooldown_snapshot(),
 		"ultimate_gauge": snappedf(ultimate_gauge, 0.001), "ultimate_max_gauge": snappedf(_active_tuning().ultimate_max_gauge, 0.001), "ultimate_used": ultimate_used,
@@ -420,8 +414,6 @@ func _try_dash() -> void:
 
 
 func _step_resource_timers() -> void:
-	if grab_grace_ticks > 0:
-		grab_grace_ticks -= 1
 	if evade_cooldown_ticks > 0:
 		evade_cooldown_ticks -= 1
 	for group: StringName in special_cooldowns.keys():
@@ -452,7 +444,6 @@ func _consume_action_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		if state == State.GUARD:
 			guard_held = false
 			guard_regen_delay_ticks = _tuning(rules).guard_regen_delay_ticks
-			grab_grace_ticks = _tuning(rules).grab_release_window_ticks
 			state = State.IDLE if is_on_floor() else State.FALL
 		guard_hold_ticks = 0
 		return
@@ -494,17 +485,6 @@ func _start_evade(airborne: bool, direction: CombatIntent.Direction, rules: Comb
 		state = State.EVADE_AIR
 	else:
 		state = State.EVADE_GROUND
-
-
-func _try_grab(intent: CombatIntent) -> void:
-	if grab_grace_ticks <= 0 or active_attack != null:
-		diagnostic = "grab_outside_guard_release_window"
-		return
-	var attack := _select_attack(intent)
-	if attack == null or not attack.is_grab():
-		return
-	grab_grace_ticks = 0
-	_start_attack(attack, intent.direction)
 
 
 func _try_ultimate(intent: CombatIntent, rules: CombatRules) -> void:
@@ -591,7 +571,10 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 	var context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
 	if context == AttackData.ActivationContext.AIR and intent.action_id != &"attack_special" and aerial_attacks_remaining <= 0:
 		return null
-	var relative := _relative_direction(intent.direction)
+	var special_turn := intent.action_id == &"attack_special" and intent.direction in [CombatIntent.Direction.LEFT, CombatIntent.Direction.RIGHT]
+	if special_turn:
+		facing = 1 if intent.direction == CombatIntent.Direction.RIGHT else -1
+	var relative := AttackData.InputDirection.FORWARD if special_turn else _relative_direction(intent.direction)
 	if intent.action_id == &"attack_special" and relative == AttackData.InputDirection.UP and not up_special_available:
 		return null
 	if intent.action_id == &"attack_light" and context == AttackData.ActivationContext.GROUND and state != State.DASH and relative in [AttackData.InputDirection.NEUTRAL, AttackData.InputDirection.FORWARD, AttackData.InputDirection.BACK]:
@@ -611,8 +594,6 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 		if attack.action_id == &"attack_special" and not attack.cooldown_group.is_empty() and int(special_cooldowns.get(attack.cooldown_group, 0)) > 0:
 			diagnostic = "special_cooldown_active"
 			continue
-		if attack.is_grab() and relative == AttackData.InputDirection.NEUTRAL and attack.input_direction == AttackData.InputDirection.FORWARD:
-			return attack
 		if _direction_matches(attack.input_direction, relative):
 			return attack
 	return null
@@ -650,9 +631,9 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
 func _advance_attack(rules: CombatRules) -> void:
 	attack_phase_tick += 1
 	var tuning := _tuning(rules)
-	var startup_limit := tuning.grab_startup_ticks if active_attack.is_grab() else active_attack.startup_ticks
-	var active_limit := tuning.grab_active_ticks if active_attack.is_grab() else active_attack.active_ticks
-	var recovery_limit := tuning.grab_failure_recovery_ticks if active_attack.is_grab() and not attack_landed else active_attack.recovery_ticks + attack_recovery_bonus_ticks
+	var startup_limit := active_attack.startup_ticks
+	var active_limit := active_attack.active_ticks
+	var recovery_limit := active_attack.recovery_ticks + attack_recovery_bonus_ticks
 	if state == State.ATTACK_STARTUP and attack_phase_tick >= startup_limit:
 		state = State.ATTACK_ACTIVE
 		attack_phase_tick = 0
@@ -735,7 +716,6 @@ func _respawn(rules: CombatRules) -> void:
 	action_held = false
 	aerial_evades_remaining = _tuning(rules).aerial_evades_per_airtime
 	evade_cooldown_ticks = 0
-	grab_grace_ticks = 0
 	charge_ticks = 0
 	special_cooldowns.clear()
 	ultimate_gauge = 0.0
@@ -823,7 +803,6 @@ func _draw() -> void:
 	if state == State.GUARD_BREAK: color = Color("ff6b6b")
 	if state in [State.EVADE_GROUND, State.EVADE_AIR]: color = Color("b883ff")
 	if state == State.CHARGE: color = Color("ff9e4a")
-	if active_attack != null and active_attack.is_grab(): color = Color("ff62b0")
 	if active_attack != null and active_attack.is_ultimate(): color = Color("ffe45e")
 	draw_rect(Rect2(-27, -82, 54, 96), color, true)
 	draw_rect(Rect2(-27, -82, 54, 96), Color("122033"), false, 3.0)

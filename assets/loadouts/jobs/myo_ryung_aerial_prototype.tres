@@ -23,7 +23,7 @@ value = 1.15
 
 [resource]
 script = ExtResource("1_job")
-schema_version = 2
+schema_version = 3
 job_id = &"myo-ryung-aerial-prototype"
 combat_tuning_modifiers = Array[ExtResource("2_tuning")]([SubResource("EvadeDuration"), SubResource("EvadeCooldown"), SubResource("AerialSpecial")])
 added_passive_ids = Array[StringName]([&"long-evade-prototype", &"aerial-special-impulse-prototype"])

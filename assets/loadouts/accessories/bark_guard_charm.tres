@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="AccessoryData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1_accessory"]
+[ext_resource type="Script" path="res://scripts/data/accessory_effect_data.gd" id="2_effect"]
+[ext_resource type="Script" path="res://scripts/data/combat_tuning_modifier.gd" id="3_tuning"]
+
+[sub_resource type="Resource" id="GuardMax"]
+script = ExtResource("3_tuning")
+field = 0
+operation = 0
+value = 15.0
+
+[sub_resource type="Resource" id="GuardRegen"]
+script = ExtResource("3_tuning")
+field = 2
+operation = 0
+value = 3.0
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2_effect")
+effect_id = &"bark-guard-specialist"
+required_all_tags = Array[StringName]([&"guard-specialist"])
+combat_tuning_modifiers = Array[ExtResource("3_tuning")]([SubResource("GuardMax"), SubResource("GuardRegen")])
+
+[resource]
+script = ExtResource("1_accessory")
+schema_version = 2
+accessory_id = &"bark-guard-charm"
+conditional_effects = Array[ExtResource("2_effect")]([SubResource("Effect")])

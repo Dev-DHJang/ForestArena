@@ -11,8 +11,8 @@ const DPAD_IDS := {
 }
 const ACTION_DEFAULT_ID := "fa.ui.combat.action.default"
 const ACTION_PRESSED_ID := "fa.ui.combat.action.pressed"
-const ACTIONS: Array[StringName] = [&"dash", &"jump", &"attack_light", &"attack_heavy", &"attack_special", &"grab_support", &"ultimate"]
-const ACTION_LABELS := ["ACTION", "JUMP", "LIGHT", "HEAVY", "SPECIAL", "GRAB", "ULT"]
+const ACTIONS: Array[StringName] = [&"dash", &"jump", &"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]
+const ACTION_LABELS := ["ACTION", "JUMP", "LIGHT", "HEAVY", "SPECIAL", "필살기"]
 ## Normalized rectangles keep every action inside the right-hand safe area while
 ## preserving the Phase 1 five-button layout as a compact staggered cluster.
 const ACTION_RECTS := {
@@ -21,8 +21,7 @@ const ACTION_RECTS := {
 	&"attack_light": Rect2(0.68, 0.79, 0.075, 0.14),
 	&"attack_heavy": Rect2(0.77, 0.68, 0.075, 0.14),
 	&"attack_special": Rect2(0.86, 0.79, 0.075, 0.14),
-	&"grab_support": Rect2(0.86, 0.58, 0.075, 0.14),
-	&"ultimate": Rect2(0.77, 0.49, 0.075, 0.14),
+	&"ultimate": Rect2(0.86, 0.58, 0.075, 0.14),
 }
 var _touch_actions: Dictionary[int, StringName] = {}
 var _action_touch_counts: Dictionary[StringName, int] = {}
@@ -38,7 +37,7 @@ var _action_visibility: Dictionary[StringName, bool] = {}
 func _ready() -> void:
 	_ensure_phase3_input_actions()
 	for action: StringName in ACTIONS:
-		_action_visibility[action] = action != &"grab_support"
+		_action_visibility[action] = true
 	_load_visual_resources()
 	_build_visuals()
 	_layout_visuals()
@@ -188,7 +187,7 @@ func is_action_visible(action: StringName) -> bool:
 func _ensure_phase3_input_actions() -> void:
 	# project.godot remains the durable input contract. Runtime registration lets
 	# this isolated UI stay safe while the v2 combat contract lands in parallel.
-	for action: StringName in [&"grab_support", &"ultimate"]:
+	for action: StringName in [&"ultimate"]:
 		if not InputMap.has_action(action):
 			InputMap.add_action(action)
 

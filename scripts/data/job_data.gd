@@ -1,7 +1,7 @@
 class_name JobData
 extends Resource
 
-@export var schema_version: int = 2
+@export var schema_version: int = 3
 @export var job_id: StringName
 @export var parent_job_id: StringName
 @export var stat_modifiers: Array[StatModifier] = []
@@ -12,7 +12,7 @@ extends Resource
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 2 and not job_id.is_empty() and _has_unique_writes()
+	return schema_version == 3 and not job_id.is_empty() and _has_unique_writes()
 
 
 func _has_unique_writes() -> bool:
