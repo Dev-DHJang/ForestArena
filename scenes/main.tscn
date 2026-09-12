@@ -24,6 +24,15 @@ size = Vector2(1600, 50)
 script = ExtResource("1_main")
 [node name="ArenaVisual" type="Node2D" parent="."]
 script = ExtResource("2_arena")
+[node name="Background" type="TextureRect" parent="ArenaVisual"]
+z_index = -100
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2280.0
+offset_bottom = 1720.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
 [node name="World" type="Node2D" parent="."]
 [node name="Ground" type="StaticBody2D" parent="World"]
 position = Vector2(640, 610)
@@ -88,6 +97,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_touch")
+[node name="HudPanel" type="NinePatchRect" parent="Interface"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 1050.0
+offset_bottom = 122.0
+mouse_filter = 2
+patch_margin_left = 60
+patch_margin_top = 60
+patch_margin_right = 60
+patch_margin_bottom = 60
 [node name="MatchReadout" type="Label" parent="Interface"]
 offset_left = 24.0
 offset_top = 20.0
@@ -116,3 +135,14 @@ offset_top = 18.0
 offset_right = 1255.0
 offset_bottom = 58.0
 text = "재시작"
+[node name="ResourceWarnings" type="Label" parent="Interface"]
+offset_left = 320.0
+offset_top = 126.0
+offset_right = 1080.0
+offset_bottom = 158.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_outline_color = Color(0.45, 0.02, 0.12, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1

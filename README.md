@@ -33,6 +33,10 @@ Forest Arena는 독창적인 3등신 동물 캐릭터가 싸우는 Godot 4 기�
     ./scripts/verify.sh
     ./scripts/export-debug-android.sh
     ./scripts/verify-android-emulator.sh
+    ./scripts/android-wireless-debug.sh devices
+
+For physical-device pairing and reconnect instructions, see
+[Android wireless debugging](docs/forest_arena/ANDROID_WIRELESS_DEBUGGING.md).
 
 `./scripts/verify.sh`는 headless 편집기 로드, Phase 0 기반 smoke, Phase 1 전투와 Phase 2 로드아웃, manifest 기반 CharacterData·캐릭터 외형·승인 모션 계약, 공격·비전투 UI 설계 계약, 하네스 구조 검사를 묶는 기본 로컬 검증이다. `./scripts/verify-harness.sh`는 스킬·문서·라우팅만 빠르게 확인한다.
 

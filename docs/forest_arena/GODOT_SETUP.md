@@ -11,4 +11,6 @@ ForestArenaResources.set_quality("medium")
 $TextureRect.texture = ForestArenaResources.load_texture("fa.background.bg.lobby.forest.town")
 ```
 
+현재 전투 프로토타입도 같은 경계를 사용한다. 배경은 `fa.background.combat.training.arena`, 터치 조작은 `fa.ui.combat.*`, HUD와 재시작 버튼은 기존 `fa.ui.panel.*`·`fa.ui.button.*` ID를 소비한다. 플레이스홀더는 논리 ID를 유지한 채 승인 자산으로 교체한다.
+
 카탈로그는 기존 `assets/character/`, `assets/ui/generated/`의 승인·소유권 경계를 바꾸지 않는다.
