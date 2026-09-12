@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="AccessoryData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1_accessory"]
+[ext_resource type="Script" path="res://scripts/data/accessory_effect_data.gd" id="2_effect"]
+[ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="3_stat"]
+[ext_resource type="Script" path="res://scripts/data/move_slot_patch.gd" id="4_patch"]
+[ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="5_attack"]
+
+[sub_resource type="Resource" id="DashSpeed"]
+script = ExtResource("3_stat")
+field = 6
+operation = 0
+value = 25.0
+
+[sub_resource type="Resource" id="DashLight"]
+script = ExtResource("5_attack")
+schema_version = 3
+attack_id = &"nabi-dash-light-pouncing-thorn"
+action_id = &"attack_light"
+input_direction = 5
+requires_dash = true
+startup_ticks = 4
+active_ticks = 3
+recovery_ticks = 10
+damage = 7.0
+base_knockback = 150.0
+knockback_growth = 1.8
+visual_state_id = &"attack_dash_light"
+
+[sub_resource type="Resource" id="Patch"]
+script = ExtResource("4_patch")
+slot_id = &"nabi-dash-light"
+replacement = SubResource("DashLight")
+
+[sub_resource type="Resource" id="Effect"]
+script = ExtResource("2_effect")
+effect_id = &"pouncing-close-pressure"
+required_all_tags = Array[StringName]([&"close-pressure-specialist"])
+stat_modifiers = Array[ExtResource("3_stat")]([SubResource("DashSpeed")])
+move_slot_patches = Array[ExtResource("4_patch")]([SubResource("Patch")])
+
+[resource]
+script = ExtResource("1_accessory")
+schema_version = 2
+accessory_id = &"pouncing-thorn-charm"
+conditional_effects = Array[ExtResource("2_effect")]([SubResource("Effect")])

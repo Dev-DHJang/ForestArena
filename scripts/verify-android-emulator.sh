@@ -62,9 +62,11 @@ else
 fi
 dpad_right_x=$((landscape_width * 36 / 100))
 dpad_y=$((landscape_height * 75 / 100))
+action_x=$((landscape_width * 54 / 100))
 jump_x=$((landscape_width * 63 / 100))
 action_y=$((landscape_height * 82 / 100))
 $adb_path -s "$emulator_serial" shell input tap "$dpad_right_x" "$dpad_y"
+$adb_path -s "$emulator_serial" shell input swipe "$action_x" "$action_y" "$action_x" "$action_y" 350
 $adb_path -s "$emulator_serial" shell input tap "$jump_x" "$action_y"
 touch_log=$($adb_path -s "$emulator_serial" logcat -d -s godot:I Godot:I '*:S')
 if ! printf '%s\n' "$touch_log" | grep -F 'FOREST_ARENA_TOUCH action=move_right edge=press' >/dev/null; then
@@ -73,6 +75,10 @@ if ! printf '%s\n' "$touch_log" | grep -F 'FOREST_ARENA_TOUCH action=move_right 
 fi
 if ! printf '%s\n' "$touch_log" | grep -F 'FOREST_ARENA_TOUCH action=jump edge=press' >/dev/null; then
 	echo "Android emulator jump touch diagnostic missing" >&2
+	exit 1
+fi
+if ! printf '%s\n' "$touch_log" | grep -F 'FOREST_ARENA_TOUCH action=dash edge=press' >/dev/null; then
+	echo "Android emulator action touch diagnostic missing" >&2
 	exit 1
 fi
 

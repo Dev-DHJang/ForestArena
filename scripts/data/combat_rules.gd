@@ -1,7 +1,7 @@
 class_name CombatRules
 extends Resource
 
-@export var schema_version: int = 1
+@export var schema_version: int = 3
 @export var physics_ticks_per_second: int = 60
 @export var stocks_per_fighter: int = 3
 @export var ground_acceleration: float = 3000.0
@@ -18,10 +18,11 @@ extends Resource
 @export var ring_right: float = 1440.0
 @export var ring_top: float = -240.0
 @export var ring_bottom: float = 820.0
+@export var combat_tuning: CombatTuningData = CombatTuningData.new()
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 1 \
+	return schema_version == 3 \
 		and physics_ticks_per_second == 60 \
 		and stocks_per_fighter > 0 \
 		and ground_acceleration > 0.0 \
@@ -32,4 +33,6 @@ func is_valid_definition() -> bool:
 		and hitstun_max_ticks >= hitstun_min_ticks \
 		and di_max_degrees >= 0.0 \
 		and respawn_delay_ticks > 0 \
-		and respawn_invulnerability_ticks > 0
+		and respawn_invulnerability_ticks > 0 \
+		and combat_tuning != null \
+		and combat_tuning.is_valid_definition()

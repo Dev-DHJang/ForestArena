@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_lkre4"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-light-01"
 action_id = &"attack_light"
 combo_step = 1
@@ -24,6 +25,7 @@ attack = SubResource("Resource_lkre4")
 
 [sub_resource type="Resource" id="Resource_mptru"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-light-02"
 action_id = &"attack_light"
 combo_step = 2
@@ -43,6 +45,7 @@ attack = SubResource("Resource_mptru")
 
 [sub_resource type="Resource" id="Resource_wxg6m"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-light-up"
 action_id = &"attack_light"
 input_direction = 3
@@ -62,6 +65,7 @@ attack = SubResource("Resource_wxg6m")
 
 [sub_resource type="Resource" id="Resource_cfpns"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-light-down"
 action_id = &"attack_light"
 input_direction = 4
@@ -81,8 +85,13 @@ attack = SubResource("Resource_cfpns")
 
 [sub_resource type="Resource" id="Resource_ju8o8"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-heavy-side"
 action_id = &"attack_heavy"
+chargeable = true
+charge_damage_max_multiplier = 1.6
+charge_knockback_max_multiplier = 1.6
+charge_recovery_max_bonus_ticks = 12
 input_direction = 5
 startup_ticks = 10
 active_ticks = 4
@@ -100,8 +109,13 @@ attack = SubResource("Resource_ju8o8")
 
 [sub_resource type="Resource" id="Resource_hbsba"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-heavy-up"
 action_id = &"attack_heavy"
+chargeable = true
+charge_damage_max_multiplier = 1.6
+charge_knockback_max_multiplier = 1.6
+charge_recovery_max_bonus_ticks = 12
 input_direction = 3
 startup_ticks = 10
 active_ticks = 4
@@ -121,8 +135,13 @@ attack = SubResource("Resource_hbsba")
 
 [sub_resource type="Resource" id="Resource_nd30s"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-heavy-down"
 action_id = &"attack_heavy"
+chargeable = true
+charge_damage_max_multiplier = 1.6
+charge_knockback_max_multiplier = 1.6
+charge_recovery_max_bonus_ticks = 12
 input_direction = 4
 startup_ticks = 10
 active_ticks = 4
@@ -141,6 +160,7 @@ attack = SubResource("Resource_nd30s")
 
 [sub_resource type="Resource" id="Resource_1wgmw"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-dash-light"
 action_id = &"attack_light"
 input_direction = 5
@@ -160,6 +180,7 @@ attack = SubResource("Resource_1wgmw")
 
 [sub_resource type="Resource" id="Resource_f8afj"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-dash-heavy"
 action_id = &"attack_heavy"
 input_direction = 5
@@ -180,6 +201,7 @@ attack = SubResource("Resource_f8afj")
 
 [sub_resource type="Resource" id="Resource_qtnb0"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-air-light"
 action_id = &"attack_light"
 input_direction = 6
@@ -199,6 +221,7 @@ attack = SubResource("Resource_qtnb0")
 
 [sub_resource type="Resource" id="Resource_slqb3"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-air-heavy"
 action_id = &"attack_heavy"
 input_direction = 6
@@ -219,8 +242,11 @@ attack = SubResource("Resource_slqb3")
 
 [sub_resource type="Resource" id="Resource_88mki"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-special-neutral"
 action_id = &"attack_special"
+cooldown_group = &"nabi-special"
+cooldown_ticks = 180
 activation_context = 2
 startup_ticks = 8
 active_ticks = 4
@@ -237,8 +263,11 @@ attack = SubResource("Resource_88mki")
 
 [sub_resource type="Resource" id="Resource_7m3h7"]
 script = ExtResource("3_2oweq")
+schema_version = 3
 attack_id = &"nabi-special-up"
 action_id = &"attack_special"
+cooldown_group = &"nabi-special"
+cooldown_ticks = 180
 input_direction = 3
 activation_context = 2
 startup_ticks = 6
@@ -256,7 +285,101 @@ script = ExtResource("2_0te4x")
 slot_id = &"nabi-special-up"
 attack = SubResource("Resource_7m3h7")
 
+
+[sub_resource type="Resource" id="P3_nabi_special_forward"]
+script = ExtResource("3_2oweq")
+schema_version = 3
+attack_id = &"nabi-special-forward"
+action_id = &"attack_special"
+input_direction = 1
+activation_context = 2
+startup_ticks = 9
+active_ticks = 4
+recovery_ticks = 18
+damage = 9.0
+base_knockback = 245.0
+knockback_growth = 2.8
+cooldown_group = &"nabi-special"
+cooldown_ticks = 180
+visual_state_id = &"special_side"
+
+[sub_resource type="Resource" id="P3_nabi_special_forward_slot"]
+script = ExtResource("2_0te4x")
+slot_id = &"nabi-special-forward"
+attack = SubResource("P3_nabi_special_forward")
+
+[sub_resource type="Resource" id="P3_nabi_special_down"]
+script = ExtResource("3_2oweq")
+schema_version = 3
+attack_id = &"nabi-special-down"
+action_id = &"attack_special"
+input_direction = 4
+activation_context = 2
+startup_ticks = 11
+active_ticks = 4
+recovery_ticks = 20
+damage = 10.0
+base_knockback = 260.0
+knockback_growth = 3.0
+cooldown_group = &"nabi-special"
+cooldown_ticks = 180
+visual_state_id = &"special_down"
+
+[sub_resource type="Resource" id="P3_nabi_special_down_slot"]
+script = ExtResource("2_0te4x")
+slot_id = &"nabi-special-down"
+attack = SubResource("P3_nabi_special_down")
+
+[sub_resource type="Resource" id="P3_nabi_ultimate_capture"]
+script = ExtResource("3_2oweq")
+schema_version = 3
+attack_id = &"nabi-ultimate-capture"
+action_id = &"ultimate"
+input_direction = 0
+activation_context = 0
+startup_ticks = 14
+active_ticks = 3
+recovery_ticks = 28
+damage = 4.0
+base_knockback = 80.0
+knockback_growth = 0.8
+attack_kind = 1
+ultimate_cost = 100.0
+ultimate_followup = false
+visual_state_id = &"ultimate_capture"
+
+[sub_resource type="Resource" id="P3_nabi_ultimate_capture_slot"]
+script = ExtResource("2_0te4x")
+slot_id = &"nabi-ultimate-capture"
+attack = SubResource("P3_nabi_ultimate_capture")
+
+[sub_resource type="Resource" id="P3_nabi_ultimate_followup"]
+script = ExtResource("3_2oweq")
+schema_version = 3
+attack_id = &"nabi-ultimate-followup"
+action_id = &"ultimate"
+input_direction = 0
+activation_context = 0
+startup_ticks = 1
+active_ticks = 12
+recovery_ticks = 24
+damage = 5.0
+base_knockback = 150.0
+knockback_growth = 2.0
+attack_kind = 1
+ultimate_followup = true
+max_hits_per_target = 3
+rehit_interval_ticks = 4
+visual_state_id = &"ultimate_followup"
+
+[sub_resource type="Resource" id="P3_nabi_ultimate_followup_slot"]
+script = ExtResource("2_0te4x")
+slot_id = &"nabi-ultimate-followup"
+attack = SubResource("P3_nabi_ultimate_followup")
+
 [resource]
 script = ExtResource("1_2kfo1")
 move_set_id = &"nabi.base"
-slots = Array[ExtResource("2_0te4x")]([SubResource("Resource_4quu7"), SubResource("Resource_pbklk"), SubResource("Resource_u400a"), SubResource("Resource_rnlkn"), SubResource("Resource_aiecc"), SubResource("Resource_5dl4c"), SubResource("Resource_o1ss7"), SubResource("Resource_fmxm2"), SubResource("Resource_a2igl"), SubResource("Resource_dun02"), SubResource("Resource_3vtlt"), SubResource("Resource_ms2jt"), SubResource("Resource_piejl")])
+slots = Array[ExtResource("2_0te4x")]([SubResource("Resource_4quu7"), SubResource("Resource_pbklk"), SubResource("Resource_u400a"), SubResource("Resource_rnlkn"), SubResource("Resource_aiecc"), SubResource("Resource_5dl4c"), SubResource("Resource_o1ss7"), SubResource("Resource_fmxm2"), SubResource("Resource_a2igl"), SubResource("Resource_dun02"), SubResource("Resource_3vtlt"), SubResource("Resource_ms2jt"), SubResource("Resource_piejl"), SubResource("P3_nabi_special_forward_slot"), SubResource("P3_nabi_special_down_slot"), SubResource("P3_nabi_ultimate_capture_slot"), SubResource("P3_nabi_ultimate_followup_slot")])
+schema_version = 2
+schema_version = 2

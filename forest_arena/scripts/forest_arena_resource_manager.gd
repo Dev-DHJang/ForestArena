@@ -32,10 +32,15 @@ func set_quality(value: String) -> void:
     quality_changed.emit(quality)
 func resource_path(id: String) -> String:
     var a: Dictionary = _by_id.get(id, {})
-    if a.is_empty(): return ""
+    if a.is_empty():
+        push_warning("FOREST_ARENA_RESOURCE_MISSING id=%s reason=unknown-id" % id)
+        return ""
     if a.get("quality_dependent", false): return str(a.get("variants", {}).get(quality, a.get("variants", {}).get("high", "")))
     return str(a.get("path", ""))
 func load_texture(id: String) -> Texture2D:
     var p := resource_path(id)
-    return load(p) as Texture2D if not p.is_empty() else null
+    if p.is_empty(): return null
+    var texture := load(p) as Texture2D
+    if texture == null: push_warning("FOREST_ARENA_RESOURCE_MISSING id=%s path=%s reason=texture-load" % [id, p])
+    return texture
 func profile() -> Dictionary: return profiles.get(quality, {})

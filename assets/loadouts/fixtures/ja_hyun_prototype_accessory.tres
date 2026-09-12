@@ -12,6 +12,7 @@ value = 3.0
 
 [sub_resource type="Resource" id="AttackData_patch"]
 script = ExtResource("4_attack")
+schema_version = 3
 attack_id = &"ja-hyun-light-01-prototype"
 action_id = &"attack_light"
 combo_step = 1
@@ -30,6 +31,7 @@ replacement = SubResource("AttackData_patch")
 
 [resource]
 script = ExtResource("1_accessory")
+schema_version = 2
 accessory_id = &"ja-hyun-prototype-accessory"
 stat_modifiers = Array[ExtResource("2_modifier")]([SubResource("StatModifier_survivability")])
 move_slot_patches = Array[ExtResource("3_patch")]([SubResource("MoveSlotPatch_light")])

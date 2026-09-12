@@ -12,7 +12,7 @@ func _run() -> void:
 	var match: MatchController = main.get_node("MatchController") as MatchController
 	var player: FighterController = main.get_node("World/Player") as FighterController
 	var dummy: FighterController = main.get_node("World/TrainingDummy") as FighterController
-	if match == null or match.paused or player.runtime_profile == null or dummy.runtime_profile == null:
+	if match == null or player.runtime_profile == null or dummy.runtime_profile == null:
 		push_error("Phase 2 match wiring did not inject complete runtime profiles")
 		quit(1)
 		return

@@ -13,15 +13,15 @@ func _initialize() -> void:
 	controller.reset_match()
 	for index: int in 30: fighter.step_tick(controller.rules)
 
-	# Ground acceleration and dash lock use CharacterStats and fixed ticks.
+	# Ground acceleration and Phase 3 action/evade lock use fixed ticks.
 	fighter.consume_intent(_intent(fighter, &"move", CombatIntent.Direction.RIGHT, CombatIntent.Edge.PRESS), controller.rules)
 	for index: int in 5: fighter.step_tick(controller.rules)
 	if fighter.velocity.x <= 0.0 or fighter.velocity.x > fighter.character_data.base_stats.ground_speed: failures.append("ground acceleration contract failed")
 	fighter.consume_intent(_intent(fighter, &"dash", CombatIntent.Direction.RIGHT), controller.rules)
-	var dash_velocity := fighter.velocity.x
+	if fighter.state != FighterController.State.EVADE_GROUND: failures.append("side action did not enter ground evade")
 	fighter.consume_intent(_intent(fighter, &"move", CombatIntent.Direction.LEFT, CombatIntent.Edge.PRESS), controller.rules)
 	fighter.step_tick(controller.rules)
-	if fighter.state != FighterController.State.DASH or fighter.velocity.x != dash_velocity: failures.append("dash direction was not locked")
+	if fighter.state != FighterController.State.EVADE_GROUND or fighter.velocity.x <= 0.0: failures.append("evade direction was not locked")
 
 	# Startup/active/recovery and a single whiff light buffer.
 	controller.reset_match()
@@ -61,7 +61,7 @@ func _initialize() -> void:
 	fighter.aerial_attacks_remaining = 0
 	if fighter.call("_select_attack", _intent(fighter, &"attack_heavy", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR)) != null: failures.append("aerial attack limit was not enforced")
 
-	# Up special is once per airtime; side/down specials are explicit no-ops.
+	# Up special is once per airtime and Phase 3 directions share its cooldown.
 	fighter.aerial_attacks_remaining = 2
 	fighter.up_special_available = true
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.UP, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
@@ -71,7 +71,7 @@ func _initialize() -> void:
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.UP, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
 	if fighter.active_attack != null: failures.append("second airborne up special was accepted")
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
-	if not fighter.diagnostic.contains("Phase 3"): failures.append("deferred special did not emit a no-op diagnostic")
+	if fighter.diagnostic != "special_cooldown_active": failures.append("shared special cooldown did not reject another direction")
 
 	instance.queue_free()
 	if failures.is_empty():

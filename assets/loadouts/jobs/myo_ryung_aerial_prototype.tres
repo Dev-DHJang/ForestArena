@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="JobData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1_job"]
+[ext_resource type="Script" path="res://scripts/data/combat_tuning_modifier.gd" id="2_tuning"]
+
+[sub_resource type="Resource" id="EvadeDuration"]
+script = ExtResource("2_tuning")
+field = 3
+operation = 2
+value = 20.0
+
+[sub_resource type="Resource" id="EvadeCooldown"]
+script = ExtResource("2_tuning")
+field = 4
+operation = 2
+value = 24.0
+
+[sub_resource type="Resource" id="AerialSpecial"]
+script = ExtResource("2_tuning")
+field = 10
+operation = 2
+value = 1.15
+
+[resource]
+script = ExtResource("1_job")
+schema_version = 3
+job_id = &"myo-ryung-aerial-prototype"
+combat_tuning_modifiers = Array[ExtResource("2_tuning")]([SubResource("EvadeDuration"), SubResource("EvadeCooldown"), SubResource("AerialSpecial")])
+added_passive_ids = Array[StringName]([&"long-evade-prototype", &"aerial-special-impulse-prototype"])
+added_tags = Array[StringName]([&"phase3-job", &"aerial-specialist"])

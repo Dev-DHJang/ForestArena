@@ -57,9 +57,9 @@ func _validate_input_contract(concept: Dictionary, failures: PackedStringArray) 
 	var direction_lock := String(contract.get("direction_lock", ""))
 	if direction_lock.is_empty() or not direction_lock.contains("never auto-track or auto-turn"):
 		failures.append("direction-lock policy is missing")
-	if not String(contract.get("action_button_evolution", "")).contains("current dash action expands"):
+	if not String(contract.get("action_button_evolution", "")).contains("dash action") or not String(contract.get("action_button_evolution", "")).contains("neutral hold guards"):
 		failures.append("action button evolution is missing")
-	if not String(contract.get("grab_support_visibility", "")).contains("while guard begins"):
+	if not String(contract.get("grab_support_visibility", "")).contains("post-guard grace"):
 		failures.append("grab support visibility rule is missing")
 
 

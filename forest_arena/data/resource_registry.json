@@ -2,8 +2,8 @@
   "schema_version": "2.0.0",
   "game": "Forest Arena",
   "engine": "Godot 4",
-  "logical_asset_count": 337,
-  "quality_dependent_count": 22,
+  "logical_asset_count": 345,
+  "quality_dependent_count": 23,
   "assets": [
     {
       "id": "fa.branding.logo.forest.arena",
@@ -4590,6 +4590,114 @@
       "format": "png",
       "width": 900,
       "height": 620
+    },
+    {
+      "id": "fa.background.combat.training.arena",
+      "relative_path": "background/bg_combat_training_arena.svg",
+      "category": "background",
+      "purpose": "Temporary 16:9 training arena background",
+      "priority": "current",
+      "quality_dependent": true,
+      "variants": {
+        "high": "res://forest_arena/assets/quality/high/background/bg_combat_training_arena.svg",
+        "medium": "res://forest_arena/assets/quality/medium/background/bg_combat_training_arena.svg",
+        "low": "res://forest_arena/assets/quality/low/background/bg_combat_training_arena.svg"
+      },
+      "format": "svg",
+      "width": 1920,
+      "height": 1080,
+      "status": "placeholder"
+    },
+    {
+      "id": "fa.ui.combat.dpad.default",
+      "relative_path": "ui/combat/dpad_default.svg",
+      "category": "combat-control",
+      "purpose": "Temporary combat D-pad default state",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/ui/combat/dpad_default.svg",
+      "format": "svg",
+      "width": 360,
+      "height": 360,
+      "status": "placeholder"
+    },
+    {
+      "id": "fa.ui.combat.dpad.up",
+      "relative_path": "ui/combat/dpad_up.svg",
+      "category": "combat-control",
+      "purpose": "Temporary combat D-pad up state",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/ui/combat/dpad_up.svg",
+      "format": "svg",
+      "width": 360,
+      "height": 360,
+      "status": "placeholder"
+    },
+    {
+      "id": "fa.ui.combat.dpad.down",
+      "relative_path": "ui/combat/dpad_down.svg",
+      "category": "combat-control",
+      "purpose": "Temporary combat D-pad down state",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/ui/combat/dpad_down.svg",
+      "format": "svg",
+      "width": 360,
+      "height": 360,
+      "status": "placeholder"
+    },
+    {
+      "id": "fa.ui.combat.dpad.left",
+      "relative_path": "ui/combat/dpad_left.svg",
+      "category": "combat-control",
+      "purpose": "Temporary combat D-pad left state",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/ui/combat/dpad_left.svg",
+      "format": "svg",
+      "width": 360,
+      "height": 360,
+      "status": "placeholder"
+    },
+    {
+      "id": "fa.ui.combat.dpad.right",
+      "relative_path": "ui/combat/dpad_right.svg",
+      "category": "combat-control",
+      "purpose": "Temporary combat D-pad right state",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/ui/combat/dpad_right.svg",
+      "format": "svg",
+      "width": 360,
+      "height": 360,
+      "status": "placeholder"
+    },
+    {
+      "id": "fa.ui.combat.action.default",
+      "relative_path": "ui/combat/action_default.svg",
+      "category": "combat-control",
+      "purpose": "Temporary combat action button default state",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/ui/combat/action_default.svg",
+      "format": "svg",
+      "width": 220,
+      "height": 180,
+      "status": "placeholder"
+    },
+    {
+      "id": "fa.ui.combat.action.pressed",
+      "relative_path": "ui/combat/action_pressed.svg",
+      "category": "combat-control",
+      "purpose": "Temporary combat action button pressed state",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/ui/combat/action_pressed.svg",
+      "format": "svg",
+      "width": 220,
+      "height": 180,
+      "status": "placeholder"
     }
   ]
 }

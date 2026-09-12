@@ -6,6 +6,7 @@
 
 [sub_resource type="Resource" id="Resource_u6tlp"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-light-01"
 action_id = &"attack_light"
 combo_step = 1
@@ -24,6 +25,7 @@ attack = SubResource("Resource_u6tlp")
 
 [sub_resource type="Resource" id="Resource_on74s"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-light-02"
 action_id = &"attack_light"
 combo_step = 2
@@ -42,6 +44,7 @@ attack = SubResource("Resource_on74s")
 
 [sub_resource type="Resource" id="Resource_6edfm"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-light-03"
 action_id = &"attack_light"
 combo_step = 3
@@ -61,6 +64,7 @@ attack = SubResource("Resource_6edfm")
 
 [sub_resource type="Resource" id="Resource_ejjdf"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-light-up"
 action_id = &"attack_light"
 input_direction = 3
@@ -80,6 +84,7 @@ attack = SubResource("Resource_ejjdf")
 
 [sub_resource type="Resource" id="Resource_mty3o"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-light-down"
 action_id = &"attack_light"
 input_direction = 4
@@ -99,8 +104,13 @@ attack = SubResource("Resource_mty3o")
 
 [sub_resource type="Resource" id="Resource_6lc5u"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-heavy-side"
 action_id = &"attack_heavy"
+chargeable = true
+charge_damage_max_multiplier = 1.6
+charge_knockback_max_multiplier = 1.6
+charge_recovery_max_bonus_ticks = 12
 input_direction = 5
 startup_ticks = 10
 active_ticks = 4
@@ -118,8 +128,13 @@ attack = SubResource("Resource_6lc5u")
 
 [sub_resource type="Resource" id="Resource_2gkgt"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-heavy-up"
 action_id = &"attack_heavy"
+chargeable = true
+charge_damage_max_multiplier = 1.6
+charge_knockback_max_multiplier = 1.6
+charge_recovery_max_bonus_ticks = 12
 input_direction = 3
 startup_ticks = 10
 active_ticks = 4
@@ -139,8 +154,13 @@ attack = SubResource("Resource_2gkgt")
 
 [sub_resource type="Resource" id="Resource_eli61"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-heavy-down"
 action_id = &"attack_heavy"
+chargeable = true
+charge_damage_max_multiplier = 1.6
+charge_knockback_max_multiplier = 1.6
+charge_recovery_max_bonus_ticks = 12
 input_direction = 4
 startup_ticks = 10
 active_ticks = 4
@@ -159,6 +179,7 @@ attack = SubResource("Resource_eli61")
 
 [sub_resource type="Resource" id="Resource_12ohm"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-dash-light"
 action_id = &"attack_light"
 input_direction = 5
@@ -178,6 +199,7 @@ attack = SubResource("Resource_12ohm")
 
 [sub_resource type="Resource" id="Resource_u24mc"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-dash-heavy"
 action_id = &"attack_heavy"
 input_direction = 5
@@ -198,6 +220,7 @@ attack = SubResource("Resource_u24mc")
 
 [sub_resource type="Resource" id="Resource_t64d8"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-air-light"
 action_id = &"attack_light"
 input_direction = 6
@@ -217,6 +240,7 @@ attack = SubResource("Resource_t64d8")
 
 [sub_resource type="Resource" id="Resource_f2u07"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-air-heavy"
 action_id = &"attack_heavy"
 input_direction = 6
@@ -237,8 +261,11 @@ attack = SubResource("Resource_f2u07")
 
 [sub_resource type="Resource" id="Resource_t07li"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-special-neutral"
 action_id = &"attack_special"
+cooldown_group = &"ja-hyun-special"
+cooldown_ticks = 180
 activation_context = 2
 startup_ticks = 8
 active_ticks = 4
@@ -256,8 +283,11 @@ attack = SubResource("Resource_t07li")
 
 [sub_resource type="Resource" id="Resource_u7c0p"]
 script = ExtResource("3_ghqsi")
+schema_version = 3
 attack_id = &"ja-hyun-special-up"
 action_id = &"attack_special"
+cooldown_group = &"ja-hyun-special"
+cooldown_ticks = 180
 input_direction = 3
 activation_context = 2
 startup_ticks = 6
@@ -275,8 +305,101 @@ script = ExtResource("2_3qyye")
 slot_id = &"ja-hyun-special-up"
 attack = SubResource("Resource_u7c0p")
 
+
+[sub_resource type="Resource" id="P3_ja_hyun_special_forward"]
+script = ExtResource("3_ghqsi")
+schema_version = 3
+attack_id = &"ja-hyun-special-forward"
+action_id = &"attack_special"
+input_direction = 1
+activation_context = 2
+startup_ticks = 9
+active_ticks = 4
+recovery_ticks = 18
+damage = 9.0
+base_knockback = 245.0
+knockback_growth = 2.8
+cooldown_group = &"ja-hyun-special"
+cooldown_ticks = 180
+visual_state_id = &"special_side"
+
+[sub_resource type="Resource" id="P3_ja_hyun_special_forward_slot"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun-special-forward"
+attack = SubResource("P3_ja_hyun_special_forward")
+
+[sub_resource type="Resource" id="P3_ja_hyun_special_down"]
+script = ExtResource("3_ghqsi")
+schema_version = 3
+attack_id = &"ja-hyun-special-down"
+action_id = &"attack_special"
+input_direction = 4
+activation_context = 2
+startup_ticks = 11
+active_ticks = 4
+recovery_ticks = 20
+damage = 10.0
+base_knockback = 260.0
+knockback_growth = 3.0
+cooldown_group = &"ja-hyun-special"
+cooldown_ticks = 180
+visual_state_id = &"special_down"
+
+[sub_resource type="Resource" id="P3_ja_hyun_special_down_slot"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun-special-down"
+attack = SubResource("P3_ja_hyun_special_down")
+
+[sub_resource type="Resource" id="P3_ja_hyun_ultimate_capture"]
+script = ExtResource("3_ghqsi")
+schema_version = 3
+attack_id = &"ja-hyun-ultimate-capture"
+action_id = &"ultimate"
+input_direction = 0
+activation_context = 0
+startup_ticks = 14
+active_ticks = 3
+recovery_ticks = 28
+damage = 4.0
+base_knockback = 80.0
+knockback_growth = 0.8
+attack_kind = 1
+ultimate_cost = 100.0
+ultimate_followup = false
+visual_state_id = &"ultimate_capture"
+
+[sub_resource type="Resource" id="P3_ja_hyun_ultimate_capture_slot"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun-ultimate-capture"
+attack = SubResource("P3_ja_hyun_ultimate_capture")
+
+[sub_resource type="Resource" id="P3_ja_hyun_ultimate_followup"]
+script = ExtResource("3_ghqsi")
+schema_version = 3
+attack_id = &"ja-hyun-ultimate-followup"
+action_id = &"ultimate"
+input_direction = 0
+activation_context = 0
+startup_ticks = 1
+active_ticks = 12
+recovery_ticks = 24
+damage = 5.0
+base_knockback = 150.0
+knockback_growth = 2.0
+attack_kind = 1
+ultimate_followup = true
+max_hits_per_target = 3
+rehit_interval_ticks = 4
+visual_state_id = &"ultimate_followup"
+
+[sub_resource type="Resource" id="P3_ja_hyun_ultimate_followup_slot"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun-ultimate-followup"
+attack = SubResource("P3_ja_hyun_ultimate_followup")
+
 [resource]
 script = ExtResource("1_y60ua")
 move_set_id = &"ja-hyun.base"
-slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c")])
+slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c"), SubResource("P3_ja_hyun_special_forward_slot"), SubResource("P3_ja_hyun_special_down_slot"), SubResource("P3_ja_hyun_ultimate_capture_slot"), SubResource("P3_ja_hyun_ultimate_followup_slot")])
 combo_count = 3
+schema_version = 2

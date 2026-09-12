@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="Script" path="res://scripts/arena_visual.gd" id="2_arena"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" path="res://assets/loadouts/default_loadout_catalog.tres" id="9_catalog"]
 [ext_resource type="Resource" path="res://assets/loadouts/default_ja_hyun_selection.tres" id="10_player_selection"]
 [ext_resource type="Resource" path="res://assets/loadouts/default_myo_ryung_selection.tres" id="11_dummy_selection"]
+[ext_resource type="Script" path="res://scripts/phase3_debug_launcher.gd" id="12_debug_launcher"]
 [sub_resource type="RectangleShape2D" id="GroundShape"]
 size = Vector2(1080, 48)
 [sub_resource type="RectangleShape2D" id="PlatformShape"]
@@ -24,6 +25,15 @@ size = Vector2(1600, 50)
 script = ExtResource("1_main")
 [node name="ArenaVisual" type="Node2D" parent="."]
 script = ExtResource("2_arena")
+[node name="Background" type="TextureRect" parent="ArenaVisual"]
+z_index = -100
+offset_left = -1000.0
+offset_top = -1000.0
+offset_right = 2280.0
+offset_bottom = 1720.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
 [node name="World" type="Node2D" parent="."]
 [node name="Ground" type="StaticBody2D" parent="World"]
 position = Vector2(640, 610)
@@ -79,6 +89,14 @@ position_smoothing_speed = 5.0
 script = ExtResource("8_camera")
 rules = ExtResource("6_rules")
 [node name="Interface" type="CanvasLayer" parent="."]
+[node name="StateFlash" type="ColorRect" parent="Interface"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
 [node name="TouchCommandSource" type="Control" parent="Interface"]
 layout_mode = 3
 anchors_preset = 15
@@ -88,6 +106,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_touch")
+[node name="HudPanel" type="NinePatchRect" parent="Interface"]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 1050.0
+offset_bottom = 122.0
+mouse_filter = 2
+patch_margin_left = 60
+patch_margin_top = 60
+patch_margin_right = 60
+patch_margin_bottom = 60
 [node name="MatchReadout" type="Label" parent="Interface"]
 offset_left = 24.0
 offset_top = 20.0
@@ -96,19 +124,64 @@ offset_bottom = 54.0
 theme_override_colors/font_color = Color(0.93, 0.96, 1, 1)
 theme_override_font_sizes/font_size = 22
 text = "자현 0% · 3 STOCK    묘령 0% · 3 STOCK"
-[node name="PhaseLabel" type="Label" parent="Interface"]
+[node name="PlayerCombatReadout" type="Label" parent="Interface"]
 offset_left = 24.0
-offset_top = 56.0
-offset_right = 900.0
-offset_bottom = 80.0
+offset_top = 53.0
+offset_right = 515.0
+offset_bottom = 76.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.78, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 12
+clip_text = true
+text = "GUARD 100/100 · EVADE READY · SPECIAL READY · ULT 0/100"
+[node name="DummyCombatReadout" type="Label" parent="Interface"]
+offset_left = 535.0
+offset_top = 53.0
+offset_right = 1040.0
+offset_bottom = 76.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.83, 0.78, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 2
+clip_text = true
+text = "GUARD 100/100 · EVADE READY · SPECIAL READY · ULT 0/100"
+[node name="PlayerStatus" type="Label" parent="Interface"]
+offset_left = 24.0
+offset_top = 78.0
+offset_right = 260.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.08, 0.12, 0.18, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+text = "IDLE"
+[node name="DummyStatus" type="Label" parent="Interface"]
+offset_left = 800.0
+offset_top = 78.0
+offset_right = 1040.0
+offset_bottom = 104.0
+mouse_filter = 2
+theme_override_colors/font_outline_color = Color(0.08, 0.12, 0.18, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 2
+text = "IDLE"
+[node name="PhaseLabel" type="Label" parent="Interface"]
+offset_left = 460.0
+offset_top = 84.0
+offset_right = 790.0
+offset_bottom = 106.0
 theme_override_colors/font_color = Color(0.72, 0.78, 0.88, 1)
-text = "Phase 1 · 코어 전투 수직 슬라이스 · 훈련 더미"
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+text = "Phase 3 · 방어·회피 원형 비교 · 훈련 더미"
 [node name="DebugReadout" type="Label" parent="Interface"]
 offset_left = 24.0
-offset_top = 88.0
+offset_top = 104.0
 offset_right = 900.0
-offset_bottom = 112.0
+offset_bottom = 124.0
 theme_override_colors/font_color = Color(1, 0.82, 0.42, 1)
+theme_override_font_sizes/font_size = 11
 text = "debug"
 [node name="Restart" type="Button" parent="Interface"]
 offset_left = 1120.0
@@ -116,3 +189,107 @@ offset_top = 18.0
 offset_right = 1255.0
 offset_bottom = 58.0
 text = "재시작"
+[node name="DebugLauncherButton" type="Button" parent="Interface"]
+offset_left = 1120.0
+offset_top = 66.0
+offset_right = 1255.0
+offset_bottom = 106.0
+text = "개발 런처"
+[node name="ResourceWarnings" type="Label" parent="Interface"]
+offset_left = 320.0
+offset_top = 152.0
+offset_right = 1080.0
+offset_bottom = 184.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_outline_color = Color(0.45, 0.02, 0.12, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+[node name="Phase3DebugLauncher" type="PanelContainer" parent="Interface"]
+offset_left = 276.0
+offset_top = 154.0
+offset_right = 1004.0
+offset_bottom = 600.0
+script = ExtResource("12_debug_launcher")
+[node name="Margin" type="MarginContainer" parent="Interface/Phase3DebugLauncher"]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 26
+[node name="Content" type="VBoxContainer" parent="Interface/Phase3DebugLauncher/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+[node name="Title" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.86, 0.52, 1)
+theme_override_font_sizes/font_size = 22
+text = "PHASE 3 · 개발 매치 런처"
+horizontal_alignment = 1
+[node name="Notice" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.82, 0.9, 1)
+text = "디버그 빌드 전용 · 선택/저장 화면이 아닙니다"
+horizontal_alignment = 1
+[node name="Options" type="GridContainer" parent="Interface/Phase3DebugLauncher/Margin/Content"]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 9
+columns = 2
+[node name="PlayerCharacterLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "플레이어 캐릭터"
+[node name="PlayerCharacter" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(310, 34)
+layout_mode = 2
+[node name="PlayerJobLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "플레이어 직업"
+[node name="PlayerJob" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="DummyCharacterLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "상대 캐릭터"
+[node name="DummyCharacter" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="DummyJobLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "상대 직업"
+[node name="DummyJob" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="BotProfileLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "봇 프로필"
+[node name="BotProfile" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="ScenarioLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "테스트 시나리오"
+[node name="Scenario" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="LauncherStatus" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.82, 0.9, 1)
+text = "구성을 선택하고 적용하세요."
+horizontal_alignment = 1
+[node name="Actions" type="HBoxContainer" parent="Interface/Phase3DebugLauncher/Margin/Content"]
+layout_mode = 2
+alignment = 1
+[node name="ApplyConfiguration" type="Button" parent="Interface/Phase3DebugLauncher/Margin/Content/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 42)
+layout_mode = 2
+text = "구성 적용"
+[node name="CloseLauncher" type="Button" parent="Interface/Phase3DebugLauncher/Margin/Content/Actions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 42)
+layout_mode = 2
+text = "현재 구성으로 계속"

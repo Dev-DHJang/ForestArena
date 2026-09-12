@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="JobData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1_job"]
+[ext_resource type="Script" path="res://scripts/data/combat_tuning_modifier.gd" id="2_tuning"]
+
+[sub_resource type="Resource" id="GuardCapacity"]
+script = ExtResource("2_tuning")
+field = 0
+operation = 2
+value = 125.0
+
+[sub_resource type="Resource" id="GuardRegen"]
+script = ExtResource("2_tuning")
+field = 2
+operation = 2
+value = 24.0
+
+[sub_resource type="Resource" id="ChargeTime"]
+script = ExtResource("2_tuning")
+field = 8
+operation = 2
+value = 48.0
+
+[resource]
+script = ExtResource("1_job")
+schema_version = 3
+job_id = &"ja-hyun-guard-prototype"
+combat_tuning_modifiers = Array[ExtResource("2_tuning")]([SubResource("GuardCapacity"), SubResource("GuardRegen"), SubResource("ChargeTime")])
+added_passive_ids = Array[StringName]([&"guard-capacity-prototype", &"charge-stability-prototype"])
+added_tags = Array[StringName]([&"phase3-job", &"guard-specialist"])

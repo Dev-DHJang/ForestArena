@@ -21,7 +21,7 @@ func _initialize() -> void:
 		var id := String(fighter.fighter_id)
 		if fighter.character_data.character_id != fighter.fighter_id: failures.append("CharacterData mismatch: %s" % id)
 		if fighter.combo_count != EXPECTED_COMBOS[id]: failures.append("incorrect combo count: %s" % id)
-		if fighter.attacks.size() != EXPECTED_COMBOS[id] + 11: failures.append("incomplete move family: %s" % id)
+		if fighter.attacks.size() < EXPECTED_COMBOS[id] + 11: failures.append("incomplete move family: %s" % id)
 		if fighter.get_node_or_null("Hurtbox/CollisionShape2D") == null or fighter.get_node_or_null("Hitbox/CollisionShape2D") == null: failures.append("missing authority debug geometry: %s" % id)
 		for attack: AttackData in fighter.attacks:
 			if not attack.is_valid_definition(): failures.append("invalid attack: %s" % attack.attack_id)

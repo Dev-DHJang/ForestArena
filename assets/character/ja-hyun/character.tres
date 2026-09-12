@@ -22,6 +22,6 @@ combat_role = "균형형 근접 격투가"
 tags = Array[StringName]([&"mouse", &"striker", &"balanced"])
 move_slot_ids = Array[StringName]([&"ja-hyun-light-combo", &"ja-hyun-heavy-sweep", &"ja-hyun-ribbon-rush"])
 passive_description = "정확한 간격 유지 뒤 이어지는 근접 압박을 지향한다. 실제 효과는 향후 PassiveData에서 정의한다."
-job_tree_ids = Array[StringName]([&"ja-hyun-prototype-job"])
+job_tree_ids = Array[StringName]([&"ja-hyun-prototype-job", &"ja-hyun-guard-prototype"])
 base_stats = SubResource("CharacterStats_ja_hyun")
 base_move_set = ExtResource("1_lyxsk")
