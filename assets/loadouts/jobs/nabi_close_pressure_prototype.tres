@@ -23,8 +23,9 @@ value = 0.03
 
 [resource]
 script = ExtResource("1_job")
-schema_version = 3
+schema_version = 4
 job_id = &"nabi-close-pressure-prototype"
+stage = 1
 stat_modifiers = Array[ExtResource("2_stat")]([SubResource("GroundSpeed"), SubResource("DashSpeed"), SubResource("DashDuration")])
 added_passive_ids = Array[StringName]([&"close-pressure-prototype"])
 added_tags = Array[StringName]([&"phase3-job", &"close-pressure-specialist"])

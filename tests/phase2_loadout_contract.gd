@@ -37,15 +37,17 @@ func _test_parent_order_and_conflicts(character: CharacterData) -> void:
 	var leaf := JobData.new()
 	leaf.job_id = &"test-leaf"
 	leaf.parent_job_id = root.job_id
+	leaf.stage = 2
 	leaf.stat_modifiers = [_modifier(StatModifier.Field.GROUND_SPEED, 5.0)]
 	var synthetic := LoadoutCatalog.new()
+	synthetic.schema_version = 2
 	synthetic.characters = [character]
 	synthetic.jobs = [root, leaf]
 	var selected := LoadoutSelection.new()
 	selected.character_id = character.character_id
 	selected.job_id = leaf.job_id
 	var original_jobs := character.job_tree_ids
-	character.job_tree_ids = [leaf.job_id]
+	character.job_tree_ids = [root.job_id]
 	var result := LoadoutBuilder.build(selected, synthetic)
 	character.job_tree_ids = original_jobs
 	_check(result.succeeded() and result.profile.stats.ground_speed == character.base_stats.ground_speed + 15.0, "root-to-leaf modifiers are ordered")

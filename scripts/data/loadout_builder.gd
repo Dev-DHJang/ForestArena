@@ -3,15 +3,15 @@ extends RefCounted
 
 static func build(selection: LoadoutSelection, catalog: LoadoutCatalog, base_tuning: CombatTuningData = null) -> LoadoutBuildResult:
 	if selection == null or not selection.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_SELECTION)
-	if catalog == null or catalog.schema_version != 1 or not catalog.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_CATALOG)
+	if catalog == null or catalog.schema_version != 2 or not catalog.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_CATALOG)
 	var character := catalog.character_by_id(selection.character_id)
 	if character == null: return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_MISSING_CHARACTER)
 	if character.schema_version != 2 or not character.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNSUPPORTED_SCHEMA)
 	var layers: Array[Resource] = []
 	if not selection.job_id.is_empty():
-		if not character.job_tree_ids.has(selection.job_id): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNALLOWED_JOB)
 		var chain_result: Variant = _job_chain(selection.job_id, catalog)
 		if chain_result is LoadoutBuildResult: return chain_result
+		if chain_result.is_empty() or not character.job_tree_ids.has((chain_result[0] as JobData).job_id): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNALLOWED_JOB)
 		layers.append_array(chain_result)
 	if not selection.accessory_id.is_empty():
 		var accessory := catalog.accessory_by_id(selection.accessory_id)
@@ -37,6 +37,10 @@ static func build(selection: LoadoutSelection, catalog: LoadoutCatalog, base_tun
 				if effect_result != &"": return LoadoutBuildResult.failure(effect_result)
 				profile.active_accessory_effect_ids.append(effect.effect_id)
 			profile.active_accessory_effect_ids.sort()
+	for passive_id: StringName in profile.passive_ids:
+		var passive := catalog.passive_by_id(passive_id)
+		if passive != null: profile.passives.append(passive.duplicate(true) as PassiveData)
+	profile.passives.sort_custom(func(a: PassiveData, b: PassiveData) -> bool: return a.passive_id < b.passive_id)
 	if not profile.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_PROFILE)
 	return LoadoutBuildResult.success(profile)
 
@@ -47,13 +51,16 @@ static func _job_chain(leaf_id: StringName, catalog: LoadoutCatalog):
 	var current := catalog.job_by_id(leaf_id)
 	if current == null: return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_MISSING_JOB)
 	while current != null:
-		if current.schema_version != 3 or not current.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNSUPPORTED_SCHEMA)
+		if current.schema_version != 4 or not current.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNSUPPORTED_SCHEMA)
 		if seen.has(current.job_id): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_JOB_CYCLE)
 		seen[current.job_id] = true
 		chain.push_front(current)
 		if current.parent_job_id.is_empty(): break
 		current = catalog.job_by_id(current.parent_job_id)
 		if current == null: return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_PARENT)
+	for index: int in chain.size():
+		var job: JobData = chain[index]
+		if job.stage != index + 1: return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_PARENT)
 	return chain
 
 
@@ -84,6 +91,11 @@ static func _apply_layer(profile: RuntimeCombatProfile, layer: Resource) -> Stri
 	var tag_values: Array = layer.get("added_tags") if _has_property(layer, &"added_tags") else []
 	for value: StringName in tag_values:
 		if not value.is_empty() and not profile.tags.has(value): profile.tags.append(value)
+	if layer is JobData:
+		profile.job_chain_ids.append(layer.job_id)
+		for rule: CancelRuleData in layer.cancel_rules:
+			if profile.cancel_rules.any(func(existing: CancelRuleData) -> bool: return existing.rule_id == rule.rule_id): return LoadoutBuildResult.ERR_CONFLICT
+			profile.cancel_rules.append(rule.duplicate(true) as CancelRuleData)
 	return &""
 
 

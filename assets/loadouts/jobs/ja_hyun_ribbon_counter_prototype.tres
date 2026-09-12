@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="JobData" format=3]
+[ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+schema_version = 4
+job_id = &"ja-hyun-ribbon-counter-prototype"
+parent_job_id = &"ja-hyun-guard-prototype"
+stage = 2
+added_passive_ids = Array[StringName]([&"long-evade-prototype"])
+added_tags = Array[StringName]([&"ribbon-counter"])

@@ -1,14 +1,15 @@
 class_name LoadoutCatalog
 extends Resource
 
-@export var schema_version: int = 1
+@export var schema_version: int = 2
 @export var characters: Array[CharacterData] = []
 @export var jobs: Array[JobData] = []
 @export var accessories: Array[AccessoryData] = []
+@export var passives: Array[PassiveData] = []
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 1 and _unique(characters, "character_id") and _unique(jobs, "job_id") and _unique(accessories, "accessory_id")
+	return schema_version == 2 and _unique(characters, "character_id") and _unique(jobs, "job_id") and _unique(accessories, "accessory_id") and _unique(passives, "passive_id")
 
 
 func character_by_id(id: StringName) -> CharacterData:
@@ -26,6 +27,12 @@ func job_by_id(id: StringName) -> JobData:
 func accessory_by_id(id: StringName) -> AccessoryData:
 	for item: AccessoryData in accessories:
 		if item != null and item.accessory_id == id: return item
+	return null
+
+
+func passive_by_id(id: StringName) -> PassiveData:
+	for item: PassiveData in passives:
+		if item != null and item.passive_id == id: return item
 	return null
 
 

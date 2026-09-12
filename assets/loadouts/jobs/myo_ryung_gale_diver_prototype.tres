@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="JobData" format=3]
+[ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+schema_version = 4
+job_id = &"myo-ryung-gale-diver-prototype"
+parent_job_id = &"myo-ryung-aerial-prototype"
+stage = 2
+added_passive_ids = Array[StringName]([&"aerial-special-impulse-prototype"])
+added_tags = Array[StringName]([&"gale-diver"])

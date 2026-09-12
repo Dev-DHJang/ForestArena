@@ -10,9 +10,9 @@ const CHARACTERS := [
 	{"label": "나비", "id": "nabi"},
 ]
 const JOB_BY_CHARACTER := {
-	"ja-hyun": {"label": "자현 · 방어 원형", "id": "ja-hyun-guard-prototype"},
-	"myo-ryung": {"label": "묘령 · 공중 원형", "id": "myo-ryung-aerial-prototype"},
-	"nabi": {"label": "나비 · 근접압박 원형", "id": "nabi-close-pressure-prototype"},
+	"ja-hyun": [{"label": "stage 1 · 방어", "id": "ja-hyun-guard-prototype"}, {"label": "stage 2 · 보루", "id": "ja-hyun-bulwark-prototype"}, {"label": "stage 2 · 리본 카운터", "id": "ja-hyun-ribbon-counter-prototype"}],
+	"myo-ryung": [{"label": "stage 1 · 공중", "id": "myo-ryung-aerial-prototype"}, {"label": "stage 2 · 스카이 댄서", "id": "myo-ryung-sky-dancer-prototype"}, {"label": "stage 2 · 게일 다이버", "id": "myo-ryung-gale-diver-prototype"}],
+	"nabi": [{"label": "stage 1 · 근접압박", "id": "nabi-close-pressure-prototype"}, {"label": "stage 2 · 러시클로", "id": "nabi-rushclaw-prototype"}, {"label": "stage 2 · 아이언 파운스", "id": "nabi-iron-pounce-prototype"}],
 }
 const BOT_PROFILES := [
 	{"label": "간격형", "id": "spacing"},
@@ -70,7 +70,7 @@ func _sync_job_options(character: OptionButton, job: OptionButton) -> void:
 	var character_id := String(character.get_item_metadata(character.selected))
 	var entries: Array = [{"label": "기본", "id": ""}]
 	if JOB_BY_CHARACTER.has(character_id):
-		entries.append(JOB_BY_CHARACTER[character_id])
+		entries.append_array(JOB_BY_CHARACTER[character_id])
 	_fill(job, entries, 0)
 
 

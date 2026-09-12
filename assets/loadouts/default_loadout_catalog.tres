@@ -12,9 +12,44 @@
 [ext_resource type="Resource" path="res://assets/loadouts/accessories/bark_guard_charm.tres" id="10_bark"]
 [ext_resource type="Resource" path="res://assets/loadouts/accessories/sky_current_charm.tres" id="11_sky"]
 [ext_resource type="Resource" path="res://assets/loadouts/accessories/pouncing_thorn_charm.tres" id="12_thorn"]
+[ext_resource type="Script" path="res://scripts/data/passive_data.gd" id="13_passive"]
+[ext_resource type="Resource" path="res://assets/loadouts/jobs/ja_hyun_bulwark_prototype.tres" id="14"]
+[ext_resource type="Resource" path="res://assets/loadouts/jobs/ja_hyun_ribbon_counter_prototype.tres" id="15"]
+[ext_resource type="Resource" path="res://assets/loadouts/jobs/myo_ryung_sky_dancer_prototype.tres" id="16"]
+[ext_resource type="Resource" path="res://assets/loadouts/jobs/myo_ryung_gale_diver_prototype.tres" id="17"]
+[ext_resource type="Resource" path="res://assets/loadouts/jobs/nabi_rushclaw_prototype.tres" id="18"]
+[ext_resource type="Resource" path="res://assets/loadouts/jobs/nabi_iron_pounce_prototype.tres" id="19"]
+
+[sub_resource type="Resource" id="GuardPassive"]
+script = ExtResource("13_passive")
+passive_id = &"guard-capacity-prototype"
+trigger = 1
+effect = 2
+value = 4.0
+cooldown_ticks = 120
+
+[sub_resource type="Resource" id="AerialPassive"]
+script = ExtResource("13_passive")
+passive_id = &"long-evade-prototype"
+trigger = 2
+effect = 0
+value = 1.05
+duration_ticks = 60
+cooldown_ticks = 120
+
+[sub_resource type="Resource" id="PressurePassive"]
+script = ExtResource("13_passive")
+passive_id = &"close-pressure-prototype"
+trigger = 0
+effect = 3
+value = 4.0
+cooldown_ticks = 90
+requires_dash = true
 
 [resource]
 script = ExtResource("1_catalog")
+schema_version = 2
 characters = Array[ExtResource("2_ja")]([ExtResource("2_ja"), ExtResource("3_myo"), ExtResource("4_nabi")])
-jobs = Array[ExtResource("5_job")]([ExtResource("5_job"), ExtResource("7_ja_guard"), ExtResource("8_myo_aerial"), ExtResource("9_nabi_pressure")])
+jobs = Array[ExtResource("5_job")]([ExtResource("5_job"), ExtResource("7_ja_guard"), ExtResource("8_myo_aerial"), ExtResource("9_nabi_pressure"), ExtResource("14"), ExtResource("15"), ExtResource("16"), ExtResource("17"), ExtResource("18"), ExtResource("19")])
 accessories = Array[ExtResource("6_accessory")]([ExtResource("6_accessory"), ExtResource("10_bark"), ExtResource("11_sky"), ExtResource("12_thorn")])
+passives = Array[ExtResource("13_passive")]([SubResource("GuardPassive"), SubResource("AerialPassive"), SubResource("PressurePassive")])
