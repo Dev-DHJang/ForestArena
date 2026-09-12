@@ -100,6 +100,36 @@ func _test_grab_charge_special_ultimate(controller: MatchController) -> void:
 	fighter.consume_intent(_intent(fighter, &"grab_support", CombatIntent.Direction.NEUTRAL, CombatIntent.Edge.PRESS), controller.rules)
 	_check(fighter.active_attack != null and fighter.active_attack.is_grab(), "neutral grab did not select forward throw")
 
+	# A normal active attack interrupts an active grab before that grab can resolve.
+	controller.reset_match()
+	var target := controller.training_dummy
+	fighter.global_position = Vector2(640, 520)
+	target.global_position = Vector2(680, 520)
+	fighter.active_attack = fighter.attacks[0]
+	fighter.state = FighterController.State.ATTACK_ACTIVE
+	fighter.locked_facing = 1
+	fighter.activation_serial += 1
+	var target_grabs := target.attacks.filter(func(attack: AttackData) -> bool: return attack.is_grab())
+	target.active_attack = target_grabs[0]
+	target.state = FighterController.State.ATTACK_ACTIVE
+	target.locked_facing = -1
+	target.activation_serial += 1
+	controller.call("_resolve_hits")
+	_check(target.state == FighterController.State.KNOCKBACK and fighter.damage_percent == 0.0, "normal active attack did not interrupt grab priority")
+
+	# A grab ignores guard rather than consuming guard durability.
+	controller.reset_match()
+	fighter.global_position = Vector2(640, 520)
+	target.global_position = Vector2(680, 520)
+	fighter.state = FighterController.State.GUARD
+	fighter.guard_durability = tuning.guard_max_durability
+	target.active_attack = target_grabs[0]
+	target.state = FighterController.State.ATTACK_ACTIVE
+	target.locked_facing = -1
+	target.activation_serial += 1
+	controller.call("_resolve_hits")
+	_check(fighter.damage_percent > 0.0 and fighter.state == FighterController.State.KNOCKBACK, "grab did not bypass guard")
+
 	# Ground heavy releases at maximum data-authored scale and locks direction.
 	controller.reset_match()
 	for index: int in 30: fighter.step_tick(controller.rules)
