@@ -14,6 +14,7 @@ func _initialize() -> void:
 	_test_archetype_resources(controller)
 	_test_grab_charge_special_ultimate(controller)
 	_test_bot_and_telemetry(controller)
+	_test_comparison_matrix_determinism(controller)
 	instance.queue_free()
 	if failures.is_empty():
 		print("PHASE3_COMBAT_ARCHETYPES: PASS")
@@ -126,6 +127,50 @@ func _test_bot_and_telemetry(controller: MatchController) -> void:
 	var aggregate := telemetry.aggregate_snapshot()
 	_check(int(aggregate.aggregates.action_counts.attack_light) == 1 and int(aggregate.aggregates.grab.successes) == 1, "telemetry aggregate drifted")
 	telemetry.cancel_match()
+
+
+func _test_comparison_matrix_determinism(controller: MatchController) -> void:
+	# The product playtest matrix is six selectable archetypes by three bot profiles.
+	# This is not a substitute for human/device playtesting; it verifies that every
+	# selectable combination can run a reproducible fixed-tick bot simulation.
+	var archetypes := [
+		[&"ja-hyun", &""],
+		[&"ja-hyun", &"ja-hyun-guard-prototype"],
+		[&"myo-ryung", &""],
+		[&"myo-ryung", &"myo-ryung-aerial-prototype"],
+		[&"nabi", &""],
+		[&"nabi", &"nabi-grapple-prototype"],
+	]
+	var bots := [&"spacing", &"aerial", &"close"]
+	var opponent_ids := [&"myo-ryung", &"nabi", &"ja-hyun"]
+	var index := 0
+	for archetype: Array in archetypes:
+		for bot_id: StringName in bots:
+			var config := {
+				"player_character_id": archetype[0],
+				"player_job_id": archetype[1],
+				"dummy_character_id": opponent_ids[index % opponent_ids.size()],
+				"dummy_job_id": &"",
+				"bot_profile_id": bot_id,
+				"seed": 5100 + index,
+				"scenario_id": &"determinism_matrix",
+			}
+			var first := _run_fixed_bot_match(controller, config, 720)
+			var second := _run_fixed_bot_match(controller, config, 720)
+			_check(first == second, "comparison matrix is nondeterministic: %s/%s" % [archetype[0], bot_id])
+			index += 1
+	_check(index == 18, "comparison matrix did not cover 18 matches")
+
+
+func _run_fixed_bot_match(controller: MatchController, config: Dictionary, ticks: int) -> String:
+	_check(controller.configure_debug_match(config), "debug match configuration failed")
+	# Keep contract tests side-effect free: telemetry begins during configuration,
+	# then is cancelled before simulation and never writes a JSONL file.
+	controller.telemetry_enabled = false
+	controller.reset_match()
+	for _tick: int in ticks:
+		controller.step_fixed_tick(false)
+	return controller.snapshot_hash()
 
 
 func _find(attacks: Array[AttackData], action: StringName, direction: AttackData.InputDirection) -> AttackData:

@@ -18,6 +18,7 @@ var stocks := 3
 var facing := 1
 var input_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
 var spawn_position: Vector2
+var spawn_facing := 1
 var air_jumps_remaining := 0
 var aerial_attacks_remaining := 2
 var up_special_available := true
@@ -62,6 +63,7 @@ var runtime_profile: RuntimeCombatProfile
 
 func _ready() -> void:
 	spawn_position = global_position
+	spawn_facing = facing
 	if character_data == null:
 		push_error("Fighter scene requires CharacterData: %s" % fighter_id)
 		set_physics_process(false)
@@ -97,9 +99,17 @@ func reset_for_match(rules: CombatRules) -> void:
 	stocks = rules.stocks_per_fighter
 	global_position = spawn_position
 	velocity = Vector2.ZERO
+	facing = spawn_facing
+	locked_facing = spawn_facing
+	locked_direction = CombatIntent.Direction.NEUTRAL
 	active_attack = null
 	buffered_intent = null
 	combo_index = 0
+	activation_serial = 0
+	attack_phase_tick = 0
+	attack_landed = false
+	dash_ticks = 0
+	diagnostic = ""
 	input_direction = CombatIntent.Direction.NEUTRAL
 	air_jumps_remaining = _stats().air_jump_count
 	aerial_attacks_remaining = 2
@@ -131,6 +141,10 @@ func reset_for_match(rules: CombatRules) -> void:
 	respawn_ticks = 0
 	hitstun_ticks = 0
 	state = State.IDLE
+	# CharacterBody2D retains floor contact from its last physics move. Refreshing
+	# at the spawn coordinate keeps a reset/replay from inheriting a prior match's
+	# grounded state before its first intent is consumed.
+	move_and_slide()
 	_sync_debug_hitbox()
 
 
