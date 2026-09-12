@@ -11,6 +11,7 @@ func _initialize() -> void:
 	var controller := instance.get_node("MatchController") as MatchController
 	controller.set_physics_process(false)
 	_test_v2_contract(controller)
+	_test_tuning_conflicts_and_no_character_branch()
 	_test_archetype_resources(controller)
 	_test_grab_charge_special_ultimate(controller)
 	_test_bot_and_telemetry(controller)
@@ -37,6 +38,26 @@ func _test_v2_contract(controller: MatchController) -> void:
 	old_job.schema_version = 1
 	old_job.job_id = &"old"
 	_check(not old_job.is_valid_definition(), "JobData v1 was not rejected")
+	var old_rules := CombatRules.new()
+	old_rules.schema_version = 1
+	_check(not old_rules.is_valid_definition(), "CombatRules v1 was not rejected")
+	var old_profile := RuntimeCombatProfile.new()
+	old_profile.schema_version = 1
+	_check(not old_profile.is_valid_definition(), "RuntimeCombatProfile v1 was not rejected")
+
+
+func _test_tuning_conflicts_and_no_character_branch() -> void:
+	var duplicate := CombatTuningModifier.new()
+	duplicate.field = CombatTuningModifier.Field.GUARD_MAX_DURABILITY
+	duplicate.operation = CombatTuningModifier.Operation.ADD
+	duplicate.value = 1.0
+	var job := JobData.new()
+	job.job_id = &"duplicate-tuning"
+	job.combat_tuning_modifiers = [duplicate, duplicate.duplicate(true) as CombatTuningModifier]
+	_check(not job.is_valid_definition(), "duplicate combat tuning modifier was accepted")
+	var source := FileAccess.get_file_as_string("res://scripts/fighter_controller.gd")
+	for character_id: String in ["ja-hyun", "myo-ryung", "nabi"]:
+		_check(not source.contains(character_id), "fighter authority branches on character ID: %s" % character_id)
 
 
 func _test_archetype_resources(controller: MatchController) -> void:
