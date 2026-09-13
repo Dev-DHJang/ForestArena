@@ -6,7 +6,7 @@ const REQUIRED_ACTIONS := ["attack_light", "attack_heavy", "attack_special"]
 const REQUIRED_EDGES := ["press", "hold", "release"]
 const REQUIRED_COMMON_MOVE_IDS := [
 	"base_light_combo", "light_up", "light_down", "strong_side", "strong_up", "strong_down",
-	"strong_charge", "dash_light", "dash_heavy", "air_light", "air_heavy", "grab_throw",
+	"dash_light", "dash_heavy", "air_light", "air_heavy",
 ]
 const REQUIRED_CHARACTER_MOVE_IDS := [
 	"ja-hyun-special-neutral", "ja-hyun-special-side", "ja-hyun-special-up", "ja-hyun-special-down", "ja-hyun-ultimate",
@@ -48,7 +48,7 @@ func _validate_input_contract(concept: Dictionary, failures: PackedStringArray) 
 			failures.append("missing right-hand action: %s" % action)
 	if "jump" not in contract.get("separate_buttons", []):
 		failures.append("jump must remain a separate button")
-	for button: String in ["action", "grab_support", "ultimate"]:
+	for button: String in ["action", "ultimate"]:
 		if button not in contract.get("separate_buttons", []):
 			failures.append("missing future separate button: %s" % button)
 	for edge: String in REQUIRED_EDGES:
@@ -59,8 +59,6 @@ func _validate_input_contract(concept: Dictionary, failures: PackedStringArray) 
 		failures.append("direction-lock policy is missing")
 	if not String(contract.get("action_button_evolution", "")).contains("dash action") or not String(contract.get("action_button_evolution", "")).contains("neutral hold guards"):
 		failures.append("action button evolution is missing")
-	if not String(contract.get("grab_support_visibility", "")).contains("post-guard grace"):
-		failures.append("grab support visibility rule is missing")
 
 
 func _validate_system_rules(concept: Dictionary, failures: PackedStringArray) -> void:
@@ -109,14 +107,11 @@ func _validate_common_families(concept: Dictionary, failures: PackedStringArray)
 		var aerial: Dictionary = _move_by_id(concept.get("common_move_families", []), aerial_id)
 		if aerial.get("directions") != ["neutral", "forward", "back", "up", "down"]:
 			failures.append("five-direction aerial contract drift: %s" % aerial_id)
-	var charge: Dictionary = _move_by_id(concept.get("common_move_families", []), "strong_charge")
-	if not String(charge.get("risk", "")).contains("recovery both increase"):
-		failures.append("charged strong risk rule is missing")
 
 
 func _validate_future_defense_action(concept: Dictionary, failures: PackedStringArray) -> void:
 	var defense: Dictionary = concept.get("future_defense_action", {})
-	for required_key: String in ["neutral_hold", "side_press", "side_hold_after_evade", "air", "guard_to_grab", "guard_rules"]:
+	for required_key: String in ["neutral_hold", "side_press", "side_hold_after_evade", "air", "guard_rules"]:
 		if not defense.has(required_key) or str(defense[required_key]).is_empty():
 			failures.append("future defense rule is missing: %s" % required_key)
 	if not String(defense.get("guard_rules", "")).contains("no high/low guard"):
@@ -152,7 +147,7 @@ func _validate_characters(concept: Dictionary, failures: PackedStringArray) -> v
 		character_ids[character_id] = true
 		if character.get("base_combo_count") != EXPECTED_COMBO_COUNTS[character_id]:
 			failures.append("base combo count drift: %s" % character_id)
-		for profile_key: String in ["identity", "aerial_profile", "directional_attack_profile", "throws"]:
+		for profile_key: String in ["identity", "aerial_profile", "directional_attack_profile"]:
 			if not character.has(profile_key) or str(character[profile_key]).is_empty():
 				failures.append("character attack profile is missing %s: %s" % [profile_key, character_id])
 		var combo_indices: Dictionary = {}

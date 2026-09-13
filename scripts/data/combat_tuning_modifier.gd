@@ -20,7 +20,7 @@ enum Operation { ADD, MULTIPLY, SET }
 
 
 func is_valid_definition() -> bool:
-	return is_finite(value)
+	return field != Field.DEPRECATED_CHARGE_MAX_TICKS and is_finite(value)
 
 
 func field_key() -> StringName:

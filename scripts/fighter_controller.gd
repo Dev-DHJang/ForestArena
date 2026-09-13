@@ -1,6 +1,9 @@
 class_name FighterController
 extends CharacterBody2D
 
+signal passive_runtime_event(fighter_id: StringName, passive_id: StringName, event_kind: StringName, remaining_ticks: int)
+signal cancel_runtime_event(fighter_id: StringName, rule_id: StringName, result: StringName, reason: StringName)
+
 ## Fixed-tick Phase 1 fighter. Geometry and visual state mirror the authority
 ## state for debugging, but physics overlap and animation never decide hits.
 enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, GUARD, GUARD_BREAK, EVADE_GROUND, EVADE_AIR, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, HITSTUN, KNOCKBACK, RING_OUT, MATCH_ENDED }
@@ -45,6 +48,7 @@ var ultimate_gauge := 0.0
 var ultimate_used := false
 var ultimate_followup_pending := false
 var active_attack: AttackData
+var active_attack_context := AttackData.ActivationContext.GROUND
 var attack_phase_tick := 0
 var attack_landed := false
 var combo_index := 0
@@ -59,6 +63,8 @@ var passive_damage_multiplier := 1.0
 var passive_damage_ticks := 0
 var passive_consume_action: StringName
 var passive_consume_context := AttackData.ActivationContext.BOTH
+var passive_pending_id: StringName
+var passive_last_activation: Dictionary = {}
 
 
 func _ready() -> void:
@@ -103,6 +109,7 @@ func reset_for_match(rules: CombatRules) -> void:
 	locked_facing = spawn_facing
 	locked_direction = CombatIntent.Direction.NEUTRAL
 	active_attack = null
+	active_attack_context = AttackData.ActivationContext.GROUND
 	buffered_intent = null
 	combo_index = 0
 	activation_serial = 0
@@ -137,6 +144,8 @@ func reset_for_match(rules: CombatRules) -> void:
 	passive_damage_ticks = 0
 	passive_consume_action = &""
 	passive_consume_context = AttackData.ActivationContext.BOTH
+	passive_pending_id = &""
+	passive_last_activation.clear()
 	invulnerability_ticks = 0
 	respawn_ticks = 0
 	hitstun_ticks = 0
@@ -249,7 +258,7 @@ func register_landed_hit(attack: AttackData) -> void:
 		launcher_jump_available = true
 	if attack.is_ultimate() and not attack.ultimate_followup:
 		ultimate_followup_pending = true
-	_trigger_passives(PassiveData.Trigger.ON_ATTACK_HIT, attack)
+	_trigger_passives(PassiveData.Trigger.ON_ATTACK_HIT, attack, activation_serial)
 
 
 func is_invulnerable() -> bool:
@@ -288,10 +297,10 @@ func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int,
 	state = State.KNOCKBACK
 
 
-func apply_guarded_hit(attack: AttackData, rules: CombatRules, resolved_damage := -1.0) -> void:
+func apply_guarded_hit(attack: AttackData, rules: CombatRules, resolved_damage := -1.0, attack_activation_serial := -1) -> void:
 	if state != State.GUARD:
 		return
-	_trigger_passives(PassiveData.Trigger.ON_GUARDED_HIT, attack)
+	_trigger_passives(PassiveData.Trigger.ON_GUARDED_HIT, attack, attack_activation_serial)
 	var tuning := _tuning(rules)
 	var damage := attack.damage if resolved_damage < 0.0 else resolved_damage
 	var cost := maxf(tuning.guard_hit_minimum_cost, damage * tuning.guard_hit_damage_multiplier * attack.guard_damage_multiplier)
@@ -335,6 +344,10 @@ func ring_out(rules: CombatRules) -> bool:
 	passive_cooldowns.clear()
 	passive_damage_multiplier = 1.0
 	passive_damage_ticks = 0
+	passive_consume_action = &""
+	passive_consume_context = AttackData.ActivationContext.BOTH
+	passive_pending_id = &""
+	passive_last_activation.clear()
 	respawn_ticks = rules.respawn_delay_ticks
 	state = State.RING_OUT
 	return true
@@ -354,6 +367,10 @@ func begin_sudden_death(rules: CombatRules) -> void:
 	passive_cooldowns.clear()
 	passive_damage_multiplier = 1.0
 	passive_damage_ticks = 0
+	passive_consume_action = &""
+	passive_consume_context = AttackData.ActivationContext.BOTH
+	passive_pending_id = &""
+	passive_last_activation.clear()
 	respawn_ticks = rules.respawn_delay_ticks
 	state = State.RING_OUT
 
@@ -370,6 +387,7 @@ func snapshot() -> Dictionary:
 		"guard_max_durability": snappedf(_active_tuning().guard_max_durability, 0.001),
 		"evade_available": evade_cooldown_ticks <= 0, "evade_cooldown_ticks": evade_cooldown_ticks, "aerial_evades": aerial_evades_remaining,
 		"ultimate_gauge": snappedf(ultimate_gauge, 0.001), "ultimate_max_gauge": snappedf(_active_tuning().ultimate_max_gauge, 0.001), "ultimate_used": ultimate_used,
+		"active_passives": _active_passive_snapshot(),
 	}
 
 
@@ -410,8 +428,11 @@ func _step_resource_timers() -> void:
 	if passive_damage_ticks > 0:
 		passive_damage_ticks -= 1
 		if passive_damage_ticks == 0:
+			if not passive_pending_id.is_empty(): passive_runtime_event.emit(fighter_id, passive_pending_id, &"expired", 0)
 			passive_damage_multiplier = 1.0
 			passive_consume_action = &""
+			passive_consume_context = AttackData.ActivationContext.BOTH
+			passive_pending_id = &""
 	if evade_cooldown_ticks > 0:
 		evade_cooldown_ticks -= 1
 	for group: StringName in special_cooldowns.keys():
@@ -587,10 +608,13 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
 	var consumes_passive := (passive_consume_action.is_empty() or passive_consume_action == next.action_id) and (passive_consume_context == AttackData.ActivationContext.BOTH or passive_consume_context == next_context)
 	attack_damage_scale = passive_damage_multiplier if consumes_passive else 1.0
 	if consumes_passive:
+		if not passive_pending_id.is_empty(): passive_runtime_event.emit(fighter_id, passive_pending_id, &"consumed", 0)
 		passive_damage_multiplier = 1.0
 		passive_damage_ticks = 0
 		passive_consume_action = &""
+		passive_pending_id = &""
 	active_attack = next
+	active_attack_context = next_context
 	activation_serial += 1
 	attack_phase_tick = 0
 	attack_landed = false
@@ -613,41 +637,77 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
 
 func _try_cancel(intent: CombatIntent) -> bool:
 	if active_attack == null or state != State.ATTACK_RECOVERY or not attack_landed or active_attack.is_finisher or active_attack.is_ultimate(): return false
-	var context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
+	var context := active_attack_context
 	for rule: CancelRuleData in runtime_profile.cancel_rules:
 		if rule.from_action_id != active_attack.action_id or rule.to_action_id != intent.action_id or attack_phase_tick < rule.recovery_start_tick or attack_phase_tick > rule.recovery_end_tick: continue
 		if rule.from_context != AttackData.ActivationContext.BOTH and rule.from_context != context: continue
 		if rule.from_requires_dash and not active_attack.requires_dash: continue
 		if not rule.allowed_directions.is_empty() and not rule.allowed_directions.has(intent.direction): continue
-		var next := _select_attack(intent)
-		if next == null: return false
-		active_attack = null
-		_start_attack(next, intent.direction)
+		if not _activate_cancel_target(intent):
+			cancel_runtime_event.emit(fighter_id, rule.rule_id, &"rejected", &"target_unavailable")
+			return false
+		cancel_runtime_event.emit(fighter_id, rule.rule_id, &"success", &"")
 		return true
+	cancel_runtime_event.emit(fighter_id, &"", &"rejected", &"no_matching_rule")
 	return false
 
 
-func _trigger_passives(trigger: PassiveData.Trigger, attack: AttackData) -> void:
+func _activate_cancel_target(intent: CombatIntent) -> bool:
+	if intent.action_id == &"jump":
+		active_attack = null
+		_try_jump()
+		return state == State.JUMP
+	if intent.action_id == &"dash":
+		if not is_on_floor():
+			return false
+		active_attack = null
+		var horizontal := -1 if intent.direction == CombatIntent.Direction.LEFT else 1 if intent.direction == CombatIntent.Direction.RIGHT else _horizontal_input()
+		if horizontal == 0: horizontal = facing
+		facing = horizontal
+		velocity.x = _stats().dash_speed * horizontal
+		dash_ticks = maxi(1, roundi(_stats().dash_duration_seconds * 60.0))
+		state = State.DASH
+		return true
+	var next := _select_attack(intent)
+	if next == null:
+		return false
+	active_attack = null
+	_start_attack(next, intent.direction)
+	return true
+
+
+func _trigger_passives(trigger: PassiveData.Trigger, attack: AttackData, trigger_activation_serial := -1) -> void:
 	if runtime_profile == null: return
 	for passive: PassiveData in runtime_profile.passives:
 		if passive.trigger != trigger or int(passive_cooldowns.get(passive.passive_id, 0)) > 0: continue
+		if trigger_activation_serial >= 0 and int(passive_last_activation.get(passive.passive_id, -1)) == trigger_activation_serial: continue
 		if not passive.action_filter.is_empty() and (attack == null or attack.action_id != passive.action_filter): continue
 		if passive.requires_dash and (attack == null or not attack.requires_dash): continue
-		var context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
+		var context := active_attack_context if attack != null and attack == active_attack else AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
 		if passive.trigger_context != AttackData.ActivationContext.BOTH and passive.trigger_context != context: continue
+		if trigger_activation_serial >= 0: passive_last_activation[passive.passive_id] = trigger_activation_serial
 		passive_cooldowns[passive.passive_id] = passive.cooldown_ticks
+		passive_runtime_event.emit(fighter_id, passive.passive_id, &"activated", passive.duration_ticks)
 		match passive.effect:
 			PassiveData.Effect.NEXT_ATTACK_DAMAGE_MULTIPLIER:
 				passive_damage_multiplier = passive.value
 				passive_damage_ticks = passive.duration_ticks
 				passive_consume_action = passive.consume_action_id
 				passive_consume_context = passive.consume_context
+				passive_pending_id = passive.passive_id
 			PassiveData.Effect.SPECIAL_COOLDOWN_REDUCTION:
 				for group: Variant in special_cooldowns.keys(): special_cooldowns[group] = maxi(0, int(special_cooldowns[group]) - roundi(passive.value))
 			PassiveData.Effect.GUARD_RESTORE:
 				guard_durability = minf(_active_tuning().guard_max_durability, guard_durability + passive.value)
 			PassiveData.Effect.EVADE_COOLDOWN_REDUCTION:
 				evade_cooldown_ticks = maxi(0, evade_cooldown_ticks - roundi(passive.value))
+
+
+func _active_passive_snapshot() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	if not passive_pending_id.is_empty():
+		result.append({"id": passive_pending_id, "effect": "next_attack_damage", "remaining_ticks": passive_damage_ticks})
+	return result
 
 
 func _advance_attack(rules: CombatRules) -> void:

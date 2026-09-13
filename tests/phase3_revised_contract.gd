@@ -22,7 +22,6 @@ func _init() -> void:
 		if not result.succeeded(): continue
 		for direction: AttackData.InputDirection in [AttackData.InputDirection.NEUTRAL, AttackData.InputDirection.FORWARD, AttackData.InputDirection.UP, AttackData.InputDirection.DOWN]:
 			_check(result.profile.move_set.attacks().filter(func(a: AttackData) -> bool: return a.action_id == &"attack_special" and a.input_direction == direction).size() == 1, "special direction missing: %s/%d" % [character_id, direction])
-		_check(result.profile.move_set.attacks().filter(func(a: AttackData) -> bool: return a.action_id == &"grab_support").is_empty(), "grab move remains: %s" % character_id)
 	var nabi := LoadoutSelection.new()
 	nabi.character_id = &"nabi"
 	nabi.job_id = &"nabi-close-pressure-prototype"

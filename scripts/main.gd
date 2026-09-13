@@ -23,9 +23,12 @@ const RESTART_DISABLED_ID := "fa.ui.button.base.btn.secondary.m.disabled"
 
 var _missing_resource_ids: PackedStringArray = []
 var _last_states: Array[String] = ["", ""]
+var _frame_recorder: FramePerformanceRecorder
 
 
 func _ready() -> void:
+	if OS.is_debug_build():
+		_frame_recorder = FramePerformanceRecorder.new()
 	_apply_resource_ui()
 	match_controller.snapshot_changed.connect(_render_snapshot)
 	restart.pressed.connect(match_controller.reset_match)
@@ -37,6 +40,13 @@ func _ready() -> void:
 	debug_readout.visible = OS.is_debug_build()
 	if debug_launcher.visible:
 		_set_debug_launcher_visible(true)
+
+
+func _process(delta: float) -> void:
+	if _frame_recorder == null:
+		return
+	var active_foreground_combat := not match_controller.paused and match_controller.winner_id.is_empty() and not debug_launcher.visible
+	_frame_recorder.sample(delta, active_foreground_combat)
 
 
 func _apply_resource_ui() -> void:
@@ -133,7 +143,10 @@ func _combat_status_text(fighter: Dictionary) -> String:
 	var ultimate_text := "필살기 %.0f/%.0f" % [ultimate_value, ultimate_max]
 	if bool(fighter.get("ultimate_used", fighter.get("ultimate_used_this_stock", false))):
 		ultimate_text += " · USED"
-	return "%s · EVADE %s · %s · %s" % [guard_text, _evade_text(fighter), cooldown_text, ultimate_text]
+	var passives: Array = fighter.get("active_passives", [])
+	var passive_text := ""
+	if not passives.is_empty(): passive_text = " · PASSIVE %s %dt" % [passives[0].id, passives[0].remaining_ticks]
+	return "%s · EVADE %s · %s · %s%s" % [guard_text, _evade_text(fighter), cooldown_text, ultimate_text, passive_text]
 
 
 func _evade_text(fighter: Dictionary) -> String:

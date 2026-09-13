@@ -11,6 +11,9 @@ godot --headless --path . --script res://tests/phase1_input_ui.gd
 godot --headless --path . --script res://tests/phase3_revised_contract.gd
 godot --headless --path . --script res://tests/phase4_accessory_synergy.gd
 godot --headless --path . --script res://tests/phase5_job_growth.gd
+godot --headless --path . --script res://tests/phase5_runtime_behavior.gd
+godot --headless --path . --script res://tests/phase5_telemetry.gd
+godot --headless --path . --script res://tests/frame_performance_recorder.gd
 godot --headless --path . --script res://tests/phase2_loadout_contract.gd
 godot --headless --path . --script res://tests/phase2_runtime_wiring.gd
 godot --headless --path . --script res://tests/character_data_contract.gd

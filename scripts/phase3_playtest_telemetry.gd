@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Anonymous, aggregate-only Phase 3 playtest telemetry. This service has no
 ## signals or callbacks into combat authority and performs no network I/O.
-const SCHEMA_VERSION := 1
+const SCHEMA_VERSION := 2
 const OUTPUT_DIRECTORY := "user://phase3-playtests"
 const OUTPUT_PATH := OUTPUT_DIRECTORY + "/matches.jsonl"
 
@@ -45,8 +45,10 @@ func begin_match(
 			"derived_attacks": {"dash_uses": 0, "dash_hits": 0, "air_uses": 0, "air_hits": 0},
 			"special_directions": {},
 			"special_cooldown_violations": 0,
-			"ultimate": {"charge_gained": 0.0, "uses": 0, "hits": 0},
+			"ultimate": {"gauge_gained": 0.0, "uses": 0, "hits": 0},
 			"ring_outs": {},
+			"passive_events": [],
+			"cancel_events": [],
 		},
 	}
 	_active = true
@@ -57,6 +59,14 @@ func record_action(action_id: StringName) -> void:
 	if not _active or action_id.is_empty():
 		return
 	_increment(_aggregates()["action_counts"], String(action_id))
+
+
+func record_passive_event(fighter_id: StringName, passive_id: StringName, event_kind: StringName, remaining_ticks: int, tick: int) -> void:
+	if _active: _aggregates()["passive_events"].append({"fighter_id": String(fighter_id), "passive_id": String(passive_id), "event": String(event_kind), "remaining_ticks": remaining_ticks, "tick": tick})
+
+
+func record_cancel_event(fighter_id: StringName, rule_id: StringName, result: StringName, reason: StringName, tick: int) -> void:
+	if _active: _aggregates()["cancel_events"].append({"fighter_id": String(fighter_id), "rule_id": String(rule_id), "result": String(result), "reason": String(reason), "tick": tick})
 
 
 func record_attack_outcome(attack: AttackData, hit: bool) -> void:
@@ -98,11 +108,11 @@ func record_special_cooldown_violation() -> void:
 		_aggregates()["special_cooldown_violations"] = int(_aggregates()["special_cooldown_violations"]) + 1
 
 
-func record_ultimate_charge(amount: float) -> void:
+func record_ultimate_gauge_gain(amount: float) -> void:
 	if not _active or amount <= 0.0:
 		return
 	var ultimate: Dictionary = _aggregates()["ultimate"]
-	ultimate["charge_gained"] = snappedf(float(ultimate["charge_gained"]) + amount, 0.001)
+	ultimate["gauge_gained"] = snappedf(float(ultimate["gauge_gained"]) + amount, 0.001)
 
 
 func record_ultimate_use() -> void:
@@ -177,6 +187,9 @@ func _normalize_participant(participant: Dictionary) -> Dictionary:
 		"slot": String(slot),
 		"character_id": String(character_id),
 		"job_id": String(participant.get("job_id", "")),
+		"job_chain_ids": participant.get("job_chain_ids", []),
+		"accessory_id": String(participant.get("accessory_id", "")),
+		"active_accessory_effect_ids": participant.get("active_accessory_effect_ids", []),
 		"bot_profile_id": String(participant.get("bot_profile_id", "")),
 	}
 

@@ -41,6 +41,7 @@ func _ready() -> void:
 		paused = true
 		push_error("Match did not start because loadout construction failed.")
 		return
+	_connect_runtime_events()
 	_configure_bot()
 	reset_match()
 
@@ -111,8 +112,8 @@ func reset_match() -> void:
 	training_dummy.reset_for_match(rules)
 	if telemetry_enabled:
 		_telemetry.begin_match(playtest_scenario_id, bot_seed, [
-			{"slot": &"player", "character_id": player_selection.character_id, "job_id": player_selection.job_id},
-			{"slot": &"dummy", "character_id": training_dummy_selection.character_id, "job_id": training_dummy_selection.job_id, "bot_profile_id": &"" if bot_profile == null else bot_profile.profile_id},
+			_participant_metadata(&"player", player, &""),
+			_participant_metadata(&"dummy", training_dummy, &"" if bot_profile == null else bot_profile.profile_id),
 		], rules.physics_ticks_per_second)
 	snapshot_changed.emit(snapshot())
 
@@ -127,8 +128,10 @@ func configure_debug_match(config: Dictionary) -> bool:
 		return false
 	player_selection.character_id = player_character
 	player_selection.job_id = StringName(config.get("player_job_id", &""))
+	player_selection.accessory_id = StringName(config.get("player_accessory_id", &""))
 	training_dummy_selection.character_id = dummy_character
 	training_dummy_selection.job_id = StringName(config.get("dummy_job_id", &""))
+	training_dummy_selection.accessory_id = StringName(config.get("dummy_accessory_id", &""))
 	player.fighter_id = player_character
 	player.character_data = loadout_catalog.character_by_id(player_character)
 	training_dummy.fighter_id = dummy_character
@@ -139,6 +142,7 @@ func configure_debug_match(config: Dictionary) -> bool:
 	telemetry_enabled = true
 	if not _configure_fighters():
 		return false
+	_connect_runtime_events()
 	_configure_bot()
 	reset_match()
 	return true
@@ -163,6 +167,35 @@ func _configure_fighters() -> bool:
 		push_error("Loadout build produced a profile for the wrong fighter.")
 		return false
 	return true
+
+
+func _connect_runtime_events() -> void:
+	for fighter: FighterController in _fighters():
+		if not fighter.passive_runtime_event.is_connected(_on_passive_runtime_event):
+			fighter.passive_runtime_event.connect(_on_passive_runtime_event)
+		if not fighter.cancel_runtime_event.is_connected(_on_cancel_runtime_event):
+			fighter.cancel_runtime_event.connect(_on_cancel_runtime_event)
+
+
+func _participant_metadata(slot: StringName, fighter: FighterController, selected_bot: StringName) -> Dictionary:
+	var profile := fighter.runtime_profile
+	return {
+		"slot": slot,
+		"character_id": fighter.fighter_id,
+		"job_id": &"" if profile == null else profile.job_id,
+		"job_chain_ids": [] if profile == null else profile.job_chain_ids,
+		"accessory_id": &"" if profile == null else profile.accessory_id,
+		"active_accessory_effect_ids": [] if profile == null else profile.active_accessory_effect_ids,
+		"bot_profile_id": selected_bot,
+	}
+
+
+func _on_passive_runtime_event(event_fighter_id: StringName, passive_id: StringName, event_kind: StringName, remaining_ticks: int) -> void:
+	_telemetry.record_passive_event(event_fighter_id, passive_id, event_kind, remaining_ticks, tick)
+
+
+func _on_cancel_runtime_event(event_fighter_id: StringName, rule_id: StringName, result: StringName, reason: StringName) -> void:
+	_telemetry.record_cancel_event(event_fighter_id, rule_id, result, reason, tick)
 
 
 func pause_match(value: bool) -> void:
@@ -263,7 +296,7 @@ func _resolve_hits() -> void:
 			continue
 		var resolved_damage := source.resolved_attack_damage()
 		if target.state == FighterController.State.GUARD:
-			target.apply_guarded_hit(attack, rules, resolved_damage)
+			target.apply_guarded_hit(attack, rules, resolved_damage, source.activation_serial)
 			if not attack.is_ultimate(): source.register_landed_hit(attack)
 			if _telemetry.is_match_active(): _telemetry.record_guard(true)
 			if _telemetry.is_match_active(): _telemetry.record_attack_outcome(attack, true)
@@ -281,7 +314,7 @@ func _resolve_hits() -> void:
 		target.add_ultimate_from_damage(resolved_damage, false)
 		if _telemetry.is_match_active():
 			_telemetry.record_attack_outcome(attack, true)
-			_telemetry.record_ultimate_charge(resolved_damage * (source.runtime_profile.combat_tuning.ultimate_dealt_damage_gain_multiplier + target.runtime_profile.combat_tuning.ultimate_received_damage_gain_multiplier))
+			_telemetry.record_ultimate_gauge_gain(resolved_damage * (source.runtime_profile.combat_tuning.ultimate_dealt_damage_gain_multiplier + target.runtime_profile.combat_tuning.ultimate_received_damage_gain_multiplier))
 			if attack.is_ultimate(): _telemetry.record_ultimate_hit()
 		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 		_hit_counts["%s:last" % hit.key] = tick

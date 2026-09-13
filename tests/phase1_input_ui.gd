@@ -30,6 +30,10 @@ func _initialize() -> void:
 		failures.append("registered combat UI resources reported as missing")
 	if launcher.visible and (touch.visible or hud_panel.visible):
 		failures.append("debug launcher left live HUD or touch controls visible")
+	if (launcher.get_node("Margin/Content/Options/PlayerAccessory") as OptionButton).item_count != 4:
+		failures.append("debug launcher accessory choices are incomplete")
+	if not (launcher.get_node("Margin/Content/JobSummary") as Label).text.contains("stage"):
+		failures.append("debug launcher job summary is missing")
 	var ultimate_visual := touch.get_node("UltimateVisual") as TextureRect
 	if not touch.call("is_action_visible", &"ultimate") or not ultimate_visual.visible:
 		failures.append("ultimate button is not visible")
@@ -85,10 +89,13 @@ func _initialize() -> void:
 	var before := player.damage_percent
 	var fake := controller.snapshot()
 	fake.fighters[0].damage_percent = 87.0
+	fake.fighters[0].active_passives = [{"id": "test-passive", "effect": "next_attack_damage", "remaining_ticks": 42}]
 	instance.call("_render_snapshot", fake)
 	if player.damage_percent != before: failures.append("HUD mutated fighter damage")
 	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("87%"):
 		failures.append("HUD did not render snapshot damage")
+	if not (instance.get_node("Interface/PlayerCombatReadout") as Label).text.contains("test-passive") or not player.passive_pending_id.is_empty():
+		failures.append("HUD passive snapshot is missing or mutated authority")
 
 	# Camera follows the pair and stays within its configured zoom bounds.
 	player.global_position = Vector2(controller.rules.ring_left, 400)

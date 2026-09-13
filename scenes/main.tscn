@@ -208,9 +208,9 @@ theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 [node name="Phase3DebugLauncher" type="PanelContainer" parent="Interface"]
 offset_left = 276.0
-offset_top = 154.0
+offset_top = 56.0
 offset_right = 1004.0
-offset_bottom = 600.0
+offset_bottom = 664.0
 script = ExtResource("12_debug_launcher")
 [node name="Margin" type="MarginContainer" parent="Interface/Phase3DebugLauncher"]
 layout_mode = 2
@@ -262,6 +262,18 @@ text = "상대 직업"
 [node name="DummyJob" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
 unique_name_in_owner = true
 layout_mode = 2
+[node name="PlayerAccessoryLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "플레이어 장신구"
+[node name="PlayerAccessory" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+layout_mode = 2
+[node name="DummyAccessoryLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+layout_mode = 2
+text = "상대 장신구"
+[node name="DummyAccessory" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
+unique_name_in_owner = true
+layout_mode = 2
 [node name="BotProfileLabel" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
 layout_mode = 2
 text = "봇 프로필"
@@ -274,6 +286,12 @@ text = "테스트 시나리오"
 [node name="Scenario" type="OptionButton" parent="Interface/Phase3DebugLauncher/Margin/Content/Options"]
 unique_name_in_owner = true
 layout_mode = 2
+[node name="JobSummary" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.82, 0.9, 1)
+text = "직업 요약"
+autowrap_mode = 2
 [node name="LauncherStatus" type="Label" parent="Interface/Phase3DebugLauncher/Margin/Content"]
 unique_name_in_owner = true
 layout_mode = 2
