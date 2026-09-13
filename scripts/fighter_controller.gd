@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 ## Fixed-tick Phase 1 fighter. Geometry and visual state mirror the authority
 ## state for debugging, but physics overlap and animation never decide hits.
-enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, GUARD, GUARD_BREAK, EVADE_GROUND, EVADE_AIR, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, HITSTUN, KNOCKBACK, RING_OUT, MATCH_ENDED }
+enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, GUARD, GUARD_BREAK, EVADE_GROUND, EVADE_AIR, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, HITSTUN, KNOCKBACK, RING_OUT, MATCH_ENDED }
 
 @export var fighter_id: StringName
 @export var character_data: CharacterData
@@ -39,11 +39,7 @@ var evade_direction := 1
 var action_held := false
 var action_hold_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
 var aerial_evades_remaining := 0
-var charge_ticks := 0
-var pending_heavy_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
 var attack_damage_scale := 1.0
-var attack_knockback_scale := 1.0
-var attack_recovery_bonus_ticks := 0
 var special_cooldowns: Dictionary = {}
 var ultimate_gauge := 0.0
 var ultimate_used := false
@@ -129,11 +125,7 @@ func reset_for_match(rules: CombatRules) -> void:
 	action_held = false
 	action_hold_direction = CombatIntent.Direction.NEUTRAL
 	aerial_evades_remaining = _tuning(rules).aerial_evades_per_airtime
-	charge_ticks = 0
-	pending_heavy_direction = CombatIntent.Direction.NEUTRAL
 	attack_damage_scale = 1.0
-	attack_knockback_scale = 1.0
-	attack_recovery_bonus_ticks = 0
 	special_cooldowns.clear()
 	ultimate_gauge = 0.0
 	ultimate_used = false
@@ -159,11 +151,7 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	if intent.action_id == &"dash":
 		_consume_action_intent(intent, rules)
 		return
-	if intent.action_id == &"attack_heavy" and state == State.CHARGE:
-		if intent.edge == CombatIntent.Edge.RELEASE:
-			_release_charge(rules)
-		return
-	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.MATCH_ENDED, State.HITSTUN, State.KNOCKBACK, State.GUARD, State.GUARD_BREAK, State.EVADE_GROUND, State.EVADE_AIR, State.CHARGE]:
+	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.MATCH_ENDED, State.HITSTUN, State.KNOCKBACK, State.GUARD, State.GUARD_BREAK, State.EVADE_GROUND, State.EVADE_AIR]:
 		return
 	if _try_cancel(intent): return
 	if intent.action_id == &"ultimate":
@@ -173,12 +161,6 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		_try_jump()
 		return
 	if intent.action_id not in [&"attack_light", &"attack_heavy", &"attack_special"]:
-		return
-	if intent.action_id == &"attack_heavy" and is_on_floor() and active_attack == null:
-		charge_ticks = 0
-		pending_heavy_direction = intent.direction
-		velocity.x = 0.0
-		state = State.CHARGE
 		return
 	var next := _select_attack(intent)
 	if next == null:
@@ -216,13 +198,6 @@ func step_tick(rules: CombatRules) -> void:
 		return
 	if state in [State.EVADE_GROUND, State.EVADE_AIR]:
 		_step_evade(rules)
-		_finish_tick()
-		return
-	if state == State.CHARGE:
-		charge_ticks = mini(charge_ticks + 1, _tuning(rules).charge_max_ticks)
-		velocity.x = 0.0
-		_apply_gravity(rules)
-		move_and_slide()
 		_finish_tick()
 		return
 	if state in [State.HITSTUN, State.KNOCKBACK]:
@@ -282,7 +257,7 @@ func resolved_attack_damage() -> float:
 
 
 func resolved_attack_base_knockback() -> float:
-	return active_attack.base_knockback * attack_knockback_scale if active_attack != null else 0.0
+	return active_attack.base_knockback if active_attack != null else 0.0
 
 
 func add_ultimate_from_damage(damage: float, dealt: bool) -> void:
@@ -303,8 +278,6 @@ func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int,
 	launcher_jump_available = false
 	guard_held = false
 	action_held = false
-	charge_ticks = 0
-	pending_heavy_direction = CombatIntent.Direction.NEUTRAL
 	guard_regen_delay_ticks = 0
 	state = State.KNOCKBACK
 
@@ -328,7 +301,6 @@ func release_transient_input(rules: CombatRules) -> void:
 	action_held = false
 	action_hold_direction = CombatIntent.Direction.NEUTRAL
 	guard_hold_ticks = 0
-	charge_ticks = 0
 	if state == State.GUARD:
 		guard_held = false
 		guard_regen_delay_ticks = _tuning(rules).guard_regen_delay_ticks
@@ -349,7 +321,6 @@ func ring_out(rules: CombatRules) -> bool:
 	guard_held = false
 	action_held = false
 	guard_hold_ticks = 0
-	charge_ticks = 0
 	guard_regen_delay_ticks = 0
 	aerial_evades_remaining = 0
 	ultimate_gauge = 0.0
@@ -386,7 +357,6 @@ func snapshot() -> Dictionary:
 		"guard_durability": snappedf(guard_durability, 0.001), "guard_regen_delay_ticks": guard_regen_delay_ticks,
 		"guard_max_durability": snappedf(_active_tuning().guard_max_durability, 0.001),
 		"evade_available": evade_cooldown_ticks <= 0, "evade_cooldown_ticks": evade_cooldown_ticks, "aerial_evades": aerial_evades_remaining,
-		"charge_ticks": charge_ticks, "special_cooldowns": _cooldown_snapshot(),
 		"ultimate_gauge": snappedf(ultimate_gauge, 0.001), "ultimate_max_gauge": snappedf(_active_tuning().ultimate_max_gauge, 0.001), "ultimate_used": ultimate_used,
 	}
 
@@ -516,22 +486,6 @@ func _try_ultimate(intent: CombatIntent, rules: CombatRules) -> void:
 	_start_attack(attack, intent.direction)
 
 
-func _release_charge(rules: CombatRules) -> void:
-	var intent := CombatIntent.new(0, fighter_id, &"attack_heavy", pending_heavy_direction, CombatIntent.Edge.RELEASE, CombatIntent.Context.GROUND)
-	var attack := _select_attack(intent)
-	if attack == null:
-		state = State.IDLE if is_on_floor() else State.FALL
-		return
-	var tuning := _tuning(rules)
-	var ratio := 0.0
-	if charge_ticks >= tuning.charge_start_ticks:
-		ratio = clampf(float(charge_ticks - tuning.charge_start_ticks) / float(maxi(1, tuning.charge_max_ticks - tuning.charge_start_ticks)), 0.0, 1.0)
-	attack_damage_scale = lerpf(1.0, attack.charge_damage_max_multiplier, ratio) if attack.chargeable else 1.0
-	attack_knockback_scale = lerpf(1.0, attack.charge_knockback_max_multiplier, ratio) if attack.chargeable else 1.0
-	attack_recovery_bonus_ticks = roundi(float(attack.charge_recovery_max_bonus_ticks) * ratio) if attack.chargeable else 0
-	_start_attack(attack, pending_heavy_direction)
-
-
 func _step_guard(rules: CombatRules) -> void:
 	var tuning := _tuning(rules)
 	if not is_on_floor() or not guard_held:
@@ -615,13 +569,9 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 
 
 func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
-	var from_charge := state == State.CHARGE
-	if not from_charge:
-		attack_damage_scale = passive_damage_multiplier
-		passive_damage_multiplier = 1.0
-		passive_damage_ticks = 0
-		attack_knockback_scale = 1.0
-		attack_recovery_bonus_ticks = 0
+	attack_damage_scale = passive_damage_multiplier
+	passive_damage_multiplier = 1.0
+	passive_damage_ticks = 0
 	active_attack = next
 	activation_serial += 1
 	attack_phase_tick = 0
@@ -640,8 +590,6 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
 		velocity += next.self_impulse * impulse_scale
 	if next.action_id == &"attack_special" and not next.cooldown_group.is_empty():
 		special_cooldowns[next.cooldown_group] = next.cooldown_ticks
-	charge_ticks = 0
-	pending_heavy_direction = CombatIntent.Direction.NEUTRAL
 	state = State.ATTACK_STARTUP
 
 
@@ -683,7 +631,7 @@ func _advance_attack(rules: CombatRules) -> void:
 	var tuning := _tuning(rules)
 	var startup_limit := active_attack.startup_ticks
 	var active_limit := active_attack.active_ticks
-	var recovery_limit := active_attack.recovery_ticks + attack_recovery_bonus_ticks
+	var recovery_limit := active_attack.recovery_ticks
 	if state == State.ATTACK_STARTUP and attack_phase_tick >= startup_limit:
 		state = State.ATTACK_ACTIVE
 		attack_phase_tick = 0
@@ -700,8 +648,6 @@ func _advance_attack(rules: CombatRules) -> void:
 		var queued := buffered_intent
 		active_attack = null
 		attack_damage_scale = 1.0
-		attack_knockback_scale = 1.0
-		attack_recovery_bonus_ticks = 0
 		buffered_intent = null
 		if queued != null:
 			var next := _select_attack(queued)
@@ -766,7 +712,6 @@ func _respawn(rules: CombatRules) -> void:
 	action_held = false
 	aerial_evades_remaining = _tuning(rules).aerial_evades_per_airtime
 	evade_cooldown_ticks = 0
-	charge_ticks = 0
 	special_cooldowns.clear()
 	ultimate_gauge = 0.0
 	ultimate_used = false
@@ -852,7 +797,6 @@ func _draw() -> void:
 	if state == State.GUARD: color = Color("4d8dff")
 	if state == State.GUARD_BREAK: color = Color("ff6b6b")
 	if state in [State.EVADE_GROUND, State.EVADE_AIR]: color = Color("b883ff")
-	if state == State.CHARGE: color = Color("ff9e4a")
 	if active_attack != null and active_attack.is_ultimate(): color = Color("ffe45e")
 	draw_rect(Rect2(-27, -82, 54, 96), color, true)
 	draw_rect(Rect2(-27, -82, 54, 96), Color("122033"), false, 3.0)

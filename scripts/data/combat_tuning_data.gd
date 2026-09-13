@@ -1,7 +1,7 @@
 class_name CombatTuningData
 extends Resource
 
-const SCHEMA_VERSION := 2
+const SCHEMA_VERSION := 3
 
 @export var schema_version: int = SCHEMA_VERSION
 @export var guard_max_durability: float = 100.0
@@ -18,8 +18,6 @@ const SCHEMA_VERSION := 2
 @export var evade_cooldown_ticks: int = 30
 @export var evade_speed: float = 480.0
 @export var aerial_evades_per_airtime: int = 1
-@export var charge_start_ticks: int = 8
-@export var charge_max_ticks: int = 60
 @export var special_cooldown_ticks: int = 180
 @export var aerial_up_specials_per_airtime: int = 1
 @export var aerial_special_impulse_multiplier: float = 1.0
@@ -45,8 +43,6 @@ func is_valid_definition() -> bool:
 		and evade_cooldown_ticks >= evade_total_ticks \
 		and evade_speed > 0.0 \
 		and aerial_evades_per_airtime >= 0 \
-		and charge_start_ticks > 0 \
-		and charge_max_ticks >= charge_start_ticks \
 		and special_cooldown_ticks > 0 \
 		and aerial_up_specials_per_airtime == 1 \
 		and aerial_special_impulse_multiplier > 0.0 \

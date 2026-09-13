@@ -15,17 +15,10 @@ field = 2
 operation = 2
 value = 24.0
 
-[sub_resource type="Resource" id="ChargeTime"]
-script = ExtResource("2_tuning")
-field = 8
-operation = 2
-value = 48.0
-
 [resource]
 script = ExtResource("1_job")
 schema_version = 4
 job_id = &"ja-hyun-guard-prototype"
 stage = 1
-combat_tuning_modifiers = Array[ExtResource("2_tuning")]([SubResource("GuardCapacity"), SubResource("GuardRegen"), SubResource("ChargeTime")])
-added_passive_ids = Array[StringName]([&"guard-capacity-prototype", &"charge-stability-prototype"])
+combat_tuning_modifiers = Array[ExtResource("2_tuning")]([SubResource("GuardCapacity"), SubResource("GuardRegen")])
 added_tags = Array[StringName]([&"phase3-job", &"guard-specialist"])

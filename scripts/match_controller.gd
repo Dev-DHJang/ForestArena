@@ -216,7 +216,6 @@ func _process_intents() -> void:
 		if fighter == null:
 			continue
 		var was_ultimate_used := fighter.ultimate_used
-		var charge_before := fighter.charge_ticks
 		fighter.consume_intent(intent, rules)
 		if _telemetry.is_match_active():
 			if intent.edge == CombatIntent.Edge.PRESS:
@@ -225,10 +224,6 @@ func _process_intents() -> void:
 				_telemetry.record_evade(false)
 			elif intent.action_id == &"dash" and intent.edge == CombatIntent.Edge.PRESS and intent.direction == CombatIntent.Direction.NEUTRAL:
 				_telemetry.record_guard(false)
-			elif intent.action_id == &"attack_heavy" and intent.edge == CombatIntent.Edge.RELEASE:
-				var tuning := fighter.runtime_profile.combat_tuning
-				var stage := &"normal" if charge_before < tuning.charge_start_ticks else &"maximum" if charge_before >= tuning.charge_max_ticks else &"charged"
-				_telemetry.record_charge_stage(stage)
 			elif intent.action_id == &"attack_special" and fighter.diagnostic == "special_cooldown_active":
 				_telemetry.record_special_cooldown_violation()
 			if not was_ultimate_used and fighter.ultimate_used:

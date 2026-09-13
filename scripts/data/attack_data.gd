@@ -31,10 +31,6 @@ enum AttackKind { NORMAL, ULTIMATE }
 @export var visual_state_id: StringName
 @export var attack_kind: AttackKind = AttackKind.NORMAL
 @export var guard_damage_multiplier: float = 1.0
-@export var chargeable: bool = false
-@export var charge_damage_max_multiplier: float = 1.0
-@export var charge_knockback_max_multiplier: float = 1.0
-@export var charge_recovery_max_bonus_ticks: int = 0
 @export var cooldown_group: StringName
 @export var cooldown_ticks: int = 0
 @export var ultimate_cost: float = 0.0
@@ -58,9 +54,6 @@ func is_valid_definition() -> bool:
 		and max_hits_per_target > 0 \
 		and (max_hits_per_target == 1 or rehit_interval_ticks > 0) \
 		and guard_damage_multiplier >= 0.0 \
-		and charge_damage_max_multiplier >= 1.0 \
-		and charge_knockback_max_multiplier >= 1.0 \
-		and charge_recovery_max_bonus_ticks >= 0 \
 		and (cooldown_group.is_empty() or cooldown_ticks > 0) \
 		and (not cooldown_group.is_empty() or cooldown_ticks == 0) \
 		and (attack_kind != AttackKind.ULTIMATE or ultimate_followup or ultimate_cost > 0.0) \

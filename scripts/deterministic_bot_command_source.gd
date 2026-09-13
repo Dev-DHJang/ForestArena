@@ -53,11 +53,6 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 	var distance := _horizontal_distance(self_snapshot, opponent_snapshot)
 	var opponent_state := String(opponent_snapshot.get("state", ""))
 	var threatened := opponent_state in _ATTACK_STATES and distance <= profile.preferred_distance_min * 1.25
-	if state == "CHARGE":
-		if int(self_snapshot.get("charge_ticks", 0)) >= 30:
-			commands.append(CombatIntent.new(tick, fighter_id, &"attack_heavy", direction, CombatIntent.Edge.RELEASE, CombatIntent.Context.GROUND))
-		return commands
-
 	if state == "GUARD":
 		var edge := CombatIntent.Edge.HOLD if threatened else CombatIntent.Edge.RELEASE
 		commands.append(CombatIntent.new(tick, fighter_id, &"dash", CombatIntent.Direction.NEUTRAL, edge, context))

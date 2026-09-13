@@ -44,7 +44,6 @@ func begin_match(
 			"defense": {"guard_attempts": 0, "guard_successes": 0, "evade_attempts": 0, "evade_successes": 0},
 			"derived_attacks": {"dash_uses": 0, "dash_hits": 0, "air_uses": 0, "air_hits": 0},
 			"special_directions": {},
-			"charge_stages": {},
 			"special_cooldown_violations": 0,
 			"ultimate": {"charge_gained": 0.0, "uses": 0, "hits": 0},
 			"ring_outs": {},
@@ -92,12 +91,6 @@ func record_evade(success: bool) -> void:
 		defense["evade_successes"] = int(defense["evade_successes"]) + 1
 	else:
 		defense["evade_attempts"] = int(defense["evade_attempts"]) + 1
-
-
-func record_charge_stage(stage_id: StringName) -> void:
-	if not _active or stage_id.is_empty():
-		return
-	_increment(_aggregates()["charge_stages"], String(stage_id))
 
 
 func record_special_cooldown_violation() -> void:
