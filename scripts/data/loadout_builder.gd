@@ -3,7 +3,7 @@ extends RefCounted
 
 static func build(selection: LoadoutSelection, catalog: LoadoutCatalog, base_tuning: CombatTuningData = null) -> LoadoutBuildResult:
 	if selection == null or not selection.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_SELECTION)
-	if catalog == null or catalog.schema_version != 2 or not catalog.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_CATALOG)
+	if catalog == null or catalog.schema_version != 3 or not catalog.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_CATALOG)
 	var character := catalog.character_by_id(selection.character_id)
 	if character == null: return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_MISSING_CHARACTER)
 	if character.schema_version != 2 or not character.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNSUPPORTED_SCHEMA)
@@ -39,7 +39,8 @@ static func build(selection: LoadoutSelection, catalog: LoadoutCatalog, base_tun
 			profile.active_accessory_effect_ids.sort()
 	for passive_id: StringName in profile.passive_ids:
 		var passive := catalog.passive_by_id(passive_id)
-		if passive != null: profile.passives.append(passive.duplicate(true) as PassiveData)
+		if passive == null: return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_MISSING_PASSIVE)
+		profile.passives.append(passive.duplicate(true) as PassiveData)
 	profile.passives.sort_custom(func(a: PassiveData, b: PassiveData) -> bool: return a.passive_id < b.passive_id)
 	if not profile.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_INVALID_PROFILE)
 	return LoadoutBuildResult.success(profile)
@@ -51,7 +52,7 @@ static func _job_chain(leaf_id: StringName, catalog: LoadoutCatalog):
 	var current := catalog.job_by_id(leaf_id)
 	if current == null: return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_MISSING_JOB)
 	while current != null:
-		if current.schema_version != 4 or not current.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNSUPPORTED_SCHEMA)
+		if current.schema_version != 5 or not current.is_valid_definition(): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_UNSUPPORTED_SCHEMA)
 		if seen.has(current.job_id): return LoadoutBuildResult.failure(LoadoutBuildResult.ERR_JOB_CYCLE)
 		seen[current.job_id] = true
 		chain.push_front(current)
@@ -77,7 +78,8 @@ static func _apply_layer(profile: RuntimeCombatProfile, layer: Resource) -> Stri
 		modifier.apply_to(profile.stats)
 	var slot_writes: Dictionary = {}
 	for patch: MoveSlotPatch in patches:
-		if slot_writes.has(patch.slot_id) or not profile.move_set.replace_slot(patch.slot_id, patch.replacement.duplicate(true) as AttackData): return LoadoutBuildResult.ERR_CONFLICT
+		var replacement := patch.materialize(profile.move_set)
+		if slot_writes.has(patch.slot_id) or replacement == null or not profile.move_set.replace_slot(patch.slot_id, replacement): return LoadoutBuildResult.ERR_CONFLICT
 		slot_writes[patch.slot_id] = true
 	var tuning_writes: Dictionary = {}
 	for modifier: CombatTuningModifier in tuning_modifiers:
@@ -87,7 +89,9 @@ static func _apply_layer(profile: RuntimeCombatProfile, layer: Resource) -> Stri
 	if not profile.combat_tuning.is_valid_definition(): return LoadoutBuildResult.ERR_INVALID_PROFILE
 	var passive_values: Array = layer.get("added_passive_ids") if _has_property(layer, &"added_passive_ids") else []
 	for value: StringName in passive_values:
-		if not value.is_empty() and not profile.passive_ids.has(value): profile.passive_ids.append(value)
+		if not value.is_empty():
+			if profile.passive_ids.has(value): return LoadoutBuildResult.ERR_CONFLICT
+			profile.passive_ids.append(value)
 	var tag_values: Array = layer.get("added_tags") if _has_property(layer, &"added_tags") else []
 	for value: StringName in tag_values:
 		if not value.is_empty() and not profile.tags.has(value): profile.tags.append(value)

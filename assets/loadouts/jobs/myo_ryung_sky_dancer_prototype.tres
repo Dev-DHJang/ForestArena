@@ -1,10 +1,30 @@
-[gd_resource type="Resource" script_class="JobData" format=3]
+[gd_resource type="Resource" script_class="JobData" load_steps=4 format=3]
 [ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/cancel_rule_data.gd" id="3"]
+[sub_resource type="Resource" id="air"]
+script = ExtResource("2")
+field = 3
+value = 25.0
+[sub_resource type="Resource" id="jump"]
+script = ExtResource("2")
+field = 4
+value = 20.0
+[sub_resource type="Resource" id="cancel"]
+script = ExtResource("3")
+schema_version = 2
+rule_id = &"sky-air-light-jump"
+from_action_id = &"attack_light"
+from_context = 1
+recovery_end_tick = 5
+to_action_id = &"jump"
 [resource]
 script = ExtResource("1")
-schema_version = 4
+schema_version = 5
 job_id = &"myo-ryung-sky-dancer-prototype"
 parent_job_id = &"myo-ryung-aerial-prototype"
 stage = 2
-added_passive_ids = Array[StringName]([&"long-evade-prototype"])
+stat_modifiers = Array[ExtResource("2")]([SubResource("air"), SubResource("jump")])
+added_passive_ids = Array[StringName]([&"sky-dancer-next-air-attack"])
 added_tags = Array[StringName]([&"sky-dancer"])
+cancel_rules = Array[ExtResource("3")]([SubResource("cancel")])

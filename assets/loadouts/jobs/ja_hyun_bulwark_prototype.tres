@@ -1,10 +1,36 @@
-[gd_resource type="Resource" script_class="JobData" format=3]
+[gd_resource type="Resource" script_class="JobData" load_steps=5 format=3]
 [ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/combat_tuning_modifier.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/move_slot_patch.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/data/cancel_rule_data.gd" id="4"]
+[sub_resource type="Resource" id="max"]
+script = ExtResource("2")
+value = 15.0
+[sub_resource type="Resource" id="regen"]
+script = ExtResource("2")
+field = 2
+value = 3.0
+[sub_resource type="Resource" id="patch"]
+script = ExtResource("3")
+slot_id = &"ja-hyun-heavy-side"
+copy_from_slot_id = &"ja-hyun-heavy-side"
+make_non_finisher = true
+[sub_resource type="Resource" id="cancel"]
+script = ExtResource("4")
+schema_version = 2
+rule_id = &"bulwark-heavy-special"
+from_action_id = &"attack_heavy"
+from_context = 0
+recovery_end_tick = 5
+to_action_id = &"attack_special"
 [resource]
 script = ExtResource("1")
-schema_version = 4
+schema_version = 5
 job_id = &"ja-hyun-bulwark-prototype"
 parent_job_id = &"ja-hyun-guard-prototype"
 stage = 2
-added_passive_ids = Array[StringName]([&"guard-capacity-prototype"])
+move_slot_patches = Array[ExtResource("3")]([SubResource("patch")])
+combat_tuning_modifiers = Array[ExtResource("2")]([SubResource("max"), SubResource("regen")])
+added_passive_ids = Array[StringName]([&"bulwark-next-heavy"])
 added_tags = Array[StringName]([&"bulwark"])
+cancel_rules = Array[ExtResource("4")]([SubResource("cancel")])

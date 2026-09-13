@@ -4,7 +4,7 @@ extends Resource
 enum Trigger { ON_ATTACK_HIT, ON_GUARDED_HIT, ON_EVADE_END }
 enum Effect { NEXT_ATTACK_DAMAGE_MULTIPLIER, SPECIAL_COOLDOWN_REDUCTION, GUARD_RESTORE, EVADE_COOLDOWN_REDUCTION }
 
-@export var schema_version := 1
+@export var schema_version := 2
 @export var passive_id: StringName
 @export var trigger: Trigger
 @export var effect: Effect
@@ -13,10 +13,13 @@ enum Effect { NEXT_ATTACK_DAMAGE_MULTIPLIER, SPECIAL_COOLDOWN_REDUCTION, GUARD_R
 @export var cooldown_ticks := 0
 @export var action_filter: StringName
 @export var requires_dash := false
+@export var trigger_context: AttackData.ActivationContext = AttackData.ActivationContext.BOTH
+@export var consume_action_id: StringName
+@export var consume_context: AttackData.ActivationContext = AttackData.ActivationContext.BOTH
 
 
 func is_valid_definition() -> bool:
-	if schema_version != 1 or passive_id.is_empty() or value <= 0.0 or cooldown_ticks < 0:
+	if schema_version != 2 or passive_id.is_empty() or value <= 0.0 or cooldown_ticks < 0:
 		return false
 	if effect == Effect.NEXT_ATTACK_DAMAGE_MULTIPLIER and (value < 1.0 or duration_ticks <= 0):
 		return false

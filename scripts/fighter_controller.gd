@@ -57,6 +57,8 @@ var runtime_profile: RuntimeCombatProfile
 var passive_cooldowns: Dictionary = {}
 var passive_damage_multiplier := 1.0
 var passive_damage_ticks := 0
+var passive_consume_action: StringName
+var passive_consume_context := AttackData.ActivationContext.BOTH
 
 
 func _ready() -> void:
@@ -133,6 +135,8 @@ func reset_for_match(rules: CombatRules) -> void:
 	passive_cooldowns.clear()
 	passive_damage_multiplier = 1.0
 	passive_damage_ticks = 0
+	passive_consume_action = &""
+	passive_consume_context = AttackData.ActivationContext.BOTH
 	invulnerability_ticks = 0
 	respawn_ticks = 0
 	hitstun_ticks = 0
@@ -149,6 +153,8 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		input_direction = CombatIntent.Direction.NEUTRAL if intent.edge == CombatIntent.Edge.RELEASE else intent.direction
 		return
 	if intent.action_id == &"dash":
+		if intent.edge == CombatIntent.Edge.PRESS and _try_cancel(intent):
+			return
 		_consume_action_intent(intent, rules)
 		return
 	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.MATCH_ENDED, State.HITSTUN, State.KNOCKBACK, State.GUARD, State.GUARD_BREAK, State.EVADE_GROUND, State.EVADE_AIR]:
@@ -326,6 +332,9 @@ func ring_out(rules: CombatRules) -> bool:
 	ultimate_gauge = 0.0
 	ultimate_used = false
 	ultimate_followup_pending = false
+	passive_cooldowns.clear()
+	passive_damage_multiplier = 1.0
+	passive_damage_ticks = 0
 	respawn_ticks = rules.respawn_delay_ticks
 	state = State.RING_OUT
 	return true
@@ -342,6 +351,9 @@ func begin_sudden_death(rules: CombatRules) -> void:
 	ultimate_gauge = 0.0
 	ultimate_used = false
 	ultimate_followup_pending = false
+	passive_cooldowns.clear()
+	passive_damage_multiplier = 1.0
+	passive_damage_ticks = 0
 	respawn_ticks = rules.respawn_delay_ticks
 	state = State.RING_OUT
 
@@ -397,7 +409,9 @@ func _step_resource_timers() -> void:
 		passive_cooldowns[passive_id] = maxi(0, int(passive_cooldowns[passive_id]) - 1)
 	if passive_damage_ticks > 0:
 		passive_damage_ticks -= 1
-		if passive_damage_ticks == 0: passive_damage_multiplier = 1.0
+		if passive_damage_ticks == 0:
+			passive_damage_multiplier = 1.0
+			passive_consume_action = &""
 	if evade_cooldown_ticks > 0:
 		evade_cooldown_ticks -= 1
 	for group: StringName in special_cooldowns.keys():
@@ -569,9 +583,13 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 
 
 func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
-	attack_damage_scale = passive_damage_multiplier
-	passive_damage_multiplier = 1.0
-	passive_damage_ticks = 0
+	var next_context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
+	var consumes_passive := (passive_consume_action.is_empty() or passive_consume_action == next.action_id) and (passive_consume_context == AttackData.ActivationContext.BOTH or passive_consume_context == next_context)
+	attack_damage_scale = passive_damage_multiplier if consumes_passive else 1.0
+	if consumes_passive:
+		passive_damage_multiplier = 1.0
+		passive_damage_ticks = 0
+		passive_consume_action = &""
 	active_attack = next
 	activation_serial += 1
 	attack_phase_tick = 0
@@ -599,6 +617,8 @@ func _try_cancel(intent: CombatIntent) -> bool:
 	for rule: CancelRuleData in runtime_profile.cancel_rules:
 		if rule.from_action_id != active_attack.action_id or rule.to_action_id != intent.action_id or attack_phase_tick < rule.recovery_start_tick or attack_phase_tick > rule.recovery_end_tick: continue
 		if rule.from_context != AttackData.ActivationContext.BOTH and rule.from_context != context: continue
+		if rule.from_requires_dash and not active_attack.requires_dash: continue
+		if not rule.allowed_directions.is_empty() and not rule.allowed_directions.has(intent.direction): continue
 		var next := _select_attack(intent)
 		if next == null: return false
 		active_attack = null
@@ -613,11 +633,15 @@ func _trigger_passives(trigger: PassiveData.Trigger, attack: AttackData) -> void
 		if passive.trigger != trigger or int(passive_cooldowns.get(passive.passive_id, 0)) > 0: continue
 		if not passive.action_filter.is_empty() and (attack == null or attack.action_id != passive.action_filter): continue
 		if passive.requires_dash and (attack == null or not attack.requires_dash): continue
+		var context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
+		if passive.trigger_context != AttackData.ActivationContext.BOTH and passive.trigger_context != context: continue
 		passive_cooldowns[passive.passive_id] = passive.cooldown_ticks
 		match passive.effect:
 			PassiveData.Effect.NEXT_ATTACK_DAMAGE_MULTIPLIER:
 				passive_damage_multiplier = passive.value
 				passive_damage_ticks = passive.duration_ticks
+				passive_consume_action = passive.consume_action_id
+				passive_consume_context = passive.consume_context
 			PassiveData.Effect.SPECIAL_COOLDOWN_REDUCTION:
 				for group: Variant in special_cooldowns.keys(): special_cooldowns[group] = maxi(0, int(special_cooldowns[group]) - roundi(passive.value))
 			PassiveData.Effect.GUARD_RESTORE:

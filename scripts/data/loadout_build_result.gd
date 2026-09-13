@@ -12,6 +12,8 @@ const ERR_INVALID_PARENT := &"invalid_parent"
 const ERR_JOB_CYCLE := &"job_cycle"
 const ERR_CONFLICT := &"conflict"
 const ERR_INVALID_PROFILE := &"invalid_profile"
+const ERR_MISSING_PASSIVE := &"missing_passive"
+const ERR_DEPRECATED_FIELD := &"deprecated_field"
 
 var profile: RuntimeCombatProfile
 var error_codes: Array[StringName] = []

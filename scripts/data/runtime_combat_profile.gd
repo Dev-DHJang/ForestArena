@@ -1,7 +1,7 @@
 class_name RuntimeCombatProfile
 extends RefCounted
 
-const SCHEMA_VERSION := 4
+const SCHEMA_VERSION := 5
 
 var schema_version := SCHEMA_VERSION
 var character_id: StringName

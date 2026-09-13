@@ -12,7 +12,7 @@ func _init() -> void:
 		var result := LoadoutBuilder.build(selection, catalog, rules.combat_tuning)
 		_check(result.succeeded() and result.profile.job_chain_ids.size() == 2, "leaf did not build a two-stage chain: %s" % item[1])
 	var old := JobData.new()
-	old.schema_version = 3
+	old.schema_version = 4
 	old.job_id = &"old"
 	_check(not old.is_valid_definition(), "JobData v3 accepted")
 	if failures.is_empty(): print("PHASE5_JOB_GROWTH: PASS")

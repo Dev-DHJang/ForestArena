@@ -1,7 +1,7 @@
 class_name JobData
 extends Resource
 
-@export var schema_version: int = 4
+@export var schema_version: int = 5
 @export var job_id: StringName
 @export var parent_job_id: StringName
 @export_range(1, 2, 1) var stage: int = 1
@@ -14,7 +14,7 @@ extends Resource
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 4 and not job_id.is_empty() and stage >= 1 and _has_unique_writes()
+	return schema_version == 5 and not job_id.is_empty() and stage >= 1 and _has_unique_writes()
 
 
 func _has_unique_writes() -> bool:

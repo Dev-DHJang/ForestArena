@@ -1,10 +1,54 @@
-[gd_resource type="Resource" script_class="JobData" format=3]
+[gd_resource type="Resource" script_class="JobData" load_steps=5 format=3]
 [ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/move_slot_patch.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/data/cancel_rule_data.gd" id="4"]
+[sub_resource type="Resource" id="speed"]
+script = ExtResource("2")
+field = 2
+value = 12.0
+[sub_resource type="Resource" id="side"]
+script = ExtResource("3")
+slot_id = &"nabi-heavy-side"
+copy_from_slot_id = &"nabi-heavy-side"
+guard_damage_multiplier = 1.25
+make_non_finisher = true
+[sub_resource type="Resource" id="up"]
+script = ExtResource("3")
+slot_id = &"nabi-heavy-up"
+copy_from_slot_id = &"nabi-heavy-up"
+guard_damage_multiplier = 1.25
+[sub_resource type="Resource" id="down"]
+script = ExtResource("3")
+slot_id = &"nabi-heavy-down"
+copy_from_slot_id = &"nabi-heavy-down"
+guard_damage_multiplier = 1.25
+[sub_resource type="Resource" id="dash"]
+script = ExtResource("3")
+slot_id = &"nabi-dash-heavy"
+copy_from_slot_id = &"nabi-dash-heavy"
+guard_damage_multiplier = 1.25
+[sub_resource type="Resource" id="air"]
+script = ExtResource("3")
+slot_id = &"nabi-air-heavy"
+copy_from_slot_id = &"nabi-air-heavy"
+guard_damage_multiplier = 1.25
+[sub_resource type="Resource" id="cancel"]
+script = ExtResource("4")
+schema_version = 2
+rule_id = &"iron-heavy-dash"
+from_action_id = &"attack_heavy"
+from_context = 0
+recovery_end_tick = 5
+to_action_id = &"dash"
 [resource]
 script = ExtResource("1")
-schema_version = 4
+schema_version = 5
 job_id = &"nabi-iron-pounce-prototype"
 parent_job_id = &"nabi-close-pressure-prototype"
 stage = 2
-added_passive_ids = Array[StringName]([&"guard-capacity-prototype"])
+stat_modifiers = Array[ExtResource("2")]([SubResource("speed")])
+move_slot_patches = Array[ExtResource("3")]([SubResource("side"), SubResource("up"), SubResource("down"), SubResource("dash"), SubResource("air")])
+added_passive_ids = Array[StringName]([&"iron-pounce-evade-cooldown"])
 added_tags = Array[StringName]([&"iron-pounce"])
+cancel_rules = Array[ExtResource("4")]([SubResource("cancel")])

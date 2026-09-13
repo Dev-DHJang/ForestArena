@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PassiveData" format=3]
+[ext_resource type="Script" path="res://scripts/data/passive_data.gd" id="1"]
+[resource]
+script = ExtResource("1")
+schema_version = 2
+passive_id = &"gale-diver-special-cooldown"
+trigger = 0
+effect = 1
+value = 12.0
+cooldown_ticks = 60

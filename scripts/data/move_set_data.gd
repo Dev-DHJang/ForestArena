@@ -37,3 +37,10 @@ func replace_slot(slot_id: StringName, replacement: AttackData) -> bool:
 			slot.attack = replacement
 			return true
 	return false
+
+
+func attack_for_slot(slot_id: StringName) -> AttackData:
+	for slot: MoveSlotData in slots:
+		if slot.slot_id == slot_id:
+			return slot.attack
+	return null

@@ -11,9 +11,8 @@ value = 12.0
 
 [resource]
 script = ExtResource("1_job")
-schema_version = 4
+schema_version = 5
 job_id = &"ja-hyun-prototype-job"
 stage = 1
 stat_modifiers = Array[ExtResource("2_modifier")]([SubResource("StatModifier_speed")])
-added_passive_ids = Array[StringName]([&"prototype-steady-step"])
 added_tags = Array[StringName]([&"prototype-job"])

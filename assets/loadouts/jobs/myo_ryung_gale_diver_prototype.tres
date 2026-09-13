@@ -1,10 +1,33 @@
-[gd_resource type="Resource" script_class="JobData" format=3]
+[gd_resource type="Resource" script_class="JobData" load_steps=4 format=3]
 [ext_resource type="Script" path="res://scripts/data/job_data.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/move_slot_patch.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/cancel_rule_data.gd" id="3"]
+[sub_resource type="Resource" id="down"]
+script = ExtResource("2")
+slot_id = &"myo-ryung-special-down"
+copy_from_slot_id = &"myo-ryung-special-down"
+startup_delta = -1
+damage_delta = 1.0
+[sub_resource type="Resource" id="heavy"]
+script = ExtResource("2")
+slot_id = &"myo-ryung-air-heavy"
+copy_from_slot_id = &"myo-ryung-air-heavy"
+make_non_finisher = true
+[sub_resource type="Resource" id="cancel"]
+script = ExtResource("3")
+schema_version = 2
+rule_id = &"gale-air-heavy-special"
+from_action_id = &"attack_heavy"
+from_context = 1
+recovery_end_tick = 5
+to_action_id = &"attack_special"
 [resource]
 script = ExtResource("1")
-schema_version = 4
+schema_version = 5
 job_id = &"myo-ryung-gale-diver-prototype"
 parent_job_id = &"myo-ryung-aerial-prototype"
 stage = 2
-added_passive_ids = Array[StringName]([&"aerial-special-impulse-prototype"])
+move_slot_patches = Array[ExtResource("2")]([SubResource("down"), SubResource("heavy")])
+added_passive_ids = Array[StringName]([&"gale-diver-special-cooldown"])
 added_tags = Array[StringName]([&"gale-diver"])
+cancel_rules = Array[ExtResource("3")]([SubResource("cancel")])

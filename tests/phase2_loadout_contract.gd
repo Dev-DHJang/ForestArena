@@ -40,7 +40,7 @@ func _test_parent_order_and_conflicts(character: CharacterData) -> void:
 	leaf.stage = 2
 	leaf.stat_modifiers = [_modifier(StatModifier.Field.GROUND_SPEED, 5.0)]
 	var synthetic := LoadoutCatalog.new()
-	synthetic.schema_version = 2
+	synthetic.schema_version = 3
 	synthetic.characters = [character]
 	synthetic.jobs = [root, leaf]
 	var selected := LoadoutSelection.new()
