@@ -1,10 +1,11 @@
 # Forest Arena Penpot 설계 기준
 
-이 문서는 `Forest_Arena` 팀의 `Forest_Arena_UI` 파일에서 비전투 UI를 설계하기 위한 로컬 작업 계약이다. Phase 2 종료 시점에는 설계 계약과 카탈로그만 존재하며 Penpot 파일 편집, 이미지 생성과 24개 Godot 화면 구현은 후속 작업이다.
+이 문서는 `Forest_Arena` 프로젝트의 `Forest_Arena_UI` 파일에서 비전투 화면과 전투 표현 UI를 설계하기 위한 작업 계약이다. Phase 2 종료 시점에는 설계 계약과 카탈로그만 존재하며, Penpot 편집은 사용자 요청으로 수행할 수 있지만 Godot 화면·이미지·계정·경제·온라인 기능 구현은 후속 작업이다.
 
 ## 권위 원본
 
 - 화면·제품 규칙: [non-combat-ui-v01.json](non-combat-ui-v01.json)
+- 전투 표현·터치 기준: [combat-ui-v01.json](combat-ui-v01.json)
 - 요구 에셋·출력 경로: [asset-requirements.csv](../../assets/ui/asset-requirements.csv)
 - UI 작업 절차: `forest-arena-ui/references/penpot-workflow.md`
 - Penpot 제작 프롬프트: `forest-arena-ui/templates/penpot-master-prompt.md`
@@ -21,7 +22,7 @@
 - `SCR_01_Splash`: 캐릭터 금지. 환경·로고·로딩만 사용한다.
 - 장신구: 등급·희귀도 없음. 별, 티어, 희귀도 색상 테두리, 전설/영웅 라벨을 사용하지 않는다.
 - 누락 자산: 정확한 `IMG/...` 이름의 비율 보존 플레이스홀더를 만들고 보이는 `MISSING ASSETS` 목록에 기록한다.
-- 실시간 전투 HUD와 경기장 UI는 이 계약 범위가 아니다.
+- 전투 HUD와 경기장 UI는 `combat-ui-v01.json`에 한해 설계할 수 있다. HUD는 전투 결과를 계산하지 않으며 Phase 3 이후 조작 버튼을 현재 작동하는 UI처럼 표시하지 않는다.
 
 ## Local Penpot MCP
 

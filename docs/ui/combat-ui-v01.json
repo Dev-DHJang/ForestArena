@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "accepted-design-contract",
+  "scope": {
+    "current_phase": 2,
+    "deliverable": "penpot-combat-ui-design",
+    "godot-runtime_implementation": false,
+    "combat_authority": "read-only-presentation",
+    "future_phase_controls_visible_as_current": false
+  },
+  "resolution": {
+    "penpot_reference": [1920, 1080],
+    "runtime_logical": [1280, 720],
+    "orientation": "landscape",
+    "responsive_review": ["16:9", "20:9"]
+  },
+  "layout": {
+    "grid_columns": 12,
+    "spacing_px": 8,
+    "horizontal_margin_px": 96,
+    "top_bar_px": 112,
+    "bottom_navigation_px": 120,
+    "minimum_icon_touch_target_px": 72
+  },
+  "current_input_baseline": {
+    "status": "implemented-runtime-baseline",
+    "safe_edge_ratio": 0.065,
+    "input_bottom_start_ratio": 0.58,
+    "left": "four-direction-pad",
+    "right_actions": ["dash", "jump", "attack_light", "attack_heavy", "attack_special"],
+    "proposed_layout_changes_modify_runtime": false
+  },
+  "presentation_rules": {
+    "hud_calculates_combat": false,
+    "displayed_match_data": ["damage_percent", "stocks", "winner_id", "sudden_death_round", "fighter_state"],
+    "state_requires_color_and_non_color_signal": true,
+    "prohibited_current_controls": ["guard", "evade", "grab_support", "ultimate"],
+    "focus_loss_behavior": "release_inputs_then_pause",
+    "resume_behavior": "explicit-resume-prompt"
+  },
+  "screens": [
+    {"id": "CBT_01_Match_1v1", "kind": "runtime-baseline", "requirements": ["two player chips", "damage percent", "stocks", "current touch controls"]},
+    {"id": "CBT_02_Match_Solo8", "kind": "future-concept", "requirements": ["eight-player readability", "compact player chips", "off-screen indicators"]},
+    {"id": "CBT_03_Match_Team4v4", "kind": "future-concept", "requirements": ["two teams of four", "team color plus labels and shape", "maximum eight players"]},
+    {"id": "CBT_04_Practice", "kind": "runtime-baseline", "requirements": ["practice label", "read-only training status", "current touch controls"]},
+    {"id": "CBT_05_ControlPressed", "kind": "runtime-baseline", "requirements": ["pressed direction", "pressed action", "unpressed actions remain legible"]},
+    {"id": "CBT_06_RingOutRespawn", "kind": "runtime-baseline", "requirements": ["stock loss", "respawn status", "no result calculation"]},
+    {"id": "CBT_07_SuddenDeath", "kind": "runtime-baseline", "requirements": ["sudden death round", "reset damage and one stock presentation", "non-color alert"]},
+    {"id": "CBT_08_Pause", "kind": "runtime-baseline", "requirements": ["paused state", "input cleared", "resume action"]},
+    {"id": "CBT_09_ResumePrompt", "kind": "runtime-baseline", "requirements": ["explicit resume", "focus-return context", "no implicit continuation"]},
+    {"id": "CBT_10_MatchEndTransition", "kind": "runtime-baseline", "requirements": ["winner transition", "continue to SCR_16_Victory", "no rewards or rank calculation"]}
+  ],
+  "proposed_review_frames": [
+    {"id": "CBT_PROP_01_16x9_SafeArea", "status": "proposed", "requirements": ["preserve baseline semantics", "all action visuals inside safe area"]},
+    {"id": "CBT_PROP_02_20x9_SafeArea", "status": "proposed", "requirements": ["background may extend", "controls stay inside device inset guide"]}
+  ],
+  "asset_mapping": {
+    "source": "assets/ui/combat-asset-requirements.csv",
+    "logical_id_count": 8,
+    "placeholder_policy": "exact-logical-id-visible-until-approved"
+  }
+}

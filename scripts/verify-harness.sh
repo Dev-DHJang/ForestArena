@@ -6,7 +6,7 @@ cd "$ROOT"
 fail() { echo "verify-harness: FAIL: $*" >&2; exit 1; }
 check_file() { [ -f "$1" ] || fail "missing file: $1"; }
 
-for path in AGENTS.md README.md project.godot export_presets.cfg docs/01_product_vision.md docs/02_game_design.md docs/03_features_and_ux.md docs/04_technical_architecture.md docs/05_content_art_audio.md docs/06_roadmap_and_acceptance.md docs/07_ai_development_guide.md docs/DECISIONS.md docs/character-appearance-v01.json docs/ui/non-combat-ui-v01.json docs/ui/penpot-setup.md tests/ui_design_contract.gd assets/ui/.gdignore assets/ui/asset-requirements.csv .codex/config.toml.example scripts/start-penpot-mcp.sh docs/harness/forest-arena/team-spec.md docs/harness/forest-arena/operating-index.md
+for path in AGENTS.md README.md project.godot export_presets.cfg docs/01_product_vision.md docs/02_game_design.md docs/03_features_and_ux.md docs/04_technical_architecture.md docs/05_content_art_audio.md docs/06_roadmap_and_acceptance.md docs/07_ai_development_guide.md docs/DECISIONS.md docs/character-appearance-v01.json docs/ui/non-combat-ui-v01.json docs/ui/combat-ui-v01.json docs/ui/penpot-setup.md tests/ui_design_contract.gd tests/combat_ui_design_contract.gd assets/ui/.gdignore assets/ui/asset-requirements.csv assets/ui/combat-asset-requirements.csv .codex/config.toml.example scripts/start-penpot-mcp.sh docs/harness/forest-arena/team-spec.md docs/harness/forest-arena/operating-index.md
 do
   check_file "$path"
 done

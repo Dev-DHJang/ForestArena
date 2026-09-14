@@ -16,6 +16,7 @@ godot --headless --path . --script res://tests/character_motion_contract.gd
 godot --headless --path . --script res://tests/character_attack_motion_contract.gd
 godot --headless --path . --script res://tests/combat_concept_contract.gd
 godot --headless --path . --script res://tests/ui_design_contract.gd
+godot --headless --path . --script res://tests/combat_ui_design_contract.gd
 ./scripts/verify-harness.sh
 
 echo "Forest Arena Phase 2 verification passed."
