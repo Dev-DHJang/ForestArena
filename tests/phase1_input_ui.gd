@@ -3,6 +3,7 @@ extends SceneTree
 
 func _initialize() -> void:
 	var failures: PackedStringArray = []
+	var resources := root.get_node("ForestArenaResources")
 	var instance := (load("res://scenes/main.tscn") as PackedScene).instantiate()
 	root.add_child(instance)
 	await process_frame
@@ -10,6 +11,47 @@ func _initialize() -> void:
 	controller.set_physics_process(false)
 	var touch := instance.get_node("Interface/TouchCommandSource")
 	var player := controller.player
+
+	# The active combat surface consumes registered textures while labels remain native UI text.
+	var background := instance.get_node("ArenaVisual/Background") as TextureRect
+	var hud_panel := instance.get_node("Interface/HudPanel") as NinePatchRect
+	var restart := instance.get_node("Interface/Restart") as Button
+	var dpad_visual := touch.get_node("DPadVisual") as TextureRect
+	var dash_visual := touch.get_node("DashVisual") as TextureRect
+	if background.texture == null: failures.append("combat background resource was not applied")
+	if hud_panel.texture == null: failures.append("HUD panel resource was not applied")
+	var restart_style := restart.get_theme_stylebox("normal") as StyleBoxTexture
+	if restart_style == null or restart_style.texture == null: failures.append("restart button resource was not applied")
+	if dpad_visual.texture == null or dash_visual.texture == null: failures.append("touch control resources were not applied")
+	if not (dash_visual.get_child(0) is Label) or (dash_visual.get_child(0) as Label).text != "DASH":
+		failures.append("action button label is not native Godot text")
+	if not (instance.get_node("Interface/ResourceWarnings") as Label).text.is_empty():
+		failures.append("registered combat UI resources reported as missing")
+
+	# Resource visuals follow the same press/release state as semantic input.
+	touch.call("_press", 21, &"move_up")
+	if dpad_visual.texture.resource_path != resources.resource_path("fa.ui.combat.dpad.up"):
+		failures.append("D-pad pressed texture did not follow move_up")
+	touch.call("_press", 22, &"dash")
+	if dash_visual.texture.resource_path != resources.resource_path("fa.ui.combat.action.pressed"):
+		failures.append("action pressed texture did not follow dash")
+	touch.call("_release", 21)
+	touch.call("_release", 22)
+	if dpad_visual.texture.resource_path != resources.resource_path("fa.ui.combat.dpad.default"):
+		failures.append("D-pad visual did not return to default")
+	if dash_visual.texture.resource_path != resources.resource_path("fa.ui.combat.action.default"):
+		failures.append("action visual did not return to default")
+
+	# Only the quality-dependent backdrop changes across profiles.
+	var original_quality: String = resources.quality
+	var action_path: String = dash_visual.texture.resource_path
+	for quality: String in ["high", "medium", "low"]:
+		resources.set_quality(quality)
+		if background.texture.resource_path != resources.resource_path("fa.background.combat.training.arena"):
+			failures.append("combat background did not follow %s quality" % quality)
+		if dash_visual.texture.resource_path != action_path:
+			failures.append("common action texture changed with %s quality" % quality)
+	resources.set_quality(original_quality)
 
 	# Drag transitions release the previous pointer action and press one dominant axis.
 	touch.call("_press", 20, &"move_left")

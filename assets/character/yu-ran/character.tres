@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_data"]
+[ext_resource type="Resource" path="res://assets/combat/movesets/yu_ran_moveset.tres" id="2_moves"]
+[ext_resource type="Script" path="res://scripts/data/character_stats.gd" id="3_stats"]
+[ext_resource type="Texture2D" path="res://assets/character/yu-ran/concept/yu-ran-concept-v01.png" id="4_image"]
+
+[sub_resource type="Resource" id="CharacterStats_yu_ran"]
+script = ExtResource("3_stats")
+survivability = 100.0
+weight = 1.0
+ground_speed = 320.0
+air_speed = 300.0
+jump_velocity = 540.0
+gravity = 1385.0
+dash_speed = 520.0
+dash_duration_seconds = 0.16
+air_jump_count = 1
+
+[resource]
+script = ExtResource("1_data")
+character_id = &"yu-ran"
+display_name = "유란"
+concept_asset_id = &"yu-ran-concept-v01"
+concept_image = ExtResource("4_image")
+concept_summary = "큰 갈색·흰색 줄무늬 꼬리와 둥근 귀 두 개, 은회색 머리, 갈색·흰색·검정 스트리트웨어와 청록색 보석을 갖춘 3등신 성인 여성 족제비계 인간형 격투가. 큰 꼬리 쓸기로 전방 공간을 읽기 쉽게 장악한다."
+background_setting = "안개늪 출신의 현실적이고 직설적인 추적자다. 서굴과 안개늪의 협력을 지키려 하며 자현과는 불편한 협력에서 전장 신뢰를 쌓는다."
+combat_role = "기동·공간 장악형 근접 격투가"
+tags = Array[StringName]([&"weasel", &"controller", &"mobile"])
+move_slot_ids = Array[StringName]([&"yu-ran-light-combo", &"yu-ran-tail-sweep", &"yu-ran-tail-vault"])
+passive_description = "넓은 꼬리 쓸기로 접근 경로를 확인한 뒤 위치를 유지하는 전투 방향이다. 실제 상시 효과는 향후 PassiveData에서 정의한다."
+base_stats = SubResource("CharacterStats_yu_ran")
+base_move_set = ExtResource("2_moves")

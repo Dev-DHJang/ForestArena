@@ -12,7 +12,7 @@ description: 결정론적 Forest Arena 2D 이동·상태·공격·피격 판정�
 
 ## 필수 입력
 
-- 현재 Phase, docs/02_game_design.md, docs/04_technical_architecture.md와 관련 ADR.
+- 현재 Phase, docs/gameplay/combat.md, docs/engineering/architecture.md와 관련 ADR.
 - 공격·상태 데이터, 계약, 수용 기준과 UI·시각 소비자.
 
 ## 작업 흐름

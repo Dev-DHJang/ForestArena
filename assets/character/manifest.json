@@ -12,12 +12,15 @@
         "version": "v01"
       },
       "rights": {
-        "status": "user-provided final asset; external license verification not asserted",
+        "status": "user-provided original final asset; user asserts it is safe to use; external license verification not asserted",
         "references": []
       },
-      "verified_on": "2026-09-07",
-      "sha256": "033e0f780387d69faeb7b02db34c70abd1cd3aee7255739cde37018ee292d860",
-      "modifications": ["Relocated from assets/character/concept/JaHyun.png without pixel changes."],
+      "verified_on": "2026-09-15",
+      "sha256": "0822de75713db985451c8d6e0022d43bfc54072d74a14d123770f2dc34fdd67c",
+      "modifications": [
+        "Relocated from assets/character/concept/JaHyun.png without pixel changes.",
+        "2026-09-15: Replaced in place with the user-provided original final asset. The replacement preserves the approved human-form mouse silhouette, white-black-cobalt streetwear, one thin tail, and long cobalt ribbons; the small emblems are user-provided original abstract mouse motifs."
+      ],
       "consumer_path": "res://assets/character/ja-hyun/character.tres"
     },
     {
@@ -336,6 +339,66 @@
       "consumer_path": "res://assets/character/myo-ryung/animation/runtime/attack_light_combo_04.tres",
       "visual_state_id": "attack_light_combo_04", "combo_index": 4, "is_finisher": true,
       "acting_purpose": "leaping spin-kick with opened ears and ribbon"
+    },
+    {
+      "asset_id": "yu-ran-concept-v01",
+      "character_id": "yu-ran",
+      "type": "concept",
+      "path": "assets/character/yu-ran/concept/yu-ran-concept-v01.png",
+      "creation": {"method": "user-provided final asset", "provider": "user", "version": "v01"},
+      "rights": {"status": "user-provided final asset; project registration requested by user; external license verification not asserted", "references": []},
+      "verified_on": "2026-09-15",
+      "sha256": "f3c4109c97cb9c79d85352dc6270628a741d4bc2a3f3667ed0ffa264a4f8cc12",
+      "modifications": ["Registered unchanged from the user-provided final asset."],
+      "consumer_path": "res://assets/character/yu-ran/character.tres"
+    },
+    {
+      "asset_id": "yu-ran-idle-16f-r01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/idle_16f.png",
+      "creation": {"method": "normalized from user-approved r02 base review", "provider": "OpenAI image generation plus project-local normalization", "version": "r01"},
+      "rights": {"status": "derived from the user-provided yu-ran concept; external license verification not asserted", "references": ["User basic-motion approval, 2026-09-15"]},
+      "verified_on": "2026-09-15",
+      "sha256": "a0c7195f551d8081ab1a8d3c0dd953ac2eeaee229b055f4daab6ac34e3f9d224",
+      "modifications": ["Normalized the approved 4x4 review frames into a 16-frame RGBA runtime sheet.", "Aligned cells to a common lower foot baseline and retained actual alpha."],
+      "frame_count": 16,
+      "fps": 8,
+      "loop": true,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/idle.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/idle.tres"
+    },
+    {
+      "asset_id": "yu-ran-run-16f-r01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/run_16f.png",
+      "creation": {"method": "normalized from user-approved r04 base review", "provider": "OpenAI image generation plus project-local normalization", "version": "r01"},
+      "rights": {"status": "derived from the user-provided yu-ran concept; external license verification not asserted", "references": ["User basic-motion approval, 2026-09-15"]},
+      "verified_on": "2026-09-15",
+      "sha256": "bc523bcf1aedf8c7aa8d5686cb7666a404e1f21224d2720d544061c2e7c607f4",
+      "modifications": ["Normalized the approved 4x4 review frames into a 16-frame RGBA runtime sheet.", "Applied actual-alpha cleanup and aligned cells to a common lower foot baseline."],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": true,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/run.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/run.tres"
+    },
+    {
+      "asset_id": "yu-ran-jump-16f-r01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/jump_16f.png",
+      "creation": {"method": "normalized from user-approved r02 base review", "provider": "OpenAI image generation plus project-local normalization", "version": "r01"},
+      "rights": {"status": "derived from the user-provided yu-ran concept; external license verification not asserted", "references": ["User basic-motion approval, 2026-09-15"]},
+      "verified_on": "2026-09-15",
+      "sha256": "64064dabb18fe81dfacb4eb911648d3a84da8eed38b238165e3a38ee58f77412",
+      "modifications": ["Normalized the approved 4x4 review frames into a 16-frame RGBA runtime sheet.", "Aligned cells to a common lower foot baseline and retained actual alpha."],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/jump.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/jump.tres"
     }
   ]
 }

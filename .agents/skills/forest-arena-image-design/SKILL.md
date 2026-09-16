@@ -13,9 +13,9 @@ description: 작은 Android 화면용 독창적 Forest Arena 콘셉트·초상�
 
 ## 필수 입력
 
-- 현재 Phase, docs/05_content_art_audio.md, 용도·크기·카메라와 아트 방향.
+- 현재 Phase, docs/content/art-and-audio.md, 용도·크기·카메라와 아트 방향.
 - 캐릭터·직업·장신구 ID, 원본성·라이선스 조건과 소비자.
-- 승인 캐릭터를 표현하면 `docs/character-appearance-v01.json`의 해당 외형 항목.
+- 승인 캐릭터를 표현하면 `docs/contracts/character-appearance-v01.json`의 해당 외형 항목.
 - 비전투 UI 이미지면 assets/ui/asset-requirements.csv의 정확한 슬롯·출력 경로·상태·승인 의존성.
 
 ## 작업 흐름

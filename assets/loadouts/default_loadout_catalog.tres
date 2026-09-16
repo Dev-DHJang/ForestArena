@@ -4,11 +4,12 @@
 [ext_resource type="Resource" path="res://assets/character/ja-hyun/character.tres" id="2_ja"]
 [ext_resource type="Resource" path="res://assets/character/myo-ryung/character.tres" id="3_myo"]
 [ext_resource type="Resource" path="res://assets/character/nabi/character.tres" id="4_nabi"]
-[ext_resource type="Resource" path="res://assets/loadouts/fixtures/ja_hyun_prototype_job.tres" id="5_job"]
-[ext_resource type="Resource" path="res://assets/loadouts/fixtures/ja_hyun_prototype_accessory.tres" id="6_accessory"]
+[ext_resource type="Resource" path="res://assets/character/yu-ran/character.tres" id="5_yu"]
+[ext_resource type="Resource" path="res://assets/loadouts/fixtures/ja_hyun_prototype_job.tres" id="6_job"]
+[ext_resource type="Resource" path="res://assets/loadouts/fixtures/ja_hyun_prototype_accessory.tres" id="7_accessory"]
 
 [resource]
 script = ExtResource("1_catalog")
-characters = Array[ExtResource("2_ja")]([ExtResource("2_ja"), ExtResource("3_myo"), ExtResource("4_nabi")])
-jobs = Array[ExtResource("5_job")]([ExtResource("5_job")])
-accessories = Array[ExtResource("6_accessory")]([ExtResource("6_accessory")])
+characters = Array[ExtResource("2_ja")]([ExtResource("2_ja"), ExtResource("3_myo"), ExtResource("4_nabi"), ExtResource("5_yu")])
+jobs = Array[ExtResource("6_job")]([ExtResource("6_job")])
+accessories = Array[ExtResource("7_accessory")]([ExtResource("7_accessory")])

@@ -3,7 +3,7 @@
 ## 승인·권위
 
 - 사용자가 2026-09-09에 v05 white-tail chibi 후보를 채택했다. 호환성을 위해 등록 ID와 파일명은 `v01`로 유지한다.
-- 외형의 필수·허용·금지 규칙은 `docs/character-appearance-v01.json`의 `nabi` 항목이 단일 권위 원본이다.
+- 외형의 필수·허용·금지 규칙은 `docs/contracts/character-appearance-v01.json`의 `nabi` 항목이 단일 권위 원본이다.
 - 이 문서는 승인·파일·권리 이력을 설명하며 외형 규칙을 별도로 재정의하지 않는다.
 
 ## 파일·권리

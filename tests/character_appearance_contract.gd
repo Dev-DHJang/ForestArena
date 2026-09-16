@@ -1,6 +1,6 @@
 extends SceneTree
 
-const APPEARANCE_PATH := "res://docs/character-appearance-v01.json"
+const APPEARANCE_PATH := "res://docs/contracts/character-appearance-v01.json"
 const MANIFEST_PATH := "res://assets/character/manifest.json"
 const EXPECTED := {
 	"ja-hyun": {
@@ -27,6 +27,14 @@ const EXPECTED := {
 		"animal_motif": "cat",
 		"must_keep": ["two white cat ears", "one long full white cat tail", "human face hands feet and body", "short lavender claw guards"],
 		"must_not_add": ["animal muzzle", "fur-covered limbs", "paw feet", "digitigrade or animal legs", "bell accessory", "ribbon accessory", "paw-print emblem", "cat-face emblem"],
+	},
+	"yu-ran": {
+		"concept_asset_id": "yu-ran-concept-v01",
+		"approved_design_version": "v01",
+		"gender_presentation": "adult female",
+		"animal_motif": "weasel",
+		"must_keep": ["two round brown weasel ears with white inner tufts", "one oversized long brown and white ringed tail", "human face hands feet and body", "teal diamond gem accents"],
+		"must_not_add": ["animal muzzle or animal face", "fur-covered limbs", "paw feet", "digitigrade or animal legs", "additional ears", "additional tails"],
 	},
 }
 const REQUIRED_CHARACTER_FIELDS := [
@@ -180,7 +188,7 @@ func _validate_sources(profile: Dictionary, concepts: Dictionary, failures: Pack
 
 
 func _validate_attack_boundary(failures: PackedStringArray) -> void:
-	var attack := _load_json("res://docs/attack-system-v01.json", "attack concept", failures)
+	var attack := _load_json("res://docs/contracts/attack-system-v01.json", "attack concept", failures)
 	for value: Variant in attack.get("characters", []):
 		if value is Dictionary and value.has("appearance_guardrail"):
 			failures.append("attack concept must not own appearance_guardrail")

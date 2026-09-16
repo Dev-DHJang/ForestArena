@@ -13,8 +13,8 @@ description: Forest Arena 프레임 애니메이션·스프라이트 시트·Spr
 
 ## 필수 입력
 
-- 현재 Phase, docs/05_content_art_audio.md, 턴어라운드·키 포즈와 전투 의미 상태.
-- 승인 캐릭터 프레임이면 `docs/character-appearance-v01.json`의 해당 외형 항목.
+- 현재 Phase, docs/content/art-and-audio.md, 턴어라운드·키 포즈와 전투 의미 상태.
+- 승인 캐릭터 프레임이면 `docs/contracts/character-appearance-v01.json`의 해당 외형 항목.
 - 파일·메모리 예산 후보, 에셋 권리 상태와 소비 경로.
 
 ## 작업 흐름
