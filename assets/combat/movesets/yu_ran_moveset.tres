@@ -1,0 +1,269 @@
+[gd_resource type="Resource" script_class="MoveSetData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/move_set_data.gd" id="1_moveset"]
+[ext_resource type="Script" path="res://scripts/data/move_slot_data.gd" id="2_slot"]
+[ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="3_attack"]
+
+[sub_resource type="Resource" id="a_light_01"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-light-01"
+action_id = &"attack_light"
+combo_step = 1
+startup_ticks = 4
+active_ticks = 3
+recovery_ticks = 7
+damage = 4.0
+base_knockback = 120.0
+knockback_growth = 1.6
+visual_state_id = &"attack_light_combo_01"
+[sub_resource type="Resource" id="s_light_01"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-light-01"
+attack = SubResource("a_light_01")
+
+[sub_resource type="Resource" id="a_light_02"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-light-02"
+action_id = &"attack_light"
+combo_step = 2
+startup_ticks = 4
+active_ticks = 3
+recovery_ticks = 7
+damage = 4.0
+base_knockback = 120.0
+knockback_growth = 1.6
+visual_state_id = &"attack_light_combo_02"
+[sub_resource type="Resource" id="s_light_02"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-light-02"
+attack = SubResource("a_light_02")
+
+[sub_resource type="Resource" id="a_light_03"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-light-03"
+action_id = &"attack_light"
+combo_step = 3
+startup_ticks = 6
+active_ticks = 3
+recovery_ticks = 12
+damage = 7.0
+base_knockback = 210.0
+knockback_growth = 2.4
+is_finisher = true
+visual_state_id = &"attack_light_combo_03"
+[sub_resource type="Resource" id="s_light_03"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-light-03"
+attack = SubResource("a_light_03")
+
+[sub_resource type="Resource" id="a_light_up"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-light-up"
+action_id = &"attack_light"
+input_direction = 3
+startup_ticks = 5
+active_ticks = 3
+recovery_ticks = 9
+damage = 5.0
+base_knockback = 150.0
+knockback_growth = 1.8
+launch_vector = Vector2(0.25, -1)
+visual_state_id = &"attack_light_up"
+[sub_resource type="Resource" id="s_light_up"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-light-up"
+attack = SubResource("a_light_up")
+
+[sub_resource type="Resource" id="a_light_down"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-light-down"
+action_id = &"attack_light"
+input_direction = 4
+startup_ticks = 5
+active_ticks = 3
+recovery_ticks = 9
+damage = 5.0
+base_knockback = 150.0
+knockback_growth = 1.8
+launch_vector = Vector2(0.4, 0.65)
+visual_state_id = &"attack_light_down"
+[sub_resource type="Resource" id="s_light_down"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-light-down"
+attack = SubResource("a_light_down")
+
+[sub_resource type="Resource" id="a_heavy_side"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-heavy-side"
+action_id = &"attack_heavy"
+input_direction = 5
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 16
+damage = 10.0
+base_knockback = 260.0
+knockback_growth = 3.0
+is_finisher = true
+visual_state_id = &"attack_heavy_side"
+[sub_resource type="Resource" id="s_heavy_side"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-heavy-side"
+attack = SubResource("a_heavy_side")
+
+[sub_resource type="Resource" id="a_heavy_up"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-heavy-up"
+action_id = &"attack_heavy"
+input_direction = 3
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 16
+damage = 10.0
+base_knockback = 260.0
+knockback_growth = 3.0
+launch_vector = Vector2(0.25, -1)
+is_finisher = true
+is_launcher = true
+visual_state_id = &"attack_heavy_up"
+[sub_resource type="Resource" id="s_heavy_up"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-heavy-up"
+attack = SubResource("a_heavy_up")
+
+[sub_resource type="Resource" id="a_heavy_down"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-heavy-down"
+action_id = &"attack_heavy"
+input_direction = 4
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 16
+damage = 10.0
+base_knockback = 260.0
+knockback_growth = 3.0
+launch_vector = Vector2(0.45, 0.7)
+is_finisher = true
+visual_state_id = &"attack_heavy_down"
+[sub_resource type="Resource" id="s_heavy_down"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-heavy-down"
+attack = SubResource("a_heavy_down")
+
+[sub_resource type="Resource" id="a_dash_light"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-dash-light"
+action_id = &"attack_light"
+input_direction = 5
+requires_dash = true
+startup_ticks = 5
+active_ticks = 3
+recovery_ticks = 9
+damage = 6.0
+base_knockback = 170.0
+knockback_growth = 2.0
+visual_state_id = &"attack_dash_light"
+[sub_resource type="Resource" id="s_dash_light"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-dash-light"
+attack = SubResource("a_dash_light")
+
+[sub_resource type="Resource" id="a_dash_heavy"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-dash-heavy"
+action_id = &"attack_heavy"
+input_direction = 5
+requires_dash = true
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 14
+damage = 10.0
+base_knockback = 240.0
+knockback_growth = 2.8
+is_finisher = true
+visual_state_id = &"attack_dash_heavy"
+[sub_resource type="Resource" id="s_dash_heavy"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-dash-heavy"
+attack = SubResource("a_dash_heavy")
+
+[sub_resource type="Resource" id="a_air_light"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-air-light"
+action_id = &"attack_light"
+input_direction = 6
+activation_context = 1
+startup_ticks = 5
+active_ticks = 3
+recovery_ticks = 9
+damage = 5.0
+base_knockback = 150.0
+knockback_growth = 1.8
+visual_state_id = &"attack_air_light"
+[sub_resource type="Resource" id="s_air_light"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-air-light"
+attack = SubResource("a_air_light")
+
+[sub_resource type="Resource" id="a_air_heavy"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-air-heavy"
+action_id = &"attack_heavy"
+input_direction = 6
+activation_context = 1
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 14
+damage = 9.0
+base_knockback = 230.0
+knockback_growth = 2.7
+is_finisher = true
+visual_state_id = &"attack_air_heavy"
+[sub_resource type="Resource" id="s_air_heavy"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-air-heavy"
+attack = SubResource("a_air_heavy")
+
+[sub_resource type="Resource" id="a_special_neutral"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-special-neutral"
+action_id = &"attack_special"
+activation_context = 2
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 16
+damage = 8.0
+base_knockback = 220.0
+knockback_growth = 2.6
+hitbox_size = Vector2(96, 64)
+hitbox_offset = Vector2(34, -30)
+visual_state_id = &"special_neutral"
+[sub_resource type="Resource" id="s_special_neutral"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-special-neutral"
+attack = SubResource("a_special_neutral")
+
+[sub_resource type="Resource" id="a_special_up"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran-special-up"
+action_id = &"attack_special"
+input_direction = 3
+activation_context = 2
+startup_ticks = 6
+active_ticks = 5
+recovery_ticks = 18
+damage = 7.0
+base_knockback = 190.0
+knockback_growth = 2.3
+launch_vector = Vector2(0.2, -1)
+self_impulse = Vector2(0, -440)
+visual_state_id = &"special_up"
+[sub_resource type="Resource" id="s_special_up"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran-special-up"
+attack = SubResource("a_special_up")
+
+[resource]
+script = ExtResource("1_moveset")
+move_set_id = &"yu-ran.base"
+combo_count = 3
+slots = Array[ExtResource("2_slot")]([SubResource("s_light_01"), SubResource("s_light_02"), SubResource("s_light_03"), SubResource("s_light_up"), SubResource("s_light_down"), SubResource("s_heavy_side"), SubResource("s_heavy_up"), SubResource("s_heavy_down"), SubResource("s_dash_light"), SubResource("s_dash_heavy"), SubResource("s_air_light"), SubResource("s_air_heavy"), SubResource("s_special_neutral"), SubResource("s_special_up")])

@@ -1,7 +1,7 @@
 extends SceneTree
 
-const CONCEPT_PATH := "res://docs/attack-system-v01.json"
-const EXPECTED_COMBO_COUNTS := {"ja-hyun": 3, "myo-ryung": 4, "nabi": 2}
+const CONCEPT_PATH := "res://docs/contracts/attack-system-v01.json"
+const EXPECTED_COMBO_COUNTS := {"ja-hyun": 3, "myo-ryung": 4, "nabi": 2, "yu-ran": 3}
 const REQUIRED_ACTIONS := ["attack_light", "attack_heavy", "attack_special"]
 const REQUIRED_EDGES := ["press", "hold", "release"]
 const REQUIRED_COMMON_MOVE_IDS := [
@@ -12,6 +12,7 @@ const REQUIRED_CHARACTER_MOVE_IDS := [
 	"ja-hyun-special-neutral", "ja-hyun-special-side", "ja-hyun-special-up", "ja-hyun-special-down", "ja-hyun-ultimate",
 	"myo-ryung-special-neutral", "myo-ryung-special-side", "myo-ryung-special-up", "myo-ryung-special-down", "myo-ryung-ultimate",
 	"nabi-special-neutral", "nabi-special-side", "nabi-special-up", "nabi-special-down", "nabi-ultimate",
+	"yu-ran-special-neutral", "yu-ran-special-side", "yu-ran-special-up", "yu-ran-special-down", "yu-ran-ultimate",
 ]
 const REQUIRED_MOVE_FIELDS := ["id", "input", "state", "role", "link_condition", "resource", "launch_direction", "finisher", "visual_state_id"]
 
@@ -127,7 +128,7 @@ func _validate_future_defense_action(concept: Dictionary, failures: PackedString
 
 func _validate_visual_production_policy(concept: Dictionary, failures: PackedStringArray) -> void:
 	var policy: Dictionary = concept.get("visual_production_policy", {})
-	if policy.get("order") != ["ja-hyun", "myo-ryung", "nabi"]:
+	if policy.get("order") != ["ja-hyun", "myo-ryung", "nabi", "yu-ran"]:
 		failures.append("attack visual production order drift")
 	if not String(policy.get("approval_gate", "")).contains("explicit user approval"):
 		failures.append("attack visual approval gate is missing")

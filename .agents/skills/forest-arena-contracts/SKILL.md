@@ -12,7 +12,7 @@ description: 버전이 있는 Forest Arena Resource·저장·공용 ID·로드�
 
 ## 필수 입력
 
-- 현재 Phase, docs/04_technical_architecture.md, 관련 ADR와 모든 생산자·소비자.
+- 현재 Phase, docs/engineering/architecture.md, 관련 ADR와 모든 생산자·소비자.
 - 호환성, 실패·롤백 방식과 검증 기준.
 
 ## 작업 흐름

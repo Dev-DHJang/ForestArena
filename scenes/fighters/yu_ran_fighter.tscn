@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/fighter_controller.gd" id="1_controller"]
+[ext_resource type="Resource" path="res://assets/character/yu-ran/character.tres" id="2_character"]
+
+[sub_resource type="RectangleShape2D" id="BodyShape"]
+size = Vector2(54, 96)
+
+[sub_resource type="RectangleShape2D" id="HitShape"]
+size = Vector2(60, 50)
+
+[node name="YuRanFighter" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_controller")
+fighter_id = &"yu-ran"
+character_data = ExtResource("2_character")
+body_color = Color(0.48, 0.78, 0.7, 1)
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, -34)
+shape = SubResource("BodyShape")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -34)
+shape = SubResource("BodyShape")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("HitShape")
+disabled = true

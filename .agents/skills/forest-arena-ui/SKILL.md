@@ -12,9 +12,9 @@ description: Forest Arena 터치 UX·HUD·Penpot과 `ForestArenaResources` 기�
 
 ## 필수 입력
 
-- 현재 Phase, docs/03_features_and_ux.md, 전투 상태·이벤트와 대상 화면 조건.
+- 현재 Phase, docs/gameplay/features-and-ux.md, 전투 상태·이벤트와 대상 화면 조건.
 - 승인된 에셋 또는 플레이스홀더와 실패 상태.
-- 비전투 작업이면 `docs/ui/non-combat-ui-v01.json`, `assets/ui/asset-requirements.csv`, `docs/forest_arena/GODOT_SETUP.md`, `docs/forest_arena/RESOURCE_RULES.md`.
+- 비전투 작업이면 `docs/ui/non-combat-ui-v01.json`, `assets/ui/asset-requirements.csv`, `docs/engineering/godot/setup.md`, `docs/engineering/godot/resource-rules.md`.
 
 ## 작업 흐름
 

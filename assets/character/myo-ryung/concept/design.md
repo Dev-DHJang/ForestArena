@@ -3,7 +3,7 @@
 ## 승인·권위
 
 - 승인된 등록 자산은 `myo-ryung-concept-v01.png`이며 안정 ID는 `myo-ryung-concept-v01`이다.
-- 외형의 필수·허용·금지 규칙은 `docs/character-appearance-v01.json`의 `myo-ryung` 항목이 단일 권위 원본이다.
+- 외형의 필수·허용·금지 규칙은 `docs/contracts/character-appearance-v01.json`의 `myo-ryung` 항목이 단일 권위 원본이다.
 - 이 문서는 승인·파일·권리 이력을 설명하며 외형 규칙을 별도로 재정의하지 않는다.
 
 ## 파일·권리

@@ -11,7 +11,7 @@ description: Forest Arena Godot 리소스의 논리 ID·품질 변형·Autoload 
 
 ## 필수 입력
 
-- `docs/forest_arena/GODOT_SETUP.md`, `docs/forest_arena/RESOURCE_RULES.md`, 소비자와 품질 요구.
+- `docs/engineering/godot/setup.md`, `docs/engineering/godot/resource-rules.md`, 소비자와 품질 요구.
 - 공용 ID·스키마 변경이면 `01_contract.md`와 모든 생산자·소비자 목록.
 
 ## 작업 흐름

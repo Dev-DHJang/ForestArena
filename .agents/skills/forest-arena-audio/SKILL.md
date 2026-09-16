@@ -12,7 +12,7 @@ description: 교체 가능한 의미 이벤트로 Android 대응 Forest Arena �
 
 ## 필수 입력
 
-- 현재 Phase, docs/05_content_art_audio.md, 장면·감정·루프와 이벤트 목록.
+- 현재 Phase, docs/content/art-and-audio.md, 장면·감정·루프와 이벤트 목록.
 - 전투·UI 의미 이벤트, 동시 발음 예산 후보와 권리 조건.
 
 ## 작업 흐름

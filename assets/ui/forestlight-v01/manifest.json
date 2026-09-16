@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "status": "produced-design-review",
+  "created_on": "2026-09-16",
+  "method": "Original hand-authored SVG geometry; PNG rendered from the same vector masters with ImageMagick.",
+  "rights": "No third-party visual assets incorporated. Wild Rift consulted only for ergonomic and information-layout principles. No legal clearance assertion.",
+  "references": [
+    "https://www.leagueoflegends.com/pl-pl/news/game-updates/sterowanie-w-wild-rift/",
+    "https://interfaceingame.com/screenshots/league-of-legends-wild-rift-controls/"
+  ],
+  "runtime_registered": false,
+  "assets": [
+    {
+      "id": "IMG/forestlight/primary-default",
+      "name": "primary-default",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/primary-default.png",
+      "source": "assets/ui/forestlight-v01/primary-default.svg",
+      "sha256": "7cae2e981c29be1fa27125073d664920772782709bf228e07520f623ea6a923d"
+    },
+    {
+      "id": "IMG/forestlight/primary-pressed",
+      "name": "primary-pressed",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/primary-pressed.png",
+      "source": "assets/ui/forestlight-v01/primary-pressed.svg",
+      "sha256": "551dd27439848260c46234dc87375daa383d8248d2e477f5eec29d4d6662cdaf"
+    },
+    {
+      "id": "IMG/forestlight/primary-selected",
+      "name": "primary-selected",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/primary-selected.png",
+      "source": "assets/ui/forestlight-v01/primary-selected.svg",
+      "sha256": "6bb4f35b349a9fb8132983509bd978b3c5465ec1fe97aa63438cf19a2c2fcbe8"
+    },
+    {
+      "id": "IMG/forestlight/primary-disabled",
+      "name": "primary-disabled",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/primary-disabled.png",
+      "source": "assets/ui/forestlight-v01/primary-disabled.svg",
+      "sha256": "4d0f199d808f4b5647ad1de1ef9445d5cacdfd4ed28b835f5f4a2be81d5ec12b"
+    },
+    {
+      "id": "IMG/forestlight/secondary-default",
+      "name": "secondary-default",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/secondary-default.png",
+      "source": "assets/ui/forestlight-v01/secondary-default.svg",
+      "sha256": "184f53024d3632ccd9f2a194f7626b5d6c60e7796911d004400def6dfd2528d7"
+    },
+    {
+      "id": "IMG/forestlight/secondary-pressed",
+      "name": "secondary-pressed",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/secondary-pressed.png",
+      "source": "assets/ui/forestlight-v01/secondary-pressed.svg",
+      "sha256": "551dd27439848260c46234dc87375daa383d8248d2e477f5eec29d4d6662cdaf"
+    },
+    {
+      "id": "IMG/forestlight/secondary-selected",
+      "name": "secondary-selected",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/secondary-selected.png",
+      "source": "assets/ui/forestlight-v01/secondary-selected.svg",
+      "sha256": "1f8764153e83d72f8bacb1e284a08418d98e294cdde22ff6507f723469b24e11"
+    },
+    {
+      "id": "IMG/forestlight/secondary-disabled",
+      "name": "secondary-disabled",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/secondary-disabled.png",
+      "source": "assets/ui/forestlight-v01/secondary-disabled.svg",
+      "sha256": "4d0f199d808f4b5647ad1de1ef9445d5cacdfd4ed28b835f5f4a2be81d5ec12b"
+    },
+    {
+      "id": "IMG/forestlight/danger-default",
+      "name": "danger-default",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/danger-default.png",
+      "source": "assets/ui/forestlight-v01/danger-default.svg",
+      "sha256": "87dd7de39d5fd0122d578cc69e5d0514d8f8b9b4a903c838e27e972610290ee5"
+    },
+    {
+      "id": "IMG/forestlight/danger-pressed",
+      "name": "danger-pressed",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/danger-pressed.png",
+      "source": "assets/ui/forestlight-v01/danger-pressed.svg",
+      "sha256": "551dd27439848260c46234dc87375daa383d8248d2e477f5eec29d4d6662cdaf"
+    },
+    {
+      "id": "IMG/forestlight/danger-selected",
+      "name": "danger-selected",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/danger-selected.png",
+      "source": "assets/ui/forestlight-v01/danger-selected.svg",
+      "sha256": "b21046131015605922d3c01a54fc7bd72d60f8761c05244f8f713bbb3e0b1cd6"
+    },
+    {
+      "id": "IMG/forestlight/danger-disabled",
+      "name": "danger-disabled",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/danger-disabled.png",
+      "source": "assets/ui/forestlight-v01/danger-disabled.svg",
+      "sha256": "4d0f199d808f4b5647ad1de1ef9445d5cacdfd4ed28b835f5f4a2be81d5ec12b"
+    },
+    {
+      "id": "IMG/forestlight/tab-default",
+      "name": "tab-default",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/tab-default.png",
+      "source": "assets/ui/forestlight-v01/tab-default.svg",
+      "sha256": "7cae2e981c29be1fa27125073d664920772782709bf228e07520f623ea6a923d"
+    },
+    {
+      "id": "IMG/forestlight/tab-pressed",
+      "name": "tab-pressed",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/tab-pressed.png",
+      "source": "assets/ui/forestlight-v01/tab-pressed.svg",
+      "sha256": "551dd27439848260c46234dc87375daa383d8248d2e477f5eec29d4d6662cdaf"
+    },
+    {
+      "id": "IMG/forestlight/tab-selected",
+      "name": "tab-selected",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/tab-selected.png",
+      "source": "assets/ui/forestlight-v01/tab-selected.svg",
+      "sha256": "6bb4f35b349a9fb8132983509bd978b3c5465ec1fe97aa63438cf19a2c2fcbe8"
+    },
+    {
+      "id": "IMG/forestlight/tab-disabled",
+      "name": "tab-disabled",
+      "width": 320,
+      "height": 88,
+      "png": "assets/ui/forestlight-v01/tab-disabled.png",
+      "source": "assets/ui/forestlight-v01/tab-disabled.svg",
+      "sha256": "4d0f199d808f4b5647ad1de1ef9445d5cacdfd4ed28b835f5f4a2be81d5ec12b"
+    },
+    {
+      "id": "IMG/forestlight/panel-default",
+      "name": "panel-default",
+      "width": 640,
+      "height": 440,
+      "png": "assets/ui/forestlight-v01/panel-default.png",
+      "source": "assets/ui/forestlight-v01/panel-default.svg",
+      "sha256": "7b97c40ce01b3320a52c11ee73ac310c0c38e30966ed7c0372a01d810cf2e751"
+    },
+    {
+      "id": "IMG/forestlight/panel-pressed",
+      "name": "panel-pressed",
+      "width": 640,
+      "height": 440,
+      "png": "assets/ui/forestlight-v01/panel-pressed.png",
+      "source": "assets/ui/forestlight-v01/panel-pressed.svg",
+      "sha256": "bb8b0de2f74a6fdb0fee175f154faa579e9143aa6ef272170d505eb17f4741a3"
+    },
+    {
+      "id": "IMG/forestlight/panel-selected",
+      "name": "panel-selected",
+      "width": 640,
+      "height": 440,
+      "png": "assets/ui/forestlight-v01/panel-selected.png",
+      "source": "assets/ui/forestlight-v01/panel-selected.svg",
+      "sha256": "b10c689698cfd924a31ef69d6b1297e144440961b70ac106fb8f0a7a5774b412"
+    },
+    {
+      "id": "IMG/forestlight/panel-disabled",
+      "name": "panel-disabled",
+      "width": 640,
+      "height": 440,
+      "png": "assets/ui/forestlight-v01/panel-disabled.png",
+      "source": "assets/ui/forestlight-v01/panel-disabled.svg",
+      "sha256": "4ace65b712d76fc2a4cbee930b7febc00b8f7bc112ee9092fa1faa056e5bc8f0"
+    },
+    {
+      "id": "IMG/forestlight/card-default",
+      "name": "card-default",
+      "width": 360,
+      "height": 380,
+      "png": "assets/ui/forestlight-v01/card-default.png",
+      "source": "assets/ui/forestlight-v01/card-default.svg",
+      "sha256": "8a23c4e1be36a2b1dea50f354562b57bc70d6272b59fc6d9a5aa021897c321d5"
+    },
+    {
+      "id": "IMG/forestlight/card-pressed",
+      "name": "card-pressed",
+      "width": 360,
+      "height": 380,
+      "png": "assets/ui/forestlight-v01/card-pressed.png",
+      "source": "assets/ui/forestlight-v01/card-pressed.svg",
+      "sha256": "49c70564edc8dcde1f3022a8864271cdf1e3b81b6d60c10191a656738d96718d"
+    },
+    {
+      "id": "IMG/forestlight/card-selected",
+      "name": "card-selected",
+      "width": 360,
+      "height": 380,
+      "png": "assets/ui/forestlight-v01/card-selected.png",
+      "source": "assets/ui/forestlight-v01/card-selected.svg",
+      "sha256": "c745ff7b7be2cbbfed32bda00b64a3176f6322e3aac7ab7c54afc4a69e4f20a7"
+    },
+    {
+      "id": "IMG/forestlight/card-disabled",
+      "name": "card-disabled",
+      "width": 360,
+      "height": 380,
+      "png": "assets/ui/forestlight-v01/card-disabled.png",
+      "source": "assets/ui/forestlight-v01/card-disabled.svg",
+      "sha256": "770559ba12e68d3e90da349fdba4a02f445a0e34aaa90a492f98de15c5a59d6a"
+    },
+    {
+      "id": "IMG/forestlight/icon-leaf",
+      "name": "icon-leaf",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-leaf.png",
+      "source": "assets/ui/forestlight-v01/icon-leaf.svg",
+      "sha256": "aaf5229ffda189e075303e7ef20df5afd8610cec7e63e59a4a2c4e8ed6bacbc9"
+    },
+    {
+      "id": "IMG/forestlight/icon-light",
+      "name": "icon-light",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-light.png",
+      "source": "assets/ui/forestlight-v01/icon-light.svg",
+      "sha256": "92650b19c12ace5f31d6555c41289574cd643aeb3e78b030974c04221a31f7c1"
+    },
+    {
+      "id": "IMG/forestlight/icon-heavy",
+      "name": "icon-heavy",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-heavy.png",
+      "source": "assets/ui/forestlight-v01/icon-heavy.svg",
+      "sha256": "c68bd41ffecfaede8ddac21fe7f6888ab9a2a2fe251ec3e3af0046ac1809eade"
+    },
+    {
+      "id": "IMG/forestlight/icon-special",
+      "name": "icon-special",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-special.png",
+      "source": "assets/ui/forestlight-v01/icon-special.svg",
+      "sha256": "5d5943189aab9845c5f728365effe5e22d748b8a8b8a71b802a6806f8f2e47be"
+    },
+    {
+      "id": "IMG/forestlight/icon-jump",
+      "name": "icon-jump",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-jump.png",
+      "source": "assets/ui/forestlight-v01/icon-jump.svg",
+      "sha256": "1e32dccd192fde75037d607e83db3191f00c373f53dd03a207519ad569ba25cb"
+    },
+    {
+      "id": "IMG/forestlight/icon-dash",
+      "name": "icon-dash",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-dash.png",
+      "source": "assets/ui/forestlight-v01/icon-dash.svg",
+      "sha256": "99e5b03ee2a384bc04ed880cd47be9e56ca54660b5a8d5a8c75ecb998cb79ada"
+    },
+    {
+      "id": "IMG/forestlight/icon-back",
+      "name": "icon-back",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-back.png",
+      "source": "assets/ui/forestlight-v01/icon-back.svg",
+      "sha256": "96f0984b6b605f718a5f329e61dac0dcbbca9713fec5378dceb20f04b2b093d4"
+    },
+    {
+      "id": "IMG/forestlight/icon-close",
+      "name": "icon-close",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-close.png",
+      "source": "assets/ui/forestlight-v01/icon-close.svg",
+      "sha256": "5cc84c5a1d0fb1379324c097da4d04144bd52d2b75f3a60ee300594f49531c1b"
+    },
+    {
+      "id": "IMG/forestlight/icon-settings",
+      "name": "icon-settings",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-settings.png",
+      "source": "assets/ui/forestlight-v01/icon-settings.svg",
+      "sha256": "e085e18b62caa350c89c0c7d21dabb8bc09f1b6ce7a6c4b288b056b49cdd8ca1"
+    },
+    {
+      "id": "IMG/forestlight/icon-check",
+      "name": "icon-check",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-check.png",
+      "source": "assets/ui/forestlight-v01/icon-check.svg",
+      "sha256": "98462bc7ecd843d88d690e21d7c03c17b51c7b95ee7ebc8bad14d7fa3b82f0c2"
+    },
+    {
+      "id": "IMG/forestlight/icon-lock",
+      "name": "icon-lock",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-lock.png",
+      "source": "assets/ui/forestlight-v01/icon-lock.svg",
+      "sha256": "9ddf5e3cf6de63c47555e6aaba168823bbfd19d9a819b7c5394f6b89fcde7310"
+    },
+    {
+      "id": "IMG/forestlight/icon-story",
+      "name": "icon-story",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-story.png",
+      "source": "assets/ui/forestlight-v01/icon-story.svg",
+      "sha256": "5f3a22711e4389431fa5d7dd7f17d8a23a105fc4ddb65fcc735d1dd027f81072"
+    },
+    {
+      "id": "IMG/forestlight/icon-solo",
+      "name": "icon-solo",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-solo.png",
+      "source": "assets/ui/forestlight-v01/icon-solo.svg",
+      "sha256": "7f4f935c84ada60047694cab1f2249f202108624b93eed3462bc7c34585c2bd0"
+    },
+    {
+      "id": "IMG/forestlight/icon-team",
+      "name": "icon-team",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-team.png",
+      "source": "assets/ui/forestlight-v01/icon-team.svg",
+      "sha256": "4d3a555e96aa439c6444fc3a521ec5ead560f2627e355132bb99feefe05496a7"
+    },
+    {
+      "id": "IMG/forestlight/icon-ai",
+      "name": "icon-ai",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-ai.png",
+      "source": "assets/ui/forestlight-v01/icon-ai.svg",
+      "sha256": "bd265a3f58ff32c6791d08d9a6d25c24484650f21c63ed965e313d9820e1be40"
+    },
+    {
+      "id": "IMG/forestlight/icon-practice",
+      "name": "icon-practice",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-practice.png",
+      "source": "assets/ui/forestlight-v01/icon-practice.svg",
+      "sha256": "812f9646bcde920a0429a0e375f2e29f863d9d374b76e19c1c2c1f71f5691c98"
+    },
+    {
+      "id": "IMG/forestlight/icon-character",
+      "name": "icon-character",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-character.png",
+      "source": "assets/ui/forestlight-v01/icon-character.svg",
+      "sha256": "89e4e07cc2924e7e2eb765a5af06e11dcd95e11de38810191185540a3faead08"
+    },
+    {
+      "id": "IMG/forestlight/icon-accessory",
+      "name": "icon-accessory",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-accessory.png",
+      "source": "assets/ui/forestlight-v01/icon-accessory.svg",
+      "sha256": "75ba45bbf5529b2c3ca7793e98e9403d683f729bdec531f4cf1fff17d38844f4"
+    },
+    {
+      "id": "IMG/forestlight/icon-shop",
+      "name": "icon-shop",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-shop.png",
+      "source": "assets/ui/forestlight-v01/icon-shop.svg",
+      "sha256": "a6b4e15c2885f0eb9d6315bbbce44b8539e1d76bc2714f486497ed9d9e08f092"
+    },
+    {
+      "id": "IMG/forestlight/icon-social",
+      "name": "icon-social",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-social.png",
+      "source": "assets/ui/forestlight-v01/icon-social.svg",
+      "sha256": "26283cf02114f28bf6ee79dced0b0d8eb3943362e96a38e06b45e6aa4cc62cea"
+    },
+    {
+      "id": "IMG/forestlight/icon-mission",
+      "name": "icon-mission",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-mission.png",
+      "source": "assets/ui/forestlight-v01/icon-mission.svg",
+      "sha256": "d9c94b120d36e5acbfbd7197e17d7fe31a4e18fa777ccf9facfa5f4758cb104f"
+    },
+    {
+      "id": "IMG/forestlight/icon-profile",
+      "name": "icon-profile",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-profile.png",
+      "source": "assets/ui/forestlight-v01/icon-profile.svg",
+      "sha256": "e09e7345baa662812aaceb9103519f98d4f7374c3fe589f711d31138a4a9925d"
+    },
+    {
+      "id": "IMG/forestlight/icon-play",
+      "name": "icon-play",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-play.png",
+      "source": "assets/ui/forestlight-v01/icon-play.svg",
+      "sha256": "e7171dfc1242d6368901312fda524a9e8f19a0dfe0976b1fb0c061fe82986cad"
+    },
+    {
+      "id": "IMG/forestlight/icon-pause",
+      "name": "icon-pause",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-pause.png",
+      "source": "assets/ui/forestlight-v01/icon-pause.svg",
+      "sha256": "80fba5119eb421cd01fc1aa4c61fc772f780ecc44bdb26dcc91aaa56719f6202"
+    },
+    {
+      "id": "IMG/forestlight/icon-seed",
+      "name": "icon-seed",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-seed.png",
+      "source": "assets/ui/forestlight-v01/icon-seed.svg",
+      "sha256": "e050e663d279d05506ae4ba62deb0e5a9afd25de2f9dd69d0f599ee709f907c6"
+    },
+    {
+      "id": "IMG/forestlight/icon-ringout",
+      "name": "icon-ringout",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-ringout.png",
+      "source": "assets/ui/forestlight-v01/icon-ringout.svg",
+      "sha256": "2084201fcc16020621781db435ce5f1fe49f0d706ef23992d3be20bd85bc4851"
+    },
+    {
+      "id": "IMG/forestlight/icon-respawn",
+      "name": "icon-respawn",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-respawn.png",
+      "source": "assets/ui/forestlight-v01/icon-respawn.svg",
+      "sha256": "b70102334a3df1fdd1647be88dd02344d202c7060dcbd46712329ed8018a1438"
+    },
+    {
+      "id": "IMG/forestlight/icon-eliminated",
+      "name": "icon-eliminated",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-eliminated.png",
+      "source": "assets/ui/forestlight-v01/icon-eliminated.svg",
+      "sha256": "5924709851b9b26fd6854cc76f590310e83d0a082225bfb6c452dc02d03c8077"
+    },
+    {
+      "id": "IMG/forestlight/icon-filter",
+      "name": "icon-filter",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-filter.png",
+      "source": "assets/ui/forestlight-v01/icon-filter.svg",
+      "sha256": "289b7c6daf551c69ab29f6269bfc92b28b957fd5a5a069fa0ac02b7e3b22d0e9"
+    },
+    {
+      "id": "IMG/forestlight/icon-sound",
+      "name": "icon-sound",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-sound.png",
+      "source": "assets/ui/forestlight-v01/icon-sound.svg",
+      "sha256": "e6f4c1e81ba0d7566d606a1a590098c55a5e2f8ff9ce5f965cee7b4bdcc1a633"
+    },
+    {
+      "id": "IMG/forestlight/icon-arena",
+      "name": "icon-arena",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-arena.png",
+      "source": "assets/ui/forestlight-v01/icon-arena.svg",
+      "sha256": "78fd8ab131dda510c759a255089b057e9d71f13193f42985f0c43ec64b29042c"
+    },
+    {
+      "id": "IMG/forestlight/icon-job",
+      "name": "icon-job",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-job.png",
+      "source": "assets/ui/forestlight-v01/icon-job.svg",
+      "sha256": "f1065ec756566a51cf5ceeb69af24895ab957119ec151ee87758d3d8154f7579"
+    },
+    {
+      "id": "IMG/forestlight/icon-trophy",
+      "name": "icon-trophy",
+      "width": 64,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/icon-trophy.png",
+      "source": "assets/ui/forestlight-v01/icon-trophy.svg",
+      "sha256": "87e7fd11f1b57e30ac4b5a6d457c277afb1c85dac878a9972fdd491ff2ff4bd6"
+    },
+    {
+      "id": "IMG/forestlight/action-light-default",
+      "name": "action-light-default",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-light-default.png",
+      "source": "assets/ui/forestlight-v01/action-light-default.svg",
+      "sha256": "505440f221590f69be9786232a5a8566132bf6e9375167ac536cd8b7c0fffa5b"
+    },
+    {
+      "id": "IMG/forestlight/action-light-pressed",
+      "name": "action-light-pressed",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-light-pressed.png",
+      "source": "assets/ui/forestlight-v01/action-light-pressed.svg",
+      "sha256": "41646a805e21348f23f841c6c735ac805bf44d29458c443562b40216b9a9a5b6"
+    },
+    {
+      "id": "IMG/forestlight/action-light-selected",
+      "name": "action-light-selected",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-light-selected.png",
+      "source": "assets/ui/forestlight-v01/action-light-selected.svg",
+      "sha256": "c7eaf87049595a1df1059b30246f190bbb937a9feb82c133dd225677ff0ca35d"
+    },
+    {
+      "id": "IMG/forestlight/action-light-disabled",
+      "name": "action-light-disabled",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-light-disabled.png",
+      "source": "assets/ui/forestlight-v01/action-light-disabled.svg",
+      "sha256": "919b1e0a61f9cdecfed6a9182643a59623a8048a9ea205ba0c1161c28dcb96e4"
+    },
+    {
+      "id": "IMG/forestlight/action-heavy-default",
+      "name": "action-heavy-default",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-heavy-default.png",
+      "source": "assets/ui/forestlight-v01/action-heavy-default.svg",
+      "sha256": "bd3e02fe4582efacd89e5f524ec242e005cf64060bc1c305e7dafe515140907c"
+    },
+    {
+      "id": "IMG/forestlight/action-heavy-pressed",
+      "name": "action-heavy-pressed",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-heavy-pressed.png",
+      "source": "assets/ui/forestlight-v01/action-heavy-pressed.svg",
+      "sha256": "884209cbe4c1b986348577f6a49dd1a27ea8c6b3cff4f7e890d8fadbba52219f"
+    },
+    {
+      "id": "IMG/forestlight/action-heavy-selected",
+      "name": "action-heavy-selected",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-heavy-selected.png",
+      "source": "assets/ui/forestlight-v01/action-heavy-selected.svg",
+      "sha256": "06efbe14c7f9899e302974fa143c94f7891d39d12b86e9507d1c157060c85c82"
+    },
+    {
+      "id": "IMG/forestlight/action-heavy-disabled",
+      "name": "action-heavy-disabled",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-heavy-disabled.png",
+      "source": "assets/ui/forestlight-v01/action-heavy-disabled.svg",
+      "sha256": "f933a8114a4f1a969049afa183e9da00523062c1bb5717f881cf2b7e055a7013"
+    },
+    {
+      "id": "IMG/forestlight/action-special-default",
+      "name": "action-special-default",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-special-default.png",
+      "source": "assets/ui/forestlight-v01/action-special-default.svg",
+      "sha256": "130e36623b5af5f217da46a9dbecd03f042f51640015b8e2a374827fc76ad27f"
+    },
+    {
+      "id": "IMG/forestlight/action-special-pressed",
+      "name": "action-special-pressed",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-special-pressed.png",
+      "source": "assets/ui/forestlight-v01/action-special-pressed.svg",
+      "sha256": "169da51cdeb905b46d1cce6f2a967df134ec7c8fc7f0b1844c61cbe9cedc9109"
+    },
+    {
+      "id": "IMG/forestlight/action-special-selected",
+      "name": "action-special-selected",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-special-selected.png",
+      "source": "assets/ui/forestlight-v01/action-special-selected.svg",
+      "sha256": "bad2cda644a73e5d687b06e52071e081288881300cf3096ac73982c6fbc03538"
+    },
+    {
+      "id": "IMG/forestlight/action-special-disabled",
+      "name": "action-special-disabled",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-special-disabled.png",
+      "source": "assets/ui/forestlight-v01/action-special-disabled.svg",
+      "sha256": "90aa59fe2343a66458019eb77056525fd8ea5dca1cb33226d8a5788eb9d42a83"
+    },
+    {
+      "id": "IMG/forestlight/action-jump-default",
+      "name": "action-jump-default",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-jump-default.png",
+      "source": "assets/ui/forestlight-v01/action-jump-default.svg",
+      "sha256": "5ddc1550da527b799ca4797682574199de42dd5775229c99a223f8599416776a"
+    },
+    {
+      "id": "IMG/forestlight/action-jump-pressed",
+      "name": "action-jump-pressed",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-jump-pressed.png",
+      "source": "assets/ui/forestlight-v01/action-jump-pressed.svg",
+      "sha256": "b0585b004ec5022af2df1119d85cc7eeb6469eb95592b3c3fb9f97312674f121"
+    },
+    {
+      "id": "IMG/forestlight/action-jump-selected",
+      "name": "action-jump-selected",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-jump-selected.png",
+      "source": "assets/ui/forestlight-v01/action-jump-selected.svg",
+      "sha256": "a8a1a5fd1bc4b89cd2bd04f56f52b38f23229e5d2154e12d2a347dcbbf0e0ac7"
+    },
+    {
+      "id": "IMG/forestlight/action-jump-disabled",
+      "name": "action-jump-disabled",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-jump-disabled.png",
+      "source": "assets/ui/forestlight-v01/action-jump-disabled.svg",
+      "sha256": "4c2946c6010a3a13742cede49b384ecf7abdb2db16983feff0a8d3a53b66d80c"
+    },
+    {
+      "id": "IMG/forestlight/action-dash-default",
+      "name": "action-dash-default",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-dash-default.png",
+      "source": "assets/ui/forestlight-v01/action-dash-default.svg",
+      "sha256": "e33ba83236240f074145e16dc04d0526474719cc9aa162fc9ec9a63d21abaa83"
+    },
+    {
+      "id": "IMG/forestlight/action-dash-pressed",
+      "name": "action-dash-pressed",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-dash-pressed.png",
+      "source": "assets/ui/forestlight-v01/action-dash-pressed.svg",
+      "sha256": "3a4ccb03906b50ffc8ec5ea0bdcd9426e2084af97395c1a764fd4560a7f303f0"
+    },
+    {
+      "id": "IMG/forestlight/action-dash-selected",
+      "name": "action-dash-selected",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-dash-selected.png",
+      "source": "assets/ui/forestlight-v01/action-dash-selected.svg",
+      "sha256": "e4856f9857c6b53eab4ffe92eca833fb558ab9b0b049f7dca03b517bb3eecd71"
+    },
+    {
+      "id": "IMG/forestlight/action-dash-disabled",
+      "name": "action-dash-disabled",
+      "width": 160,
+      "height": 160,
+      "png": "assets/ui/forestlight-v01/action-dash-disabled.png",
+      "source": "assets/ui/forestlight-v01/action-dash-disabled.svg",
+      "sha256": "8cdc4c981f49b95e893b218dea6faebaf19b5ea9e6e46f6e17c2e91b49124889"
+    },
+    {
+      "id": "IMG/forestlight/dpad-default",
+      "name": "dpad-default",
+      "width": 320,
+      "height": 320,
+      "png": "assets/ui/forestlight-v01/dpad-default.png",
+      "source": "assets/ui/forestlight-v01/dpad-default.svg",
+      "sha256": "9158d1b1c37e8a98ea75fcbe780e66d531b54434c71c56e8560f10cf56187b60"
+    },
+    {
+      "id": "IMG/forestlight/dpad-up",
+      "name": "dpad-up",
+      "width": 320,
+      "height": 320,
+      "png": "assets/ui/forestlight-v01/dpad-up.png",
+      "source": "assets/ui/forestlight-v01/dpad-up.svg",
+      "sha256": "1afc592012fda74c4ca8722933c314e64b348b453c58f6a36bae2ce9b1cb8522"
+    },
+    {
+      "id": "IMG/forestlight/dpad-down",
+      "name": "dpad-down",
+      "width": 320,
+      "height": 320,
+      "png": "assets/ui/forestlight-v01/dpad-down.png",
+      "source": "assets/ui/forestlight-v01/dpad-down.svg",
+      "sha256": "6e59b80e61b7f2fd9abdb0563a0a8594fc28cb4a04983d5c17718e5903242d6f"
+    },
+    {
+      "id": "IMG/forestlight/dpad-left",
+      "name": "dpad-left",
+      "width": 320,
+      "height": 320,
+      "png": "assets/ui/forestlight-v01/dpad-left.png",
+      "source": "assets/ui/forestlight-v01/dpad-left.svg",
+      "sha256": "56d2b0d25dc22acdf7ca6459a2d6eef0cc5a437e03901bf129df7fc0e9789cfc"
+    },
+    {
+      "id": "IMG/forestlight/dpad-right",
+      "name": "dpad-right",
+      "width": 320,
+      "height": 320,
+      "png": "assets/ui/forestlight-v01/dpad-right.png",
+      "source": "assets/ui/forestlight-v01/dpad-right.svg",
+      "sha256": "87cc2d2385399406036f21cebf5398d5592e0adceea0ef268f8a63824d13685e"
+    },
+    {
+      "id": "IMG/forestlight/dpad-disabled",
+      "name": "dpad-disabled",
+      "width": 320,
+      "height": 320,
+      "png": "assets/ui/forestlight-v01/dpad-disabled.png",
+      "source": "assets/ui/forestlight-v01/dpad-disabled.svg",
+      "sha256": "726828fedc09fdc197fe252a59180deb7c870fe7e17641640c025d6d5c965b3d"
+    },
+    {
+      "id": "IMG/forestlight/slider",
+      "name": "slider",
+      "width": 440,
+      "height": 64,
+      "png": "assets/ui/forestlight-v01/slider.png",
+      "source": "assets/ui/forestlight-v01/slider.svg",
+      "sha256": "b28724967aa3f2beabbe88556f7151090abf68c6108e648ad31de67e69fdef8e"
+    },
+    {
+      "id": "IMG/forestlight/toggle-on",
+      "name": "toggle-on",
+      "width": 104,
+      "height": 56,
+      "png": "assets/ui/forestlight-v01/toggle-on.png",
+      "source": "assets/ui/forestlight-v01/toggle-on.svg",
+      "sha256": "b17e03ec18f0c69ea5915c20d9bd20a45922f146ba0b24cc9c103e435d17e07d"
+    },
+    {
+      "id": "IMG/forestlight/toggle-off",
+      "name": "toggle-off",
+      "width": 104,
+      "height": 56,
+      "png": "assets/ui/forestlight-v01/toggle-off.png",
+      "source": "assets/ui/forestlight-v01/toggle-off.svg",
+      "sha256": "2818b6cc330a88fd3cddfafb0dcbb92db4d2c751398969b0390fb5bcd2504fd4"
+    },
+    {
+      "id": "IMG/forestlight/loading",
+      "name": "loading",
+      "width": 320,
+      "height": 32,
+      "png": "assets/ui/forestlight-v01/loading.png",
+      "source": "assets/ui/forestlight-v01/loading.svg",
+      "sha256": "90d97978061cb3a331089cf53490beb867dab318f477dee0d2b517cf478bd92b"
+    }
+  ]
+}

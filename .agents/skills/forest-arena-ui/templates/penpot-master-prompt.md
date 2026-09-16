@@ -4,7 +4,7 @@
 
 ## 권위 입력
 
-- `docs/DECISIONS.md`의 accepted ADR
+- `docs/product/decisions.md`의 accepted ADR
 - `docs/ui/non-combat-ui-v01.json`
 - `assets/ui/asset-requirements.csv`
 - 승인된 `assets/character/manifest.json`과 각 CharacterData

@@ -1,8 +1,8 @@
 # Forest Arena Penpot 설계 기준
 
-이 문서는 `Forest_Arena` 팀의 `Forest_Arena_UI` 파일에서 비전투 UI를 설계하기 위한 로컬 작업 계약이다. Phase 2 종료 시점에는 설계 계약과 카탈로그만 존재하며 Penpot 파일 편집, 이미지 생성과 24개 Godot 화면 구현은 후속 작업이다.
+이 문서는 `Forest_Arena` 팀의 `Forest_Arena_UI` 파일에서 전투 밖 화면을 설계할 때 지킬 약속이다. 현재 Phase 2 완료 시점에는 화면·이미지 이름과 자산 연결 목록만 있다. Penpot 파일 편집, 최종 이미지 생성과 24개 Godot 화면 구현은 이후 작업이다. UI·Penpot 용어는 [용어 가이드](../GLOSSARY.md#화면과-그래픽-용어)를 참고한다.
 
-## 권위 원본
+## 충돌할 때 우선하는 원본
 
 - 화면·제품 규칙: [non-combat-ui-v01.json](non-combat-ui-v01.json)
 - 요구 에셋·출력 경로: [asset-requirements.csv](../../assets/ui/asset-requirements.csv)
@@ -46,13 +46,13 @@ Node.js 22를 권장하고 20 이상을 사용한다. 저장소의 시작 스크
 5. 재실행 시 기존 구조를 재사용하고 중복 생성하지 않는다.
 6. 삭제·덮어쓰기처럼 복구하기 어려운 변경 전에는 대상을 확인하고 승인을 받는다.
 
-## 구현 게이트
+## 구현 전에 충족할 조건
 
 - Phase 2 종료 시점에는 계약과 플레이스홀더 설계만 존재한다. 실제 Penpot 편집과 Godot 화면 구현은 별도 요청과 해당 Phase 기준이 필요하다.
 - 오프라인 흐름은 Phase 6 종료 기준과 별도 구현 요청이 필요하다.
 - 온라인 파티·매칭·랭크·소셜은 Phase 7과 accepted 네트워크 ADR 전 구현하지 않는다.
-- 계정, 상점, 경제, 영속 진행은 각각 별도 제품 승인과 계약이 필요하다.
-- 캐릭터 신규 콘셉트는 `forest-arena-character-design`의 사용자 승인 게이트를 통과해야 한다.
+- 계정, 상점, 게임 재화, 앱을 종료해도 남는 성장 데이터는 각각 별도 제품 승인과 데이터 약속이 필요하다.
+- 새 캐릭터 콘셉트는 `forest-arena-character-design` 절차에 따라 사용자가 승인해야 한다.
 
 ## 완료 보고
 

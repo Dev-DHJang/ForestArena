@@ -1,7 +1,7 @@
 extends SceneTree
 
-const FIGHTERS := ["res://scenes/fighters/ja_hyun_fighter.tscn", "res://scenes/fighters/myo_ryung_fighter.tscn", "res://scenes/fighters/nabi_fighter.tscn"]
-const EXPECTED_COMBOS := {"ja-hyun": 3, "myo-ryung": 4, "nabi": 2}
+const FIGHTERS := ["res://scenes/fighters/ja_hyun_fighter.tscn", "res://scenes/fighters/myo_ryung_fighter.tscn", "res://scenes/fighters/nabi_fighter.tscn", "res://scenes/fighters/yu_ran_fighter.tscn"]
+const EXPECTED_COMBOS := {"ja-hyun": 3, "myo-ryung": 4, "nabi": 2, "yu-ran": 3}
 const TIMINGS := {
 	"light": [4, 3, 7, 4.0, 120.0, 1.6], "finisher": [6, 3, 12, 7.0, 210.0, 2.4],
 	"directional_light": [5, 3, 9, 5.0, 150.0, 1.8], "heavy": [10, 4, 16, 10.0, 260.0, 3.0],
@@ -54,6 +54,8 @@ func _validate_family(fighter: FighterController, failures: PackedStringArray) -
 	var neutral := _find(fighter, &"attack_special", AttackData.InputDirection.NEUTRAL, false, AttackData.ActivationContext.BOTH)
 	if fighter.fighter_id == &"myo-ryung":
 		if neutral == null or neutral.max_hits_per_target != 3 or neutral.rehit_interval_ticks != 3 or neutral.damage != 3.0: failures.append("Myo-Ryung multi-hit contract mismatch")
+	elif fighter.fighter_id == &"yu-ran":
+		if neutral == null or neutral.startup_ticks != 8 or neutral.active_ticks != 4 or neutral.recovery_ticks != 16 or neutral.damage != 8.0 or neutral.base_knockback != 220.0 or neutral.knockback_growth != 2.6 or neutral.hitbox_size != Vector2(96, 64) or neutral.hitbox_offset != Vector2(34, -30): failures.append("Yu-ran neutral tail-sweep contract mismatch")
 	elif neutral == null:
 		failures.append("missing neutral special: %s" % fighter.fighter_id)
 	else:

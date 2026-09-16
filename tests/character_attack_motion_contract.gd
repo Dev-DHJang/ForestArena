@@ -1,7 +1,7 @@
 extends SceneTree
 
 const MANIFEST_PATH := "res://assets/character/manifest.json"
-const ATTACK_SYSTEM_PATH := "res://docs/attack-system-v01.json"
+const ATTACK_SYSTEM_PATH := "res://docs/contracts/attack-system-v01.json"
 const REQUIRED_ATTACKS := {
 	"attack_light_combo_01": {"combo_index": 1, "is_finisher": false, "acting_purpose": "low jab"},
 	"attack_light_combo_02": {"combo_index": 2, "is_finisher": false, "acting_purpose": "ribbon-drawing side strike"},

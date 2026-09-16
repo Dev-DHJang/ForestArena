@@ -13,7 +13,7 @@ description: 여러 전문 영역·공용 계약·Phase 경계를 넘는 Forest 
 ## 필수 입력
 
 - 원 요청, README.md의 문서 우선순위, 현재 Phase와 관련 ADR.
-- docs/harness/forest-arena/team-spec.md와 기존 _workspace/<topic>/ 증적.
+- docs/operations/harness/team-spec.md와 기존 _workspace/<topic>/ 증적.
 
 ## 작업 흐름
 
