@@ -23,6 +23,7 @@
 | 자현·묘령·나비는 어떻게 싸우는가? | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md) | [전투 규칙](gameplay/combat.md) |
 | 화면과 터치 조작은 어떻게 구성하는가? | [기능과 사용자 경험](gameplay/features-and-ux.md) | [비전투 화면 데이터](ui/non-combat-ui-v01.json), [Penpot 설계 기준](ui/penpot-setup.md) |
 | 코드를 어떤 책임으로 나누는가? | [코드 구조](engineering/architecture.md) | [공용 데이터 형식](#공용-데이터-형식) |
+| 개발계 DB를 어떻게 실행하는가? | [개발계 데이터베이스](engineering/database.md) | [코드 구조](engineering/architecture.md) |
 | 이미지·애니메이션·소리는 어떻게 만드는가? | [콘텐츠 제작 원칙](content/art-and-audio.md) | [캐릭터 외형 데이터](contracts/character-appearance-v01.json) |
 | Godot 자산은 어떻게 찾고 교체하는가? | [Godot 설정](engineering/godot/setup.md) | [Godot 자산 규칙](engineering/godot/resource-rules.md) |
 | Android 기기를 어떻게 연결하는가? | [Android 무선 연결](engineering/godot/android-wireless-debugging.md) | [README 실행 명령](../README.md#실행과-검증) |

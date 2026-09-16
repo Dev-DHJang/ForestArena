@@ -1,0 +1,29 @@
+name: forest-arena-development
+
+services:
+  db:
+    image: postgres:18.6-alpine3.23
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${FOREST_ARENA_DB_NAME}
+      POSTGRES_USER: ${FOREST_ARENA_DB_ADMIN_USER}
+      POSTGRES_PASSWORD: ${FOREST_ARENA_DB_ADMIN_PASSWORD}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+      FOREST_ARENA_DB_APP_USER: ${FOREST_ARENA_DB_APP_USER}
+      FOREST_ARENA_DB_APP_PASSWORD: ${FOREST_ARENA_DB_APP_PASSWORD}
+    ports:
+      - "127.0.0.1:${FOREST_ARENA_DB_PORT}:5432"
+    volumes:
+      - forest_arena_development_postgres:/var/lib/postgresql
+      - ./init:/docker-entrypoint-initdb.d:ro
+      - ./migrations:/migrations:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+
+volumes:
+  forest_arena_development_postgres:
+    name: forest_arena_development_postgres
