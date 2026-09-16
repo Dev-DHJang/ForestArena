@@ -9,4 +9,4 @@
 - 관련 코드 커밋: `220a827895e8bcb6e93dab6c3fe44a6d6ec4f26e`.
 - 롤백: 개발 DB는 `./scripts/db-dev.sh down`으로 멈춘다. 데이터를 지우기 전 `backup`을 실행한다. 도구를 되돌릴 때는 `database/`, DB 스크립트, 문서와 이 작업 기록을 같은 변경에서 함께 제거한다.
 - 미확인: 검증계·운영계 구성, 게임 저장 데이터, Godot 연결, 클라우드·온라인 기능은 범위 밖으로 남겼다. 실제 Android 기기 검사는 이 작업과 관계없어 실행하지 않았다.
-- 원격 통합: 현재 GitHub CLI에 로그인되어 있지 않아 push·PR·`develop` 병합은 아직 실행하지 못했다. `gh auth login` 또는 Git 자격 증명 설정 뒤 이 브랜치를 push하고 PR을 열어 QA 후 병합한다.
+- 원격 통합: `feature/development-database` 브랜치를 push했다. 원격은 `ForestTales`에서 `ForestArena`로 이전됐다는 안내를 반환했다. GitHub CLI 로그인이 없어 PR 생성과 `develop` 병합은 아직 실행하지 못했다. `gh auth login` 뒤 `https://github.com/Dev-DHJang/ForestArena/pull/new/feature/development-database`에서 PR을 열어 QA 후 병합한다.
