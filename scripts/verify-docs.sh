@@ -22,6 +22,7 @@ for path in \
   docs/contracts/attack-system-v01.json \
   docs/contracts/character-appearance-v01.json \
   docs/engineering/architecture.md \
+  docs/engineering/database.md \
   docs/engineering/godot/setup.md \
   docs/engineering/godot/resource-rules.md \
   docs/engineering/godot/android-wireless-debugging.md \
