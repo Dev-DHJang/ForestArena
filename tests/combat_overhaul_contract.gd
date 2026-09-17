@@ -26,6 +26,9 @@ func _initialize() -> void:
 	controller.set_physics_process(false)
 	var player := controller.player
 	var dummy := controller.training_dummy
+	var legacy_rules := CombatRules.new()
+	if legacy_rules.is_valid_definition() or not controller.rules.is_valid_definition():
+		failures.append("CombatRules v3 did not reject missing legacy schema")
 
 	# Source profile is copied before an effect is attached.
 	var original_count := player.character_data.base_move_set.combo_links.size()
@@ -36,6 +39,25 @@ func _initialize() -> void:
 	var commands: Array[CombatIntent] = CommandResolverScript.resolve([down, light])
 	if commands.any(func(intent: CombatIntent) -> bool: return intent.action_id == &"guard") or not commands.any(func(intent: CombatIntent) -> bool: return intent.action_id == &"attack_light"):
 		failures.append("down attack priority failed")
+	var jump := CombatIntent.new(1, player.fighter_id, &"jump", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS)
+	commands = CommandResolverScript.resolve([down, light, jump])
+	if not commands.any(func(intent: CombatIntent) -> bool: return intent.action_id == &"drop_platform") or commands.any(func(intent: CombatIntent) -> bool: return intent.action_id == &"attack_light"):
+		failures.append("down jump platform priority failed")
+
+	# Runtime state is the read-only HUD source, including guard release and resources.
+	player.state = FighterController.State.GUARD
+	player.runtime_state.guarding = true
+	player.consume_intent(CombatIntent.new(1, player.fighter_id, &"move", CombatIntent.Direction.DOWN, CombatIntent.Edge.RELEASE), controller.rules)
+	if player.runtime_state.guarding or player.state == FighterController.State.GUARD:
+		failures.append("guard was not released with the down input")
+	player.runtime_state.guard_durability = 64.0
+	player.runtime_state.special_cooldown_ticks = 9
+	player.runtime_state.ultimate_gauge = 33.0
+	var hud_state := player.snapshot()
+	if hud_state.guard_durability != 64.0 or hud_state.special_cooldown_ticks != 9 or hud_state.ultimate_gauge != 33.0:
+		failures.append("combat resources were not exposed through snapshot")
+	if not InputMap.has_action(&"evade") or not InputMap.has_action(&"ultimate"):
+		failures.append("desktop compatibility actions for evade and ultimate are missing")
 
 	# A one-use OnDeath revive grants one stock and enters the ordinary delay.
 	var revive_accessory := load("res://assets/loadouts/fixtures/phoenix_revive_accessory.tres") as AccessoryData

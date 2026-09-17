@@ -83,6 +83,8 @@ func _initialize() -> void:
 	if player.current_hp != before: failures.append("HUD mutated fighter HP")
 	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("87/"):
 		failures.append("HUD did not render snapshot HP")
+	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("G ") or not (instance.get_node("Interface/MatchReadout") as Label).text.contains("U "):
+		failures.append("HUD did not render guard and ultimate resources")
 
 	# Camera follows the pair and stays within its configured zoom bounds.
 	player.global_position = Vector2(controller.rules.ring_left, 400)
