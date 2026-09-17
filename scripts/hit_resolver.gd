@@ -38,6 +38,9 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 	result.hitstun_ticks = CombatMath.hitstun_ticks(attack, defender._stats().weight, rules)
 	result.reaction = AttackData.HitReaction.keys()[attack.hit_reaction]
 	defender.apply_hit(attack, result.knockback, result.hitstun_ticks, rules)
+	# Gauge changes only after effective damage; blocked, immune and armored hits do not fill it.
+	context.attacker.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, context.attacker.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_dealt + attack.resource_gain)
+	defender.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, defender.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_taken)
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_HIT, context.attacker, defender, rules)
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_INCOMING_HIT, defender, context.attacker, rules, attack.attack_id)
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_DAMAGED, defender, context.attacker, rules, attack.attack_id)

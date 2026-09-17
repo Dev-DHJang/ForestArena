@@ -96,7 +96,7 @@ func pause_match(value: bool) -> void:
 
 
 func snapshot() -> Dictionary:
-	return {"tick": tick, "paused": paused, "winner_id": winner_id, "is_draw": is_draw, "fighters": [player.snapshot(), training_dummy.snapshot()]}
+	return {"tick": tick, "paused": paused, "winner_id": winner_id, "is_draw": is_draw, "guard_max": rules.guard_max_durability, "ultimate_gauge_max": rules.ultimate_gauge_max, "fighters": [player.snapshot(), training_dummy.snapshot()]}
 
 
 func snapshot_hash() -> String:
@@ -113,7 +113,7 @@ func _poll_player_input() -> void:
 		_last_player_direction = direction
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
-	for action: StringName in [&"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special"]:
+	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]:
 		if Input.is_action_just_pressed(action):
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.PRESS, _context_for(player)))
 		elif Input.is_action_just_released(action):
@@ -146,7 +146,9 @@ func _resolve_hits() -> void:
 			if count >= source.active_attack.max_hits_per_target: continue
 			var last_tick: int = _hit_counts.get("%s:last" % key, -999)
 			if count > 0 and tick - last_tick < source.active_attack.rehit_interval_ticks: continue
-			if target.invulnerability_ticks > 0 or target.state == FighterController.State.RING_OUT: continue
+			# Invulnerability remains a resolved IMMUNE result, so consumers can observe
+			# the fixed hit pipeline instead of silently losing the candidate here.
+			if target.state in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
 			candidates.append({
 				"source": source, "target": target, "attack": source.active_attack, "key": key,
 			})

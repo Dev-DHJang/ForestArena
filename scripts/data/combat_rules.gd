@@ -1,7 +1,8 @@
 class_name CombatRules
 extends Resource
 
-@export var schema_version: int = 2
+# Missing version means legacy/unknown data and must be rejected explicitly.
+@export var schema_version: int = 0
 @export var physics_ticks_per_second: int = 60
 @export var stocks_per_fighter: int = 3
 @export var ground_acceleration: float = 3000.0
@@ -20,6 +21,9 @@ extends Resource
 @export var evade_invulnerability_ticks: int = 8
 @export var special_cooldown_ticks: int = 45
 @export var ultimate_gauge_max: float = 100.0
+@export var ultimate_gauge_per_damage_dealt: float = 1.0
+@export var ultimate_gauge_per_damage_taken: float = 0.5
+@export var platform_drop_ticks: int = 12
 @export var combo_link_window_ticks: int = 5
 @export var ring_left: float = -160.0
 @export var ring_right: float = 1440.0
@@ -28,7 +32,7 @@ extends Resource
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 2 \
+	return schema_version == 3 \
 		and physics_ticks_per_second == 60 \
 		and stocks_per_fighter > 0 \
 		and ground_acceleration > 0.0 \
@@ -43,4 +47,5 @@ func is_valid_definition() -> bool:
 		and guard_max_durability > 0.0 \
 		and guard_regen_per_tick >= 0.0 \
 		and guard_break_ticks >= 0 \
-		and evade_ticks > 0 and evade_invulnerability_ticks >= 0 and special_cooldown_ticks >= 0 and ultimate_gauge_max > 0.0
+		and evade_ticks > 0 and evade_invulnerability_ticks >= 0 and special_cooldown_ticks >= 0 and ultimate_gauge_max > 0.0 \
+		and ultimate_gauge_per_damage_dealt >= 0.0 and ultimate_gauge_per_damage_taken >= 0.0 and platform_drop_ticks > 0

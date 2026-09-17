@@ -41,9 +41,10 @@ collision_layer = 1
 shape = SubResource("GroundShape")
 [node name="Platform" type="StaticBody2D" parent="World"]
 position = Vector2(640, 430)
-collision_layer = 1
+collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platform"]
 shape = SubResource("PlatformShape")
+one_way_collision = true
 [node name="Player" parent="World" instance=ExtResource("3_ja")]
 position = Vector2(430, 520)
 [node name="TrainingDummy" parent="World" instance=ExtResource("4_myo")]
@@ -100,7 +101,7 @@ script = ExtResource("7_touch")
 [node name="HudPanel" type="NinePatchRect" parent="Interface"]
 offset_left = 12.0
 offset_top = 10.0
-offset_right = 1050.0
+offset_right = 1130.0
 offset_bottom = 122.0
 mouse_filter = 2
 patch_margin_left = 60
@@ -114,7 +115,7 @@ offset_right = 1000.0
 offset_bottom = 54.0
 theme_override_colors/font_color = Color(0.93, 0.96, 1, 1)
 theme_override_font_sizes/font_size = 22
-text = "자현 0% · 3 STOCK    묘령 0% · 3 STOCK"
+text = "자현 0/0 HP · 3 STOCK · G 0/0 · S 0t · U 0/0    묘령 0/0 HP · 3 STOCK · G 0/0 · S 0t · U 0/0"
 [node name="PhaseLabel" type="Label" parent="Interface"]
 offset_left = 24.0
 offset_top = 56.0

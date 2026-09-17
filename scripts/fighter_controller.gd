@@ -105,6 +105,9 @@ func reset_for_match(rules: CombatRules) -> void:
 func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	if intent.action_id == &"move":
 		input_direction = CombatIntent.Direction.NEUTRAL if intent.edge == CombatIntent.Edge.RELEASE else intent.direction
+		if intent.edge == CombatIntent.Edge.RELEASE and state == State.GUARD:
+			runtime_state.guarding = false
+			state = State.IDLE if is_on_floor() else State.FALL
 		return
 	if intent.action_id == &"guard":
 		if is_on_floor() and state in [State.IDLE, State.RUN]:
@@ -112,8 +115,7 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 			state = State.GUARD
 		return
 	if intent.action_id == &"drop_platform":
-		# One-way platform collision is scene-owned. Ordinary floors keep their state.
-		runtime_state.guarding = false
+		_try_drop_platform(rules)
 		return
 	if intent.action_id == &"evade":
 		_try_evade(rules)
@@ -142,7 +144,7 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	var next := _select_attack(intent)
 	if next == null: return
 	if next.action_id == &"attack_special" and runtime_state.special_cooldown_ticks > 0: return
-	_start_attack(next, intent.direction)
+	_start_attack(next, intent.direction, rules)
 
 
 func step_tick(rules: CombatRules) -> void:
@@ -152,9 +154,18 @@ func step_tick(rules: CombatRules) -> void:
 	if invulnerability_ticks > 0:
 		invulnerability_ticks -= 1
 	if runtime_state.special_cooldown_ticks > 0: runtime_state.special_cooldown_ticks -= 1
+	if runtime_state.platform_drop_ticks > 0:
+		runtime_state.platform_drop_ticks -= 1
+		if runtime_state.platform_drop_ticks <= 0: set_collision_mask_value(4, true)
 	if state == State.EVADE:
 		runtime_state.evade_ticks -= 1
+		move_and_slide()
 		if runtime_state.evade_ticks <= 0: state = State.IDLE if is_on_floor() else State.FALL
+		_finish_tick()
+		return
+	if state == State.GUARD:
+		# Guard is sustained by a down hold. It does not become an ordinary run tick.
+		move_and_slide()
 		_finish_tick()
 		return
 	if state != State.GUARD:
@@ -263,6 +274,11 @@ func snapshot() -> Dictionary:
 		"attack_id": &"" if active_attack == null else active_attack.attack_id, "attack_phase_tick": attack_phase_tick,
 		"invulnerability_ticks": invulnerability_ticks, "respawn_ticks": respawn_ticks,
 		"air_jumps": air_jumps_remaining, "air_attacks": aerial_attacks_remaining, "up_special": up_special_available,
+		"guard_durability": snappedf(runtime_state.guard_durability, 0.001),
+		"guard_max": runtime_state.guard_durability if runtime_profile == null else 100.0,
+		"special_cooldown_ticks": runtime_state.special_cooldown_ticks,
+		"ultimate_gauge": snappedf(runtime_state.ultimate_gauge, 0.001),
+		"ultimate_used_this_stock": runtime_state.ultimate_used_this_stock,
 	}
 
 
@@ -310,7 +326,7 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 	return ComboControllerScript.opening_attack(runtime_profile.move_set, intent, context, facing, state == State.DASH)
 
 
-func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
+func _start_attack(next: AttackData, direction: CombatIntent.Direction, rules: CombatRules = null) -> void:
 	active_attack = next
 	activation_serial += 1
 	attack_phase_tick = 0
@@ -323,7 +339,9 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
 	if next.action_id == &"attack_special" and next.input_direction == AttackData.InputDirection.UP:
 		up_special_available = false
 		velocity += next.self_impulse
-	if next.action_id == &"attack_special": runtime_state.special_cooldown_ticks = 45
+	# The optional argument preserves existing test and tool callers. Match authority
+	# always supplies its rules; the fallback is only the contract default.
+	if next.action_id == &"attack_special": runtime_state.special_cooldown_ticks = rules.special_cooldown_ticks if rules != null else 45
 	state = State.ATTACK_STARTUP
 
 
@@ -343,7 +361,7 @@ func _advance_attack(rules: CombatRules) -> void:
 		if queued != null:
 			var next := ComboControllerScript.linked_attack(runtime_profile.move_set, finished, queued, 0, attack_landed)
 			if next != null:
-				_start_attack(next, queued.direction)
+				_start_attack(next, queued.direction, rules)
 				return
 		combo_index = 0
 		state = State.IDLE if is_on_floor() else State.FALL
@@ -396,11 +414,21 @@ func _respawn(rules: CombatRules) -> void:
 
 
 func _try_evade(rules: CombatRules) -> void:
-	if active_attack != null or state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN] or not is_on_floor(): return
+	if active_attack != null or state not in [State.IDLE, State.RUN, State.GUARD, State.DASH] or not is_on_floor(): return
+	runtime_state.guarding = false
 	runtime_state.evade_ticks = rules.evade_ticks
 	invulnerability_ticks = max(invulnerability_ticks, rules.evade_invulnerability_ticks)
 	velocity.x = facing * _stats().dash_speed
 	state = State.EVADE
+
+
+func _try_drop_platform(rules: CombatRules) -> void:
+	# The platform owns layer 4; the ground remains layer 1 and never gets disabled.
+	if not is_on_floor(): return
+	runtime_state.guarding = false
+	if state == State.GUARD: state = State.FALL
+	runtime_state.platform_drop_ticks = rules.platform_drop_ticks
+	set_collision_mask_value(4, false)
 
 
 func _relative_direction(direction: CombatIntent.Direction) -> AttackData.InputDirection:
@@ -442,6 +470,10 @@ func _sync_debug_hitbox() -> void:
 
 
 func _finish_tick() -> void:
+	runtime_state.state_id = State.keys()[state]
+	runtime_state.active_attack_id = &"" if active_attack == null else active_attack.attack_id
+	runtime_state.velocity = velocity
+	runtime_state.grounded = is_on_floor()
 	_sync_debug_hitbox()
 	queue_redraw()
 

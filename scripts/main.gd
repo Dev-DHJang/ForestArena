@@ -1,6 +1,6 @@
 extends Node2D
 
-const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"attack_light", &"attack_heavy", &"attack_special"]
+const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]
 const HUD_PANEL_ID := "fa.ui.panel.panel.dark.l"
 const RESTART_NORMAL_ID := "fa.ui.button.base.btn.secondary.m.default"
 const RESTART_PRESSED_ID := "fa.ui.button.base.btn.secondary.m.pressed"
@@ -93,5 +93,5 @@ func _render_snapshot(snapshot: Dictionary) -> void:
 		suffix = " · 무승부"
 	elif not String(snapshot.get("winner_id", "")).is_empty():
 		suffix = " · 승자: %s" % snapshot.winner_id
-	readout.text = "자현 %d/%d HP · %d STOCK    묘령 %d/%d HP · %d STOCK%s" % [roundi(first.current_hp), roundi(first.max_hp), first.stocks, roundi(second.current_hp), roundi(second.max_hp), second.stocks, suffix]
+	readout.text = "자현 %d/%d HP · %d STOCK · G %d/%d · S %dt · U %d/%d    묘령 %d/%d HP · %d STOCK · G %d/%d · S %dt · U %d/%d%s" % [roundi(first.current_hp), roundi(first.max_hp), first.stocks, roundi(first.guard_durability), roundi(snapshot.guard_max), int(first.special_cooldown_ticks), roundi(first.ultimate_gauge), roundi(snapshot.ultimate_gauge_max), roundi(second.current_hp), roundi(second.max_hp), second.stocks, roundi(second.guard_durability), roundi(snapshot.guard_max), int(second.special_cooldown_ticks), roundi(second.ultimate_gauge), roundi(snapshot.ultimate_gauge_max), suffix]
 	debug_readout.text = "tick %d  %s:%s  %s:%s" % [snapshot.tick, first.state, first.attack_id, second.state, second.attack_id]
