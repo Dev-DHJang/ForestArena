@@ -25,19 +25,26 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 	if not attack.ignore_armor_and_immunity and _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_TAG, attack.tags):
 		result.type = HitResult.Type.IMMUNE
 		return result
+	if not attack.ignore_armor_and_immunity and _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_GRAB, attack.tags) and attack.tags.has(&"GRAB"):
+		result.type = HitResult.Type.IMMUNE
+		return result
 	if not attack.ignore_armor_and_immunity and _has_rule(defender.runtime_profile, CombatRuleData.Kind.SUPER_ARMOR, attack.tags):
 		result.type = HitResult.Type.ARMOR
 		result.damage = attack.damage
 		defender.current_hp = maxf(0.0, defender.current_hp - attack.damage)
+		if defender.current_hp <= 0.0: defender.lose_stock(rules)
 		return result
 	var direction := _launch_direction(context)
 	var speed := CombatMath.knockback_speed(attack, defender._stats().weight)
 	result.type = HitResult.Type.HIT
 	result.damage = attack.damage
-	result.knockback = direction * speed
-	result.hitstun_ticks = CombatMath.hitstun_ticks(attack, defender._stats().weight, rules)
-	result.reaction = AttackData.HitReaction.keys()[attack.hit_reaction]
-	defender.apply_hit(attack, result.knockback, result.hitstun_ticks, rules)
+	result.knockback = Vector2.ZERO if _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_KNOCKBACK, attack.tags) else direction * speed
+	result.hitstun_ticks = 0 if _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_HITSTUN, attack.tags) else CombatMath.hitstun_ticks(attack, defender._stats().weight, rules)
+	var reaction: int = attack.hit_reaction
+	if _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_KNOCKDOWN, attack.tags) and reaction in [AttackData.HitReaction.KNOCK_DOWN, AttackData.HitReaction.SLAM, AttackData.HitReaction.CRUMPLE]:
+		reaction = AttackData.HitReaction.NORMAL_HIT
+	result.reaction = AttackData.HitReaction.keys()[reaction]
+	defender.apply_hit(attack, result.knockback, result.hitstun_ticks, rules, reaction)
 	# Gauge changes only after effective damage; blocked, immune and armored hits do not fill it.
 	context.attacker.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, context.attacker.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_dealt + attack.resource_gain)
 	defender.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, defender.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_taken)

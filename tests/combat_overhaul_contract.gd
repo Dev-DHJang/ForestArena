@@ -19,6 +19,12 @@ func _initialize() -> void:
 	for path: String in FIXTURES:
 		var accessory := load(path) as AccessoryData
 		if accessory == null or not accessory.is_valid_definition(): failures.append("invalid fixture: %s" % path)
+	var iron := load("res://assets/loadouts/fixtures/iron_armor_accessory.tres") as AccessoryData
+	var boxing := load("res://assets/loadouts/fixtures/boxing_gloves_accessory.tres") as AccessoryData
+	if iron == null or not iron.combat_rules.any(func(rule: CombatRuleData) -> bool: return rule.kind == CombatRuleData.Kind.SUPER_ARMOR):
+		failures.append("iron armor did not declare data-driven armor")
+	if boxing == null or boxing.replacement_move_set == null or boxing.replacement_move_set.move_set_id != &"yu-ran.base":
+		failures.append("boxing gloves did not replace the complete MoveSet")
 	var instance := (load("res://scenes/main.tscn") as PackedScene).instantiate()
 	root.add_child(instance)
 	await process_frame

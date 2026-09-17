@@ -222,7 +222,7 @@ func register_landed_hit(attack: AttackData) -> void:
 		launcher_jump_available = true
 
 
-func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int, rules: CombatRules) -> bool:
+func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int, rules: CombatRules, reaction_override := -1) -> bool:
 	current_hp = maxf(0.0, current_hp - attack.damage)
 	if current_hp <= 0.0:
 		return lose_stock(rules)
@@ -232,7 +232,8 @@ func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int,
 	buffered_intent = null
 	air_jumps_remaining = 0
 	launcher_jump_available = false
-	match attack.hit_reaction:
+	var reaction: int = attack.hit_reaction if reaction_override < 0 else reaction_override
+	match reaction:
 		AttackData.HitReaction.KNOCK_DOWN, AttackData.HitReaction.SLAM, AttackData.HitReaction.CRUMPLE:
 			state = State.KNOCK_DOWN
 		AttackData.HitReaction.LAUNCH, AttackData.HitReaction.GROUND_BOUNCE, AttackData.HitReaction.WALL_BOUNCE:

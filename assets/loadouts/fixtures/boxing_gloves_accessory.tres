@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1"]
 [ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="2"]
+[ext_resource type="Resource" path="res://assets/combat/movesets/yu_ran_moveset.tres" id="3_moveset"]
 
 [sub_resource type="Resource" id="Speed"]
 script = ExtResource("2")
@@ -14,3 +15,4 @@ script = ExtResource("1")
 schema_version = 2
 accessory_id = &"fixture-boxing-gloves"
 stat_modifiers = Array[ExtResource("2")]([SubResource("Speed")])
+replacement_move_set = ExtResource("3_moveset")
