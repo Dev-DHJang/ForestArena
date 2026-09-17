@@ -59,6 +59,29 @@ func _initialize() -> void:
 	if not InputMap.has_action(&"evade") or not InputMap.has_action(&"ultimate"):
 		failures.append("desktop compatibility actions for evade and ultimate are missing")
 
+	# Data links own hit-only branches and cancellation; a finisher remains final.
+	controller.reset_match()
+	var opening: AttackData = player.runtime_profile.move_set.attacks().filter(func(attack: AttackData) -> bool: return attack.attack_id == &"ja-hyun-light-01")[0]
+	player.call("_start_attack", opening, CombatIntent.Direction.NEUTRAL, controller.rules)
+	player.state = FighterController.State.ATTACK_RECOVERY
+	player.attack_phase_tick = 1
+	player.attack_landed = false
+	player.consume_intent(CombatIntent.new(1, player.fighter_id, &"attack_special", CombatIntent.Direction.NEUTRAL, CombatIntent.Edge.PRESS), controller.rules)
+	if player.active_attack == null or player.active_attack.attack_id != opening.attack_id:
+		failures.append("hit-only special cancel accepted a whiff")
+	player.attack_landed = true
+	player.consume_intent(CombatIntent.new(1, player.fighter_id, &"attack_special", CombatIntent.Direction.NEUTRAL, CombatIntent.Edge.PRESS), controller.rules)
+	if player.active_attack == null or player.active_attack.action_id != &"attack_special":
+		failures.append("data special cancel did not start the next move")
+	var finisher: AttackData = player.runtime_profile.move_set.attacks().filter(func(attack: AttackData) -> bool: return attack.attack_id == &"ja-hyun-light-03")[0]
+	player.call("_start_attack", finisher, CombatIntent.Direction.NEUTRAL, controller.rules)
+	player.state = FighterController.State.ATTACK_RECOVERY
+	player.attack_phase_tick = 1
+	player.attack_landed = true
+	player.consume_intent(CombatIntent.new(1, player.fighter_id, &"evade", CombatIntent.Direction.NEUTRAL, CombatIntent.Edge.PRESS), controller.rules)
+	if player.active_attack == null or player.active_attack.attack_id != finisher.attack_id:
+		failures.append("finisher cancellation was accepted")
+
 	# A one-use OnDeath revive grants one stock and enters the ordinary delay.
 	var revive_accessory := load("res://assets/loadouts/fixtures/phoenix_revive_accessory.tres") as AccessoryData
 	player.runtime_profile.combat_effects = revive_accessory.combat_effects.duplicate(true)

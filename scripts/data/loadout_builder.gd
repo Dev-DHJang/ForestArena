@@ -92,3 +92,5 @@ static func _replace_attack_references(move_set: MoveSetData, previous_id: Strin
 	for link: ComboLinkData in move_set.combo_links:
 		if link.from_attack_id == previous_id: link.from_attack_id = replacement_id
 		if link.next_attack_id == previous_id: link.next_attack_id = replacement_id
+	for rule: CancelRuleData in move_set.cancel_rules:
+		if rule.from_attack_id == previous_id: rule.from_attack_id = replacement_id
