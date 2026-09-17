@@ -17,7 +17,7 @@ func _init() -> void:
 	_check(result.succeeded(), "fixture selection builds")
 	if result.succeeded():
 		_check(result.profile.stats.ground_speed == character.base_stats.ground_speed + 12.0, "job applies after character")
-		_check(result.profile.stats.survivability == character.base_stats.survivability + 3.0, "accessory applies after job")
+		_check(result.profile.stats.max_hp == character.base_stats.max_hp + 3.0, "accessory applies after job")
 		_check(result.profile.move_set.attacks()[0].attack_id == &"ja-hyun-light-01-prototype", "accessory slot patch replaces external moveset slot")
 		_check(character.base_stats.ground_speed == 300.0 and character.base_move_set.attacks()[0].attack_id == &"ja-hyun-light-01", "source resources remain unchanged")
 	_test_parent_order_and_conflicts(character)

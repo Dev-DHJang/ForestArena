@@ -1,6 +1,10 @@
 class_name MatchController
 extends Node
 
+const CommandResolverScript = preload("res://scripts/command_resolver.gd")
+const EffectControllerScript = preload("res://scripts/effect_controller.gd")
+const EffectData = preload("res://scripts/data/combat_effect_data.gd")
+
 signal snapshot_changed(snapshot: Dictionary)
 signal match_ended(winner_id: StringName)
 
@@ -15,6 +19,7 @@ var tick := 0
 var paused := false
 var winner_id: StringName
 var sudden_death_round := 0
+var is_draw := false
 var _queued_intents: Array[CombatIntent] = []
 var _hit_counts: Dictionary = {}
 var _last_player_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
@@ -39,7 +44,7 @@ func submit_intent(intent: CombatIntent) -> void:
 
 
 func step_fixed_tick(poll_local_input := true) -> void:
-	if paused or not winner_id.is_empty(): return
+	if paused or not winner_id.is_empty() or is_draw: return
 	tick += 1
 	if poll_local_input: _poll_player_input()
 	_process_intents()
@@ -55,6 +60,7 @@ func reset_match() -> void:
 	paused = false
 	winner_id = &""
 	sudden_death_round = 0
+	is_draw = false
 	_queued_intents.clear()
 	_hit_counts.clear()
 	_last_player_direction = CombatIntent.Direction.NEUTRAL
@@ -90,7 +96,7 @@ func pause_match(value: bool) -> void:
 
 
 func snapshot() -> Dictionary:
-	return {"tick": tick, "paused": paused, "winner_id": winner_id, "sudden_death_round": sudden_death_round, "fighters": [player.snapshot(), training_dummy.snapshot()]}
+	return {"tick": tick, "paused": paused, "winner_id": winner_id, "is_draw": is_draw, "fighters": [player.snapshot(), training_dummy.snapshot()]}
 
 
 func snapshot_hash() -> String:
@@ -124,7 +130,7 @@ func _process_intents() -> void:
 		var right := "%010d:%s:%s:%d" % [b.tick, b.fighter_id, b.action_id, b.edge]
 		return left < right
 	)
-	for intent: CombatIntent in due:
+	for intent: CombatIntent in CommandResolverScript.resolve(due):
 		var fighter := _fighter_by_id(intent.fighter_id)
 		if fighter != null: fighter.consume_intent(intent, rules)
 
@@ -143,10 +149,6 @@ func _resolve_hits() -> void:
 			if target.invulnerability_ticks > 0 or target.state == FighterController.State.RING_OUT: continue
 			candidates.append({
 				"source": source, "target": target, "attack": source.active_attack, "key": key,
-				"source_position": source.global_position, "target_position": target.global_position,
-				"source_facing": source.locked_facing, "target_damage": target.damage_percent,
-				"source_direction": source.locked_direction,
-				"target_direction": target.input_direction,
 			})
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return "%s:%s:%s" % [a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%s:%s:%s" % [b.source.fighter_id, b.target.fighter_id, b.attack.attack_id]
@@ -154,15 +156,16 @@ func _resolve_hits() -> void:
 	for hit: Dictionary in candidates:
 		var attack: AttackData = hit.attack
 		var target: FighterController = hit.target
-		var damage_after := float(hit.target_damage) + attack.damage
-		var speed := (attack.base_knockback + damage_after * attack.knockback_growth) / target._stats().weight
-		var direction := _launch_direction(attack, hit.source_position, hit.target_position, hit.source_facing, hit.source_direction)
-		direction = direction.rotated(_di_angle(hit.target_direction))
-		var stun := clampi(roundi(speed / 20.0), rules.hitstun_min_ticks, rules.hitstun_max_ticks)
-		target.apply_hit(attack, direction * speed, stun)
-		hit.source.register_landed_hit(attack)
+		var context := HitContext.new(tick, hit.source, target, attack)
+		context.source_position = hit.source.global_position
+		context.target_position = target.global_position
+		context.source_facing = hit.source.locked_facing
+		context.source_direction = hit.source.locked_direction
+		var result := HitResolver.resolve(context, rules)
+		if result.landed(): hit.source.register_landed_hit(attack)
 		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 		_hit_counts["%s:last" % hit.key] = tick
+	_resolve_final_losses()
 
 
 func _resolve_ring_outs() -> void:
@@ -172,43 +175,25 @@ func _resolve_ring_outs() -> void:
 		if fighter.state != FighterController.State.RING_OUT and (point.x < rules.ring_left or point.x > rules.ring_right or point.y < rules.ring_top or point.y > rules.ring_bottom):
 			ring_outs.append(fighter)
 	if ring_outs.is_empty(): return
-	var final_simultaneous := ring_outs.size() == 2 and player.stocks == 1 and training_dummy.stocks == 1
 	for fighter: FighterController in ring_outs: fighter.ring_out(rules)
-	if final_simultaneous:
-		sudden_death_round += 1
-		player.begin_sudden_death(rules)
-		training_dummy.begin_sudden_death(rules)
+	_resolve_final_losses()
+
+
+func _resolve_final_losses() -> void:
+	for fighter: FighterController in _fighters():
+		if fighter.state == FighterController.State.DEAD:
+			EffectControllerScript.dispatch(EffectData.Trigger.ON_DEATH, fighter, _other_fighter(fighter), rules)
+	if player.state == FighterController.State.DEAD and training_dummy.state == FighterController.State.DEAD:
+		is_draw = true
+		match_ended.emit(&"DRAW")
 		return
 	for fighter: FighterController in _fighters():
-		if fighter.stocks <= 0:
+		if fighter.state == FighterController.State.DEAD:
 			winner_id = training_dummy.fighter_id if fighter == player else player.fighter_id
 			player.state = FighterController.State.MATCH_ENDED
 			training_dummy.state = FighterController.State.MATCH_ENDED
 			match_ended.emit(winner_id)
 			return
-
-
-func _launch_direction(attack: AttackData, source_position: Vector2, target_position: Vector2, source_facing: int, source_direction: CombatIntent.Direction) -> Vector2:
-	if attack.launch_mode == AttackData.LaunchMode.TOWARD_SOURCE:
-		return (source_position - target_position).normalized()
-	var result := attack.launch_vector
-	if attack.input_direction == AttackData.InputDirection.OMNI:
-		match source_direction:
-			CombatIntent.Direction.UP: result = Vector2(0.2, -1.0)
-			CombatIntent.Direction.DOWN: result = Vector2(0.2, 1.0)
-			CombatIntent.Direction.LEFT:
-				if source_facing > 0: result.x = -absf(result.x)
-			CombatIntent.Direction.RIGHT:
-				if source_facing < 0: result.x = -absf(result.x)
-	result.x *= source_facing
-	return result.normalized()
-
-
-func _di_angle(direction: CombatIntent.Direction) -> float:
-	var amount := 0.0
-	if direction in [CombatIntent.Direction.LEFT, CombatIntent.Direction.UP]: amount = -1.0
-	elif direction in [CombatIntent.Direction.RIGHT, CombatIntent.Direction.DOWN]: amount = 1.0
-	return deg_to_rad(amount * rules.di_max_degrees)
 
 
 func _current_direction() -> CombatIntent.Direction:
@@ -232,3 +217,7 @@ func _fighter_by_id(id: StringName) -> FighterController:
 
 func _fighters() -> Array[FighterController]:
 	return [player, training_dummy]
+
+
+func _other_fighter(fighter: FighterController) -> FighterController:
+	return training_dummy if fighter == player else player

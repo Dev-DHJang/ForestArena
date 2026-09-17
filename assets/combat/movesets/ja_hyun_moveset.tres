@@ -1,20 +1,35 @@
 [gd_resource type="Resource" script_class="MoveSetData" format=3]
 
+[ext_resource type="Script" path="res://scripts/data/cancel_rule_data.gd" id="1_ghqsi"]
 [ext_resource type="Script" path="res://scripts/data/move_set_data.gd" id="1_y60ua"]
 [ext_resource type="Script" path="res://scripts/data/move_slot_data.gd" id="2_3qyye"]
+[ext_resource type="Script" path="res://scripts/data/combo_link_data.gd" id="2_u6tlp"]
 [ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="3_ghqsi"]
+
+[sub_resource type="Resource" id="Resource_ghqsi"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-01"
+input_action_id = &"attack_light"
+next_attack_id = &"ja-hyun-light-02"
+
+[sub_resource type="Resource" id="Resource_7qt01"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-02"
+input_action_id = &"attack_light"
+next_attack_id = &"ja-hyun-light-03"
 
 [sub_resource type="Resource" id="Resource_u6tlp"]
 script = ExtResource("3_ghqsi")
 attack_id = &"ja-hyun-light-01"
 action_id = &"attack_light"
-combo_step = 1
 startup_ticks = 4
 active_ticks = 3
 recovery_ticks = 7
 damage = 4.0
-base_knockback = 120.0
-knockback_growth = 1.6
+knockback = 120.0
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+guard_knockback = 30.0
 visual_state_id = &"attack_light_combo_01"
 
 [sub_resource type="Resource" id="Resource_m50sr"]
@@ -26,13 +41,14 @@ attack = SubResource("Resource_u6tlp")
 script = ExtResource("3_ghqsi")
 attack_id = &"ja-hyun-light-02"
 action_id = &"attack_light"
-combo_step = 2
 startup_ticks = 4
 active_ticks = 3
 recovery_ticks = 7
 damage = 4.0
-base_knockback = 120.0
-knockback_growth = 1.6
+knockback = 120.0
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+guard_knockback = 30.0
 visual_state_id = &"attack_light_combo_02"
 
 [sub_resource type="Resource" id="Resource_2270v"]
@@ -44,13 +60,14 @@ attack = SubResource("Resource_on74s")
 script = ExtResource("3_ghqsi")
 attack_id = &"ja-hyun-light-03"
 action_id = &"attack_light"
-combo_step = 3
 startup_ticks = 6
 active_ticks = 3
 recovery_ticks = 12
 damage = 7.0
-base_knockback = 210.0
-knockback_growth = 2.4
+knockback = 210.0
+guard_damage = 7.0
+guard_hitstun_ticks = 3
+guard_knockback = 52.5
 is_finisher = true
 visual_state_id = &"attack_light_combo_03"
 
@@ -68,8 +85,10 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 5.0
-base_knockback = 150.0
-knockback_growth = 1.8
+knockback = 150.0
+guard_damage = 5.0
+guard_hitstun_ticks = 3
+guard_knockback = 37.5
 launch_vector = Vector2(0.25, -1)
 visual_state_id = &"attack_light_up"
 
@@ -87,8 +106,10 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 5.0
-base_knockback = 150.0
-knockback_growth = 1.8
+knockback = 150.0
+guard_damage = 5.0
+guard_hitstun_ticks = 3
+guard_knockback = 37.5
 launch_vector = Vector2(0.4, 0.65)
 visual_state_id = &"attack_light_down"
 
@@ -106,8 +127,11 @@ startup_ticks = 10
 active_ticks = 4
 recovery_ticks = 16
 damage = 10.0
-base_knockback = 260.0
-knockback_growth = 3.0
+knockback = 260.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
 is_finisher = true
 visual_state_id = &"attack_heavy_side"
 
@@ -125,8 +149,11 @@ startup_ticks = 10
 active_ticks = 4
 recovery_ticks = 16
 damage = 10.0
-base_knockback = 260.0
-knockback_growth = 3.0
+knockback = 260.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
 launch_vector = Vector2(0.25, -1)
 is_finisher = true
 is_launcher = true
@@ -146,8 +173,11 @@ startup_ticks = 10
 active_ticks = 4
 recovery_ticks = 16
 damage = 10.0
-base_knockback = 260.0
-knockback_growth = 3.0
+knockback = 260.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
 launch_vector = Vector2(0.4, 0.65)
 is_finisher = true
 visual_state_id = &"attack_heavy_down"
@@ -167,8 +197,10 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 6.0
-base_knockback = 170.0
-knockback_growth = 2.0
+knockback = 170.0
+guard_damage = 6.0
+guard_hitstun_ticks = 3
+guard_knockback = 42.5
 visual_state_id = &"attack_dash_light"
 
 [sub_resource type="Resource" id="Resource_guyng"]
@@ -186,8 +218,11 @@ startup_ticks = 8
 active_ticks = 4
 recovery_ticks = 14
 damage = 10.0
-base_knockback = 240.0
-knockback_growth = 2.8
+knockback = 240.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 60.0
 is_finisher = true
 visual_state_id = &"attack_dash_heavy"
 
@@ -206,8 +241,10 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 5.0
-base_knockback = 150.0
-knockback_growth = 1.8
+knockback = 150.0
+guard_damage = 5.0
+guard_hitstun_ticks = 3
+guard_knockback = 37.5
 visual_state_id = &"attack_air_light"
 
 [sub_resource type="Resource" id="Resource_xpawi"]
@@ -225,8 +262,11 @@ startup_ticks = 8
 active_ticks = 4
 recovery_ticks = 14
 damage = 9.0
-base_knockback = 230.0
-knockback_growth = 2.7
+knockback = 230.0
+fixed_hitstun_ticks = 12
+guard_damage = 9.0
+guard_hitstun_ticks = 3
+guard_knockback = 57.5
 is_finisher = true
 visual_state_id = &"attack_air_heavy"
 
@@ -244,8 +284,11 @@ startup_ticks = 8
 active_ticks = 4
 recovery_ticks = 16
 damage = 8.0
-base_knockback = 220.0
-knockback_growth = 2.6
+knockback = 220.0
+fixed_hitstun_ticks = 9
+guard_damage = 8.0
+guard_hitstun_ticks = 3
+guard_knockback = 55.0
 launch_mode = 1
 visual_state_id = &"special_neutral"
 
@@ -264,8 +307,11 @@ startup_ticks = 6
 active_ticks = 5
 recovery_ticks = 18
 damage = 7.0
-base_knockback = 190.0
-knockback_growth = 2.3
+knockback = 190.0
+fixed_hitstun_ticks = 9
+guard_damage = 7.0
+guard_hitstun_ticks = 3
+guard_knockback = 47.5
 launch_vector = Vector2(0.2, -1)
 self_impulse = Vector2(0, -440)
 visual_state_id = &"special_up"
@@ -280,3 +326,5 @@ script = ExtResource("1_y60ua")
 move_set_id = &"ja-hyun.base"
 slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c")])
 combo_count = 3
+opening_attack_ids = Array[StringName]([&"ja-hyun-light-01"])
+combo_links = Array[ExtResource("2_u6tlp")]([SubResource("Resource_ghqsi"), SubResource("Resource_7qt01")])

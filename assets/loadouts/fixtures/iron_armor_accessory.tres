@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/combat_rule_data.gd" id="3"]
+
+[sub_resource type="Resource" id="Weight"]
+script = ExtResource("2")
+field = 1
+operation = 0
+value = 0.5
+
+[sub_resource type="Resource" id="Armor"]
+script = ExtResource("3")
+kind = 3
+
+[resource]
+script = ExtResource("1")
+schema_version = 2
+accessory_id = &"fixture-iron-armor"
+stat_modifiers = Array[ExtResource("2")]([SubResource("Weight")])
+combat_rules = Array[ExtResource("3")]([SubResource("Armor")])

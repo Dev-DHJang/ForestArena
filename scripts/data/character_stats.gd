@@ -3,7 +3,8 @@ extends Resource
 
 ## Base values authored by a character. They are data only until a combat
 ## controller consumes a RuntimeCombatProfile in a later phase.
-@export_range(1.0, 999.0, 1.0) var survivability: float = 100.0
+@export var schema_version := 2
+@export_range(1.0, 999.0, 1.0) var max_hp: float = 100.0
 @export_range(0.1, 10.0, 0.01) var weight: float = 1.0
 @export_range(1.0, 2000.0, 1.0) var ground_speed: float = 300.0
 @export_range(1.0, 2000.0, 1.0) var air_speed: float = 280.0
@@ -15,7 +16,8 @@ extends Resource
 
 
 func is_valid_base_profile() -> bool:
-	return survivability > 0.0 \
+	return schema_version == 2 \
+		and max_hp > 0.0 \
 		and weight > 0.0 \
 		and ground_speed > 0.0 \
 		and air_speed > 0.0 \

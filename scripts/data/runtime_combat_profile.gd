@@ -1,7 +1,7 @@
 class_name RuntimeCombatProfile
 extends RefCounted
 
-const SCHEMA_VERSION := 1
+const SCHEMA_VERSION := 2
 
 var schema_version := SCHEMA_VERSION
 var character_id: StringName
@@ -9,6 +9,8 @@ var job_id: StringName
 var accessory_id: StringName
 var stats: CharacterStats
 var move_set: MoveSetData
+var combat_rules: Array[CombatRuleData] = []
+var combat_effects: Array[Resource] = []
 var passive_ids: Array[StringName] = []
 var tags: Array[StringName] = []
 

@@ -89,9 +89,9 @@ func _render_snapshot(snapshot: Dictionary) -> void:
 	var first: Dictionary = fighters[0]
 	var second: Dictionary = fighters[1]
 	var suffix := ""
-	if int(snapshot.get("sudden_death_round", 0)) > 0:
-		suffix = " · SUDDEN DEATH %d" % snapshot.sudden_death_round
-	if not String(snapshot.get("winner_id", "")).is_empty():
+	if bool(snapshot.get("is_draw", false)):
+		suffix = " · 무승부"
+	elif not String(snapshot.get("winner_id", "")).is_empty():
 		suffix = " · 승자: %s" % snapshot.winner_id
-	readout.text = "자현 %d%% · %d STOCK    묘령 %d%% · %d STOCK%s" % [roundi(first.damage_percent), first.stocks, roundi(second.damage_percent), second.stocks, suffix]
+	readout.text = "자현 %d/%d HP · %d STOCK    묘령 %d/%d HP · %d STOCK%s" % [roundi(first.current_hp), roundi(first.max_hp), first.stocks, roundi(second.current_hp), roundi(second.max_hp), second.stocks, suffix]
 	debug_readout.text = "tick %d  %s:%s  %s:%s" % [snapshot.tick, first.state, first.attack_id, second.state, second.attack_id]

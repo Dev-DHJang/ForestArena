@@ -4,20 +4,28 @@ extends Resource
 enum InputDirection { NEUTRAL, FORWARD, BACK, UP, DOWN, ANY_HORIZONTAL, OMNI }
 enum ActivationContext { GROUND, AIR, BOTH }
 enum LaunchMode { VECTOR, TOWARD_SOURCE }
+enum HitReaction { NORMAL_HIT, LIGHT_STAGGER, HEAVY_STAGGER, KNOCKBACK, KNOCK_DOWN, LAUNCH, GROUND_BOUNCE, WALL_BOUNCE, SLAM, CRUMPLE }
 
-@export var schema_version: int = 1
+@export var schema_version: int = 2
 @export var attack_id: StringName
 @export var action_id: StringName
 @export var input_direction: InputDirection = InputDirection.NEUTRAL
 @export var activation_context: ActivationContext = ActivationContext.GROUND
-@export_range(0, 4, 1) var combo_step: int = 0
 @export var requires_dash: bool = false
 @export var startup_ticks: int = 1
 @export var active_ticks: int = 1
 @export var recovery_ticks: int = 1
 @export var damage: float = 0.0
-@export var base_knockback: float = 0.0
-@export var knockback_growth: float = 0.0
+@export var knockback: float = 0.0
+@export var fixed_hitstun_ticks: int = 6
+@export var guard_damage: float = 0.0
+@export var guard_hitstun_ticks: int = 0
+@export var guard_knockback: float = 0.0
+@export var hit_reaction: HitReaction = HitReaction.NORMAL_HIT
+@export var tags: Array[StringName] = [&"MELEE"]
+@export var resource_cost: float = 0.0
+@export var resource_gain: float = 0.0
+@export var ignore_armor_and_immunity: bool = false
 @export var launch_mode: LaunchMode = LaunchMode.VECTOR
 @export var launch_vector: Vector2 = Vector2(1.0, -0.18)
 @export var hitbox_size: Vector2 = Vector2(60.0, 50.0)
@@ -31,16 +39,19 @@ enum LaunchMode { VECTOR, TOWARD_SOURCE }
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 1 \
+	return schema_version == 2 \
 		and not attack_id.is_empty() \
 		and not action_id.is_empty() \
-		and combo_step >= 0 \
 		and startup_ticks > 0 \
 		and active_ticks > 0 \
 		and recovery_ticks > 0 \
 		and damage >= 0.0 \
-		and base_knockback >= 0.0 \
-		and knockback_growth >= 0.0 \
+		and knockback >= 0.0 \
+		and fixed_hitstun_ticks >= 0 \
+		and guard_damage >= 0.0 \
+		and guard_hitstun_ticks >= 0 \
+		and guard_knockback >= 0.0 \
+		and not tags.is_empty() \
 		and (launch_mode == LaunchMode.TOWARD_SOURCE or not launch_vector.is_zero_approx()) \
 		and hitbox_size.x > 0.0 \
 		and hitbox_size.y > 0.0 \

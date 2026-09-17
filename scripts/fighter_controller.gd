@@ -1,9 +1,11 @@
 class_name FighterController
 extends CharacterBody2D
 
+const ComboControllerScript = preload("res://scripts/combo_controller.gd")
+
 ## Fixed-tick Phase 1 fighter. Geometry and visual state mirror the authority
 ## state for debugging, but physics overlap and animation never decide hits.
-enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, HITSTUN, KNOCKBACK, RING_OUT, MATCH_ENDED }
+enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED }
 
 @export var fighter_id: StringName
 @export var character_data: CharacterData
@@ -13,8 +15,13 @@ var combo_count: int = 2
 @export var body_color: Color = Color("43c782")
 
 var state: State = State.SPAWNING
-var damage_percent := 0.0
-var stocks := 3
+var runtime_state := RuntimeCombatState.new()
+var current_hp: float:
+	get: return runtime_state.current_hp
+	set(value): runtime_state.current_hp = value
+var stocks: int:
+	get: return runtime_state.stocks
+	set(value): runtime_state.stocks = value
 var facing := 1
 var input_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
 var spawn_position: Vector2
@@ -22,9 +29,15 @@ var air_jumps_remaining := 0
 var aerial_attacks_remaining := 2
 var up_special_available := true
 var launcher_jump_available := false
-var invulnerability_ticks := 0
-var respawn_ticks := 0
-var hitstun_ticks := 0
+var invulnerability_ticks: int:
+	get: return runtime_state.invulnerability_ticks
+	set(value): runtime_state.invulnerability_ticks = value
+var respawn_ticks: int:
+	get: return runtime_state.respawn_ticks
+	set(value): runtime_state.respawn_ticks = value
+var hitstun_ticks: int:
+	get: return runtime_state.hitstun_ticks
+	set(value): runtime_state.hitstun_ticks = value
 var dash_ticks := 0
 var active_attack: AttackData
 var attack_phase_tick := 0
@@ -62,6 +75,7 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 	attacks = profile.move_set.attacks()
 	combo_count = profile.move_set.combo_count
 	air_jumps_remaining = _stats().air_jump_count
+	runtime_state.reset(_stats().max_hp, 3, 100.0)
 	state = State.IDLE
 	set_physics_process(true)
 	return true
@@ -70,8 +84,7 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 func reset_for_match(rules: CombatRules) -> void:
 	if runtime_profile == null:
 		return
-	damage_percent = 0.0
-	stocks = rules.stocks_per_fighter
+	runtime_state.reset(_stats().max_hp, rules.stocks_per_fighter, rules.guard_max_durability)
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 	active_attack = null
@@ -93,7 +106,16 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	if intent.action_id == &"move":
 		input_direction = CombatIntent.Direction.NEUTRAL if intent.edge == CombatIntent.Edge.RELEASE else intent.direction
 		return
-	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.MATCH_ENDED, State.HITSTUN, State.KNOCKBACK]:
+	if intent.action_id == &"guard":
+		if is_on_floor() and state in [State.IDLE, State.RUN]:
+			runtime_state.guarding = true
+			state = State.GUARD
+		return
+	if intent.action_id == &"drop_platform":
+		# One-way platform collision is scene-owned. Ordinary floors keep their state.
+		runtime_state.guarding = false
+		return
+	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]:
 		return
 	if intent.action_id == &"jump":
 		_try_jump()
@@ -103,15 +125,13 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		return
 	if intent.action_id not in [&"attack_light", &"attack_heavy", &"attack_special"]:
 		return
-	var next := _select_attack(intent)
-	if next == null:
-		return
 	if active_attack != null:
-		var in_link_window := state == State.ATTACK_RECOVERY and attack_phase_tick < rules.combo_link_window_ticks
-		if in_link_window and not active_attack.is_finisher and buffered_intent == null:
-			if intent.action_id == &"attack_light" or attack_landed:
-				buffered_intent = intent
+		var linked := ComboControllerScript.linked_attack(runtime_profile.move_set, active_attack, intent, attack_phase_tick, attack_landed)
+		if state == State.ATTACK_RECOVERY and linked != null and buffered_intent == null:
+			buffered_intent = intent
 		return
+	var next := _select_attack(intent)
+	if next == null: return
 	_start_attack(next, intent.direction)
 
 
@@ -121,13 +141,16 @@ func step_tick(rules: CombatRules) -> void:
 	diagnostic = ""
 	if invulnerability_ticks > 0:
 		invulnerability_ticks -= 1
+	if state != State.GUARD:
+		runtime_state.guarding = false
+		runtime_state.guard_durability = minf(rules.guard_max_durability, runtime_state.guard_durability + rules.guard_regen_per_tick)
 	if state == State.RING_OUT:
 		respawn_ticks -= 1
 		if respawn_ticks <= 0:
 			_respawn(rules)
 		_finish_tick()
 		return
-	if state in [State.HITSTUN, State.KNOCKBACK]:
+	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]:
 		hitstun_ticks -= 1
 		_apply_gravity(rules)
 		move_and_slide()
@@ -170,45 +193,55 @@ func register_landed_hit(attack: AttackData) -> void:
 		launcher_jump_available = true
 
 
-func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int) -> void:
-	damage_percent += attack.damage
+func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int, rules: CombatRules) -> bool:
+	current_hp = maxf(0.0, current_hp - attack.damage)
+	if current_hp <= 0.0:
+		return lose_stock(rules)
 	velocity = knockback_velocity
 	hitstun_ticks = stun_ticks
 	active_attack = null
 	buffered_intent = null
 	air_jumps_remaining = 0
 	launcher_jump_available = false
-	state = State.KNOCKBACK
+	state = State.LAUNCH if attack.hit_reaction == AttackData.HitReaction.LAUNCH else State.KNOCK_DOWN if attack.hit_reaction == AttackData.HitReaction.KNOCK_DOWN else State.HITSTUN
+	return false
 
 
 func ring_out(rules: CombatRules) -> bool:
-	if state == State.RING_OUT:
-		return false
+	return lose_stock(rules)
+
+
+func lose_stock(rules: CombatRules) -> bool:
+	if state in [State.RING_OUT, State.DEAD]: return false
 	stocks -= 1
-	damage_percent = 0.0
+	current_hp = 0.0
 	velocity = Vector2.ZERO
 	active_attack = null
 	buffered_intent = null
 	combo_index = 0
 	input_direction = CombatIntent.Direction.NEUTRAL
 	launcher_jump_available = false
+	if stocks <= 0:
+		state = State.DEAD
+	else:
+		respawn_ticks = rules.respawn_delay_ticks
+		state = State.RING_OUT
+	return true
+
+
+func revive(rules: CombatRules, revive_hp: float) -> bool:
+	if stocks > 0 or runtime_state.revive_used or revive_hp <= 0.0: return false
+	runtime_state.revive_used = true
+	stocks = 1
+	current_hp = minf(revive_hp, _stats().max_hp)
 	respawn_ticks = rules.respawn_delay_ticks
 	state = State.RING_OUT
 	return true
 
 
-func begin_sudden_death(rules: CombatRules) -> void:
-	stocks = 1
-	damage_percent = 0.0
-	velocity = Vector2.ZERO
-	launcher_jump_available = false
-	respawn_ticks = rules.respawn_delay_ticks
-	state = State.RING_OUT
-
-
 func snapshot() -> Dictionary:
 	return {
-		"id": String(fighter_id), "state": State.keys()[state], "damage_percent": snappedf(damage_percent, 0.001),
+		"id": String(fighter_id), "state": State.keys()[state], "current_hp": snappedf(current_hp, 0.001), "max_hp": _stats().max_hp,
 		"stocks": stocks, "position": Vector2(snappedf(global_position.x, 0.001), snappedf(global_position.y, 0.001)),
 		"velocity": Vector2(snappedf(velocity.x, 0.001), snappedf(velocity.y, 0.001)), "facing": facing,
 		"attack_id": &"" if active_attack == null else active_attack.attack_id, "attack_phase_tick": attack_phase_tick,
@@ -258,21 +291,7 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 	var relative := _relative_direction(intent.direction)
 	if intent.action_id == &"attack_special" and relative == AttackData.InputDirection.UP and not up_special_available:
 		return null
-	if intent.action_id == &"attack_light" and context == AttackData.ActivationContext.GROUND and state != State.DASH and relative in [AttackData.InputDirection.NEUTRAL, AttackData.InputDirection.FORWARD, AttackData.InputDirection.BACK]:
-		var wanted_step := clampi(combo_index + 1, 1, combo_count)
-		for attack: AttackData in attacks:
-			if attack.action_id == intent.action_id and attack.combo_step == wanted_step:
-				return attack
-	for attack: AttackData in attacks:
-		if attack.action_id != intent.action_id or (attack.activation_context != context and attack.activation_context != AttackData.ActivationContext.BOTH):
-			continue
-		if attack.requires_dash != (state == State.DASH):
-			continue
-		if attack.combo_step > 0:
-			continue
-		if _direction_matches(attack.input_direction, relative):
-			return attack
-	return null
+	return ComboControllerScript.opening_attack(runtime_profile.move_set, intent, context, facing, state == State.DASH)
 
 
 func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
@@ -282,10 +301,7 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
 	attack_landed = false
 	locked_facing = facing
 	locked_direction = direction
-	if next.combo_step > 0:
-		combo_index = next.combo_step
-	else:
-		combo_index = 0
+	combo_index = 0
 	if next.activation_context == AttackData.ActivationContext.AIR and next.action_id in [&"attack_light", &"attack_heavy"]:
 		aerial_attacks_remaining -= 1
 	if next.action_id == &"attack_special" and next.input_direction == AttackData.InputDirection.UP:
@@ -303,11 +319,12 @@ func _advance_attack(rules: CombatRules) -> void:
 		state = State.ATTACK_RECOVERY
 		attack_phase_tick = 0
 	elif state == State.ATTACK_RECOVERY and attack_phase_tick >= active_attack.recovery_ticks:
+		var finished := active_attack
 		var queued := buffered_intent
 		active_attack = null
 		buffered_intent = null
 		if queued != null:
-			var next := _select_attack(queued)
+			var next := ComboControllerScript.linked_attack(runtime_profile.move_set, finished, queued, 0, attack_landed)
 			if next != null:
 				_start_attack(next, queued.direction)
 				return
@@ -352,6 +369,7 @@ func _apply_gravity(rules: CombatRules) -> void:
 func _respawn(rules: CombatRules) -> void:
 	global_position = spawn_position
 	velocity = Vector2.ZERO
+	current_hp = _stats().max_hp
 	invulnerability_ticks = rules.respawn_invulnerability_ticks
 	air_jumps_remaining = _stats().air_jump_count
 	aerial_attacks_remaining = 2
@@ -406,7 +424,7 @@ func _finish_tick() -> void:
 func _draw() -> void:
 	var color := body_color
 	if invulnerability_ticks > 0 and invulnerability_ticks % 6 < 3: color = Color.WHITE
-	if state in [State.HITSTUN, State.KNOCKBACK]: color = Color("ffdf5a")
+	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]: color = Color("ffdf5a")
 	draw_rect(Rect2(-27, -82, 54, 96), color, true)
 	draw_rect(Rect2(-27, -82, 54, 96), Color("122033"), false, 3.0)
 	draw_line(Vector2.ZERO, Vector2(24.0 * facing, 0.0), Color.WHITE, 3.0)

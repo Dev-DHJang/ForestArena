@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AccessoryData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/combat_effect_data.gd" id="2"]
+
+[sub_resource type="Resource" id="Gauge"]
+script = ExtResource("2")
+trigger = 2
+kind = 3
+amount = 12.0
+cause_id = &"fixture-ultimate-charm"
+
+[resource]
+script = ExtResource("1")
+schema_version = 2
+accessory_id = &"fixture-ultimate-charm"
+combat_effects = Array[ExtResource("2")]([SubResource("Gauge")])
