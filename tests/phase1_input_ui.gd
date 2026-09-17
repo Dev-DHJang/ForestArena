@@ -11,6 +11,11 @@ func _initialize() -> void:
 	controller.set_physics_process(false)
 	var touch := instance.get_node("Interface/TouchCommandSource")
 	var player := controller.player
+	var visual := instance.get_node("ArenaVisual")
+	controller.presentation_event.emit(&"hit_resolved", {})
+	if not visual.has_method("play_combat_event") or visual.get("_last_event") != &"hit_resolved":
+		failures.append("presentation event boundary is missing")
+	if player.get_pushbox_rect() == player.get_hurtbox_rect(): failures.append("pushbox was not distinct from hurtbox")
 
 	# The active combat surface consumes registered textures while labels remain native UI text.
 	var background := instance.get_node("ArenaVisual/Background") as TextureRect

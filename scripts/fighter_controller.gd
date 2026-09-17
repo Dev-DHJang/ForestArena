@@ -222,6 +222,12 @@ func get_hurtbox_rect() -> Rect2:
 	return Rect2(global_position + Vector2(-27.0, -82.0), Vector2(54.0, 96.0))
 
 
+func get_pushbox_rect() -> Rect2:
+	# Pushbox is deliberately distinct from the hurtbox. Fixed-tick hit resolution
+	# owns combat truth; this rectangle only defines future body-separation bounds.
+	return Rect2(global_position + Vector2(-24.0, -48.0), Vector2(48.0, 48.0))
+
+
 func register_landed_hit(attack: AttackData) -> void:
 	attack_landed = true
 	if attack.is_launcher:

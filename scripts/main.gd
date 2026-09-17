@@ -7,6 +7,7 @@ const RESTART_PRESSED_ID := "fa.ui.button.base.btn.secondary.m.pressed"
 const RESTART_DISABLED_ID := "fa.ui.button.base.btn.secondary.m.disabled"
 
 @onready var match_controller: MatchController = $MatchController
+@onready var arena_visual = $ArenaVisual
 @onready var touch: Control = $Interface/TouchCommandSource
 @onready var readout: Label = $Interface/MatchReadout
 @onready var restart: Button = $Interface/Restart
@@ -20,6 +21,7 @@ var _missing_resource_ids: PackedStringArray = []
 func _ready() -> void:
 	_apply_resource_ui()
 	match_controller.snapshot_changed.connect(_render_snapshot)
+	match_controller.presentation_event.connect(arena_visual.play_combat_event)
 	restart.pressed.connect(match_controller.reset_match)
 	_render_snapshot(match_controller.snapshot())
 	debug_readout.visible = OS.is_debug_build()

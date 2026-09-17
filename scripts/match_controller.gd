@@ -7,6 +7,7 @@ const EffectData = preload("res://scripts/data/combat_effect_data.gd")
 
 signal snapshot_changed(snapshot: Dictionary)
 signal match_ended(winner_id: StringName)
+signal presentation_event(event_id: StringName, payload: Dictionary)
 
 @export var rules: CombatRules
 @export var player: FighterController
@@ -164,6 +165,7 @@ func _resolve_hits() -> void:
 		context.source_facing = hit.source.locked_facing
 		context.source_direction = hit.source.locked_direction
 		var result := HitResolver.resolve(context, rules)
+		presentation_event.emit(&"hit_resolved", {"tick": tick, "attacker_id": hit.source.fighter_id, "defender_id": target.fighter_id, "attack_id": attack.attack_id, "result": HitResult.Type.keys()[result.type], "reaction": result.reaction})
 		if result.landed(): hit.source.register_landed_hit(attack)
 		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 		_hit_counts["%s:last" % hit.key] = tick
@@ -178,6 +180,8 @@ func _resolve_ring_outs() -> void:
 			ring_outs.append(fighter)
 	if ring_outs.is_empty(): return
 	for fighter: FighterController in ring_outs: fighter.ring_out(rules)
+	for fighter: FighterController in ring_outs:
+		presentation_event.emit(&"ring_out", {"tick": tick, "fighter_id": fighter.fighter_id})
 	_resolve_final_losses()
 
 
@@ -187,11 +191,13 @@ func _resolve_final_losses() -> void:
 			EffectControllerScript.dispatch(EffectData.Trigger.ON_DEATH, fighter, _other_fighter(fighter), rules)
 	if player.state == FighterController.State.DEAD and training_dummy.state == FighterController.State.DEAD:
 		is_draw = true
+		presentation_event.emit(&"match_draw", {"tick": tick})
 		match_ended.emit(&"DRAW")
 		return
 	for fighter: FighterController in _fighters():
 		if fighter.state == FighterController.State.DEAD:
 			winner_id = training_dummy.fighter_id if fighter == player else player.fighter_id
+			presentation_event.emit(&"match_end", {"tick": tick, "winner_id": winner_id})
 			player.state = FighterController.State.MATCH_ENDED
 			training_dummy.state = FighterController.State.MATCH_ENDED
 			match_ended.emit(winner_id)

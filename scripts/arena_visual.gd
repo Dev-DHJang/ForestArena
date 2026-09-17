@@ -4,6 +4,8 @@ const BACKGROUND_ID := "fa.background.combat.training.arena"
 
 @onready var background: TextureRect = $Background
 var _missing_background_id := ""
+var _event_flash_ticks := 0
+var _last_event: StringName
 
 
 func _ready() -> void:
@@ -13,6 +15,20 @@ func _ready() -> void:
 
 func _on_quality_changed(_new_quality: String) -> void:
 	_apply_background()
+
+
+## Presentation only: this consumer never feeds position, hit timing or outcome
+## back into fixed-tick combat authority.
+func play_combat_event(event_id: StringName, _payload: Dictionary) -> void:
+	_last_event = event_id
+	_event_flash_ticks = 4 if event_id == &"hit_resolved" else 0
+	queue_redraw()
+
+
+func _process(_delta: float) -> void:
+	if _event_flash_ticks <= 0: return
+	_event_flash_ticks -= 1
+	queue_redraw()
 
 
 func _apply_background() -> void:
@@ -40,3 +56,5 @@ func _draw() -> void:
 	draw_string(ThemeDB.fallback_font, Vector2(92, 694), "RING-OUT BOUNDARY (PHASE 1)", HORIZONTAL_ALIGNMENT_LEFT, -1.0, 18, Color("f39b9b"))
 	if not _missing_background_id.is_empty():
 		draw_string(ThemeDB.fallback_font, Vector2(360, 230), "MISSING RESOURCE: %s" % _missing_background_id, HORIZONTAL_ALIGNMENT_CENTER, 560.0, 24, Color.WHITE)
+	if _event_flash_ticks > 0:
+		draw_rect(Rect2(0, 0, 1280, 720), Color(1.0, 1.0, 1.0, 0.08), true)
