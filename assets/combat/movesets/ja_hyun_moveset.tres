@@ -6,6 +6,161 @@
 [ext_resource type="Script" path="res://scripts/data/combo_link_data.gd" id="2_u6tlp"]
 [ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="3_ghqsi"]
 
+[sub_resource type="Resource" id="Resource_milom"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-01"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_h8qao"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-01"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_sxjr0"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-01"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_63qaq"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-01"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_vtyeu"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-01"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_afvq6"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-02"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_a43bv"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-02"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_ape4o"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-02"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_bbfq6"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-02"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_3qqhl"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-02"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_bi6wr"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-up"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_38tar"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-up"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_bpgkl"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-up"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_tk8d6"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-up"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_aanne"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-up"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_qux0v"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-down"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_4y7bg"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-down"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_2gax0"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-down"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_qx0cm"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-down"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_bo8k1"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-light-down"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_m020j"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-dash-light"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_sj2gs"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-dash-light"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_ygoe1"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-dash-light"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_b82yn"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-dash-light"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_ryy3m"]
+script = ExtResource("1_ghqsi")
+from_attack_id = &"ja-hyun-dash-light"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
 [sub_resource type="Resource" id="Resource_ghqsi"]
 script = ExtResource("2_u6tlp")
 from_attack_id = &"ja-hyun-light-01"
@@ -17,6 +172,86 @@ script = ExtResource("2_u6tlp")
 from_attack_id = &"ja-hyun-light-02"
 input_action_id = &"attack_light"
 next_attack_id = &"ja-hyun-light-03"
+
+[sub_resource type="Resource" id="Resource_nsqbr"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-01"
+input_action_id = &"attack_heavy"
+next_attack_id = &"ja-hyun-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_ermjw"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-01"
+input_action_id = &"attack_special"
+next_attack_id = &"ja-hyun-special-neutral"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_7deo3"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-02"
+input_action_id = &"attack_heavy"
+next_attack_id = &"ja-hyun-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_tx5mt"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-02"
+input_action_id = &"attack_special"
+next_attack_id = &"ja-hyun-special-neutral"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_15vhv"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-up"
+input_action_id = &"attack_heavy"
+next_attack_id = &"ja-hyun-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_dpb02"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-up"
+input_action_id = &"attack_special"
+next_attack_id = &"ja-hyun-special-neutral"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_87jm8"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-down"
+input_action_id = &"attack_heavy"
+next_attack_id = &"ja-hyun-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_m2blu"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-light-down"
+input_action_id = &"attack_special"
+next_attack_id = &"ja-hyun-special-neutral"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_1ajcg"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-dash-light"
+input_action_id = &"attack_heavy"
+next_attack_id = &"ja-hyun-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_atvsq"]
+script = ExtResource("2_u6tlp")
+from_attack_id = &"ja-hyun-dash-light"
+input_action_id = &"attack_special"
+next_attack_id = &"ja-hyun-special-neutral"
+window_end_tick = 7
+requires_hit = true
 
 [sub_resource type="Resource" id="Resource_u6tlp"]
 script = ExtResource("3_ghqsi")
@@ -327,4 +562,5 @@ move_set_id = &"ja-hyun.base"
 slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c")])
 combo_count = 3
 opening_attack_ids = Array[StringName]([&"ja-hyun-light-01"])
-combo_links = Array[ExtResource("2_u6tlp")]([SubResource("Resource_ghqsi"), SubResource("Resource_7qt01")])
+combo_links = Array[ExtResource("2_u6tlp")]([SubResource("Resource_ghqsi"), SubResource("Resource_7qt01"), SubResource("Resource_nsqbr"), SubResource("Resource_ermjw"), SubResource("Resource_7deo3"), SubResource("Resource_tx5mt"), SubResource("Resource_15vhv"), SubResource("Resource_dpb02"), SubResource("Resource_87jm8"), SubResource("Resource_m2blu"), SubResource("Resource_1ajcg"), SubResource("Resource_atvsq")])
+cancel_rules = Array[ExtResource("1_ghqsi")]([SubResource("Resource_milom"), SubResource("Resource_h8qao"), SubResource("Resource_sxjr0"), SubResource("Resource_63qaq"), SubResource("Resource_vtyeu"), SubResource("Resource_afvq6"), SubResource("Resource_a43bv"), SubResource("Resource_ape4o"), SubResource("Resource_bbfq6"), SubResource("Resource_3qqhl"), SubResource("Resource_bi6wr"), SubResource("Resource_38tar"), SubResource("Resource_bpgkl"), SubResource("Resource_tk8d6"), SubResource("Resource_aanne"), SubResource("Resource_qux0v"), SubResource("Resource_4y7bg"), SubResource("Resource_2gax0"), SubResource("Resource_qx0cm"), SubResource("Resource_bo8k1"), SubResource("Resource_m020j"), SubResource("Resource_sj2gs"), SubResource("Resource_ygoe1"), SubResource("Resource_b82yn"), SubResource("Resource_ryy3m")])

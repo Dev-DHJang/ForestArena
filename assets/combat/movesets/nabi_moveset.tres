@@ -6,11 +6,199 @@
 [ext_resource type="Script" path="res://scripts/data/combo_link_data.gd" id="2_lkre4"]
 [ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="3_2oweq"]
 
+[sub_resource type="Resource" id="Resource_qtjn3"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-01"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_u7jgn"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-01"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_i2dqq"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-01"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_auxl0"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-01"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_eu5xo"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-01"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_1462g"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-up"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_svn7s"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-up"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_psqjb"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-up"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_vontu"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-up"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_4jjt6"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-up"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_q5uc8"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-down"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_qo17w"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-down"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_6gb5i"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-down"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_q7x7g"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-down"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_icpv2"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-light-down"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_eb68d"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-dash-light"
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_eubqi"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-dash-light"
+kind = 1
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_yyd0v"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-dash-light"
+kind = 2
+window_end_tick = 7
+
+[sub_resource type="Resource" id="Resource_gyjiy"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-dash-light"
+kind = 3
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_smre3"]
+script = ExtResource("1_2oweq")
+from_attack_id = &"nabi-dash-light"
+kind = 4
+window_end_tick = 7
+requires_hit = true
+
 [sub_resource type="Resource" id="Resource_2oweq"]
 script = ExtResource("2_lkre4")
 from_attack_id = &"nabi-light-01"
 input_action_id = &"attack_light"
 next_attack_id = &"nabi-light-02"
+
+[sub_resource type="Resource" id="Resource_ke5k3"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-light-01"
+input_action_id = &"attack_heavy"
+next_attack_id = &"nabi-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_rb3nf"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-light-01"
+input_action_id = &"attack_special"
+next_attack_id = &"nabi-special-neutral"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_o6uga"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-light-up"
+input_action_id = &"attack_heavy"
+next_attack_id = &"nabi-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_78kf1"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-light-up"
+input_action_id = &"attack_special"
+next_attack_id = &"nabi-special-neutral"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_kx2ln"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-light-down"
+input_action_id = &"attack_heavy"
+next_attack_id = &"nabi-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_uvx88"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-light-down"
+input_action_id = &"attack_special"
+next_attack_id = &"nabi-special-neutral"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_06tof"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-dash-light"
+input_action_id = &"attack_heavy"
+next_attack_id = &"nabi-heavy-side"
+window_end_tick = 7
+requires_hit = true
+
+[sub_resource type="Resource" id="Resource_k56km"]
+script = ExtResource("2_lkre4")
+from_attack_id = &"nabi-dash-light"
+input_action_id = &"attack_special"
+next_attack_id = &"nabi-special-neutral"
+window_end_tick = 7
+requires_hit = true
 
 [sub_resource type="Resource" id="Resource_lkre4"]
 script = ExtResource("3_2oweq")
@@ -300,4 +488,5 @@ script = ExtResource("1_2kfo1")
 move_set_id = &"nabi.base"
 slots = Array[ExtResource("2_0te4x")]([SubResource("Resource_4quu7"), SubResource("Resource_pbklk"), SubResource("Resource_u400a"), SubResource("Resource_rnlkn"), SubResource("Resource_aiecc"), SubResource("Resource_5dl4c"), SubResource("Resource_o1ss7"), SubResource("Resource_fmxm2"), SubResource("Resource_a2igl"), SubResource("Resource_dun02"), SubResource("Resource_3vtlt"), SubResource("Resource_ms2jt"), SubResource("Resource_piejl")])
 opening_attack_ids = Array[StringName]([&"nabi-light-01"])
-combo_links = Array[ExtResource("2_lkre4")]([SubResource("Resource_2oweq")])
+combo_links = Array[ExtResource("2_lkre4")]([SubResource("Resource_2oweq"), SubResource("Resource_ke5k3"), SubResource("Resource_rb3nf"), SubResource("Resource_o6uga"), SubResource("Resource_78kf1"), SubResource("Resource_kx2ln"), SubResource("Resource_uvx88"), SubResource("Resource_06tof"), SubResource("Resource_k56km")])
+cancel_rules = Array[ExtResource("1_2oweq")]([SubResource("Resource_qtjn3"), SubResource("Resource_u7jgn"), SubResource("Resource_i2dqq"), SubResource("Resource_auxl0"), SubResource("Resource_eu5xo"), SubResource("Resource_1462g"), SubResource("Resource_svn7s"), SubResource("Resource_psqjb"), SubResource("Resource_vontu"), SubResource("Resource_4jjt6"), SubResource("Resource_q5uc8"), SubResource("Resource_qo17w"), SubResource("Resource_6gb5i"), SubResource("Resource_q7x7g"), SubResource("Resource_icpv2"), SubResource("Resource_eb68d"), SubResource("Resource_eubqi"), SubResource("Resource_yyd0v"), SubResource("Resource_gyjiy"), SubResource("Resource_smre3")])

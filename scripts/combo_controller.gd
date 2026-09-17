@@ -13,6 +13,20 @@ static func linked_attack(move_set: MoveSetData, active_attack: AttackData, inte
 	return null
 
 
+static func can_cancel(move_set: MoveSetData, active_attack: AttackData, kind: CancelRuleData.Kind, phase_tick: int, landed: bool) -> bool:
+	if move_set == null or active_attack == null or active_attack.is_finisher:
+		return false
+	for rule: CancelRuleData in move_set.cancel_rules:
+		if rule.from_attack_id != active_attack.attack_id or rule.kind != kind:
+			continue
+		if phase_tick < rule.window_start_tick or phase_tick > rule.window_end_tick:
+			continue
+		if rule.requires_hit and not landed:
+			continue
+		return true
+	return false
+
+
 static func opening_attack(move_set: MoveSetData, intent: CombatIntent, context: AttackData.ActivationContext, facing: int, dashing: bool) -> AttackData:
 	if move_set == null: return null
 	for attack: AttackData in move_set.attacks():

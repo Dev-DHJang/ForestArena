@@ -109,6 +109,8 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 			runtime_state.guarding = false
 			state = State.IDLE if is_on_floor() else State.FALL
 		return
+	if active_attack != null and intent.edge == CombatIntent.Edge.PRESS and _try_cancel(intent, rules):
+		return
 	if intent.action_id == &"guard":
 		if is_on_floor() and state in [State.IDLE, State.RUN]:
 			runtime_state.guarding = true
@@ -230,7 +232,13 @@ func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int,
 	buffered_intent = null
 	air_jumps_remaining = 0
 	launcher_jump_available = false
-	state = State.LAUNCH if attack.hit_reaction == AttackData.HitReaction.LAUNCH else State.KNOCK_DOWN if attack.hit_reaction == AttackData.HitReaction.KNOCK_DOWN else State.HITSTUN
+	match attack.hit_reaction:
+		AttackData.HitReaction.KNOCK_DOWN, AttackData.HitReaction.SLAM, AttackData.HitReaction.CRUMPLE:
+			state = State.KNOCK_DOWN
+		AttackData.HitReaction.LAUNCH, AttackData.HitReaction.GROUND_BOUNCE, AttackData.HitReaction.WALL_BOUNCE:
+			state = State.LAUNCH
+		_:
+			state = State.HITSTUN
 	return false
 
 
@@ -420,6 +428,37 @@ func _try_evade(rules: CombatRules) -> void:
 	invulnerability_ticks = max(invulnerability_ticks, rules.evade_invulnerability_ticks)
 	velocity.x = facing * _stats().dash_speed
 	state = State.EVADE
+
+
+func _try_cancel(intent: CombatIntent, rules: CombatRules) -> bool:
+	var kind: CancelRuleData.Kind
+	match intent.action_id:
+		&"jump": kind = CancelRuleData.Kind.JUMP
+		&"guard": kind = CancelRuleData.Kind.GUARD
+		&"evade": kind = CancelRuleData.Kind.EVADE
+		&"attack_special": kind = CancelRuleData.Kind.SPECIAL
+		&"ultimate": kind = CancelRuleData.Kind.ULTIMATE
+		_: return false
+	if not ComboControllerScript.can_cancel(runtime_profile.move_set, active_attack, kind, attack_phase_tick, attack_landed):
+		return false
+	active_attack = null
+	buffered_intent = null
+	if kind == CancelRuleData.Kind.JUMP:
+		_try_jump()
+	elif kind == CancelRuleData.Kind.GUARD:
+		if is_on_floor():
+			runtime_state.guarding = true
+			state = State.GUARD
+	elif kind == CancelRuleData.Kind.EVADE:
+		_try_evade(rules)
+	elif kind == CancelRuleData.Kind.SPECIAL:
+		var next := _select_attack(intent)
+		if next != null and runtime_state.special_cooldown_ticks <= 0: _start_attack(next, intent.direction, rules)
+	elif kind == CancelRuleData.Kind.ULTIMATE:
+		if runtime_state.ultimate_gauge >= rules.ultimate_gauge_max and not runtime_state.ultimate_used_this_stock:
+			runtime_state.ultimate_gauge = 0.0
+			runtime_state.ultimate_used_this_stock = true
+	return true
 
 
 func _try_drop_platform(rules: CombatRules) -> void:
