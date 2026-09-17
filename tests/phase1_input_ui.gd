@@ -76,13 +76,13 @@ func _initialize() -> void:
 	if controller.tick != paused_tick + 1: failures.append("resume did not continue exactly one tick")
 
 	# HUD rendering consumes a supplied snapshot but cannot mutate fighter authority state.
-	var before := player.damage_percent
+	var before := player.current_hp
 	var fake := controller.snapshot()
-	fake.fighters[0].damage_percent = 87.0
+	fake.fighters[0].current_hp = 87.0
 	instance.call("_render_snapshot", fake)
-	if player.damage_percent != before: failures.append("HUD mutated fighter damage")
-	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("87%"):
-		failures.append("HUD did not render snapshot damage")
+	if player.current_hp != before: failures.append("HUD mutated fighter HP")
+	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("87/"):
+		failures.append("HUD did not render snapshot HP")
 
 	# Camera follows the pair and stays within its configured zoom bounds.
 	player.global_position = Vector2(controller.rules.ring_left, 400)

@@ -1,21 +1,37 @@
 [gd_resource type="Resource" script_class="MoveSetData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/move_set_data.gd" id="1_moveset"]
+[ext_resource type="Script" path="res://scripts/data/cancel_rule_data.gd" id="1_pi45e"]
+[ext_resource type="Script" path="res://scripts/data/combo_link_data.gd" id="2_q5plr"]
 [ext_resource type="Script" path="res://scripts/data/move_slot_data.gd" id="2_slot"]
 [ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="3_attack"]
+
+[sub_resource type="Resource" id="Resource_pi45e"]
+script = ExtResource("2_q5plr")
+from_attack_id = &"yu-ran-light-01"
+input_action_id = &"attack_light"
+next_attack_id = &"yu-ran-light-02"
+
+[sub_resource type="Resource" id="Resource_q5plr"]
+script = ExtResource("2_q5plr")
+from_attack_id = &"yu-ran-light-02"
+input_action_id = &"attack_light"
+next_attack_id = &"yu-ran-light-03"
 
 [sub_resource type="Resource" id="a_light_01"]
 script = ExtResource("3_attack")
 attack_id = &"yu-ran-light-01"
 action_id = &"attack_light"
-combo_step = 1
 startup_ticks = 4
 active_ticks = 3
 recovery_ticks = 7
 damage = 4.0
-base_knockback = 120.0
-knockback_growth = 1.6
+knockback = 120.0
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+guard_knockback = 30.0
 visual_state_id = &"attack_light_combo_01"
+
 [sub_resource type="Resource" id="s_light_01"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-light-01"
@@ -25,14 +41,16 @@ attack = SubResource("a_light_01")
 script = ExtResource("3_attack")
 attack_id = &"yu-ran-light-02"
 action_id = &"attack_light"
-combo_step = 2
 startup_ticks = 4
 active_ticks = 3
 recovery_ticks = 7
 damage = 4.0
-base_knockback = 120.0
-knockback_growth = 1.6
+knockback = 120.0
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+guard_knockback = 30.0
 visual_state_id = &"attack_light_combo_02"
+
 [sub_resource type="Resource" id="s_light_02"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-light-02"
@@ -42,15 +60,17 @@ attack = SubResource("a_light_02")
 script = ExtResource("3_attack")
 attack_id = &"yu-ran-light-03"
 action_id = &"attack_light"
-combo_step = 3
 startup_ticks = 6
 active_ticks = 3
 recovery_ticks = 12
 damage = 7.0
-base_knockback = 210.0
-knockback_growth = 2.4
+knockback = 210.0
+guard_damage = 7.0
+guard_hitstun_ticks = 3
+guard_knockback = 52.5
 is_finisher = true
 visual_state_id = &"attack_light_combo_03"
+
 [sub_resource type="Resource" id="s_light_03"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-light-03"
@@ -65,10 +85,13 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 5.0
-base_knockback = 150.0
-knockback_growth = 1.8
+knockback = 150.0
+guard_damage = 5.0
+guard_hitstun_ticks = 3
+guard_knockback = 37.5
 launch_vector = Vector2(0.25, -1)
 visual_state_id = &"attack_light_up"
+
 [sub_resource type="Resource" id="s_light_up"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-light-up"
@@ -83,10 +106,13 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 5.0
-base_knockback = 150.0
-knockback_growth = 1.8
+knockback = 150.0
+guard_damage = 5.0
+guard_hitstun_ticks = 3
+guard_knockback = 37.5
 launch_vector = Vector2(0.4, 0.65)
 visual_state_id = &"attack_light_down"
+
 [sub_resource type="Resource" id="s_light_down"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-light-down"
@@ -101,10 +127,14 @@ startup_ticks = 10
 active_ticks = 4
 recovery_ticks = 16
 damage = 10.0
-base_knockback = 260.0
-knockback_growth = 3.0
+knockback = 260.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
 is_finisher = true
 visual_state_id = &"attack_heavy_side"
+
 [sub_resource type="Resource" id="s_heavy_side"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-heavy-side"
@@ -119,12 +149,16 @@ startup_ticks = 10
 active_ticks = 4
 recovery_ticks = 16
 damage = 10.0
-base_knockback = 260.0
-knockback_growth = 3.0
+knockback = 260.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
 launch_vector = Vector2(0.25, -1)
 is_finisher = true
 is_launcher = true
 visual_state_id = &"attack_heavy_up"
+
 [sub_resource type="Resource" id="s_heavy_up"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-heavy-up"
@@ -139,11 +173,15 @@ startup_ticks = 10
 active_ticks = 4
 recovery_ticks = 16
 damage = 10.0
-base_knockback = 260.0
-knockback_growth = 3.0
+knockback = 260.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
 launch_vector = Vector2(0.45, 0.7)
 is_finisher = true
 visual_state_id = &"attack_heavy_down"
+
 [sub_resource type="Resource" id="s_heavy_down"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-heavy-down"
@@ -159,9 +197,12 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 6.0
-base_knockback = 170.0
-knockback_growth = 2.0
+knockback = 170.0
+guard_damage = 6.0
+guard_hitstun_ticks = 3
+guard_knockback = 42.5
 visual_state_id = &"attack_dash_light"
+
 [sub_resource type="Resource" id="s_dash_light"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-dash-light"
@@ -177,10 +218,14 @@ startup_ticks = 8
 active_ticks = 4
 recovery_ticks = 14
 damage = 10.0
-base_knockback = 240.0
-knockback_growth = 2.8
+knockback = 240.0
+fixed_hitstun_ticks = 12
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 60.0
 is_finisher = true
 visual_state_id = &"attack_dash_heavy"
+
 [sub_resource type="Resource" id="s_dash_heavy"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-dash-heavy"
@@ -196,9 +241,12 @@ startup_ticks = 5
 active_ticks = 3
 recovery_ticks = 9
 damage = 5.0
-base_knockback = 150.0
-knockback_growth = 1.8
+knockback = 150.0
+guard_damage = 5.0
+guard_hitstun_ticks = 3
+guard_knockback = 37.5
 visual_state_id = &"attack_air_light"
+
 [sub_resource type="Resource" id="s_air_light"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-air-light"
@@ -214,10 +262,14 @@ startup_ticks = 8
 active_ticks = 4
 recovery_ticks = 14
 damage = 9.0
-base_knockback = 230.0
-knockback_growth = 2.7
+knockback = 230.0
+fixed_hitstun_ticks = 12
+guard_damage = 9.0
+guard_hitstun_ticks = 3
+guard_knockback = 57.5
 is_finisher = true
 visual_state_id = &"attack_air_heavy"
+
 [sub_resource type="Resource" id="s_air_heavy"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-air-heavy"
@@ -232,11 +284,15 @@ startup_ticks = 8
 active_ticks = 4
 recovery_ticks = 16
 damage = 8.0
-base_knockback = 220.0
-knockback_growth = 2.6
+knockback = 220.0
+fixed_hitstun_ticks = 9
+guard_damage = 8.0
+guard_hitstun_ticks = 3
+guard_knockback = 55.0
 hitbox_size = Vector2(96, 64)
 hitbox_offset = Vector2(34, -30)
 visual_state_id = &"special_neutral"
+
 [sub_resource type="Resource" id="s_special_neutral"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-special-neutral"
@@ -252,11 +308,15 @@ startup_ticks = 6
 active_ticks = 5
 recovery_ticks = 18
 damage = 7.0
-base_knockback = 190.0
-knockback_growth = 2.3
+knockback = 190.0
+fixed_hitstun_ticks = 9
+guard_damage = 7.0
+guard_hitstun_ticks = 3
+guard_knockback = 47.5
 launch_vector = Vector2(0.2, -1)
 self_impulse = Vector2(0, -440)
 visual_state_id = &"special_up"
+
 [sub_resource type="Resource" id="s_special_up"]
 script = ExtResource("2_slot")
 slot_id = &"yu-ran-special-up"
@@ -265,5 +325,7 @@ attack = SubResource("a_special_up")
 [resource]
 script = ExtResource("1_moveset")
 move_set_id = &"yu-ran.base"
-combo_count = 3
 slots = Array[ExtResource("2_slot")]([SubResource("s_light_01"), SubResource("s_light_02"), SubResource("s_light_03"), SubResource("s_light_up"), SubResource("s_light_down"), SubResource("s_heavy_side"), SubResource("s_heavy_up"), SubResource("s_heavy_down"), SubResource("s_dash_light"), SubResource("s_dash_heavy"), SubResource("s_air_light"), SubResource("s_air_heavy"), SubResource("s_special_neutral"), SubResource("s_special_up")])
+combo_count = 3
+opening_attack_ids = Array[StringName]([&"yu-ran-light-01"])
+combo_links = Array[ExtResource("2_q5plr")]([SubResource("Resource_pi45e"), SubResource("Resource_q5plr")])

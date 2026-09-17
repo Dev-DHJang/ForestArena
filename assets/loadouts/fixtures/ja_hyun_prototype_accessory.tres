@@ -14,13 +14,14 @@ value = 3.0
 script = ExtResource("4_attack")
 attack_id = &"ja-hyun-light-01-prototype"
 action_id = &"attack_light"
-combo_step = 1
 startup_ticks = 4
 active_ticks = 3
 recovery_ticks = 7
 damage = 5.0
-base_knockback = 120.0
-knockback_growth = 1.6
+knockback = 120.0
+guard_damage = 5.0
+guard_hitstun_ticks = 3
+guard_knockback = 30.0
 visual_state_id = &"attack_light_combo_01"
 
 [sub_resource type="Resource" id="MoveSlotPatch_light"]
@@ -30,6 +31,7 @@ replacement = SubResource("AttackData_patch")
 
 [resource]
 script = ExtResource("1_accessory")
+schema_version = 2
 accessory_id = &"ja-hyun-prototype-accessory"
 stat_modifiers = Array[ExtResource("2_modifier")]([SubResource("StatModifier_survivability")])
 move_slot_patches = Array[ExtResource("3_patch")]([SubResource("MoveSlotPatch_light")])

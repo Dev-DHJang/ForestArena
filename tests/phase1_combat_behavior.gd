@@ -36,7 +36,7 @@ func _initialize() -> void:
 	fighter.consume_intent(_intent(fighter, &"attack_heavy", CombatIntent.Direction.RIGHT), controller.rules)
 	if fighter.buffered_intent == null or fighter.buffered_intent.action_id != &"attack_light": failures.append("single whiff light buffer contract failed")
 	for index: int in 7: fighter.step_tick(controller.rules)
-	if fighter.active_attack == null or fighter.active_attack.combo_step != 2: failures.append("buffered light did not advance combo")
+	if fighter.active_attack == null or fighter.active_attack.attack_id != &"ja-hyun-light-02": failures.append("buffered light did not advance data combo")
 
 	# Hit-only branch and launcher chase permission.
 	controller.reset_match()
