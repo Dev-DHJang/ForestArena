@@ -25,6 +25,10 @@ func _initialize() -> void:
 		failures.append("iron armor did not declare data-driven armor")
 	if boxing == null or boxing.replacement_move_set == null or boxing.replacement_move_set.move_set_id != &"yu-ran.base":
 		failures.append("boxing gloves did not replace the complete MoveSet")
+	var tagged_attack := AttackData.new()
+	tagged_attack.tags = [&"MELEE", &"FIRE", &"SPECIAL"]
+	if tagged_attack.tags.any(func(tag: StringName) -> bool: return not AttackData.VALID_TAGS.has(tag)):
+		failures.append("approved combat tags are not accepted")
 	var instance := (load("res://scenes/main.tscn") as PackedScene).instantiate()
 	root.add_child(instance)
 	await process_frame

@@ -2,6 +2,8 @@ class_name FighterController
 extends CharacterBody2D
 
 const ComboControllerScript = preload("res://scripts/combo_controller.gd")
+const EffectControllerScript = preload("res://scripts/effect_controller.gd")
+const EffectData = preload("res://scripts/data/combat_effect_data.gd")
 
 ## Fixed-tick Phase 1 fighter. Geometry and visual state mirror the authority
 ## state for debugging, but physics overlap and animation never decide hits.
@@ -184,7 +186,11 @@ func step_tick(rules: CombatRules) -> void:
 		_apply_gravity(rules)
 		move_and_slide()
 		if hitstun_ticks <= 0:
-			state = State.IDLE if is_on_floor() else State.FALL
+			if state == State.KNOCK_DOWN:
+				state = State.WAKE_UP
+				EffectControllerScript.dispatch(EffectData.Trigger.ON_WAKE_UP, self, null, rules)
+			else:
+				state = State.IDLE if is_on_floor() else State.FALL
 		_finish_tick()
 		return
 	if active_attack != null:
@@ -302,6 +308,7 @@ func _try_jump() -> void:
 	if is_on_floor():
 		velocity.y = -_stats().jump_velocity
 		state = State.JUMP
+		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, CombatRules.new())
 	elif air_jumps_remaining > 0 or launcher_jump_available:
 		if launcher_jump_available:
 			launcher_jump_available = false
@@ -309,6 +316,7 @@ func _try_jump() -> void:
 			air_jumps_remaining -= 1
 		velocity.y = -_stats().jump_velocity
 		state = State.JUMP
+		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, CombatRules.new())
 
 
 func _try_dash() -> void:
@@ -352,6 +360,7 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction, rules: C
 	# always supplies its rules; the fallback is only the contract default.
 	if next.action_id == &"attack_special": runtime_state.special_cooldown_ticks = rules.special_cooldown_ticks if rules != null else 45
 	state = State.ATTACK_STARTUP
+	EffectControllerScript.dispatch(EffectData.Trigger.ON_ATTACK_START, self, null, rules if rules != null else CombatRules.new(), &"", 0, next.tags)
 
 
 func _advance_attack(rules: CombatRules) -> void:
@@ -367,6 +376,7 @@ func _advance_attack(rules: CombatRules) -> void:
 		var queued := buffered_intent
 		active_attack = null
 		buffered_intent = null
+		EffectControllerScript.dispatch(EffectData.Trigger.ON_ATTACK_END, self, null, rules, &"", 0, finished.tags)
 		if queued != null:
 			var next := ComboControllerScript.linked_attack(runtime_profile.move_set, finished, queued, 0, attack_landed)
 			if next != null:
@@ -393,12 +403,14 @@ func _step_movement(rules: CombatRules) -> void:
 		velocity.x = move_toward(velocity.x, desired, acceleration / float(rules.physics_ticks_per_second))
 	move_and_slide()
 	if is_on_floor():
+		var just_landed := not runtime_state.grounded
 		air_jumps_remaining = _stats().air_jump_count
 		aerial_attacks_remaining = 2
 		up_special_available = true
 		launcher_jump_available = false
 		if state != State.DASH:
 			state = State.RUN if _horizontal_input() != 0 else State.IDLE
+		if just_landed: EffectControllerScript.dispatch(EffectData.Trigger.ON_LAND, self, null, rules)
 	elif velocity.y < 0.0:
 		state = State.JUMP
 	else:

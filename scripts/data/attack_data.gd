@@ -5,6 +5,7 @@ enum InputDirection { NEUTRAL, FORWARD, BACK, UP, DOWN, ANY_HORIZONTAL, OMNI }
 enum ActivationContext { GROUND, AIR, BOTH }
 enum LaunchMode { VECTOR, TOWARD_SOURCE }
 enum HitReaction { NORMAL_HIT, LIGHT_STAGGER, HEAVY_STAGGER, KNOCKBACK, KNOCK_DOWN, LAUNCH, GROUND_BOUNCE, WALL_BOUNCE, SLAM, CRUMPLE }
+const VALID_TAGS: Array[StringName] = [&"MELEE", &"PROJECTILE", &"GRAB", &"MAGIC", &"FIRE", &"SPECIAL", &"ULTIMATE", &"UNBLOCKABLE"]
 
 @export var schema_version: int = 2
 @export var attack_id: StringName
@@ -52,6 +53,7 @@ func is_valid_definition() -> bool:
 		and guard_hitstun_ticks >= 0 \
 		and guard_knockback >= 0.0 \
 		and not tags.is_empty() \
+		and tags.all(func(tag: StringName) -> bool: return VALID_TAGS.has(tag)) \
 		and (launch_mode == LaunchMode.TOWARD_SOURCE or not launch_vector.is_zero_approx()) \
 		and hitbox_size.x > 0.0 \
 		and hitbox_size.y > 0.0 \
