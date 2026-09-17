@@ -17,7 +17,7 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 		if defender.runtime_state.guard_durability <= 0.0:
 			defender.hitstun_ticks = rules.guard_break_ticks
 			defender.state = FighterController.State.HITSTUN
-		EffectControllerScript.dispatch(EffectData.Trigger.ON_BLOCKED, context.attacker, defender, rules)
+		EffectControllerScript.dispatch(EffectData.Trigger.ON_BLOCKED, context.attacker, defender, rules, attack.attack_id, 0, attack.tags)
 		return result
 	if defender.invulnerability_ticks > 0 and not attack.ignore_armor_and_immunity:
 		result.type = HitResult.Type.IMMUNE
@@ -48,9 +48,11 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 	# Gauge changes only after effective damage; blocked, immune and armored hits do not fill it.
 	context.attacker.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, context.attacker.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_dealt + attack.resource_gain)
 	defender.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, defender.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_taken)
-	EffectControllerScript.dispatch(EffectData.Trigger.ON_HIT, context.attacker, defender, rules)
-	EffectControllerScript.dispatch(EffectData.Trigger.ON_INCOMING_HIT, defender, context.attacker, rules, attack.attack_id)
-	EffectControllerScript.dispatch(EffectData.Trigger.ON_DAMAGED, defender, context.attacker, rules, attack.attack_id)
+	EffectControllerScript.dispatch(EffectData.Trigger.ON_HIT, context.attacker, defender, rules, attack.attack_id, 0, attack.tags)
+	EffectControllerScript.dispatch(EffectData.Trigger.ON_INCOMING_HIT, defender, context.attacker, rules, attack.attack_id, 0, attack.tags)
+	EffectControllerScript.dispatch(EffectData.Trigger.ON_DAMAGED, defender, context.attacker, rules, attack.attack_id, 0, attack.tags)
+	if defender.state == FighterController.State.KNOCK_DOWN: EffectControllerScript.dispatch(EffectData.Trigger.ON_KNOCK_DOWN, defender, context.attacker, rules, attack.attack_id, 0, attack.tags)
+	if defender.state == FighterController.State.DEAD: EffectControllerScript.dispatch(EffectData.Trigger.ON_KILL, context.attacker, defender, rules, attack.attack_id, 0, attack.tags)
 	return result
 
 
