@@ -5,7 +5,7 @@ const ComboControllerScript = preload("res://scripts/combo_controller.gd")
 
 ## Fixed-tick Phase 1 fighter. Geometry and visual state mirror the authority
 ## state for debugging, but physics overlap and animation never decide hits.
-enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED }
+enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED }
 
 @export var fighter_id: StringName
 @export var character_data: CharacterData
@@ -115,6 +115,15 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		# One-way platform collision is scene-owned. Ordinary floors keep their state.
 		runtime_state.guarding = false
 		return
+	if intent.action_id == &"evade":
+		_try_evade(rules)
+		return
+	if intent.action_id == &"ultimate":
+		if runtime_state.ultimate_gauge >= rules.ultimate_gauge_max and not runtime_state.ultimate_used_this_stock:
+			runtime_state.ultimate_gauge = 0.0
+			runtime_state.ultimate_used_this_stock = true
+			diagnostic = "ultimate_requested_no_authored_move"
+		return
 	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]:
 		return
 	if intent.action_id == &"jump":
@@ -132,6 +141,7 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		return
 	var next := _select_attack(intent)
 	if next == null: return
+	if next.action_id == &"attack_special" and runtime_state.special_cooldown_ticks > 0: return
 	_start_attack(next, intent.direction)
 
 
@@ -141,6 +151,12 @@ func step_tick(rules: CombatRules) -> void:
 	diagnostic = ""
 	if invulnerability_ticks > 0:
 		invulnerability_ticks -= 1
+	if runtime_state.special_cooldown_ticks > 0: runtime_state.special_cooldown_ticks -= 1
+	if state == State.EVADE:
+		runtime_state.evade_ticks -= 1
+		if runtime_state.evade_ticks <= 0: state = State.IDLE if is_on_floor() else State.FALL
+		_finish_tick()
+		return
 	if state != State.GUARD:
 		runtime_state.guarding = false
 		runtime_state.guard_durability = minf(rules.guard_max_durability, runtime_state.guard_durability + rules.guard_regen_per_tick)
@@ -307,6 +323,7 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction) -> void:
 	if next.action_id == &"attack_special" and next.input_direction == AttackData.InputDirection.UP:
 		up_special_available = false
 		velocity += next.self_impulse
+	if next.action_id == &"attack_special": runtime_state.special_cooldown_ticks = 45
 	state = State.ATTACK_STARTUP
 
 
@@ -376,6 +393,14 @@ func _respawn(rules: CombatRules) -> void:
 	up_special_available = true
 	launcher_jump_available = false
 	state = State.IDLE
+
+
+func _try_evade(rules: CombatRules) -> void:
+	if active_attack != null or state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN] or not is_on_floor(): return
+	runtime_state.evade_ticks = rules.evade_ticks
+	invulnerability_ticks = max(invulnerability_ticks, rules.evade_invulnerability_ticks)
+	velocity.x = facing * _stats().dash_speed
+	state = State.EVADE
 
 
 func _relative_direction(direction: CombatIntent.Direction) -> AttackData.InputDirection:

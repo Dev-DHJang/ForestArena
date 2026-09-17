@@ -16,6 +16,10 @@ extends Resource
 @export var guard_max_durability: float = 100.0
 @export var guard_regen_per_tick: float = 0.5
 @export var guard_break_ticks: int = 30
+@export var evade_ticks: int = 12
+@export var evade_invulnerability_ticks: int = 8
+@export var special_cooldown_ticks: int = 45
+@export var ultimate_gauge_max: float = 100.0
 @export var combo_link_window_ticks: int = 5
 @export var ring_left: float = -160.0
 @export var ring_right: float = 1440.0
@@ -38,4 +42,5 @@ func is_valid_definition() -> bool:
 		and respawn_invulnerability_ticks > 0 \
 		and guard_max_durability > 0.0 \
 		and guard_regen_per_tick >= 0.0 \
-		and guard_break_ticks >= 0
+		and guard_break_ticks >= 0 \
+		and evade_ticks > 0 and evade_invulnerability_ticks >= 0 and special_cooldown_ticks >= 0 and ultimate_gauge_max > 0.0
