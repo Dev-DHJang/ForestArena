@@ -32,6 +32,17 @@ adb -s <host:debug-port> shell am start -W -n \
   com.forestarena.welllbeing/com.godot.game.GodotAppLauncher
 ```
 
+## 연결한 실기기 런타임 검사
+
+`verify-android-emulator.sh`는 기본적으로 연결된 에뮬레이터만 고른다. 실기기는 다른 기기를 잘못 조작하지 않도록 대상 serial을 명시해야 한다. 이 검사는 APK를 설치하고, 앱을 시작·백그라운드 전환·복귀시키며, 이동과 점프 위치를 탭한다. 개인용 주 기기가 아니라 테스트 대상으로만 실행한다.
+
+```sh
+ANDROID_DEVICE_SERIAL=<host:debug-port> \
+  ./scripts/verify-android-emulator.sh build/android/ForestArena-debug.apk
+```
+
+성공하면 설치, 가로 화면, 터치 입력, 입력 초기화, 콜드 시작과 복귀를 확인한다. 이 자동 검사는 플레이 감각의 채택·폐기 판단을 대신하지 않는다.
+
 ## 문제 해결
 
 - `unauthorized`이면 기기에서 RSA 디버깅 허용 대화상자를 승인한 뒤 다시 확인한다.

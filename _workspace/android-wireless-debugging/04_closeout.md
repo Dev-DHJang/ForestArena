@@ -11,3 +11,8 @@
 - Pass: `./scripts/android-wireless-debug.sh verify emulator-5554` — Android 15 및 모델 정보를 읽었다. 이는 스크립트 경로 검증이며 실기기 검증은 아니다.
 - Pass: `./scripts/verify-harness.sh` 및 `./scripts/verify.sh`.
 - Pending: 실제 Android 기기의 `pair`, `connect`, `verify`, APK 설치·실행·입력·생명주기 검증. 재개 조건은 사용자가 기기에서 Wireless debugging을 켜고 endpoint를 제공하거나 같은 터미널에서 명령을 실행하는 것이다.
+
+## Follow-up
+
+- `ANDROID_DEVICE_SERIAL`을 명시하면 기존 Android 런타임 검사를 그 serial에 적용하도록 확장했다. 자동 선택은 계속 에뮬레이터만 대상으로 하므로, 연결된 다른 실기기를 우연히 조작하지 않는다.
+- 2026-09-18 연결된 테스트 실기기에서 APK 설치, 가로 실행, 터치, 일시중지 입력 초기화와 복귀를 확인했다. 상세 증적은 `03_qa_r02.md`에 남긴다.
