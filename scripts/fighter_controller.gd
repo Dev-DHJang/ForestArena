@@ -51,6 +51,8 @@ var diagnostic := ""
 var locked_facing := 1
 var locked_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
 var runtime_profile: RuntimeCombatProfile
+var charge_attack: AttackData
+var charge_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
 
 
 func _ready() -> void:
@@ -97,6 +99,8 @@ func reset_for_match(rules: CombatRules) -> void:
 	aerial_attacks_remaining = 2
 	up_special_available = true
 	launcher_jump_available = false
+	charge_attack = null
+	charge_direction = CombatIntent.Direction.NEUTRAL
 	invulnerability_ticks = 0
 	respawn_ticks = 0
 	hitstun_ticks = 0
@@ -127,6 +131,10 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	if intent.action_id == &"ultimate":
 		_try_ultimate(intent, rules)
 		return
+	if state == State.CHARGE:
+		if intent.action_id == &"attack_heavy" and intent.edge == CombatIntent.Edge.RELEASE:
+			_release_charge(rules)
+		return
 	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]:
 		return
 	if intent.action_id == &"jump":
@@ -134,6 +142,9 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		return
 	if intent.action_id == &"dash":
 		_try_dash()
+		return
+	if intent.action_id == &"attack_heavy" and active_attack == null and is_on_floor():
+		_start_charge(intent)
 		return
 	if intent.action_id not in [&"attack_light", &"attack_heavy", &"attack_special"]:
 		return
@@ -166,6 +177,12 @@ func step_tick(rules: CombatRules) -> void:
 		return
 	if state == State.GUARD:
 		# Guard is sustained by a down hold. It does not become an ordinary run tick.
+		move_and_slide()
+		_finish_tick()
+		return
+	if state == State.CHARGE:
+		runtime_state.charge_ticks = mini(runtime_state.charge_ticks + 1, charge_attack.charge_max_ticks if charge_attack != null else 0)
+		velocity.x = move_toward(velocity.x, 0.0, rules.ground_deceleration / float(rules.physics_ticks_per_second))
 		move_and_slide()
 		_finish_tick()
 		return
@@ -333,6 +350,35 @@ func _try_dash() -> void:
 	state = State.DASH
 
 
+func _start_charge(intent: CombatIntent) -> void:
+	var next := _select_attack(intent)
+	if next == null:
+		return
+	charge_attack = next
+	charge_direction = intent.direction
+	locked_facing = facing
+	locked_direction = intent.direction
+	runtime_state.charge_ticks = 0
+	state = State.CHARGE
+
+
+func _release_charge(rules: CombatRules) -> void:
+	if charge_attack == null:
+		state = State.IDLE if is_on_floor() else State.FALL
+		return
+	var attack := charge_attack.duplicate(true) as AttackData
+	var held := runtime_state.charge_ticks
+	if held >= attack.charge_min_ticks and attack.charge_max_ticks > 0:
+		var steps := maxi(1, held / maxi(1, attack.charge_min_ticks))
+		attack.damage *= attack.charge_damage_multiplier
+		attack.knockback *= attack.charge_knockback_multiplier
+		attack.recovery_ticks += attack.charge_recovery_ticks_per_step * steps
+		attack.visual_state_id = &"attack_heavy_charge"
+	charge_attack = null
+	runtime_state.charge_ticks = 0
+	_start_attack(attack, charge_direction, rules)
+
+
 func _select_attack(intent: CombatIntent) -> AttackData:
 	var context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
 	if context == AttackData.ActivationContext.AIR and intent.action_id != &"attack_special" and aerial_attacks_remaining <= 0:
@@ -431,6 +477,8 @@ func _respawn(rules: CombatRules) -> void:
 	aerial_attacks_remaining = 2
 	up_special_available = true
 	launcher_jump_available = false
+	charge_attack = null
+	runtime_state.charge_ticks = 0
 	state = State.IDLE
 
 

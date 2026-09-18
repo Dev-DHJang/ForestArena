@@ -7,7 +7,7 @@ enum LaunchMode { VECTOR, TOWARD_SOURCE }
 enum HitReaction { NORMAL_HIT, LIGHT_STAGGER, HEAVY_STAGGER, KNOCKBACK, KNOCK_DOWN, LAUNCH, GROUND_BOUNCE, WALL_BOUNCE, SLAM, CRUMPLE }
 const VALID_TAGS: Array[StringName] = [&"MELEE", &"PROJECTILE", &"GRAB", &"MAGIC", &"FIRE", &"SPECIAL", &"ULTIMATE", &"UNBLOCKABLE"]
 
-@export var schema_version: int = 2
+@export var schema_version: int = 3
 @export var attack_id: StringName
 @export var action_id: StringName
 @export var input_direction: InputDirection = InputDirection.NEUTRAL
@@ -26,6 +26,11 @@ const VALID_TAGS: Array[StringName] = [&"MELEE", &"PROJECTILE", &"GRAB", &"MAGIC
 @export var tags: Array[StringName] = [&"MELEE"]
 @export var resource_cost: float = 0.0
 @export var resource_gain: float = 0.0
+@export var charge_min_ticks: int = 0
+@export var charge_max_ticks: int = 0
+@export var charge_damage_multiplier: float = 1.0
+@export var charge_knockback_multiplier: float = 1.0
+@export var charge_recovery_ticks_per_step: int = 0
 @export var ignore_armor_and_immunity: bool = false
 @export var launch_mode: LaunchMode = LaunchMode.VECTOR
 @export var launch_vector: Vector2 = Vector2(1.0, -0.18)
@@ -40,7 +45,7 @@ const VALID_TAGS: Array[StringName] = [&"MELEE", &"PROJECTILE", &"GRAB", &"MAGIC
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 2 \
+	return schema_version == 3 \
 		and not attack_id.is_empty() \
 		and not action_id.is_empty() \
 		and startup_ticks > 0 \
@@ -52,6 +57,11 @@ func is_valid_definition() -> bool:
 		and guard_damage >= 0.0 \
 		and guard_hitstun_ticks >= 0 \
 		and guard_knockback >= 0.0 \
+		and charge_min_ticks >= 0 \
+		and charge_max_ticks >= charge_min_ticks \
+		and charge_damage_multiplier >= 1.0 \
+		and charge_knockback_multiplier >= 1.0 \
+		and charge_recovery_ticks_per_step >= 0 \
 		and not tags.is_empty() \
 		and tags.all(func(tag: StringName) -> bool: return VALID_TAGS.has(tag)) \
 		and (launch_mode == LaunchMode.TOWARD_SOURCE or not launch_vector.is_zero_approx()) \
