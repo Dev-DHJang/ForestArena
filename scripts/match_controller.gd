@@ -15,6 +15,9 @@ signal presentation_event(event_id: StringName, payload: Dictionary)
 @export var loadout_catalog: LoadoutCatalog
 @export var player_selection: LoadoutSelection
 @export var training_dummy_selection: LoadoutSelection
+## Development-only match shells can inject already-built profiles after their
+## fighters exist. Normal scenes keep the Resource-driven startup path.
+@export var configure_profiles_on_ready := true
 
 var tick := 0
 var paused := false
@@ -29,11 +32,12 @@ var _last_player_direction: CombatIntent.Direction = CombatIntent.Direction.NEUT
 func _ready() -> void:
 	if player == null: player = get_node("../World/Player") as FighterController
 	if training_dummy == null: training_dummy = get_node("../World/TrainingDummy") as FighterController
-	if not _configure_fighters():
+	if configure_profiles_on_ready and not _configure_fighters():
 		paused = true
 		push_error("Match did not start because loadout construction failed.")
 		return
-	reset_match()
+	if configure_profiles_on_ready:
+		reset_match()
 
 
 func _physics_process(_delta: float) -> void:
