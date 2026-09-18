@@ -21,7 +21,7 @@ func _initialize() -> void:
 		var id := String(fighter.fighter_id)
 		if fighter.character_data.character_id != fighter.fighter_id: failures.append("CharacterData mismatch: %s" % id)
 		if fighter.combo_count != EXPECTED_COMBOS[id]: failures.append("incorrect combo count: %s" % id)
-		if fighter.attacks.size() != EXPECTED_COMBOS[id] + 14: failures.append("incomplete move family: %s" % id)
+		if fighter.attacks.size() != EXPECTED_COMBOS[id] + 15: failures.append("incomplete move family: %s" % id)
 		if fighter.get_node_or_null("Hurtbox/CollisionShape2D") == null or fighter.get_node_or_null("Hitbox/CollisionShape2D") == null: failures.append("missing authority debug geometry: %s" % id)
 		for attack: AttackData in fighter.attacks:
 			if not attack.is_valid_definition(): failures.append("invalid attack: %s" % attack.attack_id)
@@ -79,6 +79,7 @@ func _validate_family(fighter: FighterController, failures: PackedStringArray) -
 	if _find(fighter, &"attack_special", AttackData.InputDirection.ANY_HORIZONTAL, false, AttackData.ActivationContext.BOTH) == null: failures.append("missing side special: %s" % fighter.fighter_id)
 	if _find(fighter, &"attack_special", AttackData.InputDirection.DOWN, false, AttackData.ActivationContext.BOTH) == null: failures.append("missing down special: %s" % fighter.fighter_id)
 	if _find(fighter, &"ultimate", AttackData.InputDirection.NEUTRAL, false, AttackData.ActivationContext.BOTH) == null: failures.append("missing ultimate: %s" % fighter.fighter_id)
+	if _find(fighter, &"grab", AttackData.InputDirection.OMNI, false, AttackData.ActivationContext.GROUND) == null: failures.append("missing grab: %s" % fighter.fighter_id)
 
 
 func _find(fighter: FighterController, action: StringName, direction: AttackData.InputDirection, dash: bool, context: AttackData.ActivationContext) -> AttackData:

@@ -567,10 +567,32 @@ script = ExtResource("2_0te4x")
 slot_id = &"nabi.base-ultimate"
 attack = SubResource("Resource_stndo")
 
+[sub_resource type="Resource" id="Resource_2q84g"]
+script = ExtResource("3_2oweq")
+attack_id = &"nabi.base-grab"
+action_id = &"grab"
+input_direction = 6
+startup_ticks = 5
+active_ticks = 2
+recovery_ticks = 25
+damage = 4.0
+knockback = 250.0
+fixed_hitstun_ticks = 12
+hit_reaction = 3
+tags = Array[StringName]([&"GRAB"])
+hitbox_size = Vector2(42, 50)
+hitbox_offset = Vector2(34, -30)
+visual_state_id = &"grab_throw"
+
+[sub_resource type="Resource" id="Resource_sh6f1"]
+script = ExtResource("2_0te4x")
+slot_id = &"nabi.base-grab"
+attack = SubResource("Resource_2q84g")
+
 [resource]
 script = ExtResource("1_2kfo1")
 move_set_id = &"nabi.base"
-slots = Array[ExtResource("2_0te4x")]([SubResource("Resource_4quu7"), SubResource("Resource_pbklk"), SubResource("Resource_u400a"), SubResource("Resource_rnlkn"), SubResource("Resource_aiecc"), SubResource("Resource_5dl4c"), SubResource("Resource_o1ss7"), SubResource("Resource_fmxm2"), SubResource("Resource_a2igl"), SubResource("Resource_dun02"), SubResource("Resource_3vtlt"), SubResource("Resource_ms2jt"), SubResource("Resource_piejl"), SubResource("Resource_3o38l"), SubResource("Resource_0x3k1"), SubResource("Resource_oibq7")])
+slots = Array[ExtResource("2_0te4x")]([SubResource("Resource_4quu7"), SubResource("Resource_pbklk"), SubResource("Resource_u400a"), SubResource("Resource_rnlkn"), SubResource("Resource_aiecc"), SubResource("Resource_5dl4c"), SubResource("Resource_o1ss7"), SubResource("Resource_fmxm2"), SubResource("Resource_a2igl"), SubResource("Resource_dun02"), SubResource("Resource_3vtlt"), SubResource("Resource_ms2jt"), SubResource("Resource_piejl"), SubResource("Resource_3o38l"), SubResource("Resource_0x3k1"), SubResource("Resource_oibq7"), SubResource("Resource_sh6f1")])
 opening_attack_ids = Array[StringName]([&"nabi-light-01"])
 combo_links = Array[ExtResource("2_lkre4")]([SubResource("Resource_2oweq"), SubResource("Resource_ke5k3"), SubResource("Resource_rb3nf"), SubResource("Resource_o6uga"), SubResource("Resource_78kf1"), SubResource("Resource_kx2ln"), SubResource("Resource_uvx88"), SubResource("Resource_06tof"), SubResource("Resource_k56km")])
 cancel_rules = Array[ExtResource("1_2oweq")]([SubResource("Resource_qtjn3"), SubResource("Resource_u7jgn"), SubResource("Resource_i2dqq"), SubResource("Resource_auxl0"), SubResource("Resource_eu5xo"), SubResource("Resource_1462g"), SubResource("Resource_svn7s"), SubResource("Resource_psqjb"), SubResource("Resource_vontu"), SubResource("Resource_4jjt6"), SubResource("Resource_q5uc8"), SubResource("Resource_qo17w"), SubResource("Resource_6gb5i"), SubResource("Resource_q7x7g"), SubResource("Resource_icpv2"), SubResource("Resource_eb68d"), SubResource("Resource_eubqi"), SubResource("Resource_yyd0v"), SubResource("Resource_gyjiy"), SubResource("Resource_smre3")])
