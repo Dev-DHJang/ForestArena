@@ -629,10 +629,83 @@ script = ExtResource("2_tdn5r")
 slot_id = &"myo-ryung-special-up"
 attack = SubResource("Resource_j5kct")
 
+[sub_resource type="Resource" id="Resource_4118h"]
+script = ExtResource("3_ur7mu")
+attack_id = &"myo-ryung.base-special-side"
+action_id = &"attack_special"
+input_direction = 5
+activation_context = 2
+startup_ticks = 8
+active_ticks = 8
+recovery_ticks = 16
+damage = 3.0
+knockback = 90.0
+fixed_hitstun_ticks = 9
+guard_damage = 3.0
+guard_hitstun_ticks = 3
+guard_knockback = 22.5
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+max_hits_per_target = 3
+rehit_interval_ticks = 3
+visual_state_id = &"special_side"
+
+[sub_resource type="Resource" id="Resource_t0j3l"]
+script = ExtResource("2_tdn5r")
+slot_id = &"myo-ryung.base-special-side"
+attack = SubResource("Resource_4118h")
+
+[sub_resource type="Resource" id="Resource_lniys"]
+script = ExtResource("3_ur7mu")
+attack_id = &"myo-ryung.base-special-down"
+action_id = &"attack_special"
+input_direction = 4
+activation_context = 2
+startup_ticks = 8
+active_ticks = 8
+recovery_ticks = 16
+damage = 3.0
+knockback = 90.0
+fixed_hitstun_ticks = 9
+guard_damage = 3.0
+guard_hitstun_ticks = 3
+guard_knockback = 22.5
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+max_hits_per_target = 3
+rehit_interval_ticks = 3
+visual_state_id = &"special_down"
+
+[sub_resource type="Resource" id="Resource_6qjj2"]
+script = ExtResource("2_tdn5r")
+slot_id = &"myo-ryung.base-special-down"
+attack = SubResource("Resource_lniys")
+
+[sub_resource type="Resource" id="Resource_r60vl"]
+script = ExtResource("3_ur7mu")
+attack_id = &"myo-ryung.base-ultimate"
+action_id = &"ultimate"
+activation_context = 2
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 16
+damage = 16.0
+knockback = 340.0
+fixed_hitstun_ticks = 18
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
+tags = Array[StringName]([&"ULTIMATE", &"UNBLOCKABLE"])
+is_finisher = true
+visual_state_id = &"ultimate"
+
+[sub_resource type="Resource" id="Resource_r77by"]
+script = ExtResource("2_tdn5r")
+slot_id = &"myo-ryung.base-ultimate"
+attack = SubResource("Resource_r60vl")
+
 [resource]
 script = ExtResource("1_dmj0l")
 move_set_id = &"myo-ryung.base"
-slots = Array[ExtResource("2_tdn5r")]([SubResource("Resource_bb3s0"), SubResource("Resource_3y5yb"), SubResource("Resource_j3cmh"), SubResource("Resource_l5evo"), SubResource("Resource_nqrk0"), SubResource("Resource_nie57"), SubResource("Resource_k01ml"), SubResource("Resource_hyjey"), SubResource("Resource_o1j7m"), SubResource("Resource_2cew7"), SubResource("Resource_nhvq1"), SubResource("Resource_tohgj"), SubResource("Resource_fnocj"), SubResource("Resource_4wf7n"), SubResource("Resource_l16su")])
+slots = Array[ExtResource("2_tdn5r")]([SubResource("Resource_bb3s0"), SubResource("Resource_3y5yb"), SubResource("Resource_j3cmh"), SubResource("Resource_l5evo"), SubResource("Resource_nqrk0"), SubResource("Resource_nie57"), SubResource("Resource_k01ml"), SubResource("Resource_hyjey"), SubResource("Resource_o1j7m"), SubResource("Resource_2cew7"), SubResource("Resource_nhvq1"), SubResource("Resource_tohgj"), SubResource("Resource_fnocj"), SubResource("Resource_4wf7n"), SubResource("Resource_l16su"), SubResource("Resource_t0j3l"), SubResource("Resource_6qjj2"), SubResource("Resource_r77by")])
 combo_count = 4
 opening_attack_ids = Array[StringName]([&"myo-ryung-light-01"])
 combo_links = Array[ExtResource("2_ubwin")]([SubResource("Resource_ur7mu"), SubResource("Resource_pbfdt"), SubResource("Resource_s1b8o"), SubResource("Resource_6jx64"), SubResource("Resource_55oiw"), SubResource("Resource_20oap"), SubResource("Resource_bp1aw"), SubResource("Resource_2kdix"), SubResource("Resource_fm62h"), SubResource("Resource_1fiuf"), SubResource("Resource_kjxgf"), SubResource("Resource_l1ymc"), SubResource("Resource_6k8lw"), SubResource("Resource_xbthi"), SubResource("Resource_s8pk8")])

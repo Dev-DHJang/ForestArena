@@ -125,15 +125,12 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		_try_evade(rules)
 		return
 	if intent.action_id == &"ultimate":
-		if runtime_state.ultimate_gauge >= rules.ultimate_gauge_max and not runtime_state.ultimate_used_this_stock:
-			runtime_state.ultimate_gauge = 0.0
-			runtime_state.ultimate_used_this_stock = true
-			diagnostic = "ultimate_requested_no_authored_move"
+		_try_ultimate(intent, rules)
 		return
 	if intent.edge != CombatIntent.Edge.PRESS or state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]:
 		return
 	if intent.action_id == &"jump":
-		_try_jump()
+		_try_jump(rules)
 		return
 	if intent.action_id == &"dash":
 		_try_dash()
@@ -303,7 +300,7 @@ func snapshot() -> Dictionary:
 	}
 
 
-func _try_jump() -> void:
+func _try_jump(rules: CombatRules) -> void:
 	if active_attack != null:
 		if not (state == State.ATTACK_RECOVERY and attack_landed and active_attack.is_launcher and launcher_jump_available):
 			return
@@ -314,7 +311,7 @@ func _try_jump() -> void:
 	if is_on_floor():
 		velocity.y = -_stats().jump_velocity
 		state = State.JUMP
-		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, CombatRules.new())
+		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, rules)
 	elif air_jumps_remaining > 0 or launcher_jump_available:
 		if launcher_jump_available:
 			launcher_jump_available = false
@@ -322,7 +319,7 @@ func _try_jump() -> void:
 			air_jumps_remaining -= 1
 		velocity.y = -_stats().jump_velocity
 		state = State.JUMP
-		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, CombatRules.new())
+		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, rules)
 
 
 func _try_dash() -> void:
@@ -339,9 +336,6 @@ func _try_dash() -> void:
 func _select_attack(intent: CombatIntent) -> AttackData:
 	var context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
 	if context == AttackData.ActivationContext.AIR and intent.action_id != &"attack_special" and aerial_attacks_remaining <= 0:
-		return null
-	if intent.action_id == &"attack_special" and intent.direction in [CombatIntent.Direction.LEFT, CombatIntent.Direction.RIGHT, CombatIntent.Direction.DOWN]:
-		diagnostic = "Phase 1 no-op special direction; deferred to Phase 3"
 		return null
 	var relative := _relative_direction(intent.direction)
 	if intent.action_id == &"attack_special" and relative == AttackData.InputDirection.UP and not up_special_available:
@@ -463,7 +457,7 @@ func _try_cancel(intent: CombatIntent, rules: CombatRules) -> bool:
 	active_attack = null
 	buffered_intent = null
 	if kind == CancelRuleData.Kind.JUMP:
-		_try_jump()
+		_try_jump(rules)
 	elif kind == CancelRuleData.Kind.GUARD:
 		if is_on_floor():
 			runtime_state.guarding = true
@@ -474,10 +468,22 @@ func _try_cancel(intent: CombatIntent, rules: CombatRules) -> bool:
 		var next := _select_attack(intent)
 		if next != null and runtime_state.special_cooldown_ticks <= 0: _start_attack(next, intent.direction, rules)
 	elif kind == CancelRuleData.Kind.ULTIMATE:
-		if runtime_state.ultimate_gauge >= rules.ultimate_gauge_max and not runtime_state.ultimate_used_this_stock:
-			runtime_state.ultimate_gauge = 0.0
-			runtime_state.ultimate_used_this_stock = true
+		_try_ultimate(intent, rules)
 	return true
+
+
+func _try_ultimate(intent: CombatIntent, rules: CombatRules) -> void:
+	if intent.edge != CombatIntent.Edge.PRESS or active_attack != null:
+		return
+	if runtime_state.ultimate_gauge < rules.ultimate_gauge_max or runtime_state.ultimate_used_this_stock:
+		return
+	var next := ComboControllerScript.opening_attack(runtime_profile.move_set, intent, AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR, facing, false)
+	if next == null:
+		diagnostic = "ultimate_missing_authored_move"
+		return
+	runtime_state.ultimate_gauge = 0.0
+	runtime_state.ultimate_used_this_stock = true
+	_start_attack(next, intent.direction, rules)
 
 
 func _try_drop_platform(rules: CombatRules) -> void:

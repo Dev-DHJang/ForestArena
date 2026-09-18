@@ -61,7 +61,8 @@ func _initialize() -> void:
 	fighter.aerial_attacks_remaining = 0
 	if fighter.call("_select_attack", _intent(fighter, &"attack_heavy", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR)) != null: failures.append("aerial attack limit was not enforced")
 
-	# Up special is once per airtime; side/down specials are explicit no-ops.
+	# Every authored directional special starts, while the aerial recovery special
+	# remains once per airtime.
 	fighter.aerial_attacks_remaining = 2
 	fighter.up_special_available = true
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.UP, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
@@ -70,8 +71,17 @@ func _initialize() -> void:
 	fighter.state = FighterController.State.FALL
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.UP, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
 	if fighter.active_attack != null: failures.append("second airborne up special was accepted")
+	fighter.runtime_state.special_cooldown_ticks = 0
 	fighter.consume_intent(_intent(fighter, &"attack_special", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS, CombatIntent.Context.AIR), controller.rules)
-	if not fighter.diagnostic.contains("Phase 3"): failures.append("deferred special did not emit a no-op diagnostic")
+	if fighter.active_attack == null or fighter.active_attack.input_direction != AttackData.InputDirection.DOWN: failures.append("down special did not start from data")
+
+	# A filled gauge starts the authored ultimate and only then consumes its stock use.
+	fighter.active_attack = null
+	fighter.state = FighterController.State.IDLE
+	fighter.runtime_state.ultimate_gauge = controller.rules.ultimate_gauge_max
+	fighter.runtime_state.ultimate_used_this_stock = false
+	fighter.consume_intent(_intent(fighter, &"ultimate", CombatIntent.Direction.NEUTRAL), controller.rules)
+	if fighter.active_attack == null or fighter.active_attack.action_id != &"ultimate" or not fighter.runtime_state.ultimate_used_this_stock: failures.append("authored ultimate did not start")
 
 	instance.queue_free()
 	if failures.is_empty():

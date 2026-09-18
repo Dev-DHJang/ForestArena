@@ -556,10 +556,81 @@ script = ExtResource("2_3qyye")
 slot_id = &"ja-hyun-special-up"
 attack = SubResource("Resource_u7c0p")
 
+[sub_resource type="Resource" id="Resource_2bj4q"]
+script = ExtResource("3_ghqsi")
+attack_id = &"ja-hyun.base-special-side"
+action_id = &"attack_special"
+input_direction = 5
+activation_context = 2
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 16
+damage = 8.0
+knockback = 220.0
+fixed_hitstun_ticks = 9
+guard_damage = 8.0
+guard_hitstun_ticks = 3
+guard_knockback = 55.0
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+launch_mode = 1
+visual_state_id = &"special_side"
+
+[sub_resource type="Resource" id="Resource_sqwy0"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun.base-special-side"
+attack = SubResource("Resource_2bj4q")
+
+[sub_resource type="Resource" id="Resource_goshs"]
+script = ExtResource("3_ghqsi")
+attack_id = &"ja-hyun.base-special-down"
+action_id = &"attack_special"
+input_direction = 4
+activation_context = 2
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 16
+damage = 8.0
+knockback = 220.0
+fixed_hitstun_ticks = 9
+guard_damage = 8.0
+guard_hitstun_ticks = 3
+guard_knockback = 55.0
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+launch_mode = 1
+visual_state_id = &"special_down"
+
+[sub_resource type="Resource" id="Resource_47ler"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun.base-special-down"
+attack = SubResource("Resource_goshs")
+
+[sub_resource type="Resource" id="Resource_76xtf"]
+script = ExtResource("3_ghqsi")
+attack_id = &"ja-hyun.base-ultimate"
+action_id = &"ultimate"
+activation_context = 2
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 16
+damage = 16.0
+knockback = 340.0
+fixed_hitstun_ticks = 18
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
+tags = Array[StringName]([&"ULTIMATE", &"UNBLOCKABLE"])
+is_finisher = true
+visual_state_id = &"ultimate"
+
+[sub_resource type="Resource" id="Resource_0oqak"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun.base-ultimate"
+attack = SubResource("Resource_76xtf")
+
 [resource]
 script = ExtResource("1_y60ua")
 move_set_id = &"ja-hyun.base"
-slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c")])
+slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c"), SubResource("Resource_sqwy0"), SubResource("Resource_47ler"), SubResource("Resource_0oqak")])
 combo_count = 3
 opening_attack_ids = Array[StringName]([&"ja-hyun-light-01"])
 combo_links = Array[ExtResource("2_u6tlp")]([SubResource("Resource_ghqsi"), SubResource("Resource_7qt01"), SubResource("Resource_nsqbr"), SubResource("Resource_ermjw"), SubResource("Resource_7deo3"), SubResource("Resource_tx5mt"), SubResource("Resource_15vhv"), SubResource("Resource_dpb02"), SubResource("Resource_87jm8"), SubResource("Resource_m2blu"), SubResource("Resource_1ajcg"), SubResource("Resource_atvsq")])

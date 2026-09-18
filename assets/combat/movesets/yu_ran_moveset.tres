@@ -557,10 +557,83 @@ script = ExtResource("2_slot")
 slot_id = &"yu-ran-special-up"
 attack = SubResource("a_special_up")
 
+[sub_resource type="Resource" id="Resource_texv5"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran.base-special-side"
+action_id = &"attack_special"
+input_direction = 5
+activation_context = 2
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 16
+damage = 8.0
+knockback = 220.0
+fixed_hitstun_ticks = 9
+guard_damage = 8.0
+guard_hitstun_ticks = 3
+guard_knockback = 55.0
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+hitbox_size = Vector2(96, 64)
+hitbox_offset = Vector2(34, -30)
+visual_state_id = &"special_side"
+
+[sub_resource type="Resource" id="Resource_60p13"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran.base-special-side"
+attack = SubResource("Resource_texv5")
+
+[sub_resource type="Resource" id="Resource_p3ipj"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran.base-special-down"
+action_id = &"attack_special"
+input_direction = 4
+activation_context = 2
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 16
+damage = 8.0
+knockback = 220.0
+fixed_hitstun_ticks = 9
+guard_damage = 8.0
+guard_hitstun_ticks = 3
+guard_knockback = 55.0
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+hitbox_size = Vector2(96, 64)
+hitbox_offset = Vector2(34, -30)
+visual_state_id = &"special_down"
+
+[sub_resource type="Resource" id="Resource_gcdjc"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran.base-special-down"
+attack = SubResource("Resource_p3ipj")
+
+[sub_resource type="Resource" id="Resource_mkp03"]
+script = ExtResource("3_attack")
+attack_id = &"yu-ran.base-ultimate"
+action_id = &"ultimate"
+activation_context = 2
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 16
+damage = 16.0
+knockback = 340.0
+fixed_hitstun_ticks = 18
+guard_damage = 10.0
+guard_hitstun_ticks = 3
+guard_knockback = 65.0
+tags = Array[StringName]([&"ULTIMATE", &"UNBLOCKABLE"])
+is_finisher = true
+visual_state_id = &"ultimate"
+
+[sub_resource type="Resource" id="Resource_dsurg"]
+script = ExtResource("2_slot")
+slot_id = &"yu-ran.base-ultimate"
+attack = SubResource("Resource_mkp03")
+
 [resource]
 script = ExtResource("1_moveset")
 move_set_id = &"yu-ran.base"
-slots = Array[ExtResource("2_slot")]([SubResource("s_light_01"), SubResource("s_light_02"), SubResource("s_light_03"), SubResource("s_light_up"), SubResource("s_light_down"), SubResource("s_heavy_side"), SubResource("s_heavy_up"), SubResource("s_heavy_down"), SubResource("s_dash_light"), SubResource("s_dash_heavy"), SubResource("s_air_light"), SubResource("s_air_heavy"), SubResource("s_special_neutral"), SubResource("s_special_up")])
+slots = Array[ExtResource("2_slot")]([SubResource("s_light_01"), SubResource("s_light_02"), SubResource("s_light_03"), SubResource("s_light_up"), SubResource("s_light_down"), SubResource("s_heavy_side"), SubResource("s_heavy_up"), SubResource("s_heavy_down"), SubResource("s_dash_light"), SubResource("s_dash_heavy"), SubResource("s_air_light"), SubResource("s_air_heavy"), SubResource("s_special_neutral"), SubResource("s_special_up"), SubResource("Resource_60p13"), SubResource("Resource_gcdjc"), SubResource("Resource_dsurg")])
 combo_count = 3
 opening_attack_ids = Array[StringName]([&"yu-ran-light-01"])
 combo_links = Array[ExtResource("2_q5plr")]([SubResource("Resource_pi45e"), SubResource("Resource_q5plr"), SubResource("Resource_8iio1"), SubResource("Resource_i1mq5"), SubResource("Resource_4niqv"), SubResource("Resource_01h7r"), SubResource("Resource_n4wpt"), SubResource("Resource_c5t48"), SubResource("Resource_0anha"), SubResource("Resource_3ca36"), SubResource("Resource_6lg8i"), SubResource("Resource_26s10")])
