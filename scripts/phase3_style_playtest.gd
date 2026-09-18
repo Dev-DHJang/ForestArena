@@ -6,6 +6,7 @@ extends Node2D
 
 const CATALOG_PATH := "res://assets/loadouts/default_loadout_catalog.tres"
 const RULES_PATH := "res://assets/combat/phase1_combat_rules.tres"
+const TOUCH_COMMAND_SOURCE_SCRIPT := preload("res://scripts/touch_command_source.gd")
 const STYLE_ENTRIES := [
 	{"id": &"ja-hyun", "scene": "res://scenes/fighters/ja_hyun_fighter.tscn"},
 	{"id": &"myo-ryung", "scene": "res://scenes/fighters/myo_ryung_fighter.tscn"},
@@ -18,6 +19,7 @@ var match_controller: MatchController
 var player_fighter: FighterController
 var rival_fighter: FighterController
 var _readout: Label
+var _touch_source: Control
 
 
 func _ready() -> void:
@@ -40,6 +42,20 @@ func _process(_delta: float) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_R and match_controller != null:
 		match_controller.reset_match()
+
+
+func _input(event: InputEvent) -> void:
+	if _touch_source == null:
+		return
+	if event is InputEventScreenTouch or event is InputEventScreenDrag or event is InputEventMouseButton or event is InputEventMouseMotion:
+		_touch_source.call("handle_pointer_event", event)
+
+
+func _notification(what: int) -> void:
+	if _touch_source == null:
+		return
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
+		_touch_source.call("release_all_touches")
 
 
 func _draw() -> void:
@@ -125,6 +141,11 @@ func _build_readout() -> void:
 	_readout.add_theme_font_size_override("font_size", 20)
 	_readout.add_theme_color_override("font_color", Color("edf4ff"))
 	layer.add_child(_readout)
+	_touch_source = TOUCH_COMMAND_SOURCE_SCRIPT.new() as Control
+	_touch_source.name = &"TouchCommandSource"
+	_touch_source.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_touch_source.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(_touch_source)
 	_update_readout(match_controller.snapshot() if match_controller != null else {})
 
 
@@ -134,7 +155,7 @@ func _update_readout(snapshot: Dictionary) -> void:
 	var fighters: Array = snapshot.get("fighters", [])
 	var player: Dictionary = fighters[0] if fighters.size() > 0 else {}
 	var rival: Dictionary = fighters[1] if fighters.size() > 1 else {}
-	_readout.text = "PHASE 3 STYLE PLAYTEST · %s\nWASD 이동 · Space 점프 · J/K/L 약/강/특 · H 회피 · U 궁극기 · R 재시작\n%s %d/%d HP %d stock  vs  rival %d/%d HP %d stock" % [style_id, style_id, roundi(float(player.get("current_hp", 0))), roundi(float(player.get("max_hp", 0))), int(player.get("stocks", 0)), roundi(float(rival.get("current_hp", 0))), roundi(float(rival.get("max_hp", 0))), int(rival.get("stocks", 0))]
+	_readout.text = "PHASE 3 STYLE PLAYTEST · %s\n터치: 이동·대시·점프·약/강/특 · 키보드: WASD/Space/J/K/L, H 회피, U 궁극기, R 재시작\n%s %d/%d HP %d stock  vs  rival %d/%d HP %d stock" % [style_id, style_id, roundi(float(player.get("current_hp", 0))), roundi(float(player.get("max_hp", 0))), int(player.get("stocks", 0)), roundi(float(rival.get("current_hp", 0))), roundi(float(rival.get("max_hp", 0))), int(rival.get("stocks", 0))]
 
 
 func _requested_style() -> StringName:
