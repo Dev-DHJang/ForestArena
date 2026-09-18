@@ -16,7 +16,9 @@ func _initialize() -> void:
 		var match: MatchController = playtest.get("match_controller") as MatchController
 		var player: FighterController = playtest.get("player_fighter") as FighterController
 		var rival: FighterController = playtest.get("rival_fighter") as FighterController
+		var touch := playtest.get("_touch_source") as Control
 		_check(match != null, "%s creates a match controller" % style_id)
+		_check(touch != null and touch.name == &"TouchCommandSource", "%s provides the developer touch command source" % style_id)
 		_check(player != null and player.runtime_profile != null, "%s creates a player runtime profile" % style_id)
 		_check(rival != null and rival.runtime_profile != null, "%s creates a rival runtime profile" % style_id)
 		if player != null:
