@@ -23,6 +23,18 @@ func _initialize() -> void:
 	fighter.step_tick(controller.rules)
 	if fighter.state != FighterController.State.DASH or fighter.velocity.x != dash_velocity: failures.append("dash direction was not locked")
 
+	# Ground heavy holds a locked direction, then releases a runtime-only charged copy.
+	controller.reset_match()
+	for index: int in 30: fighter.step_tick(controller.rules)
+	fighter.consume_intent(_intent(fighter, &"attack_heavy", CombatIntent.Direction.RIGHT), controller.rules)
+	var charge_source: AttackData = fighter.charge_attack
+	if fighter.state != FighterController.State.CHARGE or charge_source == null: failures.append("ground heavy did not enter charge")
+	fighter.consume_intent(_intent(fighter, &"move", CombatIntent.Direction.LEFT), controller.rules)
+	for index: int in 12: fighter.step_tick(controller.rules)
+	fighter.consume_intent(_intent(fighter, &"attack_heavy", CombatIntent.Direction.LEFT, CombatIntent.Edge.RELEASE), controller.rules)
+	if fighter.active_attack == null or fighter.active_attack.damage <= charge_source.damage or fighter.locked_direction != CombatIntent.Direction.RIGHT: failures.append("charged heavy did not preserve direction and increase runtime values")
+	if charge_source.damage != _find_attack(fighter, &"attack_heavy", AttackData.InputDirection.ANY_HORIZONTAL).damage: failures.append("charge mutated authored attack data")
+
 	# Startup/active/recovery and a single whiff light buffer.
 	controller.reset_match()
 	for index: int in 30: fighter.step_tick(controller.rules)
