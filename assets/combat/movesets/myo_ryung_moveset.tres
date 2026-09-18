@@ -717,32 +717,10 @@ script = ExtResource("2_tdn5r")
 slot_id = &"myo-ryung.base-ultimate"
 attack = SubResource("Resource_r60vl")
 
-[sub_resource type="Resource" id="Resource_dr4d8"]
-script = ExtResource("3_ur7mu")
-attack_id = &"myo-ryung.base-grab"
-action_id = &"grab"
-input_direction = 6
-startup_ticks = 5
-active_ticks = 2
-recovery_ticks = 25
-damage = 4.0
-knockback = 250.0
-fixed_hitstun_ticks = 12
-hit_reaction = 3
-tags = Array[StringName]([&"GRAB"])
-hitbox_size = Vector2(42, 50)
-hitbox_offset = Vector2(34, -30)
-visual_state_id = &"grab_throw"
-
-[sub_resource type="Resource" id="Resource_i36fl"]
-script = ExtResource("2_tdn5r")
-slot_id = &"myo-ryung.base-grab"
-attack = SubResource("Resource_dr4d8")
-
 [resource]
 script = ExtResource("1_dmj0l")
 move_set_id = &"myo-ryung.base"
-slots = Array[ExtResource("2_tdn5r")]([SubResource("Resource_bb3s0"), SubResource("Resource_3y5yb"), SubResource("Resource_j3cmh"), SubResource("Resource_l5evo"), SubResource("Resource_nqrk0"), SubResource("Resource_nie57"), SubResource("Resource_k01ml"), SubResource("Resource_hyjey"), SubResource("Resource_o1j7m"), SubResource("Resource_2cew7"), SubResource("Resource_nhvq1"), SubResource("Resource_tohgj"), SubResource("Resource_fnocj"), SubResource("Resource_4wf7n"), SubResource("Resource_l16su"), SubResource("Resource_t0j3l"), SubResource("Resource_6qjj2"), SubResource("Resource_r77by"), SubResource("Resource_i36fl")])
+slots = Array[ExtResource("2_tdn5r")]([SubResource("Resource_bb3s0"), SubResource("Resource_3y5yb"), SubResource("Resource_j3cmh"), SubResource("Resource_l5evo"), SubResource("Resource_nqrk0"), SubResource("Resource_nie57"), SubResource("Resource_k01ml"), SubResource("Resource_hyjey"), SubResource("Resource_o1j7m"), SubResource("Resource_2cew7"), SubResource("Resource_nhvq1"), SubResource("Resource_tohgj"), SubResource("Resource_fnocj"), SubResource("Resource_4wf7n"), SubResource("Resource_l16su"), SubResource("Resource_t0j3l"), SubResource("Resource_6qjj2"), SubResource("Resource_r77by")])
 combo_count = 4
 opening_attack_ids = Array[StringName]([&"myo-ryung-light-01"])
 combo_links = Array[ExtResource("2_ubwin")]([SubResource("Resource_ur7mu"), SubResource("Resource_pbfdt"), SubResource("Resource_s1b8o"), SubResource("Resource_6jx64"), SubResource("Resource_55oiw"), SubResource("Resource_20oap"), SubResource("Resource_bp1aw"), SubResource("Resource_2kdix"), SubResource("Resource_fm62h"), SubResource("Resource_1fiuf"), SubResource("Resource_kjxgf"), SubResource("Resource_l1ymc"), SubResource("Resource_6k8lw"), SubResource("Resource_xbthi"), SubResource("Resource_s8pk8")])

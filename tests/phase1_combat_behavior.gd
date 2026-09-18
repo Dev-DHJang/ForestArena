@@ -35,28 +35,6 @@ func _initialize() -> void:
 	if fighter.active_attack == null or fighter.active_attack.damage <= charge_source.damage or fighter.locked_direction != CombatIntent.Direction.RIGHT: failures.append("charged heavy did not preserve direction and increase runtime values")
 	if charge_source.damage != _find_attack(fighter, &"attack_heavy", AttackData.InputDirection.ANY_HORIZONTAL).damage: failures.append("charge mutated authored attack data")
 
-	# Grab is a data attack, answers guard, and still honors a GRAB-immunity rule.
-	controller.reset_match()
-	for index: int in 30: fighter.step_tick(controller.rules)
-	var target := controller.training_dummy
-	var grab := _find_attack(fighter, &"grab", AttackData.InputDirection.OMNI)
-	target.runtime_state.guarding = true
-	var context := HitContext.new(0, fighter, target, grab)
-	context.source_position = fighter.global_position
-	context.target_position = target.global_position
-	var grab_result := HitResolver.resolve(context, controller.rules)
-	if grab_result.type != HitResult.Type.HIT: failures.append("grab was blocked instead of answering guard")
-	controller.reset_match()
-	for index: int in 30: fighter.step_tick(controller.rules)
-	var immunity := CombatRuleData.new()
-	immunity.kind = CombatRuleData.Kind.IMMUNE_GRAB
-	target.runtime_profile.combat_rules.append(immunity)
-	context = HitContext.new(0, fighter, target, grab)
-	context.source_position = fighter.global_position
-	context.target_position = target.global_position
-	grab_result = HitResolver.resolve(context, controller.rules)
-	if grab_result.type != HitResult.Type.IMMUNE: failures.append("grab immunity rule was ignored")
-
 	# Startup/active/recovery and a single whiff light buffer.
 	controller.reset_match()
 	for index: int in 30: fighter.step_tick(controller.rules)

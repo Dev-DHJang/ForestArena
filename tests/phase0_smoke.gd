@@ -16,6 +16,8 @@ func _initialize() -> void:
 	for action: StringName in REQUIRED_ACTIONS:
 		if not InputMap.has_action(action):
 			failures.append("missing InputMap action: %s" % action)
+	if InputMap.has_action(&"grab"):
+		failures.append("removed grab InputMap action remains")
 
 	var packed_scene := load("res://scenes/main.tscn") as PackedScene
 	if packed_scene == null:

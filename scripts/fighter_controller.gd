@@ -146,7 +146,7 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	if intent.action_id == &"attack_heavy" and active_attack == null and is_on_floor():
 		_start_charge(intent)
 		return
-	if intent.action_id not in [&"attack_light", &"attack_heavy", &"attack_special", &"grab"]:
+	if intent.action_id not in [&"attack_light", &"attack_heavy", &"attack_special"]:
 		return
 	if active_attack != null:
 		var linked := ComboControllerScript.linked_attack(runtime_profile.move_set, active_attack, intent, attack_phase_tick, attack_landed)

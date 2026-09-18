@@ -645,32 +645,10 @@ script = ExtResource("2_slot")
 slot_id = &"yu-ran.base-ultimate"
 attack = SubResource("Resource_mkp03")
 
-[sub_resource type="Resource" id="Resource_wko6h"]
-script = ExtResource("3_attack")
-attack_id = &"yu-ran.base-grab"
-action_id = &"grab"
-input_direction = 6
-startup_ticks = 5
-active_ticks = 2
-recovery_ticks = 25
-damage = 4.0
-knockback = 250.0
-fixed_hitstun_ticks = 12
-hit_reaction = 3
-tags = Array[StringName]([&"GRAB"])
-hitbox_size = Vector2(42, 50)
-hitbox_offset = Vector2(34, -30)
-visual_state_id = &"grab_throw"
-
-[sub_resource type="Resource" id="Resource_qyh16"]
-script = ExtResource("2_slot")
-slot_id = &"yu-ran.base-grab"
-attack = SubResource("Resource_wko6h")
-
 [resource]
 script = ExtResource("1_moveset")
 move_set_id = &"yu-ran.base"
-slots = Array[ExtResource("2_slot")]([SubResource("s_light_01"), SubResource("s_light_02"), SubResource("s_light_03"), SubResource("s_light_up"), SubResource("s_light_down"), SubResource("s_heavy_side"), SubResource("s_heavy_up"), SubResource("s_heavy_down"), SubResource("s_dash_light"), SubResource("s_dash_heavy"), SubResource("s_air_light"), SubResource("s_air_heavy"), SubResource("s_special_neutral"), SubResource("s_special_up"), SubResource("Resource_60p13"), SubResource("Resource_gcdjc"), SubResource("Resource_dsurg"), SubResource("Resource_qyh16")])
+slots = Array[ExtResource("2_slot")]([SubResource("s_light_01"), SubResource("s_light_02"), SubResource("s_light_03"), SubResource("s_light_up"), SubResource("s_light_down"), SubResource("s_heavy_side"), SubResource("s_heavy_up"), SubResource("s_heavy_down"), SubResource("s_dash_light"), SubResource("s_dash_heavy"), SubResource("s_air_light"), SubResource("s_air_heavy"), SubResource("s_special_neutral"), SubResource("s_special_up"), SubResource("Resource_60p13"), SubResource("Resource_gcdjc"), SubResource("Resource_dsurg")])
 combo_count = 3
 opening_attack_ids = Array[StringName]([&"yu-ran-light-01"])
 combo_links = Array[ExtResource("2_q5plr")]([SubResource("Resource_pi45e"), SubResource("Resource_q5plr"), SubResource("Resource_8iio1"), SubResource("Resource_i1mq5"), SubResource("Resource_4niqv"), SubResource("Resource_01h7r"), SubResource("Resource_n4wpt"), SubResource("Resource_c5t48"), SubResource("Resource_0anha"), SubResource("Resource_3ca36"), SubResource("Resource_6lg8i"), SubResource("Resource_26s10")])
