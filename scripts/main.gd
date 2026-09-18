@@ -1,6 +1,6 @@
 extends Node2D
 
-const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]
+const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"evade", &"ultimate", &"grab", &"attack_light", &"attack_heavy", &"attack_special"]
 const HUD_PANEL_ID := "fa.ui.panel.panel.dark.l"
 const RESTART_NORMAL_ID := "fa.ui.button.base.btn.secondary.m.default"
 const RESTART_PRESSED_ID := "fa.ui.button.base.btn.secondary.m.pressed"

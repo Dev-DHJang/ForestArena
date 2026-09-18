@@ -642,10 +642,32 @@ script = ExtResource("2_3qyye")
 slot_id = &"ja-hyun.base-ultimate"
 attack = SubResource("Resource_76xtf")
 
+[sub_resource type="Resource" id="Resource_v06as"]
+script = ExtResource("3_ghqsi")
+attack_id = &"ja-hyun.base-grab"
+action_id = &"grab"
+input_direction = 6
+startup_ticks = 5
+active_ticks = 2
+recovery_ticks = 25
+damage = 4.0
+knockback = 250.0
+fixed_hitstun_ticks = 12
+hit_reaction = 3
+tags = Array[StringName]([&"GRAB"])
+hitbox_size = Vector2(42, 50)
+hitbox_offset = Vector2(34, -30)
+visual_state_id = &"grab_throw"
+
+[sub_resource type="Resource" id="Resource_2cg2k"]
+script = ExtResource("2_3qyye")
+slot_id = &"ja-hyun.base-grab"
+attack = SubResource("Resource_v06as")
+
 [resource]
 script = ExtResource("1_y60ua")
 move_set_id = &"ja-hyun.base"
-slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c"), SubResource("Resource_sqwy0"), SubResource("Resource_47ler"), SubResource("Resource_0oqak")])
+slots = Array[ExtResource("2_3qyye")]([SubResource("Resource_m50sr"), SubResource("Resource_2270v"), SubResource("Resource_lufrs"), SubResource("Resource_ryojy"), SubResource("Resource_d2tct"), SubResource("Resource_hrgwb"), SubResource("Resource_hqcfi"), SubResource("Resource_6pxbq"), SubResource("Resource_guyng"), SubResource("Resource_23qnf"), SubResource("Resource_xpawi"), SubResource("Resource_1btnm"), SubResource("Resource_kboaw"), SubResource("Resource_8ln1c"), SubResource("Resource_sqwy0"), SubResource("Resource_47ler"), SubResource("Resource_0oqak"), SubResource("Resource_2cg2k")])
 combo_count = 3
 opening_attack_ids = Array[StringName]([&"ja-hyun-light-01"])
 combo_links = Array[ExtResource("2_u6tlp")]([SubResource("Resource_ghqsi"), SubResource("Resource_7qt01"), SubResource("Resource_nsqbr"), SubResource("Resource_ermjw"), SubResource("Resource_7deo3"), SubResource("Resource_tx5mt"), SubResource("Resource_15vhv"), SubResource("Resource_dpb02"), SubResource("Resource_87jm8"), SubResource("Resource_m2blu"), SubResource("Resource_1ajcg"), SubResource("Resource_atvsq")])

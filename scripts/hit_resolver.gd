@@ -10,7 +10,10 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 		return result
 	var attack := context.attack
 	var defender := context.defender
-	if defender.runtime_state.guarding and not attack.ignore_armor_and_immunity:
+	# A GRAB is the explicit answer to guard. It still passes through
+	# invulnerability and tag/rule immunity below, rather than becoming a hidden
+	# unconditional hit.
+	if defender.runtime_state.guarding and not attack.ignore_armor_and_immunity and not attack.tags.has(&"GRAB"):
 		result.type = HitResult.Type.BLOCK
 		result.guard_damage = attack.guard_damage if attack.guard_damage > 0.0 else attack.damage
 		defender.runtime_state.guard_durability = maxf(0.0, defender.runtime_state.guard_durability - result.guard_damage)
@@ -72,6 +75,8 @@ static func _launch_direction(context: HitContext) -> Vector2:
 	var result := attack.launch_vector
 	if attack.input_direction == AttackData.InputDirection.OMNI:
 		match context.source_direction:
+			CombatIntent.Direction.LEFT: result = Vector2(-1.0, -0.18)
+			CombatIntent.Direction.RIGHT: result = Vector2(1.0, -0.18)
 			CombatIntent.Direction.UP: result = Vector2(0.2, -1.0)
 			CombatIntent.Direction.DOWN: result = Vector2(0.2, 1.0)
 	result.x *= context.source_facing
