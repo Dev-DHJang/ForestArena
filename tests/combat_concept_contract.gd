@@ -6,7 +6,7 @@ const REQUIRED_ACTIONS := ["attack_light", "attack_heavy", "attack_special"]
 const REQUIRED_EDGES := ["press", "hold", "release"]
 const REQUIRED_COMMON_MOVE_IDS := [
 	"base_light_combo", "light_up", "light_down", "strong_side", "strong_up", "strong_down",
-	"strong_charge", "dash_light", "dash_heavy", "air_light", "air_heavy", "grab_throw",
+	"strong_charge", "dash_light", "dash_heavy", "air_light", "air_heavy",
 ]
 const REQUIRED_CHARACTER_MOVE_IDS := [
 	"ja-hyun-special-neutral", "ja-hyun-special-side", "ja-hyun-special-up", "ja-hyun-special-down", "ja-hyun-ultimate",
@@ -35,7 +35,7 @@ func _load_concept(failures: PackedStringArray) -> Dictionary:
 		failures.append("combat concept is not a JSON object")
 		return {}
 	var concept: Dictionary = parsed
-	if concept.get("schema_version") != 1 or concept.get("status") != "concept" or concept.get("phase") != "pre-phase-1":
+	if concept.get("schema_version") != 1 or concept.get("status") != "implemented-contract" or concept.get("phase") != "combat-overhaul":
 		failures.append("combat concept schema or phase is invalid")
 	return concept
 
@@ -49,7 +49,7 @@ func _validate_input_contract(concept: Dictionary, failures: PackedStringArray) 
 			failures.append("missing right-hand action: %s" % action)
 	if "jump" not in contract.get("separate_buttons", []):
 		failures.append("jump must remain a separate button")
-	for button: String in ["action", "grab_support", "ultimate"]:
+	for button: String in ["action", "ultimate"]:
 		if button not in contract.get("separate_buttons", []):
 			failures.append("missing future separate button: %s" % button)
 	for edge: String in REQUIRED_EDGES:
@@ -60,13 +60,13 @@ func _validate_input_contract(concept: Dictionary, failures: PackedStringArray) 
 		failures.append("direction-lock policy is missing")
 	if not String(contract.get("action_button_evolution", "")).contains("current dash action expands"):
 		failures.append("action button evolution is missing")
-	if not String(contract.get("grab_support_visibility", "")).contains("while guard begins"):
-		failures.append("grab support visibility rule is missing")
+	if not String(contract.get("grab_support_visibility", "")).contains("No grab technique"):
+		failures.append("grab removal rule is missing")
 
 
 func _validate_system_rules(concept: Dictionary, failures: PackedStringArray) -> void:
 	var rules: Dictionary = concept.get("system_rules", {})
-	if rules.get("damage_model") != "cumulative-percent-knockback" or rules.get("stocks_per_fighter") != 3 or rules.get("ring_out") != true:
+	if rules.get("damage_model") != "HP-stock-fixed-knockback" or rules.get("stocks_per_fighter") != 3 or rules.get("ring_out") != true:
 		failures.append("damage, stock, or ring-out rule drift")
 	if rules.get("max_buffered_inputs") != 1:
 		failures.append("exactly one buffered input is required")
@@ -116,8 +116,8 @@ func _validate_common_families(concept: Dictionary, failures: PackedStringArray)
 
 
 func _validate_future_defense_action(concept: Dictionary, failures: PackedStringArray) -> void:
-	var defense: Dictionary = concept.get("future_defense_action", {})
-	for required_key: String in ["neutral_hold", "side_press", "side_hold_after_evade", "air", "guard_to_grab", "guard_rules"]:
+	var defense: Dictionary = concept.get("defense_action", {})
+	for required_key: String in ["neutral_hold", "side_press", "side_hold_after_evade", "air", "guard_rules"]:
 		if not defense.has(required_key) or str(defense[required_key]).is_empty():
 			failures.append("future defense rule is missing: %s" % required_key)
 	if not String(defense.get("guard_rules", "")).contains("no high/low guard"):

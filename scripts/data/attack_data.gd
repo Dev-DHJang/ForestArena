@@ -5,7 +5,7 @@ enum InputDirection { NEUTRAL, FORWARD, BACK, UP, DOWN, ANY_HORIZONTAL, OMNI }
 enum ActivationContext { GROUND, AIR, BOTH }
 enum LaunchMode { VECTOR, TOWARD_SOURCE }
 enum HitReaction { NORMAL_HIT, LIGHT_STAGGER, HEAVY_STAGGER, KNOCKBACK, KNOCK_DOWN, LAUNCH, GROUND_BOUNCE, WALL_BOUNCE, SLAM, CRUMPLE }
-const VALID_TAGS: Array[StringName] = [&"MELEE", &"PROJECTILE", &"GRAB", &"MAGIC", &"FIRE", &"SPECIAL", &"ULTIMATE", &"UNBLOCKABLE"]
+const VALID_TAGS: Array[StringName] = [&"MELEE", &"PROJECTILE", &"MAGIC", &"FIRE", &"SPECIAL", &"ULTIMATE", &"UNBLOCKABLE"]
 
 @export var schema_version: int = 3
 @export var attack_id: StringName

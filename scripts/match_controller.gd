@@ -114,7 +114,7 @@ func _poll_player_input() -> void:
 		_last_player_direction = direction
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
-	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"grab", &"attack_light", &"attack_heavy", &"attack_special"]:
+	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]:
 		if Input.is_action_just_pressed(action):
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.PRESS, _context_for(player)))
 		elif Input.is_action_just_released(action):

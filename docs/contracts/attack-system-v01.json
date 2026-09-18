@@ -1,20 +1,20 @@
 {
   "schema_version": 1,
-  "status": "concept",
-  "phase": "pre-phase-1",
+  "status": "implemented-contract",
+  "phase": "combat-overhaul",
   "title": "Forest Arena attack system v01",
   "authority_boundary": "Specification only. This file does not define runtime damage, hitboxes, frame data, or state-machine timing.",
   "input_contract": {
     "left_hand": "four-way direction pad",
     "right_hand": ["attack_light", "attack_heavy", "attack_special"],
-    "separate_buttons": ["jump", "action", "grab_support", "ultimate"],
+    "separate_buttons": ["jump", "action", "ultimate"],
     "edge_states": ["press", "hold", "release"],
     "direction_lock": "Direction and facing are fixed on activation; attacks never auto-track or auto-turn. Air forward/back uses facing at activation.",
-    "action_button_evolution": "The current dash action expands in Phase 3: neutral hold guards, side press evades, and side hold after an evade dashes.",
-    "grab_support_visibility": "Show grab_support while guard begins; it is valid only during the short grace after guard release."
+    "action_button_evolution": "The current dash action expands from compatibility while neutral-down guards and evade are runtime commands.",
+    "grab_support_visibility": "No grab technique is provided in the current combat contract."
   },
   "system_rules": {
-    "damage_model": "cumulative-percent-knockback",
+    "damage_model": "HP-stock-fixed-knockback",
     "stocks_per_fighter": 3,
     "ring_out": true,
     "max_buffered_inputs": 1,
@@ -45,16 +45,14 @@
     {"id":"dash_light","input":"dash+light","state":"ground","role":"approach strike","combo":"single","link_condition":"hit may enter base combo step 1","resource":"none","launch_direction":"side-short","finisher":false,"visual_state_id":"attack_dash_light"},
     {"id":"dash_heavy","input":"dash+heavy","state":"ground","role":"transition into directional strong preparation","combo":"single","link_condition":"ends dash","resource":"none","launch_direction":"fighter-defined","finisher":false,"visual_state_id":"attack_dash_heavy"},
     {"id":"air_light","input":"air+light with neutral/forward/back/up/down","directions":["neutral","forward","back","up","down"],"state":"air","role":"fast positional check","combo":"single","link_condition":"at most two aerial attacks per airtime","resource":"aerial action","launch_direction":"input-direction","finisher":false,"visual_state_id":"attack_air_light_<direction>"},
-    {"id":"air_heavy","input":"air+heavy with neutral/forward/back/up/down","directions":["neutral","forward","back","up","down"],"state":"air","role":"large aerial finisher","combo":"single","link_condition":"landing recovery; no air charge","resource":"aerial action","launch_direction":"input-direction","finisher":true,"visual_state_id":"attack_air_heavy_<direction>"},
-    {"id":"grab_throw","input":"grab then forward/back/up/down","state":"ground","role":"guard answer and position change","combo":"single","link_condition":"short range; miss has large recovery","resource":"future action-button/grab-support rule","launch_direction":"input-direction","finisher":false,"visual_state_id":"throw_<direction>"}
+    {"id":"air_heavy","input":"air+heavy with neutral/forward/back/up/down","directions":["neutral","forward","back","up","down"],"state":"air","role":"large aerial finisher","combo":"single","link_condition":"landing recovery; no air charge","resource":"aerial action","launch_direction":"input-direction","finisher":true,"visual_state_id":"attack_air_heavy_<direction>"}
   ],
-  "future_defense_action": {
+  "defense_action": {
     "neutral_hold": "guard",
     "side_press": "short evade step",
     "side_hold_after_evade": "dash",
     "air": "one aerial evade per airtime",
-    "guard_to_grab": "grab support becomes available during a short grace after guard release",
-    "guard_rules": "normal attacks are guardable; grabs answer guard; holding guard and receiving guarded hits deplete durability, and exhaustion breaks guard; no high/low guard or precision parry in the initial rule."
+    "guard_rules": "normal attacks are guardable; holding guard and receiving guarded hits deplete durability, and exhaustion breaks guard; no high/low guard or precision parry in the initial rule."
   },
   "visual_production_policy": {
     "order": ["ja-hyun", "myo-ryung", "nabi", "yu-ran"],
