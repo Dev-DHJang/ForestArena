@@ -11,8 +11,9 @@ const DPAD_IDS := {
 }
 const ACTION_DEFAULT_ID := "fa.ui.combat.action.default"
 const ACTION_PRESSED_ID := "fa.ui.combat.action.pressed"
-const ACTIONS: Array[StringName] = [&"dash", &"jump", &"attack_light", &"attack_heavy", &"attack_special"]
-const ACTION_LABELS := ["DASH", "JUMP", "LIGHT", "HEAVY", "SPECIAL"]
+var ACTIONS: Array[StringName] = [&"dash", &"jump", &"attack_light", &"attack_heavy", &"attack_special"]
+var ACTION_LABELS := ["DASH", "JUMP", "LIGHT", "HEAVY", "SPECIAL"]
+var extended_actions := false
 var _touch_actions: Dictionary[int, StringName] = {}
 var _action_touch_counts: Dictionary[StringName, int] = {}
 var _dpad_visual: TextureRect
@@ -24,6 +25,9 @@ var _missing_label: Label
 
 
 func _ready() -> void:
+	if extended_actions:
+		ACTIONS = [&"evade", &"jump", &"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]
+		ACTION_LABELS = ["회피", "점프", "약", "강", "특수", "궁극기"]
 	_load_visual_resources()
 	_build_visuals()
 	_layout_visuals()
@@ -108,6 +112,8 @@ func _layout_visuals() -> void:
 		var visual: TextureRect = _action_visuals[ACTIONS[index]]
 		visual.position = Vector2(viewport_size.x * (0.51 + index * 0.095), viewport_size.y * 0.76)
 		visual.size = Vector2(viewport_size.x * 0.08, viewport_size.y * 0.14)
+		if extended_actions:
+			visual.position = Vector2(viewport_size.x * (0.64 + (index % 3) * 0.10), viewport_size.y * (0.62 + (index / 3) * 0.17))
 	_missing_label.position = Vector2(viewport_size.x * 0.48, viewport_size.y * 0.70)
 	_missing_label.size = Vector2(viewport_size.x * 0.50, 32.0)
 
@@ -208,12 +214,18 @@ func _action_for(position: Vector2) -> StringName:
 	var size := get_viewport_rect().size
 	var normalized := position / size
 	if normalized.x < SAFE_EDGE_RATIO or normalized.x > 1.0 - SAFE_EDGE_RATIO or normalized.y < 0.58: return &""
+	if extended_actions and normalized.x >= 0.50:
+		for action: StringName in ACTIONS:
+			var visual: TextureRect = _action_visuals[action]
+			if Rect2(visual.position, visual.size).has_point(position): return action
+		return &""
 	var pad := Rect2(size.x * SAFE_EDGE_RATIO, size.y * 0.58, size.x * 0.42, size.y * 0.355)
 	if pad.has_point(position):
 		var delta := position - pad.get_center()
 		if delta.length() < minf(pad.size.x, pad.size.y) * 0.20: return &""
 		if absf(delta.x) >= absf(delta.y): return &"move_right" if delta.x > 0.0 else &"move_left"
 		return &"move_down" if delta.y > 0.0 else &"move_up"
+	if extended_actions: return &""
 	var usable := inverse_lerp(size.x * 0.50, size.x * (1.0 - SAFE_EDGE_RATIO), position.x)
 	if usable < 0.20: return &"dash"
 	if usable < 0.40: return &"jump"

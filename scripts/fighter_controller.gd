@@ -15,6 +15,7 @@ var attacks: Array[AttackData] = []
 var combo_count: int = 2
 @export var controlled_by_input: bool = false
 @export var body_color: Color = Color("43c782")
+@export var show_debug_body := true
 
 var state: State = State.SPAWNING
 var runtime_state := RuntimeCombatState.new()
@@ -72,7 +73,7 @@ func _ready() -> void:
 
 
 func configure_profile(profile: RuntimeCombatProfile) -> bool:
-	if profile == null or profile.character_id != fighter_id or not profile.is_valid_definition():
+	if profile == null or fighter_id.is_empty() or not profile.is_valid_definition():
 		diagnostic = "invalid_runtime_profile"
 		return false
 	runtime_profile = profile
@@ -86,6 +87,7 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 
 
 func reset_for_match(rules: CombatRules) -> void:
+	set_collision_mask_value(4, true)
 	if runtime_profile == null:
 		return
 	runtime_state.reset(_stats().max_hp, rules.stocks_per_fighter, rules.guard_max_durability)
@@ -484,10 +486,13 @@ func _respawn(rules: CombatRules) -> void:
 
 func _try_evade(rules: CombatRules) -> void:
 	if active_attack != null or state not in [State.IDLE, State.RUN, State.GUARD, State.DASH] or not is_on_floor(): return
+	var horizontal := _horizontal_input()
+	if horizontal == 0: return
 	runtime_state.guarding = false
 	runtime_state.evade_ticks = rules.evade_ticks
 	invulnerability_ticks = max(invulnerability_ticks, rules.evade_invulnerability_ticks)
-	velocity.x = facing * _stats().dash_speed
+	facing = horizontal
+	velocity.x = horizontal * _stats().dash_speed
 	state = State.EVADE
 
 
@@ -591,6 +596,7 @@ func _finish_tick() -> void:
 
 
 func _draw() -> void:
+	if not show_debug_body: return
 	var color := body_color
 	if invulnerability_ticks > 0 and invulnerability_ticks % 6 < 3: color = Color.WHITE
 	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]: color = Color("ffdf5a")

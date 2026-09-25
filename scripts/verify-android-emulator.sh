@@ -1,6 +1,10 @@
 #!/bin/sh
 set -eu
 
+if grep -F 'run/main_scene="res://scenes/local_ai_app.tscn"' project.godot >/dev/null; then
+	exec sh ./scripts/verify-android-local-ai.sh "$@"
+fi
+
 apk_path=${1:-build/android/ForestArena-debug.apk}
 package_id=com.forestarena.welllbeing
 android_sdk_path=${ANDROID_SDK_ROOT:-${ANDROID_HOME:-}}

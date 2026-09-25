@@ -43,7 +43,7 @@ static func _first_press(intents: Array, action_id: StringName) -> CombatIntent:
 
 
 static func _first_attack(intents: Array) -> CombatIntent:
-	for action_id: StringName in [&"attack_light", &"attack_heavy", &"attack_special"]:
+	for action_id: StringName in [&"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]:
 		var found := _first_press(intents, action_id)
 		if found != null: return found
 	return null

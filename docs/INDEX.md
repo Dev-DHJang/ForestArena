@@ -18,6 +18,7 @@
 | --- | --- | --- |
 | 이 게임은 무엇인가? | [제품 방향](product/vision.md) | [세계관과 중심 이야기](product/world-and-story.md) |
 | 지금 어디까지 만들었는가? | [개발 순서](product/roadmap.md) | [현재 작업 상태](operations/harness/operating-index.md) |
+| 로컬 AI 버전은 어떻게 플레이하는가? | [로컬 AI 플레이](gameplay/local-ai-play.md) | [전투 규칙](gameplay/combat.md) |
 | 중요한 결정이 승인됐는가? | [결정 기록](product/decisions.md) | [용어 가이드의 결정 상태](GLOSSARY.md#프로젝트-진행-용어) |
 | 이동·공격·승패는 어떻게 동작하는가? | [전투 규칙](gameplay/combat.md) | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md), [공격 데이터 형식](contracts/attack-system-v01.json) |
 | 자현·묘령·나비는 어떻게 싸우는가? | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md) | [전투 규칙](gameplay/combat.md) |
@@ -73,7 +74,8 @@ docs/
 
 | 바꾸거나 확인할 기능 | 주요 위치 |
 | --- | --- |
-| 게임 시작 장면과 전체 흐름 | `scenes/main.tscn`, `scripts/main.gd` |
+| 게임 시작 장면과 전체 흐름 | `scenes/local_ai_app.tscn`, `scripts/local_ai_app.gd` |
+| 한 판의 전투 장면 | `scenes/main.tscn`, `scripts/main.gd` |
 | 캐릭터 이동·점프·대시 | `scripts/fighter_controller.gd` |
 | 터치 입력과 공통 전투 명령 | `scripts/touch_command_source.gd`, `scripts/combat_intent.gd` |
 | 남은 기회, 링아웃과 승패 | `scripts/match_controller.gd` |
