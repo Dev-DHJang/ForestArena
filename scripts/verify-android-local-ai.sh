@@ -32,8 +32,11 @@ for line in sys.stdin:
 if result: print(round(result["x"]*int(sys.argv[2])),round(result["y"]*int(sys.argv[3])))
 ' "$label" "$width" "$height")
     if [ -n "$coordinates" ]; then
+      echo "UI touch: $label at $coordinates"
       device logcat -c
-      device shell input tap $coordinates
+      # A zero-duration ADB tap can be coalesced on a slow software renderer.
+      # Hold and release at the same position, like an actual finger press.
+      device shell input swipe $coordinates $coordinates 600
       return 0
     fi
     attempt=$((attempt + 1))
