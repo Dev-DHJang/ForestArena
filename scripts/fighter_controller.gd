@@ -15,6 +15,7 @@ var attacks: Array[AttackData] = []
 var combo_count: int = 2
 @export var controlled_by_input: bool = false
 @export var body_color: Color = Color("43c782")
+@export var show_debug_body := true
 
 var state: State = State.SPAWNING
 var runtime_state := RuntimeCombatState.new()
@@ -72,7 +73,7 @@ func _ready() -> void:
 
 
 func configure_profile(profile: RuntimeCombatProfile) -> bool:
-	if profile == null or profile.character_id != fighter_id or not profile.is_valid_definition():
+	if profile == null or fighter_id.is_empty() or not profile.is_valid_definition():
 		diagnostic = "invalid_runtime_profile"
 		return false
 	runtime_profile = profile
@@ -86,6 +87,7 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 
 
 func reset_for_match(rules: CombatRules) -> void:
+	set_collision_mask_value(4, true)
 	if runtime_profile == null:
 		return
 	runtime_state.reset(_stats().max_hp, rules.stocks_per_fighter, rules.guard_max_durability)
@@ -277,6 +279,7 @@ func lose_stock(rules: CombatRules) -> bool:
 	if state in [State.RING_OUT, State.DEAD]: return false
 	stocks -= 1
 	current_hp = 0.0
+	runtime_state.pending_respawn_hp = 0.0
 	velocity = Vector2.ZERO
 	active_attack = null
 	buffered_intent = null
@@ -296,6 +299,7 @@ func revive(rules: CombatRules, revive_hp: float) -> bool:
 	runtime_state.revive_used = true
 	stocks = 1
 	current_hp = minf(revive_hp, _stats().max_hp)
+	runtime_state.pending_respawn_hp = current_hp
 	respawn_ticks = rules.respawn_delay_ticks
 	state = State.RING_OUT
 	return true
@@ -308,6 +312,7 @@ func snapshot() -> Dictionary:
 		"velocity": Vector2(snappedf(velocity.x, 0.001), snappedf(velocity.y, 0.001)), "facing": facing,
 		"attack_id": &"" if active_attack == null else active_attack.attack_id, "attack_phase_tick": attack_phase_tick,
 		"invulnerability_ticks": invulnerability_ticks, "respawn_ticks": respawn_ticks,
+		"pending_respawn_hp": snappedf(runtime_state.pending_respawn_hp, 0.001), "revive_used": runtime_state.revive_used,
 		"air_jumps": air_jumps_remaining, "air_attacks": aerial_attacks_remaining, "up_special": up_special_available,
 		"guard_durability": snappedf(runtime_state.guard_durability, 0.001),
 		"guard_max": runtime_state.guard_durability if runtime_profile == null else 100.0,
@@ -471,7 +476,8 @@ func _apply_gravity(rules: CombatRules) -> void:
 func _respawn(rules: CombatRules) -> void:
 	global_position = spawn_position
 	velocity = Vector2.ZERO
-	current_hp = _stats().max_hp
+	current_hp = runtime_state.pending_respawn_hp if runtime_state.pending_respawn_hp > 0.0 else _stats().max_hp
+	runtime_state.pending_respawn_hp = 0.0
 	invulnerability_ticks = rules.respawn_invulnerability_ticks
 	air_jumps_remaining = _stats().air_jump_count
 	aerial_attacks_remaining = 2
@@ -484,10 +490,13 @@ func _respawn(rules: CombatRules) -> void:
 
 func _try_evade(rules: CombatRules) -> void:
 	if active_attack != null or state not in [State.IDLE, State.RUN, State.GUARD, State.DASH] or not is_on_floor(): return
+	var horizontal := _horizontal_input()
+	if horizontal == 0: return
 	runtime_state.guarding = false
 	runtime_state.evade_ticks = rules.evade_ticks
 	invulnerability_ticks = max(invulnerability_ticks, rules.evade_invulnerability_ticks)
-	velocity.x = facing * _stats().dash_speed
+	facing = horizontal
+	velocity.x = horizontal * _stats().dash_speed
 	state = State.EVADE
 
 
@@ -591,6 +600,7 @@ func _finish_tick() -> void:
 
 
 func _draw() -> void:
+	if not show_debug_body: return
 	var color := body_color
 	if invulnerability_ticks > 0 and invulnerability_ticks % 6 < 3: color = Color.WHITE
 	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]: color = Color("ffdf5a")

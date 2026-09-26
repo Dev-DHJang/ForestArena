@@ -24,6 +24,8 @@ var paused := false
 var winner_id: StringName
 var sudden_death_round := 0
 var is_draw := false
+## Optional local opponent; emits the same intents as human controls.
+var bot_source: RefCounted
 var _queued_intents: Array[CombatIntent] = []
 var _hit_counts: Dictionary = {}
 var _last_player_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
@@ -52,6 +54,9 @@ func step_fixed_tick(poll_local_input := true) -> void:
 	if paused or not winner_id.is_empty() or is_draw: return
 	tick += 1
 	if poll_local_input: _poll_player_input()
+	if bot_source != null:
+		for intent: CombatIntent in bot_source.commands_for_tick(tick, snapshot()):
+			submit_intent(intent)
 	_process_intents()
 	player.step_tick(rules)
 	training_dummy.step_tick(rules)
@@ -69,6 +74,7 @@ func reset_match() -> void:
 	_queued_intents.clear()
 	_hit_counts.clear()
 	_last_player_direction = CombatIntent.Direction.NEUTRAL
+	if bot_source != null: bot_source.reset()
 	player.reset_for_match(rules)
 	training_dummy.reset_for_match(rules)
 	snapshot_changed.emit(snapshot())
@@ -101,7 +107,10 @@ func pause_match(value: bool) -> void:
 
 
 func snapshot() -> Dictionary:
-	return {"tick": tick, "paused": paused, "winner_id": winner_id, "is_draw": is_draw, "guard_max": rules.guard_max_durability, "ultimate_gauge_max": rules.ultimate_gauge_max, "fighters": [player.snapshot(), training_dummy.snapshot()]}
+	var fighters: Array[Dictionary] = [player.snapshot(), training_dummy.snapshot()]
+	fighters[0]["on_floor"] = player.is_on_floor()
+	fighters[1]["on_floor"] = training_dummy.is_on_floor()
+	return {"tick": tick, "paused": paused, "winner_id": winner_id, "is_draw": is_draw, "guard_max": rules.guard_max_durability, "ultimate_gauge_max": rules.ultimate_gauge_max, "fighters": fighters}
 
 
 func snapshot_hash() -> String:
@@ -119,10 +128,12 @@ func _poll_player_input() -> void:
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
 	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]:
+		# Ultimate has one slot, not directional variants. Keep movement separate.
+		var action_direction := CombatIntent.Direction.NEUTRAL if action == &"ultimate" else direction
 		if Input.is_action_just_pressed(action):
-			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.PRESS, _context_for(player)))
+			submit_intent(CombatIntent.new(tick, player.fighter_id, action, action_direction, CombatIntent.Edge.PRESS, _context_for(player)))
 		elif Input.is_action_just_released(action):
-			submit_intent(CombatIntent.new(tick, player.fighter_id, action, direction, CombatIntent.Edge.RELEASE, _context_for(player)))
+			submit_intent(CombatIntent.new(tick, player.fighter_id, action, action_direction, CombatIntent.Edge.RELEASE, _context_for(player)))
 
 
 func _process_intents() -> void:

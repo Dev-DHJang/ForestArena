@@ -1,0 +1,13 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><title>나비 약공격 2단 검토</title>
+<style>body{background:#202b31;color:#edf3ef;font:18px sans-serif;max-width:1000px;margin:30px auto}canvas{width:384px;height:384px}button,select{font:inherit;padding:10px;margin:8px}img{max-width:100%}</style>
+<h1>나비 약공격 2단 · r01 검토</h1><p>준비 → 발톱을 크게 뻗기 → 아래로 회수. 미승인 검토용이며 게임에는 등록하지 않았습니다.</p>
+<p>12 FPS는 약 1.33초의 느린 동작 검토입니다. 실제 기술의 21 tick(약 0.35초)이나 적중 시점을 바꾸지 않습니다.</p>
+<p>원본 5번을 2번 위치로 옮긴 재생 순서를 기본으로 표시합니다. 원본 PNG는 변경하지 않았습니다. 투명화·128픽셀 셀 정규화 전 시안입니다.</p>
+<canvas width="384" height="384"></canvas><p><button id="play">일시정지</button><button id="step">한 프레임</button><select id="order" aria-label="프레임 순서"><option value="review">정리한 순서</option value="source">원본 순서</option></select><span id="frame"></span></p>
+<img src="light02-r01.png" alt="나비 약공격 2단 16프레임 원본 시트"><script>
+const img=new Image(),canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');let f=0,playing=true,last=0;img.src='light02-r01.png';
+const review=[0,4,1,2,3,5,6,7,8,9,10,11,12,13,14,15];
+function draw(){const index=document.querySelector('#order').value==='review'?review[f]:f,w=img.width/4,h=img.height/4;ctx.clearRect(0,0,384,384);ctx.drawImage(img,(index%4)*w,Math.floor(index/4)*h,w,h,0,0,384,384);document.querySelector('#frame').textContent=`${f+1}/16 · 원본 ${index+1} · 12 FPS`;}
+document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'일시정지':'재생'};
+document.querySelector('#step').onclick=()=>{playing=false;document.querySelector('#play').textContent='재생';f=(f+1)%16;draw()};document.querySelector('#order').onchange=()=>{f=0;draw()};function loop(t){if(img.complete&&img.naturalWidth&&playing&&t-last>1000/12){f=(f+1)%16;draw();last=t}requestAnimationFrame(loop)}img.onload=draw;requestAnimationFrame(loop);
+</script></html>

@@ -16,6 +16,7 @@ const RESTART_DISABLED_ID := "fa.ui.button.base.btn.secondary.m.disabled"
 @onready var resource_warnings: Label = $Interface/ResourceWarnings
 
 var _missing_resource_ids: PackedStringArray = []
+var app_shell_mode := false
 
 
 func _ready() -> void:
@@ -76,7 +77,7 @@ func _notification(what: int) -> void:
 		match_controller.pause_match(true)
 		print("FOREST_ARENA_INPUT_RESET reason=pause")
 	elif what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_APPLICATION_RESUMED:
-		match_controller.pause_match(false)
+		if not app_shell_mode: match_controller.pause_match(false)
 
 
 func _release_semantic_actions() -> void:
@@ -97,3 +98,5 @@ func _render_snapshot(snapshot: Dictionary) -> void:
 		suffix = " · 승자: %s" % snapshot.winner_id
 	readout.text = "자현 %d/%d HP · %d STOCK · G %d/%d · S %dt · U %d/%d    묘령 %d/%d HP · %d STOCK · G %d/%d · S %dt · U %d/%d%s" % [roundi(first.current_hp), roundi(first.max_hp), first.stocks, roundi(first.guard_durability), roundi(snapshot.guard_max), int(first.special_cooldown_ticks), roundi(first.ultimate_gauge), roundi(snapshot.ultimate_gauge_max), roundi(second.current_hp), roundi(second.max_hp), second.stocks, roundi(second.guard_durability), roundi(snapshot.guard_max), int(second.special_cooldown_ticks), roundi(second.ultimate_gauge), roundi(snapshot.ultimate_gauge_max), suffix]
 	debug_readout.text = "tick %d  %s:%s  %s:%s" % [snapshot.tick, first.state, first.attack_id, second.state, second.attack_id]
+	if app_shell_mode:
+		readout.text = "%s  HP %d/%d · 기회 %d · 가드 %d · 특수 %dt · 궁극 %d\n%s  HP %d/%d · 기회 %d · 가드 %d · 특수 %dt · 궁극 %d" % [match_controller.player.character_data.display_name, first.current_hp, first.max_hp, first.stocks, first.guard_durability, first.special_cooldown_ticks, first.ultimate_gauge, match_controller.training_dummy.character_data.display_name, second.current_hp, second.max_hp, second.stocks, second.guard_durability, second.special_cooldown_ticks, second.ultimate_gauge]

@@ -1,0 +1,10 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><title>나비 약공격 1단 검토</title>
+<style>body{background:#202b31;color:#edf3ef;font:18px sans-serif;max-width:1000px;margin:30px auto}canvas{width:384px;height:384px}button{font:inherit;padding:10px;margin:8px}img{max-width:100%}</style>
+<h1>나비 약공격 1단 · r04 검토</h1><p>준비 → 짧은 잽 → 회수. 검토용 불투명 배경이며, 아직 게임에 등록하지 않았습니다.</p>
+<canvas width="384" height="384"></canvas><p><button id="play">일시정지</button><button id="step">한 프레임</button><span id="frame"></span></p>
+<img src="light01-r04.png" alt="16프레임 검토 시트"><script>
+const img=new Image(),canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');let f=0,playing=true,last=0;img.src='light01-r04.png';
+function draw(){const w=img.width/4,h=img.height/4;ctx.clearRect(0,0,384,384);ctx.drawImage(img,(f%4)*w,Math.floor(f/4)*h,w,h,0,0,384,384);document.querySelector('#frame').textContent=`${f+1}/16 · 12 FPS`;}
+document.querySelector('#play').onclick=()=>{playing=!playing;document.querySelector('#play').textContent=playing?'일시정지':'재생'};
+document.querySelector('#step').onclick=()=>{playing=false;f=(f+1)%16;draw()};function loop(t){if(img.complete&&img.naturalWidth&&playing&&t-last>1000/12){f=(f+1)%16;draw();last=t}requestAnimationFrame(loop)}img.onload=draw;requestAnimationFrame(loop);
+</script></html>
