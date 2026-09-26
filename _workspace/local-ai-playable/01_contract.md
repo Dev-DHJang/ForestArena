@@ -5,3 +5,5 @@
 - MatchController.bot_source: 선택적인 commands_for_tick(tick,snapshot) 제공자. 기본 null로 기존 개발 장면을 보존한다. 참가자 ID와 캐릭터 ID를 분리해 동일 캐릭터 대전을 지원한다.
 - LocalAiApp: 보유 검사 뒤 LoadoutSelection을 조립하고 전투 장면에 전달한다. UI가 HP·승패를 계산하지 않는다. AI 기본 장신구는 없음, 맵은 단일 고정 맵, seed=3001이다.
 - 시각은 runtime_profile.character_id와 공격 ID/단계를 읽으며 전투 상태를 변경하지 않는다. 신규 미승인 모션은 런타임에 등록하지 않는다.
+- RuntimeCombatState.pending_respawn_hp: 다음 복귀 한 번에만 적용하는 효과 지정 HP. 0이면 일반 최대 HP 복귀이며, stock 손실·매치 초기화·복귀 완료 시 지운다. 원본 Resource나 로컬 보유 파일에는 저장하지 않는다. snapshot에는 이 값과 revive_used를 포함해 이후 결과에 영향을 주는 상태를 비교한다.
+- 결과 화면의 지연 호출은 종료한 MatchController를 함께 전달한다. 현재 경기와 다르거나 이미 제거한 경기의 결과는 표시하지 않는다.

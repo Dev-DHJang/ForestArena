@@ -279,6 +279,7 @@ func lose_stock(rules: CombatRules) -> bool:
 	if state in [State.RING_OUT, State.DEAD]: return false
 	stocks -= 1
 	current_hp = 0.0
+	runtime_state.pending_respawn_hp = 0.0
 	velocity = Vector2.ZERO
 	active_attack = null
 	buffered_intent = null
@@ -298,6 +299,7 @@ func revive(rules: CombatRules, revive_hp: float) -> bool:
 	runtime_state.revive_used = true
 	stocks = 1
 	current_hp = minf(revive_hp, _stats().max_hp)
+	runtime_state.pending_respawn_hp = current_hp
 	respawn_ticks = rules.respawn_delay_ticks
 	state = State.RING_OUT
 	return true
@@ -310,6 +312,7 @@ func snapshot() -> Dictionary:
 		"velocity": Vector2(snappedf(velocity.x, 0.001), snappedf(velocity.y, 0.001)), "facing": facing,
 		"attack_id": &"" if active_attack == null else active_attack.attack_id, "attack_phase_tick": attack_phase_tick,
 		"invulnerability_ticks": invulnerability_ticks, "respawn_ticks": respawn_ticks,
+		"pending_respawn_hp": snappedf(runtime_state.pending_respawn_hp, 0.001), "revive_used": runtime_state.revive_used,
 		"air_jumps": air_jumps_remaining, "air_attacks": aerial_attacks_remaining, "up_special": up_special_available,
 		"guard_durability": snappedf(runtime_state.guard_durability, 0.001),
 		"guard_max": runtime_state.guard_durability if runtime_profile == null else 100.0,
@@ -473,7 +476,8 @@ func _apply_gravity(rules: CombatRules) -> void:
 func _respawn(rules: CombatRules) -> void:
 	global_position = spawn_position
 	velocity = Vector2.ZERO
-	current_hp = _stats().max_hp
+	current_hp = runtime_state.pending_respawn_hp if runtime_state.pending_respawn_hp > 0.0 else _stats().max_hp
+	runtime_state.pending_respawn_hp = 0.0
 	invulnerability_ticks = rules.respawn_invulnerability_ticks
 	air_jumps_remaining = _stats().air_jump_count
 	aerial_attacks_remaining = 2

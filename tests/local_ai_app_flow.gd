@@ -32,6 +32,10 @@ func run() -> void:
 	check(app.screen == "pause" and app.match_controller.tick == tick, "pause")
 	app.start_match()
 	check(app.match_controller.tick == 0 and app.match_controller.player.stocks == 3, "rematch reset")
+	app.match_controller.match_ended.emit(&"opponent")
+	app.start_match()
+	await process_frame
+	check(app.screen == "match" and not app.match_controller.paused, "old deferred result must not pause a new match")
 	app.match_controller.is_draw = true
 	app._show_result(&"")
 	check(app.screen == "result", "draw result")

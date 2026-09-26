@@ -211,7 +211,7 @@ func start_match() -> void:
 		fighter.show_debug_body = false
 		fighter.add_child(PRESENTATION.new())
 	match_controller.bot_source = BOT.new(&"opponent", config.seed, {"reaction_interval_ticks": config.reaction_interval_ticks})
-	match_controller.match_ended.connect(_on_match_ended)
+	match_controller.match_ended.connect(_on_match_ended.bind(match_controller))
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	add_child(match_scene)
 	if OS.is_debug_build(): match_scene.add_child(load("res://scripts/local_performance_probe.gd").new())
@@ -256,8 +256,12 @@ func pause_match() -> void:
 		_close_match()
 		_show_prepare())
 
-func _on_match_ended(winner: StringName) -> void:
-	call_deferred("_show_result", winner)
+func _on_match_ended(winner: StringName, source: MatchController) -> void:
+	call_deferred("_show_result_for_match", winner, source)
+
+func _show_result_for_match(winner: StringName, source: MatchController) -> void:
+	if not is_instance_valid(source) or source != match_controller: return
+	_show_result(winner)
 
 func _show_result(winner: StringName) -> void:
 	if match_controller == null: return
