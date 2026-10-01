@@ -12,6 +12,8 @@ func _initialize() -> void:
 func _run() -> void:
 	for id: StringName in ROSTER:
 		var paths := Presentation.approved_motion_paths(id)
+		if id == &"nabi":
+			_check(paths.has(&"attack_light_combo_01") and paths.has(&"attack_light_combo_02"), "both approved Nabi combo steps registered")
 		for motion: StringName in [&"idle", &"run", &"jump"]:
 			_check(paths.has(motion), "%s approved %s exists" % [id, motion])
 			var resource := load(paths[motion]) as SpriteFrames
@@ -46,6 +48,18 @@ func _run() -> void:
 			_check(presentation.requested_motion == attack.visual_state_id, "exact move visual ID used")
 			if paths.has(attack.visual_state_id):
 				_check(presentation.sprite.animation == attack.visual_state_id, "approved combo uses exact step")
+				if id == &"nabi":
+					_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, 14.0), "normalized Nabi foot pivot stays on fighter baseline")
+					var layout: Dictionary = presentation._motion_layouts[attack.visual_state_id]
+					for phase: int in [FighterController.State.ATTACK_STARTUP, FighterController.State.ATTACK_ACTIVE, FighterController.State.ATTACK_RECOVERY]:
+						fighter.state = phase
+						var span: Array = layout.phase_frame_ranges[[FighterController.State.ATTACK_STARTUP, FighterController.State.ATTACK_ACTIVE, FighterController.State.ATTACK_RECOVERY].find(phase)]
+						for phase_tick: int in range(1, 22):
+							fighter.attack_phase_tick = phase_tick
+							var combat_before := fighter.snapshot()
+							presentation.sync_visual(0.1)
+							_check(presentation.sprite.frame >= int(span[0]) and presentation.sprite.frame < int(span[1]), "Nabi frame stays in authored phase range")
+							_check(combat_before == fighter.snapshot(), "Nabi phase playback cannot mutate combat")
 			else:
 				_check(presentation.missing_motion == attack.visual_state_id, "missing motion explicitly exposed")
 		fighter.free()

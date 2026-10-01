@@ -18,6 +18,7 @@ var character_id: StringName
 var requested_motion: StringName = &"idle"
 var missing_motion: StringName
 var _motions: Dictionary = {}
+var _motion_layouts: Dictionary = {}
 var _elapsed := 0.0
 var _last_motion: StringName
 var _last_activation := -1
@@ -61,6 +62,11 @@ func sync_visual(delta: float) -> void:
 	if profile_id != character_id:
 		character_id = profile_id
 		_motions.clear()
+		_motion_layouts.clear()
+		var document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
+		for entry: Dictionary in document.get("assets", []):
+			if entry.get("character_id") == String(character_id) and entry.has("visual_state_id"):
+				_motion_layouts[StringName(entry.visual_state_id)] = entry
 		var paths := approved_motion_paths(character_id)
 		for motion: StringName in paths:
 			_motions[motion] = load(paths[motion]) as SpriteFrames
@@ -74,6 +80,10 @@ func sync_visual(delta: float) -> void:
 		sprite.visible = false
 		return
 	sprite.visible = true
+	var layout: Dictionary = _motion_layouts.get(shown, {})
+	var display_scale := float(layout.get("presentation_scale", 1.0))
+	sprite.scale = Vector2.ONE * display_scale
+	sprite.position.y = 14.0 - (float(layout.get("foot_pivot_y", 128)) - 64.0) * display_scale
 	sprite.flip_h = fighter.facing < 0
 	if shown != _last_motion or fighter.activation_serial != _last_activation:
 		_elapsed = 0.0
@@ -84,14 +94,14 @@ func sync_visual(delta: float) -> void:
 	_elapsed += delta
 	var frames := sprite.sprite_frames.get_frame_count(shown)
 	if fighter.active_attack != null and missing_motion.is_empty():
-		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames)
+		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, layout.get("phase_frame_ranges", []))
 	else:
 		var index := int(_elapsed * sprite.sprite_frames.get_animation_speed(shown))
 		sprite.frame = index % frames if sprite.sprite_frames.get_animation_loop(shown) else mini(index, frames - 1)
 	sprite.modulate = Color(1, 1, 1, 0.45) if fighter.invulnerability_ticks > 0 else Color.WHITE
 
 
-static func attack_frame(attack: AttackData, state: int, tick: int, count: int) -> int:
+static func attack_frame(attack: AttackData, state: int, tick: int, count: int, ranges: Array = []) -> int:
 	# Authored time drives visuals; changing frame rate never changes hit timing.
 	var offset := 0.0
 	var duration := attack.startup_ticks
@@ -101,4 +111,9 @@ static func attack_frame(attack: AttackData, state: int, tick: int, count: int) 
 	elif state == FighterController.State.ATTACK_RECOVERY:
 		offset = 2.0
 		duration = attack.recovery_ticks
+	if ranges.size() == 3:
+		var span: Array = ranges[int(offset)]
+		var begin := int(span[0])
+		var end := int(span[1])
+		return clampi(begin + roundi(float(tick) / maxi(duration - 1, 1) * (end - begin - 1)), begin, end - 1)
 	return clampi(int((offset + clampf(float(tick) / maxi(duration, 1), 0, 1)) / 3.0 * count), 0, count - 1)

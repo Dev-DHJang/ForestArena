@@ -13,6 +13,10 @@ const REQUIRED_MYO_ATTACKS := {
 	"attack_light_combo_03": {"combo_index": 3, "is_finisher": false, "acting_purpose": "spinning kick"},
 	"attack_light_combo_04": {"combo_index": 4, "is_finisher": true, "acting_purpose": "leaping spin-kick with opened ears and ribbon"},
 }
+const REQUIRED_NABI_ATTACKS := {
+	"attack_light_combo_01": {"combo_index": 1, "is_finisher": false, "acting_purpose": "claw jab while off-hand guards"},
+	"attack_light_combo_02": {"combo_index": 2, "is_finisher": true, "acting_purpose": "large crossed claw rake"},
+}
 
 
 func _initialize() -> void:
@@ -34,6 +38,13 @@ func _initialize() -> void:
 			continue
 		_validate_entry(visual_state_id, declared[visual_state_id], expected_moves, failures)
 	_validate_myo_ryung(manifest, attack_system, failures)
+	var nabi_moves := _character_attack_moves("nabi", attack_system, failures)
+	for motion: String in REQUIRED_NABI_ATTACKS:
+		var matches: Array = manifest.assets.filter(func(entry: Dictionary) -> bool: return entry.get("character_id") == "nabi" and entry.get("visual_state_id") == motion)
+		if matches.size() != 1:
+			failures.append("missing or duplicate Nabi motion " + motion)
+			continue
+		_validate_entry_against(motion, matches[0], REQUIRED_NABI_ATTACKS[motion], nabi_moves, failures)
 	_finish(failures)
 
 

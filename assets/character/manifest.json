@@ -399,6 +399,92 @@
       "loop": false,
       "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/jump.tres",
       "consumer_path": "res://assets/character/yu-ran/animation/runtime/jump.tres"
+    },
+    {
+      "asset_id": "nabi-attack-light-combo-01-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+      "creation": {
+        "method": "user-approved r04 review plus explicitly approved local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved Nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User r04 Nabi light combo 01 motion approval, 2026-09-26",
+          "User local processing approval, 2026-10-01"
+        ]
+      },
+      "verified_on": "2026-10-01",
+      "sha256": "4e3952c533c912fa7f37bd9ab8ea186662ed52b13eecafd58952fc8057d84804",
+      "modifications": [
+        "Removed only border-connected gray background and detached tiny islands; retained authored poses.",
+        "Packed 16 RGBA 128x128 cells with shared scale and foot pivot; preserved legacy files.",
+        "Retained source frame order."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "visual_state_id": "attack_light_combo_01",
+      "combo_index": 1,
+      "is_finisher": false,
+      "acting_purpose": "claw jab while off-hand guards",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [[0, 4], [4, 8], [8, 16]]
+    },
+    {
+      "asset_id": "nabi-attack-light-combo-02-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+      "creation": {
+        "method": "user-approved r01 review plus explicitly approved local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved Nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User r01 Nabi light combo 02 motion and local processing approval, 2026-10-01"
+        ]
+      },
+      "verified_on": "2026-10-01",
+      "sha256": "2679b0eb310359762f4099b9bed167c6ae5020b1c0860679be60e30b69366fe1",
+      "modifications": [
+        "Removed only border-connected gray background and detached tiny islands; retained authored poses.",
+        "Packed 16 RGBA 128x128 cells with shared scale and foot pivot; preserved legacy files.",
+        "Applied approved review order 1,5,2,3,4,6,7,8,9,10,11,12,13,14,15,16."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "visual_state_id": "attack_light_combo_02",
+      "combo_index": 2,
+      "is_finisher": true,
+      "acting_purpose": "large crossed claw rake",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ]
     }
   ]
 }
