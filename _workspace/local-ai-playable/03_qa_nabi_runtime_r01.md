@@ -14,7 +14,7 @@
 - `character_motion_contract`, 확장한 `character_attack_motion_contract`, `local_fighter_presentation` 통과. manifest에 나비 1·2단이 한 번씩 있고, 정확한 SpriteFrames·연계 단계·피니시 정보와 일치한다.
 - 표현 레이어는 manifest의 준비/활성/회복 프레임 범위만 읽는다. 테스트는 모든 단계에서 전투 snapshot이 바뀌지 않음을 확인하므로 이미지가 적중 시점이나 결과를 결정하지 않는다.
 - `./scripts/verify.sh` 전체 회귀 통과. AI 장시간 대전, 터치 입력, 345개 Godot 논리 자산, 문서와 역할 체계 검사를 포함한다.
-- 최신 Android debug export와 APK 계약 검사 통과. 실제 기기 검사는 별도 모바일 기록에서 확정한다.
+- 최신 Android debug export와 APK 계약 검사 통과. 이후 Galaxy S23 Ultra 실기기에서 나비 1·2단 재생, 경기 종료·재대전·선택 복원과 성능을 확인했으며 상세 수치는 `02_mobile.md`에 기록했다.
 
 ## 눈으로 확인한 내용과 제한
 
