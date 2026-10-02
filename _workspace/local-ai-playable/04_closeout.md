@@ -6,9 +6,9 @@
 - 작업 폴더: ForestArena-local-ai. 원래 ForestTales의 미커밋 UI 변경은 보존했다.
 - 최초 기능 구현 커밋은 `7024353`, 전체 모션 완료 커밋은 `a68b970`, 최종 QA·문서
   커밋은 `d724672`다.
-- 검토 PR: https://github.com/Dev-DHJang/ForestArena/pull/38. 기능 브랜치와 원격
-  `develop`은 최종 통합 SHA `d724672fc02612b11c8386474ebe0f4da4a911cb`를 함께
-  가리킨다.
+- 검토 PR: https://github.com/Dev-DHJang/ForestArena/pull/38. 기능 코드와 최종 QA의
+  `develop` 통합 기준 SHA는 `d724672fc02612b11c8386474ebe0f4da4a911cb`이며, 이
+  종료 기록도 그 뒤의 문서 커밋으로 `develop`에 포함했다.
 - `./scripts/verify.sh`, 문서·Godot 리소스 검사, Android debug export·패키지 검사와
   Android 15 arm64 에뮬레이터 앱 흐름이 통과했다. 최종 요구사항별 증거는
   `03_qa_final_r01.md`에 기록했다.
