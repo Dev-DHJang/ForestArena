@@ -77,3 +77,7 @@ charge, hitstun, launch, knock_down, wake_up, death, ring_out, spawn이 남아 �
 GIF를 만들었다. 승인 전 검토 경로에만 있으며 현재 커버리지와 runtime에는 포함하지
 않는다. 동작 구간·해시·생성 프롬프트는 `motion-review/yu-ran/reaction-r01-review.md`에
 기록했다.
+
+유란의 남은 상태 검토 묶음으로 `attack_heavy_charge`, `death`, `ring_out`, `spawn`
+r01 시트와 GIF를 만들었다. 승인 전 검토 경로에만 두었고 현재 커버리지와 runtime에는
+포함하지 않았다. 상세 내용은 `motion-review/yu-ran/state-r01-review.md`에 기록했다.
