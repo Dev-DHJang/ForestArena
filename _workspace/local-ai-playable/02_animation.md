@@ -131,3 +131,10 @@ runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 �
 다섯 시안은 정확한 4×4 배열과 기존 10/4/16 또는 8/4/14 tick의 시각 구간을 갖지만
 승인 전 검토 경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다.
 상세 내용은 `motion-review/ja-hyun/heavy-variants-r01-review.md`에 기록했다.
+
+자현의 마지막 기본 MoveSet 공격 묶음으로 `special_neutral`, `special_side`,
+`special_up`, `special_down`, `ultimate` r01 시트와 GIF를 만들었다. 다섯 시안은
+정확한 4×4 배열과 기존 8/4/16·6/5/18·10/4/16 tick의 시각 구간을 갖지만 승인 전
+검토 경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 이로써
+자현의 누락 상태·공격 표현은 모두 검토 시안으로 준비됐다. 상세 내용은
+`motion-review/ja-hyun/special-ultimate-r01-review.md`에 기록했다.
