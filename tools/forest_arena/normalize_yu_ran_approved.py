@@ -1,4 +1,4 @@
-"""Normalize the five user-approved Yu-Ran motion review sheets.
+"""Normalize all user-approved Yu-Ran motion review sheets.
 
 The approved review PNG files are immutable inputs. This tool removes only the
 border-connected gray review background and cross-cell fragments, then packs
@@ -18,6 +18,10 @@ ROOT = Path(__file__).resolve().parents[2]
 REVIEW = ROOT / "_workspace/local-ai-playable/motion-review/yu-ran"
 OUT = REVIEW / "normalized"
 RUNTIME = ROOT / "assets/character/yu-ran/animation/runtime/local_ai_v01"
+# Preserve the scale established by the first five approved motions. Extremely
+# wide ribbon/tail poses may shrink per frame to stay inside their 128 px cell,
+# but must not make every other motion smaller.
+BASE_SCALE = 0.35398230088495575
 SOURCES = [
     {"name": "attack_light_combo_01", "file": "light01-r02.png", "order": list(range(16)), "fps": 12},
     {"name": "attack_light_combo_02", "file": "light02-r02.png",
@@ -25,6 +29,28 @@ SOURCES = [
     {"name": "attack_light_combo_03", "file": "light03-r03.png", "order": list(range(16)), "fps": 12},
     {"name": "guard", "file": "guard-r02.png", "order": list(range(16)), "fps": 24},
     {"name": "evade", "file": "evade-r02.png", "order": list(range(16)), "fps": 80},
+    {"name": "attack_heavy_charge", "file": "attack-heavy-charge-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "hitstun", "file": "hitstun-r01.png", "order": list(range(16)), "fps": 24},
+    {"name": "launch", "file": "launch-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "knock_down", "file": "knock-down-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "wake_up", "file": "wake-up-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "death", "file": "death-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "ring_out", "file": "ring-out-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "spawn", "file": "spawn-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_light_up", "file": "light-up-r02.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_light_down", "file": "light-down-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_dash_light", "file": "dash-light-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_air_light", "file": "air-light-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_heavy_side", "file": "heavy-side-r02.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_heavy_up", "file": "heavy-up-r02.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_heavy_down", "file": "heavy-down-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_dash_heavy", "file": "dash-heavy-r02.png", "order": list(range(16)), "fps": 12},
+    {"name": "attack_air_heavy", "file": "air-heavy-r02.png", "order": list(range(16)), "fps": 12},
+    {"name": "special_neutral", "file": "special-neutral-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "special_side", "file": "special-side-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "special_up", "file": "special-up-r02.png", "order": list(range(16)), "fps": 12},
+    {"name": "special_down", "file": "special-down-r01.png", "order": list(range(16)), "fps": 12},
+    {"name": "ultimate", "file": "ultimate-r01.png", "order": list(range(16)), "fps": 12},
 ]
 
 
@@ -157,10 +183,7 @@ def main():
 
     # Shared scale prevents motion-to-motion size popping. A two-pixel safe
     # edge and y=124 baseline match the other approved local-AI sheets.
-    scale = min(
-        min(60 / max(pivot[0] - box[0], box[2] - pivot[0]), 118 / (box[3] - box[1]))
-        for frames in extracted for _, box, pivot, _ in frames
-    )
+    scale = BASE_SCALE
     report = {
         "schema_version": 1,
         "scale": scale,
@@ -172,13 +195,18 @@ def main():
         cells = []
         details = []
         for image, box, pivot, removed_edge_fragments in frames:
+            frame_scale = min(
+                scale,
+                60 / max(pivot[0] - box[0], box[2] - pivot[0]),
+                118 / (box[3] - box[1]),
+            )
             cropped = image.crop(box)
-            size = (round(cropped.width * scale), round(cropped.height * scale))
+            size = (round(cropped.width * frame_scale), round(cropped.height * frame_scale))
             resized = cropped.resize(size, Image.Resampling.LANCZOS)
             pixels = np.asarray(resized).copy()
             pixels[pixels[:, :, 3] < 8] = 0
             resized = Image.fromarray(pixels)
-            x = round(64 - (pivot[0] - box[0]) * scale)
+            x = round(64 - (pivot[0] - box[0]) * frame_scale)
             y = 124 - size[1]
             if x < 2 or y < 2 or x + size[0] > 126 or y + size[1] > 126:
                 raise ValueError(f"packing overflow for {definition['name']}")
@@ -187,7 +215,8 @@ def main():
             cells.append(cell)
             details.append({
                 "source_box": list(box), "source_pivot": pivot,
-                "bounds": cell.getbbox(), "removed_edge_pixels": removed_edge_fragments,
+                "bounds": cell.getbbox(), "scale": frame_scale,
+                "removed_edge_pixels": removed_edge_fragments,
             })
 
         name = definition["name"]
