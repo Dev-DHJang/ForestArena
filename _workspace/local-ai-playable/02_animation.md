@@ -14,7 +14,7 @@
 | 모션 | 자현 | 묘령 | 나비 | 유란 |
 | --- | --- | --- | --- | --- |
 | idle / run / jump | 승인 16프레임 각 1개 | 승인 16프레임 각 1개 | 승인 16프레임 각 1개 | 승인 16프레임 각 1개 |
-| 약 기본 연계 | 01–03 승인 | 01–04 승인 | 01–02 승인·투명 정규화·런타임 등록 | 01 r01 시안 검토 대기, 02–03 미제작 |
+| 약 기본 연계 | 01–03 승인 | 01–04 승인 | 01–02 승인·투명 정규화·런타임 등록 | 01–02 r02·03 r03 시안 검토 대기 |
 | 위·아래 약공격 | 미제작 | 미제작 | 미제작 | 미제작 |
 | 옆·위·아래 강공격 | 미제작 | 미제작 | 미제작 | 미제작 |
 | 지상 강공격 차지 | 미제작 | 미제작 | 미제작 | 미제작 |
@@ -52,3 +52,19 @@ runtime 경로와 manifest에 등록한다. 나비의 흰 꼬리·귀, 묘령의
 미등록 파일은 덮어쓰지 않았다. 처리 스크립트·접촉 시트·GIF·좌표 보고서는
 `motion-review/nabi/normalized/`에 보존한다. 두 SpriteFrames는 12 FPS 비루프이며,
 manifest의 프레임 구간을 AttackData의 준비·활성·회복 tick에 맞춰 표시한다.
+
+유란 약공격 01 r02·02 r02·03 r03은 검토 시안과 16프레임 GIF까지만 준비했다.
+r01의 셀 잘림·침범과 2단 준비 순서 문제는 독립 QA 뒤 교체했다. 1단 손바닥,
+2단 뒤손 치기, 3단 한 개의 큰 꼬리 휩쓸기 구성이며 사용자 승인 전이므로 runtime과
+manifest에는 넣지 않았다. 검토 GIF는 시트의 셀을 순서대로 보여주는 자료일 뿐 실제
+AttackData의 tick 속도나 적중 판정을 바꾸지 않는다.
+
+## 자동 커버리지
+
+`tools/forest_arena/report_motion_coverage.gd`는 실제 기본 LoadoutCatalog의 네 MoveSet과
+승인 manifest를 비교해 `_workspace/local-ai-playable/motion-coverage.json`을 만든다.
+현재 승인 공격 표현은 자현 3/17, 묘령 4/18, 나비 2/16, 유란 0/17이다. 유란의 검토
+시안은 승인 전이므로 0으로 계산하는 것이 맞다. 상태 표현은 네 캐릭터 모두 기본
+idle/run/jump 3/13만 승인됐고 guard, evade, charge, hitstun, launch, knock_down,
+wake_up, death, ring_out, spawn이 남아 있다. 이 수치는 미등록 시안을 완료로 세지 않으며
+manifest나 MoveSet이 바뀔 때 같은 명령으로 다시 계산한다.
