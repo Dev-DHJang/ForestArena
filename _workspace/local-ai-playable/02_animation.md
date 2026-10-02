@@ -107,3 +107,9 @@ r01은 투명 가장자리의 적·황색 오염 때문에 거부 기록으로 �
 r01 시트와 GIF를 만들었다. 네 시안은 정확한 4×4 배열과 승인 외형을 유지하지만
 사용자 승인 전 검토 경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지
 않았다. 상세 내용은 `motion-review/ja-hyun/defense-reaction-r01-review.md`에 기록했다.
+
+자현의 다운·패배 상태 묶음으로 `knock_down`, `wake_up`, `death`, `ring_out` r01
+시트와 GIF를 만들었다. 다운과 사망의 정지 자세, 다운에서 이어지는 기상, 전 구간
+공중 링아웃을 서로 구별했다. 사용자 승인 전 검토 경로에만 있으며 runtime,
+manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
+`motion-review/ja-hyun/down-defeat-r01-review.md`에 기록했다.
