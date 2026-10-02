@@ -1,9 +1,25 @@
 # 진행·인계 기록
 
+## 최종 통합 상태
+
 - 브랜치: feature/local-ai-playable. 시작점 origin/develop fada2ac.
 - 작업 폴더: ForestArena-local-ai. 원래 ForestTales의 미커밋 UI 변경은 보존했다.
-- 구현 커밋: `7024353`. 원격 `feature/local-ai-playable`에 push했다.
-- 검토 PR: https://github.com/Dev-DHJang/ForestArena/pull/38 (Draft, 대상 develop). 필수 미완료 항목 때문에 병합하지 않았으며 병합 SHA는 없다.
+- 최초 기능 구현 커밋은 `7024353`, 전체 모션 완료 커밋은 `a68b970`, 최종 QA·문서
+  커밋은 `d724672`다.
+- 검토 PR: https://github.com/Dev-DHJang/ForestArena/pull/38. 기능 브랜치와 원격
+  `develop`은 최종 통합 SHA `d724672fc02612b11c8386474ebe0f4da4a911cb`를 함께
+  가리킨다.
+- `./scripts/verify.sh`, 문서·Godot 리소스 검사, Android debug export·패키지 검사와
+  Android 15 arm64 에뮬레이터 앱 흐름이 통과했다. 최종 요구사항별 증거는
+  `03_qa_final_r01.md`에 기록했다.
+- 최신 전체 모션 묶음의 물리 Android 기기 재검은 사용자 지시에 따라 나중으로
+  이연했고 미확인이다. 이전 실기기 결과를 최신 묶음 통과로 바꾸지 않는다.
+- 롤백은 `develop`에서 통합 범위 `fada2ac..d724672`를 새 되돌리기 커밋으로 취소한다.
+  이력 재작성이나 강제 push는 사용하지 않는다. 기기의 `user://local_player.json`과
+  `.bak`은 자동 삭제하지 않는다.
+
+## 작업 이력
+
 - 구매·저장·앱 흐름·AI·1080/540 경기장·확장 터치·승인 모션 연결을 구현했다.
 - 코드, Android export, 에뮬레이터 앱 흐름과 2026-10-01 Galaxy S23 Ultra 실제 기기 검사는 통과했다. 상세 범위는 03_qa_r01.md, 03_qa_r02.md, 02_mobile.md다.
 - 로컬 AI 대전 범위의 네 캐릭터 기본 MoveSet과 필수 상태 모션은 모두 승인·등록했다.
