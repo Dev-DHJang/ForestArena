@@ -95,3 +95,10 @@ r01 시트와 GIF를 만들었다. 승인 전 검토 경로에만 두었고 현�
 같은 구성의 불투명 배경 r02를 최종 검토 대상으로 삼았다. 다섯 시안 모두 승인 전
 경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 `motion-review/yu-ran/heavy-variants-r01-r02-review.md`에 기록했다.
+
+유란의 마지막 기본 MoveSet 공격 묶음으로 `special_neutral`, `special_side`,
+`special_down`, `ultimate` r01과 `special_up` r02 시트·GIF를 만들었다. 위 특수기
+r01은 투명 가장자리의 적·황색 오염 때문에 거부 기록으로 보존하고, 같은 구성의
+불투명 배경 r02를 최종 검토 대상으로 삼았다. 다섯 시안 모두 승인 전 경로에만
+있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
+`motion-review/yu-ran/special-ultimate-r01-r02-review.md`에 기록했다.
