@@ -72,3 +72,8 @@ manifest의 프레임 구간을 AttackData의 준비·활성·회복 tick에 맞
 자현·묘령·나비 3/13, 유란 5/13이다. 유란에는 idle/run/jump/guard/evade가 등록됐고
 charge, hitstun, launch, knock_down, wake_up, death, ring_out, spawn이 남아 있다. 이
 수치는 미등록 시안을 완료로 세지 않으며 manifest나 MoveSet이 바뀔 때 다시 계산한다.
+
+유란의 다음 검토 묶음으로 `hitstun`, `launch`, `knock_down`, `wake_up` r01 시트와
+GIF를 만들었다. 승인 전 검토 경로에만 있으며 현재 커버리지와 runtime에는 포함하지
+않는다. 동작 구간·해시·생성 프롬프트는 `motion-review/yu-ran/reaction-r01-review.md`에
+기록했다.
