@@ -43,6 +43,17 @@ MYO_RYUNG_ATTACKS = {
     "special_neutral", "special_side", "special_up", "special_down", "ultimate",
 }
 ALL_ATTACKS |= MYO_RYUNG_ATTACKS
+NABI_STATES = {
+    "guard", "evade", "attack_heavy_charge", "hitstun", "launch", "knock_down",
+    "wake_up", "death", "ring_out", "spawn",
+}
+NABI_ATTACKS = {
+    "attack_light_up", "attack_light_down", "attack_dash_light", "attack_air_light",
+    "attack_heavy_side", "attack_heavy_up", "attack_heavy_down",
+    "attack_dash_heavy", "attack_air_heavy", "special_neutral", "special_side",
+    "special_up", "special_down", "ultimate",
+}
+ALL_ATTACKS |= NABI_ATTACKS
 
 
 def phase_ranges(name):
@@ -70,9 +81,9 @@ def make_entry(character_id, name, sha256):
         },
         "rights": {
             "status": f"derived from approved {character_id} concept; no additional external rights verification asserted",
-            "references": ["User approved all previously presented motion drafts, 2026-10-02"],
+            "references": ["User approved all character motions in the local-AI plan, 2026-10-03"],
         },
-        "verified_on": "2026-10-02",
+        "verified_on": "2026-10-03",
         "sha256": sha256,
         "modifications": [
             "Removed the gray review background and cross-cell fragments without repainting poses.",
@@ -104,10 +115,13 @@ def main():
         "yu-ran": YU_RAN_STATES | YU_RAN_ATTACKS,
         "ja-hyun": JA_HYUN_STATES | JA_HYUN_ATTACKS,
         "myo-ryung": MYO_RYUNG_STATES | MYO_RYUNG_ATTACKS,
+        "nabi": NABI_STATES | NABI_ATTACKS,
     }
     added = 0
+    metadata_updated = 0
     for character_id, approved in batches.items():
-        report_path = ROOT / f"_workspace/local-ai-playable/motion-review/{character_id}/normalized/report.json"
+        report_name = "remaining-report.json" if character_id == "nabi" else "report.json"
+        report_path = ROOT / f"_workspace/local-ai-playable/motion-review/{character_id}/normalized/{report_name}"
         report = json.loads(report_path.read_text())
         hashes = {motion["name"]: motion["sha256"] for motion in report["motions"]}
         missing = approved - hashes.keys()
@@ -124,12 +138,19 @@ def main():
                 current = existing[key]
                 if current.get("path") != entry["path"] or current.get("sha256") != entry["sha256"]:
                     raise ValueError(f"conflicting approved motion: {character_id}/{name}")
+                if character_id == "nabi":
+                    expected_references = entry["rights"]["references"]
+                    if (current.get("rights", {}).get("references") != expected_references
+                            or current.get("verified_on") != entry["verified_on"]):
+                        current.setdefault("rights", {})["references"] = expected_references
+                        current["verified_on"] = entry["verified_on"]
+                        metadata_updated += 1
                 continue
             manifest["assets"].append(entry)
             existing[key] = entry
             added += 1
     MANIFEST_PATH.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
-    print(f"registered {added} new approved motions")
+    print(f"registered {added} new approved motions; updated {metadata_updated} metadata entries")
 
 
 if __name__ == "__main__":
