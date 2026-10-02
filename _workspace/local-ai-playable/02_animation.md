@@ -102,3 +102,8 @@ r01은 투명 가장자리의 적·황색 오염 때문에 거부 기록으로 �
 불투명 배경 r02를 최종 검토 대상으로 삼았다. 다섯 시안 모두 승인 전 경로에만
 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 `motion-review/yu-ran/special-ultimate-r01-r02-review.md`에 기록했다.
+
+다음 캐릭터인 자현의 방어·피격 반응 묶음으로 `guard`, `evade`, `hitstun`, `launch`
+r01 시트와 GIF를 만들었다. 네 시안은 정확한 4×4 배열과 승인 외형을 유지하지만
+사용자 승인 전 검토 경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지
+않았다. 상세 내용은 `motion-review/ja-hyun/defense-reaction-r01-review.md`에 기록했다.

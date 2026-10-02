@@ -28,6 +28,9 @@
   검토 대상은 중립·옆·아래·궁극기 r01과 위 r02이며, 사용자 승인 전이므로 runtime,
   manifest와 커버리지에는 넣지 않았다. 이로써 유란 기본 MoveSet의 미승인 공격
   시안은 전부 준비됐지만 채택·정규화·등록·실기기 검증이 남아 있다.
+- 자현의 후속 작업을 시작해 `guard`, `evade`, `hitstun`, `launch` r01 검토 시트와
+  GIF를 만들었다. 독립 시안 QA는 검토 제출 가능으로 판정했으나 사용자 미승인이므로
+  runtime, manifest와 커버리지에는 넣지 않았다.
 - 유란의 나머지 상태 표현 `attack_heavy_charge`, `death`, `ring_out`, `spawn` r01도
   검토 시트와 GIF로 만들었다. 시안 QA는 검토 제출 가능이며 사용자 승인 전이므로
   runtime, manifest와 커버리지에는 넣지 않았다.
