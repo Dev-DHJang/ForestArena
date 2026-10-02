@@ -36,6 +36,9 @@
 - 자현의 `attack_heavy_charge`, `spawn` r02 검토 시트와 GIF도 만들었다. 보이는
   격자선이 있던 두 r01은 거부 기록으로 보존했다. 이로써 자현의 누락 상태 표현
   10종은 모두 검토 시안으로 준비됐지만 승인·정규화·등록은 남아 있다.
+- 자현의 `attack_light_up`, `attack_light_down`, `attack_dash_light`,
+  `attack_air_light` r01 검토 시트와 GIF를 만들었다. 사용자 승인 전이므로 runtime,
+  manifest와 커버리지에는 넣지 않았다.
 - 유란의 나머지 상태 표현 `attack_heavy_charge`, `death`, `ring_out`, `spawn` r01도
   검토 시트와 GIF로 만들었다. 시안 QA는 검토 제출 가능이며 사용자 승인 전이므로
   runtime, manifest와 커버리지에는 넣지 않았다.

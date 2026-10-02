@@ -119,3 +119,9 @@ manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 순서를 유지하며 선만 제거한 r02를 최종 검토 대상으로 삼았다. 승인 전 경로에만
 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 `motion-review/ja-hyun/charge-spawn-r01-r02-review.md`에 기록했다.
+
+자현의 방향·상황별 약공격 묶음으로 `attack_light_up`, `attack_light_down`,
+`attack_dash_light`, `attack_air_light` r01 시트와 GIF를 만들었다. 네 시안 모두
+정확한 4×4 배열과 5/3/9 tick의 시각 구간을 갖지만 승인 전 검토 경로에만 있으며
+runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
+`motion-review/ja-hyun/light-variants-r01-review.md`에 기록했다.
