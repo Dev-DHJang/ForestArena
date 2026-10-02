@@ -32,7 +32,17 @@ JA_HYUN_ATTACKS = {
     "special_up", "special_down", "ultimate",
 }
 ALL_ATTACKS = YU_RAN_ATTACKS | JA_HYUN_ATTACKS
-MYO_RYUNG_STATES = {"guard", "evade", "hitstun", "launch"}
+MYO_RYUNG_STATES = {
+    "guard", "evade", "attack_heavy_charge", "hitstun", "launch", "knock_down",
+    "wake_up", "death", "ring_out", "spawn",
+}
+MYO_RYUNG_ATTACKS = {
+    "attack_light_up", "attack_light_down", "attack_dash_light", "attack_air_light",
+    "attack_heavy_side", "attack_heavy_up", "attack_heavy_down",
+    "attack_dash_heavy", "attack_air_heavy",
+    "special_neutral", "special_side", "special_up", "special_down", "ultimate",
+}
+ALL_ATTACKS |= MYO_RYUNG_ATTACKS
 
 
 def phase_ranges(name):
@@ -93,7 +103,7 @@ def main():
     batches = {
         "yu-ran": YU_RAN_STATES | YU_RAN_ATTACKS,
         "ja-hyun": JA_HYUN_STATES | JA_HYUN_ATTACKS,
-        "myo-ryung": MYO_RYUNG_STATES,
+        "myo-ryung": MYO_RYUNG_STATES | MYO_RYUNG_ATTACKS,
     }
     added = 0
     for character_id, approved in batches.items():

@@ -2909,6 +2909,825 @@
       "visual_state_id": "launch",
       "presentation_scale": 1.2,
       "foot_pivot_y": 124
+    },
+    {
+      "asset_id": "myo-ryung-attack-heavy-charge-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "5b5d3760f4f59fd7a8533d8ae892432b18bf8904311f5c72bf446ec23fd71a1f",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+      "visual_state_id": "attack_heavy_charge",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 15
+    },
+    {
+      "asset_id": "myo-ryung-death-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/death_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "27df288269a67bf7bf9b54e5e13ac167afc9f81b9fb0e1d6728204e71aca11c5",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/death.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/death.tres",
+      "visual_state_id": "death",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 15
+    },
+    {
+      "asset_id": "myo-ryung-knock-down-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "4d4538b45f80924b5aa241421795fbc3b39db5b84b88ed2b23fa65535c2ae81b",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down.tres",
+      "visual_state_id": "knock_down",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 15
+    },
+    {
+      "asset_id": "myo-ryung-ring-out-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "51f695af37a1c8ff42dcdb90ea63e7b02de45e39b10e77a15249e04b1bc269fc",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out.tres",
+      "visual_state_id": "ring_out",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124
+    },
+    {
+      "asset_id": "myo-ryung-spawn-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "771ed8f4c7c599fd33ff582c7ff03ead111cbdcf83661dc1c76f5215951eb9b4",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn.tres",
+      "visual_state_id": "spawn",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124
+    },
+    {
+      "asset_id": "myo-ryung-wake-up-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "293e46d34d87c2b8126fac950071d1e6f734629a03a7dc5d4fdd29473315585d",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up.tres",
+      "visual_state_id": "wake_up",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124
+    },
+    {
+      "asset_id": "myo-ryung-attack-air-heavy-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "e624ffaf749fd8bb100b20802261177e74f5f742c0c5be3f77ef636fa6fce1ca",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+      "visual_state_id": "attack_air_heavy",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-air-light-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "607d77740be3b86aa3e0d970690c4bfb90644fc0bcffdc3460528462839e317e",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "visual_state_id": "attack_air_light",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-dash-heavy-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "46aecde0c469da7ea619f1f6645baad39d02f3889dde87dcca5a8d592408079c",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+      "visual_state_id": "attack_dash_heavy",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-dash-light-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "acfa511591522d59f82a8455b673e3f17e41817bfcdc870db4d576ad015d1e47",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light.tres",
+      "visual_state_id": "attack_dash_light",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-heavy-down-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "2f70fbe747e50a3bd7923bf2433f7f6600ab5b9bb33bd1947a25993c55f673ce",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+      "visual_state_id": "attack_heavy_down",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-heavy-side-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "03efed25b0df1420ea23253839583561c8f2db9cd326a8e5c5f4019f9743d7ed",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+      "visual_state_id": "attack_heavy_side",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-heavy-up-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "29a07df16089e37dc48151bde5777d891323fb3cf8610156c1c46e56e6abde57",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+      "visual_state_id": "attack_heavy_up",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-light-down-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "ef03e6b776748a960fcb07ba668653dc6de99ce455f37a2748337005c9ae0093",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down.tres",
+      "visual_state_id": "attack_light_down",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-attack-light-up-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "9b2b912f1c825e89dc6e83db146d097e9b514650e01c3fad6576dc518b879c54",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up.tres",
+      "visual_state_id": "attack_light_up",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-special-down-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "e8aa1f100df8754db12bd59992a44a5473b945290381a883bf0d3c32a976cacd",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down.tres",
+      "visual_state_id": "special_down",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-special-neutral-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "f4620f668d19f4faed63b17225e9f323898241ea389d325426af9370084e7e9c",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral.tres",
+      "visual_state_id": "special_neutral",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-special-side-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "fe25681bcd3b0059df14eb5675075be0c9a23c74c230b5867393a8ba8800deb8",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side.tres",
+      "visual_state_id": "special_side",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-special-up-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "3bf98ea2085458ee9de56bdcf42f08ba783929250bccc35deac4a0f38372279c",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up.tres",
+      "visual_state_id": "special_up",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
+    },
+    {
+      "asset_id": "myo-ryung-ultimate-16f-local-v01",
+      "character_id": "myo-ryung",
+      "type": "animation-runtime",
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate_16f.png",
+      "creation": {
+        "method": "user-approved review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved myo-ryung concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02"
+        ]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "2f78993ba5a8cc90215537a6e0aea29c62d43d699401cba85bcce4455b07fbf1",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate.tres",
+      "consumer_path": "res://assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate.tres",
+      "visual_state_id": "ultimate",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ]
     }
   ]
 }

@@ -9,7 +9,27 @@
     "guard-r01.png": "9e6e4b14f4c609f3dc5057fd1cdbce0af70425fc88b7d0b8571ba6ad3047f674",
     "evade-r01.png": "d0a3e7dacf0cc2c6495dc01c3e82bbdbde23a8baf59a6671dce4fc0bfaa8b5d8",
     "hitstun-r01.png": "0c73b4f070fa38d9423e8fa192240139971c504f0b4ccb978be3f1a8ea4bc672",
-    "launch-r01.png": "2b83c4e139ef245eeeb6c9d2604846467be253736c2fbbaded6cbccb97b0afb5"
+    "launch-r01.png": "2b83c4e139ef245eeeb6c9d2604846467be253736c2fbbaded6cbccb97b0afb5",
+    "heavy-charge-r01.png": "e60b7530e45ae91d3beff1618b971d57a953ee03cad1af320b868449ea9d8e67",
+    "knock-down-r01.png": "31802f365ba2cd5394c40ee49953178a9236ab78e9d6627d8084166621b9e4ad",
+    "wake-up-r01.png": "47802e1850cb2d2ea2a3f76e5bf0e3bdbaf8fb77f4b2a60c698ecb606c50e36c",
+    "death-r01.png": "de335ad17f651ec48decf4d8220e3a701bbb6d0cacb80d35015fb64c3f4681f0",
+    "ring-out-r01.png": "8bf5d00b5529c93a5bdb63f4b52b2f6ae95064cf22e64a4c5e4834a9577a6f51",
+    "spawn-r01.png": "6ea62fb644720229c1d75c79233bbed88f691d0743a9b764683d3224012b83bd",
+    "light-up-r01.png": "915e08fb753973f68909ca65ca9f10a14e47117191773dba36f82949f94707f5",
+    "light-down-r01.png": "fab393e6161b63061bef1fe2b057a11243e49944fc142425543a79a252ea9f0e",
+    "dash-light-r01.png": "217d1ea7cdfbefa629320f6d7bafbba8a1b1d77b8b4a31ee2250b3d3fbf910a0",
+    "air-light-r01.png": "ef3a35c1efb81406e44f61bd5a28c626bf3335b59f44d47b8eae77313046cc3a",
+    "heavy-side-r01.png": "32a5459ec75cfd156fd5265e7f76ffb54e458188683c22d8caf2dce62851d797",
+    "heavy-up-r01.png": "1032318eb5906f7e6299f417e47ed117a308ce1c3d976c5284f0b19473030a2d",
+    "heavy-down-r01.png": "0cc231997806cb0f0d50661525a0c957deeb71d4d7f4ce7439b128426cdf2415",
+    "dash-heavy-r01.png": "8974f36d46cae8ef3c7432f2b1477469017db9b08bda05505ea2c482e90c5e45",
+    "air-heavy-r01.png": "dd0ad15a7c296b670797344f19d2e2dbfb61404b75dbe9114d05a7e4af369694",
+    "special-neutral-r01.png": "699562fc5f654ea1d1c2076ec66df024217e3e4afd369c05d296a4e87c54cda6",
+    "special-side-r01.png": "204f57a9bd6ad3f87631466971abaa36a2ed3ca6583d4cca4562265573748f8a",
+    "special-up-r01.png": "42ab707a6fb10bce27fed5f1e7795363eef1650ecd28c5477a4389855da04c01",
+    "special-down-r01.png": "4c8be88a20618f5cd15a392f3e7e1e25db492c8f0482552f8dff5bde1cb55cc8",
+    "ultimate-r02.png": "90b4a7b60e38f80e54360c82175115dc4ff1036029d528931e94219ca60fe90a"
   },
   "motions": [
     {
@@ -1391,6 +1411,6906 @@
         }
       ],
       "sha256": "4fe1e384786036fc3a83b5185e2e1bae58fb62830ebe89a212f34e429597f066"
+    },
+    {
+      "name": "attack_heavy_charge",
+      "source": "heavy-charge-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            53,
+            6,
+            272,
+            307
+          ],
+          "source_pivot": [
+            157.0,
+            307.0
+          ],
+          "bounds": [
+            27,
+            17,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            45,
+            6,
+            285,
+            308
+          ],
+          "source_pivot": [
+            162.0,
+            308.0
+          ],
+          "bounds": [
+            23,
+            17,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            53,
+            7,
+            286,
+            308
+          ],
+          "source_pivot": [
+            162.5,
+            308.0
+          ],
+          "bounds": [
+            25,
+            17,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            49,
+            10,
+            291,
+            307
+          ],
+          "source_pivot": [
+            162.5,
+            307.0
+          ],
+          "bounds": [
+            24,
+            19,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            43,
+            19,
+            304,
+            306
+          ],
+          "source_pivot": [
+            151.0,
+            306.0
+          ],
+          "bounds": [
+            26,
+            22,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            52,
+            24,
+            313,
+            305
+          ],
+          "source_pivot": [
+            157.0,
+            305.0
+          ],
+          "bounds": [
+            27,
+            25,
+            119,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            54,
+            24,
+            313,
+            307
+          ],
+          "source_pivot": [
+            157.0,
+            307.0
+          ],
+          "bounds": [
+            28,
+            24,
+            120,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            51,
+            24,
+            304,
+            307
+          ],
+          "source_pivot": [
+            185.5,
+            307.0
+          ],
+          "bounds": [
+            16,
+            24,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            41,
+            23,
+            308,
+            297
+          ],
+          "source_pivot": [
+            157.0,
+            297.0
+          ],
+          "bounds": [
+            23,
+            27,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            59,
+            3,
+            282,
+            295
+          ],
+          "source_pivot": [
+            173.0,
+            295.0
+          ],
+          "bounds": [
+            24,
+            21,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            53,
+            4,
+            277,
+            296
+          ],
+          "source_pivot": [
+            165.5,
+            296.0
+          ],
+          "bounds": [
+            24,
+            21,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            49,
+            10,
+            270,
+            296
+          ],
+          "source_pivot": [
+            165.0,
+            296.0
+          ],
+          "bounds": [
+            23,
+            23,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 68
+        },
+        {
+          "source_box": [
+            44,
+            1,
+            268,
+            296
+          ],
+          "source_pivot": [
+            161.5,
+            296.0
+          ],
+          "bounds": [
+            22,
+            20,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            58,
+            0,
+            274,
+            295
+          ],
+          "source_pivot": [
+            175.0,
+            295.0
+          ],
+          "bounds": [
+            23,
+            20,
+            99,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            48,
+            0,
+            270,
+            295
+          ],
+          "source_pivot": [
+            170.0,
+            295.0
+          ],
+          "bounds": [
+            21,
+            20,
+            100,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            49,
+            0,
+            263,
+            295
+          ],
+          "source_pivot": [
+            169.5,
+            295.0
+          ],
+          "bounds": [
+            21,
+            20,
+            97,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "5b5d3760f4f59fd7a8533d8ae892432b18bf8904311f5c72bf446ec23fd71a1f"
+    },
+    {
+      "name": "knock_down",
+      "source": "knock-down-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            30,
+            26,
+            311,
+            314
+          ],
+          "source_pivot": [
+            232.5,
+            314.0
+          ],
+          "bounds": [
+            4,
+            39,
+            87,
+            124
+          ],
+          "scale": 0.2962962962962963,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            5,
+            32,
+            313,
+            314
+          ],
+          "source_pivot": [
+            231.0,
+            314.0
+          ],
+          "bounds": [
+            4,
+            49,
+            86,
+            124
+          ],
+          "scale": 0.26548672566371684,
+          "removed_edge_pixels": 53
+        },
+        {
+          "source_box": [
+            0,
+            38,
+            313,
+            314
+          ],
+          "source_pivot": [
+            232.5,
+            314.0
+          ],
+          "bounds": [
+            4,
+            53,
+            85,
+            124
+          ],
+          "scale": 0.25806451612903225,
+          "removed_edge_pixels": 341
+        },
+        {
+          "source_box": [
+            16,
+            27,
+            293,
+            314
+          ],
+          "source_pivot": [
+            219.0,
+            314.0
+          ],
+          "bounds": [
+            4,
+            39,
+            86,
+            124
+          ],
+          "scale": 0.2955665024630542,
+          "removed_edge_pixels": 163
+        },
+        {
+          "source_box": [
+            24,
+            57,
+            314,
+            313
+          ],
+          "source_pivot": [
+            234.5,
+            313.0
+          ],
+          "bounds": [
+            4,
+            51,
+            87,
+            124
+          ],
+          "scale": 0.2850356294536817,
+          "removed_edge_pixels": 1387
+        },
+        {
+          "source_box": [
+            0,
+            66,
+            313,
+            301
+          ],
+          "source_pivot": [
+            109.5,
+            301.0
+          ],
+          "bounds": [
+            32,
+            55,
+            124,
+            124
+          ],
+          "scale": 0.29484029484029484,
+          "removed_edge_pixels": 1903
+        },
+        {
+          "source_box": [
+            4,
+            91,
+            312,
+            313
+          ],
+          "source_pivot": [
+            113.5,
+            313.0
+          ],
+          "bounds": [
+            31,
+            57,
+            124,
+            124
+          ],
+          "scale": 0.3022670025188917,
+          "removed_edge_pixels": 903
+        },
+        {
+          "source_box": [
+            0,
+            155,
+            302,
+            313
+          ],
+          "source_pivot": [
+            146.5,
+            313.0
+          ],
+          "bounds": [
+            12,
+            68,
+            119,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1154
+        },
+        {
+          "source_box": [
+            15,
+            95,
+            314,
+            259
+          ],
+          "source_pivot": [
+            170.0,
+            259.0
+          ],
+          "bounds": [
+            9,
+            66,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1358
+        },
+        {
+          "source_box": [
+            11,
+            121,
+            313,
+            281
+          ],
+          "source_pivot": [
+            285.0,
+            281.0
+          ],
+          "bounds": [
+            4,
+            89,
+            70,
+            124
+          ],
+          "scale": 0.21897810218978103,
+          "removed_edge_pixels": 343
+        },
+        {
+          "source_box": [
+            20,
+            101,
+            307,
+            263
+          ],
+          "source_pivot": [
+            187.0,
+            263.0
+          ],
+          "bounds": [
+            5,
+            67,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 534
+        },
+        {
+          "source_box": [
+            1,
+            135,
+            299,
+            262
+          ],
+          "source_pivot": [
+            151.0,
+            262.0
+          ],
+          "bounds": [
+            11,
+            79,
+            116,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1586
+        },
+        {
+          "source_box": [
+            22,
+            67,
+            314,
+            205
+          ],
+          "source_pivot": [
+            168.0,
+            205.0
+          ],
+          "bounds": [
+            12,
+            75,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            27,
+            71,
+            313,
+            212
+          ],
+          "source_pivot": [
+            99.5,
+            212.0
+          ],
+          "bounds": [
+            44,
+            84,
+            124,
+            124
+          ],
+          "scale": 0.2810304449648712,
+          "removed_edge_pixels": 352
+        },
+        {
+          "source_box": [
+            11,
+            70,
+            309,
+            215
+          ],
+          "source_pivot": [
+            52.0,
+            215.0
+          ],
+          "bounds": [
+            54,
+            90,
+            124,
+            124
+          ],
+          "scale": 0.23346303501945526,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            2,
+            63,
+            296,
+            198
+          ],
+          "source_pivot": [
+            113.5,
+            198.0
+          ],
+          "bounds": [
+            27,
+            80,
+            124,
+            124
+          ],
+          "scale": 0.3287671232876712,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "4d4538b45f80924b5aa241421795fbc3b39db5b84b88ed2b23fa65535c2ae81b"
+    },
+    {
+      "name": "wake_up",
+      "source": "wake-up-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            24,
+            125,
+            314,
+            241
+          ],
+          "source_pivot": [
+            170.5,
+            241.0
+          ],
+          "bounds": [
+            12,
+            83,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            52,
+            102,
+            313,
+            240
+          ],
+          "source_pivot": [
+            182.5,
+            240.0
+          ],
+          "bounds": [
+            18,
+            75,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1177
+        },
+        {
+          "source_box": [
+            17,
+            98,
+            313,
+            238
+          ],
+          "source_pivot": [
+            161.5,
+            238.0
+          ],
+          "bounds": [
+            13,
+            74,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 52
+        },
+        {
+          "source_box": [
+            26,
+            68,
+            287,
+            240
+          ],
+          "source_pivot": [
+            156.0,
+            240.0
+          ],
+          "bounds": [
+            18,
+            63,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 371
+        },
+        {
+          "source_box": [
+            16,
+            0,
+            314,
+            202
+          ],
+          "source_pivot": [
+            171.5,
+            202.0
+          ],
+          "bounds": [
+            9,
+            52,
+            114,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 2940
+        },
+        {
+          "source_box": [
+            29,
+            2,
+            313,
+            201
+          ],
+          "source_pivot": [
+            192.5,
+            201.0
+          ],
+          "bounds": [
+            6,
+            54,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 4782
+        },
+        {
+          "source_box": [
+            16,
+            4,
+            313,
+            211
+          ],
+          "source_pivot": [
+            123.5,
+            211.0
+          ],
+          "bounds": [
+            30,
+            58,
+            124,
+            124
+          ],
+          "scale": 0.316622691292876,
+          "removed_edge_pixels": 7463
+        },
+        {
+          "source_box": [
+            17,
+            0,
+            298,
+            212
+          ],
+          "source_pivot": [
+            122.5,
+            212.0
+          ],
+          "bounds": [
+            28,
+            52,
+            124,
+            124
+          ],
+          "scale": 0.3418803418803419,
+          "removed_edge_pixels": 9362
+        },
+        {
+          "source_box": [
+            33,
+            0,
+            313,
+            188
+          ],
+          "source_pivot": [
+            141.5,
+            188.0
+          ],
+          "bounds": [
+            26,
+            58,
+            124,
+            124
+          ],
+          "scale": 0.3498542274052478,
+          "removed_edge_pixels": 13671
+        },
+        {
+          "source_box": [
+            38,
+            0,
+            307,
+            190
+          ],
+          "source_pivot": [
+            150.0,
+            190.0
+          ],
+          "bounds": [
+            24,
+            57,
+            119,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 12112
+        },
+        {
+          "source_box": [
+            37,
+            0,
+            243,
+            190
+          ],
+          "source_pivot": [
+            127.0,
+            190.0
+          ],
+          "bounds": [
+            32,
+            57,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 13711
+        },
+        {
+          "source_box": [
+            34,
+            0,
+            221,
+            194
+          ],
+          "source_pivot": [
+            100.5,
+            194.0
+          ],
+          "bounds": [
+            40,
+            55,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 13645
+        },
+        {
+          "source_box": [
+            53,
+            0,
+            272,
+            261
+          ],
+          "source_pivot": [
+            105.0,
+            261.0
+          ],
+          "bounds": [
+            46,
+            32,
+            124,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 270
+        },
+        {
+          "source_box": [
+            53,
+            0,
+            277,
+            254
+          ],
+          "source_pivot": [
+            97.0,
+            254.0
+          ],
+          "bounds": [
+            49,
+            39,
+            124,
+            124
+          ],
+          "scale": 0.3333333333333333,
+          "removed_edge_pixels": 331
+        },
+        {
+          "source_box": [
+            40,
+            0,
+            265,
+            256
+          ],
+          "source_pivot": [
+            77.5,
+            256.0
+          ],
+          "bounds": [
+            52,
+            42,
+            124,
+            124
+          ],
+          "scale": 0.32,
+          "removed_edge_pixels": 117
+        },
+        {
+          "source_box": [
+            32,
+            0,
+            283,
+            256
+          ],
+          "source_pivot": [
+            151.0,
+            256.0
+          ],
+          "bounds": [
+            22,
+            33,
+            111,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 105
+        }
+      ],
+      "sha256": "293e46d34d87c2b8126fac950071d1e6f734629a03a7dc5d4fdd29473315585d"
+    },
+    {
+      "name": "death",
+      "source": "death-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            40,
+            11,
+            283,
+            314
+          ],
+          "source_pivot": [
+            130.5,
+            314.0
+          ],
+          "bounds": [
+            32,
+            17,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            41,
+            14,
+            299,
+            314
+          ],
+          "source_pivot": [
+            126.5,
+            314.0
+          ],
+          "bounds": [
+            34,
+            20,
+            124,
+            124
+          ],
+          "scale": 0.34782608695652173,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            29,
+            36,
+            288,
+            314
+          ],
+          "source_pivot": [
+            126.0,
+            314.0
+          ],
+          "bounds": [
+            30,
+            26,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            47,
+            61,
+            303,
+            314
+          ],
+          "source_pivot": [
+            136.0,
+            314.0
+          ],
+          "bounds": [
+            32,
+            34,
+            123,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            32,
+            52,
+            310,
+            313
+          ],
+          "source_pivot": [
+            130.0,
+            313.0
+          ],
+          "bounds": [
+            31,
+            37,
+            124,
+            124
+          ],
+          "scale": 0.3333333333333333,
+          "removed_edge_pixels": 1997
+        },
+        {
+          "source_box": [
+            40,
+            84,
+            310,
+            313
+          ],
+          "source_pivot": [
+            134.5,
+            313.0
+          ],
+          "bounds": [
+            32,
+            46,
+            124,
+            124
+          ],
+          "scale": 0.3418803418803419,
+          "removed_edge_pixels": 2151
+        },
+        {
+          "source_box": [
+            28,
+            115,
+            278,
+            313
+          ],
+          "source_pivot": [
+            138.5,
+            313.0
+          ],
+          "bounds": [
+            25,
+            54,
+            113,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 2311
+        },
+        {
+          "source_box": [
+            14,
+            160,
+            297,
+            313
+          ],
+          "source_pivot": [
+            155.0,
+            313.0
+          ],
+          "bounds": [
+            14,
+            70,
+            114,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 2293
+        },
+        {
+          "source_box": [
+            13,
+            109,
+            292,
+            283
+          ],
+          "source_pivot": [
+            128.0,
+            283.0
+          ],
+          "bounds": [
+            23,
+            62,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 662
+        },
+        {
+          "source_box": [
+            1,
+            138,
+            308,
+            283
+          ],
+          "source_pivot": [
+            154.0,
+            283.0
+          ],
+          "bounds": [
+            10,
+            73,
+            119,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1442
+        },
+        {
+          "source_box": [
+            8,
+            154,
+            309,
+            296
+          ],
+          "source_pivot": [
+            34.0,
+            296.0
+          ],
+          "bounds": [
+            58,
+            93,
+            124,
+            124
+          ],
+          "scale": 0.21818181818181817,
+          "removed_edge_pixels": 2163
+        },
+        {
+          "source_box": [
+            8,
+            166,
+            303,
+            292
+          ],
+          "source_pivot": [
+            93.5,
+            292.0
+          ],
+          "bounds": [
+            40,
+            88,
+            124,
+            124
+          ],
+          "scale": 0.2863961813842482,
+          "removed_edge_pixels": 3291
+        },
+        {
+          "source_box": [
+            12,
+            97,
+            290,
+            247
+          ],
+          "source_pivot": [
+            38.0,
+            247.0
+          ],
+          "bounds": [
+            58,
+            88,
+            124,
+            124
+          ],
+          "scale": 0.23809523809523808,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            0,
+            117,
+            308,
+            241
+          ],
+          "source_pivot": [
+            80.5,
+            241.0
+          ],
+          "bounds": [
+            43,
+            91,
+            124,
+            124
+          ],
+          "scale": 0.26373626373626374,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            7,
+            115,
+            309,
+            249
+          ],
+          "source_pivot": [
+            150.0,
+            249.0
+          ],
+          "bounds": [
+            13,
+            77,
+            120,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            8,
+            133,
+            303,
+            249
+          ],
+          "source_pivot": [
+            153.5,
+            249.0
+          ],
+          "bounds": [
+            12,
+            83,
+            116,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "27df288269a67bf7bf9b54e5e13ac167afc9f81b9fb0e1d6728204e71aca11c5"
+    },
+    {
+      "name": "ring_out",
+      "source": "ring-out-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            22,
+            17,
+            303,
+            299
+          ],
+          "source_pivot": [
+            234.0,
+            299.0
+          ],
+          "bounds": [
+            4,
+            44,
+            84,
+            124
+          ],
+          "scale": 0.2830188679245283,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            35,
+            18,
+            296,
+            312
+          ],
+          "source_pivot": [
+            214.5,
+            312.0
+          ],
+          "bounds": [
+            4,
+            26,
+            91,
+            124
+          ],
+          "scale": 0.3342618384401114,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            18,
+            7,
+            313,
+            314
+          ],
+          "source_pivot": [
+            260.5,
+            314.0
+          ],
+          "bounds": [
+            4,
+            48,
+            77,
+            124
+          ],
+          "scale": 0.24742268041237114,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            25,
+            10,
+            303,
+            293
+          ],
+          "source_pivot": [
+            220.0,
+            293.0
+          ],
+          "bounds": [
+            4,
+            37,
+            90,
+            124
+          ],
+          "scale": 0.3076923076923077,
+          "removed_edge_pixels": 329
+        },
+        {
+          "source_box": [
+            15,
+            0,
+            314,
+            289
+          ],
+          "source_pivot": [
+            282.0,
+            289.0
+          ],
+          "bounds": [
+            4,
+            59,
+            71,
+            124
+          ],
+          "scale": 0.2247191011235955,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            13,
+            13,
+            309,
+            268
+          ],
+          "source_pivot": [
+            228.5,
+            268.0
+          ],
+          "bounds": [
+            4,
+            53,
+            86,
+            124
+          ],
+          "scale": 0.27842227378190254,
+          "removed_edge_pixels": 182
+        },
+        {
+          "source_box": [
+            19,
+            17,
+            300,
+            267
+          ],
+          "source_pivot": [
+            149.0,
+            267.0
+          ],
+          "bounds": [
+            18,
+            36,
+            117,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            8,
+            23,
+            292,
+            265
+          ],
+          "source_pivot": [
+            135.0,
+            265.0
+          ],
+          "bounds": [
+            19,
+            38,
+            120,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            12,
+            11,
+            300,
+            257
+          ],
+          "source_pivot": [
+            181.0,
+            257.0
+          ],
+          "bounds": [
+            4,
+            37,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            21,
+            0,
+            313,
+            264
+          ],
+          "source_pivot": [
+            231.5,
+            264.0
+          ],
+          "bounds": [
+            4,
+            49,
+            87,
+            124
+          ],
+          "scale": 0.2850356294536817,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            17,
+            17,
+            305,
+            249
+          ],
+          "source_pivot": [
+            217.5,
+            249.0
+          ],
+          "bounds": [
+            4,
+            55,
+            90,
+            124
+          ],
+          "scale": 0.29925187032418954,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            24,
+            22,
+            291,
+            258
+          ],
+          "source_pivot": [
+            258.0,
+            258.0
+          ],
+          "bounds": [
+            4,
+            63,
+            72,
+            124
+          ],
+          "scale": 0.2564102564102564,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            48,
+            3,
+            314,
+            259
+          ],
+          "source_pivot": [
+            271.5,
+            259.0
+          ],
+          "bounds": [
+            4,
+            55,
+            75,
+            124
+          ],
+          "scale": 0.2684563758389262,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            46,
+            2,
+            282,
+            234
+          ],
+          "source_pivot": [
+            248.0,
+            234.0
+          ],
+          "bounds": [
+            4,
+            55,
+            74,
+            124
+          ],
+          "scale": 0.297029702970297,
+          "removed_edge_pixels": 95
+        },
+        {
+          "source_box": [
+            51,
+            17,
+            271,
+            212
+          ],
+          "source_pivot": [
+            250.5,
+            212.0
+          ],
+          "bounds": [
+            4,
+            65,
+            70,
+            124
+          ],
+          "scale": 0.3007518796992481,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            78,
+            44,
+            252,
+            189
+          ],
+          "source_pivot": [
+            216.5,
+            189.0
+          ],
+          "bounds": [
+            15,
+            73,
+            77,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "51f695af37a1c8ff42dcdb90ea63e7b02de45e39b10e77a15249e04b1bc269fc"
+    },
+    {
+      "name": "spawn",
+      "source": "spawn-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            45,
+            8,
+            259,
+            288
+          ],
+          "source_pivot": [
+            156.0,
+            288.0
+          ],
+          "bounds": [
+            25,
+            25,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            51,
+            15,
+            256,
+            289
+          ],
+          "source_pivot": [
+            149.5,
+            289.0
+          ],
+          "bounds": [
+            29,
+            27,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            25,
+            14,
+            299,
+            298
+          ],
+          "source_pivot": [
+            188.0,
+            298.0
+          ],
+          "bounds": [
+            6,
+            23,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            41,
+            7,
+            291,
+            314
+          ],
+          "source_pivot": [
+            210.5,
+            314.0
+          ],
+          "bounds": [
+            4,
+            15,
+            92,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            44,
+            3,
+            306,
+            313
+          ],
+          "source_pivot": [
+            211.5,
+            313.0
+          ],
+          "bounds": [
+            5,
+            14,
+            98,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            43,
+            8,
+            306,
+            312
+          ],
+          "source_pivot": [
+            182.5,
+            312.0
+          ],
+          "bounds": [
+            15,
+            16,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            32,
+            3,
+            300,
+            313
+          ],
+          "source_pivot": [
+            155.0,
+            313.0
+          ],
+          "bounds": [
+            20,
+            14,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            39,
+            20,
+            278,
+            311
+          ],
+          "source_pivot": [
+            154.0,
+            311.0
+          ],
+          "bounds": [
+            23,
+            21,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 52
+        },
+        {
+          "source_box": [
+            25,
+            36,
+            310,
+            285
+          ],
+          "source_pivot": [
+            154.0,
+            285.0
+          ],
+          "bounds": [
+            18,
+            36,
+            119,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 569
+        },
+        {
+          "source_box": [
+            32,
+            61,
+            309,
+            286
+          ],
+          "source_pivot": [
+            142.0,
+            286.0
+          ],
+          "bounds": [
+            25,
+            44,
+            123,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 408
+        },
+        {
+          "source_box": [
+            38,
+            17,
+            302,
+            295
+          ],
+          "source_pivot": [
+            153.5,
+            295.0
+          ],
+          "bounds": [
+            23,
+            26,
+            116,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 161
+        },
+        {
+          "source_box": [
+            44,
+            0,
+            271,
+            303
+          ],
+          "source_pivot": [
+            94.0,
+            303.0
+          ],
+          "bounds": [
+            47,
+            21,
+            124,
+            124
+          ],
+          "scale": 0.3389830508474576,
+          "removed_edge_pixels": 128
+        },
+        {
+          "source_box": [
+            46,
+            0,
+            279,
+            298
+          ],
+          "source_pivot": [
+            105.5,
+            298.0
+          ],
+          "bounds": [
+            43,
+            21,
+            124,
+            124
+          ],
+          "scale": 0.345821325648415,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            40,
+            0,
+            290,
+            299
+          ],
+          "source_pivot": [
+            96.0,
+            299.0
+          ],
+          "bounds": [
+            47,
+            32,
+            124,
+            124
+          ],
+          "scale": 0.30927835051546393,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            28,
+            0,
+            282,
+            296
+          ],
+          "source_pivot": [
+            93.0,
+            296.0
+          ],
+          "bounds": [
+            43,
+            30,
+            124,
+            124
+          ],
+          "scale": 0.31746031746031744,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            32,
+            0,
+            279,
+            298
+          ],
+          "source_pivot": [
+            94.0,
+            298.0
+          ],
+          "bounds": [
+            44,
+            27,
+            124,
+            124
+          ],
+          "scale": 0.32432432432432434,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "771ed8f4c7c599fd33ff582c7ff03ead111cbdcf83661dc1c76f5215951eb9b4"
+    },
+    {
+      "name": "attack_light_up",
+      "source": "light-up-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            50,
+            13,
+            284,
+            309
+          ],
+          "source_pivot": [
+            155.5,
+            309.0
+          ],
+          "bounds": [
+            27,
+            19,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            41,
+            28,
+            301,
+            309
+          ],
+          "source_pivot": [
+            148.5,
+            309.0
+          ],
+          "bounds": [
+            26,
+            25,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            29,
+            18,
+            294,
+            309
+          ],
+          "source_pivot": [
+            148.0,
+            309.0
+          ],
+          "bounds": [
+            22,
+            21,
+            116,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            43,
+            19,
+            286,
+            309
+          ],
+          "source_pivot": [
+            149.0,
+            309.0
+          ],
+          "bounds": [
+            26,
+            21,
+            112,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            16,
+            290,
+            303
+          ],
+          "source_pivot": [
+            150.0,
+            303.0
+          ],
+          "bounds": [
+            22,
+            22,
+            114,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            31,
+            7,
+            280,
+            302
+          ],
+          "source_pivot": [
+            172.5,
+            302.0
+          ],
+          "bounds": [
+            14,
+            20,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            28,
+            10,
+            296,
+            302
+          ],
+          "source_pivot": [
+            165.5,
+            302.0
+          ],
+          "bounds": [
+            15,
+            21,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            23,
+            15,
+            291,
+            302
+          ],
+          "source_pivot": [
+            161.5,
+            302.0
+          ],
+          "bounds": [
+            15,
+            22,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            4,
+            280,
+            291
+          ],
+          "source_pivot": [
+            172.5,
+            291.0
+          ],
+          "bounds": [
+            14,
+            22,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 199
+        },
+        {
+          "source_box": [
+            41,
+            12,
+            290,
+            295
+          ],
+          "source_pivot": [
+            172.0,
+            295.0
+          ],
+          "bounds": [
+            18,
+            24,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 54
+        },
+        {
+          "source_box": [
+            27,
+            14,
+            273,
+            297
+          ],
+          "source_pivot": [
+            164.5,
+            297.0
+          ],
+          "bounds": [
+            15,
+            24,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 175
+        },
+        {
+          "source_box": [
+            20,
+            7,
+            269,
+            297
+          ],
+          "source_pivot": [
+            163.5,
+            297.0
+          ],
+          "bounds": [
+            13,
+            21,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 75
+        },
+        {
+          "source_box": [
+            36,
+            0,
+            287,
+            294
+          ],
+          "source_pivot": [
+            173.0,
+            294.0
+          ],
+          "bounds": [
+            16,
+            20,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            0,
+            294,
+            293
+          ],
+          "source_pivot": [
+            172.5,
+            293.0
+          ],
+          "bounds": [
+            14,
+            20,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            36,
+            0,
+            281,
+            294
+          ],
+          "source_pivot": [
+            165.0,
+            294.0
+          ],
+          "bounds": [
+            18,
+            20,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            32,
+            0,
+            274,
+            294
+          ],
+          "source_pivot": [
+            166.5,
+            294.0
+          ],
+          "bounds": [
+            16,
+            20,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "9b2b912f1c825e89dc6e83db146d097e9b514650e01c3fad6576dc518b879c54"
+    },
+    {
+      "name": "attack_light_down",
+      "source": "light-down-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            32,
+            9,
+            256,
+            309
+          ],
+          "source_pivot": [
+            151.0,
+            309.0
+          ],
+          "bounds": [
+            22,
+            18,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            31,
+            31,
+            254,
+            309
+          ],
+          "source_pivot": [
+            148.0,
+            309.0
+          ],
+          "bounds": [
+            23,
+            26,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            14,
+            57,
+            260,
+            309
+          ],
+          "source_pivot": [
+            143.5,
+            309.0
+          ],
+          "bounds": [
+            18,
+            35,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            31,
+            93,
+            265,
+            308
+          ],
+          "source_pivot": [
+            154.5,
+            308.0
+          ],
+          "bounds": [
+            20,
+            48,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            31,
+            25,
+            258,
+            299
+          ],
+          "source_pivot": [
+            167.0,
+            299.0
+          ],
+          "bounds": [
+            16,
+            27,
+            96,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            0,
+            27,
+            280,
+            302
+          ],
+          "source_pivot": [
+            117.5,
+            302.0
+          ],
+          "bounds": [
+            22,
+            27,
+            121,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 544
+        },
+        {
+          "source_box": [
+            0,
+            34,
+            291,
+            302
+          ],
+          "source_pivot": [
+            108.0,
+            302.0
+          ],
+          "bounds": [
+            29,
+            36,
+            124,
+            124
+          ],
+          "scale": 0.32786885245901637,
+          "removed_edge_pixels": 129
+        },
+        {
+          "source_box": [
+            0,
+            34,
+            292,
+            302
+          ],
+          "source_pivot": [
+            115.5,
+            302.0
+          ],
+          "bounds": [
+            25,
+            33,
+            124,
+            124
+          ],
+          "scale": 0.33994334277620397,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            34,
+            13,
+            255,
+            289
+          ],
+          "source_pivot": [
+            168.5,
+            289.0
+          ],
+          "bounds": [
+            16,
+            26,
+            94,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            22,
+            260,
+            288
+          ],
+          "source_pivot": [
+            232.5,
+            288.0
+          ],
+          "bounds": [
+            4,
+            45,
+            72,
+            124
+          ],
+          "scale": 0.2962962962962963,
+          "removed_edge_pixels": 67
+        },
+        {
+          "source_box": [
+            20,
+            42,
+            252,
+            289
+          ],
+          "source_pivot": [
+            164.0,
+            289.0
+          ],
+          "bounds": [
+            13,
+            37,
+            95,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 214
+        },
+        {
+          "source_box": [
+            26,
+            55,
+            249,
+            288
+          ],
+          "source_pivot": [
+            154.5,
+            288.0
+          ],
+          "bounds": [
+            19,
+            42,
+            98,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 165
+        },
+        {
+          "source_box": [
+            30,
+            13,
+            265,
+            287
+          ],
+          "source_pivot": [
+            152.5,
+            287.0
+          ],
+          "bounds": [
+            21,
+            27,
+            104,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            29,
+            0,
+            255,
+            288
+          ],
+          "source_pivot": [
+            146.0,
+            288.0
+          ],
+          "bounds": [
+            23,
+            22,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            23,
+            0,
+            245,
+            287
+          ],
+          "source_pivot": [
+            143.5,
+            287.0
+          ],
+          "bounds": [
+            21,
+            22,
+            100,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            29,
+            0,
+            253,
+            287
+          ],
+          "source_pivot": [
+            149.5,
+            287.0
+          ],
+          "bounds": [
+            21,
+            22,
+            100,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "ef03e6b776748a960fcb07ba668653dc6de99ce455f37a2748337005c9ae0093"
+    },
+    {
+      "name": "attack_dash_light",
+      "source": "dash-light-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            32,
+            33,
+            284,
+            302
+          ],
+          "source_pivot": [
+            126.0,
+            302.0
+          ],
+          "bounds": [
+            31,
+            29,
+            120,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            18,
+            29,
+            280,
+            297
+          ],
+          "source_pivot": [
+            90.0,
+            297.0
+          ],
+          "bounds": [
+            41,
+            39,
+            124,
+            124
+          ],
+          "scale": 0.3157894736842105,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            8,
+            28,
+            263,
+            302
+          ],
+          "source_pivot": [
+            86.0,
+            302.0
+          ],
+          "bounds": [
+            38,
+            31,
+            124,
+            124
+          ],
+          "scale": 0.3389830508474576,
+          "removed_edge_pixels": 251
+        },
+        {
+          "source_box": [
+            0,
+            23,
+            287,
+            300
+          ],
+          "source_pivot": [
+            251.5,
+            300.0
+          ],
+          "bounds": [
+            4,
+            58,
+            72,
+            124
+          ],
+          "scale": 0.23856858846918488,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            23,
+            28,
+            291,
+            297
+          ],
+          "source_pivot": [
+            57.0,
+            297.0
+          ],
+          "bounds": [
+            55,
+            55,
+            124,
+            124
+          ],
+          "scale": 0.2564102564102564,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            41,
+            6,
+            270,
+            307
+          ],
+          "source_pivot": [
+            156.5,
+            307.0
+          ],
+          "bounds": [
+            23,
+            17,
+            104,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            26,
+            0,
+            248,
+            305
+          ],
+          "source_pivot": [
+            134.0,
+            305.0
+          ],
+          "bounds": [
+            26,
+            16,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            6,
+            0,
+            298,
+            303
+          ],
+          "source_pivot": [
+            128.0,
+            303.0
+          ],
+          "bounds": [
+            21,
+            17,
+            124,
+            124
+          ],
+          "scale": 0.35294117647058826,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            42,
+            13,
+            303,
+            280
+          ],
+          "source_pivot": [
+            178.0,
+            280.0
+          ],
+          "bounds": [
+            16,
+            29,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 369
+        },
+        {
+          "source_box": [
+            32,
+            23,
+            298,
+            275
+          ],
+          "source_pivot": [
+            133.5,
+            275.0
+          ],
+          "bounds": [
+            28,
+            35,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 907
+        },
+        {
+          "source_box": [
+            36,
+            22,
+            256,
+            279
+          ],
+          "source_pivot": [
+            136.5,
+            279.0
+          ],
+          "bounds": [
+            28,
+            33,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1226
+        },
+        {
+          "source_box": [
+            25,
+            18,
+            263,
+            275
+          ],
+          "source_pivot": [
+            157.5,
+            275.0
+          ],
+          "bounds": [
+            17,
+            33,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1264
+        },
+        {
+          "source_box": [
+            38,
+            0,
+            284,
+            274
+          ],
+          "source_pivot": [
+            162.5,
+            274.0
+          ],
+          "bounds": [
+            20,
+            27,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            44,
+            0,
+            278,
+            280
+          ],
+          "source_pivot": [
+            174.5,
+            280.0
+          ],
+          "bounds": [
+            18,
+            25,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            42,
+            0,
+            272,
+            277
+          ],
+          "source_pivot": [
+            171.0,
+            277.0
+          ],
+          "bounds": [
+            18,
+            26,
+            99,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            35,
+            0,
+            267,
+            278
+          ],
+          "source_pivot": [
+            167.0,
+            278.0
+          ],
+          "bounds": [
+            17,
+            26,
+            99,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "acfa511591522d59f82a8455b673e3f17e41817bfcdc870db4d576ad015d1e47"
+    },
+    {
+      "name": "attack_air_light",
+      "source": "air-light-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            37,
+            12,
+            247,
+            303
+          ],
+          "source_pivot": [
+            130.0,
+            303.0
+          ],
+          "bounds": [
+            31,
+            21,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            5,
+            12,
+            234,
+            314
+          ],
+          "source_pivot": [
+            159.0,
+            314.0
+          ],
+          "bounds": [
+            9,
+            17,
+            90,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            6,
+            18,
+            234,
+            314
+          ],
+          "source_pivot": [
+            198.0,
+            314.0
+          ],
+          "bounds": [
+            4,
+            32,
+            75,
+            124
+          ],
+          "scale": 0.3125,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            9,
+            20,
+            242,
+            314
+          ],
+          "source_pivot": [
+            136.0,
+            314.0
+          ],
+          "bounds": [
+            19,
+            20,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            16,
+            5,
+            269,
+            302
+          ],
+          "source_pivot": [
+            161.5,
+            302.0
+          ],
+          "bounds": [
+            12,
+            19,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 382
+        },
+        {
+          "source_box": [
+            0,
+            5,
+            284,
+            303
+          ],
+          "source_pivot": [
+            186.0,
+            303.0
+          ],
+          "bounds": [
+            4,
+            28,
+            96,
+            124
+          ],
+          "scale": 0.3225806451612903,
+          "removed_edge_pixels": 188
+        },
+        {
+          "source_box": [
+            0,
+            4,
+            308,
+            313
+          ],
+          "source_pivot": [
+            200.5,
+            313.0
+          ],
+          "bounds": [
+            4,
+            32,
+            96,
+            124
+          ],
+          "scale": 0.29925187032418954,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            9,
+            15,
+            301,
+            313
+          ],
+          "source_pivot": [
+            192.0,
+            313.0
+          ],
+          "bounds": [
+            4,
+            26,
+            100,
+            124
+          ],
+          "scale": 0.32786885245901637,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            22,
+            4,
+            313,
+            304
+          ],
+          "source_pivot": [
+            214.5,
+            304.0
+          ],
+          "bounds": [
+            4,
+            30,
+            95,
+            124
+          ],
+          "scale": 0.3116883116883117,
+          "removed_edge_pixels": 528
+        },
+        {
+          "source_box": [
+            21,
+            7,
+            248,
+            292
+          ],
+          "source_pivot": [
+            193.5,
+            292.0
+          ],
+          "bounds": [
+            4,
+            25,
+            83,
+            124
+          ],
+          "scale": 0.34782608695652173,
+          "removed_edge_pixels": 299
+        },
+        {
+          "source_box": [
+            28,
+            5,
+            224,
+            286
+          ],
+          "source_pivot": [
+            165.5,
+            286.0
+          ],
+          "bounds": [
+            15,
+            25,
+            84,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 217
+        },
+        {
+          "source_box": [
+            23,
+            7,
+            225,
+            290
+          ],
+          "source_pivot": [
+            173.0,
+            290.0
+          ],
+          "bounds": [
+            11,
+            24,
+            83,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 407
+        },
+        {
+          "source_box": [
+            24,
+            0,
+            244,
+            288
+          ],
+          "source_pivot": [
+            179.0,
+            288.0
+          ],
+          "bounds": [
+            9,
+            22,
+            87,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            26,
+            0,
+            239,
+            290
+          ],
+          "source_pivot": [
+            165.0,
+            290.0
+          ],
+          "bounds": [
+            15,
+            21,
+            90,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            18,
+            0,
+            222,
+            292
+          ],
+          "source_pivot": [
+            153.5,
+            292.0
+          ],
+          "bounds": [
+            16,
+            21,
+            88,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            9,
+            0,
+            222,
+            287
+          ],
+          "source_pivot": [
+            165.0,
+            287.0
+          ],
+          "bounds": [
+            9,
+            22,
+            84,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "607d77740be3b86aa3e0d970690c4bfb90644fc0bcffdc3460528462839e317e"
+    },
+    {
+      "name": "attack_heavy_side",
+      "source": "heavy-side-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            30,
+            16,
+            279,
+            305
+          ],
+          "source_pivot": [
+            154.0,
+            305.0
+          ],
+          "bounds": [
+            20,
+            22,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            31,
+            16,
+            274,
+            305
+          ],
+          "source_pivot": [
+            152.0,
+            305.0
+          ],
+          "bounds": [
+            21,
+            22,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            21,
+            18,
+            275,
+            305
+          ],
+          "source_pivot": [
+            166.5,
+            305.0
+          ],
+          "bounds": [
+            12,
+            22,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            24,
+            25,
+            287,
+            299
+          ],
+          "source_pivot": [
+            168.0,
+            299.0
+          ],
+          "bounds": [
+            13,
+            27,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            34,
+            18,
+            298,
+            304
+          ],
+          "source_pivot": [
+            174.5,
+            304.0
+          ],
+          "bounds": [
+            14,
+            23,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            28,
+            16,
+            260,
+            305
+          ],
+          "source_pivot": [
+            184.0,
+            305.0
+          ],
+          "bounds": [
+            9,
+            22,
+            91,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            15,
+            14,
+            233,
+            307
+          ],
+          "source_pivot": [
+            150.5,
+            307.0
+          ],
+          "bounds": [
+            16,
+            20,
+            93,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 401
+        },
+        {
+          "source_box": [
+            0,
+            16,
+            293,
+            313
+          ],
+          "source_pivot": [
+            127.5,
+            313.0
+          ],
+          "bounds": [
+            19,
+            19,
+            123,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            20,
+            19,
+            314,
+            309
+          ],
+          "source_pivot": [
+            152.5,
+            309.0
+          ],
+          "bounds": [
+            17,
+            21,
+            121,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            52,
+            13,
+            259,
+            308
+          ],
+          "source_pivot": [
+            180.5,
+            308.0
+          ],
+          "bounds": [
+            19,
+            20,
+            92,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 456
+        },
+        {
+          "source_box": [
+            33,
+            17,
+            235,
+            313
+          ],
+          "source_pivot": [
+            137.0,
+            313.0
+          ],
+          "bounds": [
+            27,
+            19,
+            99,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            13,
+            20,
+            259,
+            313
+          ],
+          "source_pivot": [
+            166.5,
+            313.0
+          ],
+          "bounds": [
+            10,
+            20,
+            97,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 61
+        },
+        {
+          "source_box": [
+            43,
+            11,
+            269,
+            300
+          ],
+          "source_pivot": [
+            162.5,
+            300.0
+          ],
+          "bounds": [
+            22,
+            22,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            37,
+            10,
+            264,
+            301
+          ],
+          "source_pivot": [
+            168.5,
+            301.0
+          ],
+          "bounds": [
+            17,
+            21,
+            97,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            32,
+            12,
+            266,
+            301
+          ],
+          "source_pivot": [
+            156.0,
+            301.0
+          ],
+          "bounds": [
+            20,
+            22,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            37,
+            16,
+            276,
+            300
+          ],
+          "source_pivot": [
+            156.0,
+            300.0
+          ],
+          "bounds": [
+            22,
+            23,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "03efed25b0df1420ea23253839583561c8f2db9cd326a8e5c5f4019f9743d7ed"
+    },
+    {
+      "name": "attack_heavy_up",
+      "source": "heavy-up-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            23,
+            37,
+            314,
+            295
+          ],
+          "source_pivot": [
+            149.5,
+            295.0
+          ],
+          "bounds": [
+            19,
+            33,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            28,
+            19,
+            307,
+            295
+          ],
+          "source_pivot": [
+            159.5,
+            295.0
+          ],
+          "bounds": [
+            17,
+            26,
+            116,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            34,
+            18,
+            311,
+            296
+          ],
+          "source_pivot": [
+            148.0,
+            296.0
+          ],
+          "bounds": [
+            24,
+            26,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            21,
+            304,
+            296
+          ],
+          "source_pivot": [
+            161.5,
+            296.0
+          ],
+          "bounds": [
+            17,
+            27,
+            114,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            36,
+            18,
+            309,
+            294
+          ],
+          "source_pivot": [
+            171.5,
+            294.0
+          ],
+          "bounds": [
+            16,
+            26,
+            113,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            23,
+            8,
+            277,
+            303
+          ],
+          "source_pivot": [
+            145.5,
+            303.0
+          ],
+          "bounds": [
+            21,
+            20,
+            111,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            28,
+            7,
+            291,
+            301
+          ],
+          "source_pivot": [
+            156.0,
+            301.0
+          ],
+          "bounds": [
+            19,
+            20,
+            112,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            14,
+            0,
+            285,
+            299
+          ],
+          "source_pivot": [
+            170.0,
+            299.0
+          ],
+          "bounds": [
+            9,
+            18,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            14,
+            16,
+            295,
+            297
+          ],
+          "source_pivot": [
+            165.5,
+            297.0
+          ],
+          "bounds": [
+            10,
+            25,
+            109,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            23,
+            9,
+            280,
+            295
+          ],
+          "source_pivot": [
+            171.5,
+            295.0
+          ],
+          "bounds": [
+            11,
+            23,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            26,
+            4,
+            287,
+            295
+          ],
+          "source_pivot": [
+            165.5,
+            295.0
+          ],
+          "bounds": [
+            15,
+            21,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 255
+        },
+        {
+          "source_box": [
+            35,
+            12,
+            278,
+            296
+          ],
+          "source_pivot": [
+            171.0,
+            296.0
+          ],
+          "bounds": [
+            16,
+            23,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            35,
+            4,
+            285,
+            285
+          ],
+          "source_pivot": [
+            167.0,
+            285.0
+          ],
+          "bounds": [
+            17,
+            25,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            36,
+            1,
+            289,
+            284
+          ],
+          "source_pivot": [
+            174.0,
+            284.0
+          ],
+          "bounds": [
+            15,
+            24,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            32,
+            0,
+            277,
+            285
+          ],
+          "source_pivot": [
+            171.0,
+            285.0
+          ],
+          "bounds": [
+            15,
+            23,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            33,
+            0,
+            271,
+            287
+          ],
+          "source_pivot": [
+            169.5,
+            287.0
+          ],
+          "bounds": [
+            16,
+            22,
+            100,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "29a07df16089e37dc48151bde5777d891323fb3cf8610156c1c46e56e6abde57"
+    },
+    {
+      "name": "attack_heavy_down",
+      "source": "heavy-down-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            34,
+            63,
+            314,
+            299
+          ],
+          "source_pivot": [
+            140.5,
+            299.0
+          ],
+          "bounds": [
+            27,
+            42,
+            124,
+            124
+          ],
+          "scale": 0.345821325648415,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            48,
+            36,
+            313,
+            305
+          ],
+          "source_pivot": [
+            160.0,
+            305.0
+          ],
+          "bounds": [
+            24,
+            29,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            42,
+            31,
+            309,
+            304
+          ],
+          "source_pivot": [
+            151.0,
+            304.0
+          ],
+          "bounds": [
+            25,
+            27,
+            120,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 115
+        },
+        {
+          "source_box": [
+            41,
+            19,
+            286,
+            309
+          ],
+          "source_pivot": [
+            172.5,
+            309.0
+          ],
+          "bounds": [
+            17,
+            21,
+            104,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            34,
+            18,
+            314,
+            295
+          ],
+          "source_pivot": [
+            168.5,
+            295.0
+          ],
+          "bounds": [
+            16,
+            26,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            49,
+            18,
+            303,
+            288
+          ],
+          "source_pivot": [
+            195.5,
+            288.0
+          ],
+          "bounds": [
+            12,
+            28,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            14,
+            16,
+            267,
+            294
+          ],
+          "source_pivot": [
+            230.0,
+            294.0
+          ],
+          "bounds": [
+            4,
+            47,
+            74,
+            124
+          ],
+          "scale": 0.2777777777777778,
+          "removed_edge_pixels": 467
+        },
+        {
+          "source_box": [
+            0,
+            58,
+            301,
+            292
+          ],
+          "source_pivot": [
+            49.0,
+            292.0
+          ],
+          "bounds": [
+            52,
+            68,
+            124,
+            124
+          ],
+          "scale": 0.23809523809523808,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            22,
+            29,
+            314,
+            275
+          ],
+          "source_pivot": [
+            183.5,
+            275.0
+          ],
+          "bounds": [
+            7,
+            37,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1312
+        },
+        {
+          "source_box": [
+            68,
+            6,
+            313,
+            272
+          ],
+          "source_pivot": [
+            203.5,
+            272.0
+          ],
+          "bounds": [
+            16,
+            30,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 2441
+        },
+        {
+          "source_box": [
+            41,
+            8,
+            302,
+            274
+          ],
+          "source_pivot": [
+            177.5,
+            274.0
+          ],
+          "bounds": [
+            16,
+            30,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 980
+        },
+        {
+          "source_box": [
+            47,
+            2,
+            295,
+            280
+          ],
+          "source_pivot": [
+            132.5,
+            280.0
+          ],
+          "bounds": [
+            34,
+            26,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 595
+        },
+        {
+          "source_box": [
+            43,
+            0,
+            295,
+            285
+          ],
+          "source_pivot": [
+            163.5,
+            285.0
+          ],
+          "bounds": [
+            21,
+            23,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            48,
+            0,
+            299,
+            285
+          ],
+          "source_pivot": [
+            176.5,
+            285.0
+          ],
+          "bounds": [
+            19,
+            23,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            26,
+            0,
+            286,
+            285
+          ],
+          "source_pivot": [
+            159.5,
+            285.0
+          ],
+          "bounds": [
+            17,
+            23,
+            109,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            34,
+            0,
+            281,
+            285
+          ],
+          "source_pivot": [
+            162.0,
+            285.0
+          ],
+          "bounds": [
+            19,
+            23,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "2f70fbe747e50a3bd7923bf2433f7f6600ab5b9bb33bd1947a25993c55f673ce"
+    },
+    {
+      "name": "attack_dash_heavy",
+      "source": "dash-heavy-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            35,
+            30,
+            284,
+            284
+          ],
+          "source_pivot": [
+            108.0,
+            284.0
+          ],
+          "bounds": [
+            39,
+            37,
+            124,
+            124
+          ],
+          "scale": 0.3409090909090909,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            18,
+            46,
+            280,
+            287
+          ],
+          "source_pivot": [
+            112.5,
+            287.0
+          ],
+          "bounds": [
+            31,
+            39,
+            124,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            27,
+            41,
+            285,
+            289
+          ],
+          "source_pivot": [
+            247.0,
+            289.0
+          ],
+          "bounds": [
+            4,
+            56,
+            74,
+            124
+          ],
+          "scale": 0.2727272727272727,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            27,
+            51,
+            285,
+            283
+          ],
+          "source_pivot": [
+            111.0,
+            283.0
+          ],
+          "bounds": [
+            35,
+            44,
+            124,
+            124
+          ],
+          "scale": 0.3448275862068966,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            31,
+            21,
+            278,
+            286
+          ],
+          "source_pivot": [
+            152.5,
+            286.0
+          ],
+          "bounds": [
+            21,
+            30,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            22,
+            0,
+            252,
+            290
+          ],
+          "source_pivot": [
+            112.0,
+            290.0
+          ],
+          "bounds": [
+            32,
+            21,
+            113,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            1,
+            15,
+            313,
+            293
+          ],
+          "source_pivot": [
+            109.5,
+            293.0
+          ],
+          "bounds": [
+            32,
+            42,
+            124,
+            124
+          ],
+          "scale": 0.29484029484029484,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            12,
+            0,
+            287,
+            292
+          ],
+          "source_pivot": [
+            129.0,
+            292.0
+          ],
+          "bounds": [
+            23,
+            21,
+            120,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 720
+        },
+        {
+          "source_box": [
+            14,
+            9,
+            314,
+            282
+          ],
+          "source_pivot": [
+            126.5,
+            282.0
+          ],
+          "bounds": [
+            28,
+            37,
+            124,
+            124
+          ],
+          "scale": 0.32,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            42,
+            1,
+            257,
+            285
+          ],
+          "source_pivot": [
+            135.0,
+            285.0
+          ],
+          "bounds": [
+            31,
+            23,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 686
+        },
+        {
+          "source_box": [
+            29,
+            20,
+            276,
+            283
+          ],
+          "source_pivot": [
+            145.5,
+            283.0
+          ],
+          "bounds": [
+            23,
+            31,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 505
+        },
+        {
+          "source_box": [
+            26,
+            38,
+            302,
+            281
+          ],
+          "source_pivot": [
+            140.0,
+            281.0
+          ],
+          "bounds": [
+            24,
+            38,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 539
+        },
+        {
+          "source_box": [
+            23,
+            8,
+            294,
+            269
+          ],
+          "source_pivot": [
+            166.5,
+            269.0
+          ],
+          "bounds": [
+            13,
+            32,
+            109,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            41,
+            0,
+            285,
+            277
+          ],
+          "source_pivot": [
+            168.5,
+            277.0
+          ],
+          "bounds": [
+            19,
+            26,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            24,
+            0,
+            276,
+            283
+          ],
+          "source_pivot": [
+            75.0,
+            283.0
+          ],
+          "bounds": [
+            49,
+            40,
+            124,
+            124
+          ],
+          "scale": 0.29850746268656714,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            41,
+            0,
+            260,
+            282
+          ],
+          "source_pivot": [
+            155.0,
+            282.0
+          ],
+          "bounds": [
+            24,
+            24,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "46aecde0c469da7ea619f1f6645baad39d02f3889dde87dcca5a8d592408079c"
+    },
+    {
+      "name": "attack_air_heavy",
+      "source": "air-heavy-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            54,
+            17,
+            295,
+            284
+          ],
+          "source_pivot": [
+            98.5,
+            284.0
+          ],
+          "bounds": [
+            50,
+            42,
+            124,
+            124
+          ],
+          "scale": 0.3053435114503817,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            45,
+            16,
+            304,
+            303
+          ],
+          "source_pivot": [
+            128.5,
+            303.0
+          ],
+          "bounds": [
+            35,
+            26,
+            124,
+            124
+          ],
+          "scale": 0.3418803418803419,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            19,
+            15,
+            279,
+            303
+          ],
+          "source_pivot": [
+            105.0,
+            303.0
+          ],
+          "bounds": [
+            34,
+            25,
+            124,
+            124
+          ],
+          "scale": 0.3448275862068966,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            15,
+            283,
+            303
+          ],
+          "source_pivot": [
+            86.0,
+            303.0
+          ],
+          "bounds": [
+            47,
+            36,
+            124,
+            124
+          ],
+          "scale": 0.30456852791878175,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            25,
+            10,
+            301,
+            290
+          ],
+          "source_pivot": [
+            194.0,
+            290.0
+          ],
+          "bounds": [
+            4,
+            25,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            16,
+            13,
+            306,
+            300
+          ],
+          "source_pivot": [
+            187.5,
+            300.0
+          ],
+          "bounds": [
+            4,
+            24,
+            105,
+            124
+          ],
+          "scale": 0.3498542274052478,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            15,
+            9,
+            302,
+            300
+          ],
+          "source_pivot": [
+            133.0,
+            300.0
+          ],
+          "bounds": [
+            22,
+            21,
+            124,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            13,
+            12,
+            294,
+            300
+          ],
+          "source_pivot": [
+            114.0,
+            300.0
+          ],
+          "bounds": [
+            30,
+            28,
+            124,
+            124
+          ],
+          "scale": 0.3333333333333333,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            19,
+            6,
+            314,
+            286
+          ],
+          "source_pivot": [
+            119.0,
+            286.0
+          ],
+          "bounds": [
+            33,
+            38,
+            124,
+            124
+          ],
+          "scale": 0.3076923076923077,
+          "removed_edge_pixels": 224
+        },
+        {
+          "source_box": [
+            37,
+            4,
+            313,
+            293
+          ],
+          "source_pivot": [
+            125.0,
+            293.0
+          ],
+          "bounds": [
+            36,
+            32,
+            124,
+            124
+          ],
+          "scale": 0.3191489361702128,
+          "removed_edge_pixels": 787
+        },
+        {
+          "source_box": [
+            28,
+            7,
+            287,
+            282
+          ],
+          "source_pivot": [
+            178.0,
+            282.0
+          ],
+          "bounds": [
+            11,
+            27,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 703
+        },
+        {
+          "source_box": [
+            30,
+            12,
+            267,
+            273
+          ],
+          "source_pivot": [
+            142.5,
+            273.0
+          ],
+          "bounds": [
+            24,
+            32,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 610
+        },
+        {
+          "source_box": [
+            33,
+            0,
+            284,
+            274
+          ],
+          "source_pivot": [
+            121.5,
+            274.0
+          ],
+          "bounds": [
+            33,
+            27,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            40,
+            0,
+            294,
+            269
+          ],
+          "source_pivot": [
+            116.5,
+            269.0
+          ],
+          "bounds": [
+            38,
+            33,
+            124,
+            124
+          ],
+          "scale": 0.3380281690140845,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            31,
+            0,
+            291,
+            283
+          ],
+          "source_pivot": [
+            154.0,
+            283.0
+          ],
+          "bounds": [
+            20,
+            24,
+            112,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            15,
+            0,
+            294,
+            288
+          ],
+          "source_pivot": [
+            127.5,
+            288.0
+          ],
+          "bounds": [
+            24,
+            22,
+            123,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "e624ffaf749fd8bb100b20802261177e74f5f742c0c5be3f77ef636fa6fce1ca"
+    },
+    {
+      "name": "special_neutral",
+      "source": "special-neutral-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            39,
+            10,
+            279,
+            311
+          ],
+          "source_pivot": [
+            144.0,
+            311.0
+          ],
+          "bounds": [
+            27,
+            17,
+            112,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            39,
+            19,
+            286,
+            309
+          ],
+          "source_pivot": [
+            145.0,
+            309.0
+          ],
+          "bounds": [
+            26,
+            21,
+            113,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            40,
+            34,
+            298,
+            308
+          ],
+          "source_pivot": [
+            134.0,
+            308.0
+          ],
+          "bounds": [
+            31,
+            27,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            22,
+            39,
+            291,
+            308
+          ],
+          "source_pivot": [
+            138.0,
+            308.0
+          ],
+          "bounds": [
+            23,
+            29,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            34,
+            22,
+            300,
+            292
+          ],
+          "source_pivot": [
+            154.5,
+            292.0
+          ],
+          "bounds": [
+            21,
+            28,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 53
+        },
+        {
+          "source_box": [
+            35,
+            2,
+            306,
+            293
+          ],
+          "source_pivot": [
+            154.0,
+            293.0
+          ],
+          "bounds": [
+            22,
+            21,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            11,
+            11,
+            271,
+            294
+          ],
+          "source_pivot": [
+            126.0,
+            294.0
+          ],
+          "bounds": [
+            23,
+            24,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            6,
+            9,
+            285,
+            298
+          ],
+          "source_pivot": [
+            151.0,
+            298.0
+          ],
+          "bounds": [
+            13,
+            22,
+            112,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            14,
+            0,
+            308,
+            291
+          ],
+          "source_pivot": [
+            122.0,
+            291.0
+          ],
+          "bounds": [
+            29,
+            30,
+            124,
+            124
+          ],
+          "scale": 0.3225806451612903,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            0,
+            282,
+            293
+          ],
+          "source_pivot": [
+            133.0,
+            293.0
+          ],
+          "bounds": [
+            28,
+            20,
+            117,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 90
+        },
+        {
+          "source_box": [
+            12,
+            0,
+            302,
+            293
+          ],
+          "source_pivot": [
+            137.0,
+            293.0
+          ],
+          "bounds": [
+            20,
+            20,
+            123,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 169
+        },
+        {
+          "source_box": [
+            35,
+            6,
+            292,
+            296
+          ],
+          "source_pivot": [
+            153.5,
+            296.0
+          ],
+          "bounds": [
+            22,
+            21,
+            113,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 176
+        },
+        {
+          "source_box": [
+            46,
+            0,
+            298,
+            291
+          ],
+          "source_pivot": [
+            145.5,
+            291.0
+          ],
+          "bounds": [
+            29,
+            21,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            42,
+            0,
+            281,
+            293
+          ],
+          "source_pivot": [
+            160.0,
+            293.0
+          ],
+          "bounds": [
+            22,
+            20,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            32,
+            0,
+            282,
+            293
+          ],
+          "source_pivot": [
+            158.5,
+            293.0
+          ],
+          "bounds": [
+            19,
+            20,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            36,
+            0,
+            275,
+            292
+          ],
+          "source_pivot": [
+            155.5,
+            292.0
+          ],
+          "bounds": [
+            22,
+            21,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "f4620f668d19f4faed63b17225e9f323898241ea389d325426af9370084e7e9c"
+    },
+    {
+      "name": "special_side",
+      "source": "special-side-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            31,
+            62,
+            274,
+            304
+          ],
+          "source_pivot": [
+            140.0,
+            304.0
+          ],
+          "bounds": [
+            25,
+            38,
+            111,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            29,
+            60,
+            274,
+            305
+          ],
+          "source_pivot": [
+            119.0,
+            305.0
+          ],
+          "bounds": [
+            32,
+            37,
+            119,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            22,
+            34,
+            272,
+            301
+          ],
+          "source_pivot": [
+            92.5,
+            301.0
+          ],
+          "bounds": [
+            40,
+            35,
+            124,
+            124
+          ],
+          "scale": 0.3342618384401114,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            15,
+            16,
+            266,
+            301
+          ],
+          "source_pivot": [
+            38.5,
+            301.0
+          ],
+          "bounds": [
+            58,
+            49,
+            124,
+            124
+          ],
+          "scale": 0.26373626373626374,
+          "removed_edge_pixels": 419
+        },
+        {
+          "source_box": [
+            31,
+            24,
+            272,
+            303
+          ],
+          "source_pivot": [
+            70.5,
+            303.0
+          ],
+          "bounds": [
+            52,
+            41,
+            124,
+            124
+          ],
+          "scale": 0.2977667493796526,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            14,
+            11,
+            259,
+            304
+          ],
+          "source_pivot": [
+            80.0,
+            304.0
+          ],
+          "bounds": [
+            42,
+            26,
+            124,
+            124
+          ],
+          "scale": 0.33519553072625696,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            18,
+            13,
+            274,
+            308
+          ],
+          "source_pivot": [
+            107.5,
+            308.0
+          ],
+          "bounds": [
+            32,
+            20,
+            123,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            42,
+            0,
+            265,
+            306
+          ],
+          "source_pivot": [
+            111.5,
+            306.0
+          ],
+          "bounds": [
+            39,
+            16,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            23,
+            0,
+            295,
+            295
+          ],
+          "source_pivot": [
+            146.0,
+            295.0
+          ],
+          "bounds": [
+            20,
+            20,
+            116,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 233
+        },
+        {
+          "source_box": [
+            0,
+            4,
+            307,
+            290
+          ],
+          "source_pivot": [
+            162.5,
+            290.0
+          ],
+          "bounds": [
+            6,
+            23,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            20,
+            12,
+            306,
+            289
+          ],
+          "source_pivot": [
+            166.0,
+            289.0
+          ],
+          "bounds": [
+            12,
+            26,
+            113,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 274
+        },
+        {
+          "source_box": [
+            23,
+            11,
+            282,
+            309
+          ],
+          "source_pivot": [
+            253.5,
+            309.0
+          ],
+          "bounds": [
+            4,
+            46,
+            71,
+            124
+          ],
+          "scale": 0.2603036876355748,
+          "removed_edge_pixels": 1140
+        },
+        {
+          "source_box": [
+            27,
+            0,
+            279,
+            290
+          ],
+          "source_pivot": [
+            161.5,
+            290.0
+          ],
+          "bounds": [
+            16,
+            21,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            33,
+            25,
+            271,
+            288
+          ],
+          "source_pivot": [
+            163.0,
+            288.0
+          ],
+          "bounds": [
+            18,
+            31,
+            102,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            29,
+            7,
+            260,
+            287
+          ],
+          "source_pivot": [
+            148.0,
+            287.0
+          ],
+          "bounds": [
+            22,
+            25,
+            104,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            12,
+            0,
+            239,
+            289
+          ],
+          "source_pivot": [
+            134.0,
+            289.0
+          ],
+          "bounds": [
+            21,
+            22,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "fe25681bcd3b0059df14eb5675075be0c9a23c74c230b5867393a8ba8800deb8"
+    },
+    {
+      "name": "special_up",
+      "source": "special-up-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            44,
+            62,
+            256,
+            316
+          ],
+          "source_pivot": [
+            156.0,
+            316.0
+          ],
+          "bounds": [
+            24,
+            34,
+            99,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            49,
+            92,
+            278,
+            315
+          ],
+          "source_pivot": [
+            155.0,
+            315.0
+          ],
+          "bounds": [
+            26,
+            45,
+            107,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            25,
+            19,
+            261,
+            316
+          ],
+          "source_pivot": [
+            97.5,
+            316.0
+          ],
+          "bounds": [
+            38,
+            19,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            29,
+            11,
+            249,
+            317
+          ],
+          "source_pivot": [
+            131.0,
+            317.0
+          ],
+          "bounds": [
+            28,
+            16,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            13,
+            264,
+            314
+          ],
+          "source_pivot": [
+            124.0,
+            314.0
+          ],
+          "bounds": [
+            31,
+            17,
+            114,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            14,
+            6,
+            300,
+            291
+          ],
+          "source_pivot": [
+            146.5,
+            291.0
+          ],
+          "bounds": [
+            17,
+            23,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 57
+        },
+        {
+          "source_box": [
+            9,
+            2,
+            287,
+            293
+          ],
+          "source_pivot": [
+            136.5,
+            293.0
+          ],
+          "bounds": [
+            19,
+            21,
+            117,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 138
+        },
+        {
+          "source_box": [
+            2,
+            13,
+            273,
+            291
+          ],
+          "source_pivot": [
+            144.0,
+            291.0
+          ],
+          "bounds": [
+            14,
+            26,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 91
+        },
+        {
+          "source_box": [
+            30,
+            0,
+            295,
+            277
+          ],
+          "source_pivot": [
+            176.5,
+            277.0
+          ],
+          "bounds": [
+            12,
+            26,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 3773
+        },
+        {
+          "source_box": [
+            23,
+            0,
+            285,
+            280
+          ],
+          "source_pivot": [
+            157.5,
+            280.0
+          ],
+          "bounds": [
+            16,
+            25,
+            109,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 2348
+        },
+        {
+          "source_box": [
+            10,
+            0,
+            282,
+            289
+          ],
+          "source_pivot": [
+            150.5,
+            289.0
+          ],
+          "bounds": [
+            14,
+            22,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1783
+        },
+        {
+          "source_box": [
+            19,
+            0,
+            271,
+            289
+          ],
+          "source_pivot": [
+            158.0,
+            289.0
+          ],
+          "bounds": [
+            15,
+            22,
+            104,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 1455
+        },
+        {
+          "source_box": [
+            30,
+            0,
+            289,
+            265
+          ],
+          "source_pivot": [
+            170.5,
+            265.0
+          ],
+          "bounds": [
+            14,
+            30,
+            106,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 798
+        },
+        {
+          "source_box": [
+            19,
+            0,
+            272,
+            249
+          ],
+          "source_pivot": [
+            191.0,
+            249.0
+          ],
+          "bounds": [
+            4,
+            37,
+            92,
+            124
+          ],
+          "scale": 0.3488372093023256,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            20,
+            0,
+            270,
+            269
+          ],
+          "source_pivot": [
+            163.0,
+            269.0
+          ],
+          "bounds": [
+            13,
+            29,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            13,
+            0,
+            264,
+            290
+          ],
+          "source_pivot": [
+            241.5,
+            290.0
+          ],
+          "bounds": [
+            4,
+            48,
+            70,
+            124
+          ],
+          "scale": 0.26258205689277897,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "3bf98ea2085458ee9de56bdcf42f08ba783929250bccc35deac4a0f38372279c"
+    },
+    {
+      "name": "special_down",
+      "source": "special-down-r01.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            39,
+            28,
+            298,
+            324
+          ],
+          "source_pivot": [
+            140.0,
+            324.0
+          ],
+          "bounds": [
+            28,
+            19,
+            120,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            45,
+            70,
+            299,
+            324
+          ],
+          "source_pivot": [
+            137.5,
+            324.0
+          ],
+          "bounds": [
+            31,
+            34,
+            121,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            27,
+            78,
+            282,
+            324
+          ],
+          "source_pivot": [
+            129.5,
+            324.0
+          ],
+          "bounds": [
+            28,
+            37,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            18,
+            9,
+            279,
+            324
+          ],
+          "source_pivot": [
+            151.0,
+            324.0
+          ],
+          "bounds": [
+            17,
+            12,
+            109,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            35,
+            18,
+            304,
+            320
+          ],
+          "source_pivot": [
+            134.0,
+            320.0
+          ],
+          "bounds": [
+            29,
+            17,
+            124,
+            124
+          ],
+          "scale": 0.35294117647058826,
+          "removed_edge_pixels": 127
+        },
+        {
+          "source_box": [
+            47,
+            16,
+            299,
+            297
+          ],
+          "source_pivot": [
+            154.5,
+            297.0
+          ],
+          "bounds": [
+            26,
+            25,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 133
+        },
+        {
+          "source_box": [
+            36,
+            22,
+            291,
+            282
+          ],
+          "source_pivot": [
+            153.5,
+            282.0
+          ],
+          "bounds": [
+            22,
+            32,
+            112,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 118
+        },
+        {
+          "source_box": [
+            25,
+            20,
+            280,
+            262
+          ],
+          "source_pivot": [
+            168.0,
+            262.0
+          ],
+          "bounds": [
+            13,
+            38,
+            103,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 129
+        },
+        {
+          "source_box": [
+            50,
+            6,
+            298,
+            320
+          ],
+          "source_pivot": [
+            166.5,
+            320.0
+          ],
+          "bounds": [
+            23,
+            13,
+            111,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            45,
+            3,
+            293,
+            301
+          ],
+          "source_pivot": [
+            205.5,
+            301.0
+          ],
+          "bounds": [
+            7,
+            19,
+            95,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            26,
+            1,
+            290,
+            323
+          ],
+          "source_pivot": [
+            160.5,
+            323.0
+          ],
+          "bounds": [
+            16,
+            10,
+            109,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            27,
+            10,
+            277,
+            323
+          ],
+          "source_pivot": [
+            164.0,
+            323.0
+          ],
+          "bounds": [
+            16,
+            13,
+            104,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            26,
+            79,
+            270,
+            299
+          ],
+          "source_pivot": [
+            140.0,
+            299.0
+          ],
+          "bounds": [
+            24,
+            46,
+            110,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 695
+        },
+        {
+          "source_box": [
+            0,
+            95,
+            197,
+            296
+          ],
+          "source_pivot": [
+            70.5,
+            296.0
+          ],
+          "bounds": [
+            39,
+            53,
+            109,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 11369
+        },
+        {
+          "source_box": [
+            149,
+            29,
+            303,
+            300
+          ],
+          "source_pivot": [
+            226.5,
+            300.0
+          ],
+          "bounds": [
+            37,
+            28,
+            92,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 19017
+        },
+        {
+          "source_box": [
+            61,
+            12,
+            280,
+            301
+          ],
+          "source_pivot": [
+            178.0,
+            301.0
+          ],
+          "bounds": [
+            23,
+            22,
+            101,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 3796
+        }
+      ],
+      "sha256": "e8aa1f100df8754db12bd59992a44a5473b945290381a883bf0d3c32a976cacd"
+    },
+    {
+      "name": "ultimate",
+      "source": "ultimate-r02.png",
+      "order": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "frames": [
+        {
+          "source_box": [
+            50,
+            29,
+            293,
+            315
+          ],
+          "source_pivot": [
+            149.0,
+            315.0
+          ],
+          "bounds": [
+            29,
+            23,
+            115,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 60
+        },
+        {
+          "source_box": [
+            35,
+            49,
+            305,
+            309
+          ],
+          "source_pivot": [
+            133.0,
+            309.0
+          ],
+          "bounds": [
+            30,
+            33,
+            124,
+            124
+          ],
+          "scale": 0.3488372093023256,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            24,
+            9,
+            292,
+            313
+          ],
+          "source_pivot": [
+            151.0,
+            313.0
+          ],
+          "bounds": [
+            19,
+            16,
+            114,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 61
+        },
+        {
+          "source_box": [
+            29,
+            8,
+            285,
+            322
+          ],
+          "source_pivot": [
+            131.0,
+            322.0
+          ],
+          "bounds": [
+            28,
+            13,
+            119,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            28,
+            0,
+            288,
+            308
+          ],
+          "source_pivot": [
+            141.0,
+            308.0
+          ],
+          "bounds": [
+            24,
+            15,
+            116,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 136
+        },
+        {
+          "source_box": [
+            32,
+            7,
+            305,
+            305
+          ],
+          "source_pivot": [
+            110.0,
+            305.0
+          ],
+          "bounds": [
+            40,
+            32,
+            124,
+            124
+          ],
+          "scale": 0.3076923076923077,
+          "removed_edge_pixels": 133
+        },
+        {
+          "source_box": [
+            29,
+            4,
+            302,
+            293
+          ],
+          "source_pivot": [
+            123.5,
+            293.0
+          ],
+          "bounds": [
+            32,
+            27,
+            124,
+            124
+          ],
+          "scale": 0.33613445378151263,
+          "removed_edge_pixels": 92
+        },
+        {
+          "source_box": [
+            18,
+            16,
+            279,
+            300
+          ],
+          "source_pivot": [
+            154.5,
+            300.0
+          ],
+          "bounds": [
+            16,
+            23,
+            108,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 329
+        },
+        {
+          "source_box": [
+            26,
+            0,
+            297,
+            265
+          ],
+          "source_pivot": [
+            95.5,
+            265.0
+          ],
+          "bounds": [
+            43,
+            45,
+            124,
+            124
+          ],
+          "scale": 0.2977667493796526,
+          "removed_edge_pixels": 5568
+        },
+        {
+          "source_box": [
+            25,
+            0,
+            290,
+            295
+          ],
+          "source_pivot": [
+            138.0,
+            295.0
+          ],
+          "bounds": [
+            24,
+            20,
+            118,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 83
+        },
+        {
+          "source_box": [
+            28,
+            0,
+            298,
+            266
+          ],
+          "source_pivot": [
+            95.5,
+            266.0
+          ],
+          "bounds": [
+            44,
+            45,
+            124,
+            124
+          ],
+          "scale": 0.2962962962962963,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            30,
+            0,
+            290,
+            283
+          ],
+          "source_pivot": [
+            225.5,
+            283.0
+          ],
+          "bounds": [
+            4,
+            37,
+            84,
+            124
+          ],
+          "scale": 0.3069053708439898,
+          "removed_edge_pixels": 1898
+        },
+        {
+          "source_box": [
+            13,
+            0,
+            298,
+            279
+          ],
+          "source_pivot": [
+            202.5,
+            279.0
+          ],
+          "bounds": [
+            4,
+            36,
+            94,
+            124
+          ],
+          "scale": 0.316622691292876,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            25,
+            0,
+            305,
+            280
+          ],
+          "source_pivot": [
+            140.5,
+            280.0
+          ],
+          "bounds": [
+            23,
+            25,
+            122,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        },
+        {
+          "source_box": [
+            26,
+            16,
+            298,
+            280
+          ],
+          "source_pivot": [
+            164.0,
+            280.0
+          ],
+          "bounds": [
+            15,
+            31,
+            111,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 74
+        },
+        {
+          "source_box": [
+            32,
+            0,
+            276,
+            287
+          ],
+          "source_pivot": [
+            158.5,
+            287.0
+          ],
+          "bounds": [
+            19,
+            22,
+            105,
+            124
+          ],
+          "scale": 0.35398230088495575,
+          "removed_edge_pixels": 0
+        }
+      ],
+      "sha256": "2f78993ba5a8cc90215537a6e0aea29c62d43d699401cba85bcce4455b07fbf1"
     }
   ]
 }
