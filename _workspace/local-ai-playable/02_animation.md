@@ -113,3 +113,9 @@ r01 시트와 GIF를 만들었다. 네 시안은 정확한 4×4 배열과 승인
 공중 링아웃을 서로 구별했다. 사용자 승인 전 검토 경로에만 있으며 runtime,
 manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 `motion-review/ja-hyun/down-defeat-r01-review.md`에 기록했다.
+
+자현 상태 표현의 마지막 묶음으로 `attack_heavy_charge`와 `spawn` r02 시트·GIF를
+만들었다. 두 r01은 보이는 셀 경계선 때문에 거부 기록으로 보존하고, 같은 포즈와
+순서를 유지하며 선만 제거한 r02를 최종 검토 대상으로 삼았다. 승인 전 경로에만
+있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
+`motion-review/ja-hyun/charge-spawn-r01-r02-review.md`에 기록했다.
