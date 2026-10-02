@@ -59,6 +59,12 @@ r01의 셀 잘림·침범과 2단 준비 순서 문제는 독립 QA 뒤 교체�
 manifest에는 넣지 않았다. 검토 GIF는 시트의 셀을 순서대로 보여주는 자료일 뿐 실제
 AttackData의 tick 속도나 적중 판정을 바꾸지 않는다.
 
+유란 방어는 guard r02 검토 시안과 16프레임 GIF를 준비했다. 준비 4프레임,
+방어 유지·가벼운 충격 7프레임, 복귀 5프레임으로 구성하며 오른쪽을 향한 채 위치를
+이동하거나 반격하지 않는다. 사용자 채택 전에는 승인 표현 수에 포함하거나 runtime에
+등록하지 않는다. 상세 프롬프트와 검토 범위는
+`motion-review/yu-ran/guard-r01-r02-review.md`에 기록했다.
+
 ## 자동 커버리지
 
 `tools/forest_arena/report_motion_coverage.gd`는 실제 기본 LoadoutCatalog의 네 MoveSet과
