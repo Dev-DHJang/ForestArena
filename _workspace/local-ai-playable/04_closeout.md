@@ -39,6 +39,9 @@
 - 자현의 `attack_light_up`, `attack_light_down`, `attack_dash_light`,
   `attack_air_light` r01 검토 시트와 GIF를 만들었다. 사용자 승인 전이므로 runtime,
   manifest와 커버리지에는 넣지 않았다.
+- 자현의 `attack_heavy_side`, `attack_heavy_up`, `attack_heavy_down`,
+  `attack_dash_heavy`, `attack_air_heavy` r01 검토 시트와 GIF를 만들었다. 사용자 승인
+  전이므로 runtime, manifest와 커버리지에는 넣지 않았다.
 - 유란의 나머지 상태 표현 `attack_heavy_charge`, `death`, `ring_out`, `spawn` r01도
   검토 시트와 GIF로 만들었다. 시안 QA는 검토 제출 가능이며 사용자 승인 전이므로
   runtime, manifest와 커버리지에는 넣지 않았다.

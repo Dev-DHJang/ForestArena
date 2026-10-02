@@ -125,3 +125,9 @@ manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 정확한 4×4 배열과 5/3/9 tick의 시각 구간을 갖지만 승인 전 검토 경로에만 있으며
 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 `motion-review/ja-hyun/light-variants-r01-review.md`에 기록했다.
+
+자현의 방향·대시·공중 강공격 묶음으로 `attack_heavy_side`, `attack_heavy_up`,
+`attack_heavy_down`, `attack_dash_heavy`, `attack_air_heavy` r01 시트와 GIF를 만들었다.
+다섯 시안은 정확한 4×4 배열과 기존 10/4/16 또는 8/4/14 tick의 시각 구간을 갖지만
+승인 전 검토 경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다.
+상세 내용은 `motion-review/ja-hyun/heavy-variants-r01-review.md`에 기록했다.
