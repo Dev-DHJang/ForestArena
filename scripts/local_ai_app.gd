@@ -4,6 +4,7 @@ extends Node
 const MATCH_SCENE := preload("res://scenes/main.tscn")
 const PRESENTATION = preload("res://scripts/local_fighter_presentation.gd")
 const BOT = preload("res://scripts/local_ai_command_source.gd")
+const BACK_REQUEST_DEBOUNCE_MSEC := 200
 var catalog := LocalPlayCatalog.new()
 var store: LocalPlayerStore
 var save_path := "user://local_player.json"
@@ -14,8 +15,10 @@ var match_scene: Node2D
 var match_controller: MatchController
 var screen := ""
 var message := ""
+var last_back_request_msec := -BACK_REQUEST_DEBOUNCE_MSEC
 
 func _ready() -> void:
+	get_tree().quit_on_go_back = false
 	layer = CanvasLayer.new()
 	layer.layer = 10
 	add_child(layer)
@@ -248,13 +251,38 @@ func pause_match() -> void:
 	match_scene._release_semantic_actions()
 	screen = "pause"
 	_new_page("일시정지", false)
-	_button("계속하기", func() -> void:
-		match_scene.set_process_input(true)
-		match_controller.pause_match(false)
-		_show_match_controls())
+	_button("계속하기", resume_match)
 	_button("대전 종료 · 준비 화면", func() -> void:
 		_close_match()
 		_show_prepare())
+
+func resume_match() -> void:
+	if screen != "pause" or not is_instance_valid(match_scene) or match_controller == null: return
+	match_scene.set_process_input(true)
+	match_controller.pause_match(false)
+	_show_match_controls()
+
+func handle_back_request(request_msec: int = -1) -> void:
+	var now_msec: int = Time.get_ticks_msec() if request_msec < 0 else request_msec
+	if OS.is_debug_build():
+		print("FOREST_ARENA_BACK_REQUEST " + JSON.stringify({"screen": screen, "msec": now_msec, "previous_msec": last_back_request_msec}))
+	if now_msec >= last_back_request_msec and now_msec - last_back_request_msec < BACK_REQUEST_DEBOUNCE_MSEC:
+		return
+	last_back_request_msec = now_msec
+	match screen:
+		"shop", "prepare":
+			_show_home()
+		"match":
+			pause_match()
+		"pause":
+			resume_match()
+		"result":
+			_close_match()
+			_show_prepare()
+		"storage_reset":
+			_show_storage_error()
+		"home", "first", "storage_error":
+			get_tree().quit()
 
 func _on_match_ended(winner: StringName, source: MatchController) -> void:
 	call_deferred("_show_result_for_match", winner, source)
@@ -297,6 +325,7 @@ func _show_storage_error() -> void:
 		if store.load_profile(): _show_home() if store.data.first_granted else _show_first()
 		else: _show_storage_error())
 	_button("저장 초기화 안내", func() -> void:
+		screen = "storage_reset"
 		_new_page("보유 정보 초기화")
 		_label("이 기기의 캐릭터·장신구 보유와 선택을 초기화합니다. 모든 상품은 다시 무료로 구매할 수 있습니다.")
 		_button("초기화", func() -> void:
@@ -305,7 +334,9 @@ func _show_storage_error() -> void:
 		_button("취소", _show_storage_error))
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED] and screen == "match":
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		handle_back_request()
+	elif what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED] and screen == "match":
 		pause_match()
 	elif what in [NOTIFICATION_APPLICATION_FOCUS_IN, NOTIFICATION_APPLICATION_RESUMED] and screen == "pause":
 		pause_match.call_deferred()

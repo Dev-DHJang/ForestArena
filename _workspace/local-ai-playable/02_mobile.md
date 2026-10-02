@@ -18,3 +18,10 @@
 - 홈 화면으로 중단한 뒤 앱을 다시 전면에 가져오면 일시정지 화면이 표시됐고, `계속하기` 입력으로 같은 경기가 재개됐다.
 - 기기 내부 300프레임 계측은 약 60.00 FPS, 프레임 시간 p95 16.666ms, draw call 76, texture bytes 108,698,422였다. Godot `SurfaceView`는 Android `gfxinfo` 프레임 표에 잡히지 않아 앱 내부 계측값을 사용했다.
 - 앱 프로세스 범위 로그에서 치명 오류, ANR, 예외, Godot 스크립트 오류가 발견되지 않았다. 증거 화면은 `device-review/local-ai-active-physical-r02.jpg`, `device-review/local-ai-resume-physical-r02.jpg`이며 원본 화면 녹화와 임시 로그는 저장소에 넣지 않았다.
+
+## Android 시스템 뒤로가기 재검
+
+- 실기기에서 상점 화면의 시스템 뒤로가기가 앱을 종료하는 결함을 재현했다. Godot 4.7.1·Android 16·target SDK 36 조합은 한 번의 키 입력을 6~23ms 간격의 요청 두 개로 전달했고, 첫 요청이 로비로 이동한 직후 두 번째 요청이 앱 종료를 실행했다.
+- export 설정과 실행 중 `SceneTree`에서 자동 종료를 끄고, 200ms 안의 중복 요청을 무시하도록 수정했다. 실기기 로그로 첫 요청만 화면 전환에 사용되고 두 번째 요청은 무시되는 것을 확인했다.
+- 상점→로비, 대전 준비→로비, 전투→일시정지, 일시정지→같은 전투 재개가 시스템 뒤로가기 키로 통과했다. 앱은 포커스를 유지했고 치명 오류나 스크립트 오류가 없었다.
+- 증거 화면은 `device-review/android-back-home-physical-r01.jpg`, `device-review/android-back-pause-physical-r01.jpg`, `device-review/android-back-resume-physical-r01.jpg`다. 연결 주소와 전체 기기 로그는 기록하지 않는다.

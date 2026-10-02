@@ -13,10 +13,19 @@ func run() -> void:
 	app.save_path = path
 	root.add_child(app)
 	await process_frame
+	check(not quit_on_go_back, "app owns Android back requests")
 	check(app.screen == "first", "first-time selection screen")
 	check(app.store.grant_first("nabi"), "grant")
 	for item: Dictionary in app.catalog.products:
 		if not app.store.owns(item.id): check(app.store.purchase(item.id), "purchase")
+	app._show_shop()
+	app.handle_back_request(1000)
+	check(app.screen == "home", "back from shop returns home")
+	app.handle_back_request(1001)
+	check(app.screen == "home", "duplicate Android back request cannot quit after navigation")
+	app._show_prepare()
+	app.handle_back_request(1500)
+	check(app.screen == "home", "back from prepare returns home")
 	for own: CharacterData in app.catalog.combat.characters:
 		for enemy: CharacterData in app.catalog.combat.characters:
 			check(app.store.select(String(own.character_id), "", String(enemy.character_id)), "selection")
@@ -26,10 +35,12 @@ func run() -> void:
 			check(app.match_controller.training_dummy.runtime_profile.character_id == enemy.character_id, "opponent profile")
 			check(app.match_controller.player.fighter_id != app.match_controller.training_dummy.fighter_id, "distinct participants including mirror matches")
 			check(app.match_controller.bot_source != null, "AI connected")
-	app.pause_match()
+	app.handle_back_request(2000)
 	var tick: int = app.match_controller.tick
 	await physics_frame
-	check(app.screen == "pause" and app.match_controller.tick == tick, "pause")
+	check(app.screen == "pause" and app.match_controller.tick == tick, "back from match pauses")
+	app.handle_back_request(2500)
+	check(app.screen == "match" and not app.match_controller.paused, "back from pause resumes")
 	app.start_match()
 	check(app.match_controller.tick == 0 and app.match_controller.player.stocks == 3, "rematch reset")
 	app.match_controller.match_ended.emit(&"opponent")
@@ -39,6 +50,8 @@ func run() -> void:
 	app.match_controller.is_draw = true
 	app._show_result(&"")
 	check(app.screen == "result", "draw result")
+	app.handle_back_request(3000)
+	check(app.screen == "prepare" and app.match_controller == null, "back from result returns prepare")
 	app.start_match()
 	app._show_result(&"player")
 	check(app.screen == "result", "victory result")
