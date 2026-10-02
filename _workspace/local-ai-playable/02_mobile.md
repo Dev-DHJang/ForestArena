@@ -9,3 +9,12 @@
 - 경기 중단 뒤 앱을 강제 종료하고 다시 실행해도 선택한 나비와 1회 부활 장신구가 준비 화면에 복원됐다. 전투 중 상태는 복원하지 않았다.
 - 활성 경기 300프레임 측정은 약 60.02 FPS, 프레임 시간 p95 16.67ms, draw call 76, texture bytes 108,630,146이었다. 단일 기기·짧은 측정이므로 전체 Android 성능 보장은 아니다.
 - 검토 증거는 `device-review/nabi-attack-physical-r01.jpg`, `nabi-result-physical-r01.jpg`, `nabi-persistence-physical-r01.jpg`다. 기기 연결 주소와 원본 동영상은 저장소에 넣지 않는다.
+
+## 2026-10-02 무선 실기기 재검
+
+- 같은 Galaxy S23 Ultra(Android 16)의 활성 무선 ADB 연결을 확인하고 최신 `build/android/ForestArena-debug.apk`를 덮어써 설치했다. 연결 주소와 포트는 기록하지 않았다.
+- 앱 재실행 뒤 로비에서 저장된 보유·선택 상태가 유지됐고, 대전 준비 화면에는 나비·1회 부활 장신구·AI 자현이 복원됐다.
+- 실제 화면 좌표로 대전을 시작해 이동·점프·약·강·특수 입력을 전달했다. 경기 중 나비 stock 감소, 자현 HP 감소, 특수·궁극기 자원 변화를 확인해 입력과 AI 전투 진행이 실제 런타임 상태에 반영됨을 확인했다.
+- 홈 화면으로 중단한 뒤 앱을 다시 전면에 가져오면 일시정지 화면이 표시됐고, `계속하기` 입력으로 같은 경기가 재개됐다.
+- 기기 내부 300프레임 계측은 약 60.00 FPS, 프레임 시간 p95 16.666ms, draw call 76, texture bytes 108,698,422였다. Godot `SurfaceView`는 Android `gfxinfo` 프레임 표에 잡히지 않아 앱 내부 계측값을 사용했다.
+- 앱 프로세스 범위 로그에서 치명 오류, ANR, 예외, Godot 스크립트 오류가 발견되지 않았다. 증거 화면은 `device-review/local-ai-active-physical-r02.jpg`, `device-review/local-ai-resume-physical-r02.jpg`이며 원본 화면 녹화와 임시 로그는 저장소에 넣지 않았다.
