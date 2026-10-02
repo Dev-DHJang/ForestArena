@@ -15,9 +15,27 @@ func run() -> void:
 	await process_frame
 	check(not quit_on_go_back, "app owns Android back requests")
 	check(app.screen == "first", "first-time selection screen")
-	check(app.store.grant_first("nabi"), "grant")
-	for item: Dictionary in app.catalog.products:
-		if not app.store.owns(item.id): check(app.store.purchase(item.id), "purchase")
+	var first_button := find_button(app, "나비")
+	check(first_button != null, "first character button exists")
+	if first_button != null: first_button.pressed.emit()
+	await process_frame
+	check(app.screen == "home" and app.store.owns("nabi"), "first character button grants and opens home")
+	var shop_button := find_button(app, "상점 · 모두 0원")
+	check(shop_button != null, "shop button exists")
+	if shop_button != null: shop_button.pressed.emit()
+	await process_frame
+	for expected_purchase: int in app.catalog.products.size() - 1:
+		var free_button := find_button(app, "0원 · 무료 구매")
+		check(free_button != null, "free purchase button %d exists" % expected_purchase)
+		if free_button == null: break
+		free_button.pressed.emit()
+		await process_frame
+	check(app.store.data.characters.size() == 4 and app.store.data.accessories.size() == 6, "shop buttons purchase the full free catalog")
+	check(find_button(app, "0원 · 무료 구매") == null, "owned products cannot be purchased again from UI")
+	var lobby_button := find_button(app, "로비")
+	check(lobby_button != null, "shop lobby button exists")
+	if lobby_button != null: lobby_button.pressed.emit()
+	await process_frame
 	app._show_shop()
 	app.handle_back_request(1000)
 	check(app.screen == "home", "back from shop returns home")
@@ -26,6 +44,32 @@ func run() -> void:
 	app._show_prepare()
 	app.handle_back_request(1500)
 	check(app.screen == "home", "back from prepare returns home")
+	var prepare_button := find_button(app, "대전 준비")
+	check(prepare_button != null, "prepare button exists")
+	if prepare_button != null: prepare_button.pressed.emit()
+	await process_frame
+	var character_button := find_button(app, "유란")
+	check(character_button != null, "owned character selection button exists")
+	if character_button != null: character_button.pressed.emit()
+	await process_frame
+	var choices := find_options(app)
+	check(choices.size() == 2, "accessory and AI selectors exist")
+	if choices.size() == 2:
+		select_option(choices[0], "철갑옷")
+		await process_frame
+		choices = find_options(app)
+		select_option(choices[1], "나비")
+		await process_frame
+	var start_button := find_button(app, "대전 시작")
+	check(start_button != null, "start match button exists")
+	if start_button != null: start_button.pressed.emit()
+	await physics_frame
+	check(app.screen == "match", "start button opens match")
+	check(app.match_controller.player.runtime_profile.character_id == &"yu-ran", "UI-selected player reaches match")
+	check(app.match_controller.player.runtime_profile.accessory_id == &"fixture-iron-armor", "UI-selected accessory reaches match")
+	check(app.match_controller.training_dummy.runtime_profile.character_id == &"nabi", "UI-selected opponent reaches match")
+	app._close_match()
+	app._show_home()
 	for own: CharacterData in app.catalog.combat.characters:
 		for enemy: CharacterData in app.catalog.combat.characters:
 			check(app.store.select(String(own.character_id), "", String(enemy.character_id)), "selection")
@@ -55,6 +99,11 @@ func run() -> void:
 	app.start_match()
 	app._show_result(&"player")
 	check(app.screen == "result", "victory result")
+	var replay_button := find_button(app, "같은 조건으로 재대전")
+	check(replay_button != null, "result rematch button exists")
+	if replay_button != null: replay_button.pressed.emit()
+	await physics_frame
+	check(app.screen == "match" and app.match_controller.tick <= 1 and app.match_controller.player.stocks == 3, "result rematch button starts a clean match")
 	app.start_match()
 	app._show_result(&"opponent")
 	check(app.screen == "result", "defeat result")
@@ -68,3 +117,26 @@ func run() -> void:
 	for failure: String in failures: push_error(failure)
 	print("LOCAL_AI_APP_FLOW: " + ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)
+
+
+func find_button(app: Node, text: String) -> Button:
+	for child: Node in app.body.find_children("*", "Button", true, false):
+		var button := child as Button
+		if button.text == text and not button.disabled: return button
+	return null
+
+
+func find_options(app: Node) -> Array[OptionButton]:
+	var result: Array[OptionButton] = []
+	for child: Node in app.body.find_children("*", "OptionButton", true, false):
+		result.append(child as OptionButton)
+	return result
+
+
+func select_option(option: OptionButton, text: String) -> void:
+	for index: int in option.item_count:
+		if option.get_item_text(index) == text:
+			option.select(index)
+			option.item_selected.emit(index)
+			return
+	check(false, "option exists: " + text)

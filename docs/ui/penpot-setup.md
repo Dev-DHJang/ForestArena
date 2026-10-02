@@ -1,6 +1,6 @@
 # Forest Arena Penpot 설계 기준
 
-이 문서는 `Forest_Arena` 팀의 `Forest_Arena_UI` 파일에서 전투 밖 화면을 설계할 때 지킬 약속이다. 현재 Phase 2 완료 시점에는 화면·이미지 이름과 자산 연결 목록만 있다. Penpot 파일 편집, 최종 이미지 생성과 24개 Godot 화면 구현은 이후 작업이다. UI·Penpot 용어는 [용어 가이드](../GLOSSARY.md#화면과-그래픽-용어)를 참고한다.
+이 문서는 `Forest_Arena` 팀의 `Forest_Arena_UI` 파일에서 전투 밖 화면을 설계할 때 지킬 약속이다. 현재 Phase 3 완료 시점에는 화면·이미지 이름과 자산 연결 목록, 로컬 AI 전용 앱 흐름이 있다. Penpot 파일 편집, 최종 이미지 생성과 공식 24개 Godot 화면 전체 구현은 이후 작업이다. UI·Penpot 용어는 [용어 가이드](../GLOSSARY.md#화면과-그래픽-용어)를 참고한다.
 
 ## 충돌할 때 우선하는 원본
 
