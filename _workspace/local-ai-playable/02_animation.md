@@ -65,6 +65,12 @@ AttackData의 tick 속도나 적중 판정을 바꾸지 않는다.
 등록하지 않는다. 상세 프롬프트와 검토 범위는
 `motion-review/yu-ran/guard-r01-r02-review.md`에 기록했다.
 
+유란 회피는 evade r02 검토 시안과 16프레임 GIF를 준비했다. 좌우 이동 판정은 전투
+코드가 소유하므로 포즈는 특정 방향으로 몸을 던지지 않고 낮게 압축·회피·복귀하는
+방향 중립 동작으로 만들었다. 60ms GIF는 동작 검토를 위해 느리게 재생하며 실제 12 tick
+회피 시간이나 무적 시간을 정하지 않는다. 사용자 채택 전에는 runtime과 manifest에
+등록하지 않는다.
+
 ## 자동 커버리지
 
 `tools/forest_arena/report_motion_coverage.gd`는 실제 기본 LoadoutCatalog의 네 MoveSet과
