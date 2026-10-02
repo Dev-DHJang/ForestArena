@@ -26,3 +26,7 @@
 - 유란의 나머지 상태 표현 `attack_heavy_charge`, `death`, `ring_out`, `spawn` r01도
   검토 시트와 GIF로 만들었다. 시안 QA는 검토 제출 가능이며 사용자 승인 전이므로
   runtime, manifest와 커버리지에는 넣지 않았다.
+- 유란의 `attack_light_up` r02, `attack_light_down`, `attack_dash_light`,
+  `attack_air_light` r01도 검토 시트와 GIF로 만들었다. 위 약공격 r01은 잘못된
+  5·4·4·3 배열이라 거부 기록으로 보존하고 r02에서 4×4로 수정했다. 네 최종 시안은
+  사용자 승인 전이므로 runtime, manifest와 커버리지에는 넣지 않았다.

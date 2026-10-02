@@ -81,3 +81,10 @@ GIF를 만들었다. 승인 전 검토 경로에만 있으며 현재 커버리�
 유란의 남은 상태 검토 묶음으로 `attack_heavy_charge`, `death`, `ring_out`, `spawn`
 r01 시트와 GIF를 만들었다. 승인 전 검토 경로에만 두었고 현재 커버리지와 runtime에는
 포함하지 않았다. 상세 내용은 `motion-review/yu-ran/state-r01-review.md`에 기록했다.
+
+유란의 방향·상황별 약공격 검토 묶음으로 `attack_light_up` r02와
+`attack_light_down`, `attack_dash_light`, `attack_air_light` r01 시트·GIF를 만들었다.
+위 약공격 r01은 5·4·4·3 배열이라 거부 기록으로만 보존하고, 같은 16포즈를 정확한
+4×4로 다시 배치한 r02를 최종 검토 대상으로 삼았다. 네 시안 모두 승인 전 경로에만
+있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
+`motion-review/yu-ran/light-variants-r01-r02-review.md`에 기록했다.
