@@ -17,6 +17,11 @@ const REQUIRED_NABI_ATTACKS := {
 	"attack_light_combo_01": {"combo_index": 1, "is_finisher": false, "acting_purpose": "claw jab while off-hand guards"},
 	"attack_light_combo_02": {"combo_index": 2, "is_finisher": true, "acting_purpose": "large crossed claw rake"},
 }
+const REQUIRED_YU_RAN_ATTACKS := {
+	"attack_light_combo_01": {"combo_index": 1, "is_finisher": false, "acting_purpose": "quick hand spacing check"},
+	"attack_light_combo_02": {"combo_index": 2, "is_finisher": false, "acting_purpose": "short tail side check"},
+	"attack_light_combo_03": {"combo_index": 3, "is_finisher": true, "acting_purpose": "wide ringed-tail sweep"},
+}
 
 
 func _initialize() -> void:
@@ -45,6 +50,13 @@ func _initialize() -> void:
 			failures.append("missing or duplicate Nabi motion " + motion)
 			continue
 		_validate_entry_against(motion, matches[0], REQUIRED_NABI_ATTACKS[motion], nabi_moves, failures)
+	var yu_ran_moves := _character_attack_moves("yu-ran", attack_system, failures)
+	for motion: String in REQUIRED_YU_RAN_ATTACKS:
+		var matches: Array = manifest.assets.filter(func(entry: Dictionary) -> bool: return entry.get("character_id") == "yu-ran" and entry.get("visual_state_id") == motion)
+		if matches.size() != 1:
+			failures.append("missing or duplicate Yu-Ran motion " + motion)
+			continue
+		_validate_entry_against(motion, matches[0], REQUIRED_YU_RAN_ATTACKS[motion], yu_ran_moves, failures)
 	_finish(failures)
 
 

@@ -96,7 +96,15 @@ func sync_visual(delta: float) -> void:
 	if fighter.active_attack != null and missing_motion.is_empty():
 		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, layout.get("phase_frame_ranges", []))
 	else:
-		var index := int(_elapsed * sprite.sprite_frames.get_animation_speed(shown))
+		var index: int
+		var state_duration_ticks := int(layout.get("state_duration_ticks", 0))
+		if state_duration_ticks > 0:
+			var duration_seconds := float(state_duration_ticks) / 60.0
+			index = floori(clampf(_elapsed / duration_seconds, 0.0, 0.999999) * frames)
+		else:
+			index = int(_elapsed * sprite.sprite_frames.get_animation_speed(shown))
+		if layout.has("state_hold_frame"):
+			index = mini(index, int(layout.state_hold_frame))
 		sprite.frame = index % frames if sprite.sprite_frames.get_animation_loop(shown) else mini(index, frames - 1)
 	sprite.modulate = Color(1, 1, 1, 0.45) if fighter.invulnerability_ticks > 0 else Color.WHITE
 

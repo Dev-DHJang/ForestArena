@@ -485,6 +485,170 @@
           16
         ]
       ]
+    },
+    {
+      "asset_id": "yu-ran-attack-light-combo-01-16f-local-v01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+      "creation": {
+        "method": "user-approved r02 review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved Yu-Ran concept; no additional external rights verification asserted",
+        "references": ["User approved all presented Yu-Ran motions, 2026-10-02"]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "0ffd158d625db1408eb9032e6b9a7d5fd91bf327e6dab0271ee26cccbbe0730d",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with shared scale and foot pivot; preserved review sources.",
+        "Retained source frame order."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "visual_state_id": "attack_light_combo_01",
+      "combo_index": 1,
+      "is_finisher": false,
+      "acting_purpose": "quick hand spacing check",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [[0, 4], [4, 8], [8, 16]]
+    },
+    {
+      "asset_id": "yu-ran-attack-light-combo-02-16f-local-v01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+      "creation": {
+        "method": "user-approved r02 review plus project-local background extraction, ordering, and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved Yu-Ran concept; no additional external rights verification asserted",
+        "references": ["User approved all presented Yu-Ran motions, 2026-10-02"]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "c44d5f3734faf615f1e95227fa0be76409e57368d9155dbf483628a0db8fe848",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with shared scale and foot pivot; preserved review sources.",
+        "Applied approved review order 1,2,4,5,6,7,3,8,9,10,11,12,13,14,15,16."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "visual_state_id": "attack_light_combo_02",
+      "combo_index": 2,
+      "is_finisher": false,
+      "acting_purpose": "short tail side check",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [[0, 4], [4, 8], [8, 16]]
+    },
+    {
+      "asset_id": "yu-ran-attack-light-combo-03-16f-local-v01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03_16f.png",
+      "creation": {
+        "method": "user-approved r03 review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved Yu-Ran concept; no additional external rights verification asserted",
+        "references": ["User approved all presented Yu-Ran motions, 2026-10-02"]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "ba55b1f7575ad6b1b2a5496502b7a8c0de083402cdc8eee97cdc51a682531436",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with shared scale and foot pivot; preserved review sources.",
+        "Retained source frame order."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03.tres",
+      "visual_state_id": "attack_light_combo_03",
+      "combo_index": 3,
+      "is_finisher": true,
+      "acting_purpose": "wide ringed-tail sweep",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [[0, 6], [6, 12], [12, 16]]
+    },
+    {
+      "asset_id": "yu-ran-guard-16f-local-v01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/guard_16f.png",
+      "creation": {
+        "method": "user-approved r02 review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved Yu-Ran concept; no additional external rights verification asserted",
+        "references": ["User approved all presented Yu-Ran motions, 2026-10-02"]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "f4f6ebb8288b10bfd89febfe1458bf0858a67961fe7f79fee839b5534b07f81b",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with shared scale and foot pivot; preserved review sources.",
+        "Runtime enters the guard sequence and holds its authored guard pose while combat state remains GUARD."
+      ],
+      "frame_count": 16,
+      "fps": 24,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/guard.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/guard.tres",
+      "visual_state_id": "guard",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 6
+    },
+    {
+      "asset_id": "yu-ran-evade-16f-local-v01",
+      "character_id": "yu-ran",
+      "type": "animation-runtime",
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/evade_16f.png",
+      "creation": {
+        "method": "user-approved r02 review plus project-local background extraction and normalization",
+        "provider": "OpenAI image generation and local Pillow processing",
+        "version": "local-v01"
+      },
+      "rights": {
+        "status": "derived from approved Yu-Ran concept; no additional external rights verification asserted",
+        "references": ["User approved all presented Yu-Ran motions, 2026-10-02"]
+      },
+      "verified_on": "2026-10-02",
+      "sha256": "cbe363e5d5b60f1d2252047c44d238d8c205bba3f108a0cc9807718ae5945b8e",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with shared scale and foot pivot; preserved review sources.",
+        "Mapped the full authored sequence across the existing 12-tick evade state without changing combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 80,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/evade.tres",
+      "consumer_path": "res://assets/character/yu-ran/animation/runtime/local_ai_v01/evade.tres",
+      "visual_state_id": "evade",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "state_duration_ticks": 12
     }
   ]
 }
