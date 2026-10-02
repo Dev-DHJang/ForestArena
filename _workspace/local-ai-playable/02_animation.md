@@ -88,3 +88,10 @@ r01 시트와 GIF를 만들었다. 승인 전 검토 경로에만 두었고 현�
 4×4로 다시 배치한 r02를 최종 검토 대상으로 삼았다. 네 시안 모두 승인 전 경로에만
 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
 `motion-review/yu-ran/light-variants-r01-r02-review.md`에 기록했다.
+
+유란의 강공격 검토 묶음으로 `attack_heavy_side`, `attack_heavy_up`,
+`attack_dash_heavy`, `attack_air_heavy` r02와 `attack_heavy_down` r01 시트·GIF를
+만들었다. 네 초기 r01은 투명 가장자리의 적·황색 오염 때문에 거부 기록으로 보존하고,
+같은 구성의 불투명 배경 r02를 최종 검토 대상으로 삼았다. 다섯 시안 모두 승인 전
+경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
+`motion-review/yu-ran/heavy-variants-r01-r02-review.md`에 기록했다.
