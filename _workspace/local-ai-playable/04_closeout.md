@@ -45,6 +45,8 @@
 - 자현의 `special_neutral`, `special_side`, `special_up`, `special_down`, `ultimate`
   r01 검토 시트와 GIF도 만들었다. 이로써 자현의 누락 상태·공격 시안은 모두 준비됐지만
   사용자 승인 전이므로 runtime, manifest와 커버리지에는 넣지 않았다.
+- 묘령의 `guard`, `evade`, `hitstun`, `launch` r01 검토 시트와 GIF를 만들었다.
+  사용자 승인 전이므로 runtime, manifest와 커버리지에는 넣지 않았다.
 - 유란의 나머지 상태 표현 `attack_heavy_charge`, `death`, `ring_out`, `spawn` r01도
   검토 시트와 GIF로 만들었다. 시안 QA는 검토 제출 가능이며 사용자 승인 전이므로
   runtime, manifest와 커버리지에는 넣지 않았다.

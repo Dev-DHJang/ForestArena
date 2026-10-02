@@ -138,3 +138,9 @@ runtime, manifest와 현재 커버리지에는 포함하지 않았다. 상세 �
 검토 경로에만 있으며 runtime, manifest와 현재 커버리지에는 포함하지 않았다. 이로써
 자현의 누락 상태·공격 표현은 모두 검토 시안으로 준비됐다. 상세 내용은
 `motion-review/ja-hyun/special-ultimate-r01-review.md`에 기록했다.
+
+묘령의 후속 제작을 시작해 `guard`, `evade`, `hitstun`, `launch` r01 시트와 GIF를
+만들었다. 긴 토끼 귀 두 개, 운동복·큰 운동화·장미색 리본을 유지하고 방어·회피의
+지상 조건과 띄우기의 공중 조건을 구별했다. 승인 전 검토 경로에만 있으며 runtime,
+manifest와 현재 커버리지에는 포함하지 않았다. 상세 내용은
+`motion-review/myo-ryung/defense-reaction-r01-review.md`에 기록했다.
