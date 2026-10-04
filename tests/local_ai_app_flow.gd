@@ -68,6 +68,25 @@ func run() -> void:
 	check(app.match_controller.player.runtime_profile.character_id == &"yu-ran", "UI-selected player reaches match")
 	check(app.match_controller.player.runtime_profile.accessory_id == &"fixture-iron-armor", "UI-selected accessory reaches match")
 	check(app.match_controller.training_dummy.runtime_profile.character_id == &"nabi", "UI-selected opponent reaches match")
+	# Exercise the shipping path with real approved sprite bounds, not the fallback body box.
+	app.match_controller.set_physics_process(false)
+	var camera := app.match_scene.get_node("Camera2D") as Camera2D
+	var indicator := app.match_scene.get_node("Interface/OffscreenOpponentIndicator") as OffscreenOpponentIndicator
+	app.match_controller.player.global_position = Vector2(640, 520)
+	app.match_controller.training_dummy.global_position = Vector2(1900, 520)
+	camera.call("_process", 0.016)
+	await process_frame
+	var opponent_presentation = app.match_controller.training_dummy.get_node("Presentation")
+	opponent_presentation.sync_visual(0.016)
+	check(opponent_presentation.screen_bounds().has_area(), "approved opponent sprite exposes screen bounds")
+	var camera_snapshot: String = app.match_controller.snapshot_hash()
+	indicator.update_indicator()
+	check(indicator.visible and indicator.arrow_direction.x > 0.0, "real offscreen opponent shows right arrow")
+	check(app.match_controller.snapshot_hash() == camera_snapshot, "shipping camera and arrow preserve combat snapshot")
+	app.match_controller.training_dummy.global_position = Vector2(1145, 520)
+	await process_frame
+	indicator.update_indicator()
+	check(not indicator.visible, "partly visible approved sprite hides arrow")
 	app._close_match()
 	app._show_home()
 	for own: CharacterData in app.catalog.combat.characters:

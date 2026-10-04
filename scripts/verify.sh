@@ -1,6 +1,7 @@
 #!/bin/sh
 set -eu
 
+python3 tools/forest_arena/verify_forest_ledge_art.py
 godot --headless --path . --editor --quit
 godot --headless --path . --script res://tests/phase0_smoke.gd
 godot --headless --path . --script res://tests/phase1_combat_contract.gd

@@ -201,7 +201,6 @@ func start_match() -> void:
 	_close_match()
 	match_scene = MATCH_SCENE.instantiate()
 	match_scene.app_shell_mode = true
-	match_scene.get_node("ArenaVisual").forest_stage = true
 	match_controller = match_scene.get_node("MatchController")
 	match_controller.loadout_catalog = catalog.combat
 	var selections: Array[LoadoutSelection] = [config.player, config.opponent]
@@ -212,7 +211,9 @@ func start_match() -> void:
 		fighter.character_data = catalog.combat.character_by_id(selections[index].character_id)
 		fighter.fighter_id = &"player" if index == 0 else &"opponent"
 		fighter.show_debug_body = false
-		fighter.add_child(PRESENTATION.new())
+		var presentation := PRESENTATION.new()
+		presentation.name = "Presentation"
+		fighter.add_child(presentation)
 	match_controller.bot_source = BOT.new(&"opponent", config.seed, {"reaction_interval_ticks": config.reaction_interval_ticks})
 	match_controller.match_ended.connect(_on_match_ended.bind(match_controller))
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true

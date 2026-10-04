@@ -2,8 +2,8 @@
   "schema_version": "2.0.0",
   "game": "Forest Arena",
   "engine": "Godot 4",
-  "logical_asset_count": 345,
-  "quality_dependent_count": 23,
+  "logical_asset_count": 346,
+  "quality_dependent_count": 24,
   "assets": [
     {
       "id": "fa.branding.logo.forest.arena",
@@ -4593,20 +4593,38 @@
     },
     {
       "id": "fa.background.combat.training.arena",
-      "relative_path": "background/bg_combat_training_arena.svg",
+      "relative_path": "background/bg_combat_forest_arena.png",
       "category": "background",
-      "purpose": "Temporary 16:9 training arena background",
+      "purpose": "Approved 16:9 forest ledge combat background",
       "priority": "current",
       "quality_dependent": true,
       "variants": {
-        "high": "res://forest_arena/assets/quality/high/background/bg_combat_training_arena.svg",
-        "medium": "res://forest_arena/assets/quality/medium/background/bg_combat_training_arena.svg",
-        "low": "res://forest_arena/assets/quality/low/background/bg_combat_training_arena.svg"
+        "high": "res://forest_arena/assets/quality/high/background/bg_combat_forest_arena.png",
+        "medium": "res://forest_arena/assets/quality/medium/background/bg_combat_forest_arena.png",
+        "low": "res://forest_arena/assets/quality/low/background/bg_combat_forest_arena.png"
       },
-      "format": "svg",
+      "format": "png",
       "width": 1920,
       "height": 1080,
-      "status": "placeholder"
+      "status": "approved"
+    },
+    {
+      "id": "fa.terrain.combat.forest-ledge",
+      "relative_path": "terrain/terrain_forest_ledge.png",
+      "category": "terrain",
+      "purpose": "Approved collision-aligned forest ledge terrain",
+      "priority": "current",
+      "quality_dependent": true,
+      "variants": {
+        "high": "res://forest_arena/assets/quality/high/terrain/terrain_forest_ledge.png",
+        "medium": "res://forest_arena/assets/quality/medium/terrain/terrain_forest_ledge.png",
+        "low": "res://forest_arena/assets/quality/low/terrain/terrain_forest_ledge.png"
+      },
+      "format": "png",
+      "width": 1920,
+      "height": 1080,
+      "alpha": true,
+      "status": "approved"
     },
     {
       "id": "fa.ui.combat.dpad.default",

@@ -37,6 +37,7 @@ func _run() -> void:
 		presentation.sync_visual(0.01)
 		_check(presentation.character_id == id, "appearance uses profile identity, not participant slot")
 		_check(presentation.sprite.visible, "%s has visible approved sprite" % id)
+		_check(presentation.screen_bounds().has_area(), "%s exposes its actual visible screen bounds" % id)
 		fighter.facing = -1
 		presentation.sync_visual(0.01)
 		_check(presentation.sprite.flip_h, "facing mirrors visuals")
