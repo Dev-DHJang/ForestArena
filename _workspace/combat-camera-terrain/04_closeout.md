@@ -34,6 +34,8 @@
 - 기능 commit: `e407a6e0d331c75efd7ff0b60b58089960efec92`
 - 생성 원본 Godot import 정리 commit: `cf25730`
 - 원격 브랜치 push: 완료
-- 최신 `origin/develop` 기준: 뒤처짐 없음, 기능 브랜치가 앞서며 자동 병합 충돌 없음
-- PR·`develop` 병합: GitHub 게시 직전 사용자 확인 대기. 생성 뒤 PR 번호와 병합 SHA를
-  이 문서에 기록한다.
+- PR: [#39](https://github.com/Dev-DHJang/ForestArena/pull/39)
+- `develop` 병합: 완료
+- 병합 commit: `95a12118d6ff009d9995d8180d006ba355c09202`
+- 기능 머리 `c1f0557d93ef61f6c014d2d503a6d11a6718d30c`가 병합 commit의 조상임을
+  확인했다.
