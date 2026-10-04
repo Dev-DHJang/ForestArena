@@ -34,6 +34,6 @@
 - 기능 commit: `e407a6e0d331c75efd7ff0b60b58089960efec92`
 - 생성 원본 Godot import 정리 commit: `cf25730`
 - 원격 브랜치 push: 완료
-- 최신 `origin/develop` 기준: 뒤처짐 0, 기능 commit 3개 앞섬, 자동 병합 충돌 없음
+- 최신 `origin/develop` 기준: 뒤처짐 없음, 기능 브랜치가 앞서며 자동 병합 충돌 없음
 - PR·`develop` 병합: GitHub 게시 직전 사용자 확인 대기. 생성 뒤 PR 번호와 병합 SHA를
   이 문서에 기록한다.
