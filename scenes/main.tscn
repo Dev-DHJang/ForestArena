@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=14 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="Script" path="res://scripts/arena_visual.gd" id="2_arena"]
@@ -11,6 +11,7 @@
 [ext_resource type="Resource" path="res://assets/loadouts/default_loadout_catalog.tres" id="9_catalog"]
 [ext_resource type="Resource" path="res://assets/loadouts/default_ja_hyun_selection.tres" id="10_player_selection"]
 [ext_resource type="Resource" path="res://assets/loadouts/default_myo_ryung_selection.tres" id="11_dummy_selection"]
+[ext_resource type="Script" path="res://scripts/offscreen_opponent_indicator.gd" id="12_indicator"]
 [sub_resource type="RectangleShape2D" id="GroundShape"]
 size = Vector2(1080, 48)
 [sub_resource type="RectangleShape2D" id="PlatformShape"]
@@ -26,10 +27,19 @@ script = ExtResource("1_main")
 script = ExtResource("2_arena")
 [node name="Background" type="TextureRect" parent="ArenaVisual"]
 z_index = -100
-offset_left = -1000.0
-offset_top = -1000.0
-offset_right = 2280.0
-offset_bottom = 1720.0
+offset_left = -816.0
+offset_top = -528.0
+offset_right = 2096.0
+offset_bottom = 1110.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+[node name="Terrain" type="TextureRect" parent="ArenaVisual"]
+z_index = -10
+offset_left = -816.0
+offset_top = -528.0
+offset_right = 2096.0
+offset_bottom = 1110.0
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
@@ -84,11 +94,19 @@ player_selection = ExtResource("10_player_selection")
 training_dummy_selection = ExtResource("11_dummy_selection")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 360)
-position_smoothing_enabled = true
-position_smoothing_speed = 5.0
+position_smoothing_enabled = false
 script = ExtResource("8_camera")
-rules = ExtResource("6_rules")
 [node name="Interface" type="CanvasLayer" parent="."]
+[node name="OffscreenOpponentIndicator" type="Control" parent="Interface"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("12_indicator")
 [node name="TouchCommandSource" type="Control" parent="Interface"]
 layout_mode = 3
 anchors_preset = 15

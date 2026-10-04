@@ -9,7 +9,7 @@
   전체 모드 선택 UI, 성장과 경제는 미구현이다. 장신구 심화 검증은 다음 Phase 4,
   직업 변화 검증은 Phase 5에서 진행한다.
 - 온라인은 Phase 7과 accepted 네트워크 ADR 전까지 구현하지 않는다.
-- Godot가 시작할 때 자동으로 준비하는 `ForestArenaResources`는 345개 논리 자산 이름을 실제 파일과 연결하며 23개 품질별 파일 차이를 처리한다. 전투 UI의 임시 이미지는 최종 승인 자산이 아니며 `assets/character/`와 `assets/ui/generated/`의 승인 규칙을 대신하지 않는다.
+- Godot가 시작할 때 자동으로 준비하는 `ForestArenaResources`는 346개 논리 자산 이름을 실제 파일과 연결하며 24개 품질별 파일 차이를 처리한다. 승인된 전투 배경과 투명 지형을 포함하며 `assets/character/`와 `assets/ui/generated/`의 승인 규칙을 대신하지 않는다.
 
 역할 목록과 요청 라우팅은 [팀 명세](team-spec.md)가 단일 원본이다. 과거 완료 작업과 당시 역할 구성은 `_workspace/` 및 Git 이력의 감사 증적에 보존한다.
 

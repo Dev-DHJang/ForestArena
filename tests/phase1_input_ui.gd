@@ -19,11 +19,13 @@ func _initialize() -> void:
 
 	# The active combat surface consumes registered textures while labels remain native UI text.
 	var background := instance.get_node("ArenaVisual/Background") as TextureRect
+	var terrain := instance.get_node("ArenaVisual/Terrain") as TextureRect
 	var hud_panel := instance.get_node("Interface/HudPanel") as NinePatchRect
 	var restart := instance.get_node("Interface/Restart") as Button
 	var dpad_visual := touch.get_node("DPadVisual") as TextureRect
 	var dash_visual := touch.get_node("DashVisual") as TextureRect
 	if background.texture == null: failures.append("combat background resource was not applied")
+	if terrain.texture == null: failures.append("combat terrain resource was not applied")
 	if hud_panel.texture == null: failures.append("HUD panel resource was not applied")
 	var restart_style := restart.get_theme_stylebox("normal") as StyleBoxTexture
 	if restart_style == null or restart_style.texture == null: failures.append("restart button resource was not applied")
@@ -47,13 +49,15 @@ func _initialize() -> void:
 	if dash_visual.texture.resource_path != resources.resource_path("fa.ui.combat.action.default"):
 		failures.append("action visual did not return to default")
 
-	# Only the quality-dependent backdrop changes across profiles.
+	# Only registered quality-dependent stage art changes across profiles.
 	var original_quality: String = resources.quality
 	var action_path: String = dash_visual.texture.resource_path
 	for quality: String in ["high", "medium", "low"]:
 		resources.set_quality(quality)
 		if background.texture.resource_path != resources.resource_path("fa.background.combat.training.arena"):
 			failures.append("combat background did not follow %s quality" % quality)
+		if terrain.texture.resource_path != resources.resource_path("fa.terrain.combat.forest-ledge"):
+			failures.append("combat terrain did not follow %s quality" % quality)
 		if dash_visual.texture.resource_path != action_path:
 			failures.append("common action texture changed with %s quality" % quality)
 	resources.set_quality(original_quality)
@@ -91,12 +95,50 @@ func _initialize() -> void:
 	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("G ") or not (instance.get_node("Interface/MatchReadout") as Label).text.contains("U "):
 		failures.append("HUD did not render guard and ultimate resources")
 
-	# Camera follows the pair and stays within its configured zoom bounds.
+	# Camera keeps the local fighter centered at the fixed ten-character framing.
 	player.global_position = Vector2(controller.rules.ring_left, 400)
 	controller.training_dummy.global_position = Vector2(controller.rules.ring_right, 400)
 	var camera := instance.get_node("Camera2D") as Camera2D
 	camera.call("_process", 0.016)
-	if camera.zoom.x < 0.779 or camera.zoom.x > 1.001: failures.append("camera zoom escaped limits")
+	if not is_equal_approx(camera.zoom.x, 1.25): failures.append("camera did not retain fixed 1.25 zoom")
+	if camera.position != player.global_position: failures.append("camera did not target the local fighter")
+	controller.training_dummy.global_position = Vector2(controller.rules.ring_left, 400)
+	camera.call("_process", 0.016)
+	if camera.position != player.global_position: failures.append("opponent movement changed the camera target")
+
+	# The arrow is confined above touch controls and points toward a fully hidden opponent.
+	var indicator := instance.get_node("Interface/OffscreenOpponentIndicator") as OffscreenOpponentIndicator
+	var safe := OffscreenOpponentIndicator.safe_rect(Vector2(1280, 720), 0.085, 0.21, 0.50)
+	var right_edge := OffscreenOpponentIndicator.edge_position(safe.get_center(), Vector2.RIGHT, safe)
+	var upper_left := OffscreenOpponentIndicator.edge_position(safe.get_center(), Vector2(-1, -1), safe)
+	var left_edge := OffscreenOpponentIndicator.edge_position(safe.get_center(), Vector2.LEFT, safe)
+	var lower_edge := OffscreenOpponentIndicator.edge_position(safe.get_center(), Vector2.DOWN, safe)
+	if not is_equal_approx(right_edge.x, safe.end.x): failures.append("right arrow did not reach the safe edge")
+	if upper_left.x < safe.position.x or upper_left.y < safe.position.y: failures.append("diagonal arrow escaped the safe region")
+	if not is_equal_approx(left_edge.x, safe.position.x): failures.append("left arrow did not reach the safe edge")
+	if not is_equal_approx(lower_edge.y, safe.end.y): failures.append("lower arrow did not reach the safe edge")
+	camera.position_smoothing_enabled = false
+	player.global_position = Vector2(640, 520)
+	controller.training_dummy.global_position = Vector2(1900, 520)
+	camera.call("_process", 0.016)
+	await process_frame
+	indicator.update_indicator()
+	if not indicator.visible: failures.append("fully offscreen opponent did not show an arrow")
+	var actual_safe := OffscreenOpponentIndicator.safe_rect(indicator.get_viewport_rect().size, 0.085, 0.21, 0.50)
+	if not actual_safe.grow(0.1).has_point(indicator.arrow_position): failures.append("opponent arrow overlapped unsafe UI region")
+	var presentation_hash := controller.snapshot_hash()
+	indicator.update_indicator()
+	camera.call("_process", 0.016)
+	if controller.snapshot_hash() != presentation_hash: failures.append("camera or arrow mutated combat state")
+	# A sprite that still clips the viewport edge is visible and must not get an arrow.
+	controller.training_dummy.global_position = Vector2(1145, 520)
+	await process_frame
+	indicator.update_indicator()
+	if indicator.visible: failures.append("partly visible opponent kept an offscreen arrow")
+	controller.training_dummy.state = FighterController.State.MATCH_ENDED
+	controller.training_dummy.global_position = Vector2(1900, 520)
+	indicator.update_indicator()
+	if indicator.visible: failures.append("match end kept an offscreen arrow")
 
 	instance.queue_free()
 	if failures.is_empty():

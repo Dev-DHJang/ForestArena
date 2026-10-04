@@ -25,6 +25,7 @@ var _last_activation := -1
 
 
 func _ready() -> void:
+	name = "Presentation"
 	fighter = get_parent() as FighterController
 	sprite = AnimatedSprite2D.new()
 	sprite.name = "ApprovedCharacterSprite"
@@ -33,6 +34,27 @@ func _ready() -> void:
 	sprite.position = Vector2(0, -50)
 	add_child(sprite)
 	sync_visual(0.0)
+
+
+func screen_bounds() -> Rect2:
+	if sprite == null or not sprite.visible or sprite.sprite_frames == null:
+		return Rect2()
+	var texture := sprite.sprite_frames.get_frame_texture(sprite.animation, sprite.frame)
+	if texture == null:
+		return Rect2()
+	var size := texture.get_size()
+	var local_rect := Rect2(-size * 0.5 + sprite.offset, size)
+	var transform := sprite.get_global_transform_with_canvas()
+	var points := PackedVector2Array([
+		transform * local_rect.position,
+		transform * Vector2(local_rect.end.x, local_rect.position.y),
+		transform * local_rect.end,
+		transform * Vector2(local_rect.position.x, local_rect.end.y),
+	])
+	var result := Rect2(points[0], Vector2.ZERO)
+	for point: Vector2 in points:
+		result = result.expand(point)
+	return result
 
 
 static func approved_motion_paths(id: StringName) -> Dictionary:

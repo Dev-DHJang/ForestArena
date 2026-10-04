@@ -1,12 +1,14 @@
 extends Node2D
 
 const BACKGROUND_ID := "fa.background.combat.training.arena"
+const TERRAIN_ID := "fa.terrain.combat.forest-ledge"
 
 @onready var background: TextureRect = $Background
+@onready var terrain: TextureRect = $Terrain
 var _missing_background_id := ""
+var _missing_terrain_id := ""
 var _event_flash_ticks := 0
 var _last_event: StringName
-var forest_stage := false
 
 
 func _ready() -> void:
@@ -33,13 +35,20 @@ func _process(_delta: float) -> void:
 
 
 func _apply_background() -> void:
-	var texture := ForestArenaResources.load_texture("fa.background.bg.splash.forest" if forest_stage else BACKGROUND_ID)
+	var texture := ForestArenaResources.load_texture(BACKGROUND_ID)
 	if texture == null:
 		_missing_background_id = BACKGROUND_ID
 		background.texture = _fallback_texture()
 	else:
 		_missing_background_id = ""
 		background.texture = texture
+	var terrain_texture := ForestArenaResources.load_texture(TERRAIN_ID)
+	if terrain_texture == null:
+		_missing_terrain_id = TERRAIN_ID
+		terrain.texture = null
+	else:
+		_missing_terrain_id = ""
+		terrain.texture = terrain_texture
 	queue_redraw()
 
 
@@ -50,21 +59,14 @@ func _fallback_texture() -> Texture2D:
 
 
 func _draw() -> void:
-	# Authoritative collision geometry remains represented independently of the backdrop.
-	if forest_stage:
-		# A dark chasm and vertical rock sides make the actual walkable ends legible.
-		draw_rect(Rect2(-1200, 586, 3680, 1600), Color("122d38"))
-		draw_rect(Rect2(100, 610, 1080, 300), Color("394e49"))
-		for x: int in range(120, 1180, 80):
-			draw_line(Vector2(x, 632), Vector2(x - 18, 850), Color("293c3d"), 3.0)
-	draw_rect(Rect2(100, 586, 1080, 48), Color("365f4b"))
-	draw_rect(Rect2(370, 418, 540, 24), Color("4e8062"))
-	if forest_stage:
-		draw_rect(Rect2(100, 586, 1080, 8), Color("acd677"))
-		draw_rect(Rect2(370, 418, 540, 5), Color("c0df8a"))
-		draw_line(Vector2(100, 588), Vector2(100, 634), Color("f6d79d"), 5.0)
-		draw_line(Vector2(1180, 588), Vector2(1180, 634), Color("f6d79d"), 5.0)
+	# Collision remains authoritative. These rectangles are visible only when the
+	# registered terrain presentation is unavailable.
+	if not _missing_terrain_id.is_empty():
+		draw_rect(Rect2(100, 586, 1080, 48), Color("365f4b"))
+		draw_rect(Rect2(370, 418, 540, 24), Color("4e8062"))
 	if not _missing_background_id.is_empty():
 		draw_string(ThemeDB.fallback_font, Vector2(360, 230), "MISSING RESOURCE: %s" % _missing_background_id, HORIZONTAL_ALIGNMENT_CENTER, 560.0, 24, Color.WHITE)
+	if not _missing_terrain_id.is_empty():
+		draw_string(ThemeDB.fallback_font, Vector2(360, 265), "MISSING RESOURCE: %s" % _missing_terrain_id, HORIZONTAL_ALIGNMENT_CENTER, 560.0, 24, Color.WHITE)
 	if _event_flash_ticks > 0:
 		draw_rect(Rect2(0, 0, 1280, 720), Color(1.0, 1.0, 1.0, 0.08), true)
