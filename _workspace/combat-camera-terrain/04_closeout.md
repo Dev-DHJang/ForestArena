@@ -28,5 +28,12 @@
 노드와 두 논리 자산 등록을 함께 되돌리면 된다. 실제 발판 충돌, 링아웃 영역, 전투 수치,
 캐릭터 모션과 저장 데이터는 이 변경에서 수정하지 않았다.
 
-브랜치: `feature/combat-camera-terrain`. 최종 commit·PR·`develop` 병합 SHA는 원격 통합 뒤
-이 문서에 덧붙인다.
+## 원격 통합 상태
+
+- 브랜치: `feature/combat-camera-terrain`
+- 기능 commit: `e407a6e0d331c75efd7ff0b60b58089960efec92`
+- 생성 원본 Godot import 정리 commit: `cf25730`
+- 원격 브랜치 push: 완료
+- 최신 `origin/develop` 기준: 뒤처짐 0, 기능 commit 2개 앞섬, 자동 병합 충돌 없음
+- PR·`develop` 병합: GitHub 게시 직전 사용자 확인 대기. 생성 뒤 PR 번호와 병합 SHA를
+  이 문서에 기록한다.
