@@ -1,0 +1,2455 @@
+{
+  "boards": {
+    "SCR_01_Splash": "fa154361-0c45-804b-8008-a49196a916a4",
+    "SCR_02_Login": "fa154361-0c45-804b-8008-a491973b71de",
+    "SCR_03_Lobby": "fa154361-0c45-804b-8008-a491b4e8ce2a",
+    "SCR_04_CharacterCollection": "fa154361-0c45-804b-8008-a491b5ca4785",
+    "SCR_05_CharacterDetail": "fa154361-0c45-804b-8008-a491b6b28e5f",
+    "SCR_06_AccessoryCollection": "fa154361-0c45-804b-8008-a491b7a5ad5a",
+    "SCR_07_AccessoryDetail": "fa154361-0c45-804b-8008-a491b8d1bd80",
+    "SCR_08_Preset": "fa154361-0c45-804b-8008-a491ba0af635",
+    "SCR_19_Shop": "fa154361-0c45-804b-8008-a491bb58cc4c",
+    "SCR_20_Collection": "fa154361-0c45-804b-8008-a491bcd3fc8b",
+    "SCR_21_Mission": "fa154361-0c45-804b-8008-a491be6a1c18",
+    "SCR_22_Social": "fa154361-0c45-804b-8008-a491c01b0faf",
+    "SCR_23_Rank": "fa154361-0c45-804b-8008-a491c1d3d330",
+    "SCR_24_Profile": "fa154361-0c45-804b-8008-a491c37e42ba",
+    "EXT_06_GeneralSettings": "fa154361-0c45-804b-8008-a6500d0d310b",
+    "SCR_09_ModeSelect": "fa154361-0c45-804b-8008-a491e9c03af5",
+    "SCR_10_PartyLobby": "fa154361-0c45-804b-8008-a491ea33c21a",
+    "SCR_11_Matchmaking": "fa154361-0c45-804b-8008-a491eab06c55",
+    "SCR_12_MatchFound": "fa154361-0c45-804b-8008-a491eb3a3025",
+    "SCR_13_CharacterSelect": "fa154361-0c45-804b-8008-a491ebd2c365",
+    "SCR_14_AccessorySelect": "fa154361-0c45-804b-8008-a491ecd3c15a",
+    "SCR_15_Loading": "fa154361-0c45-804b-8008-a491edb3b9e0",
+    "EXT_01_JobSelect": "fa154361-0c45-804b-8008-a6503257510d",
+    "EXT_02_ArenaSelect": "fa154361-0c45-804b-8008-a6504365380d",
+    "EXT_03_StoryChapters": "fa154361-0c45-804b-8008-a650553fc325",
+    "EXT_04_AISetup": "fa154361-0c45-804b-8008-a6507334bc5c",
+    "EXT_05_PracticeSetup": "fa154361-0c45-804b-8008-a6508566f9ca",
+    "CBT_02_Match_Solo8": "fa154361-0c45-804b-8008-a49225a96e87",
+    "CBT_03_Match_Team4v4": "fa154361-0c45-804b-8008-a4922668aaf5",
+    "CBT_04_Practice": "fa154361-0c45-804b-8008-a4922751ce3d",
+    "CBT_05_Pause": "fa154361-0c45-804b-8008-a49228553b18",
+    "CBT_06_Resume": "fa154361-0c45-804b-8008-a49228b36474",
+    "CBT_07_LeaveConfirm": "fa154361-0c45-804b-8008-a49229160a3b",
+    "CBT_08_Settings": "fa154361-0c45-804b-8008-a492297a905e",
+    "CBT_01_Match_1v1": "fa154361-0c45-804b-8008-a492acd4167f",
+    "STATE_Countdown": "fa154361-0c45-804b-8008-a651a77be291",
+    "STATE_Hit": "fa154361-0c45-804b-8008-a651b6031471",
+    "STATE_Ringout": "fa154361-0c45-804b-8008-a651c58268f9",
+    "STATE_Respawn": "fa154361-0c45-804b-8008-a651ddaa5525",
+    "STATE_Eliminated": "fa154361-0c45-804b-8008-a651f2f8ac46",
+    "STATE_Defeat": "fa154361-0c45-804b-8008-a652055729ea",
+    "STATE_SelectionRequired": "fa154361-0c45-804b-8008-a652220cd420",
+    "STATE_EmptyList": "fa154361-0c45-804b-8008-a6523ce09ab3",
+    "STATE_ConnectionError": "fa154361-0c45-804b-8008-a65258400e3d",
+    "STATE_SettingsReset": "fa154361-0c45-804b-8008-a6527c0769fd",
+    "STATE_OnlineMenu": "fa154361-0c45-804b-8008-a65298954d43",
+    "STATE_CancelMatch": "fa154361-0c45-804b-8008-a652b64babb6",
+    "SCR_16_Victory": "fa154361-0c45-804b-8008-a49202351ba9",
+    "SCR_17_ResultSummary": "fa154361-0c45-804b-8008-a49202a8bf0b",
+    "SCR_18_MVP": "fa154361-0c45-804b-8008-a49203172548",
+    "CMP20 / SCR_03_Lobby": "5eab23a0-5a25-8021-8008-a89605696f84",
+    "CMP20 / SCR_13_CharacterSelect": "5eab23a0-5a25-8021-8008-a8960adb501e",
+    "CMP20 / CBT_03_Match_Team4v4": "5eab23a0-5a25-8021-8008-a8960f537e85"
+  },
+  "pageFor": {
+    "SCR_01_Splash": "fbd33e5f-ce05-80fc-8008-a4888047f467",
+    "SCR_02_Login": "fbd33e5f-ce05-80fc-8008-a4888047f467",
+    "SCR_03_Lobby": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_04_CharacterCollection": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_05_CharacterDetail": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_06_AccessoryCollection": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_07_AccessoryDetail": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_08_Preset": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_19_Shop": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_20_Collection": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_21_Mission": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_22_Social": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_23_Rank": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_24_Profile": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "EXT_06_GeneralSettings": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "SCR_09_ModeSelect": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "SCR_10_PartyLobby": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "SCR_11_Matchmaking": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "SCR_12_MatchFound": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "SCR_13_CharacterSelect": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "SCR_14_AccessorySelect": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "SCR_15_Loading": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "EXT_01_JobSelect": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "EXT_02_ArenaSelect": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "EXT_03_StoryChapters": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "EXT_04_AISetup": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "EXT_05_PracticeSetup": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "CBT_02_Match_Solo8": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "CBT_03_Match_Team4v4": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "CBT_04_Practice": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "CBT_05_Pause": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "CBT_06_Resume": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "CBT_07_LeaveConfirm": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "CBT_08_Settings": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "CBT_01_Match_1v1": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_Countdown": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_Hit": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_Ringout": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_Respawn": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_Eliminated": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_Defeat": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_SelectionRequired": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_EmptyList": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_ConnectionError": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_SettingsReset": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_OnlineMenu": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "STATE_CancelMatch": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "SCR_16_Victory": "fbd33e5f-ce05-80fc-8008-a488a3fa238a",
+    "SCR_17_ResultSummary": "fbd33e5f-ce05-80fc-8008-a488a3fa238a",
+    "SCR_18_MVP": "fbd33e5f-ce05-80fc-8008-a488a3fa238a",
+    "CMP20 / SCR_03_Lobby": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "CMP20 / SCR_13_CharacterSelect": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "CMP20 / CBT_03_Match_Team4v4": "fbd33e5f-ce05-80fc-8008-a4889b76b603"
+  },
+  "links": [
+    {
+      "id": "fa154361-0c45-804b-8008-a49196a916a4",
+      "screen": "SCR_01_Splash",
+      "target": "SCR_02_Login",
+      "trigger": "after-delay",
+      "delay": 1800,
+      "x": 0,
+      "y": 0,
+      "w": 1920,
+      "h": 1080
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f116563758",
+      "screen": "SCR_02_Login",
+      "target": "SCR_03_Lobby",
+      "x": 800,
+      "y": 790,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f116f02703",
+      "screen": "SCR_02_Login",
+      "target": "STATE_ConnectionError",
+      "x": 800,
+      "y": 902,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0dad50f18",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_24_Profile",
+      "x": 1336,
+      "y": 48,
+      "w": 232,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0dbce871e",
+      "screen": "SCR_03_Lobby",
+      "target": "EXT_06_GeneralSettings",
+      "x": 1592,
+      "y": 48,
+      "w": 232,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0de2ad67a",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_08_Preset",
+      "x": 160,
+      "y": 602,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e0962201",
+      "screen": "SCR_03_Lobby",
+      "target": "EXT_05_PracticeSetup",
+      "x": 1280,
+      "y": 250,
+      "w": 512,
+      "h": 180
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e264c5c3",
+      "screen": "SCR_03_Lobby",
+      "target": "EXT_03_StoryChapters",
+      "x": 1280,
+      "y": 458,
+      "w": 512,
+      "h": 180
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e28e2933",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_09_ModeSelect",
+      "x": 1312,
+      "y": 756,
+      "w": 480,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e35498f2",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_04_CharacterCollection",
+      "x": 128,
+      "y": 914,
+      "w": 196,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e4175fb4",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_06_AccessoryCollection",
+      "x": 342,
+      "y": 914,
+      "w": 196,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e4e08224",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_08_Preset",
+      "x": 556,
+      "y": 914,
+      "w": 196,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e640f269",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_21_Mission",
+      "x": 770,
+      "y": 914,
+      "w": 196,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e7af2478",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_22_Social",
+      "x": 984,
+      "y": 914,
+      "w": 196,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f0e873d41a",
+      "screen": "SCR_03_Lobby",
+      "target": "SCR_19_Shop",
+      "x": 1198,
+      "y": 914,
+      "w": 196,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f11da58d20",
+      "screen": "SCR_04_CharacterCollection",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f125ea5200",
+      "screen": "SCR_04_CharacterCollection",
+      "target": "SCR_05_CharacterDetail",
+      "x": 1360,
+      "y": 580,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f12702ec05",
+      "screen": "SCR_04_CharacterCollection",
+      "target": "SCR_05_CharacterDetail",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f14023c609",
+      "screen": "SCR_05_CharacterDetail",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f1488947f8",
+      "screen": "SCR_05_CharacterDetail",
+      "target": "CBT_04_Practice",
+      "x": 1116,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f1493e0081",
+      "screen": "SCR_05_CharacterDetail",
+      "target": "SCR_08_Preset",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f15087089a",
+      "screen": "SCR_06_AccessoryCollection",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f15cbc0ee3",
+      "screen": "SCR_06_AccessoryCollection",
+      "target": "CBT_04_Practice",
+      "x": 1320,
+      "y": 530,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f15e7e7891",
+      "screen": "SCR_06_AccessoryCollection",
+      "target": "SCR_07_AccessoryDetail",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f16662d337",
+      "screen": "SCR_07_AccessoryDetail",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f16b6c0179",
+      "screen": "SCR_07_AccessoryDetail",
+      "target": "CBT_04_Practice",
+      "x": 1116,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a5f16c260bd9",
+      "screen": "SCR_07_AccessoryDetail",
+      "target": "SCR_08_Preset",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ec9497578",
+      "screen": "SCR_08_Preset",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ed106b9fd",
+      "screen": "SCR_08_Preset",
+      "target": "SCR_04_CharacterCollection",
+      "x": 680,
+      "y": 354,
+      "w": 1112,
+      "h": 152
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ed303a88b",
+      "screen": "SCR_08_Preset",
+      "target": "EXT_01_JobSelect",
+      "x": 680,
+      "y": 530,
+      "w": 1112,
+      "h": 152
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ed48efeb0",
+      "screen": "SCR_08_Preset",
+      "target": "SCR_06_AccessoryCollection",
+      "x": 680,
+      "y": 706,
+      "w": 1112,
+      "h": 152
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ed4bb9dd7",
+      "screen": "SCR_08_Preset",
+      "target": "SCR_09_ModeSelect",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ee6ed63ab",
+      "screen": "SCR_09_ModeSelect",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ef7dbb9f9",
+      "screen": "SCR_10_PartyLobby",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f01529205",
+      "screen": "SCR_10_PartyLobby",
+      "target": "SCR_22_Social",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f01cd9004",
+      "screen": "SCR_10_PartyLobby",
+      "target": "SCR_11_Matchmaking",
+      "x": 1116,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f024c3da9",
+      "screen": "SCR_10_PartyLobby",
+      "target": "SCR_11_Matchmaking",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f12db1884",
+      "screen": "SCR_11_Matchmaking",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f1530972f",
+      "screen": "SCR_11_Matchmaking",
+      "target": "SCR_10_PartyLobby",
+      "x": 604,
+      "y": 866,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f15ab5e1a",
+      "screen": "SCR_11_Matchmaking",
+      "target": "SCR_12_MatchFound",
+      "x": 1000,
+      "y": 866,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f1f4e49bd",
+      "screen": "SCR_12_MatchFound",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f219b1f42",
+      "screen": "SCR_12_MatchFound",
+      "target": "SCR_10_PartyLobby",
+      "x": 604,
+      "y": 866,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f225fe0c6",
+      "screen": "SCR_12_MatchFound",
+      "target": "SCR_13_CharacterSelect",
+      "x": 1000,
+      "y": 866,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f2af4ff17",
+      "screen": "SCR_13_CharacterSelect",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f31fbc93e",
+      "screen": "SCR_13_CharacterSelect",
+      "target": "SCR_05_CharacterDetail",
+      "x": 1360,
+      "y": 580,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f33c6a1bc",
+      "screen": "SCR_13_CharacterSelect",
+      "target": "EXT_01_JobSelect",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f420ad2d3",
+      "screen": "SCR_14_AccessorySelect",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f4bee175d",
+      "screen": "SCR_14_AccessorySelect",
+      "target": "CBT_04_Practice",
+      "x": 1320,
+      "y": 530,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f4da8c47d",
+      "screen": "SCR_14_AccessorySelect",
+      "target": "EXT_02_ArenaSelect",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f5761f980",
+      "screen": "SCR_15_Loading",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a491edb3b9e0",
+      "screen": "SCR_15_Loading",
+      "target": "CBT_01_Match_1v1",
+      "trigger": "after-delay",
+      "delay": 1600,
+      "x": 0,
+      "y": 0,
+      "w": 1920,
+      "h": 1080
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f628d45ce",
+      "screen": "SCR_16_Victory",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f638e298c",
+      "screen": "SCR_16_Victory",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f63d1afb0",
+      "screen": "SCR_16_Victory",
+      "target": "SCR_17_ResultSummary",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f726c6dd0",
+      "screen": "SCR_17_ResultSummary",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f75284d9f",
+      "screen": "SCR_17_ResultSummary",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f757a7b09",
+      "screen": "SCR_17_ResultSummary",
+      "target": "SCR_18_MVP",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f7d7c29d7",
+      "screen": "SCR_18_MVP",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f7e6c9c8c",
+      "screen": "SCR_18_MVP",
+      "target": "SCR_24_Profile",
+      "x": 1092,
+      "y": 648,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f7eb6c957",
+      "screen": "SCR_18_MVP",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f7efa5678",
+      "screen": "SCR_18_MVP",
+      "target": "SCR_09_ModeSelect",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f87c6625c",
+      "screen": "SCR_19_Shop",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f91cdc946",
+      "screen": "SCR_19_Shop",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fa08cdf60",
+      "screen": "SCR_20_Collection",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fa8b84246",
+      "screen": "SCR_20_Collection",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fb34f1753",
+      "screen": "SCR_21_Mission",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fbe46dce8",
+      "screen": "SCR_21_Mission",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fc94117fe",
+      "screen": "SCR_22_Social",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fd3b2743c",
+      "screen": "SCR_22_Social",
+      "target": "STATE_EmptyList",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fd4966612",
+      "screen": "SCR_22_Social",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fe7ac0183",
+      "screen": "SCR_23_Rank",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fedb93f41",
+      "screen": "SCR_23_Rank",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ffa18c2c1",
+      "screen": "SCR_24_Profile",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ffe700149",
+      "screen": "SCR_24_Profile",
+      "target": "SCR_08_Preset",
+      "x": 700,
+      "y": 460,
+      "w": 1092,
+      "h": 190
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65000db6546",
+      "screen": "SCR_24_Profile",
+      "target": "SCR_03_Lobby",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6503475e53f",
+      "screen": "EXT_01_JobSelect",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65039aac8e2",
+      "screen": "EXT_01_JobSelect",
+      "target": "SCR_14_AccessorySelect",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a650452695f5",
+      "screen": "EXT_02_ArenaSelect",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6504b6acafc",
+      "screen": "EXT_02_ArenaSelect",
+      "target": "SCR_15_Loading",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6505808926f",
+      "screen": "EXT_03_StoryChapters",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6505d9a459e",
+      "screen": "EXT_03_StoryChapters",
+      "target": "SCR_13_CharacterSelect",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6507548259f",
+      "screen": "EXT_04_AISetup",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6507b0241de",
+      "screen": "EXT_04_AISetup",
+      "target": "SCR_13_CharacterSelect",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65087818043",
+      "screen": "EXT_05_PracticeSetup",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6508d44a104",
+      "screen": "EXT_05_PracticeSetup",
+      "target": "CBT_04_Practice",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6501024829e",
+      "screen": "EXT_06_GeneralSettings",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a650192ef851",
+      "screen": "EXT_06_GeneralSettings",
+      "target": "CBT_08_Settings",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6501a38c463",
+      "screen": "EXT_06_GeneralSettings",
+      "target": "STATE_SettingsReset",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ea4d9dea8",
+      "screen": "CBT_01_Match_1v1",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a650aa5b85f8",
+      "screen": "CBT_02_Match_Solo8",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a650e27076c9",
+      "screen": "CBT_03_Match_Team4v4",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65118f29e61",
+      "screen": "CBT_04_Practice",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651242ebf34",
+      "screen": "CBT_04_Practice",
+      "target": "CBT_04_Practice",
+      "x": 728,
+      "y": 278,
+      "w": 400,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65177fe9fe8",
+      "screen": "CBT_08_Settings",
+      "target": "SCR_03_Lobby",
+      "x": 1600,
+      "y": 30,
+      "w": 240,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6517f722dd4",
+      "screen": "CBT_08_Settings",
+      "target": "STATE_SettingsReset",
+      "x": 128,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6518087a146",
+      "screen": "CBT_08_Settings",
+      "target": "EXT_06_GeneralSettings",
+      "x": 1472,
+      "y": 914,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6513bbeeed5",
+      "screen": "CBT_05_Pause",
+      "target": "CBT_07_LeaveConfirm",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6515a523e5e",
+      "screen": "CBT_06_Resume",
+      "target": "CBT_07_LeaveConfirm",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651703efb4a",
+      "screen": "CBT_07_LeaveConfirm",
+      "target": "CBT_01_Match_1v1",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65170e7ecf3",
+      "screen": "CBT_07_LeaveConfirm",
+      "target": "SCR_03_Lobby",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651aa0a6678",
+      "screen": "STATE_Countdown",
+      "target": "CBT_01_Match_1v1",
+      "x": 800,
+      "y": 502,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651b897e74f",
+      "screen": "STATE_Hit",
+      "target": "CBT_01_Match_1v1",
+      "x": 800,
+      "y": 502,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651c781dc3a",
+      "screen": "STATE_Ringout",
+      "target": "STATE_Respawn",
+      "x": 800,
+      "y": 502,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651e082b16d",
+      "screen": "STATE_Respawn",
+      "target": "CBT_01_Match_1v1",
+      "x": 800,
+      "y": 502,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651f6eb8509",
+      "screen": "STATE_Eliminated",
+      "target": "SCR_17_ResultSummary",
+      "x": 800,
+      "y": 502,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65209a2a7f1",
+      "screen": "STATE_Defeat",
+      "target": "SCR_17_ResultSummary",
+      "x": 800,
+      "y": 502,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6522bed960f",
+      "screen": "STATE_SelectionRequired",
+      "target": "SCR_13_CharacterSelect",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6524882552c",
+      "screen": "STATE_EmptyList",
+      "target": "SCR_22_Social",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a65262b4f41a",
+      "screen": "STATE_ConnectionError",
+      "target": "SCR_02_Login",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652874f2cc7",
+      "screen": "STATE_SettingsReset",
+      "target": "CBT_08_Settings",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652a53b3f67",
+      "screen": "STATE_OnlineMenu",
+      "target": "CBT_03_Match_Team4v4",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652c3c030ba",
+      "screen": "STATE_CancelMatch",
+      "target": "SCR_10_PartyLobby",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6513c77845d",
+      "screen": "CBT_05_Pause",
+      "target": "CBT_01_Match_1v1",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6515bae7c15",
+      "screen": "CBT_06_Resume",
+      "target": "STATE_Countdown",
+      "x": 1012,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652c28e8904",
+      "screen": "STATE_CancelMatch",
+      "target": "SCR_11_Matchmaking",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6526174147d",
+      "screen": "STATE_ConnectionError",
+      "target": "SCR_03_Lobby",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651a77be2a8",
+      "screen": "STATE_Countdown",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652055772fe",
+      "screen": "STATE_Defeat",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651f2f8ac5d",
+      "screen": "STATE_Eliminated",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652475df621",
+      "screen": "STATE_EmptyList",
+      "target": "SCR_03_Lobby",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651b6034232",
+      "screen": "STATE_Hit",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652a40ea18e",
+      "screen": "STATE_OnlineMenu",
+      "target": "CBT_07_LeaveConfirm",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651ddaa553c",
+      "screen": "STATE_Respawn",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651c5826910",
+      "screen": "STATE_Ringout",
+      "target": "CBT_05_Pause",
+      "x": 1568,
+      "y": 278,
+      "w": 224,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6522a9ae27f",
+      "screen": "STATE_SelectionRequired",
+      "target": "SCR_03_Lobby",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652861cd111",
+      "screen": "STATE_SettingsReset",
+      "target": "CBT_08_Settings",
+      "x": 580,
+      "y": 666,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64ee8bf814e",
+      "screen": "SCR_09_ModeSelect",
+      "target": "EXT_03_StoryChapters",
+      "x": 156,
+      "y": 682,
+      "w": 256,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64eea65721a",
+      "screen": "SCR_09_ModeSelect",
+      "target": "SCR_10_PartyLobby",
+      "x": 492,
+      "y": 682,
+      "w": 256,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64eebb65216",
+      "screen": "SCR_09_ModeSelect",
+      "target": "SCR_10_PartyLobby",
+      "x": 828,
+      "y": 682,
+      "w": 256,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64eee23c905",
+      "screen": "SCR_09_ModeSelect",
+      "target": "EXT_04_AISetup",
+      "x": 1164,
+      "y": 682,
+      "w": 256,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64eef99af62",
+      "screen": "SCR_09_ModeSelect",
+      "target": "EXT_05_PracticeSetup",
+      "x": 1500,
+      "y": 682,
+      "w": 256,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f8caf1aec",
+      "screen": "SCR_19_Shop",
+      "target": "CBT_04_Practice",
+      "x": 236,
+      "y": 668,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f8f4f2816",
+      "screen": "SCR_19_Shop",
+      "target": "CBT_04_Practice",
+      "x": 804,
+      "y": 668,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64f9120c35f",
+      "screen": "SCR_19_Shop",
+      "target": "CBT_04_Practice",
+      "x": 1372,
+      "y": 668,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fcd645f5d",
+      "screen": "SCR_22_Social",
+      "target": "SCR_10_PartyLobby",
+      "x": 1330,
+      "y": 374,
+      "w": 320,
+      "h": 88
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a64fd03f6a8d",
+      "screen": "SCR_22_Social",
+      "target": "SCR_10_PartyLobby",
+      "x": 1330,
+      "y": 544,
+      "w": 320,
+      "h": 88
+    }
+  ],
+  "componentIds": {
+    "secondary-disabled": "fa154361-0c45-804b-8008-a5ef409baf2d",
+    "icon-settings": "fa154361-0c45-804b-8008-a5ef58aabc3c",
+    "action-dash-selected": "fa154361-0c45-804b-8008-a5ef9cf4b859",
+    "action-heavy-disabled": "fa154361-0c45-804b-8008-a5ef9965e176",
+    "dpad-up": "fa154361-0c45-804b-8008-a5ef9dce9f0d",
+    "dpad-left": "fa154361-0c45-804b-8008-a5ef9e67ec08",
+    "icon-check": "fa154361-0c45-804b-8008-a5ef58e16a36",
+    "panel-disabled": "fa154361-0c45-804b-8008-a5ef556c6d8c",
+    "action-jump-disabled": "fa154361-0c45-804b-8008-a5ef9bd333bc",
+    "tab-selected": "fa154361-0c45-804b-8008-a5ef42472501",
+    "action-light-default": "fa154361-0c45-804b-8008-a5ef819c87cd",
+    "dpad-down": "fa154361-0c45-804b-8008-a5ef9e1dd3ff",
+    "action-jump-pressed": "fa154361-0c45-804b-8008-a5ef9b0b402b",
+    "icon-team": "fa154361-0c45-804b-8008-a5ef59b8ba21",
+    "icon-dash": "fa154361-0c45-804b-8008-a5ef57cae8e9",
+    "icon-profile": "fa154361-0c45-804b-8008-a5ef7d6a54ad",
+    "icon-job": "fa154361-0c45-804b-8008-a5ef80da07d8",
+    "panel-pressed": "fa154361-0c45-804b-8008-a5ef550519aa",
+    "action-jump-selected": "fa154361-0c45-804b-8008-a5ef9b763f7e",
+    "toggle-on": "fa154361-0c45-804b-8008-a5ef9f8c02d4",
+    "icon-heavy": "fa154361-0c45-804b-8008-a5ef56e72ec5",
+    "action-jump-default": "fa154361-0c45-804b-8008-a5ef9ab66b90",
+    "danger-default": "fa154361-0c45-804b-8008-a5ef40dc740d",
+    "icon-accessory": "fa154361-0c45-804b-8008-a5ef7c4d41d6",
+    "action-light-pressed": "fa154361-0c45-804b-8008-a5ef81e6b729",
+    "icon-ringout": "fa154361-0c45-804b-8008-a5ef7e993c85",
+    "icon-arena": "fa154361-0c45-804b-8008-a5ef80683666",
+    "icon-seed": "fa154361-0c45-804b-8008-a5ef7e341563",
+    "secondary-pressed": "fa154361-0c45-804b-8008-a5ef400b5d3f",
+    "action-special-default": "fa154361-0c45-804b-8008-a5ef99aa7eaf",
+    "danger-selected": "fa154361-0c45-804b-8008-a5ef416bd467",
+    "icon-shop": "fa154361-0c45-804b-8008-a5ef7ca15a38",
+    "icon-jump": "fa154361-0c45-804b-8008-a5ef57838c5a",
+    "icon-special": "fa154361-0c45-804b-8008-a5ef5734b4c3",
+    "icon-solo": "fa154361-0c45-804b-8008-a5ef598418a7",
+    "icon-light": "fa154361-0c45-804b-8008-a5ef56931228",
+    "primary-default": "fa154361-0c45-804b-8008-a5ef3ecef0a9",
+    "action-dash-disabled": "fa154361-0c45-804b-8008-a5ef9d3befb2",
+    "secondary-default": "fa154361-0c45-804b-8008-a5ef3fb96913",
+    "action-special-selected": "fa154361-0c45-804b-8008-a5ef9a36ac8a",
+    "danger-pressed": "fa154361-0c45-804b-8008-a5ef41252a23",
+    "action-dash-pressed": "fa154361-0c45-804b-8008-a5ef9c8769b8",
+    "card-default": "fa154361-0c45-804b-8008-a5ef558dd8a4",
+    "tab-disabled": "fa154361-0c45-804b-8008-a5ef426bfe5b",
+    "slider": "fa154361-0c45-804b-8008-a5ef9f4dac09",
+    "action-special-pressed": "fa154361-0c45-804b-8008-a5ef99efd3fe",
+    "icon-play": "fa154361-0c45-804b-8008-a5ef7daf2940",
+    "action-heavy-selected": "fa154361-0c45-804b-8008-a5ef83a7029e",
+    "action-special-disabled": "fa154361-0c45-804b-8008-a5ef9a718bd2",
+    "icon-filter": "fa154361-0c45-804b-8008-a5ef7fb9f4be",
+    "icon-practice": "fa154361-0c45-804b-8008-a5ef5a1ef22b",
+    "icon-leaf": "fa154361-0c45-804b-8008-a5ef565bcfb5",
+    "icon-social": "fa154361-0c45-804b-8008-a5ef7ce157d8",
+    "loading": "fa154361-0c45-804b-8008-a5efa02ebadb",
+    "tab-default": "fa154361-0c45-804b-8008-a5ef41f4a5b3",
+    "card-selected": "fa154361-0c45-804b-8008-a5ef55ecc851",
+    "dpad-default": "fa154361-0c45-804b-8008-a5ef9d83e306",
+    "icon-story": "fa154361-0c45-804b-8008-a5ef594f53c4",
+    "danger-disabled": "fa154361-0c45-804b-8008-a5ef41c36627",
+    "dpad-right": "fa154361-0c45-804b-8008-a5ef9eae60b0",
+    "icon-ai": "fa154361-0c45-804b-8008-a5ef59e67489",
+    "icon-back": "fa154361-0c45-804b-8008-a5ef580452e9",
+    "icon-respawn": "fa154361-0c45-804b-8008-a5ef7efc2c57",
+    "card-disabled": "fa154361-0c45-804b-8008-a5ef56242ac7",
+    "primary-pressed": "fa154361-0c45-804b-8008-a5ef3f0cbf6d",
+    "icon-character": "fa154361-0c45-804b-8008-a5ef7c063060",
+    "secondary-selected": "fa154361-0c45-804b-8008-a5ef4051ddcc",
+    "primary-selected": "fa154361-0c45-804b-8008-a5ef3f3a4b58",
+    "action-heavy-default": "fa154361-0c45-804b-8008-a5ef82ee263f",
+    "card-pressed": "fa154361-0c45-804b-8008-a5ef55b78e8e",
+    "icon-close": "fa154361-0c45-804b-8008-a5ef5843f25a",
+    "action-heavy-pressed": "fa154361-0c45-804b-8008-a5ef8334d22f",
+    "icon-pause": "fa154361-0c45-804b-8008-a5ef7def11ef",
+    "primary-disabled": "fa154361-0c45-804b-8008-a5ef3f738dc1",
+    "icon-eliminated": "fa154361-0c45-804b-8008-a5ef7f651c35",
+    "dpad-disabled": "fa154361-0c45-804b-8008-a5ef9f09d12c",
+    "panel-default": "fa154361-0c45-804b-8008-a5ef54d2e38f",
+    "toggle-off": "fa154361-0c45-804b-8008-a5ef9fcae1ad",
+    "action-dash-default": "fa154361-0c45-804b-8008-a5ef9c2f4344",
+    "panel-selected": "fa154361-0c45-804b-8008-a5ef553cfa9c",
+    "tab-pressed": "fa154361-0c45-804b-8008-a5ef42217241",
+    "icon-trophy": "fa154361-0c45-804b-8008-a5ef8117375a",
+    "icon-mission": "fa154361-0c45-804b-8008-a5ef7d222411",
+    "icon-lock": "fa154361-0c45-804b-8008-a5ef59198476",
+    "action-light-selected": "fa154361-0c45-804b-8008-a5ef823bbf00",
+    "action-light-disabled": "fa154361-0c45-804b-8008-a5ef82a776e7",
+    "icon-sound": "fa154361-0c45-804b-8008-a5ef800c525a"
+  },
+  "composed": {
+    "Damage": "5eab23a0-5a25-8021-8008-a79fd47bec8f",
+    "Chances": "5eab23a0-5a25-8021-8008-a79fd6b813cc",
+    "ParticipantCompact": "5eab23a0-5a25-8021-8008-a79fdaa45756",
+    "ParticipantWide": "5eab23a0-5a25-8021-8008-a79fdf11a41c",
+    "ParticipantSlot": "5eab23a0-5a25-8021-8008-a79fe28e79b4",
+    "Dialog": "5eab23a0-5a25-8021-8008-a79fe830c6c3"
+  },
+  "snapshots": {
+    "SCR_01_Splash": {
+      "media": {
+        "name": "Prototype / SCR_01_Splash",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79e69ffed71",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a49196a916a4",
+          "screen": "SCR_01_Splash",
+          "target": "SCR_02_Login",
+          "trigger": "after-delay",
+          "delay": 1800,
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080
+        }
+      ]
+    },
+    "SCR_02_Login": {
+      "media": {
+        "name": "Prototype / SCR_02_Login",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79e7318bf62",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f116563758",
+          "screen": "SCR_02_Login",
+          "target": "SCR_03_Lobby",
+          "x": 800,
+          "y": 790,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f116f02703",
+          "screen": "SCR_02_Login",
+          "target": "STATE_ConnectionError",
+          "x": 800,
+          "y": 902,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_03_Lobby": {
+      "media": {
+        "name": "Prototype / SCR_03_Lobby",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79e7e5a3928",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0dad50f18",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_24_Profile",
+          "x": 1336,
+          "y": 48,
+          "w": 232,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0dbce871e",
+          "screen": "SCR_03_Lobby",
+          "target": "EXT_06_GeneralSettings",
+          "x": 1592,
+          "y": 48,
+          "w": 232,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0de2ad67a",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_08_Preset",
+          "x": 160,
+          "y": 602,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e0962201",
+          "screen": "SCR_03_Lobby",
+          "target": "EXT_05_PracticeSetup",
+          "x": 1280,
+          "y": 250,
+          "w": 512,
+          "h": 180
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e264c5c3",
+          "screen": "SCR_03_Lobby",
+          "target": "EXT_03_StoryChapters",
+          "x": 1280,
+          "y": 458,
+          "w": 512,
+          "h": 180
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e28e2933",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_09_ModeSelect",
+          "x": 1312,
+          "y": 756,
+          "w": 480,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e35498f2",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_04_CharacterCollection",
+          "x": 128,
+          "y": 914,
+          "w": 196,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e4175fb4",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_06_AccessoryCollection",
+          "x": 342,
+          "y": 914,
+          "w": 196,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e4e08224",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_08_Preset",
+          "x": 556,
+          "y": 914,
+          "w": 196,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e640f269",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_21_Mission",
+          "x": 770,
+          "y": 914,
+          "w": 196,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e7af2478",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_22_Social",
+          "x": 984,
+          "y": 914,
+          "w": 196,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e873d41a",
+          "screen": "SCR_03_Lobby",
+          "target": "SCR_19_Shop",
+          "x": 1198,
+          "y": 914,
+          "w": 196,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_04_CharacterCollection": {
+      "media": {
+        "name": "Prototype / SCR_04_CharacterCollection",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79e87a1e7d1",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f11da58d20",
+          "screen": "SCR_04_CharacterCollection",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f125ea5200",
+          "screen": "SCR_04_CharacterCollection",
+          "target": "SCR_05_CharacterDetail",
+          "x": 1360,
+          "y": 580,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f12702ec05",
+          "screen": "SCR_04_CharacterCollection",
+          "target": "SCR_05_CharacterDetail",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_05_CharacterDetail": {
+      "media": {
+        "name": "Prototype / SCR_05_CharacterDetail",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79e90757803",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f14023c609",
+          "screen": "SCR_05_CharacterDetail",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f1488947f8",
+          "screen": "SCR_05_CharacterDetail",
+          "target": "CBT_04_Practice",
+          "x": 1116,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f1493e0081",
+          "screen": "SCR_05_CharacterDetail",
+          "target": "SCR_08_Preset",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_06_AccessoryCollection": {
+      "media": {
+        "name": "Prototype / SCR_06_AccessoryCollection",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79eae4dde60",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f15087089a",
+          "screen": "SCR_06_AccessoryCollection",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f15cbc0ee3",
+          "screen": "SCR_06_AccessoryCollection",
+          "target": "CBT_04_Practice",
+          "x": 1320,
+          "y": 530,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f15e7e7891",
+          "screen": "SCR_06_AccessoryCollection",
+          "target": "SCR_07_AccessoryDetail",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_07_AccessoryDetail": {
+      "media": {
+        "name": "Prototype / SCR_07_AccessoryDetail",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79eb575b497",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f16662d337",
+          "screen": "SCR_07_AccessoryDetail",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f16b6c0179",
+          "screen": "SCR_07_AccessoryDetail",
+          "target": "CBT_04_Practice",
+          "x": 1116,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f16c260bd9",
+          "screen": "SCR_07_AccessoryDetail",
+          "target": "SCR_08_Preset",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_08_Preset": {
+      "media": {
+        "name": "Prototype / SCR_08_Preset",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79ebdf42f1e",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ec9497578",
+          "screen": "SCR_08_Preset",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed106b9fd",
+          "screen": "SCR_08_Preset",
+          "target": "SCR_04_CharacterCollection",
+          "x": 680,
+          "y": 354,
+          "w": 1112,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed303a88b",
+          "screen": "SCR_08_Preset",
+          "target": "EXT_01_JobSelect",
+          "x": 680,
+          "y": 530,
+          "w": 1112,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed48efeb0",
+          "screen": "SCR_08_Preset",
+          "target": "SCR_06_AccessoryCollection",
+          "x": 680,
+          "y": 706,
+          "w": 1112,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed4bb9dd7",
+          "screen": "SCR_08_Preset",
+          "target": "SCR_09_ModeSelect",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_19_Shop": {
+      "media": {
+        "name": "Prototype / SCR_19_Shop",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79ec43c4f29",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f87c6625c",
+          "screen": "SCR_19_Shop",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f8caf1aec",
+          "screen": "SCR_19_Shop",
+          "target": "CBT_04_Practice",
+          "x": 236,
+          "y": 668,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f8caf1aec",
+          "screen": "SCR_19_Shop",
+          "target": "CBT_04_Practice",
+          "x": 236,
+          "y": 668,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f8caf1aec",
+          "screen": "SCR_19_Shop",
+          "target": "CBT_04_Practice",
+          "x": 236,
+          "y": 668,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f91cdc946",
+          "screen": "SCR_19_Shop",
+          "target": "SCR_03_Lobby",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_20_Collection": {
+      "media": {
+        "name": "Prototype / SCR_20_Collection",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79ece2a1ac2",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fa08cdf60",
+          "screen": "SCR_20_Collection",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fa8b84246",
+          "screen": "SCR_20_Collection",
+          "target": "SCR_03_Lobby",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_21_Mission": {
+      "media": {
+        "name": "Prototype / SCR_21_Mission",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79ee36cc48c",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fb34f1753",
+          "screen": "SCR_21_Mission",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fbe46dce8",
+          "screen": "SCR_21_Mission",
+          "target": "SCR_03_Lobby",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_22_Social": {
+      "media": {
+        "name": "Prototype / SCR_22_Social",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79ee9b2ff29",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fc94117fe",
+          "screen": "SCR_22_Social",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fcd645f5d",
+          "screen": "SCR_22_Social",
+          "target": "SCR_10_PartyLobby",
+          "x": 1330,
+          "y": 374,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fcd645f5d",
+          "screen": "SCR_22_Social",
+          "target": "SCR_10_PartyLobby",
+          "x": 1330,
+          "y": 374,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fd3b2743c",
+          "screen": "SCR_22_Social",
+          "target": "STATE_EmptyList",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fd4966612",
+          "screen": "SCR_22_Social",
+          "target": "SCR_03_Lobby",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_23_Rank": {
+      "media": {
+        "name": "Prototype / SCR_23_Rank",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79eefb291b4",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fe7ac0183",
+          "screen": "SCR_23_Rank",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fedb93f41",
+          "screen": "SCR_23_Rank",
+          "target": "SCR_03_Lobby",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_24_Profile": {
+      "media": {
+        "name": "Prototype / SCR_24_Profile",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79ef88f3d92",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ffa18c2c1",
+          "screen": "SCR_24_Profile",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ffe700149",
+          "screen": "SCR_24_Profile",
+          "target": "SCR_08_Preset",
+          "x": 700,
+          "y": 460,
+          "w": 1092,
+          "h": 190
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a65000db6546",
+          "screen": "SCR_24_Profile",
+          "target": "SCR_03_Lobby",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "EXT_06_GeneralSettings": {
+      "media": {
+        "name": "Prototype / EXT_06_GeneralSettings",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79efef140a3",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a6501024829e",
+          "screen": "EXT_06_GeneralSettings",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a650192ef851",
+          "screen": "EXT_06_GeneralSettings",
+          "target": "CBT_08_Settings",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6501a38c463",
+          "screen": "EXT_06_GeneralSettings",
+          "target": "STATE_SettingsReset",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_09_ModeSelect": {
+      "media": {
+        "name": "Prototype / SCR_09_ModeSelect",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79f0a39a298",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee6ed63ab",
+          "screen": "SCR_09_ModeSelect",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee8bf814e",
+          "screen": "SCR_09_ModeSelect",
+          "target": "EXT_03_StoryChapters",
+          "x": 156,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee8bf814e",
+          "screen": "SCR_09_ModeSelect",
+          "target": "SCR_10_PartyLobby",
+          "x": 156,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee8bf814e",
+          "screen": "SCR_09_ModeSelect",
+          "target": "SCR_10_PartyLobby",
+          "x": 156,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee8bf814e",
+          "screen": "SCR_09_ModeSelect",
+          "target": "EXT_04_AISetup",
+          "x": 156,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee8bf814e",
+          "screen": "SCR_09_ModeSelect",
+          "target": "EXT_05_PracticeSetup",
+          "x": 156,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_10_PartyLobby": {
+      "media": {
+        "name": "Prototype / SCR_10_PartyLobby",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79f43afd940",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ef7dbb9f9",
+          "screen": "SCR_10_PartyLobby",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f01529205",
+          "screen": "SCR_10_PartyLobby",
+          "target": "SCR_22_Social",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f01cd9004",
+          "screen": "SCR_10_PartyLobby",
+          "target": "SCR_11_Matchmaking",
+          "x": 1116,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f024c3da9",
+          "screen": "SCR_10_PartyLobby",
+          "target": "SCR_11_Matchmaking",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_11_Matchmaking": {
+      "media": {
+        "name": "Prototype / SCR_11_Matchmaking",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79f4a34f3f0",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f12db1884",
+          "screen": "SCR_11_Matchmaking",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f1530972f",
+          "screen": "SCR_11_Matchmaking",
+          "target": "SCR_10_PartyLobby",
+          "x": 604,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f15ab5e1a",
+          "screen": "SCR_11_Matchmaking",
+          "target": "SCR_12_MatchFound",
+          "x": 1000,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_12_MatchFound": {
+      "media": {
+        "name": "Prototype / SCR_12_MatchFound",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79f503f9230",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f1f4e49bd",
+          "screen": "SCR_12_MatchFound",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f219b1f42",
+          "screen": "SCR_12_MatchFound",
+          "target": "SCR_10_PartyLobby",
+          "x": 604,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f225fe0c6",
+          "screen": "SCR_12_MatchFound",
+          "target": "SCR_13_CharacterSelect",
+          "x": 1000,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_13_CharacterSelect": {
+      "media": {
+        "name": "Prototype / SCR_13_CharacterSelect",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79f59328e19",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f2af4ff17",
+          "screen": "SCR_13_CharacterSelect",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f31fbc93e",
+          "screen": "SCR_13_CharacterSelect",
+          "target": "SCR_05_CharacterDetail",
+          "x": 1360,
+          "y": 580,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f33c6a1bc",
+          "screen": "SCR_13_CharacterSelect",
+          "target": "EXT_01_JobSelect",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_14_AccessorySelect": {
+      "media": {
+        "name": "Prototype / SCR_14_AccessorySelect",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "d8ac01df-6646-81d2-8008-a79f639e3a41",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f420ad2d3",
+          "screen": "SCR_14_AccessorySelect",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f4bee175d",
+          "screen": "SCR_14_AccessorySelect",
+          "target": "CBT_04_Practice",
+          "x": 1320,
+          "y": 530,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f4da8c47d",
+          "screen": "SCR_14_AccessorySelect",
+          "target": "EXT_02_ArenaSelect",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    "SCR_15_Loading": {
+      "media": {
+        "name": "Prototype / SCR_15_Loading",
+        "width": 960,
+        "height": 540,
+        "mtype": "image/png",
+        "id": "c514c1fb-1cda-8125-8008-a79f6be3d796",
+        "keepAspectRatio": null
+      },
+      "w": 1920,
+      "h": 1080,
+      "links": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f5761f980",
+          "screen": "SCR_15_Loading",
+          "target": "SCR_03_Lobby",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a491edb3b9e0",
+          "screen": "SCR_15_Loading",
+          "target": "CBT_01_Match_1v1",
+          "trigger": "after-delay",
+          "delay": 1600,
+          "x": 0,
+          "y": 0,
+          "w": 1920,
+          "h": 1080
+        }
+      ]
+    }
+  }
+}

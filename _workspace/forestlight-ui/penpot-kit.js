@@ -26,7 +26,7 @@ F.header=(s,title,future=false,back='SCR_03_Lobby')=>{
 };
 F.background=(s,key='lobby',opacity=.88)=>{F.image(s,key,0,0,1920,1080);F.rect(s,'Forestlight veil',0,0,1920,1080,F.C.paper,0,opacity);};
 F.newScreen=async(pageName,name,index,title,future=false)=>{
- const p=penpotUtils.getPageByName(pageName);await penpot.openPage(p);
+ const p=penpotUtils.getPageByName(pageName);if(penpot.currentPage.id!==p.id)await penpot.openPage(p);
  let s=p.root.children.find(s=>s.name===name);
  if(s&&!s.getPluginData('forestlight-v01')){const old=s.clone();old.name='ARCHIVE v00 / '+name;F.put(p.root,old,12000+(index%2)*2050,Math.floor(index/2)*1220);for(const c of [...s.children])c.remove();}
  else if(s?.getPluginData('forestlight-v01'))return s;

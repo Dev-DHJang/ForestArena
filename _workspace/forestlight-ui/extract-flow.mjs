@@ -1,0 +1,27 @@
+import fs from 'node:fs';
+const dir=new URL('.',import.meta.url);
+const F={C:{},links:[],boards:{},media:Object.fromEntries(['ja-hyun','myo-ryung','nabi'].map(k=>[k,{width:480,height:640}]))};
+const entries=[];
+let current='',serial=0;
+const shape=(name,x=0,y=0,w=0,h=0)=>({id:String(++serial),name,x,y,width:w,height:h,children:[],fills:[],setPluginData(){},remove(){}});
+for(const k of ['rect','board','text','asset','icon','image','panel','chip'])F[k]=(...args)=>shape(args[1],...args.slice(2));
+F.background=()=>{};
+F.finish=s=>s;
+F.newScreen=async(page,id,index,title,future)=>{current=id;F.button(null,'뒤로',1600,30,'SCR_03_Lobby','secondary',240);return shape(id);};
+F.button=(p,label,x,y,target,kind='primary',w=320,state='default')=>{const s=shape('BUTTON / '+label,x,y,w,88);if(target&&state!=='disabled')entries.push({screen:current,label,x,y,w,h:88,target});return s;};
+F.rect=(p,name,x,y,w,h)=>{const s=shape(name,x,y,w,h);s.screen=current;return s;};
+F.links.push=function(a){entries.push({...a,screen:current});};
+const AsyncFunction=Object.getPrototypeOf(async function(){}).constructor;
+for(const file of ['screens.js','combat.js'])await new AsyncFunction('storage','penpotUtils',fs.readFileSync(new URL(file,dir),'utf8'))({fa:F},{findShape:()=>null});
+// Capture transparent card links by retaining their geometry.
+const rect=F.rect;const shapes=new Map();F.rect=(...args)=>{const s=rect(...args);shapes.set(s.id,s);return s;};
+for(const spec of F.specs)await F.run(spec[0]);
+for(const row of [['CBT_01_Match_1v1',0,'1 대 1',2],['CBT_02_Match_Solo8',1,'Solo',8],['CBT_03_Match_Team4v4',2,'Team',8],['CBT_04_Practice',3,'Practice',2]])await F.combat(...row);
+await F.controlSettings();
+const overlays=[['CBT_05_Pause',4,'일시정지','','계속하기','CBT_01_Match_1v1','경기 나가기','CBT_07_LeaveConfirm'],['CBT_06_Resume',5,'돌아오셨네요','','재개','STATE_Countdown','나가기','CBT_07_LeaveConfirm'],['CBT_07_LeaveConfirm',6,'경기를 나갈까요?','','나가기','SCR_03_Lobby','계속하기','CBT_01_Match_1v1']];
+for(const row of overlays)await F.overlay(...row);
+F.stateSpecs.forEach((a,i)=>{current=a[0];if(i<6)entries.push({screen:current,label:a[4],x:800,y:798,w:320,h:88,target:a[3]});});
+for(const a of F.stateSpecs.slice(6))await F.overlay(a[0],0,a[1],a[2],a[4],a[3]);
+const result=entries.map(a=>{const s=shapes.get(a.id);return s?{screen:a.screen,label:s.name.replace('LINK / ',''),x:s.x,y:s.y,w:s.width,h:s.height,target:a.target}:a;});
+fs.writeFileSync(new URL('flow-spec.json',dir),JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify({links:result.length}));

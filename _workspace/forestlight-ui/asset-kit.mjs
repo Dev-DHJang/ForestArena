@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-import {execFileSync} from 'node:child_process';
+import {Resvg} from '@resvg/resvg-js';
 
 const root = process.cwd();
 const out = path.join(root, 'assets/ui/forestlight-v01');
@@ -45,7 +45,7 @@ const assets=[];
 function add(name,w,h,body){
  const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${body}</svg>`;
  const file=path.join(out,name+'.svg');fs.writeFileSync(file,svg);
- execFileSync('magick',['-background','none',file,path.join(out,name+'.png')]);
+ fs.writeFileSync(path.join(out,name+'.png'),new Resvg(svg).render().asPng());
  assets.push({id:'IMG/forestlight/'+name,name,width:w,height:h,svg,png:'assets/ui/forestlight-v01/'+name+'.png',source:'assets/ui/forestlight-v01/'+name+'.svg',sha256:crypto.createHash('sha256').update(svg).digest('hex')});
 }
 const states=['default','pressed','selected','disabled'];
@@ -68,7 +68,7 @@ for(const state of ['default','up','down','left','right','disabled']){
 add('slider',440,64,'<rect x="8" y="24" width="424" height="16" rx="8" fill="#DCE7DA"/><rect x="8" y="24" width="280" height="16" rx="8" fill="#B8DE78"/><circle cx="288" cy="32" r="23" fill="#F4F9EE" stroke="#27634D" stroke-width="3"/><path d="M280 39Q275 23 298 22Q299 39 280 39Z" fill="#91D5EF"/>');
 for(const on of [true,false])add('toggle-'+(on?'on':'off'),104,56,`<rect x="3" y="3" width="98" height="50" rx="25" fill="${on?'#B8DE78':'#DCE7DA'}" stroke="#81AD8D" stroke-width="2"/><circle cx="${on?76:28}" cy="28" r="20" fill="#F4F9EE" stroke="#27634D" stroke-width="2"/>`);
 add('loading',320,32,'<rect x="2" y="2" width="316" height="28" rx="14" fill="#DAE7DB"/><rect x="4" y="4" width="218" height="24" rx="12" fill="#91D5EF"/><path d="M202 24Q198 9 219 7Q223 24 202 24Z" fill="#27634D"/>');
-const manifest={schema_version:1,status:'produced-design-review',created_on:'2026-09-16',method:'Original hand-authored SVG geometry; PNG rendered from the same vector masters with ImageMagick.',rights:'No third-party visual assets incorporated. Wild Rift consulted only for ergonomic and information-layout principles. No legal clearance assertion.',references:['https://www.leagueoflegends.com/pl-pl/news/game-updates/sterowanie-w-wild-rift/','https://interfaceingame.com/screenshots/league-of-legends-wild-rift-controls/'],runtime_registered:false,assets:assets.map(({svg,...a})=>a)};
+const manifest={schema_version:1,status:'produced-design-review',created_on:'2026-09-16',method:'Original hand-authored SVG geometry; PNG rendered from the same vector masters with resvg.',rights:'No third-party visual assets incorporated. Wild Rift consulted only for ergonomic and information-layout principles. No legal clearance assertion.',references:['https://www.leagueoflegends.com/pl-pl/news/game-updates/sterowanie-w-wild-rift/','https://interfaceingame.com/screenshots/league-of-legends-wild-rift-controls/'],runtime_registered:false,assets:assets.map(({svg,...a})=>a)};
 fs.writeFileSync(path.join(out,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
 fs.writeFileSync(path.join(out,'asset-requirements.csv'),'asset_slot,output_path,source_path,status\n'+assets.map(a=>[a.id,a.png,a.source,'produced-design-review'].join(',')).join('\n')+'\n');
 fs.writeFileSync(path.join(root,'_workspace/forestlight-ui/asset-bundle.json'),JSON.stringify(assets));

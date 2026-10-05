@@ -1,0 +1,1312 @@
+[
+  {
+    "screen": "SCR_01_Splash",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "id": "2",
+    "target": "SCR_02_Login",
+    "trigger": "after-delay",
+    "delay": 1800,
+    "screen": "SCR_01_Splash"
+  },
+  {
+    "screen": "SCR_02_Login",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_02_Login",
+    "label": "게스트로 시작",
+    "x": 800,
+    "y": 790,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_02_Login",
+    "label": "계정 로그인",
+    "x": 800,
+    "y": 902,
+    "w": 320,
+    "h": 88,
+    "target": "STATE_ConnectionError"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "프로필",
+    "x": 1336,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "target": "SCR_24_Profile"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "설정",
+    "x": 1592,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "target": "EXT_06_GeneralSettings"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "편성 바꾸기",
+    "x": 160,
+    "y": 602,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_08_Preset"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "연습부터 시작",
+    "x": 1280,
+    "y": 250,
+    "w": 512,
+    "h": 180,
+    "target": "EXT_05_PracticeSetup"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "숲의 이야기",
+    "x": 1280,
+    "y": 458,
+    "w": 512,
+    "h": 180,
+    "target": "EXT_03_StoryChapters"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "플레이",
+    "x": 1312,
+    "y": 756,
+    "w": 480,
+    "h": 88,
+    "target": "SCR_09_ModeSelect"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "캐릭터",
+    "x": 128,
+    "y": 914,
+    "w": 196,
+    "h": 88,
+    "target": "SCR_04_CharacterCollection"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "장신구",
+    "x": 342,
+    "y": 914,
+    "w": 196,
+    "h": 88,
+    "target": "SCR_06_AccessoryCollection"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "프리셋",
+    "x": 556,
+    "y": 914,
+    "w": 196,
+    "h": 88,
+    "target": "SCR_08_Preset"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "미션",
+    "x": 770,
+    "y": 914,
+    "w": 196,
+    "h": 88,
+    "target": "SCR_21_Mission"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "친구",
+    "x": 984,
+    "y": 914,
+    "w": 196,
+    "h": 88,
+    "target": "SCR_22_Social"
+  },
+  {
+    "screen": "SCR_03_Lobby",
+    "label": "상점",
+    "x": 1198,
+    "y": 914,
+    "w": 196,
+    "h": 88,
+    "target": "SCR_19_Shop"
+  },
+  {
+    "screen": "SCR_04_CharacterCollection",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_04_CharacterCollection",
+    "label": "기술 살펴보기",
+    "x": 1360,
+    "y": 580,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_05_CharacterDetail"
+  },
+  {
+    "screen": "SCR_04_CharacterCollection",
+    "label": "이 캐릭터 선택",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_05_CharacterDetail"
+  },
+  {
+    "screen": "SCR_05_CharacterDetail",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_05_CharacterDetail",
+    "label": "연습하기",
+    "x": 1116,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "SCR_05_CharacterDetail",
+    "label": "편성에 넣기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_08_Preset"
+  },
+  {
+    "screen": "SCR_06_AccessoryCollection",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_06_AccessoryCollection",
+    "label": "연습해 보기",
+    "x": 1320,
+    "y": 530,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "SCR_06_AccessoryCollection",
+    "label": "장착하기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_07_AccessoryDetail"
+  },
+  {
+    "screen": "SCR_07_AccessoryDetail",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_07_AccessoryDetail",
+    "label": "연습하기",
+    "x": 1116,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "SCR_07_AccessoryDetail",
+    "label": "장착하기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_08_Preset"
+  },
+  {
+    "screen": "SCR_08_Preset",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_08_Preset",
+    "label": "캐릭터",
+    "x": 680,
+    "y": 354,
+    "w": 1112,
+    "h": 152,
+    "target": "SCR_04_CharacterCollection"
+  },
+  {
+    "screen": "SCR_08_Preset",
+    "label": "직업",
+    "x": 680,
+    "y": 530,
+    "w": 1112,
+    "h": 152,
+    "target": "EXT_01_JobSelect"
+  },
+  {
+    "screen": "SCR_08_Preset",
+    "label": "장신구",
+    "x": 680,
+    "y": 706,
+    "w": 1112,
+    "h": 152,
+    "target": "SCR_06_AccessoryCollection"
+  },
+  {
+    "screen": "SCR_08_Preset",
+    "label": "편성으로 플레이",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_09_ModeSelect"
+  },
+  {
+    "screen": "SCR_09_ModeSelect",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_09_ModeSelect",
+    "label": "선택",
+    "x": 156,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "target": "EXT_03_StoryChapters"
+  },
+  {
+    "screen": "SCR_09_ModeSelect",
+    "label": "선택",
+    "x": 492,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "target": "SCR_10_PartyLobby"
+  },
+  {
+    "screen": "SCR_09_ModeSelect",
+    "label": "선택",
+    "x": 828,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "target": "SCR_10_PartyLobby"
+  },
+  {
+    "screen": "SCR_09_ModeSelect",
+    "label": "선택",
+    "x": 1164,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "target": "EXT_04_AISetup"
+  },
+  {
+    "screen": "SCR_09_ModeSelect",
+    "label": "선택",
+    "x": 1500,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "target": "EXT_05_PracticeSetup"
+  },
+  {
+    "screen": "SCR_10_PartyLobby",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_10_PartyLobby",
+    "label": "친구 초대",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_22_Social"
+  },
+  {
+    "screen": "SCR_10_PartyLobby",
+    "label": "준비 완료",
+    "x": 1116,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_11_Matchmaking"
+  },
+  {
+    "screen": "SCR_10_PartyLobby",
+    "label": "매치 찾기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_11_Matchmaking"
+  },
+  {
+    "screen": "SCR_11_Matchmaking",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_11_Matchmaking",
+    "label": "찾기 취소",
+    "x": 604,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_10_PartyLobby"
+  },
+  {
+    "screen": "SCR_11_Matchmaking",
+    "label": "발견 상태 보기",
+    "x": 1000,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_12_MatchFound"
+  },
+  {
+    "screen": "SCR_12_MatchFound",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_12_MatchFound",
+    "label": "거절",
+    "x": 604,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_10_PartyLobby"
+  },
+  {
+    "screen": "SCR_12_MatchFound",
+    "label": "수락",
+    "x": 1000,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_13_CharacterSelect"
+  },
+  {
+    "screen": "SCR_13_CharacterSelect",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_13_CharacterSelect",
+    "label": "기술 살펴보기",
+    "x": 1360,
+    "y": 580,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_05_CharacterDetail"
+  },
+  {
+    "screen": "SCR_13_CharacterSelect",
+    "label": "이 캐릭터 선택",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "EXT_01_JobSelect"
+  },
+  {
+    "screen": "SCR_14_AccessorySelect",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_14_AccessorySelect",
+    "label": "연습해 보기",
+    "x": 1320,
+    "y": 530,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "SCR_14_AccessorySelect",
+    "label": "장착하기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "EXT_02_ArenaSelect"
+  },
+  {
+    "screen": "SCR_15_Loading",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "id": "313",
+    "target": "CBT_01_Match_1v1",
+    "trigger": "after-delay",
+    "delay": 1600,
+    "screen": "SCR_15_Loading"
+  },
+  {
+    "screen": "SCR_16_Victory",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_16_Victory",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_16_Victory",
+    "label": "결과 보기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_17_ResultSummary"
+  },
+  {
+    "screen": "SCR_17_ResultSummary",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_17_ResultSummary",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_17_ResultSummary",
+    "label": "MVP 보기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_18_MVP"
+  },
+  {
+    "screen": "SCR_18_MVP",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_18_MVP",
+    "label": "좋아요",
+    "x": 1092,
+    "y": 648,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_24_Profile"
+  },
+  {
+    "screen": "SCR_18_MVP",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_18_MVP",
+    "label": "다시 플레이",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_09_ModeSelect"
+  },
+  {
+    "screen": "SCR_19_Shop",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_19_Shop",
+    "label": "연습하기",
+    "x": 236,
+    "y": 668,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "SCR_19_Shop",
+    "label": "연습하기",
+    "x": 804,
+    "y": 668,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "SCR_19_Shop",
+    "label": "연습하기",
+    "x": 1372,
+    "y": 668,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "SCR_19_Shop",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_20_Collection",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_20_Collection",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_21_Mission",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_21_Mission",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_22_Social",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_22_Social",
+    "label": "초대",
+    "x": 1330,
+    "y": 374,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_10_PartyLobby"
+  },
+  {
+    "screen": "SCR_22_Social",
+    "label": "초대",
+    "x": 1330,
+    "y": 544,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_10_PartyLobby"
+  },
+  {
+    "screen": "SCR_22_Social",
+    "label": "친구 찾기",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "STATE_EmptyList"
+  },
+  {
+    "screen": "SCR_22_Social",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_23_Rank",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_23_Rank",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_24_Profile",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "SCR_24_Profile",
+    "label": "즐겨 쓰는 편성",
+    "x": 700,
+    "y": 460,
+    "w": 1092,
+    "h": 190,
+    "target": "SCR_08_Preset"
+  },
+  {
+    "screen": "SCR_24_Profile",
+    "label": "로비로",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "EXT_01_JobSelect",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "EXT_01_JobSelect",
+    "label": "선택 확인",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_14_AccessorySelect"
+  },
+  {
+    "screen": "EXT_02_ArenaSelect",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "EXT_02_ArenaSelect",
+    "label": "선택 확인",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_15_Loading"
+  },
+  {
+    "screen": "EXT_03_StoryChapters",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "EXT_03_StoryChapters",
+    "label": "선택 확인",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_13_CharacterSelect"
+  },
+  {
+    "screen": "EXT_04_AISetup",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "EXT_04_AISetup",
+    "label": "선택 확인",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_13_CharacterSelect"
+  },
+  {
+    "screen": "EXT_05_PracticeSetup",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "EXT_05_PracticeSetup",
+    "label": "선택 확인",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "EXT_06_GeneralSettings",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "EXT_06_GeneralSettings",
+    "label": "조작 설정",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_08_Settings"
+  },
+  {
+    "screen": "EXT_06_GeneralSettings",
+    "label": "기본값 복원",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "STATE_SettingsReset"
+  },
+  {
+    "screen": "CBT_01_Match_1v1",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_01_Match_1v1",
+    "label": "메뉴",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "target": "CBT_05_Pause"
+  },
+  {
+    "screen": "CBT_02_Match_Solo8",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_02_Match_Solo8",
+    "label": "메뉴",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "target": "CBT_05_Pause"
+  },
+  {
+    "screen": "CBT_03_Match_Team4v4",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_03_Match_Team4v4",
+    "label": "메뉴",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "target": "CBT_05_Pause"
+  },
+  {
+    "screen": "CBT_04_Practice",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_04_Practice",
+    "label": "메뉴",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "target": "CBT_05_Pause"
+  },
+  {
+    "screen": "CBT_04_Practice",
+    "label": "연습 다시 시작",
+    "x": 728,
+    "y": 278,
+    "w": 400,
+    "h": 88,
+    "target": "CBT_04_Practice"
+  },
+  {
+    "screen": "CBT_08_Settings",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_08_Settings",
+    "label": "기본값 복원",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "STATE_SettingsReset"
+  },
+  {
+    "screen": "CBT_08_Settings",
+    "label": "적용",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "target": "EXT_06_GeneralSettings"
+  },
+  {
+    "screen": "CBT_05_Pause",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_05_Pause",
+    "label": "경기 나가기",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_07_LeaveConfirm"
+  },
+  {
+    "screen": "CBT_05_Pause",
+    "label": "계속하기",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "CBT_06_Resume",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_06_Resume",
+    "label": "나가기",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_07_LeaveConfirm"
+  },
+  {
+    "screen": "CBT_06_Resume",
+    "label": "재개",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "STATE_Countdown"
+  },
+  {
+    "screen": "CBT_07_LeaveConfirm",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "CBT_07_LeaveConfirm",
+    "label": "계속하기",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "CBT_07_LeaveConfirm",
+    "label": "나가기",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "STATE_Countdown",
+    "label": "시작",
+    "x": 800,
+    "y": 798,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_Hit",
+    "label": "계속",
+    "x": 800,
+    "y": 798,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_Ringout",
+    "label": "복귀 보기",
+    "x": 800,
+    "y": 798,
+    "w": 320,
+    "h": 88,
+    "target": "STATE_Respawn"
+  },
+  {
+    "screen": "STATE_Respawn",
+    "label": "재개",
+    "x": 800,
+    "y": 798,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_Eliminated",
+    "label": "결과 보기",
+    "x": 800,
+    "y": 798,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_17_ResultSummary"
+  },
+  {
+    "screen": "STATE_Defeat",
+    "label": "결과 보기",
+    "x": 800,
+    "y": 798,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_17_ResultSummary"
+  },
+  {
+    "screen": "STATE_SelectionRequired",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "STATE_SelectionRequired",
+    "label": "취소",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_SelectionRequired",
+    "label": "선택으로",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_13_CharacterSelect"
+  },
+  {
+    "screen": "STATE_EmptyList",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "STATE_EmptyList",
+    "label": "취소",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_EmptyList",
+    "label": "돌아가기",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_22_Social"
+  },
+  {
+    "screen": "STATE_ConnectionError",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "STATE_ConnectionError",
+    "label": "취소",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_ConnectionError",
+    "label": "다시 시도",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_02_Login"
+  },
+  {
+    "screen": "STATE_SettingsReset",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "STATE_SettingsReset",
+    "label": "취소",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_SettingsReset",
+    "label": "복원",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_08_Settings"
+  },
+  {
+    "screen": "STATE_OnlineMenu",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "STATE_OnlineMenu",
+    "label": "취소",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_OnlineMenu",
+    "label": "경기로",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_03_Match_Team4v4"
+  },
+  {
+    "screen": "STATE_CancelMatch",
+    "label": "뒤로",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "target": "SCR_03_Lobby"
+  },
+  {
+    "screen": "STATE_CancelMatch",
+    "label": "취소",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "CBT_01_Match_1v1"
+  },
+  {
+    "screen": "STATE_CancelMatch",
+    "label": "찾기 취소",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "target": "SCR_10_PartyLobby"
+  }
+]
