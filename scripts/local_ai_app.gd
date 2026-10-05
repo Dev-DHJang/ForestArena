@@ -4,6 +4,7 @@ extends Node
 const MATCH_SCENE := preload("res://scenes/main.tscn")
 const PRESENTATION = preload("res://scripts/local_fighter_presentation.gd")
 const BOT = preload("res://scripts/local_ai_command_source.gd")
+const EXTRA_FIGHTER_SCENE := preload("res://scenes/fighters/ja_hyun_fighter.tscn")
 const BACK_REQUEST_DEBOUNCE_MSEC := 200
 var catalog := LocalPlayCatalog.new()
 var store: LocalPlayerStore
@@ -16,6 +17,10 @@ var match_controller: MatchController
 var screen := ""
 var message := ""
 var last_back_request_msec := -BACK_REQUEST_DEBOUNCE_MSEC
+var selected_mode: LocalMatchConfig.Mode = LocalMatchConfig.Mode.AI
+var solo_participant_count := 4
+var team_size := 2
+var active_config: LocalMatchConfig
 
 func _ready() -> void:
 	get_tree().quit_on_go_back = false
@@ -134,7 +139,7 @@ func _show_home() -> void:
 	screen = "home"
 	_new_page("Forest Arena · 로컬 AI 대전")
 	_label("네 캐릭터와 함께 숲의 경기장으로")
-	_button("대전 준비", _show_prepare)
+	_button("오프라인 대전", _show_prepare)
 	_button("상점 · 모두 0원", _show_shop)
 	_label("구매와 선택은 이 기기에 저장됩니다. 인터넷 연결 없이 플레이할 수 있습니다.", 18)
 
@@ -163,7 +168,18 @@ func _show_shop() -> void:
 
 func _show_prepare() -> void:
 	screen = "prepare"
-	_new_page("대전 준비 · 1대1 보통 AI")
+	_new_page("대전 준비 · " + _mode_name(selected_mode))
+	_choice_labels("모드", ["스토리 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"], int(selected_mode), func(index: int) -> void:
+		selected_mode = index as LocalMatchConfig.Mode
+		_show_prepare())
+	if selected_mode == LocalMatchConfig.Mode.SOLO:
+		_choice_labels("참가 인원", ["2명", "4명", "6명", "8명"], [2, 4, 6, 8].find(solo_participant_count), func(index: int) -> void:
+			solo_participant_count = [2, 4, 6, 8][index]
+			_show_prepare())
+	elif selected_mode == LocalMatchConfig.Mode.TEAM:
+		_choice_labels("팀 인원", ["1 대 1", "2 대 2", "3 대 3", "4 대 4"], team_size - 1, func(index: int) -> void:
+			team_size = index + 1
+			_show_prepare())
 	_label("내 캐릭터: " + catalog.product(store.data.selected_character).name)
 	_character_cards(true, func(id: String) -> void:
 		if not store.select(id, store.data.selected_accessory, store.data.opponent_character): message = store.error
@@ -176,7 +192,7 @@ func _show_prepare() -> void:
 	_choice("AI 캐릭터", opponents, store.data.opponent_character, func(id: String) -> void:
 		if not store.select(store.data.selected_character, store.data.selected_accessory, id): message = store.error
 		_show_prepare())
-	_label("숲의 경기장 · 중앙 통과형 발판 · 양끝 낭떠러지 · 3 STOCK", 18)
+	_label("숲의 경기장 · 중앙 통과형 발판 · 양끝 낭떠러지 · 3 STOCK · 온라인 없음", 18)
 	_button("대전 시작", start_match)
 	_button("로비", _show_home)
 
@@ -195,26 +211,46 @@ func _choice(title: String, ids: Array, selected: String, callback: Callable) ->
 	options.item_selected.connect(func(index: int) -> void: callback.call(ids[index]))
 	row.add_child(options)
 
+
+func _choice_labels(title: String, labels: Array[String], selected_index: int, callback: Callable) -> void:
+	var row := HBoxContainer.new()
+	body.add_child(row)
+	var label := Label.new()
+	label.text = title
+	label.custom_minimum_size.x = 180
+	row.add_child(label)
+	var options := OptionButton.new()
+	options.custom_minimum_size = Vector2(320, 58)
+	for item: String in labels: options.add_item(item)
+	options.select(maxi(0, selected_index))
+	options.item_selected.connect(func(index: int) -> void: callback.call(index))
+	row.add_child(options)
+
 func start_match() -> void:
-	var config := LocalMatchConfig.from_store(store)
-	if config == null: return
+	var config := _build_match_config()
+	if config == null or not config.is_valid_definition():
+		message = "대전 설정을 만들지 못했습니다. 보유 캐릭터와 선택을 확인해 주세요."
+		_show_prepare()
+		return
+	active_config = config
 	_close_match()
 	match_scene = MATCH_SCENE.instantiate()
 	match_scene.app_shell_mode = true
 	match_controller = match_scene.get_node("MatchController")
 	match_controller.loadout_catalog = catalog.combat
-	var selections: Array[LoadoutSelection] = [config.player, config.opponent]
+	var selections: Array[LoadoutSelection] = [config.participants[0].selection, config.participants[1].selection]
 	match_controller.player_selection = selections[0]
 	match_controller.training_dummy_selection = selections[1]
 	for index: int in 2:
 		var fighter := match_scene.get_node("World/Player" if index == 0 else "World/TrainingDummy") as FighterController
 		fighter.character_data = catalog.combat.character_by_id(selections[index].character_id)
-		fighter.fighter_id = &"player" if index == 0 else &"opponent"
+		fighter.fighter_id = config.participants[index].participant_id
 		fighter.show_debug_body = false
 		var presentation := PRESENTATION.new()
 		presentation.name = "Presentation"
 		fighter.add_child(presentation)
-	match_controller.bot_source = BOT.new(&"opponent", config.seed, {"reaction_interval_ticks": config.reaction_interval_ticks})
+	match_controller.local_match_mode = config.mode
+	match_controller.team_by_fighter_id = _team_map(config)
 	match_controller.match_ended.connect(_on_match_ended.bind(match_controller))
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	add_child(match_scene)
@@ -228,7 +264,83 @@ func start_match() -> void:
 	readout.add_theme_font_size_override("font_size", 20)
 	readout.add_theme_color_override("font_outline_color", Color("122d38"))
 	readout.add_theme_constant_override("outline_size", 8)
+	for index: int in range(2, config.participants.size()):
+		_add_match_fighter(config.participants[index], index)
+	_configure_bots(config)
+	match_controller.reset_match()
 	_show_match_controls()
+
+
+func _build_match_config() -> LocalMatchConfig:
+	if not store.valid(store.data) or not store.data.first_granted: return null
+	var config := LocalMatchConfig.new()
+	config.mode = selected_mode
+	config.seed = 3001
+	var total := 2
+	if selected_mode == LocalMatchConfig.Mode.SOLO: total = solo_participant_count
+	elif selected_mode == LocalMatchConfig.Mode.TEAM: total = team_size * 2
+	var character_ids: Array[StringName] = []
+	for character: CharacterData in catalog.combat.characters: character_ids.append(character.character_id)
+	for index: int in total:
+		var selection := LoadoutSelection.new()
+		selection.character_id = StringName(store.data.selected_character) if index == 0 else character_ids[(character_ids.find(StringName(store.data.opponent_character)) + index - 1) % character_ids.size()]
+		selection.accessory_id = StringName(store.data.selected_accessory) if index == 0 else &""
+		var participant := LocalMatchParticipant.new()
+		participant.participant_id = &"player" if index == 0 else StringName("ai_%d" % index)
+		participant.selection = selection
+		participant.human_controlled = index == 0
+		if selected_mode == LocalMatchConfig.Mode.TEAM:
+			participant.team_id = &"alpha" if index == 0 or index < team_size else &"beta"
+		config.participants.append(participant)
+	config.player = config.participants[0].selection.duplicate(true) as LoadoutSelection
+	config.opponent = config.participants[1].selection.duplicate(true) as LoadoutSelection
+	return config
+
+
+func _team_map(config: LocalMatchConfig) -> Dictionary:
+	var result := {}
+	for participant: LocalMatchParticipant in config.participants:
+		result[participant.participant_id] = participant.team_id
+	return result
+
+
+func _spawn_position(index: int) -> Vector2:
+	var positions := [Vector2(360, 520), Vector2(900, 520), Vector2(540, 520), Vector2(720, 520), Vector2(240, 520), Vector2(1040, 520), Vector2(505, 340), Vector2(775, 340)]
+	return positions[index]
+
+
+func _add_match_fighter(participant: LocalMatchParticipant, index: int) -> void:
+	var fighter := EXTRA_FIGHTER_SCENE.instantiate() as FighterController
+	fighter.name = "Participant_%s" % participant.participant_id
+	fighter.fighter_id = participant.participant_id
+	fighter.character_data = catalog.combat.character_by_id(participant.selection.character_id)
+	fighter.global_position = _spawn_position(index)
+	fighter.spawn_position = fighter.global_position
+	fighter.show_debug_body = false
+	match_scene.get_node("World").add_child(fighter)
+	var profile := LoadoutBuilder.build(participant.selection, catalog.combat)
+	if not profile.succeeded() or not fighter.configure_profile(profile.profile):
+		push_error("Local match participant profile failed: %s" % participant.participant_id)
+	var presentation := PRESENTATION.new()
+	presentation.name = "Presentation"
+	fighter.add_child(presentation)
+	match_controller.additional_fighters.append(fighter)
+
+
+func _configure_bots(config: LocalMatchConfig) -> void:
+	match_controller.bot_source = null
+	match_controller.bot_sources.clear()
+	if config.mode == LocalMatchConfig.Mode.PRACTICE: return
+	for index: int in range(1, config.participants.size()):
+		var participant := config.participants[index]
+		var bot := BOT.new(participant.participant_id, config.seed + index * 97, {"reaction_interval_ticks": config.reaction_interval_ticks, "team_id": participant.team_id})
+		# Preserve the legacy 1v1 hook while all local modes share the same AI path.
+		if index == 1: match_controller.bot_source = bot
+		else: match_controller.bot_sources.append(bot)
+
+
+func _mode_name(mode: LocalMatchConfig.Mode) -> String:
+	return ["스토리 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"][int(mode)]
 
 func _show_match_controls() -> void:
 	screen = "match"
@@ -300,7 +412,9 @@ func _show_result(winner: StringName) -> void:
 	match_scene.set_process_input(false)
 	match_scene.get_node("Interface/TouchCommandSource").release_all_touches()
 	match_scene._release_semantic_actions()
-	_new_page("무승부" if match_controller.is_draw else ("승리!" if winner == &"player" else "패배"), false)
+	var player_team := StringName(match_controller.team_by_fighter_id.get(&"player", &""))
+	var player_won := winner == &"player" or (not player_team.is_empty() and match_controller.winner_team_id == player_team)
+	_new_page("무승부" if match_controller.is_draw else ("승리!" if player_won else "패배"), false)
 	_button("같은 조건으로 재대전", start_match)
 	_button("대전 준비", func() -> void:
 		_close_match()
