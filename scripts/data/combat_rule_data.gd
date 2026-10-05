@@ -10,4 +10,6 @@ enum Kind { IMMUNE_KNOCKBACK, IMMUNE_KNOCKDOWN, IMMUNE_HITSTUN, SUPER_ARMOR, IMM
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 1 and (kind != Kind.IMMUNE_TAG or not tags.is_empty())
+	return schema_version == 1 \
+		and tags.all(func(tag: StringName) -> bool: return AttackData.VALID_TAGS.has(tag)) \
+		and (kind != Kind.IMMUNE_TAG or not tags.is_empty())

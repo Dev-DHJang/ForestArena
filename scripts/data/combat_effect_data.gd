@@ -14,4 +14,9 @@ enum Kind { REFLECT_DAMAGE, EXPLOSION_DAMAGE, REVIVE, GAIN_ULTIMATE }
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 1 and not cause_id.is_empty() and amount >= 0.0 and max_chain_depth >= 0 and (kind != Kind.REVIVE or amount > 0.0)
+	return schema_version == 1 \
+		and not cause_id.is_empty() \
+		and amount >= 0.0 \
+		and max_chain_depth >= 0 \
+		and tags.all(func(tag: StringName) -> bool: return AttackData.VALID_TAGS.has(tag)) \
+		and (kind != Kind.REVIVE or amount > 0.0)
