@@ -2,6 +2,7 @@
 set -eu
 
 python3 tools/forest_arena/verify_forest_ledge_art.py
+python3 tools/forest_arena/verify_job_id_independence.py
 godot --headless --path . --editor --quit
 godot --headless --path . --script res://tests/phase0_smoke.gd
 godot --headless --path . --script res://tests/phase1_combat_contract.gd
@@ -14,6 +15,7 @@ godot --headless --path . --script res://tests/phase2_runtime_wiring.gd
 godot --headless --path . --script res://tests/phase3_style_comparison.gd
 godot --headless --path . --script res://tests/phase3_style_playtest_entry.gd
 godot --headless --path . --script res://tests/phase4_accessory_validation.gd
+godot --headless --path . --script res://tests/phase5_job_inheritance.gd
 godot --headless --path . --script res://tests/combat_overhaul_contract.gd
 godot --headless --path . --script res://tests/character_data_contract.gd
 godot --headless --path . --script res://tests/character_appearance_contract.gd

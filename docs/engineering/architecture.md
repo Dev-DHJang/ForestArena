@@ -26,7 +26,7 @@
 
 `docs/contracts/character-appearance-v01.json`은 승인된 캐릭터의 외형과 작은 화면에서 구분하는 방법을 정하는 최종 원본이다. `character_id`와 `concept_asset_id`로 `CharacterData` 및 자산 목록(manifest)의 승인 콘셉트를 연결한다. 이 때문에 Godot 데이터나 자산 목록의 파일 형식을 늘리지는 않는다. 외형 정보는 그림과 애니메이션을 만드는 코드만 읽으며 전투 데이터에는 복사하지 않는다.
 
-게임은 `CharacterData → JobData → AccessoryData` 순서로 값을 합쳐 한 판용 복사본인 `RuntimeCombatProfile`을 만든다. 어떤 값이 겹칠 때 무엇을 우선할지와 잘못된 데이터 처리 방식은 Phase 2 데이터 규칙에 정해져 있다.
+게임은 `CharacterData → 가장 오래된 부모 직업 → 현재 직업 → AccessoryData` 순서로 값을 합쳐 한 판용 복사본인 `RuntimeCombatProfile`을 만든다. 어떤 값이 겹칠 때 무엇을 우선할지와 잘못된 데이터 처리 방식은 Phase 2 데이터 규칙에 정해져 있다. 부모 누락과 상속 순환은 조합 실패이며 구버전이나 임의 기본값으로 바꾸지 않는다.
 
 능력치의 `ADD`, `MULTIPLY`, `OVERRIDE`도 위 데이터 층 순서대로 실행한다. 같은 층이
 같은 능력치를 두 번 쓰거나, 기술 ID·연계·취소 정의가 완전히 중복되어 결과가 모호하면
