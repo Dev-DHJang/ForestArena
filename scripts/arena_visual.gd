@@ -9,6 +9,7 @@ var _missing_background_id := ""
 var _missing_terrain_id := ""
 var _event_flash_ticks := 0
 var _last_event: StringName
+var reduce_visual_effects := false
 
 
 func _ready() -> void:
@@ -24,8 +25,13 @@ func _on_quality_changed(_new_quality: String) -> void:
 ## back into fixed-tick combat authority.
 func play_combat_event(event_id: StringName, _payload: Dictionary) -> void:
 	_last_event = event_id
-	_event_flash_ticks = 4 if event_id == &"hit_resolved" else 0
+	_event_flash_ticks = 0 if reduce_visual_effects else (4 if event_id == &"hit_resolved" else 0)
 	queue_redraw()
+
+
+func apply_accessibility(settings: Dictionary) -> void:
+	reduce_visual_effects = bool(settings.get("reduce_visual_effects", false))
+	if reduce_visual_effects: _event_flash_ticks = 0
 
 
 func _process(_delta: float) -> void:

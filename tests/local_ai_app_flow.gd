@@ -36,6 +36,19 @@ func run() -> void:
 	check(lobby_button != null, "shop lobby button exists")
 	if lobby_button != null: lobby_button.pressed.emit()
 	await process_frame
+	var accessibility_button := find_button(app, "접근성 설정")
+	check(accessibility_button != null, "accessibility settings button exists")
+	if accessibility_button != null: accessibility_button.pressed.emit()
+	await process_frame
+	check(app.screen == "accessibility", "accessibility settings opens")
+	var accessibility_options := find_options(app)
+	check(accessibility_options.size() == 1, "text scale selector exists")
+	if not accessibility_options.is_empty():
+		select_option(accessibility_options[0], "매우 크게")
+		await process_frame
+	check(is_equal_approx(float(app.store.data.accessibility.text_scale), 1.3), "text scale saves from UI")
+	app.handle_back_request(800)
+	check(app.screen == "home", "back from accessibility returns home")
 	app._show_shop()
 	app.handle_back_request(1000)
 	check(app.screen == "home", "back from shop returns home")

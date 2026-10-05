@@ -22,6 +22,7 @@ var _textures: Dictionary[String, Texture2D] = {}
 var _last_dpad_action: StringName = &""
 var _missing_resource_ids: PackedStringArray = []
 var _missing_label: Label
+var text_scale := 1.0
 
 
 func _ready() -> void:
@@ -83,7 +84,7 @@ func _add_dpad_label(text: String, anchors: Vector4) -> void:
 	label.anchor_bottom = anchors.w
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.add_theme_font_size_override("font_size", 26)
+	label.add_theme_font_size_override("font_size", roundi(26 * text_scale))
 	label.add_theme_color_override("font_outline_color", Color("142334"))
 	label.add_theme_constant_override("outline_size", 4)
 	_dpad_visual.add_child(label)
@@ -96,7 +97,7 @@ func _add_centered_label(parent: Control, text: String, font_size: int) -> void:
 	label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_font_size_override("font_size", roundi(font_size * text_scale))
 	label.add_theme_color_override("font_outline_color", Color("142334"))
 	label.add_theme_constant_override("outline_size", 4)
 	parent.add_child(label)
@@ -146,6 +147,13 @@ func handle_pointer_event(event: InputEvent) -> void:
 
 func release_all_touches() -> void:
 	for touch_index: int in _touch_actions.keys(): _release(touch_index)
+
+
+func apply_accessibility(settings: Dictionary) -> void:
+	text_scale = float(settings.get("text_scale", 1.0))
+	for label: Label in find_children("*", "Label", true, false):
+		var base_size := 26 if label.text in ["↑", "↓", "←", "→"] else (15 if label.text in ACTION_LABELS else 16)
+		label.add_theme_font_size_override("font_size", roundi(base_size * text_scale))
 
 
 func _assign(index: int, position: Vector2) -> void:
