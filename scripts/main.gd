@@ -5,6 +5,7 @@ const HUD_PANEL_ID := "fa.ui.panel.panel.dark.l"
 const RESTART_NORMAL_ID := "fa.ui.button.base.btn.secondary.m.default"
 const RESTART_PRESSED_ID := "fa.ui.button.base.btn.secondary.m.pressed"
 const RESTART_DISABLED_ID := "fa.ui.button.base.btn.secondary.m.disabled"
+const CombatAudioScript := preload("res://scripts/combat_audio.gd")
 
 @onready var match_controller: MatchController = $MatchController
 @onready var arena_visual = $ArenaVisual
@@ -18,12 +19,16 @@ const RESTART_DISABLED_ID := "fa.ui.button.base.btn.secondary.m.disabled"
 var _missing_resource_ids: PackedStringArray = []
 var app_shell_mode := false
 var _text_scale := 1.0
+var combat_audio: CombatAudio
 
 
 func _ready() -> void:
 	_apply_resource_ui()
 	match_controller.snapshot_changed.connect(_render_snapshot)
 	match_controller.presentation_event.connect(arena_visual.play_combat_event)
+	combat_audio = CombatAudioScript.new()
+	add_child(combat_audio)
+	match_controller.presentation_event.connect(combat_audio.play_combat_event)
 	restart.pressed.connect(match_controller.reset_match)
 	_render_snapshot(match_controller.snapshot())
 	debug_readout.visible = OS.is_debug_build()
@@ -48,6 +53,7 @@ func _apply_resource_ui() -> void:
 func apply_accessibility(settings: Dictionary) -> void:
 	_text_scale = float(settings.get("text_scale", 1.0))
 	arena_visual.apply_accessibility(settings)
+	combat_audio.apply_accessibility(settings)
 	touch.apply_accessibility(settings)
 	readout.add_theme_font_size_override("font_size", roundi(22 * _text_scale))
 	debug_readout.add_theme_font_size_override("font_size", roundi(16 * _text_scale))
