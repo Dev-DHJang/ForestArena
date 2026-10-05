@@ -47,7 +47,7 @@ if result: print(round(result["x"]*int(sys.argv[2])),round(result["y"]*int(sys.a
 }
 sleep 3
 if device logcat -d -s godot:I '*:S' | grep -F '"screen":"first"' >/dev/null; then tap_button '자현'; fi
-tap_button '대전 준비'
+tap_button '오프라인 대전'
 tap_button '대전 시작'
 sleep 2
 device shell input tap $((width * 43 / 100)) $((height * 76 / 100))
