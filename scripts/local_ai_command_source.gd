@@ -4,6 +4,7 @@ extends RefCounted
 ## Snapshot-only normal opponent. No direct fighter access, resource mutation,
 ## movement teleport, or bypass of action/cooldown checks is available here.
 var fighter_id: StringName
+var team_id: StringName
 var match_seed: int
 var reaction_interval_ticks := 12
 var preferred_distance := 62.0
@@ -20,6 +21,7 @@ var _rng := RandomNumberGenerator.new()
 func _init(id: StringName = &"", seed_value: int = 1, settings: Dictionary = {}) -> void:
 	fighter_id = id
 	match_seed = seed_value
+	team_id = StringName(settings.get("team_id", &""))
 	reaction_interval_ticks = maxi(1, int(settings.get("reaction_interval_ticks", 12)))
 	preferred_distance = clampf(float(settings.get("preferred_distance", 62.0)), 40.0, 100.0)
 	reset()
@@ -38,7 +40,17 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 	var opponent: Dictionary = {}
 	for fighter: Dictionary in match_snapshot.get("fighters", []):
 		if StringName(fighter.id) == fighter_id: actor = fighter
-		else: opponent = fighter
+	if actor.is_empty(): return commands
+	var nearest_distance := INF
+	for fighter: Dictionary in match_snapshot.get("fighters", []):
+		if StringName(fighter.id) == fighter_id or (not team_id.is_empty() and StringName(fighter.get("team_id", &"")) == team_id): continue
+		if String(fighter.get("state", "")) in ["DEAD", "MATCH_ENDED"]: continue
+		var candidate_position: Vector2 = fighter.get("position", Vector2.ZERO)
+		var actor_position: Vector2 = actor.get("position", Vector2.ZERO)
+		var distance := candidate_position.distance_squared_to(actor_position)
+		if distance < nearest_distance or (is_equal_approx(distance, nearest_distance) and (opponent.is_empty() or StringName(fighter.id) < StringName(opponent.id))):
+			opponent = fighter
+			nearest_distance = distance
 	if actor.is_empty() or opponent.is_empty(): return commands
 	var context := CombatIntent.Context.GROUND if actor.get("on_floor", false) else CombatIntent.Context.AIR
 	if _heavy_release_tick >= 0 and tick >= _heavy_release_tick:

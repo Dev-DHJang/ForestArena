@@ -44,7 +44,7 @@ func run() -> void:
 	app._show_prepare()
 	app.handle_back_request(1500)
 	check(app.screen == "home", "back from prepare returns home")
-	var prepare_button := find_button(app, "대전 준비")
+	var prepare_button := find_button(app, "오프라인 대전")
 	check(prepare_button != null, "prepare button exists")
 	if prepare_button != null: prepare_button.pressed.emit()
 	await process_frame
@@ -53,12 +53,12 @@ func run() -> void:
 	if character_button != null: character_button.pressed.emit()
 	await process_frame
 	var choices := find_options(app)
-	check(choices.size() == 2, "accessory and AI selectors exist")
-	if choices.size() == 2:
-		select_option(choices[0], "철갑옷")
+	check(choices.size() == 3, "mode, accessory and AI selectors exist")
+	if choices.size() == 3:
+		select_option(choices[1], "철갑옷")
 		await process_frame
 		choices = find_options(app)
-		select_option(choices[1], "나비")
+		select_option(choices[2], "나비")
 		await process_frame
 	var start_button := find_button(app, "대전 시작")
 	check(start_button != null, "start match button exists")
@@ -68,6 +68,28 @@ func run() -> void:
 	check(app.match_controller.player.runtime_profile.character_id == &"yu-ran", "UI-selected player reaches match")
 	check(app.match_controller.player.runtime_profile.accessory_id == &"fixture-iron-armor", "UI-selected accessory reaches match")
 	check(app.match_controller.training_dummy.runtime_profile.character_id == &"nabi", "UI-selected opponent reaches match")
+	# Every local Phase 6 mode creates actual participants through the same match
+	# controller; this is intentionally not a menu-only configuration test.
+	app._close_match()
+	for mode: LocalMatchConfig.Mode in [LocalMatchConfig.Mode.STORY, LocalMatchConfig.Mode.PRACTICE, LocalMatchConfig.Mode.SOLO, LocalMatchConfig.Mode.TEAM]:
+		app.selected_mode = mode
+		app.solo_participant_count = 4
+		app.team_size = 2
+		app.start_match()
+		await physics_frame
+		var expected_count := 4 if mode in [LocalMatchConfig.Mode.SOLO, LocalMatchConfig.Mode.TEAM] else 2
+		check(app.match_controller.snapshot().fighters.size() == expected_count, "mode %d starts %d actual fighters" % [mode, expected_count])
+		check(app.match_controller.local_match_mode == mode, "mode %d reaches match controller" % mode)
+		if mode == LocalMatchConfig.Mode.TEAM:
+			check(app.match_controller.team_by_fighter_id.size() == 4, "team match assigns every fighter")
+		if mode == LocalMatchConfig.Mode.PRACTICE:
+			check(app.match_controller.bot_source == null and app.match_controller.bot_sources.is_empty(), "practice starts without AI commands")
+		else:
+			check(app.match_controller.bot_source != null, "local mode %d connects AI" % mode)
+		app._close_match()
+	app.selected_mode = LocalMatchConfig.Mode.AI
+	app.start_match()
+	await physics_frame
 	# Exercise the shipping path with real approved sprite bounds, not the fallback body box.
 	app.match_controller.set_physics_process(false)
 	var camera := app.match_scene.get_node("Camera2D") as Camera2D

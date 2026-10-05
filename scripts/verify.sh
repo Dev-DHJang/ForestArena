@@ -17,6 +17,7 @@ godot --headless --path . --script res://tests/phase3_style_playtest_entry.gd
 godot --headless --path . --script res://tests/phase4_accessory_validation.gd
 godot --headless --path . --script res://tests/phase5_job_inheritance.gd
 godot --headless --path . --script res://tests/phase6_local_mode_contract.gd
+godot --headless --path . --script res://tests/phase6_multifighter_match.gd
 godot --headless --path . --script res://tests/combat_overhaul_contract.gd
 godot --headless --path . --script res://tests/character_data_contract.gd
 godot --headless --path . --script res://tests/character_appearance_contract.gd

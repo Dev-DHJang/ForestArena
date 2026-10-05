@@ -3,6 +3,7 @@ extends Control
 
 @export var player_path: NodePath = NodePath("../../World/Player")
 @export var opponent_path: NodePath = NodePath("../../World/TrainingDummy")
+@export var match_controller_path: NodePath = NodePath("../../MatchController")
 @export var camera_path: NodePath = NodePath("../../Camera2D")
 @export var horizontal_margin_ratio := 0.085
 @export var safe_top_ratio := 0.21
@@ -11,6 +12,7 @@ extends Control
 var player: FighterController
 var opponent: FighterController
 var camera: Camera2D
+var match_controller: MatchController
 var arrow_position := Vector2.ZERO
 var arrow_direction := Vector2.RIGHT
 
@@ -20,6 +22,7 @@ func _ready() -> void:
 	player = get_node(player_path) as FighterController
 	opponent = get_node(opponent_path) as FighterController
 	camera = get_node(camera_path) as Camera2D
+	match_controller = get_node_or_null(match_controller_path) as MatchController
 	visible = false
 
 
@@ -28,7 +31,11 @@ func _process(_delta: float) -> void:
 
 
 func update_indicator() -> void:
-	if player == null or opponent == null or camera == null or opponent.state == FighterController.State.MATCH_ENDED:
+	if player == null or camera == null:
+		visible = false
+		return
+	opponent = _nearest_visible_enemy()
+	if opponent == null or opponent.state == FighterController.State.MATCH_ENDED:
 		visible = false
 		return
 	var viewport_size := get_viewport_rect().size
@@ -49,6 +56,20 @@ func update_indicator() -> void:
 	arrow_position = edge_position(safe.get_center(), arrow_direction, safe)
 	visible = true
 	queue_redraw()
+
+
+func _nearest_visible_enemy() -> FighterController:
+	if match_controller == null: return opponent
+	var nearest: FighterController
+	var best_distance := INF
+	for candidate: FighterController in match_controller.call("_fighters"):
+		if candidate == player or candidate.state in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
+		if match_controller.call("_are_allies", player, candidate): continue
+		var distance := player.global_position.distance_squared_to(candidate.global_position)
+		if distance < best_distance or (is_equal_approx(distance, best_distance) and (nearest == null or candidate.fighter_id < nearest.fighter_id)):
+			nearest = candidate
+			best_distance = distance
+	return nearest
 
 
 func _opponent_screen_bounds() -> Rect2:
