@@ -103,10 +103,14 @@ func run() -> void:
 					check(player.state == FighterController.State.RING_OUT, label + " no early return")
 					await ticks(1)
 					check(player.current_hp == 35.0 and player.invulnerability_ticks == 60, label + " authored HP and return immunity")
-					await ticks(61)
+					# The 60-tick recovery immunity starts only after the 45th tick
+					# returns the fighter. Waiting from the lethal hit would leave 44
+					# immunity ticks and make the next strike correctly resolve IMMUNE.
+					await ticks(controller.rules.respawn_invulnerability_ticks)
+					check(player.invulnerability_ticks == 0, label + " return immunity expires before second lethal hit")
 					player.current_hp = 1
 					await strike(enemy)
-					check(controller.winner_id == &"opponent" and player.stocks == 0, label + " second lethal hit ends match")
+					check(controller.winner_id == enemy.fighter_id and player.stocks == 0, label + " second lethal hit ends match")
 			app.start_match()
 			controller = app.match_controller
 			controller.set_physics_process(false)
