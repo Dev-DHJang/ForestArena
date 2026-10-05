@@ -2,6 +2,11 @@
 
 ## 최종 통합 상태
 
+- 후속 실기기 기록: 2026-10-05 최신 debug APK에서 Galaxy S23 Ultra로 나비 대 자현의
+  실제 경기 종료와 재대전을 확인했다. 이 확인은 나머지 캐릭터 및 모든 신규 모션의
+  실기기 재생을 대신하지 않는다. 상세 증적은
+  [`_workspace/phase6-device-full-match`](../phase6-device-full-match/)에 남겼다.
+
 - 브랜치: feature/local-ai-playable. 시작점 origin/develop fada2ac.
 - 작업 폴더: ForestArena-local-ai. 원래 ForestTales의 미커밋 UI 변경은 보존했다.
 - 최초 기능 구현 커밋은 `7024353`, 전체 모션 완료 커밋은 `a68b970`, 최종 QA·문서
