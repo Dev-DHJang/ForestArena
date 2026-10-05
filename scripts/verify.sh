@@ -33,6 +33,7 @@ godot --headless --path . --script res://tests/local_fighter_presentation.gd
 godot --headless --path . --script res://tests/local_ai_app_flow.gd
 godot --headless --path . --script res://tests/local_accessory_play.gd
 godot --headless --path . --script res://tests/local_touch_controls.gd
+./scripts/verify-online-server.sh
 ./scripts/verify-harness.sh
 
 echo "Forest Arena verification passed."

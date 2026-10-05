@@ -322,6 +322,25 @@ func snapshot() -> Dictionary:
 	}
 
 
+func apply_network_snapshot(value: Dictionary) -> void:
+	var position_value: Dictionary = value.get("position", {})
+	var velocity_value: Dictionary = value.get("velocity", {})
+	global_position = Vector2(float(position_value.get("x", global_position.x)), float(position_value.get("y", global_position.y)))
+	velocity = Vector2(float(velocity_value.get("x", velocity.x)), float(velocity_value.get("y", velocity.y)))
+	current_hp = float(value.get("current_hp", current_hp))
+	stocks = int(value.get("stocks", stocks))
+	facing = int(value.get("facing", facing))
+	invulnerability_ticks = int(value.get("invulnerability_ticks", invulnerability_ticks))
+	respawn_ticks = int(value.get("respawn_ticks", respawn_ticks))
+	runtime_state.guard_durability = float(value.get("guard_durability", runtime_state.guard_durability))
+	runtime_state.special_cooldown_ticks = int(value.get("special_cooldown_ticks", runtime_state.special_cooldown_ticks))
+	runtime_state.ultimate_gauge = float(value.get("ultimate_gauge", runtime_state.ultimate_gauge))
+	var state_name := String(value.get("state", ""))
+	var state_index := State.keys().find(state_name)
+	if state_index >= 0: state = state_index as State
+	queue_redraw()
+
+
 func _try_jump(rules: CombatRules) -> void:
 	if active_attack != null:
 		if not (state == State.ATTACK_RECOVERY and attack_landed and active_attack.is_launcher and launcher_jump_available):

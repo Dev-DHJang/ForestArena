@@ -73,6 +73,7 @@ grep -qF 'http://localhost:4401/mcp' .codex/config.toml.example || fail "Penpot 
 grep -qF 'npx -y @penpot/mcp@stable' scripts/start-penpot-mcp.sh || fail "Penpot command drift"
 
 grep -q 'Phase 7 이전 온라인 구현 요청' docs/operations/harness/team-spec.md || fail "online gate missing"
+grep -q '기술 기반 예외' docs/operations/harness/team-spec.md || fail "approved online foundation exception missing"
 grep -q 'accepted 네트워크 ADR 전에는 사용하지 않는다' .agents/skills/forest-arena-multiplayer/SKILL.md || fail "multiplayer gate missing"
 grep -q '온라인 계약은 Phase 7과 accepted 네트워크 ADR 전 확정하지 않는다' .agents/skills/forest-arena-contracts/SKILL.md || fail "contracts gate missing"
 

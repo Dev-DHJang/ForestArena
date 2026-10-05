@@ -1,0 +1,16 @@
+config_version=5
+
+[application]
+config/name="Forest Arena Authority Server"
+run/main_scene="res://server/game/game_server.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[layer_names]
+2d_physics/layer_1="World"
+2d_physics/layer_2="FighterBody"
+2d_physics/layer_3="Hurtbox"
+2d_physics/layer_4="Hitbox"
+2d_physics/layer_5="RingOut"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"

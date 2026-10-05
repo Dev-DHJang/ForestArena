@@ -47,6 +47,8 @@ create_env_if_missing() {
   command -v openssl >/dev/null 2>&1 || fail "openssl이 없어 개발용 비밀번호를 만들 수 없습니다."
   admin_password=$(openssl rand -hex 24)
   app_password=$(openssl rand -hex 24)
+  token_secret=$(openssl rand -hex 32)
+  service_token=$(openssl rand -hex 32)
   umask 077
   {
     printf '%s\n' "FOREST_ARENA_DB_PORT=55432"
@@ -56,8 +58,28 @@ create_env_if_missing() {
     printf '%s\n' "FOREST_ARENA_DB_APP_USER=forest_arena_app"
     printf '%s\n' "FOREST_ARENA_DB_APP_PASSWORD=$app_password"
     printf '%s\n' "FOREST_ARENA_DB_ENVIRONMENT=development"
+    printf '%s\n' "FOREST_ARENA_SERVER_BIND_HOST=127.0.0.1"
+    printf '%s\n' "FOREST_ARENA_API_PORT=3000"
+    printf '%s\n' "FOREST_ARENA_GAME_PORT=7777"
+    printf '%s\n' "FOREST_ARENA_ADVERTISED_WS_URL=ws://127.0.0.1:7777"
+    printf '%s\n' "FOREST_ARENA_TOKEN_SECRET=$token_secret"
+    printf '%s\n' "FOREST_ARENA_SERVICE_TOKEN=$service_token"
   } > "$ENV_FILE"
   echo "db-dev: 개발계 환경 파일을 만들었습니다: $ENV_FILE"
+}
+
+ensure_server_env() {
+  grep -q '^FOREST_ARENA_SERVER_BIND_HOST=' "$ENV_FILE" || printf '%s\n' 'FOREST_ARENA_SERVER_BIND_HOST=127.0.0.1' >> "$ENV_FILE"
+  grep -q '^FOREST_ARENA_API_PORT=' "$ENV_FILE" || printf '%s\n' 'FOREST_ARENA_API_PORT=3000' >> "$ENV_FILE"
+  grep -q '^FOREST_ARENA_GAME_PORT=' "$ENV_FILE" || printf '%s\n' 'FOREST_ARENA_GAME_PORT=7777' >> "$ENV_FILE"
+  grep -q '^FOREST_ARENA_ADVERTISED_WS_URL=' "$ENV_FILE" || printf '%s\n' 'FOREST_ARENA_ADVERTISED_WS_URL=ws://127.0.0.1:7777' >> "$ENV_FILE"
+  if ! grep -q '^FOREST_ARENA_TOKEN_SECRET=' "$ENV_FILE"; then
+    printf '%s\n' "FOREST_ARENA_TOKEN_SECRET=$(openssl rand -hex 32)" >> "$ENV_FILE"
+  fi
+  if ! grep -q '^FOREST_ARENA_SERVICE_TOKEN=' "$ENV_FILE"; then
+    printf '%s\n' "FOREST_ARENA_SERVICE_TOKEN=$(openssl rand -hex 32)" >> "$ENV_FILE"
+  fi
+  chmod 600 "$ENV_FILE"
 }
 
 compose() {
@@ -99,6 +121,14 @@ SQL
   elif [ "$guard" != "development" ]; then
     fail "이미 다른 환경 표식이 있습니다: $guard"
   fi
+}
+
+sync_app_role_password() {
+  db_psql --set ON_ERROR_STOP=1 \
+    --set app_user="$FOREST_ARENA_DB_APP_USER" \
+    --set app_password="$FOREST_ARENA_DB_APP_PASSWORD" <<'SQL'
+ALTER ROLE :"app_user" PASSWORD :'app_password';
+SQL
 }
 
 apply_migrations() {
@@ -195,10 +225,12 @@ case ${1:-} in
     ;;
   up)
     create_env_if_missing
+    ensure_server_env
     load_env
     start_colima_if_needed
     require_docker
     compose up --detach --wait db
+    sync_app_role_password
     apply_migrations
     echo "db-dev: 개발계 DB가 준비되었습니다: 127.0.0.1:$FOREST_ARENA_DB_PORT/$FOREST_ARENA_DB_NAME"
     ;;

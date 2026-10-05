@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="LoadoutCatalog" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/loadout_catalog.gd" id="1_catalog"]
+[ext_resource type="Resource" path="res://assets/character/ja-hyun/character.tres" id="2_ja"]
+[ext_resource type="Resource" path="res://assets/character/myo-ryung/character.tres" id="3_myo"]
+[ext_resource type="Resource" path="res://assets/loadouts/fixtures/ja_hyun_prototype_job.tres" id="4_job"]
+[ext_resource type="Resource" path="res://assets/loadouts/fixtures/ja_hyun_prototype_accessory.tres" id="5_accessory"]
+
+[resource]
+script = ExtResource("1_catalog")
+characters = Array[ExtResource("2_ja")]([ExtResource("2_ja"), ExtResource("3_myo")])
+jobs = Array[ExtResource("4_job")]([ExtResource("4_job")])
+accessories = Array[ExtResource("5_accessory")]([ExtResource("5_accessory")])

@@ -56,12 +56,12 @@
 | LoadoutBuilder | 소스 비변경 런타임 프로필 생성 |
 | VisualAdapter | 의미 상태·이벤트를 애니메이션과 VFX로 표현 |
 
-## 미래 온라인 경계
+## 로컬 온라인 개발 경계
 
-온라인 통신 규칙, 어느 기기가 최종 결과를 정할지, 재접속과 저장 형식은 Phase 7 이전에 확정하지 않는다. 그전에는 같은 입력이 같은 결과를 내고, 터치·AI·네트워크 입력을 같은 전투 명령으로 바꿔 끼울 수 있게만 유지한다.
+ADR-008·026의 로컬 2인 기반에서는 Godot headless 서버가 60Hz 전투 결과를 정한다. 클라이언트는 `CombatIntent`에 대응하는 의미 입력만 보내고 20Hz snapshot을 표시한다. TypeScript API는 게스트 인증·2인 매칭·ticket·결과 저장을 맡고 게임 서버는 PostgreSQL에 직접 연결하지 않는다. 클라우드, 8인전, 정식 계정과 운영 배포는 Phase 7 정식 범위에 남긴다.
 
 ## 개발계 데이터베이스
 
-개발계 PostgreSQL은 실행·마이그레이션·백업 도구만 준비한다. 게임 코드가 직접 연결하지 않으며, CharacterData 같은 전투 Resource와 한 판용 `RuntimeCombatProfile`의 원본도 바꾸지 않는다. 플레이어 저장, 성장, 재화, 계정과 온라인 데이터 형식은 해당 Phase와 제품 승인이 생긴 뒤에 별도 계약으로 정한다.
+개발계 PostgreSQL은 실행·마이그레이션·백업과 로컬 guest player·refresh token hash·match result만 저장한다. Godot 게임 서버와 클라이언트는 DB에 직접 연결하지 않으며 CharacterData 같은 전투 Resource와 한 판용 `RuntimeCombatProfile`의 원본도 바꾸지 않는다. 성장, 재화와 정식 계정은 해당 Phase와 제품 승인이 생긴 뒤에 별도 계약으로 정한다.
 
 개발계·검증계·운영계는 서로 다른 PostgreSQL 인스턴스와 계정을 사용한다. 현재 개발계 실행 방법과 삭제 보호 규칙은 [개발계 데이터베이스](database.md)를 기준으로 한다.

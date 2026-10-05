@@ -135,6 +135,38 @@ func snapshot_hash() -> String:
 	return JSON.stringify(snapshot(), "", true).sha256_text()
 
 
+func network_snapshot() -> Dictionary:
+	var value := snapshot()
+	var network_fighters: Array[Dictionary] = []
+	for fighter_value: Dictionary in value.fighters:
+		var item := fighter_value.duplicate(true)
+		var position_value: Vector2 = item.position
+		var velocity_value: Vector2 = item.velocity
+		item.position = {"x": position_value.x, "y": position_value.y}
+		item.velocity = {"x": velocity_value.x, "y": velocity_value.y}
+		network_fighters.append(item)
+	value.fighters = network_fighters
+	return value
+
+
+func release_fighter_input(fighter_id: StringName) -> void:
+	var fighter := _fighter_by_id(fighter_id)
+	if fighter == null: return
+	fighter.input_direction = CombatIntent.Direction.NEUTRAL
+	fighter.buffered_intent = null
+	fighter.runtime_state.guarding = false
+
+
+func finish_forfeit(loser_id: StringName) -> void:
+	if not winner_id.is_empty() or is_draw: return
+	var loser := _fighter_by_id(loser_id)
+	if loser == null: return
+	winner_id = training_dummy.fighter_id if loser == player else player.fighter_id
+	player.state = FighterController.State.MATCH_ENDED
+	training_dummy.state = FighterController.State.MATCH_ENDED
+	match_ended.emit(winner_id)
+
+
 func _poll_player_input() -> void:
 	var direction := _current_direction()
 	if direction != _last_player_direction:

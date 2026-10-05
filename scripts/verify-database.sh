@@ -14,6 +14,7 @@ for path in \
   database/compose.development.yml \
   database/init/010_create_app_role.sh \
   database/migrations/0001_development_foundation.sql \
+  database/migrations/0002_local_online_vertical_slice.sql \
   scripts/db-dev.sh \
   scripts/verify-database-runtime.sh \
   docs/engineering/database.md \
@@ -32,6 +33,9 @@ grep -qF 'schema_migrations' database/migrations/0001_development_foundation.sql
 grep -qF 'environment_guard' database/migrations/0001_development_foundation.sql || fail "환경 표식 없음"
 grep -qF -- '--confirm-development' scripts/db-dev.sh || fail "삭제 확인 규칙 없음"
 grep -qF 'checksum_sha256' scripts/db-dev.sh || fail "마이그레이션 해시 확인 없음"
+grep -qF 'CREATE TABLE app.players' database/migrations/0002_local_online_vertical_slice.sql || fail "로컬 guest player 표 없음"
+grep -qF 'CREATE TABLE app.matches' database/migrations/0002_local_online_vertical_slice.sql || fail "경기 결과 표 없음"
+grep -qF 'FOREST_ARENA_TOKEN_SECRET' database/.env.development.example || fail "서버 token 예시 없음"
 
 sh -n database/init/010_create_app_role.sh
 sh -n scripts/db-dev.sh

@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/fighters/ja_hyun_fighter.tscn" id="1_ja"]
+[ext_resource type="PackedScene" path="res://scenes/fighters/myo_ryung_fighter.tscn" id="2_myo"]
+[ext_resource type="Script" path="res://scripts/match_controller.gd" id="3_match"]
+[ext_resource type="Resource" path="res://assets/combat/phase1_combat_rules.tres" id="4_rules"]
+[ext_resource type="Resource" path="res://server/game/server_loadout_catalog.tres" id="5_catalog"]
+[ext_resource type="Resource" path="res://assets/loadouts/default_ja_hyun_selection.tres" id="6_ja_selection"]
+[ext_resource type="Resource" path="res://assets/loadouts/default_myo_ryung_selection.tres" id="7_myo_selection"]
+
+[sub_resource type="RectangleShape2D" id="GroundShape"]
+size = Vector2(1080, 48)
+
+[sub_resource type="RectangleShape2D" id="PlatformShape"]
+size = Vector2(540, 24)
+
+[sub_resource type="RectangleShape2D" id="KillVertical"]
+size = Vector2(50, 1060)
+
+[sub_resource type="RectangleShape2D" id="KillHorizontal"]
+size = Vector2(1600, 50)
+
+[node name="AuthorityMatch" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Ground" type="StaticBody2D" parent="World"]
+position = Vector2(640, 610)
+collision_layer = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground"]
+shape = SubResource("GroundShape")
+
+[node name="Platform" type="StaticBody2D" parent="World"]
+position = Vector2(640, 430)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platform"]
+shape = SubResource("PlatformShape")
+one_way_collision = true
+
+[node name="Player" parent="World" instance=ExtResource("1_ja")]
+position = Vector2(430, 520)
+
+[node name="TrainingDummy" parent="World" instance=ExtResource("2_myo")]
+position = Vector2(850, 520)
+
+[node name="KillVolumes" type="Node2D" parent="World"]
+
+[node name="Left" type="Area2D" parent="World/KillVolumes"]
+position = Vector2(-185, 290)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Left"]
+shape = SubResource("KillVertical")
+
+[node name="Right" type="Area2D" parent="World/KillVolumes"]
+position = Vector2(1465, 290)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Right"]
+shape = SubResource("KillVertical")
+
+[node name="Top" type="Area2D" parent="World/KillVolumes"]
+position = Vector2(640, -265)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Top"]
+shape = SubResource("KillHorizontal")
+
+[node name="Bottom" type="Area2D" parent="World/KillVolumes"]
+position = Vector2(640, 845)
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Bottom"]
+shape = SubResource("KillHorizontal")
+
+[node name="MatchController" type="Node" parent="."]
+script = ExtResource("3_match")
+rules = ExtResource("4_rules")
+player = NodePath("../World/Player")
+training_dummy = NodePath("../World/TrainingDummy")
+loadout_catalog = ExtResource("5_catalog")
+player_selection = ExtResource("6_ja_selection")
+training_dummy_selection = ExtResource("7_myo_selection")

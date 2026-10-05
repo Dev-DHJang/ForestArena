@@ -39,13 +39,16 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 
     godot --path . --editor
     ./scripts/verify.sh
+    ./scripts/server-dev.sh up
+    ./scripts/verify-online-server.sh
+    ./scripts/server-dev.sh verify-runtime
     ./scripts/export-debug-android.sh
     ./scripts/verify-android-emulator.sh
     ./scripts/android-wireless-debug.sh devices
 
 실제 Android 기기를 무선으로 연결하는 방법은 [Android 무선 디버깅](docs/engineering/godot/android-wireless-debugging.md)을 참고한다.
 
-`./scripts/verify.sh`는 화면 없이 Godot 프로젝트 열기, 앱 기본 실행, 전투, 캐릭터·직업·장신구 조합, 데이터 형식과 문서 구조를 한 번에 확인하는 기본 검사다. `./scripts/verify-docs.sh`는 문서 위치·링크·쉬운 문장 규칙을, `./scripts/verify-harness.sh`는 AI 역할·작업 배정 규칙을 빠르게 확인한다.
+`./scripts/verify.sh`는 화면 없이 Godot 프로젝트 열기, 앱 기본 실행, 전투, 캐릭터·직업·장신구 조합, 로컬 온라인 계약, 데이터 형식과 문서 구조를 한 번에 확인하는 기본 검사다. `./scripts/server-dev.sh verify-runtime`은 실행 중인 로컬 스택에 실제 Godot 클라이언트 두 개를 붙여 매칭·입력·재접속·결과 저장을 확인한다. `./scripts/verify-docs.sh`는 문서 위치·링크·쉬운 문장 규칙을, `./scripts/verify-harness.sh`는 AI 역할·작업 배정 규칙을 빠르게 확인한다.
 
 ## 현재 상태
 
@@ -63,4 +66,5 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 - 로컬 검증 완료: Android debug APK export, arm64 에뮬레이터 설치·가로 실행·대전 진입·
   터치·중단/복귀와 20:9 시각 검사.
 - 미확인: 최신 전체 모션 묶음의 실제 물리 Android 기기 터치·중단/복귀·성능 재검.
-- 미구현: 정식 선택 UI(SCR_06–SCR_08), 저장·성장·경제, 복수 장신구 동시 장착, 오디오와 온라인 기능.
+- 개발 기반: 로컬 PostgreSQL·TypeScript API·Godot headless 서버를 사용한 게스트 로그인, 2인 매칭과 자현 대 묘령 온라인 세로 흐름.
+- 미구현: Story 대화·보상·성장·경제, 복수 장신구 동시 장착, 클라우드·8인 정식 온라인 기능.

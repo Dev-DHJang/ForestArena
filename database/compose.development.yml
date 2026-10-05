@@ -24,6 +24,56 @@ services:
       retries: 12
       start_period: 10s
 
+  api:
+    build:
+      context: ../server/api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      FOREST_ARENA_API_HOST: 0.0.0.0
+      FOREST_ARENA_API_PORT: 3000
+      FOREST_ARENA_TOKEN_SECRET: ${FOREST_ARENA_TOKEN_SECRET}
+      FOREST_ARENA_SERVICE_TOKEN: ${FOREST_ARENA_SERVICE_TOKEN}
+      FOREST_ARENA_ADVERTISED_WS_URL: ${FOREST_ARENA_ADVERTISED_WS_URL}
+      DATABASE_URL: postgresql://${FOREST_ARENA_DB_APP_USER}:${FOREST_ARENA_DB_APP_PASSWORD}@db:5432/${FOREST_ARENA_DB_NAME}
+    ports:
+      - "${FOREST_ARENA_SERVER_BIND_HOST}:${FOREST_ARENA_API_PORT}:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health/ready').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+    networks:
+      default:
+        aliases:
+          - forest-arena-api
+
+  game-server:
+    build:
+      context: ..
+      dockerfile: server/game/Dockerfile
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      FOREST_ARENA_GAME_HOST: 0.0.0.0
+      FOREST_ARENA_GAME_PORT: 7777
+      FOREST_ARENA_TOKEN_SECRET: ${FOREST_ARENA_TOKEN_SECRET}
+      FOREST_ARENA_SERVICE_TOKEN: ${FOREST_ARENA_SERVICE_TOKEN}
+      FOREST_ARENA_INTERNAL_API_URL: http://forest-arena-api:3000
+    ports:
+      - "${FOREST_ARENA_SERVER_BIND_HOST}:${FOREST_ARENA_GAME_PORT}:7777"
+    healthcheck:
+      test: ["CMD-SHELL", "test -f /tmp/forest_arena_game_ready && nc -z 127.0.0.1 7777"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+
 volumes:
   forest_arena_development_postgres:
     name: forest_arena_development_postgres

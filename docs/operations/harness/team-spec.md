@@ -67,7 +67,7 @@ AI 작업 체계(하네스)는 전문 역할과 별도 검토 역할을 사용�
 - `ForestArenaResources`는 `res://forest_arena/` 카탈로그의 논리 ID 경계다. 기존 `assets/ui/generated/`, `assets/character/`의 승인·소유권·출력 경로를 대체하지 않는다.
 - CharacterData·JobData·AccessoryData 조합은 contracts와 combat가 관리한다. 온라인, 영속 성장, 경제와 정식 선택 UI는 해당 Phase와 승인 전 구현하지 않는다.
 - Penpot 1920×1080은 설계 참조이며 Godot 런타임 논리 해상도 1280×720은 별도 승인 없이 바꾸지 않는다. 비전투 화면은 `docs/ui/non-combat-ui-v01.json`, 이미지 요구는 `assets/ui/asset-requirements.csv`를 따른다.
-- Phase 7 이전 온라인 구현 요청은 실행하지 않고 `blocked`와 재개 조건을 남긴다.
+- Phase 7 이전 온라인 구현 요청은 실행하지 않고 `blocked`와 재개 조건을 남긴다. 단, accepted ADR이 범위·환경·종료 조건을 한정한 기술 기반 예외를 명시하면 그 범위만 구현할 수 있다.
 
 ## 버전 관리
 
