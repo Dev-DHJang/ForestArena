@@ -21,6 +21,7 @@ var selected_mode: LocalMatchConfig.Mode = LocalMatchConfig.Mode.AI
 var solo_participant_count := 4
 var team_size := 2
 var active_config: LocalMatchConfig
+var haptic_request_count := 0
 
 func _ready() -> void:
 	get_tree().quit_on_go_back = false
@@ -73,7 +74,7 @@ func _label(text: String, font_size := 22) -> Label:
 	var label := Label.new()
 	label.text = text
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_font_size_override("font_size", roundi(font_size * _text_scale()))
 	body.add_child(label)
 	return label
 
@@ -82,7 +83,7 @@ func _button(text: String, callback: Callable, parent: Node = null, disabled := 
 	button.text = text
 	button.custom_minimum_size = Vector2(190, 58)
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	button.add_theme_font_size_override("font_size", 21)
+	button.add_theme_font_size_override("font_size", roundi(21 * _text_scale()))
 	button.disabled = disabled
 	var style := StyleBoxTexture.new()
 	style.texture = ForestArenaResources.load_texture("fa.ui.button.base.btn.secondary.m.default")
@@ -141,6 +142,7 @@ func _show_home() -> void:
 	_label("네 캐릭터와 함께 숲의 경기장으로")
 	_button("오프라인 대전", _show_prepare)
 	_button("상점 · 모두 0원", _show_shop)
+	_button("접근성 설정", _show_accessibility)
 	_label("구매와 선택은 이 기기에 저장됩니다. 인터넷 연결 없이 플레이할 수 있습니다.", 18)
 
 func _show_shop() -> void:
@@ -164,6 +166,25 @@ func _show_shop() -> void:
 		_button("보유 중" if owned else "0원 · 무료 구매", func() -> void:
 			if not store.purchase(item.id): message = store.error
 			_show_shop(), row, owned)
+	_button("로비", _show_home)
+
+
+func _show_accessibility() -> void:
+	screen = "accessibility"
+	_new_page("접근성 설정")
+	_label("이 설정은 이 기기에 저장되며 전투 판정이나 AI 결과에는 영향을 주지 않습니다.", 18)
+	var settings: Dictionary = store.data.accessibility
+	var scales := [1.0, 1.15, 1.3]
+	_choice_labels("텍스트 크기", ["기본", "크게", "매우 크게"], scales.find(float(settings.text_scale)), func(index: int) -> void:
+		store.update_accessibility(scales[index], bool(settings.reduce_visual_effects), bool(settings.haptics_enabled))
+		_show_accessibility())
+	_toggle("피격 번쩍임 줄이기", bool(settings.reduce_visual_effects), func(value: bool) -> void:
+		store.update_accessibility(float(settings.text_scale), value, bool(settings.haptics_enabled))
+		_show_accessibility())
+	_toggle("진동 피드백", bool(settings.haptics_enabled), func(value: bool) -> void:
+		store.update_accessibility(float(settings.text_scale), bool(settings.reduce_visual_effects), value)
+		_show_accessibility())
+	_label("소리·진동이 없어도 HP, stock, 가드와 상태 표시는 텍스트로 확인할 수 있습니다.", 18)
 	_button("로비", _show_home)
 
 func _show_prepare() -> void:
@@ -226,6 +247,22 @@ func _choice_labels(title: String, labels: Array[String], selected_index: int, c
 	options.item_selected.connect(func(index: int) -> void: callback.call(index))
 	row.add_child(options)
 
+
+func _toggle(title: String, enabled: bool, callback: Callable) -> void:
+	var row := HBoxContainer.new()
+	body.add_child(row)
+	var label := Label.new()
+	label.text = title
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	label.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
+	row.add_child(label)
+	var toggle := CheckButton.new()
+	toggle.text = "켜짐" if enabled else "꺼짐"
+	toggle.button_pressed = enabled
+	toggle.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
+	toggle.toggled.connect(func(value: bool) -> void: callback.call(value))
+	row.add_child(toggle)
+
 func start_match() -> void:
 	var config := _build_match_config()
 	if config == null or not config.is_valid_definition():
@@ -252,8 +289,10 @@ func start_match() -> void:
 	match_controller.local_match_mode = config.mode
 	match_controller.team_by_fighter_id = _team_map(config)
 	match_controller.match_ended.connect(_on_match_ended.bind(match_controller))
+	match_controller.presentation_event.connect(_on_presentation_event)
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	add_child(match_scene)
+	match_scene.apply_accessibility(store.data.accessibility)
 	if OS.is_debug_build(): match_scene.add_child(load("res://scripts/local_performance_probe.gd").new())
 	match_scene.get_node("Interface/Restart").hide()
 	match_scene.get_node("Interface/DebugReadout").hide()
@@ -261,7 +300,7 @@ func start_match() -> void:
 	match_scene.get_node("Interface/HudPanel").hide()
 	var readout := match_scene.get_node("Interface/MatchReadout") as Label
 	readout.position = Vector2(84, 24)
-	readout.add_theme_font_size_override("font_size", 20)
+	readout.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
 	readout.add_theme_color_override("font_outline_color", Color("122d38"))
 	readout.add_theme_constant_override("outline_size", 8)
 	for index: int in range(2, config.participants.size()):
@@ -383,7 +422,7 @@ func handle_back_request(request_msec: int = -1) -> void:
 		return
 	last_back_request_msec = now_msec
 	match screen:
-		"shop", "prepare":
+		"shop", "prepare", "accessibility":
 			_show_home()
 		"match":
 			pause_match()
@@ -422,6 +461,17 @@ func _show_result(winner: StringName) -> void:
 	_button("로비", func() -> void:
 		_close_match()
 		_show_home())
+
+
+func _on_presentation_event(event_id: StringName, _payload: Dictionary) -> void:
+	if event_id not in [&"hit_resolved", &"ring_out", &"match_end", &"match_draw"] or not bool(store.data.accessibility.haptics_enabled): return
+	haptic_request_count += 1
+	if OS.has_feature("mobile"):
+		Input.vibrate_handheld(18 if event_id == &"hit_resolved" else 45, 0.35)
+
+
+func _text_scale() -> float:
+	return float(store.data.get("accessibility", LocalPlayerStore.default_accessibility()).get("text_scale", 1.0)) if store != null else 1.0
 
 func _close_match() -> void:
 	if is_instance_valid(match_scene):

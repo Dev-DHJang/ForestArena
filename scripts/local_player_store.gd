@@ -1,6 +1,8 @@
 class_name LocalPlayerStore
 extends RefCounted
 
+const SCHEMA_VERSION := 2
+const TEXT_SCALES := [1.0, 1.15, 1.3]
 var catalog: LocalPlayCatalog
 var path: String
 var data: Dictionary = fresh_data()
@@ -12,7 +14,11 @@ func _init(p_catalog: LocalPlayCatalog, p_path := "user://local_player.json") ->
 	path = p_path
 
 static func fresh_data() -> Dictionary:
-	return {"schema_version": 1, "first_granted": false, "characters": [], "accessories": [], "selected_character": "", "selected_accessory": "", "opponent_character": "ja-hyun"}
+	return {"schema_version": SCHEMA_VERSION, "first_granted": false, "characters": [], "accessories": [], "selected_character": "", "selected_accessory": "", "opponent_character": "ja-hyun", "accessibility": default_accessibility()}
+
+
+static func default_accessibility() -> Dictionary:
+	return {"text_scale": 1.0, "reduce_visual_effects": false, "haptics_enabled": true}
 
 func load_profile() -> bool:
 	error = ""
@@ -21,19 +27,43 @@ func load_profile() -> bool:
 		data = fresh_data()
 		return true
 	var candidate := _read(path)
-	if valid(candidate):
-		data = candidate
+	if _load_candidate(candidate):
 		return true
 	candidate = _read(path + ".bak")
-	if valid(candidate):
-		data = candidate
+	if _load_candidate(candidate):
 		recovered = true
 		return true
 	error = "저장 파일을 읽을 수 없습니다. 다시 시도하거나 저장 초기화를 선택하세요."
 	return false
 
+
+func _load_candidate(candidate: Dictionary) -> bool:
+	if valid(candidate):
+		data = candidate
+		return true
+	if candidate.get("schema_version") != 1 or not _valid_v1(candidate): return false
+	var migrated := candidate.duplicate(true)
+	migrated.schema_version = SCHEMA_VERSION
+	migrated.accessibility = default_accessibility()
+	data = migrated
+	# Schema 1 is an authored predecessor, so migrate it once and validate the
+	# resulting v2 record instead of guessing fields from malformed data.
+	return _commit(migrated)
+
 func valid(value: Dictionary) -> bool:
-	if value.get("schema_version") != 1 or not value.get("first_granted") is bool: return false
+	if value.get("schema_version") != SCHEMA_VERSION or not _valid_base(value): return false
+	var accessibility: Variant = value.get("accessibility")
+	if not accessibility is Dictionary or not accessibility.get("reduce_visual_effects") is bool or not accessibility.get("haptics_enabled") is bool: return false
+	var text_scale: Variant = accessibility.get("text_scale")
+	return (text_scale is float or text_scale is int) and TEXT_SCALES.has(float(text_scale))
+
+
+func _valid_v1(value: Dictionary) -> bool:
+	return value.get("schema_version") == 1 and _valid_base(value)
+
+
+func _valid_base(value: Dictionary) -> bool:
+	if not value.get("first_granted") is bool: return false
 	for pair: Array in [["characters", "character"], ["accessories", "accessory"]]:
 		if not value.get(pair[0]) is Array: return false
 		var seen := {}
@@ -71,6 +101,12 @@ func select(character: String, accessory: String, opponent: String) -> bool:
 	next.selected_character = character
 	next.selected_accessory = accessory
 	next.opponent_character = opponent
+	return _commit(next)
+
+
+func update_accessibility(text_scale: float, reduce_visual_effects: bool, haptics_enabled: bool) -> bool:
+	var next := data.duplicate(true)
+	next.accessibility = {"text_scale": text_scale, "reduce_visual_effects": reduce_visual_effects, "haptics_enabled": haptics_enabled}
 	return _commit(next)
 
 func reset_profile() -> bool:

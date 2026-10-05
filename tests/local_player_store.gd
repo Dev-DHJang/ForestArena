@@ -22,6 +22,17 @@ func _initialize() -> void:
 	check(reload.load_profile(), "restart loads")
 	for key: String in ["characters", "accessories", "selected_character", "selected_accessory", "opponent_character", "first_granted"]:
 		check(reload.data[key] == store.data[key], "restart preserves " + key)
+	check(store.update_accessibility(1.3, true, false), "accessibility update saves")
+	check(reload.load_profile() and is_equal_approx(float(reload.data.accessibility.text_scale), 1.3) and bool(reload.data.accessibility.reduce_visual_effects) and not bool(reload.data.accessibility.haptics_enabled), "accessibility persists")
+	var v1_path := "user://test-v1-%d.json" % Time.get_ticks_usec()
+	var v1 := store.data.duplicate(true)
+	v1.schema_version = 1
+	v1.erase("accessibility")
+	var v1_file := FileAccess.open(v1_path, FileAccess.WRITE)
+	v1_file.store_string(JSON.stringify(v1))
+	v1_file.close()
+	var migrated := LocalPlayerStore.new(catalog, v1_path)
+	check(migrated.load_profile() and migrated.data.schema_version == LocalPlayerStore.SCHEMA_VERSION and migrated.data.accessibility == LocalPlayerStore.default_accessibility(), "v1 accessibility migration is explicit")
 	for character: CharacterData in catalog.combat.characters:
 		for accessory: AccessoryData in catalog.combat.accessories:
 			var selection := LoadoutSelection.new()
@@ -43,6 +54,7 @@ func _initialize() -> void:
 	check(not store.valid(invalid), "grant invariant enforced")
 	for suffix: String in ["", ".bak", ".tmp"]:
 		if FileAccess.file_exists(path + suffix): DirAccess.remove_absolute(path + suffix)
+		if FileAccess.file_exists(v1_path + suffix): DirAccess.remove_absolute(v1_path + suffix)
 	for failure: String in failures: push_error(failure)
 	print("LOCAL_PLAYER_STORE: " + ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)

@@ -17,6 +17,7 @@ const RESTART_DISABLED_ID := "fa.ui.button.base.btn.secondary.m.disabled"
 
 var _missing_resource_ids: PackedStringArray = []
 var app_shell_mode := false
+var _text_scale := 1.0
 
 
 func _ready() -> void:
@@ -41,6 +42,16 @@ func _apply_resource_ui() -> void:
 	restart.add_theme_stylebox_override("pressed", _button_style(RESTART_PRESSED_ID))
 	restart.add_theme_stylebox_override("focus", _button_style(RESTART_PRESSED_ID))
 	restart.add_theme_stylebox_override("disabled", _button_style(RESTART_DISABLED_ID))
+
+
+## Presentation settings only. They never participate in the fixed-tick snapshot.
+func apply_accessibility(settings: Dictionary) -> void:
+	_text_scale = float(settings.get("text_scale", 1.0))
+	arena_visual.apply_accessibility(settings)
+	touch.apply_accessibility(settings)
+	readout.add_theme_font_size_override("font_size", roundi(22 * _text_scale))
+	debug_readout.add_theme_font_size_override("font_size", roundi(16 * _text_scale))
+	restart.add_theme_font_size_override("font_size", roundi(18 * _text_scale))
 
 
 func _button_style(logical_id: String) -> StyleBoxTexture:
