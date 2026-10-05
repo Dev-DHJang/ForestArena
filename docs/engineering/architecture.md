@@ -28,6 +28,10 @@
 
 게임은 `CharacterData → JobData → AccessoryData` 순서로 값을 합쳐 한 판용 복사본인 `RuntimeCombatProfile`을 만든다. 어떤 값이 겹칠 때 무엇을 우선할지와 잘못된 데이터 처리 방식은 Phase 2 데이터 규칙에 정해져 있다.
 
+능력치의 `ADD`, `MULTIPLY`, `OVERRIDE`도 위 데이터 층 순서대로 실행한다. 같은 층이
+같은 능력치를 두 번 쓰거나, 기술 ID·연계·취소 정의가 완전히 중복되어 결과가 모호하면
+조합을 거부한다. 조건 효과의 태그는 승인된 공격 태그만 사용한다.
+
 `docs/contracts/attack-system-v01.json`은 구현 전 공격 설계를 프로그램으로 검사할 수 있게 적은 원본이다. 게임이 이 JSON을 직접 읽지는 않는다. 실제 게임 데이터는 버전이 있는 `MoveSetData`와 `AttackData`로 나뉜다. 공통 전투 명령인 `CombatIntent`는 행동 ID, 4방향, 버튼의 누름·유지·해제와 지상·공중 여부를 담는다. 다음 입력을 미리 받는 규칙, 동작을 바꿀 수 있는 시간, 피해와 공격 영역은 실제 전투 데이터와 코드가 정하며 이 설계 JSON이나 화면 연결 코드(`VisualAdapter`)가 정하지 않는다.
 
 ## 실행 중 2D 구성과 책임

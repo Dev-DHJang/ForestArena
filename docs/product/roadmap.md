@@ -1,6 +1,6 @@
 # 06. 개발 순서와 완료 조건
 
-Phase는 큰 개발 단계를 뜻한다. 앞 단계의 필수 완료 조건을 건너뛰지 않는다. 콘텐츠 수량과 일정은 실제 작업 근거 없이 확정하지 않는다. 현재는 Phase 3까지 완료했다. 그 밖의 용어는 [용어 가이드](../GLOSSARY.md)를 참고한다.
+Phase는 큰 개발 단계를 뜻한다. 앞 단계의 필수 완료 조건을 건너뛰지 않는다. 콘텐츠 수량과 일정은 실제 작업 근거 없이 확정하지 않는다. 현재는 Phase 4까지 완료했다. 그 밖의 용어는 [용어 가이드](../GLOSSARY.md)를 참고한다.
 
 ## Phase 0 — 프로젝트 실행 준비 (완료)
 
@@ -30,11 +30,15 @@ Godot 데이터 형식(`Resource`)과 `캐릭터 + 직업 + 장신구` 조합 �
 
 자동 비교 근거는 [_workspace/combat-phase3-comparison](../../_workspace/combat-phase3-comparison/)에 있고, 실기기 직접 플레이의 동일 조건·결과·사용자 판단은 [_workspace/combat-phase3-playtest](../../_workspace/combat-phase3-playtest/)에 있다. 두 기록을 근거로 Phase 3을 완료했다.
 
-## Phase 4 — 장신구
+## Phase 4 — 장신구 (완료)
 
 데이터 기반 장신구와 태그 시너지를 검증한다.
 
 완료 조건: 조합 조건의 충족·불충족, 기술 교체, 값 충돌 우선순위를 검사한다. 아이콘이나 애니메이션이 전투 결과를 바꾸지 않는지도 확인한다.
+
+태그 조건의 참·거짓, 네 캐릭터의 전체 기술 목록 교체, 능력치 적용 순서, 중복 데이터
+거부와 표현 비영향 검사는
+[_workspace/phase4-accessory-validation](../../_workspace/phase4-accessory-validation/)에 기록했다.
 
 ## Phase 5 — 직업 변화 구조
 
