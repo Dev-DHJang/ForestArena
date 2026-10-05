@@ -34,6 +34,7 @@ grep -qF "status IN ('matched', 'running', 'ended')" database/migrations/0002_lo
 
 sh -n scripts/server-dev.sh
 sh -n scripts/db-dev.sh
+npm --prefix server/api ci --prefer-offline --no-audit --no-fund
 npm --prefix server/api test
 godot --headless --path . --editor --quit
 godot --headless --path . res://tests/online_contract.tscn
