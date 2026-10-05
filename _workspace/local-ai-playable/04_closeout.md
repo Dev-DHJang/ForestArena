@@ -10,6 +10,9 @@
   경기 진입을 추가 확인했다. 네 캐릭터 모두의 모든 공격·상태 모션과 장신구 조합을 실제
   기기에서 재생한 것은 아니다. 상세 증적은
   [`_workspace/phase6-roster-device`](../phase6-roster-device/)에 남겼다.
+- 같은 실기기에서 6종 장신구를 모두 0원으로 구매하고, 앱 강제 종료·재시작 뒤 각 항목의
+  `보유 중` 표시가 유지되는 것을 확인했다. 상세 증적은
+  [`_workspace/phase6-store-device`](../phase6-store-device/)에 남겼다.
 
 - 브랜치: feature/local-ai-playable. 시작점 origin/develop fada2ac.
 - 작업 폴더: ForestArena-local-ai. 원래 ForestTales의 미커밋 UI 변경은 보존했다.
