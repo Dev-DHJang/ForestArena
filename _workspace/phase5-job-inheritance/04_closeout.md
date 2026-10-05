@@ -9,11 +9,13 @@
 - 전체 회귀, 문서·Godot 리소스 검사와 Android debug export·패키지 검사가 통과했다.
   연결된 에뮬레이터와 물리 기기가 없어 설치·실행 재검은 미확인이다.
 
-## 원격 통합 전 상태
+## 원격 통합 결과
 
-- 브랜치: `feature/phase5-job-inheritance`
-- 전체 회귀와 문서·리소스 검증 뒤 commit·push·PR·`develop` 병합을 진행한다.
-- 병합 뒤 PR과 병합 SHA를 후속 종료 증적에 남긴다.
+- 기능 브랜치: `feature/phase5-job-inheritance`
+- 기능 PR: `#43` (`feat: validate Phase 5 job inheritance`)
+- 기능 커밋: `dff52e5fc186b818f811d9bce44e4a0dfd8f0cc2`
+- `develop` 병합 커밋: `c9a80266dc87fb9984b28d05de0cd02cfb46c30d`
+- GitHub에서 PR이 `Merged` 상태이고 위 병합 커밋이 `develop`에 포함된 것을 확인했다.
 
 ## 롤백
 
