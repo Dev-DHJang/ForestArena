@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="StageData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/stage_data.gd" id="1_stage"]
+[ext_resource type="Script" path="res://scripts/data/stage_surface_data.gd" id="2_surface"]
+
+[sub_resource type="Resource" id="Ground"]
+script = ExtResource("2_surface")
+surface_id = &"Ground"
+rect = Rect2(-440, 586, 2160, 48)
+
+[sub_resource type="Resource" id="LeftLow"]
+script = ExtResource("2_surface")
+surface_id = &"LeftLow"
+rect = Rect2(-300, 470, 380, 24)
+one_way = true
+
+[sub_resource type="Resource" id="MidHigh"]
+script = ExtResource("2_surface")
+surface_id = &"MidHigh"
+rect = Rect2(120, 380, 420, 24)
+one_way = true
+
+[sub_resource type="Resource" id="RightMid"]
+script = ExtResource("2_surface")
+surface_id = &"RightMid"
+rect = Rect2(760, 430, 520, 24)
+one_way = true
+
+[sub_resource type="Resource" id="RightHigh"]
+script = ExtResource("2_surface")
+surface_id = &"RightHigh"
+rect = Rect2(1330, 350, 280, 24)
+one_way = true
+
+[resource]
+script = ExtResource("1_stage")
+stage_id = &"forest-ledge"
+background_asset_id = &"fa.background.combat.training.arena"
+surfaces = Array[ExtResource("2_surface")]([SubResource("Ground"), SubResource("LeftLow"), SubResource("MidHigh"), SubResource("RightMid"), SubResource("RightHigh")])
+spawn_points = Array[Vector2]([Vector2(-180, 520), Vector2(1160, 520), Vector2(360, 520), Vector2(900, 520), Vector2(-20, 520), Vector2(1380, 520), Vector2(560, 520), Vector2(1540, 520)])
+ring_bounds = Rect2(-760, -360, 2800, 1260)

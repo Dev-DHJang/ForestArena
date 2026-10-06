@@ -344,8 +344,9 @@ func _team_map(config: LocalMatchConfig) -> Dictionary:
 
 
 func _spawn_position(index: int) -> Vector2:
-	var positions := [Vector2(360, 520), Vector2(900, 520), Vector2(540, 520), Vector2(720, 520), Vector2(240, 520), Vector2(1040, 520), Vector2(505, 340), Vector2(775, 340)]
-	return positions[index]
+	if match_controller != null and match_controller.stage_data != null and index < match_controller.stage_data.spawn_points.size():
+		return match_controller.stage_data.spawn_points[index]
+	return Vector2.ZERO
 
 
 func _add_match_fighter(participant: LocalMatchParticipant, index: int) -> void:
@@ -372,7 +373,7 @@ func _configure_bots(config: LocalMatchConfig) -> void:
 	if config.mode == LocalMatchConfig.Mode.PRACTICE: return
 	for index: int in range(1, config.participants.size()):
 		var participant := config.participants[index]
-		var bot := BOT.new(participant.participant_id, config.seed + index * 97, {"reaction_interval_ticks": config.reaction_interval_ticks, "team_id": participant.team_id})
+		var bot := BOT.new(participant.participant_id, config.seed + index * 97, {"reaction_interval_ticks": config.reaction_interval_ticks, "team_id": participant.team_id, "stage_data": match_controller.stage_data})
 		# Preserve the legacy 1v1 hook while all local modes share the same AI path.
 		if index == 1: match_controller.bot_source = bot
 		else: match_controller.bot_sources.append(bot)

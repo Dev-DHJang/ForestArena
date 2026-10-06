@@ -74,7 +74,7 @@ func _run() -> void:
 				_check(presentation.sprite.animation == attack.visual_state_id, "approved combo uses exact step")
 				var layout: Dictionary = presentation._motion_layouts[attack.visual_state_id]
 				if String(layout.get("path", "")).contains("/local_ai_v01/"):
-					_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, 14.0), "normalized approved foot pivot stays on fighter baseline")
+					_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, fighter.ground_contact_offset_y()), "normalized approved foot pivot stays on fighter baseline")
 					if layout.has("phase_frame_ranges"):
 						for phase: int in [FighterController.State.ATTACK_STARTUP, FighterController.State.ATTACK_ACTIVE, FighterController.State.ATTACK_RECOVERY]:
 							fighter.state = phase

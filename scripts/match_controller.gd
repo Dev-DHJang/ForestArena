@@ -4,12 +4,14 @@ extends Node
 const CommandResolverScript = preload("res://scripts/command_resolver.gd")
 const EffectControllerScript = preload("res://scripts/effect_controller.gd")
 const EffectData = preload("res://scripts/data/combat_effect_data.gd")
+const PushboxResolverScript = preload("res://scripts/pushbox_resolver.gd")
 
 signal snapshot_changed(snapshot: Dictionary)
 signal match_ended(winner_id: StringName)
 signal presentation_event(event_id: StringName, payload: Dictionary)
 
 @export var rules: CombatRules
+@export var stage_data: StageData
 @export var player: FighterController
 @export var training_dummy: FighterController
 ## Additional local participants are appended after the legacy 1v1 pair.
@@ -49,6 +51,7 @@ func _ready() -> void:
 		push_error("Match did not start because loadout construction failed.")
 		return
 	if configure_profiles_on_ready:
+		_apply_stage_spawns()
 		reset_match()
 
 
@@ -73,6 +76,7 @@ func step_fixed_tick(poll_local_input := true) -> void:
 	_process_intents()
 	for fighter: FighterController in _fighters():
 		fighter.step_tick(rules)
+	PushboxResolverScript.resolve(_fighters())
 	_resolve_hits()
 	_resolve_ring_outs()
 	snapshot_changed.emit(snapshot())
@@ -238,10 +242,13 @@ func _resolve_hits() -> void:
 
 
 func _resolve_ring_outs() -> void:
+	if stage_data == null or not stage_data.is_valid_definition():
+		push_error("MatchController requires valid StageData for ring-out resolution")
+		return
 	var ring_outs: Array[FighterController] = []
 	for fighter: FighterController in _fighters():
 		var point := fighter.global_position
-		if fighter.state != FighterController.State.RING_OUT and (point.x < rules.ring_left or point.x > rules.ring_right or point.y < rules.ring_top or point.y > rules.ring_bottom):
+		if fighter.state != FighterController.State.RING_OUT and not stage_data.ring_bounds.has_point(point):
 			ring_outs.append(fighter)
 	if ring_outs.is_empty(): return
 	for fighter: FighterController in ring_outs: fighter.ring_out(rules)
@@ -328,3 +335,13 @@ func _nearest_opponent(fighter: FighterController) -> FighterController:
 			nearest = candidate
 			best_distance = distance
 	return nearest
+
+
+func _apply_stage_spawns() -> void:
+	if stage_data == null or not stage_data.is_valid_definition():
+		push_error("MatchController requires valid StageData")
+		return
+	var fighters := _fighters()
+	for index: int in mini(fighters.size(), stage_data.spawn_points.size()):
+		fighters[index].spawn_position = stage_data.spawn_points[index]
+		fighters[index].global_position = stage_data.spawn_points[index]

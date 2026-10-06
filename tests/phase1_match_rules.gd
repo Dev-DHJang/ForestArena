@@ -26,7 +26,7 @@ func _initialize() -> void:
 	var expected_speed := 120.0 / dummy.character_data.base_stats.weight
 	if not is_equal_approx(dummy.current_hp, dummy.character_data.base_stats.max_hp - 4.0): failures.append("HP damage was not applied")
 	if not is_equal_approx(dummy.velocity.length(), expected_speed): failures.append("knockback formula mismatch")
-	if dummy.hitstun_ticks != clampi(roundi(6.0 / dummy.character_data.base_stats.weight), 6, 30): failures.append("fixed hitstun formula mismatch")
+	if dummy.hitstun_ticks != clampi(roundi(20.0 / dummy.character_data.base_stats.weight), 10, 36): failures.append("fixed hitstun formula mismatch")
 	if player.current_hp != player.character_data.base_stats.max_hp: failures.append("fighter hit itself")
 	controller.call("_resolve_hits")
 	if dummy.current_hp != dummy.character_data.base_stats.max_hp - 4.0: failures.append("single-hit attack hit the same target twice")
@@ -44,15 +44,15 @@ func _initialize() -> void:
 	dummy.state = FighterController.State.IDLE
 	player.stocks = 1
 	dummy.stocks = 1
-	player.global_position = Vector2(controller.rules.ring_left - 1.0, 520)
-	dummy.global_position = Vector2(controller.rules.ring_right + 1.0, 520)
+	player.global_position = Vector2(controller.stage_data.ring_bounds.position.x - 1.0, 520)
+	dummy.global_position = Vector2(controller.stage_data.ring_bounds.end.x + 1.0, 520)
 	controller.call("_resolve_ring_outs")
 	if not controller.is_draw: failures.append("simultaneous final ring-out was not a draw")
 	controller.reset_match()
 	player.state = FighterController.State.IDLE
 	dummy.state = FighterController.State.IDLE
 	player.stocks = 1
-	player.global_position = Vector2(controller.rules.ring_left - 1.0, 520)
+	player.global_position = Vector2(controller.stage_data.ring_bounds.position.x - 1.0, 520)
 	dummy.global_position = Vector2(850, 520)
 	controller.call("_resolve_ring_outs")
 	if controller.winner_id != dummy.fighter_id: failures.append("single final ring-out did not select survivor")

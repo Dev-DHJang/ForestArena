@@ -25,7 +25,7 @@ func _initialize() -> void:
 	var dpad_visual := touch.get_node("DPadVisual") as TextureRect
 	var dash_visual := touch.get_node("DashVisual") as TextureRect
 	if background.texture == null: failures.append("combat background resource was not applied")
-	if terrain.texture == null: failures.append("combat terrain resource was not applied")
+	if terrain.visible or terrain.texture != null: failures.append("obsolete two-platform terrain image remained visible")
 	if hud_panel.texture == null: failures.append("HUD panel resource was not applied")
 	var restart_style := restart.get_theme_stylebox("normal") as StyleBoxTexture
 	if restart_style == null or restart_style.texture == null: failures.append("restart button resource was not applied")
@@ -56,8 +56,6 @@ func _initialize() -> void:
 		resources.set_quality(quality)
 		if background.texture.resource_path != resources.resource_path("fa.background.combat.training.arena"):
 			failures.append("combat background did not follow %s quality" % quality)
-		if terrain.texture.resource_path != resources.resource_path("fa.terrain.combat.forest-ledge"):
-			failures.append("combat terrain did not follow %s quality" % quality)
 		if dash_visual.texture.resource_path != action_path:
 			failures.append("common action texture changed with %s quality" % quality)
 	resources.set_quality(original_quality)
@@ -96,13 +94,13 @@ func _initialize() -> void:
 		failures.append("HUD did not render guard and ultimate resources")
 
 	# Camera keeps the local fighter centered at the fixed ten-character framing.
-	player.global_position = Vector2(controller.rules.ring_left, 400)
-	controller.training_dummy.global_position = Vector2(controller.rules.ring_right, 400)
+	player.global_position = Vector2(controller.stage_data.ring_bounds.position.x, 400)
+	controller.training_dummy.global_position = Vector2(controller.stage_data.ring_bounds.end.x, 400)
 	var camera := instance.get_node("Camera2D") as Camera2D
 	camera.call("_process", 0.016)
 	if not is_equal_approx(camera.zoom.x, 1.25): failures.append("camera did not retain fixed 1.25 zoom")
 	if camera.position != player.global_position: failures.append("camera did not target the local fighter")
-	controller.training_dummy.global_position = Vector2(controller.rules.ring_left, 400)
+	controller.training_dummy.global_position = Vector2(controller.stage_data.ring_bounds.position.x, 400)
 	camera.call("_process", 0.016)
 	if camera.position != player.global_position: failures.append("opponent movement changed the camera target")
 

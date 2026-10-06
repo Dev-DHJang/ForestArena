@@ -27,9 +27,9 @@ func _initialize() -> void:
 		root.add_child(instance)
 		await process_frame
 		for node_path: NodePath in [
-			NodePath("World/Ground"), NodePath("World/Platform"), NodePath("World/Player"),
-			NodePath("World/TrainingDummy"), NodePath("World/KillVolumes/Left"), NodePath("World/KillVolumes/Right"),
-			NodePath("World/KillVolumes/Top"), NodePath("World/KillVolumes/Bottom"), NodePath("MatchController"),
+			NodePath("World/Stage/Ground"), NodePath("World/Stage/LeftLow"), NodePath("World/Stage/MidHigh"),
+			NodePath("World/Stage/RightMid"), NodePath("World/Stage/RightHigh"), NodePath("World/Player"),
+			NodePath("World/TrainingDummy"), NodePath("MatchController"),
 			NodePath("Camera2D"), NodePath("Interface/TouchCommandSource"), NodePath("Interface/DebugReadout")
 		]:
 			if instance.get_node_or_null(node_path) == null:
