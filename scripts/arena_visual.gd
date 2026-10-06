@@ -1,12 +1,9 @@
 extends Node2D
 
-const BACKGROUND_ID := "fa.background.combat.training.arena"
-const TERRAIN_ID := "fa.terrain.combat.forest-ledge"
-
 @onready var background: TextureRect = $Background
 @onready var terrain: TextureRect = $Terrain
+@export var stage_data: StageData
 var _missing_background_id := ""
-var _missing_terrain_id := ""
 var _event_flash_ticks := 0
 var _last_event: StringName
 var reduce_visual_effects := false
@@ -41,20 +38,23 @@ func _process(_delta: float) -> void:
 
 
 func _apply_background() -> void:
-	var texture := ForestArenaResources.load_texture(BACKGROUND_ID)
+	if stage_data == null or not stage_data.is_valid_definition():
+		_missing_background_id = "invalid-stage-data"
+		background.texture = _fallback_texture()
+		terrain.visible = false
+		queue_redraw()
+		return
+	var texture := ForestArenaResources.load_texture(stage_data.background_asset_id)
 	if texture == null:
-		_missing_background_id = BACKGROUND_ID
+		_missing_background_id = stage_data.background_asset_id
 		background.texture = _fallback_texture()
 	else:
 		_missing_background_id = ""
 		background.texture = texture
-	var terrain_texture := ForestArenaResources.load_texture(TERRAIN_ID)
-	if terrain_texture == null:
-		_missing_terrain_id = TERRAIN_ID
-		terrain.texture = null
-	else:
-		_missing_terrain_id = ""
-		terrain.texture = terrain_texture
+	# The expanded collision layout intentionally uses exact temporary geometry.
+	# Keep the approved two-piece image untouched until replacement art is approved.
+	terrain.texture = null
+	terrain.visible = false
 	queue_redraw()
 
 
@@ -65,14 +65,13 @@ func _fallback_texture() -> Texture2D:
 
 
 func _draw() -> void:
-	# Collision remains authoritative. These rectangles are visible only when the
-	# registered terrain presentation is unavailable.
-	if not _missing_terrain_id.is_empty():
-		draw_rect(Rect2(100, 586, 1080, 48), Color("365f4b"))
-		draw_rect(Rect2(370, 418, 540, 24), Color("4e8062"))
+	# StageData owns both these temporary walk surfaces and their collision peers.
+	if stage_data != null:
+		for surface: StageSurfaceData in stage_data.surfaces:
+			var fill := Color("4e8062") if surface.one_way else Color("365f4b")
+			draw_rect(surface.rect, fill, true)
+			draw_line(surface.rect.position, Vector2(surface.rect.end.x, surface.rect.position.y), Color("a9d86e"), 5.0)
 	if not _missing_background_id.is_empty():
 		draw_string(ThemeDB.fallback_font, Vector2(360, 230), "MISSING RESOURCE: %s" % _missing_background_id, HORIZONTAL_ALIGNMENT_CENTER, 560.0, 24, Color.WHITE)
-	if not _missing_terrain_id.is_empty():
-		draw_string(ThemeDB.fallback_font, Vector2(360, 265), "MISSING RESOURCE: %s" % _missing_terrain_id, HORIZONTAL_ALIGNMENT_CENTER, 560.0, 24, Color.WHITE)
 	if _event_flash_ticks > 0:
 		draw_rect(Rect2(0, 0, 1280, 720), Color(1.0, 1.0, 1.0, 0.08), true)

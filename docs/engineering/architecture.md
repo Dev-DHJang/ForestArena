@@ -20,7 +20,7 @@
 | MoveSetData | 기술 목록, 의미 입력·방향·지상/공중 조건, 연계 분기와 시각 상태 ID 참조 |
 | JobData | 부모·단계, 능력치·기술·패시브·태그와 전투 규칙 변경 |
 | AccessoryData | 기본 변경, 기술 패치, 조건 효과와 태그 시너지 |
-| StageData | 경기장 ID, 발판, 시작·복귀 위치, 링아웃 영역과 배경 참조 |
+| StageData | 경기장 ID, 버전이 있는 표면 목록, 최대 8개의 시작·복귀 위치, 링아웃 영역과 배경 논리 ID |
 
 캐릭터 데이터의 최종 원본은 `assets/character/<character-id>/character.tres`의 `CharacterData`다. 이 파일에는 콘셉트 이미지, 설정, 역할, 분류 태그, 기술, 항상 적용되는 효과, 직업 확장 자리와 기본 능력치가 들어간다. PNG와 애니메이션은 별도 파일로 두고 `CharacterData`가 가리킨다. 보이는 이미지가 공격 적중 시간이나 승패를 정하지는 않는다.
 
@@ -38,7 +38,7 @@
 
 - 파이터 루트 후보는 CharacterBody2D다.
 - 맞을 수 있는 영역(Hurtbox)과 공격 영역(Hitbox)은 `Area2D`와 `CollisionShape2D`로 만들고 캐릭터 이미지와 분리한다.
-- 경기장 플랫폼은 StaticBody2D와 CollisionShape2D, 링아웃은 Area2D로 구성한다.
+- `StageController`는 `StageData`의 표면을 StaticBody2D와 CollisionShape2D로 만들며, `MatchController`는 같은 데이터의 사각 영역으로 링아웃을 판정한다.
 - `Camera2D`와 HUD는 전투 코드가 계산한 결과를 읽어 보여 줄 뿐 결과를 계산하지 않는다.
 - `AnimatedSprite2D`와 `SpriteFrames`는 움직임을 보여 줄 뿐 공격이 맞는 시간을 정하지 않는다.
 

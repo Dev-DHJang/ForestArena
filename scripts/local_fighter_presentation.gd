@@ -105,7 +105,7 @@ func sync_visual(delta: float) -> void:
 	var layout: Dictionary = _motion_layouts.get(shown, {})
 	var display_scale := float(layout.get("presentation_scale", 1.0))
 	sprite.scale = Vector2.ONE * display_scale
-	sprite.position.y = 14.0 - (float(layout.get("foot_pivot_y", 128)) - 64.0) * display_scale
+	sprite.position.y = fighter.ground_contact_offset_y() - (float(layout.get("foot_pivot_y", 128)) - 64.0) * display_scale
 	sprite.flip_h = fighter.facing < 0
 	if shown != _last_motion or fighter.activation_serial != _last_activation:
 		_elapsed = 0.0

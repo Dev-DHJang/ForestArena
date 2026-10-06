@@ -40,14 +40,14 @@ func _initialize() -> void:
 	for index: int in 30: fighter.step_tick(controller.rules)
 	fighter.consume_intent(_intent(fighter, &"attack_light", CombatIntent.Direction.NEUTRAL), controller.rules)
 	if fighter.state != FighterController.State.ATTACK_STARTUP: failures.append("light did not enter startup")
-	for index: int in 4: fighter.step_tick(controller.rules)
+	for index: int in 6: fighter.step_tick(controller.rules)
 	if fighter.state != FighterController.State.ATTACK_ACTIVE: failures.append("light startup tick count mismatch")
-	for index: int in 3: fighter.step_tick(controller.rules)
-	if fighter.state != FighterController.State.ATTACK_RECOVERY: failures.append("light active tick count mismatch")
+	for index: int in 2: fighter.step_tick(controller.rules)
+	if fighter.state != FighterController.State.ATTACK_ACTIVE: failures.append("light left active phase before early buffer window")
 	fighter.consume_intent(_intent(fighter, &"attack_light", CombatIntent.Direction.NEUTRAL), controller.rules)
 	fighter.consume_intent(_intent(fighter, &"attack_heavy", CombatIntent.Direction.RIGHT), controller.rules)
 	if fighter.buffered_intent == null or fighter.buffered_intent.action_id != &"attack_light": failures.append("single whiff light buffer contract failed")
-	for index: int in 7: fighter.step_tick(controller.rules)
+	for index: int in 14: fighter.step_tick(controller.rules)
 	if fighter.active_attack == null or fighter.active_attack.attack_id != &"ja-hyun-light-02": failures.append("buffered light did not advance data combo")
 
 	# Hit-only branch and launcher chase permission.

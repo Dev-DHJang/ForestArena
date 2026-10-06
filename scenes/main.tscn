@@ -12,19 +12,14 @@
 [ext_resource type="Resource" path="res://assets/loadouts/default_ja_hyun_selection.tres" id="10_player_selection"]
 [ext_resource type="Resource" path="res://assets/loadouts/default_myo_ryung_selection.tres" id="11_dummy_selection"]
 [ext_resource type="Script" path="res://scripts/offscreen_opponent_indicator.gd" id="12_indicator"]
-[sub_resource type="RectangleShape2D" id="GroundShape"]
-size = Vector2(1080, 48)
-[sub_resource type="RectangleShape2D" id="PlatformShape"]
-size = Vector2(540, 24)
-[sub_resource type="RectangleShape2D" id="KillVertical"]
-size = Vector2(50, 1060)
-[sub_resource type="RectangleShape2D" id="KillHorizontal"]
-size = Vector2(1600, 50)
+[ext_resource type="Script" path="res://scripts/stage_controller.gd" id="13_stage_controller"]
+[ext_resource type="Resource" path="res://assets/combat/stages/forest_ledge_stage.tres" id="14_stage"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_main")
 [node name="ArenaVisual" type="Node2D" parent="."]
 script = ExtResource("2_arena")
+stage_data = ExtResource("14_stage")
 [node name="Background" type="TextureRect" parent="ArenaVisual"]
 z_index = -100
 offset_left = -816.0
@@ -44,49 +39,17 @@ mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
 [node name="World" type="Node2D" parent="."]
-[node name="Ground" type="StaticBody2D" parent="World"]
-position = Vector2(640, 610)
-collision_layer = 1
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Ground"]
-shape = SubResource("GroundShape")
-[node name="Platform" type="StaticBody2D" parent="World"]
-position = Vector2(640, 430)
-collision_layer = 8
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Platform"]
-shape = SubResource("PlatformShape")
-one_way_collision = true
+[node name="Stage" type="Node2D" parent="World"]
+script = ExtResource("13_stage_controller")
+stage_data = ExtResource("14_stage")
 [node name="Player" parent="World" instance=ExtResource("3_ja")]
-position = Vector2(430, 520)
+position = Vector2(-180, 520)
 [node name="TrainingDummy" parent="World" instance=ExtResource("4_myo")]
-position = Vector2(850, 520)
-[node name="KillVolumes" type="Node2D" parent="World"]
-[node name="Left" type="Area2D" parent="World/KillVolumes"]
-position = Vector2(-185, 290)
-collision_layer = 16
-collision_mask = 2
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Left"]
-shape = SubResource("KillVertical")
-[node name="Right" type="Area2D" parent="World/KillVolumes"]
-position = Vector2(1465, 290)
-collision_layer = 16
-collision_mask = 2
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Right"]
-shape = SubResource("KillVertical")
-[node name="Top" type="Area2D" parent="World/KillVolumes"]
-position = Vector2(640, -265)
-collision_layer = 16
-collision_mask = 2
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Top"]
-shape = SubResource("KillHorizontal")
-[node name="Bottom" type="Area2D" parent="World/KillVolumes"]
-position = Vector2(640, 845)
-collision_layer = 16
-collision_mask = 2
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/KillVolumes/Bottom"]
-shape = SubResource("KillHorizontal")
+position = Vector2(1160, 520)
 [node name="MatchController" type="Node" parent="."]
 script = ExtResource("5_match")
 rules = ExtResource("6_rules")
+stage_data = ExtResource("14_stage")
 player = NodePath("../World/Player")
 training_dummy = NodePath("../World/TrainingDummy")
 loadout_catalog = ExtResource("9_catalog")

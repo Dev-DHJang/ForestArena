@@ -3,11 +3,11 @@ extends SceneTree
 const FIGHTERS := ["res://scenes/fighters/ja_hyun_fighter.tscn", "res://scenes/fighters/myo_ryung_fighter.tscn", "res://scenes/fighters/nabi_fighter.tscn", "res://scenes/fighters/yu_ran_fighter.tscn"]
 const EXPECTED_COMBOS := {"ja-hyun": 3, "myo-ryung": 4, "nabi": 2, "yu-ran": 3}
 const TIMINGS := {
-	"light": [4, 3, 7, 4.0, 120.0, 6], "finisher": [6, 3, 12, 7.0, 210.0, 6],
-	"directional_light": [5, 3, 9, 5.0, 150.0, 6], "heavy": [10, 4, 16, 10.0, 260.0, 12],
-	"dash_light": [5, 3, 9, 6.0, 170.0, 6], "dash_heavy": [8, 4, 14, 10.0, 240.0, 12],
-	"air_light": [5, 3, 9, 5.0, 150.0, 6], "air_heavy": [8, 4, 14, 9.0, 230.0, 12],
-	"special": [8, 4, 16, 8.0, 220.0, 9], "up_special": [6, 5, 18, 7.0, 190.0, 9],
+	"light": [6, 4, 12, 4.0, 120.0, 20], "finisher": [8, 4, 16, 7.0, 210.0, 18],
+	"directional_light": [6, 4, 12, 5.0, 150.0, 16], "heavy": [12, 5, 18, 10.0, 260.0, 22],
+	"dash_light": [6, 4, 12, 6.0, 170.0, 16], "dash_heavy": [10, 5, 16, 10.0, 240.0, 22],
+	"air_light": [6, 4, 12, 5.0, 150.0, 16], "air_heavy": [10, 5, 16, 9.0, 230.0, 22],
+	"special": [10, 6, 18, 8.0, 220.0, 18], "up_special": [10, 6, 18, 7.0, 190.0, 18],
 }
 
 
@@ -28,6 +28,8 @@ func _initialize() -> void:
 			if attack.action_id == &"grab" or attack.tags.has(&"GRAB"): failures.append("removed grab attack remains: %s" % attack.attack_id)
 			if global_ids.has(attack.attack_id): failures.append("duplicate global attack ID: %s" % attack.attack_id)
 			global_ids[attack.attack_id] = true
+		for link: ComboLinkData in fighter.character_data.base_move_set.combo_links:
+			if link.schema_version != 2 or link.window_start_tick != -2 or link.window_end_tick != 10: failures.append("combo input window mismatch: %s" % link.from_attack_id)
 		_validate_family(fighter, failures)
 		fighter.queue_free()
 	if failures.is_empty():
@@ -67,7 +69,7 @@ func _validate_family(fighter: FighterController, failures: PackedStringArray) -
 	if fighter.fighter_id == &"myo-ryung":
 		if neutral == null or neutral.max_hits_per_target != 3 or neutral.rehit_interval_ticks != 3 or neutral.damage != 3.0: failures.append("Myo-Ryung multi-hit contract mismatch")
 	elif fighter.fighter_id == &"yu-ran":
-		if neutral == null or neutral.startup_ticks != 8 or neutral.active_ticks != 4 or neutral.recovery_ticks != 16 or neutral.damage != 8.0 or neutral.knockback != 220.0 or neutral.fixed_hitstun_ticks != 9 or neutral.hitbox_size != Vector2(96, 64) or neutral.hitbox_offset != Vector2(34, -30): failures.append("Yu-ran neutral tail-sweep contract mismatch")
+		if neutral == null or neutral.startup_ticks != 10 or neutral.active_ticks != 6 or neutral.recovery_ticks != 18 or neutral.damage != 8.0 or neutral.knockback != 220.0 or neutral.fixed_hitstun_ticks != 18 or neutral.hitbox_size != Vector2(96, 64) or neutral.hitbox_offset != Vector2(34, -30): failures.append("Yu-ran neutral tail-sweep contract mismatch")
 	elif neutral == null:
 		failures.append("missing neutral special: %s" % fighter.fighter_id)
 	else:

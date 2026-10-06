@@ -9,8 +9,8 @@ extends Resource
 @export var ground_deceleration: float = 3600.0
 @export var air_acceleration: float = 1800.0
 @export var max_fall_speed: float = 1000.0
-@export var hitstun_min_ticks: int = 6
-@export var hitstun_max_ticks: int = 30
+@export var hitstun_min_ticks: int = 10
+@export var hitstun_max_ticks: int = 36
 @export var di_max_degrees: float = 10.0
 @export var respawn_delay_ticks: int = 45
 @export var respawn_invulnerability_ticks: int = 60
@@ -24,15 +24,11 @@ extends Resource
 @export var ultimate_gauge_per_damage_dealt: float = 1.0
 @export var ultimate_gauge_per_damage_taken: float = 0.5
 @export var platform_drop_ticks: int = 12
-@export var combo_link_window_ticks: int = 5
-@export var ring_left: float = -160.0
-@export var ring_right: float = 1440.0
-@export var ring_top: float = -240.0
-@export var ring_bottom: float = 820.0
+@export var combo_link_window_ticks: int = 13
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 3 \
+	return schema_version == 4 \
 		and physics_ticks_per_second == 60 \
 		and stocks_per_fighter > 0 \
 		and ground_acceleration > 0.0 \

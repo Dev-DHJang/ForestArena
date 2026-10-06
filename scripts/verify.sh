@@ -9,6 +9,7 @@ godot --headless --path . --script res://tests/phase1_combat_contract.gd
 godot --headless --path . --script res://tests/phase1_combat_behavior.gd
 godot --headless --path . --script res://tests/phase1_match_rules.gd
 godot --headless --path . --script res://tests/phase1_determinism.gd
+godot --headless --path . --script res://tests/combat_feel_stage_v2.gd
 godot --headless --path . --script res://tests/phase1_input_ui.gd
 godot --headless --path . --script res://tests/phase2_loadout_contract.gd
 godot --headless --path . --script res://tests/phase2_runtime_wiring.gd

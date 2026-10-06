@@ -151,8 +151,8 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	if intent.action_id not in [&"attack_light", &"attack_heavy", &"attack_special"]:
 		return
 	if active_attack != null:
-		var linked := ComboControllerScript.linked_attack(runtime_profile.move_set, active_attack, intent, attack_phase_tick, attack_landed)
-		if state == State.ATTACK_RECOVERY and linked != null and buffered_intent == null:
+		var linked := ComboControllerScript.linked_attack(runtime_profile.move_set, active_attack, intent, _combo_link_tick(), attack_landed)
+		if state in [State.ATTACK_ACTIVE, State.ATTACK_RECOVERY] and linked != null and buffered_intent == null:
 			buffered_intent = intent
 		return
 	var next := _select_attack(intent)
@@ -239,9 +239,15 @@ func get_hurtbox_rect() -> Rect2:
 
 
 func get_pushbox_rect() -> Rect2:
-	# Pushbox is deliberately distinct from the hurtbox. Fixed-tick hit resolution
-	# owns combat truth; this rectangle only defines future body-separation bounds.
-	return Rect2(global_position + Vector2(-24.0, -48.0), Vector2(48.0, 48.0))
+	# Lower-body separation stays distinct from damage reception and attack reach.
+	return Rect2(global_position + Vector2(-27.0, -58.0), Vector2(54.0, 72.0))
+
+
+func ground_contact_offset_y() -> float:
+	var body := get_node_or_null("Body") as CollisionShape2D
+	if body == null or not body.shape is RectangleShape2D:
+		return 14.0
+	return body.position.y + (body.shape as RectangleShape2D).size.y * 0.5
 
 
 func register_landed_hit(attack: AttackData) -> void:
@@ -592,6 +598,16 @@ func _horizontal_input() -> int:
 	if input_direction == CombatIntent.Direction.LEFT: return -1
 	if input_direction == CombatIntent.Direction.RIGHT: return 1
 	return 0
+
+
+func _combo_link_tick() -> int:
+	if active_attack == null:
+		return -1000000
+	if state == State.ATTACK_ACTIVE:
+		return attack_phase_tick - active_attack.active_ticks
+	if state == State.ATTACK_RECOVERY:
+		return attack_phase_tick
+	return -1000000
 
 
 func _stats() -> CharacterStats:
