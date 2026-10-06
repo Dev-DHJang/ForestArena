@@ -19,6 +19,6 @@
 ## 통합
 
 - 작업 브랜치: `feature/combat-feel-stage-v2`
-- 구현 커밋: PR 생성 뒤 기록
-- PR: 생성 뒤 기록
+- 구현 커밋: `7d1b8f9b2edf22496d80f46f452cb492733a1a30`
+- PR: [#59 전투 감각 개선 및 다층 경기장 확장](https://github.com/Dev-DHJang/ForestArena/pull/59)
 - `develop` 병합: 병합 뒤 기록
