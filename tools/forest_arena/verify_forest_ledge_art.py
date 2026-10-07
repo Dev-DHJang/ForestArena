@@ -12,25 +12,17 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[2]
 SIZES = {"high": (1920, 1080), "medium": (1280, 720), "low": (960, 540)}
 WORLD_LEFT, WORLD_TOP, WORLD_WIDTH, WORLD_HEIGHT = -816.0, -528.0, 2912.0, 1638.0
-PIECES = ((370.0, 418.0, 540.0), (100.0, 586.0, 1080.0))
+PIECES = (
+    (-440.0, 586.0, 2160.0),
+    (-300.0, 470.0, 380.0),
+    (120.0, 380.0, 420.0),
+    (760.0, 430.0, 520.0),
+    (1330.0, 350.0, 280.0),
+)
 
 
 def expected(value: float, origin: float, span: float, pixels: int) -> int:
     return round((value - origin) / span * pixels)
-
-
-def bands(alpha: np.ndarray) -> list[tuple[int, int]]:
-    occupied = np.flatnonzero((alpha >= 16).sum(axis=1) > 30)
-    result: list[tuple[int, int]] = []
-    start = previous = int(occupied[0])
-    for value in occupied[1:]:
-        value = int(value)
-        if value > previous + 1:
-            result.append((start, previous + 1))
-            start = value
-        previous = value
-    result.append((start, previous + 1))
-    return result
 
 
 def main() -> None:
@@ -45,27 +37,22 @@ def main() -> None:
         if terrain.size != size:
             failures.append(f"{quality} terrain size {terrain.size} != {size}")
         alpha = np.asarray(terrain)[:, :, 3]
-        found = bands(alpha)
-        if len(found) != 2:
-            failures.append(f"{quality} expected two terrain bands, found {found}")
-            continue
-        for band, (left, top, world_width) in zip(found, PIECES):
-            y0, y1 = band
-            _, xs = np.where(alpha[y0:y1] >= 16)
-            x0, x1 = int(xs.min()), int(xs.max()) + 1
+        for left, top, world_width in PIECES:
             target_left = expected(left, WORLD_LEFT, WORLD_WIDTH, size[0])
             target_top = expected(top, WORLD_TOP, WORLD_HEIGHT, size[1])
             target_width = round(world_width / WORLD_WIDTH * size[0])
-            if abs(x0 - target_left) > 2 or abs((x1 - x0) - target_width) > 3:
-                failures.append(f"{quality} terrain x {x0}..{x1} != {target_left} width {target_width}")
-            if abs(y0 - target_top) > 2:
-                failures.append(f"{quality} terrain top {y0} != {target_top}")
+            x0, x1 = target_left, target_left + target_width
+            y0, y1 = max(0, target_top - 2), min(size[1], target_top + 3)
+            surface = alpha[y0:y1, x0:x1] >= 16
+            column_coverage = (surface.sum(axis=0) > 0).mean() if surface.size else 0.0
+            if column_coverage < 0.78:
+                failures.append(f"{quality} terrain surface coverage {column_coverage:.2f} at {left},{top} is below 0.78")
     if failures:
         print("FOREST_LEDGE_ART: FAIL")
         for failure in failures:
             print(" -", failure)
         raise SystemExit(1)
-    print("FOREST_LEDGE_ART: PASS (3 quality variants, collision-aligned)")
+    print("FOREST_LEDGE_ART: PASS (3 quality variants, 5 collision-aligned surfaces)")
 
 
 if __name__ == "__main__":

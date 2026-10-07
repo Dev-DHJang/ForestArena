@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import deque
 from pathlib import Path
 
 import numpy as np
@@ -14,9 +15,15 @@ WORLD_LEFT = -816.0
 WORLD_TOP = -528.0
 WORLD_WIDTH = 2912.0
 WORLD_HEIGHT = 1638.0
-WORLD_CENTER_X = 640.0
-GROUND = (100.0, 586.0, 1080.0)
-PLATFORM = (370.0, 418.0, 540.0)
+PIECES = (
+    # source crop (left, top, right, bottom) in normalized source coordinates,
+    # then collision surface (left, top, width) in world coordinates.
+    ((0.08, 0.60, 0.92, 1.00), (-440.0, 586.0, 2160.0)),
+    ((0.12, 0.43, 0.35, 0.63), (-300.0, 470.0, 380.0)),
+    ((0.32, 0.34, 0.57, 0.58), (120.0, 380.0, 420.0)),
+    ((0.56, 0.39, 0.84, 0.63), (760.0, 430.0, 520.0)),
+    ((0.80, 0.31, 0.99, 0.56), (1330.0, 350.0, 280.0)),
+)
 QUALITIES = {"high": (1920, 1080), "medium": (1280, 720), "low": (960, 540)}
 
 
@@ -34,35 +41,54 @@ def cover(image: Image.Image, size: tuple[int, int]) -> Image.Image:
     return image.resize(size, Image.Resampling.LANCZOS)
 
 
-def component_bands(alpha: np.ndarray) -> list[tuple[int, int]]:
-    # Generated alpha can contain isolated low-area speckles. Gameplay pieces have
-    # more than 100 visible pixels on each occupied row.
-    occupied = np.flatnonzero((alpha >= 16).sum(axis=1) > 100)
-    bands: list[tuple[int, int]] = []
-    start = previous = int(occupied[0])
-    for value in occupied[1:]:
-        value = int(value)
-        if value > previous + 1:
-            bands.append((start, previous + 1))
-            start = value
-        previous = value
-    bands.append((start, previous + 1))
-    if len(bands) != 2:
-        raise ValueError(f"expected two terrain pieces, found bands={bands}")
-    return bands
-
-
-def crop_piece(image: Image.Image, band: tuple[int, int]) -> Image.Image:
-    rgba = np.asarray(image.convert("RGBA")).copy()
-    alpha = rgba[:, :, 3]
-    mask = np.zeros_like(alpha, dtype=bool)
-    mask[band[0] : band[1]] = alpha[band[0] : band[1]] >= 16
-    ys, xs = np.where(mask)
-    box = (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
+def crop_piece(image: Image.Image, region: tuple[float, float, float, float]) -> Image.Image:
+    box = (
+        round(region[0] * image.width), round(region[1] * image.height),
+        round(region[2] * image.width), round(region[3] * image.height),
+    )
     piece = image.convert("RGBA").crop(box)
     data = np.asarray(piece).copy()
     data[data[:, :, 3] < 16] = 0
-    return Image.fromarray(data, "RGBA")
+    mask = data[:, :, 3] >= 16
+    visited = np.zeros_like(mask, dtype=bool)
+    largest: list[tuple[int, int]] = []
+    height, width = mask.shape
+    for seed_y, seed_x in zip(*np.where(mask & ~visited)):
+        if visited[seed_y, seed_x]:
+            continue
+        component: list[tuple[int, int]] = []
+        queue = deque([(int(seed_y), int(seed_x))])
+        visited[seed_y, seed_x] = True
+        while queue:
+            y, x = queue.popleft()
+            component.append((y, x))
+            for next_y, next_x in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
+                if 0 <= next_y < height and 0 <= next_x < width and mask[next_y, next_x] and not visited[next_y, next_x]:
+                    visited[next_y, next_x] = True
+                    queue.append((next_y, next_x))
+        if len(component) > len(largest):
+            largest = component
+    keep = np.zeros_like(mask, dtype=bool)
+    if largest:
+        ys_keep, xs_keep = zip(*largest)
+        keep[np.asarray(ys_keep), np.asarray(xs_keep)] = True
+    data[~keep] = 0
+    ys, xs = np.where(data[:, :, 3] >= 16)
+    if xs.size == 0:
+        raise ValueError(f"terrain source region has no visible pixels: {region}")
+    tight = (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
+    return Image.fromarray(data, "RGBA").crop(tight)
+
+
+def surface_row(piece: Image.Image) -> int:
+    alpha = np.asarray(piece)[:, :, 3]
+    counts = (alpha >= 16).sum(axis=1)
+    # Broad horizontal grass lips are the first rows covering most of
+    # the piece. Decorative leaves above them therefore do not move collisions.
+    candidates = np.flatnonzero(counts >= piece.width * 0.85)
+    if candidates.size == 0:
+        raise ValueError("terrain piece has no readable horizontal walk surface")
+    return int(candidates[0])
 
 
 def world_x(value: float, width: int) -> int:
@@ -74,18 +100,19 @@ def world_y(value: float, height: int) -> int:
 
 
 def terrain_canvas(source: Image.Image, size: tuple[int, int]) -> Image.Image:
-    alpha = np.asarray(source.convert("RGBA"))[:, :, 3]
-    bands = component_bands(alpha)
-    upper = crop_piece(source, bands[0])
-    lower = crop_piece(source, bands[1])
     canvas = Image.new("RGBA", size, (0, 0, 0, 0))
-    for piece, geometry in ((lower, GROUND), (upper, PLATFORM)):
-        _, top, world_width = geometry
+    for region, geometry in PIECES:
+        piece = crop_piece(source, region)
+        source_surface = surface_row(piece)
+        left, top, world_width = geometry
         target_width = round(world_width / WORLD_WIDTH * size[0])
+        source_width = piece.width
         target_height = round(piece.height * target_width / piece.width)
         piece = piece.resize((target_width, target_height), Image.Resampling.LANCZOS)
-        left = world_x(WORLD_CENTER_X, size[0]) - target_width // 2
-        canvas.alpha_composite(piece, (left, world_y(top, size[1])))
+        scaled_surface = round(source_surface * target_width / source_width)
+        target_left = world_x(left, size[0])
+        target_top = world_y(top, size[1]) - scaled_surface
+        canvas.alpha_composite(piece, (target_left, target_top))
     return canvas
 
 

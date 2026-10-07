@@ -51,10 +51,8 @@ func _apply_background() -> void:
 	else:
 		_missing_background_id = ""
 		background.texture = texture
-	# The expanded collision layout intentionally uses exact temporary geometry.
-	# Keep the approved two-piece image untouched until replacement art is approved.
-	terrain.texture = null
-	terrain.visible = false
+	terrain.texture = ForestArenaResources.load_texture(stage_data.terrain_asset_id)
+	terrain.visible = terrain.texture != null
 	queue_redraw()
 
 
@@ -65,8 +63,9 @@ func _fallback_texture() -> Texture2D:
 
 
 func _draw() -> void:
-	# StageData owns both these temporary walk surfaces and their collision peers.
-	if stage_data != null:
+	# StageData remains authoritative. Geometry is drawn only if terrain art is
+	# unavailable, so missing presentation assets never remove walkable surfaces.
+	if stage_data != null and not terrain.visible:
 		for surface: StageSurfaceData in stage_data.surfaces:
 			var fill := Color("4e8062") if surface.one_way else Color("365f4b")
 			draw_rect(surface.rect, fill, true)

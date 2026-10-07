@@ -1,6 +1,6 @@
 # Forest Arena
 
-Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상대를 밖으로 밀어내는 Android용 2D 격투게임이다. Godot 4로 개발하며, 현재는 직업 상속과 한 판용 전투 데이터 조합을 검증하는 개발 단계(Phase 5)까지 완료했다.
+Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상대를 밖으로 밀어내는 Android용 2D 격투게임이다. Godot 4로 개발하며, Phase 5까지 완료한 전투 기반 위에서 오프라인 전체 흐름과 같은 Wi-Fi LAN 1대1을 개발하고 있다.
 
 게임 개발 용어가 낯설다면 [용어 가이드](docs/GLOSSARY.md)를 먼저 읽는다. 본문은 쉬운 표현을 우선하고, 코드에서 검색해야 하는 고유 이름은 `AttackData`처럼 그대로 쓴다.
 
@@ -39,6 +39,8 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 
     godot --path . --editor
     ./scripts/verify.sh
+    ./scripts/verify-lan-runtime.sh
+    ./scripts/lan-host.sh start
     ./scripts/server-dev.sh up
     ./scripts/verify-online-server.sh
     ./scripts/server-dev.sh verify-runtime
@@ -47,24 +49,30 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
     ./scripts/android-wireless-debug.sh devices
 
 실제 Android 기기를 무선으로 연결하는 방법은 [Android 무선 디버깅](docs/engineering/godot/android-wireless-debugging.md)을 참고한다.
+같은 Wi-Fi의 Android 사용자 두 명이 대전하는 방법은 [LAN 1대1 플레이](docs/gameplay/lan-1v1-play.md)를 참고한다.
 
 `./scripts/verify.sh`는 화면 없이 Godot 프로젝트 열기, 앱 기본 실행, 전투, 캐릭터·직업·장신구 조합, 로컬 온라인 계약, 데이터 형식과 문서 구조를 한 번에 확인하는 기본 검사다. `./scripts/server-dev.sh verify-runtime`은 실행 중인 로컬 스택에 실제 Godot 클라이언트 두 개를 붙여 매칭·입력·재접속·결과 저장을 확인한다. `./scripts/verify-docs.sh`는 문서 위치·링크·쉬운 문장 규칙을, `./scripts/verify-harness.sh`는 AI 역할·작업 배정 규칙을 빠르게 확인한다.
 
 ## 현재 상태
 
-- 로컬 AI 플레이 작업 브랜치: 첫 캐릭터 지급, 0원 상점·기기 저장, 네 캐릭터 선택,
-  승인된 전체 기본 전투 모션, AI 한 판과 재대전이 연결됐다. [플레이 안내](docs/gameplay/local-ai-play.md)를
-  참고한다. 최신 전체 모션 묶음의 실기기 재검은 사용자 지시에 따라 미확인으로 남겼으며,
-  이 구현만으로 스토리·연습·다인전을 포함하는 공식 Phase 6 전체를 완료 처리하지 않는다.
+- 로컬 플레이: 첫 캐릭터 지급, 0원 상점·기기 저장, 네 캐릭터와 장신구 선택, AI·연습·
+  최대 8명 Solo·Team 경기, 결과·재대전이 연결됐다. Story는 보상·성장이 없는 프롤로그로
+  명시한다. [로컬 AI 안내](docs/gameplay/local-ai-play.md)를 참고한다.
+- LAN 1대1: macOS가 한 경기를 판정하고 같은 Wi-Fi의 Android APK 두 대가 한 줄 코드로
+  접속하는 흐름을 구현했다. 로그인·결제·데이터베이스·인터넷 매칭은 사용하지 않는다.
+  자동 서버·두 클라이언트 검사는 통과했으며 두 물리 기기의 최종 플레이 검사는 남아 있다.
 - 완료: 같은 입력이면 같은 결과가 나오는 기본 전투 한 판(Phase 1), 캐릭터·직업·장신구를 조합하는 데이터 처리(Phase 2), 서로 다른 전투 스타일 비교(Phase 3), 장신구 조건·기술 교체·태그 시너지 검증(Phase 4), 부모·현재 직업의 기술·규칙·효과 누적 검증(Phase 5).
-- 현재: AI 작업은 14개 전문 역할로 나눈다. 로컬 AI 전용 선택·상점·결과 화면은 있으나,
-  공식 Phase 6 전체 모드 화면, 성장, 게임 재화와 Phase 6 이후의 확장 기능은 아직 없다.
+- 현재: AI 작업은 14개 전문 역할로 나눈다. 패키징·스토어 출시, Story 대화·보상·성장,
+  게임 재화와 정식 인터넷 온라인은 이번 완료 범위에서 제외한다.
 - 준비된 캐릭터 자료: 자현·묘령·나비·유란의 기본 데이터, 콘셉트와 기본 MoveSet용
   승인 런타임 모션이 실제 전투 화면에 연결됐다.
 - 공격 체계: 세 캐릭터의 공격 정보는 `AttackData`(공격 시간·피해·밀어내기)와 `MoveSetData`(기술과 입력 조건)에 저장되어 있다. 실제 기본 공격과 맞음 계산, 터치 입력이 동작한다.
-- 화면 설계 준비: 24개 화면과 61개 이미지 자리의 이름·용도를 정했다. 실제 Godot 화면, 최종 이미지와 Penpot 설계 파일은 아직 만들지 않았다.
+- 화면과 지형: 승인 Forestlight 터치 조작 이미지와 5개 충돌면에 맞춘 숲 경기장 지형을
+  Godot 논리 자산 ID로 연결했다. 24개 장기 화면 계약과 Penpot 원본은 별도 설계 기준으로 유지한다.
 - 로컬 검증 완료: Android debug APK export, arm64 에뮬레이터 설치·가로 실행·대전 진입·
   터치·중단/복귀와 20:9 시각 검사.
 - 미확인: 최신 전체 모션 묶음의 실제 물리 Android 기기 터치·중단/복귀·성능 재검.
-- 개발 기반: 로컬 PostgreSQL·TypeScript API·Godot headless 서버를 사용한 게스트 로그인, 2인 매칭과 자현 대 묘령 온라인 세로 흐름.
-- 미구현: Story 대화·보상·성장·경제, 복수 장신구 동시 장착, 클라우드·8인 정식 온라인 기능.
+- 개발 기반: 기존 PostgreSQL·TypeScript 개발 흐름과 별도로, DB 없는 Godot LAN headless
+  서버가 네 캐릭터·장신구 6종의 1대1을 60Hz로 판정하고 20Hz 상태를 전송한다.
+- 미구현: Story 대화·보상·성장·경제, 복수 장신구 동시 장착, 클라우드·8인 정식 온라인,
+  출시용 서명·AAB·스토어 등록.

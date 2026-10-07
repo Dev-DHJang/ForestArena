@@ -1,0 +1,37 @@
+extends SceneTree
+
+
+func _initialize() -> void:
+	var failures: Array[String] = []
+	var host := LanInvite.host_code("ws://192.168.45.10:7777")
+	_check(host == "FAH1|ws://192.168.45.10:7777|1", "host code", failures)
+	_check(LanInvite.parse_host_code(host).websocket_url == "ws://192.168.45.10:7777", "host parse", failures)
+	var invite := LanInvite.invite_code("ws://10.0.0.9:7777", "A1B2C3D4")
+	var parsed := LanInvite.parse_invite_code(invite)
+	_check(parsed.get("room_code") == "A1B2C3D4", "invite parse", failures)
+	_check(LanInvite.parse_invite_code("FA1|ws://8.8.8.8:7777|A1B2C3D4|1").error == "invalid_private_endpoint", "public address rejected", failures)
+	_check(LanInvite.parse_invite_code("FA1|ws://192.168.0.2:7777|SHORT|1").error == "invalid_room_code", "short room code rejected", failures)
+	_check(LanInvite.parse_invite_code("FA1|ws://192.168.0.2:7777|A1B2C3D4|2").error == "invalid_invite_code", "future version rejected", failures)
+	var catalog := LocalPlayCatalog.new().combat
+	for character: CharacterData in catalog.characters:
+		for accessory_id: StringName in _accessory_ids(catalog):
+			var selection := LoadoutSelection.new()
+			selection.character_id = character.character_id
+			selection.accessory_id = accessory_id
+			_check(LoadoutBuilder.build(selection, catalog).succeeded(), "LAN loadout %s/%s" % [character.character_id, accessory_id], failures)
+	if failures.is_empty():
+		print("LAN_CONTRACT: PASS")
+		quit(0)
+	else:
+		for failure: String in failures: push_error(failure)
+		quit(1)
+
+
+func _accessory_ids(catalog: LoadoutCatalog) -> Array[StringName]:
+	var ids: Array[StringName] = [&""]
+	for accessory: AccessoryData in catalog.accessories: ids.append(accessory.accessory_id)
+	return ids
+
+
+func _check(condition: bool, label: String, failures: Array[String]) -> void:
+	if not condition: failures.append(label)

@@ -1,16 +1,17 @@
 class_name StageData
 extends Resource
 
-@export var schema_version := 1
+@export var schema_version := 2
 @export var stage_id: StringName
 @export var background_asset_id: StringName
+@export var terrain_asset_id: StringName
 @export var surfaces: Array[StageSurfaceData] = []
 @export var spawn_points: Array[Vector2] = []
 @export var ring_bounds := Rect2()
 
 
 func is_valid_definition() -> bool:
-	if schema_version != 1 or stage_id.is_empty() or background_asset_id.is_empty() or surfaces.is_empty() or spawn_points.size() < 2 or not ring_bounds.has_area():
+	if schema_version != 2 or stage_id.is_empty() or background_asset_id.is_empty() or terrain_asset_id.is_empty() or surfaces.is_empty() or spawn_points.size() < 2 or not ring_bounds.has_area():
 		return false
 	var ids: Dictionary = {}
 	for surface: StageSurfaceData in surfaces:
