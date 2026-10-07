@@ -15,8 +15,8 @@ Android debug APK는
 반영한다. 이번 작업에서는 Android 에뮬레이터가 macOS의 실제 사설 Wi-Fi 주소로 접속해 방을
 만들고, 두 번째 Godot 클라이언트와 두 경기·결과·재대전·방 종료까지 완료했다.
 
-원격 `origin` push·PR·`develop` 병합은 GitHub 인증과 원격 대상의 명시적 승인 확인이 없어
-수행하지 않았다. 로컬 전용 브랜치 커밋은 안전하게 보존돼 있다.
+기능 브랜치 `feature/lan-1v1-playable`을 원격에 보존하고 PR #61을 생성했다.
+`develop` 병합 결과와 병합 커밋은 PR 품질 확인이 끝난 뒤 이 기록에 추가한다.
 
 ## 되돌리기
 
