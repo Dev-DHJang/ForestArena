@@ -22,12 +22,30 @@ var solo_participant_count := 4
 var team_size := 2
 var active_config: LocalMatchConfig
 var haptic_request_count := 0
+var lan_client: LanMatchClient
+var lan_host_code := ""
+var lan_invite_code := ""
+var lan_current_invite := ""
+var lan_local_slot := 0
+var lan_loadouts: Dictionary = {}
+var lan_status_label: Label
 
 func _ready() -> void:
 	get_tree().quit_on_go_back = false
 	layer = CanvasLayer.new()
 	layer.layer = 10
 	add_child(layer)
+	lan_client = LanMatchClient.new()
+	add_child(lan_client)
+	lan_client.status_changed.connect(_on_lan_status)
+	lan_client.room_created.connect(_on_lan_room_created)
+	lan_client.room_ready.connect(_on_lan_room_ready)
+	lan_client.snapshot_received.connect(_on_lan_snapshot)
+	lan_client.presentation_event_received.connect(_on_lan_presentation_event)
+	lan_client.peer_status_changed.connect(_on_lan_peer_status)
+	lan_client.match_finished.connect(_on_lan_match_finished)
+	lan_client.rematch_changed.connect(_on_lan_rematch_changed)
+	lan_client.failed.connect(_on_lan_failed)
 	store = LocalPlayerStore.new(catalog, save_path)
 	if not store.load_profile():
 		_show_storage_error()
@@ -138,12 +156,301 @@ func _character_cards(owned_only: bool, callback: Callable) -> void:
 
 func _show_home() -> void:
 	screen = "home"
-	_new_page("Forest Arena · 로컬 AI 대전")
+	_new_page("Forest Arena · 대전 로비")
 	_label("네 캐릭터와 함께 숲의 경기장으로")
 	_button("오프라인 대전", _show_prepare)
+	_button("LAN 1:1 · 같은 Wi-Fi", _show_lan_menu)
 	_button("상점 · 모두 0원", _show_shop)
 	_button("접근성 설정", _show_accessibility)
-	_label("구매와 선택은 이 기기에 저장됩니다. 인터넷 연결 없이 플레이할 수 있습니다.", 18)
+	_label("구매와 선택은 이 기기에 저장됩니다. LAN 대전은 macOS 호스트와 같은 Wi-Fi에서 로그인 없이 연결합니다.", 18)
+
+
+func _show_lan_menu() -> void:
+	screen = "lan_menu"
+	_new_page("LAN 1:1 · 같은 Wi-Fi")
+	_label("Mac에서 ./scripts/lan-host.sh start를 실행한 뒤 표시되는 한 줄 연결 코드를 사용합니다.", 18)
+	_button("방 만들기", _show_lan_host)
+	_button("초대 코드로 참가", _show_lan_join)
+	_button("로비", _show_home)
+
+
+func _show_lan_host() -> void:
+	screen = "lan_host"
+	_new_page("LAN 방 만들기")
+	_label("Mac 호스트 연결 코드", 18)
+	_line_input("FAH1|ws://192.168.x.x:7777|1", lan_host_code, func(value: String) -> void: lan_host_code = value)
+	_button("연결 코드 붙여넣기", _paste_lan_host_code)
+	_lan_loadout_controls(_show_lan_host)
+	_button("방 생성", _begin_lan_host)
+	_button("LAN 메뉴", _show_lan_menu)
+
+
+func _show_lan_join() -> void:
+	screen = "lan_join"
+	_new_page("LAN 방 참가")
+	_label("방장이 전달한 한 줄 초대 코드", 18)
+	_line_input("FA1|ws://192.168.x.x:7777|ABCDEFGH|1", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
+	_button("초대 코드 붙여넣기", _paste_lan_invite_code)
+	_lan_loadout_controls(_show_lan_join)
+	_button("방 참가", _begin_lan_join)
+	_button("LAN 메뉴", _show_lan_menu)
+
+
+func _line_input(placeholder: String, value: String, callback: Callable) -> LineEdit:
+	var input := LineEdit.new()
+	input.placeholder_text = placeholder
+	input.text = value
+	input.custom_minimum_size = Vector2(760, 58)
+	input.add_theme_font_size_override("font_size", roundi(19 * _text_scale()))
+	input.text_changed.connect(callback)
+	body.add_child(input)
+	return input
+
+
+func _paste_lan_host_code() -> void:
+	lan_host_code = DisplayServer.clipboard_get().strip_edges()
+	if lan_host_code.is_empty(): message = "클립보드에 연결 코드가 없습니다."
+	_show_lan_host()
+
+
+func _paste_lan_invite_code() -> void:
+	lan_invite_code = DisplayServer.clipboard_get().strip_edges()
+	if lan_invite_code.is_empty(): message = "클립보드에 초대 코드가 없습니다."
+	_show_lan_join()
+
+
+func _lan_loadout_controls(refresh: Callable) -> void:
+	_label("내 캐릭터: " + String(catalog.product(store.data.selected_character).get("name", store.data.selected_character)))
+	_character_cards(true, func(id: String) -> void:
+		if not store.select(id, store.data.selected_accessory, store.data.opponent_character): message = store.error
+		refresh.call())
+	_choice("장신구", [""] + store.data.accessories, store.data.selected_accessory, func(id: String) -> void:
+		if not store.select(store.data.selected_character, id, store.data.opponent_character): message = store.error
+		refresh.call())
+
+
+func _selected_lan_loadout() -> LoadoutSelection:
+	var selection := LoadoutSelection.new()
+	selection.character_id = StringName(store.data.selected_character)
+	selection.accessory_id = StringName(store.data.selected_accessory)
+	return selection
+
+
+func _begin_lan_host() -> void:
+	if not lan_client.begin_host(lan_host_code, _selected_lan_loadout()): return
+	screen = "lan_connecting"
+	_new_page("LAN 서버 연결 중", false)
+	lan_status_label = _label("Mac 호스트에 연결하고 있습니다.")
+	_button("취소", _leave_lan_to_menu)
+
+
+func _begin_lan_join() -> void:
+	if not lan_client.begin_join(lan_invite_code, _selected_lan_loadout()): return
+	screen = "lan_connecting"
+	_new_page("LAN 방 참가 중", false)
+	lan_status_label = _label("초대 코드를 확인하고 있습니다.")
+	_button("취소", _leave_lan_to_menu)
+
+
+func _on_lan_room_created(invite_code: String) -> void:
+	lan_current_invite = invite_code
+	screen = "lan_waiting"
+	_new_page("LAN 방 · 참가자 대기", false)
+	_label("아래 한 줄 초대 코드를 같은 Wi-Fi의 참가자에게 전달하세요.", 18)
+	var code := _line_input("", invite_code, func(_value: String) -> void: pass)
+	code.editable = false
+	lan_status_label = _label("참가자를 기다리는 중", 18)
+	_button("초대 코드 복사", _copy_lan_invite)
+	_button("방 닫기", _leave_lan_to_menu)
+
+
+func _copy_lan_invite() -> void:
+	if lan_current_invite.is_empty(): return
+	DisplayServer.clipboard_set(lan_current_invite)
+	if lan_status_label != null and is_instance_valid(lan_status_label):
+		lan_status_label.text = "초대 코드를 복사했습니다. 참가자에게 전달하세요."
+
+
+func _on_lan_room_ready(loadouts: Dictionary, local_slot_value: int) -> void:
+	lan_loadouts = loadouts.duplicate(true)
+	lan_local_slot = local_slot_value
+	_start_lan_match()
+
+
+func _start_lan_match() -> void:
+	if lan_loadouts.size() != 2 or lan_local_slot not in [1, 2]:
+		_on_lan_failed("invalid_match_configuration")
+		return
+	_close_match()
+	match_scene = MATCH_SCENE.instantiate()
+	match_scene.app_shell_mode = true
+	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
+	add_child(match_scene)
+	match_controller = match_scene.get_node("MatchController") as MatchController
+	match_controller.set_physics_process(false)
+	match_controller.pause_match(true)
+	match_controller.bot_source = null
+	match_controller.bot_sources.clear()
+	match_controller.presentation_event.connect(_on_presentation_event)
+	var fighters: Array[FighterController] = [match_controller.player, match_controller.training_dummy]
+	for index: int in 2:
+		var slot := index + 1
+		var selection := _lan_selection_from(lan_loadouts.get(str(slot), {}))
+		if selection == null:
+			_on_lan_failed("loadout_build_failed")
+			return
+		var result := LoadoutBuilder.build(selection, catalog.combat)
+		if not result.succeeded():
+			_on_lan_failed("loadout_build_failed")
+			return
+		var fighter := fighters[index]
+		fighter.fighter_id = &"lan_host" if slot == 1 else &"lan_guest"
+		fighter.character_data = catalog.combat.character_by_id(selection.character_id)
+		fighter.show_debug_body = false
+		if not fighter.configure_profile(result.profile):
+			_on_lan_failed("profile_configuration_failed")
+			return
+		var presentation := PRESENTATION.new()
+		presentation.name = "Presentation"
+		fighter.add_child(presentation)
+	var local_fighter := fighters[lan_local_slot - 1]
+	var opponent := fighters[1 if lan_local_slot == 1 else 0]
+	var camera := match_scene.get_node("Camera2D") as Camera2D
+	camera.player = local_fighter
+	var indicator := match_scene.get_node("Interface/OffscreenOpponentIndicator") as OffscreenOpponentIndicator
+	indicator.player = local_fighter
+	indicator.opponent = opponent
+	match_scene.apply_accessibility(store.data.accessibility)
+	match_scene.get_node("Interface/Restart").hide()
+	match_scene.get_node("Interface/DebugReadout").hide()
+	match_scene.get_node("Interface/PhaseLabel").hide()
+	match_scene.get_node("Interface/HudPanel").hide()
+	var readout := match_scene.get_node("Interface/MatchReadout") as Label
+	readout.position = Vector2(84, 24)
+	readout.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
+	readout.add_theme_color_override("font_outline_color", Color("122d38"))
+	readout.add_theme_constant_override("outline_size", 8)
+	_show_lan_match_controls()
+
+
+func _lan_selection_from(value: Variant) -> LoadoutSelection:
+	if not value is Dictionary: return null
+	var selection := LoadoutSelection.new()
+	selection.schema_version = int(value.get("schema_version", 0))
+	selection.character_id = StringName(value.get("character_id", ""))
+	selection.job_id = StringName(value.get("job_id", ""))
+	selection.accessory_id = StringName(value.get("accessory_id", ""))
+	return selection if selection.is_valid_definition() else null
+
+
+func _show_lan_match_controls() -> void:
+	screen = "lan_match"
+	match_scene.get_node("Interface").visible = true
+	if page != null:
+		layer.remove_child(page)
+		page.queue_free()
+	page = Control.new()
+	layer.add_child(page)
+	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var leave := _button("대전 나가기", _show_lan_leave_confirm, page)
+	leave.position = Vector2(1020, 125)
+
+
+func _show_lan_leave_confirm() -> void:
+	if not is_instance_valid(match_scene): return
+	screen = "lan_leave_confirm"
+	match_scene.get_node("Interface/TouchCommandSource").release_all_touches()
+	match_scene._release_semantic_actions()
+	match_scene.get_node("Interface").visible = false
+	_new_page("LAN 대전에서 나갈까요?", false)
+	_label("확인하는 동안에도 서버의 경기는 계속됩니다.", 18)
+	_button("계속 플레이", _show_lan_match_controls)
+	_button("대전 나가기", _leave_lan_to_menu)
+
+
+func _on_lan_snapshot(snapshot: Dictionary) -> void:
+	if match_controller == null or not is_instance_valid(match_scene): return
+	for fighter_value: Variant in snapshot.get("fighters", []):
+		if not fighter_value is Dictionary: continue
+		var fighter := match_controller.call("_fighter_by_id", StringName(fighter_value.get("id", ""))) as FighterController
+		if fighter != null: fighter.apply_network_snapshot(fighter_value)
+	match_controller.snapshot_changed.emit(snapshot)
+
+
+func _on_lan_presentation_event(event_id: StringName, payload: Dictionary) -> void:
+	if match_controller != null: match_controller.presentation_event.emit(event_id, payload)
+
+
+func _on_lan_match_finished(result: Dictionary) -> void:
+	if match_scene != null:
+		match_scene.get_node("Interface").visible = false
+		match_scene.get_node("Interface/TouchCommandSource").release_all_touches()
+	screen = "lan_result"
+	var winner_slot := int(result.get("winner_slot", 0))
+	var title := "무승부" if winner_slot == 0 and result.get("reason") == "draw" else ("승리!" if winner_slot == lan_local_slot else "패배")
+	if result.get("reason") == "room_closed": title = "방이 종료되었습니다"
+	_new_page(title, false)
+	_label("종료 사유: " + _lan_reason_text(String(result.get("reason", "combat"))), 18)
+	_button("같은 조건으로 재대전 요청", _request_lan_rematch)
+	_button("LAN 메뉴", _leave_lan_to_menu)
+	_button("로비", _leave_lan_to_home)
+
+
+func _request_lan_rematch() -> void:
+	lan_client.request_rematch(true)
+	screen = "lan_rematch_wait"
+	_new_page("재대전 대기", false)
+	lan_status_label = _label("상대의 재대전 요청을 기다리는 중")
+	_button("재대전 취소", _leave_lan_to_menu)
+
+
+func _on_lan_rematch_changed(ready_slots: Array, closed: bool) -> void:
+	if closed:
+		_close_match()
+		lan_client.stop()
+		message = "LAN 방이 종료되었습니다."
+		_show_lan_menu()
+	elif lan_status_label != null and is_instance_valid(lan_status_label):
+		lan_status_label.text = "재대전 준비 %d/2" % ready_slots.size()
+
+
+func _on_lan_peer_status(_slot: int, connected: bool) -> void:
+	if screen == "lan_match" and not connected:
+		message = "상대 연결이 끊겼습니다. 60초 동안 복귀를 기다립니다."
+
+
+func _on_lan_status(text: String) -> void:
+	if lan_status_label != null and is_instance_valid(lan_status_label): lan_status_label.text = text
+
+
+func _on_lan_failed(code: String) -> void:
+	_close_match()
+	message = "LAN 연결 실패: " + _lan_reason_text(code)
+	_show_lan_menu()
+
+
+func _lan_reason_text(code: String) -> String:
+	return {
+		"combat": "전투 종료", "draw": "동시 최종 탈락", "disconnect": "연결 이탈",
+		"room_closed": "방 종료", "room_not_found": "방 코드를 찾을 수 없음", "room_full": "방이 가득 참",
+		"server_busy": "호스트에서 다른 방이 진행 중", "invalid_loadout": "캐릭터 또는 장신구 선택 오류",
+		"invalid_host_code": "호스트 연결 코드 형식 오류", "invalid_invite_code": "초대 코드 형식 오류",
+		"invalid_private_endpoint": "사설 Wi-Fi 주소가 아님", "unsupported_protocol": "앱과 호스트 버전이 다름",
+		"connection_lost": "호스트 연결 끊김", "connect_start_failed": "네트워크 연결을 시작하지 못함",
+	}.get(code, code)
+
+
+func _leave_lan_to_menu() -> void:
+	lan_client.leave()
+	_close_match()
+	_show_lan_menu()
+
+
+func _leave_lan_to_home() -> void:
+	lan_client.leave()
+	_close_match()
+	_show_home()
 
 func _show_shop() -> void:
 	screen = "shop"
@@ -190,7 +497,7 @@ func _show_accessibility() -> void:
 func _show_prepare() -> void:
 	screen = "prepare"
 	_new_page("대전 준비 · " + _mode_name(selected_mode))
-	_choice_labels("모드", ["스토리 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"], int(selected_mode), func(index: int) -> void:
+	_choice_labels("모드", ["스토리 프롤로그 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"], int(selected_mode), func(index: int) -> void:
 		selected_mode = index as LocalMatchConfig.Mode
 		_show_prepare())
 	if selected_mode == LocalMatchConfig.Mode.SOLO:
@@ -380,7 +687,7 @@ func _configure_bots(config: LocalMatchConfig) -> void:
 
 
 func _mode_name(mode: LocalMatchConfig.Mode) -> String:
-	return ["스토리 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"][int(mode)]
+	return ["스토리 프롤로그 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"][int(mode)]
 
 func _show_match_controls() -> void:
 	screen = "match"
@@ -425,6 +732,16 @@ func handle_back_request(request_msec: int = -1) -> void:
 	match screen:
 		"shop", "prepare", "accessibility":
 			_show_home()
+		"lan_menu":
+			_show_home()
+		"lan_host", "lan_join":
+			_show_lan_menu()
+		"lan_connecting", "lan_waiting", "lan_result", "lan_rematch_wait":
+			_leave_lan_to_menu()
+		"lan_match":
+			_show_lan_leave_confirm()
+		"lan_leave_confirm":
+			_show_lan_match_controls()
 		"match":
 			pause_match()
 		"pause":

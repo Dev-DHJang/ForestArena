@@ -35,6 +35,7 @@ require_badging "sdkVersion:'29'" "minimum Android 10 / API 29"
 require_badging "targetSdkVersion:'36'" "target API 36"
 require_badging "application-label:'Forest Arena'" "application label"
 require_badging "uses-feature: name='android.hardware.screen.landscape'" "landscape feature"
+require_badging "uses-permission: name='android.permission.INTERNET'" "LAN WebSocket permission"
 require_badging "native-code: 'arm64-v8a' 'x86_64'" "arm64 device and x86_64 emulator ABIs"
 
 if $aapt_path list "$apk_path" | grep -E '(^|/)(_workspace|docs|tests|\.agents)/' >/dev/null; then

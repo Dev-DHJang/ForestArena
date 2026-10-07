@@ -12,7 +12,11 @@
   실제 기기 세부 가독성·진동 확인과 사람이 듣는 사운드 품질 검증은 남아 있다.
 - Story 대화·보상·성장과 사운드의 구체 규칙은 아직 문서에서 미정이다. 따라서 Phase 6을 완료로
   처리하지 않는다.
-- ADR-008·026으로 로컬 자현 대 묘령 2인 온라인 개발 기반만 선행했다. 정식 온라인·클라우드·8인전은 Phase 7 전체 범위 전까지 구현하지 않는다.
+- ADR-028 범위로 macOS 한 경기 서버와 같은 Wi-Fi Android 두 대의 LAN 1대1 경로를
+  구현했다. 네 캐릭터·장신구 6종, 60Hz 판정·20Hz 표시, 60초 재접속과 20초 재대전 계약의
+  자동 두 클라이언트 검사와 Android 에뮬레이터의 실제 macOS Wi-Fi 접속·결과·재대전은
+  통과했다. 물리 Android 두 대 검증은 사용자 결정으로 다음 계획에 반영한다.
+- ADR-008·026의 DB 기반 개발 흐름은 별도로 유지한다. 정식 인터넷 온라인·클라우드·8인전은 Phase 7 전체 범위 전까지 구현하지 않는다.
 - Godot가 시작할 때 자동으로 준비하는 `ForestArenaResources`는 346개 논리 자산 이름을 실제 파일과 연결하며 24개 품질별 파일 차이를 처리한다. 승인된 전투 배경과 투명 지형을 포함하며 `assets/character/`와 `assets/ui/generated/`의 승인 규칙을 대신하지 않는다.
 
 역할 목록과 요청 라우팅은 [팀 명세](team-spec.md)가 단일 원본이다. 과거 완료 작업과 당시 역할 구성은 `_workspace/` 및 Git 이력의 감사 증적에 보존한다.
@@ -21,6 +25,8 @@
 
 - 하네스: `./scripts/verify-harness.sh`
 - 전체 회귀: `./scripts/verify.sh`
+- LAN 실제 연결 자동 검사: `./scripts/verify-lan-runtime.sh`
+- macOS LAN 한 경기 서버: `./scripts/lan-host.sh start|stop|status|logs`
 - 직업 ID 독립성: `python3 tools/forest_arena/verify_job_id_independence.py`
 - Godot 리소스: `python tools/forest_arena/verify_godot_resources.py --project-root .`
 - Android debug export: `./scripts/export-debug-android.sh`
@@ -35,4 +41,6 @@
 
 - 최신 APK에서 네 캐릭터의 선택·경기 진입은 확인했다. 다만 모든 신규 모션·장신구 조합의
   물리 Android 기기 재생은 미확인이다.
-- Story 대화·보상·성장·경제와 정식 온라인은 구현 범위 밖이다. 로컬 2인 개발 흐름만 별도 계약으로 검증한다.
+- Story 대화·보상·성장·경제와 정식 인터넷 온라인은 구현 범위 밖이다.
+- 다음 계획: LAN 1대1의 물리 Android 두 대 동시 플레이, Wi-Fi 단절·복귀와 사람이 듣는
+  사운드 품질.

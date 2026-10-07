@@ -34,8 +34,10 @@ one_way = true
 
 [resource]
 script = ExtResource("1_stage")
+schema_version = 2
 stage_id = &"forest-ledge"
 background_asset_id = &"fa.background.combat.training.arena"
+terrain_asset_id = &"fa.terrain.combat.forest-ledge"
 surfaces = Array[ExtResource("2_surface")]([SubResource("Ground"), SubResource("LeftLow"), SubResource("MidHigh"), SubResource("RightMid"), SubResource("RightHigh")])
 spawn_points = Array[Vector2]([Vector2(-180, 520), Vector2(1160, 520), Vector2(360, 520), Vector2(900, 520), Vector2(-20, 520), Vector2(1380, 520), Vector2(560, 520), Vector2(1540, 520)])
 ring_bounds = Rect2(-760, -360, 2800, 1260)

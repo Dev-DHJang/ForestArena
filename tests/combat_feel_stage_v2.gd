@@ -11,7 +11,8 @@ func _initialize() -> void:
 	var controller := scene.get_node("MatchController") as MatchController
 	controller.set_physics_process(false)
 	var stage := controller.stage_data
-	_check(stage != null and stage.is_valid_definition(), "StageData v1 is invalid")
+	_check(stage != null and stage.is_valid_definition(), "StageData v2 is invalid")
+	_check(stage.terrain_asset_id == &"fa.terrain.combat.forest-ledge", "stage terrain logical ID drifted")
 	_check(stage.stage_id == &"forest-ledge", "stage ID drifted")
 	_check(stage.main_floor().rect == Rect2(-440, 586, 2160, 48), "2160-wide main floor drifted")
 	var expected := [

@@ -25,7 +25,8 @@ func _initialize() -> void:
 	var dpad_visual := touch.get_node("DPadVisual") as TextureRect
 	var dash_visual := touch.get_node("DashVisual") as TextureRect
 	if background.texture == null: failures.append("combat background resource was not applied")
-	if terrain.visible or terrain.texture != null: failures.append("obsolete two-platform terrain image remained visible")
+	if not terrain.visible or terrain.texture == null: failures.append("expanded five-surface terrain image was not applied")
+	elif terrain.texture.resource_path != resources.resource_path(controller.stage_data.terrain_asset_id): failures.append("stage terrain logical ID was not applied")
 	if hud_panel.texture == null: failures.append("HUD panel resource was not applied")
 	var restart_style := restart.get_theme_stylebox("normal") as StyleBoxTexture
 	if restart_style == null or restart_style.texture == null: failures.append("restart button resource was not applied")
@@ -56,6 +57,8 @@ func _initialize() -> void:
 		resources.set_quality(quality)
 		if background.texture.resource_path != resources.resource_path("fa.background.combat.training.arena"):
 			failures.append("combat background did not follow %s quality" % quality)
+		if terrain.texture.resource_path != resources.resource_path("fa.terrain.combat.forest-ledge"):
+			failures.append("combat terrain did not follow %s quality" % quality)
 		if dash_visual.texture.resource_path != action_path:
 			failures.append("common action texture changed with %s quality" % quality)
 	resources.set_quality(original_quality)

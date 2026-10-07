@@ -338,9 +338,27 @@ func apply_network_snapshot(value: Dictionary) -> void:
 	facing = int(value.get("facing", facing))
 	invulnerability_ticks = int(value.get("invulnerability_ticks", invulnerability_ticks))
 	respawn_ticks = int(value.get("respawn_ticks", respawn_ticks))
+	runtime_state.pending_respawn_hp = float(value.get("pending_respawn_hp", runtime_state.pending_respawn_hp))
+	runtime_state.revive_used = bool(value.get("revive_used", runtime_state.revive_used))
+	air_jumps_remaining = int(value.get("air_jumps", air_jumps_remaining))
+	aerial_attacks_remaining = int(value.get("air_attacks", aerial_attacks_remaining))
+	up_special_available = bool(value.get("up_special", up_special_available))
 	runtime_state.guard_durability = float(value.get("guard_durability", runtime_state.guard_durability))
 	runtime_state.special_cooldown_ticks = int(value.get("special_cooldown_ticks", runtime_state.special_cooldown_ticks))
 	runtime_state.ultimate_gauge = float(value.get("ultimate_gauge", runtime_state.ultimate_gauge))
+	runtime_state.ultimate_used_this_stock = bool(value.get("ultimate_used_this_stock", runtime_state.ultimate_used_this_stock))
+	attack_phase_tick = int(value.get("attack_phase_tick", attack_phase_tick))
+	var network_attack_id := StringName(value.get("attack_id", ""))
+	var previous_attack_id := &"" if active_attack == null else active_attack.attack_id
+	if network_attack_id.is_empty():
+		active_attack = null
+	elif runtime_profile != null and (active_attack == null or active_attack.attack_id != network_attack_id):
+		active_attack = null
+		for candidate: AttackData in runtime_profile.move_set.attacks():
+			if candidate.attack_id == network_attack_id:
+				active_attack = candidate
+				break
+	if not network_attack_id.is_empty() and network_attack_id != previous_attack_id: activation_serial += 1
 	var state_name := String(value.get("state", ""))
 	var state_index := State.keys().find(state_name)
 	if state_index >= 0: state = state_index as State
