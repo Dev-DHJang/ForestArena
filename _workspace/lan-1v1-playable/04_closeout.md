@@ -9,11 +9,14 @@ Forestlight 터치 조작과 확장 숲 지형이 연결됐다. Story는 보상�
 Android debug APK는
 `/Users/jdh/Desktop/workspace/ForestTales/build/android/ForestArena-LAN-debug.apk`에 복사했다.
 
-## 완료 전 남은 한 가지
+## 다음 계획으로 옮긴 검사
 
-실제 사용자 두 명이 물리 Android 두 대에서 같은 Wi-Fi LAN 한 판과 재대전을 끝내야 한다.
-현재 ADB에 실기기가 없어 이 항목은 실패가 아니라 미확인이다. 두 기기가 연결되면
-`docs/gameplay/lan-1v1-play.md` 순서로 설치·접속·플레이하고 이 문서와 QA 기록을 갱신한다.
+물리 Android 두 대의 실제 사용자 LAN 플레이는 2026-10-08 사용자 결정으로 다음 계획에
+반영한다. 이번 작업에서는 Android 에뮬레이터가 macOS의 실제 사설 Wi-Fi 주소로 접속해 방을
+만들고, 두 번째 Godot 클라이언트와 두 경기·결과·재대전·방 종료까지 완료했다.
+
+원격 `origin` push·PR·`develop` 병합은 GitHub 인증과 원격 대상의 명시적 승인 확인이 없어
+수행하지 않았다. 로컬 전용 브랜치 커밋은 안전하게 보존돼 있다.
 
 ## 되돌리기
 
