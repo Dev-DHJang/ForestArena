@@ -2,7 +2,7 @@
 
 ## 현재 상태
 
-문서 작성과 수동 검토 완료. 원래 작업 폴더의 전체 검사는 마지막 문서 조건에서 실패해 별도 작업 폴더에서 다시 실행 중.
+완료 — 독립 지침서·색인·기록 작성과 검토를 끝냈고, 최신 develop 기반 별도 작업 폴더에서 지정한 세 검사를 모두 통과했다.
 
 ## 변경 파일
 
@@ -16,7 +16,7 @@
 - 통과: `./scripts/verify-docs.sh`.
 - 통과: `./scripts/verify-harness.sh` — 14개 기존 역할·스킬 일치, 346개 논리 자산과 24개 품질별 자산 확인.
 - 원래 작업 폴더의 `./scripts/verify.sh`: 종료 코드 1. 게임·LAN·온라인 검사는 통과했으나 마지막 문서 검사 전에 `docs/.DS_Store`가 다시 생성돼 최상위 파일 조건에서 실패했다. 검사 조건은 바꾸지 않았다.
-- 별도 작업 폴더의 `./scripts/verify.sh`: 진행 중.
+- 통과: 별도 작업 폴더의 `./scripts/verify.sh` — 종료 코드 0, `Forest Arena verification passed.` 확인. 게임·LAN·온라인·문서·역할 검사 포함. 로그: `/tmp/new-game-bootstrap-clean-verify.log`.
 - 통과: `git diff --check`.
 - 통과: `bootstrap-template-check` — 참고 파일 링크 없는 독립 본문, 셸 예시 3개의 `sh -n`, 스킬 예시의 이름 치환·YAML 필드·네 필수 제목 확인.
 - 별도 작업 폴더에서도 통과: `./scripts/verify-docs.sh`, `./scripts/verify-harness.sh`, `git diff --check`. 최신 develop에는 350개 논리 자산이 있으며 원래 작업 폴더의 346개와 구분해 확인했다.
@@ -51,4 +51,7 @@
 - GitHub CLI에는 로그인된 호스트가 없었지만 기존 Git 인증으로 push 사전 확인과 GitHub API 접근이 가능했다. 기존 인증을 프로세스 안에서만 재사용했으며 계정 연결·비밀정보 저장은 변경하지 않았다.
 - 최신 `origin/develop`을 조회·fetch하고 별도 작업 폴더 `/Users/jdh/.codex/worktrees/new-game-bootstrap/ForestTales`에 `docs/new-game-bootstrap` 브랜치를 만들었다.
 - 색인은 이번 추가 행만 복사했고 다른 사용자 변경은 커밋 대상에서 제외한다.
-- 별도 작업 폴더의 전체 검사 완료 뒤 이번 문서·기록만 commit·push하고 PR을 생성할 예정이다.
+- 작성 commit: `b994509` (`docs: add standalone new game bootstrap guide`), 뒤이은 검사 결과 기록 commit은 해당 브랜치 이력에서 확인한다.
+- PR: https://github.com/Dev-DHJang/ForestArena/pull/69 — 이번 산출물 네 파일만 포함한다. 원격 반영 상태와 병합 commit은 PR에서 확인한다.
+- 검토 방식: 단일 에이전트의 요청 대조·시나리오 검토이며 독립 에이전트 검토라고 기록하지 않는다.
+- 되돌리기: PR #69의 변경을 되돌리는 revert PR을 만든다. main 변경·강제 push·원격 브랜치 삭제는 하지 않는다.
