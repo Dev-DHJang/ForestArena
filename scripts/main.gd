@@ -28,6 +28,7 @@ func _ready() -> void:
 	match_controller.snapshot_changed.connect(_render_snapshot)
 	match_controller.presentation_event.connect(arena_visual.play_combat_event)
 	combat_audio = CombatAudioScript.new()
+	combat_audio.local_fighter_id = match_controller.player.fighter_id
 	combat_audio.suppress_results = app_shell_mode
 	add_child(combat_audio)
 	if not app_shell_mode and not OS.has_feature("dedicated_server") and DisplayServer.get_name() != "headless": ForestArenaAudio.begin_match()

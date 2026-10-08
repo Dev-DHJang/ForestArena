@@ -21,6 +21,7 @@ func run() -> void:
 	_test_voice_budget()
 	await _test_music_and_lifecycle()
 	await _test_settings()
+	await _test_standalone_result()
 	await _test_shutdown_pool()
 	audio.stop_effects()
 	await process_frame
@@ -201,3 +202,18 @@ func _test_shutdown_pool() -> void:
 	check(audio.get_child_count() == baseline and audio.voices.is_empty(), "repeated shutdown releases effect player nodes")
 	for player: AudioStreamPlayer in audio.music_players:
 		check(player.stream == null and not player.playing, "shutdown releases music playback and stream")
+
+func _test_standalone_result() -> void:
+	var scene: Node = load("res://scenes/main.tscn").instantiate()
+	root.add_child(scene)
+	var controller: MatchController = scene.get_node("MatchController")
+	controller.set_physics_process(false)
+	check(scene.combat_audio.local_fighter_id == controller.player.fighter_id, "standalone adapter gets actual local fighter ID")
+	audio.begin_match()
+	controller.presentation_event.emit(&"match_end", {"winner_id": controller.player.fighter_id})
+	check(audio.voices.any(func(voice: Dictionary) -> bool: return voice.key == "victory"), "standalone local winner uses victory")
+	audio.begin_match()
+	controller.presentation_event.emit(&"match_end", {"winner_id": controller.training_dummy.fighter_id})
+	check(audio.voices.any(func(voice: Dictionary) -> bool: return voice.key == "defeat"), "standalone opponent win uses defeat")
+	scene.queue_free()
+	await process_frame

@@ -5,7 +5,6 @@ python3 tools/forest_arena/test_recover_codex_session.py
 
 python3 tools/forest_arena/verify_forest_ledge_art.py
 python3 tools/forest_arena/verify_job_id_independence.py
-python3 tools/forest_arena/verify_audio_v01.py
 godot --headless --path . --editor --quit
 godot --headless --path . --script res://tests/phase0_smoke.gd
 godot --headless --path . --script res://tests/phase1_combat_contract.gd
@@ -22,8 +21,7 @@ godot --headless --path . --script res://tests/phase4_accessory_validation.gd
 godot --headless --path . --script res://tests/phase5_job_inheritance.gd
 godot --headless --path . --script res://tests/phase6_local_mode_contract.gd
 godot --headless --path . --script res://tests/phase6_multifighter_match.gd
-godot --headless --path . --script res://tests/phase6_audio_contract.gd
-godot --headless --path . --script res://tests/audio_app_flow.gd
+./scripts/verify-audio.sh
 godot --headless --path . --script res://tests/combat_overhaul_contract.gd
 godot --headless --path . --script res://tests/character_data_contract.gd
 godot --headless --path . --script res://tests/character_appearance_contract.gd

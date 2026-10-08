@@ -35,13 +35,13 @@ LAN 효과음은 서버가 확정한 표현 이벤트로 재생한다. 경기 �
 
 ```sh
 python3 tools/forest_arena/generate_audio_v01.py
-python3 tools/forest_arena/verify_audio_v01.py
+./scripts/verify-audio.sh
 python3 tools/forest_arena/verify_godot_resources.py --project-root .
 godot --headless --path . --script res://tests/phase6_audio_contract.gd
 godot --headless --path . --script res://tests/audio_app_flow.gd
 ```
 
-생성과 신호 검사는 NumPy와 ffmpeg가 필요하다. 코드와 고정 난수값으로 같은 실행 파일과 원본을 다시 만들 수 있다. 음악의 Godot 가져오기 설정에서 반복(loop=true)을 유지한다.
+오디오 검사 스크립트는 종료 코드뿐 아니라 Godot의 SCRIPT ERROR와 ERROR 진단도 검사해 실행되지 않은 테스트가 통과로 보이는 것을 막는다. 생성과 신호 검사는 NumPy와 ffmpeg가 필요하다. 코드와 고정 난수값으로 같은 실행 파일과 원본을 다시 만들 수 있다. 음악의 Godot 가져오기 설정에서 반복(loop=true)을 유지한다.
 
 ## 사람이 확인할 항목
 
