@@ -3,11 +3,13 @@ import { randomUUID, timingSafeEqual } from "node:crypto";
 import { URL } from "node:url";
 import { loadConfig } from "./config.js";
 import { Database } from "./db.js";
+import { Profiles, ProfileError } from "./profiles.js";
 import { Matchmaker, type QueueEntry } from "./matchmaking.js";
 import { issueAccessToken, issueMatchToken, verifyToken } from "./tokens.js";
 
 const config = loadConfig();
 const database = new Database(config.databaseUrl);
+const profiles = new Profiles(database.pool);
 const matchmaker = new Matchmaker();
 const maxBodyBytes = 16 * 1024;
 
@@ -27,7 +29,9 @@ async function body(request: IncomingMessage): Promise<Record<string, unknown>> 
     chunks.push(value);
   }
   if (size === 0) return {};
-  const parsed: unknown = JSON.parse(Buffer.concat(chunks).toString("utf8"));
+  let parsed: unknown;
+  try { parsed = JSON.parse(Buffer.concat(chunks).toString("utf8")); }
+  catch { throw new Error("invalid_json"); }
   if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("invalid_json");
   return parsed as Record<string, unknown>;
 }
@@ -81,7 +85,8 @@ async function route(request: IncomingMessage, response: ServerResponse): Promis
   if (request.method === "POST" && url.pathname === "/v1/auth/refresh") {
     const payload = await body(request);
     if (typeof payload.refresh_token !== "string") return json(response, 400, { error: "refresh_token_required" });
-    const rotated = await database.rotateRefreshToken(payload.refresh_token);
+    if (payload.next_refresh_token !== undefined && (typeof payload.next_refresh_token !== "string" || !/^[A-Za-z0-9_-]{43}$/.test(payload.next_refresh_token))) return json(response, 400, { error: "invalid_next_refresh_token" });
+    const rotated = await database.rotateRefreshToken(payload.refresh_token, payload.next_refresh_token as string | undefined);
     if (!rotated) return json(response, 401, { error: "invalid_refresh_token" });
     return json(response, 200, {
       protocol_version: 1,
@@ -91,6 +96,18 @@ async function route(request: IncomingMessage, response: ServerResponse): Promis
       refresh_token: rotated.refreshToken,
       refresh_expires_in: 2_592_000,
     });
+  }
+  if (request.method === "GET" && url.pathname === "/v1/profile") {
+    const saved = await profiles.get(playerId(request));
+    return saved ? json(response, 200, saved) : json(response, 404, { error: "profile_missing" });
+  }
+  if (request.method === "POST" && url.pathname === "/v1/profile/import") {
+    const id = playerId(request);
+    return json(response, 200, await profiles.import(id, (await body(request)).profile));
+  }
+  if (request.method === "POST" && url.pathname === "/v1/profile/actions") {
+    const id = playerId(request);
+    return json(response, 200, await profiles.action(id, await body(request)));
   }
   if (request.method === "POST" && url.pathname === "/v1/matchmaking/join") {
     const authenticatedPlayer = playerId(request);
@@ -148,7 +165,7 @@ const server = createServer((request, response) => {
   route(request, response).catch((error: unknown) => {
     const code = error instanceof Error ? error.message : "internal_error";
     const authenticationErrors = new Set(["invalid_token", "expired_token", "unauthorized"]);
-    const status = code === "body_too_large" ? 413 : code === "invalid_json" ? 400 : code === "game_server_busy" ? 409 : authenticationErrors.has(code) ? 401 : 500;
+    const status = error instanceof ProfileError ? error.status : code === "body_too_large" ? 413 : code === "invalid_json" ? 400 : code === "game_server_busy" ? 409 : authenticationErrors.has(code) ? 401 : 500;
     if (status === 500) console.error(JSON.stringify({ level: "error", code: "internal_error", request_path: request.url }));
     if (!response.headersSent) json(response, status, { error: status === 500 ? "internal_error" : code });
     else response.end();

@@ -48,27 +48,52 @@ export class Database {
     }
   }
 
-  async rotateRefreshToken(token: string): Promise<{ playerId: string; refreshToken: string } | undefined> {
+  async rotateRefreshToken(token: string, requestedToken?: string): Promise<{ playerId: string; refreshToken: string } | undefined> {
     const client = await this.pool.connect();
     try {
       await client.query("BEGIN");
       const result = await client.query<{ player_id: string }>(
         `UPDATE app.refresh_tokens
-           SET revoked_at = now()
+           SET revoked_at = now(), successor_hash = $2
          WHERE token_hash = $1 AND revoked_at IS NULL AND expires_at > now()
          RETURNING player_id`,
-        [Database.hashToken(token)],
+        [Database.hashToken(token), requestedToken ? Database.hashToken(requestedToken) : null],
       );
       const row = result.rows[0];
       if (!row) {
+        // The caller persisted both tokens before sending the rotation. Replay
+        // only the exact successor, never accept an old token on its own.
+        if (requestedToken) {
+          const replay = await client.query<{player_id: string}>(
+            `SELECT old.player_id FROM app.refresh_tokens old
+               JOIN app.refresh_tokens next ON next.player_id = old.player_id
+              WHERE old.token_hash = $1 AND old.revoked_at IS NOT NULL
+                AND old.successor_hash = next.token_hash
+                AND old.expires_at > now() AND next.token_hash = $2
+                AND next.revoked_at IS NULL AND next.expires_at > now()`,
+            [Database.hashToken(token), Database.hashToken(requestedToken)],
+          );
+          if (replay.rows[0]) {
+            await client.query("COMMIT");
+            return {playerId: replay.rows[0].player_id, refreshToken: requestedToken};
+          }
+        }
         await client.query("ROLLBACK");
         return undefined;
       }
-      const refreshToken = newOpaqueToken();
-      await client.query(
-        "INSERT INTO app.refresh_tokens (token_hash, player_id, expires_at) VALUES ($1, $2, now() + interval '30 days')",
+      const refreshToken = requestedToken ?? newOpaqueToken();
+      if (refreshToken === token) {
+        await client.query("ROLLBACK");
+        return undefined;
+      }
+      const inserted = await client.query(
+        "INSERT INTO app.refresh_tokens (token_hash, player_id, expires_at) VALUES ($1, $2, now() + interval '30 days') ON CONFLICT DO NOTHING",
         [Database.hashToken(refreshToken), row.player_id],
       );
+      if (inserted.rowCount !== 1) {
+        await client.query("ROLLBACK");
+        return undefined;
+      }
       await client.query("COMMIT");
       return { playerId: row.player_id, refreshToken };
     } catch (error) {

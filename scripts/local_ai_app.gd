@@ -9,6 +9,11 @@ const BACK_REQUEST_DEBOUNCE_MSEC := 200
 var catalog := LocalPlayCatalog.new()
 var store: LocalPlayerStore
 var save_path := "user://local_player.json"
+var db_client: DbProfileClient
+var db_mode := false
+var db_session_path := "user://db_profile_session.json"
+var storage_busy := false
+var db_address := "http://127.0.0.1:3000"
 var layer: CanvasLayer
 var page: Control
 var body: VBoxContainer
@@ -47,11 +52,23 @@ func _ready() -> void:
 	lan_client.rematch_changed.connect(_on_lan_rematch_changed)
 	lan_client.failed.connect(_on_lan_failed)
 	store = LocalPlayerStore.new(catalog, save_path)
-	if not store.load_profile():
+	db_client = DbProfileClient.new()
+	db_client.session_path = db_session_path
+	add_child(db_client)
+	var configured := OS.get_environment("FOREST_ARENA_API_URL")
+	if not configured.is_empty(): db_address = configured
+	var saved := db_client.saved_connection()
+	var auto_db := bool(saved.get("use_db", false)) or "--db-profile" in OS.get_cmdline_user_args()
+	if auto_db and configured.is_empty(): db_address = String(saved.get("api_url", db_address))
+	if auto_db:
+		_show_db_connection()
+	elif not store.load_profile():
 		_show_storage_error()
 	else:
 		message = "이전 저장 백업을 복구했습니다." if store.recovered else ""
 		_show_home() if store.data.first_granted else _show_first()
+	if auto_db:
+		_connect_db.call_deferred(false)
 
 func _new_page(title: String, background := true) -> void:
 	if page != null:
@@ -87,6 +104,9 @@ func _new_page(title: String, background := true) -> void:
 	_label(title, 32)
 	if not message.is_empty(): _label(message, 19)
 	message = ""
+	if db_mode and not db_client.pending.is_empty():
+		_label("이전 저장 요청의 결과를 확인해야 합니다.", 18)
+		_button("DB 저장 재시도", _retry_db)
 
 func _label(text: String, font_size := 22) -> Label:
 	var label := Label.new()
@@ -132,10 +152,11 @@ func _show_first() -> void:
 	_new_page("Forest Arena · 첫 캐릭터 선택")
 	_label("함께 시작할 캐릭터 한 명을 받으세요. 다른 캐릭터도 상점에서 0원으로 구매할 수 있습니다.")
 	_character_cards(false, func(id: String) -> void:
-		if store.grant_first(id): _show_home()
+		if await _change_profile("grant_first", {"id": id}): _show_home()
 		else:
 			message = store.error
-			_show_first())
+			_show_home() if store.data.first_granted else _show_first())
+	_button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
 
 func _character_cards(owned_only: bool, callback: Callable) -> void:
 	var row := HBoxContainer.new()
@@ -162,7 +183,8 @@ func _show_home() -> void:
 	_button("LAN 1:1 · 같은 Wi-Fi", _show_lan_menu)
 	_button("상점 · 모두 0원", _show_shop)
 	_button("접근성 설정", _show_accessibility)
-	_label("구매와 선택은 이 기기에 저장됩니다. LAN 대전은 macOS 호스트와 같은 Wi-Fi에서 로그인 없이 연결합니다.", 18)
+	_button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
+	_label("로컬 DB에 저장합니다 · 변경 번호 %d" % db_client.revision if db_mode else "구매와 선택은 이 기기에 저장됩니다.", 18)
 
 
 func _show_lan_menu() -> void:
@@ -222,10 +244,10 @@ func _paste_lan_invite_code() -> void:
 func _lan_loadout_controls(refresh: Callable) -> void:
 	_label("내 캐릭터: " + String(catalog.product(store.data.selected_character).get("name", store.data.selected_character)))
 	_character_cards(true, func(id: String) -> void:
-		if not store.select(id, store.data.selected_accessory, store.data.opponent_character): message = store.error
+		if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}): message = store.error
 		refresh.call())
 	_choice("장신구", [""] + store.data.accessories, store.data.selected_accessory, func(id: String) -> void:
-		if not store.select(store.data.selected_character, id, store.data.opponent_character): message = store.error
+		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": id, "opponent": store.data.opponent_character}): message = store.error
 		refresh.call())
 
 
@@ -471,7 +493,7 @@ func _show_shop() -> void:
 		row.add_child(text)
 		var owned := store.owns(item.id)
 		_button("보유 중" if owned else "0원 · 무료 구매", func() -> void:
-			if not store.purchase(item.id): message = store.error
+			if not await _change_profile("purchase", {"id": item.id}): message = store.error
 			_show_shop(), row, owned)
 	_button("로비", _show_home)
 
@@ -479,17 +501,17 @@ func _show_shop() -> void:
 func _show_accessibility() -> void:
 	screen = "accessibility"
 	_new_page("접근성 설정")
-	_label("이 설정은 이 기기에 저장되며 전투 판정이나 AI 결과에는 영향을 주지 않습니다.", 18)
+	_label("설정은 로컬 DB에 저장됩니다." if db_mode else "설정은 이 기기에 저장됩니다.", 18)
 	var settings: Dictionary = store.data.accessibility
 	var scales := [1.0, 1.15, 1.3]
 	_choice_labels("텍스트 크기", ["기본", "크게", "매우 크게"], scales.find(float(settings.text_scale)), func(index: int) -> void:
-		store.update_accessibility(scales[index], bool(settings.reduce_visual_effects), bool(settings.haptics_enabled))
+		await _change_profile("accessibility", {"text_scale": scales[index], "reduce_visual_effects": bool(settings.reduce_visual_effects), "haptics_enabled": bool(settings.haptics_enabled)})
 		_show_accessibility())
 	_toggle("피격 번쩍임 줄이기", bool(settings.reduce_visual_effects), func(value: bool) -> void:
-		store.update_accessibility(float(settings.text_scale), value, bool(settings.haptics_enabled))
+		await _change_profile("accessibility", {"text_scale": float(settings.text_scale), "reduce_visual_effects": value, "haptics_enabled": bool(settings.haptics_enabled)})
 		_show_accessibility())
 	_toggle("진동 피드백", bool(settings.haptics_enabled), func(value: bool) -> void:
-		store.update_accessibility(float(settings.text_scale), bool(settings.reduce_visual_effects), value)
+		await _change_profile("accessibility", {"text_scale": float(settings.text_scale), "reduce_visual_effects": bool(settings.reduce_visual_effects), "haptics_enabled": value})
 		_show_accessibility())
 	_label("소리·진동이 없어도 HP, stock, 가드와 상태 표시는 텍스트로 확인할 수 있습니다.", 18)
 	_button("로비", _show_home)
@@ -510,15 +532,15 @@ func _show_prepare() -> void:
 			_show_prepare())
 	_label("내 캐릭터: " + catalog.product(store.data.selected_character).name)
 	_character_cards(true, func(id: String) -> void:
-		if not store.select(id, store.data.selected_accessory, store.data.opponent_character): message = store.error
+		if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}): message = store.error
 		_show_prepare())
 	_choice("장신구", [""] + store.data.accessories, store.data.selected_accessory, func(id: String) -> void:
-		if not store.select(store.data.selected_character, id, store.data.opponent_character): message = store.error
+		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": id, "opponent": store.data.opponent_character}): message = store.error
 		_show_prepare())
 	var opponents: Array = []
 	for character: CharacterData in catalog.combat.characters: opponents.append(String(character.character_id))
 	_choice("AI 캐릭터", opponents, store.data.opponent_character, func(id: String) -> void:
-		if not store.select(store.data.selected_character, store.data.selected_accessory, id): message = store.error
+		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": store.data.selected_accessory, "opponent": id}): message = store.error
 		_show_prepare())
 	_label("숲의 경기장 · 중앙 통과형 발판 · 양끝 낭떠러지 · 3 STOCK · 온라인 없음", 18)
 	_button("대전 시작", start_match)
@@ -723,6 +745,7 @@ func resume_match() -> void:
 	_show_match_controls()
 
 func handle_back_request(request_msec: int = -1) -> void:
+	if storage_busy: return
 	var now_msec: int = Time.get_ticks_msec() if request_msec < 0 else request_msec
 	if OS.is_debug_build():
 		print("FOREST_ARENA_BACK_REQUEST " + JSON.stringify({"screen": screen, "msec": now_msec, "previous_msec": last_back_request_msec}))
@@ -800,10 +823,111 @@ func _close_match() -> void:
 	match_scene = null
 	match_controller = null
 
+func _show_db_connection() -> void:
+	screen = "db_connection"
+	_new_page("저장 모드")
+	_label("기기 저장 또는 개발용 로컬 DB를 선택하세요. DB가 비어 있으면 기기 저장을 한 번 이전합니다.", 18)
+	_line_input("http://127.0.0.1:3000", db_address, func(value: String) -> void: db_address = value)
+	_button("로컬 DB 연결", func() -> void: await _connect_db(false))
+	if db_client.session_invalid:
+		_label("이전 게스트 세션을 복구할 수 없습니다. 새 게스트는 이전 DB 기록과 별도로 시작합니다.", 18)
+		_button("새 게스트 시작 안내", func() -> void:
+			_new_page("새 DB 게스트")
+			_label("새 게스트에 현재 기기 저장을 이전합니다. 이전 DB 기록은 삭제하지 않습니다.")
+			_button("새 게스트로 연결", func() -> void: await _connect_db(true))
+			_button("취소", _show_db_connection))
+	_button("기기 저장 사용", func() -> void:
+		if not db_client.choose_device_mode():
+			message = _db_error("session_save_failed")
+			_show_db_connection()
+			return
+		db_mode = false
+		store = LocalPlayerStore.new(catalog, save_path)
+		if store.load_profile(): _show_home() if store.data.first_granted else _show_first()
+		else: _show_storage_error())
+	if db_mode and db_client.connected: _button("로비", _show_home if store.data.first_granted else _show_first)
+
+func _busy_overlay() -> Control:
+	storage_busy = true
+	get_viewport().gui_release_focus()
+	var overlay := ColorRect.new()
+	overlay.color = Color(0.03, 0.1, 0.08, 0.9)
+	layer.add_child(overlay)
+	overlay.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var label := Label.new()
+	label.text = "로컬 DB 확인 중…"
+	label.position = Vector2(400, 300)
+	overlay.add_child(label)
+	return overlay
+
+func _connect_db(new_guest: bool) -> void:
+	if storage_busy: return
+	var overlay := _busy_overlay()
+	var local := LocalPlayerStore.new(catalog, save_path)
+	if not local.load_profile_read_only(): local.data = {}
+	var ok := await db_client.connect_profile(db_address, local, new_guest)
+	overlay.queue_free()
+	storage_busy = false
+	if ok:
+		db_mode = true
+		store.data = local.data.duplicate(true)
+		message = "로컬 DB 연결 완료 · 게스트 " + db_client.player_id.left(8)
+		_show_home() if store.data.first_granted else _show_first()
+	else:
+		message = _db_error(db_client.error)
+		_show_db_connection()
+
+func _change_profile(action: String, payload: Dictionary) -> bool:
+	if storage_busy: return false
+	if not db_mode:
+		match action:
+			"grant_first": return store.grant_first(payload.id)
+			"purchase": return store.purchase(payload.id)
+			"select": return store.select(payload.character, payload.accessory, payload.opponent)
+			"accessibility": return store.update_accessibility(payload.text_scale, payload.reduce_visual_effects, payload.haptics_enabled)
+		return false
+	var overlay := _busy_overlay()
+	var ok := await db_client.change(action, payload, store)
+	overlay.queue_free()
+	storage_busy = false
+	store.error = "" if ok else _db_error(db_client.error)
+	if not ok: message = store.error
+	return ok
+
+func _retry_db() -> void:
+	if storage_busy: return
+	var previous_screen := screen
+	var overlay := _busy_overlay()
+	var ok := await db_client.retry(store)
+	overlay.queue_free()
+	storage_busy = false
+	message = "DB 저장 확인 완료" if ok else _db_error(db_client.error)
+	match previous_screen:
+		"shop": _show_shop()
+		"prepare": _show_prepare()
+		"accessibility": _show_accessibility()
+		"lan_host": _show_lan_host()
+		"lan_join": _show_lan_join()
+		_: _show_home() if store.data.first_granted else _show_first()
+
+func _db_error(code: String) -> String:
+	match code:
+		"revision_conflict": return "다른 실행에서 변경된 최신 DB 정보를 읽었습니다. 원하는 변경을 다시 선택하세요."
+		"session_invalid", "invalid_refresh_token": return "게스트 세션을 복구할 수 없습니다. 저장 모드 화면에서 확인하세요."
+		"session_endpoint_mismatch": return "이 게스트는 다른 API 주소에 저장됐습니다. 기존 주소로 연결하세요."
+		"invalid_local_profile": return "기기 저장을 읽을 수 없어 이전하지 못했습니다. 기기 저장을 복구한 뒤 다시 연결하세요."
+		"session_save_failed": return "게스트 세션을 기기에 저장하지 못했습니다. 저장 공간을 확인하세요."
+		"pending_retry_required": return "이전 DB 저장 요청을 먼저 재시도하세요."
+		_: return "DB 연결 또는 저장에 실패했습니다. 서버와 주소를 확인하고 다시 시도하세요. (%s)" % code
+
 func _show_storage_error() -> void:
+	if db_mode:
+		_show_db_connection()
+		return
 	screen = "storage_error"
 	_new_page("저장 확인 필요")
 	_label(store.error)
+	_button("로컬 DB 연결", _show_db_connection)
 	_button("다시 읽기", func() -> void:
 		if store.load_profile(): _show_home() if store.data.first_granted else _show_first()
 		else: _show_storage_error())
