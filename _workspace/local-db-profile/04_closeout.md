@@ -10,15 +10,19 @@ DB 확인 후 화면에 반영하며 동일 요청 재시도와 변경 번호 �
 
 - 전체 ./scripts/verify.sh: PASS. 기존 전투·로드아웃·기기 저장·LAN·온라인·문서·하네스 검사 포함.
 - ./scripts/verify-db-profile-runtime.sh: PASS. 실제 Godot 기본 앱의 저장·별도 프로세스 복원·SQL 대조·실패·응답 유실·토큰 복구·동시 최초 지급 포함.
-- 기존 온라인 ./scripts/server-dev.sh verify-runtime: PASS 확인 후 토큰 수정 영향 범위를 재검사 중이다.
+- 기존 온라인 ./scripts/server-dev.sh verify-runtime: PASS. 토큰 수정 뒤 실제 온라인 호환 검사를 다시 통과했다.
 - 문서·하네스·346개 논리 자산 검사: PASS.
 - 별도 QA: 1차 fix 두 건 수정 뒤 2차 pass.
 
 ## 통합
 
-작업 브랜치: feature/local-db-profile. PR·develop 통합 결과는 완료 시 이 항목에 기록한다.
+작업 브랜치: feature/local-db-profile.
 
-기존 GitHub CLI 인증이 없어 일반 Chrome 로그인 세션으로 PR 절차를 진행한다. 자격 증명 추출 재사용 확인은 자동 승인 검토에서 거부되어 중단했다.
+- 구현 커밋: 7f2e28a1eb95e41f7db66a193fb7e660295c5307.
+- PR: https://github.com/Dev-DHJang/ForestArena/pull/64.
+- develop 통합 결과는 병합 후 기록한다.
+
+일반 Chrome 로그인 세션으로 PR을 생성했다. 계정·권한·비밀번호 설정은 변경하지 않았다.
 
 ## 미확인과 복구
 
