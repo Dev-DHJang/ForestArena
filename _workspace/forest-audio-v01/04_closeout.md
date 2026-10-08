@@ -18,7 +18,7 @@
 - PASS: 실제 LAN 두 클라이언트 연결·경기·재대전 검사. 최종 전체 검사에서도 verify-lan-runtime: PASS.
 - PASS: Android APK 생성·패키지 규칙. 음원 47개와 이벤트 데이터 포함, 원본 WAV·개발 테스트 제외.
 - PASS: 문서·하네스·397개 Godot 리소스 연결 검사.
-- PASS: 최종 ./scripts/verify.sh 종료 코드 0, Forest Arena verification passed. 4a7cef4에서 전체 실행을 마쳤고, 이후 단독 장면 승패음 보강은 ./scripts/verify-audio.sh로 음원·실제 장면·앱 흐름을 다시 검사해 경고 없이 PASS.
+- PASS: 2026-10-09에 PR 코드 b333b38에서 ./scripts/verify.sh 전체 실행 종료 코드 0, Forest Arena verification passed. 강화된 verify-audio, 실제 단독 장면 승패음, 로컬·LAN·온라인 계약·문서·하네스 검사까지 포함했다.
 - 미확인: 사람의 음악 3회 반복 청취, 최대 8인전 믹스, 실제 Android 스피커·이어폰 전환·중단/복귀 청취. adb devices 결과 연결 기기가 없다. 사용자에게 후속 검증으로 남길지 질문했으며 아직 답변을 받지 않았다.
 
 QA에서 발견한 LAN 확인 화면 음악·결과음 순서·전용 서버 장면 접근·종료 소리 자원 정리 문제는 각각 수정하고 재검사했다. Phase 6 완료로 기록하지 않는다.
