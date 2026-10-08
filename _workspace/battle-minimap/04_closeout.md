@@ -23,6 +23,10 @@
 
 ## 버전 관리와 되돌리기
 
-최신 origin/develop c938dc5에서 feature/battle-minimap 브랜치를 만들었다. 원래 폴더의 캐릭터 모션 등 미커밋 변경은 포함하지 않았다. PR·병합 결과는 원격 확인 후 아래에 추가한다.
+최신 origin/develop c938dc5에서 feature/battle-minimap 브랜치를 만들었다. 원래 폴더의 캐릭터 모션 등 미커밋 변경은 포함하지 않았다. 구현 commit은 `f55fdb362b035f50eba2f9b2d5dacb0ffb758e88`이다. [구현 PR #67](https://github.com/Dev-DHJang/ForestArena/pull/67)은 2026-10-08 17:20 KST에 develop으로 병합됐으며 병합 SHA는 `1c59c3443035f86a2359dcadab2087dd4bbed1a5`다. GitHub state=MERGED와 origin/develop 이력을 다시 읽어 확인했다. 원격 자동 CI 항목은 없으며 위 로컬·실제 연결 검사 결과와 독립 QA로 확인했다.
+
+병합 증거를 기록하는 별도 docs/battle-minimap-closeout 브랜치의 문서 PR은 구현을 바꾸지 않는다. 원래 작업 폴더는 사용자 미커밋 변경 때문에 자동으로 전환하거나 덮어쓰지 않았다. 구현을 확인할 수 있는 작업 폴더는 `/Users/jdh/.codex/worktrees/battle-minimap/ForestTales`이며 `godot --path /Users/jdh/.codex/worktrees/battle-minimap/ForestTales`로 실행할 수 있다.
+
+병합을 되돌리는 Git 명령은 `git revert -m 1 1c59c3443035f86a2359dcadab2087dd4bbed1a5`이며 실제 실행하지 않았다. 프로필 형식 되돌리기는 아래 주의를 먼저 따른다.
 
 코드를 되돌릴 때는 이번 구현 묶음을 함께 revert한다. v3 프로필은 이전 앱이 읽을 수 없으므로 이전 코드로 실행하기 전에 기기는 유효한 이전 .bak를 보관·복원하거나 v3 복사본에서 nickname/minimap을 제거하고 schema_version=2로 변환한다. DB도 대상 프로필 백업 후 같은 필드를 제거한 v2 복사본으로 이전해야 한다. 실제 사용자 데이터를 자동 삭제하지 않는다.
