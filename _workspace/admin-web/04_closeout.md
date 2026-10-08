@@ -1,6 +1,6 @@
 # 관리자 웹 마무리 기록
 
-상태: 구현·검증·독립 검토 완료, PR #70 최종 변경 저장과 develop 병합 대기.
+상태: 구현·검증·독립 검토와 PR #70의 develop 병합 완료.
 
 ## 결과
 
@@ -35,5 +35,8 @@
 - 기준: 최신 origin/develop `553091b972a4a684b7816e4636f6f6328654f94c`.
 - 작업 브랜치: `feature/admin-web`.
 - PR: https://github.com/Dev-DHJang/ForestArena/pull/70
-- 최종 구현 commit·develop 병합 SHA: 병합 직후 추가 기록한다.
+- 최종 구현 commit: `14be818505cda82d7d075f8c920a144d554dff51`.
+- develop 병합 SHA: `98a02c91886f12f541e48674ab1c8fd9fc3c7930` (2026-10-08 13:27 UTC).
+- GitHub PR의 `MERGED` 상태와 origin/develop의 동일 SHA를 실제 확인했다. 별도 원격 CI 검사는 등록되어 있지 않아 독립 QA와 실행한 로컬/실제 연결 검사 근거로 병합했다.
+- 병합 SHA 기록은 최신 develop에서 만든 `docs/admin-web-closeout` 문서 PR로 저장한다.
 - 롤백: 관리자 서버를 중지하고 관련 commit을 revert한다. DB·키는 별도 백업에서 복구하며 기존 게임 요청과 관리자 이력을 자동 삭제하지 않는다. `main` 승격·브랜치 삭제·강제 push는 수행하지 않는다.
