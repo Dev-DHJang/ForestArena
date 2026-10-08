@@ -10,6 +10,10 @@ func _initialize() -> void:
 
 
 func _run() -> void:
+	_check(Presentation.airborne_jump_frame(-60.01, 0.0) == 3, "ascent just outside apex boundary")
+	_check(Presentation.airborne_jump_frame(-60.0, 0.0) == 6, "negative apex boundary inclusive")
+	_check(Presentation.airborne_jump_frame(60.0, 0.0) == 6, "positive apex boundary inclusive")
+	_check(Presentation.airborne_jump_frame(60.01, 0.0) == 10, "descent just outside apex boundary")
 	for id: StringName in ROSTER:
 		var paths := Presentation.approved_motion_paths(id)
 		if id == &"nabi":
@@ -37,6 +41,7 @@ func _run() -> void:
 		presentation.sync_visual(0.01)
 		_check(presentation.character_id == id, "appearance uses profile identity, not participant slot")
 		_check(presentation.sprite.visible, "%s has visible approved sprite" % id)
+		_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, fighter.ground_contact_offset_y()), "%s basic motion uses approved 124px contact point" % id)
 		_check(presentation.screen_bounds().has_area(), "%s exposes its actual visible screen bounds" % id)
 		fighter.facing = -1
 		presentation.sync_visual(0.01)
@@ -44,6 +49,46 @@ func _run() -> void:
 		var before := fighter.snapshot()
 		presentation.sync_visual(1.0)
 		_check(before == fighter.snapshot(), "frame updates preserve combat snapshot")
+		fighter.state = FighterController.State.JUMP
+		fighter.velocity.y = -400.0
+		presentation.sync_visual(0.01)
+		_check(presentation.sprite.frame == 3, "%s takeoff begins airborne ascent" % id)
+		_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, fighter.ground_contact_offset_y()), "%s jump keeps the same contact-point layout" % id)
+		presentation.sync_visual(1.0)
+		_check(presentation.sprite.frame == 5, "%s ascent holds before apex" % id)
+		fighter.velocity.y = 0.0
+		presentation.sync_visual(0.01)
+		_check(presentation.sprite.frame == 6, "%s apex begins its own frame range" % id)
+		fighter.state = FighterController.State.FALL
+		fighter.velocity.y = 200.0
+		presentation.sync_visual(1.0)
+		_check(presentation.sprite.frame == 12, "%s falling never shows grounded landing" % id)
+		fighter.state = FighterController.State.JUMP
+		fighter.velocity.y = -400.0
+		presentation.sync_visual(0.01)
+		_check(presentation.sprite.frame == 3, "%s air jump restarts ascent" % id)
+		fighter.state = FighterController.State.IDLE
+		fighter.velocity.y = 0.0
+		presentation.sync_visual(0.01)
+		_check(presentation.sprite.frame == 13, "%s landing begins only on ground state" % id)
+		presentation.sync_visual(0.25)
+		presentation.sync_visual(0.01)
+		_check(presentation.sprite.animation == &"idle", "%s landing returns to idle after its duration" % id)
+		fighter.state = FighterController.State.FALL
+		fighter.velocity.y = 100.0
+		presentation.sync_visual(0.01)
+		fighter.state = FighterController.State.IDLE
+		presentation.sync_visual(0.01)
+		fighter.state = FighterController.State.RUN
+		presentation.sync_visual(0.01)
+		_check(presentation.sprite.animation == &"run", "%s movement interrupts landing immediately" % id)
+		fighter.state = FighterController.State.FALL
+		fighter.velocity.y = 100.0
+		presentation.sync_visual(0.01)
+		_check(presentation.sprite.frame == 10, "%s platform drop starts with descent" % id)
+		var airborne_before := fighter.snapshot()
+		presentation.sync_visual(0.2)
+		_check(airborne_before == fighter.snapshot(), "%s jump presentation preserves physics" % id)
 		fighter.state = FighterController.State.GUARD
 		presentation.sync_visual(0.01)
 		if paths.has(&"guard"):
