@@ -29,10 +29,10 @@ QA에서 발견한 LAN 확인 화면 음악·결과음 순서·전용 서버 장
 - 브랜치: feature/forest-audio-v01.
 - 현재 구현 체크아웃: /private/tmp/forest-audio-v01. 원 작업 폴더의 기존 수정 사항을 보존했다.
 - 구현 commit: 0179cdd, 믹스·종료 검사 보강: 4a7cef4, 단독 장면 승패음·엄격한 검사 보강: ca6321a.
-- PR: https://github.com/Dev-DHJang/ForestArena/pull/72 (develop 대상). 사용자의 명시적 진행·실기기 후속 지시에 따라 자동 검사와 독립 QA를 근거로 통합한다.
+- PR: https://github.com/Dev-DHJang/ForestArena/pull/72 (develop 병합 완료, 2026-10-09 한국 시간). 사용자의 명시적 진행·실기기 후속 지시에 따라 자동 검사와 독립 QA를 근거로 통합했다.
 - 보존된 검토 체크아웃: /Users/jdh/.codex/worktrees/forest-audio-review/ForestTales.
-- 병합 SHA: PR 병합 직후 실제 SHA를 별도 마무리 기록 변경으로 추가한다.
-- 롤백: 이 작업의 PR 병합 commit을 develop에서 revert하고 기존 fa.audio.* 호출·설정을 함께 되돌린다. 새 기기별 소리 cfg는 기존 프로필 데이터와 별개다.
+- 병합 SHA: ae0e3672d7b040b43989ee1a2ed5f6a71853d4e2 (PR #72). 소프트웨어 제작·연결·통합 완료. 실기기와 사람 청취는 위의 후속 항목으로 유지한다.
+- 롤백: develop에서 `git revert -m 1 ae0e3672d7b040b43989ee1a2ed5f6a71853d4e2`를 별도 작업 브랜치에서 실행하고 검증·PR을 거쳐 되돌린다. 이 병합 전체를 되돌리면 fa.audio.* 호출·설정도 함께 되돌아간다. 새 기기별 소리 cfg는 기존 프로필 데이터와 별개다.
 
 ## 다음 확인
 
