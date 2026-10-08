@@ -132,6 +132,7 @@ SQL
 }
 
 apply_migrations() {
+  migration_backup_done=false
   for migration_path in "$MIGRATIONS_DIR"/*.sql
   do
     [ -f "$migration_path" ] || continue
@@ -150,18 +151,21 @@ apply_migrations() {
       continue
     fi
 
+    if [ "$ledger_exists" = "t" ] && [ "$migration_backup_done" = false ]; then
+      # A fresh DB has the ledger after 0001, before the loop's final guard setup.
+      set_development_guard
+      backup_database
+      migration_backup_done=true
+    fi
     echo "db-dev: 적용 $migration_name"
-    compose exec -T -e "PGPASSWORD=$FOREST_ARENA_DB_ADMIN_PASSWORD" db \
+    {
+      printf '%s\n' 'BEGIN;'
+      cat "$migration_path"
+      printf '%s\n' "INSERT INTO infra.schema_migrations (migration_name, checksum_sha256) VALUES (:'migration_name', :'migration_checksum');" 'COMMIT;'
+    } | compose exec -T -e "PGPASSWORD=$FOREST_ARENA_DB_ADMIN_PASSWORD" db \
       psql --username "$FOREST_ARENA_DB_ADMIN_USER" --dbname "$FOREST_ARENA_DB_NAME" \
-        --set ON_ERROR_STOP=1 \
-        --set migration_name="$migration_name" \
-        --set migration_checksum="$checksum" <<SQL
-BEGIN;
-\\i /migrations/$migration_name
-INSERT INTO infra.schema_migrations (migration_name, checksum_sha256)
-VALUES (:'migration_name', :'migration_checksum');
-COMMIT;
-SQL
+        --set ON_ERROR_STOP=1 --set migration_name="$migration_name" --set migration_checksum="$checksum"
+
   done
   set_development_guard
   require_development_guard
