@@ -20,8 +20,8 @@
 
 - 기준: origin/develop af41ac0abd7dd53df63a0c5be49dd053feb22589.
 - 브랜치: codex/audio-v02-preview. 작업경로: /private/tmp/forest-audio-v02. 원 작업폴더의 캐릭터/UI 수정 보존.
-- PR·병합SHA: 통합 직후 실제 값을 후속 마무리 기록으로 보완한다.
-- 롤백: 시안PR 병합을 별도 브랜치에서 git revert -m1로 되돌려 검증·PR을 거친다. 게임은 기존v01이므로 실행음원 교체를 되돌릴 필요는 없다. 설치한FluidSynth와 외부악기파일은 제작용이며 자동제거하지 않는다.
+- 시안 PR: https://github.com/Dev-DHJang/ForestArena/pull/74. 실제 develop 병합SHA: 886603bf0f7511af58be776d60364b49436e4ecd (2026-10-09 한국시간). GitHub 병합 요청은 서버 오류를 반환했지만 원격 Git의 두 부모와 제목·내용으로 실제 통합을 확인했다. PR 화면 상태는 별도 재조회한다.
+- 롤백: 별도 브랜치에서 `git revert -m 1 886603bf0f7511af58be776d60364b49436e4ecd`로 시안PR 병합을 되돌려 검증·PR을 거친다. 게임은 기존v01이므로 실행음원 교체를 되돌릴 필요는 없다. 설치한FluidSynth와 외부악기파일은 제작용이며 자동제거하지 않는다.
 
 ## 이어서 할 일
 
