@@ -1,0 +1,12 @@
+import { createApp } from 'vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import ElementPlus from 'element-plus';
+import ko from 'element-plus/es/locale/lang/ko';
+import 'element-plus/dist/index.css';
+import './style.css';
+import App from './App.vue';
+import Dashboard from './Dashboard.vue';
+import Records from './Records.vue';
+import Admins from './Admins.vue';
+const router=createRouter({history:createWebHashHistory(),routes:[{path:'/',component:Dashboard},{path:'/admins',component:Admins},{path:'/:kind(guests|profiles|matches|audit)',component:Records,props:true}]});
+createApp(App).use(router).use(ElementPlus,{locale:ko}).mount('#app');

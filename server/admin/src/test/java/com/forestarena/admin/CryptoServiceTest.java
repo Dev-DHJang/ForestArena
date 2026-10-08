@@ -1,0 +1,7 @@
+package com.forestarena.admin;
+import org.junit.jupiter.api.*;import org.junit.jupiter.api.io.TempDir;import java.nio.file.*;import java.nio.file.attribute.PosixFilePermissions;import static org.junit.jupiter.api.Assertions.*;
+class CryptoServiceTest {
+ @TempDir Path dir;
+ @Test void authenticatedEncryptionAndKeyRotation()throws Exception{Path file=dir.resolve("key.json");var c=new CryptoService(file.toString());c.addKey(true);String a=c.encrypt("한글 이름"),b=c.encrypt("한글 이름");assertNotEquals(a,b);assertEquals("한글 이름",c.decrypt(a));assertFalse(Files.readString(file).contains("한글 이름"));assertEquals(PosixFilePermissions.fromString("rw-------"),Files.getPosixFilePermissions(file));c.addKey(false);assertEquals("한글 이름",c.decrypt(a));assertNotEquals(a.split(":")[0],c.encrypt("이름").split(":")[0]);String[] parts=a.split(":");parts[2]="AAAA";assertThrows(IllegalStateException.class,()->c.decrypt(String.join(":",parts)));Files.setPosixFilePermissions(file,PosixFilePermissions.fromString("rw-r--r--"));assertThrows(IllegalStateException.class,()->c.encrypt("거부"));}
+ @Test void passwordBoundsAndArgon2Parameters(){assertThrows(AdminFault.class,()->AccountService.password("short"));assertThrows(AdminFault.class,()->AccountService.password("x".repeat(129)));AccountService.password("x".repeat(15));var encoder=new org.springframework.security.crypto.argon2.Argon2PasswordEncoder(16,32,1,19456,2);String hash=encoder.encode("long-password-for-test");assertTrue(hash.startsWith("$argon2id$v=19$m=19456,t=2,p=1$"));assertTrue(encoder.matches("long-password-for-test",hash));}
+}

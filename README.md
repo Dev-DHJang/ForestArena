@@ -42,6 +42,8 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
     ./scripts/verify-lan-runtime.sh
     ./scripts/lan-host.sh start
     ./scripts/server-dev.sh up
+    ./scripts/admin-dev.sh setup
+    ./scripts/admin-dev.sh build
     ./scripts/verify-db-profile-runtime.sh
     ./scripts/verify-online-server.sh
     ./scripts/server-dev.sh verify-runtime
@@ -53,6 +55,8 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 같은 Wi-Fi의 Android 사용자 두 명이 대전하는 방법은 [LAN 1대1 플레이](docs/gameplay/lan-1v1-play.md)를 참고한다.
 
 `./scripts/verify.sh`는 화면 없이 Godot 프로젝트 열기, 앱 기본 실행, 전투, 캐릭터·직업·장신구 조합, 로컬 온라인 계약, 데이터 형식과 문서 구조를 한 번에 확인하는 기본 검사다. `./scripts/server-dev.sh verify-runtime`은 실행 중인 로컬 스택에 실제 Godot 클라이언트 두 개를 붙여 매칭·입력·재접속·결과 저장을 확인한다. `./scripts/verify-docs.sh`는 문서 위치·링크·쉬운 문장 규칙을, `./scripts/verify-harness.sh`는 AI 역할·작업 배정 규칙을 빠르게 확인한다.
+
+관리자 웹의 최초 계정·실행·복구는 [로컬 관리자 웹](docs/engineering/admin-web.md)을 참고한다.
 
 ## 현재 상태
 
