@@ -132,6 +132,7 @@ SQL
 }
 
 apply_migrations() {
+  migration_backup_done=false
   for migration_path in "$MIGRATIONS_DIR"/*.sql
   do
     [ -f "$migration_path" ] || continue
@@ -150,8 +151,11 @@ apply_migrations() {
       continue
     fi
 
-    if [ "$ledger_exists" = "t" ]; then
+    if [ "$ledger_exists" = "t" ] && [ "$migration_backup_done" = false ]; then
+      # A fresh DB has the ledger after 0001, before the loop's final guard setup.
+      set_development_guard
       backup_database
+      migration_backup_done=true
     fi
     echo "db-dev: 적용 $migration_name"
     {

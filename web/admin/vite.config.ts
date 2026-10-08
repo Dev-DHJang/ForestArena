@@ -9,4 +9,4 @@ const localApi:Plugin={name:'local-admin-api-origin',configureServer(server){ser
   }
   next();
 });}};
-export default defineConfig({plugins:[vue(),localApi],server:{host:'127.0.0.1',cors:false,proxy:{'/admin/api':{target:'http://127.0.0.1:8080',configure(proxy){proxy.on('proxyReq',request=>request.setHeader('Origin','http://127.0.0.1:8080'));}}}},build:{chunkSizeWarningLimit:1100}});
+export default defineConfig({plugins:[vue(),localApi],server:{host:'127.0.0.1',cors:false,proxy:{'/admin/api':{target:'http://127.0.0.1:8080',changeOrigin:true,configure(proxy){proxy.on('proxyReq',request=>request.setHeader('Origin','http://127.0.0.1:8080'));}}}},build:{chunkSizeWarningLimit:1100}});

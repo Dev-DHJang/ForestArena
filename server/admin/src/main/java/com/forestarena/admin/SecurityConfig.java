@@ -18,6 +18,12 @@ public class SecurityConfig {
    .addFilterBefore(new SessionGuard(db),AuthorizationFilter.class);
   return http.build();
  }
+ static void invalidate(HttpSession session) {
+  if(session==null)return;
+  try { session.invalidate(); } catch(IllegalStateException alreadyInvalidated) {
+   // Another request may have logged out this session while this request was in flight.
+  }
+ }
  static String digest(String s){try{return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(s.getBytes(StandardCharsets.UTF_8)));}catch(Exception e){throw new IllegalStateException(e);}}
  static void error(HttpServletResponse res,int status,String message)throws IOException{res.setStatus(status);res.setContentType("application/json;charset=UTF-8");res.getWriter().write("{\"error\":\""+message+"\"}");}
  static class SessionGuard extends OncePerRequestFilter {
@@ -26,10 +32,12 @@ public class SecurityConfig {
    String host=req.getServerName();if(!Set.of("localhost","127.0.0.1","[::1]","::1").contains(host)){error(res,403,"허용되지 않은 접속 주소입니다");return;}
    String origin=req.getHeader("Origin");String expected=req.getScheme()+"://"+host+((req.getServerPort()==80||req.getServerPort()==443)?"":":"+req.getServerPort());
    if((origin!=null&&!origin.equals(expected))||"cross-site".equals(req.getHeader("Sec-Fetch-Site"))){error(res,403,"같은 출처에서 요청하세요");return;}
+   // Public Vue files must remain available after logout or expiration so the login form can load.
+   if(!req.getRequestURI().startsWith("/admin/api/")){chain.doFilter(req,res);return;}
    var auth=SecurityContextHolder.getContext().getAuthentication();if(auth!=null&&auth.isAuthenticated()&&!auth.getName().equals("anonymousUser")){
     HttpSession session=req.getSession(false);boolean valid=false;Map<String,Object>a=null;
     if(session!=null){var rows=db.queryForList("SELECT a.id,a.must_change_password FROM admin.sessions s JOIN admin.accounts a ON a.id=s.account_id AND a.session_version=s.session_version WHERE s.id=? AND a.active AND s.created_at>now()-interval '8 hours' AND s.last_seen_at>now()-interval '30 minutes'",digest(session.getId()));if(!rows.isEmpty()){a=rows.getFirst();valid=a.get("id").toString().equals(auth.getName());}}
-    if(!valid){if(session!=null)session.invalidate();SecurityContextHolder.clearContext();error(res,401,"세션이 만료되었습니다");return;}
+    if(!valid){invalidate(session);SecurityContextHolder.clearContext();error(res,401,"세션이 만료되었습니다");return;}
     db.update("UPDATE admin.sessions SET last_seen_at=now() WHERE id=?",digest(session.getId()));
     if(Boolean.TRUE.equals(a.get("must_change_password"))&&!Set.of("/admin/api/v1/auth/me","/admin/api/v1/auth/csrf","/admin/api/v1/auth/password","/admin/api/v1/auth/logout").contains(req.getRequestURI())){error(res,403,"비밀번호 변경이 필요합니다");return;}
    }

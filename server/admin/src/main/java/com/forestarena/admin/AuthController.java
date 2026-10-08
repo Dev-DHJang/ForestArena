@@ -18,12 +18,12 @@ public class AuthController {
    accounts.db.update("UPDATE admin.login_limits SET failures=0,locked_until=NULL WHERE scope='account' AND key_hash=?",ak);return found;
   });
   if(a==null)throw new AdminFault(401,"로그인에 실패했거나 잠긴 계정입니다");
-  if(req.getSession(false)!=null){accounts.db.update("DELETE FROM admin.sessions WHERE id=?",SecurityConfig.digest(req.getSession().getId()));req.getSession().invalidate();}var session=req.getSession(true);session.setMaxInactiveInterval(1800);
+  if(req.getSession(false)!=null){accounts.db.update("DELETE FROM admin.sessions WHERE id=?",SecurityConfig.digest(req.getSession().getId()));SecurityConfig.invalidate(req.getSession(false));}var session=req.getSession(true);session.setMaxInactiveInterval(1800);
   accounts.db.update("INSERT INTO admin.sessions(id,account_id,session_version,created_at,last_seen_at) VALUES(?,?,?,now(),now())",SecurityConfig.digest(session.getId()),a.get("id"),a.get("session_version"));
   var context=SecurityContextHolder.createEmptyContext();context.setAuthentication(UsernamePasswordAuthenticationToken.authenticated(a.get("id").toString(),null,List.of(new SimpleGrantedAuthority("ROLE_"+a.get("role")))));SecurityContextHolder.setContext(context);repository.saveContext(context,req,res);return accounts.safe(a);
  }
  private static final String DUMMY_HASH=new org.springframework.security.crypto.argon2.Argon2PasswordEncoder(16,32,1,19456,2).encode("non-account-password-constant");
  @GetMapping("/me") public Object me(Principal p){return accounts.safe(accounts.row(UUID.fromString(p.getName())));}
- @PostMapping("/logout") public Object logout(HttpServletRequest req){var session=req.getSession(false);if(session!=null){accounts.db.update("DELETE FROM admin.sessions WHERE id=?",SecurityConfig.digest(session.getId()));session.invalidate();}SecurityContextHolder.clearContext();return Map.of("ok",true);}
- @PostMapping("/password") public Object password(Principal p,@RequestBody Map<String,Object>b,HttpServletRequest req){accounts.changePassword(UUID.fromString(p.getName()),AccountService.required(b,"current_password",128),AccountService.required(b,"new_password",128));req.getSession().invalidate();SecurityContextHolder.clearContext();return Map.of("ok",true);}
+ @PostMapping("/logout") public Object logout(HttpServletRequest req){var session=req.getSession(false);if(session!=null){accounts.db.update("DELETE FROM admin.sessions WHERE id=?",SecurityConfig.digest(session.getId()));SecurityConfig.invalidate(session);}SecurityContextHolder.clearContext();return Map.of("ok",true);}
+ @PostMapping("/password") public Object password(Principal p,@RequestBody Map<String,Object>b,HttpServletRequest req){accounts.changePassword(UUID.fromString(p.getName()),AccountService.required(b,"current_password",128),AccountService.required(b,"new_password",128));SecurityConfig.invalidate(req.getSession(false));SecurityContextHolder.clearContext();return Map.of("ok",true);}
 }

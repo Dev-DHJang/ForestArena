@@ -10,9 +10,9 @@ export async function request<T=any>(path:string,method='GET',body?:unknown):Pro
     if(!csrf){const r=await fetch('/admin/api/v1/auth/csrf',{credentials:'same-origin',cache:'no-store'});if(!r.ok)throw new ApiError('보안 토큰을 가져올 수 없습니다.',r.status);csrf=await r.json();}
     headers[csrf!.headerName]=csrf!.token; headers['Content-Type']='application/json';
   }
-  const response=await fetch('/admin/api/v1'+path,{method,headers,credentials:'same-origin',cache:'no-store',body:body===undefined?undefined:JSON.stringify(body)});
+  let response:Response;try{response=await fetch('/admin/api/v1'+path,{method,headers,credentials:'same-origin',cache:'no-store',body:body===undefined?undefined:JSON.stringify(body)});}catch{throw new ApiError('서버 연결 결과를 확인하지 못했습니다. 연결 상태를 확인하세요.',503);}
   const data=response.status===204?null:await response.json().catch(()=>null);
-  if(!response.ok){if(response.status===403)csrf=null;if(response.status===401)currentUser.value=null;throw new ApiError(messages[data?.error]||data?.error||({403:'권한이 없거나 보안 토큰이 만료되었습니다.',409:'다른 변경이 있습니다. 최신 데이터를 확인하세요.',429:'시도가 너무 많습니다. 잠시 후 다시 시도하세요.'}[response.status])||'요청을 처리하지 못했습니다.',response.status);}
+  if(!response.ok){if(response.status===403)csrf=null;if(response.status===401){currentUser.value=null;csrf=null;}throw new ApiError(messages[data?.error]||data?.error||({403:'권한이 없거나 보안 토큰이 만료되었습니다.',409:'다른 변경이 있습니다. 최신 데이터를 확인하세요.',429:'시도가 너무 많습니다. 잠시 후 다시 시도하세요.'}[response.status])||'요청을 처리하지 못했습니다.',response.status);}
   return data;
 }
 export function resetCsrf(){csrf=null;}

@@ -82,3 +82,5 @@ DB 백업과 키 백업은 별도 위치에 보관한다. 키를 잃으면 암�
 관리자 검사는 암호화·키 교체, 인증·권한·CSRF·잠금·세션 종료·최고관리자 보호, 프로필 동시 수정·중복 요청·전체 취소와 Java/TypeScript 공용 예제를 확인한다. 브라우저 검사는 별도 테스트 계정으로 전체 흐름을 확인한다. 상세 실행 결과와 미확인 항목은 `_workspace/admin-web/`에 기록한다. Android 기기 검사는 실제 수행한 경우에만 기기 통과로 기록한다.
 
 기술 근거: [Spring Boot 지원 환경](https://docs.spring.io/spring-boot/system-requirements.html), [Vue 설치](https://vuejs.org/guide/quick-start.html), [Vite 지원 환경](https://vite.dev/guide/), [OWASP 비밀번호 저장](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html), [OWASP 암호화 저장](https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html), [Spring Security CSRF](https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html).
+
+새 Mac에서 관리자 검사를 재현하려면 `python3 scripts/prepare-admin-test-db.py`로 기존 개발 데이터와 분리된 테스트 DB를 만들고, `web/admin`에서 `npx playwright install chromium`을 한 번 실행한다. 그 뒤 `./scripts/verify-admin-web.sh`가 테스트 계정·프로필을 준비해 별도 18080 포트의 Spring 서버에서 실제 브라우저 전체 흐름까지 실행한다. 테스트 DB에만 검사 기록을 추가하며 기존 개발 게스트·계정은 변경하지 않는다.

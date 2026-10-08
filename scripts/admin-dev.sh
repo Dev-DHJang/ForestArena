@@ -62,8 +62,17 @@ case ${1:-} in
     jar=$(jar_path); [ -n "$jar" ] || fail '먼저 build를 실행하세요.'
     umask 077
     cp "$jar" "$STATE_DIR/running-admin.jar"
-    nohup java -jar "$STATE_DIR/running-admin.jar" > "$STATE_DIR/server.log" 2>&1 &
-    echo $! > "$PID_FILE"
+    python3 - "$STATE_DIR" "$PID_FILE" <<'PYTHON'
+import pathlib, subprocess, sys
+state = pathlib.Path(sys.argv[1])
+with (state / "server.log").open("ab") as log:
+    process = subprocess.Popen(
+        ["java", "-jar", str(state / "running-admin.jar")],
+        stdin=subprocess.DEVNULL, stdout=log, stderr=subprocess.STDOUT,
+        start_new_session=True,
+    )
+pathlib.Path(sys.argv[2]).write_text(str(process.pid) + "\n")
+PYTHON
     echo 'admin-dev: 시작 요청 완료. status로 준비 상태를 확인하세요.'
     ;;
   stop)
