@@ -71,6 +71,7 @@ func _ready() -> void:
 		_connect_db.call_deferred(false)
 
 func _new_page(title: String, background := true) -> void:
+	ForestArenaAudio.set_context(screen)
 	if page != null:
 		layer.remove_child(page)
 		page.queue_free()
@@ -134,7 +135,9 @@ func _button(text: String, callback: Callable, parent: Node = null, disabled := 
 	pressed.texture = ForestArenaResources.load_texture("fa.ui.button.base.btn.secondary.m.pressed")
 	button.add_theme_stylebox_override("pressed", pressed)
 	button.add_theme_color_override("font_color", Color("243d36"))
-	button.pressed.connect(callback)
+	button.pressed.connect(func() -> void:
+		ForestArenaAudio.play_event(&"ui_back" if text in ["로비", "취소", "계속하기", "대전 준비", "LAN 메뉴"] else &"ui_click", {})
+		callback.call())
 	(parent if parent != null else body).add_child(button)
 	if OS.is_debug_build(): _log_button.call_deferred(button)
 	return button
@@ -358,6 +361,7 @@ func _start_lan_match() -> void:
 		var fighter := fighters[index]
 		markers[fighter.fighter_id] = {"nickname": lan_client.participant_names.get(str(slot), "참가자 %d" % slot), "character_id": fighter.character_data.character_id, "team_id": ""}
 	match_scene.configure_minimap(markers, local_fighter.fighter_id, false, store.data.minimap)
+	ForestArenaAudio.begin_match()
 	_show_lan_match_controls()
 
 
@@ -372,6 +376,7 @@ func _lan_selection_from(value: Variant) -> LoadoutSelection:
 
 
 func _show_lan_match_controls() -> void:
+	ForestArenaAudio.set_context("lan_match")
 	screen = "lan_match"
 	match_scene.get_node("Interface").visible = true
 	if page != null:
@@ -416,6 +421,8 @@ func _on_lan_match_finished(result: Dictionary) -> void:
 		match_scene.get_node("Interface/TouchCommandSource").release_all_touches()
 	screen = "lan_result"
 	var winner_slot := int(result.get("winner_slot", 0))
+	if result.get("reason") != "room_closed":
+		ForestArenaAudio.finish_match("draw" if winner_slot == 0 and result.get("reason") == "draw" else ("victory" if winner_slot == lan_local_slot else "defeat"))
 	var title := "무승부" if winner_slot == 0 and result.get("reason") == "draw" else ("승리!" if winner_slot == lan_local_slot else "패배")
 	if result.get("reason") == "room_closed": title = "방이 종료되었습니다"
 	_new_page(title, false)
@@ -453,6 +460,7 @@ func _on_lan_status(text: String) -> void:
 
 
 func _on_lan_failed(code: String) -> void:
+	ForestArenaAudio.play_event(&"ui_error", {})
 	_close_match()
 	message = "LAN 연결 실패: " + _lan_reason_text(code)
 	_show_lan_menu()
@@ -520,6 +528,11 @@ func _show_accessibility() -> void:
 		await _change_profile("accessibility", {"text_scale": float(settings.text_scale), "reduce_visual_effects": bool(settings.reduce_visual_effects), "haptics_enabled": value})
 		_show_accessibility())
 	_add_minimap_settings()
+	_label("소리 설정은 이 기기에 저장됩니다.", 18)
+	_toggle("전체 음소거", ForestArenaAudio.muted, func(value: bool) -> void:
+		_save_audio_levels(ForestArenaAudio.music_level, ForestArenaAudio.effects_level, value))
+	_audio_slider("음악 음량", ForestArenaAudio.music_level, true)
+	_audio_slider("효과음 음량", ForestArenaAudio.effects_level, false)
 	_label("소리·진동이 없어도 HP, stock, 가드와 상태 표시는 텍스트로 확인할 수 있습니다.", 18)
 	_button("로비", _show_home)
 
@@ -625,7 +638,9 @@ func _choice(title: String, ids: Array, selected: String, callback: Callable) ->
 	for id: String in ids:
 		options.add_item("미장착" if id == "" else String(catalog.product(id).name))
 	options.select(ids.find(selected))
-	options.item_selected.connect(func(index: int) -> void: callback.call(ids[index]))
+	options.item_selected.connect(func(index: int) -> void:
+		ForestArenaAudio.play_event(&"ui_select", {})
+		callback.call(ids[index]))
 	row.add_child(options)
 
 
@@ -640,7 +655,9 @@ func _choice_labels(title: String, labels: Array[String], selected_index: int, c
 	options.custom_minimum_size = Vector2(320, 58)
 	for item: String in labels: options.add_item(item)
 	options.select(maxi(0, selected_index))
-	options.item_selected.connect(func(index: int) -> void: callback.call(index))
+	options.item_selected.connect(func(index: int) -> void:
+		ForestArenaAudio.play_event(&"ui_select", {})
+		callback.call(index))
 	row.add_child(options)
 
 
@@ -656,7 +673,9 @@ func _toggle(title: String, enabled: bool, callback: Callable) -> void:
 	toggle.text = "켜짐" if enabled else "꺼짐"
 	toggle.button_pressed = enabled
 	toggle.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
-	toggle.toggled.connect(func(value: bool) -> void: callback.call(value))
+	toggle.toggled.connect(func(value: bool) -> void:
+		ForestArenaAudio.play_event(&"ui_select", {})
+		callback.call(value))
 	row.add_child(toggle)
 
 func start_match() -> void:
@@ -708,6 +727,7 @@ func start_match() -> void:
 		markers[participant.participant_id] = {"nickname": store.data.nickname if participant.human_controlled else "AI %d" % index, "character_id": participant.selection.character_id, "team_id": participant.team_id}
 	match_scene.configure_minimap(markers, &"player", config.mode == LocalMatchConfig.Mode.TEAM, store.data.minimap)
 	match_controller.reset_match()
+	ForestArenaAudio.begin_match()
 	_show_match_controls()
 
 
@@ -810,6 +830,7 @@ func pause_match() -> void:
 	if match_controller == null or screen == "result": return
 	match_scene.get_node("Interface").visible = false
 	match_controller.pause_match(true)
+	ForestArenaAudio.set_match_paused(true)
 	match_scene.set_process_input(false)
 	match_scene.get_node("Interface/TouchCommandSource").release_all_touches()
 	match_scene._release_semantic_actions()
@@ -824,6 +845,7 @@ func resume_match() -> void:
 	if screen != "pause" or not is_instance_valid(match_scene) or match_controller == null: return
 	match_scene.set_process_input(true)
 	match_controller.pause_match(false)
+	ForestArenaAudio.set_match_paused(false)
 	_show_match_controls()
 
 func handle_back_request(request_msec: int = -1) -> void:
@@ -876,6 +898,7 @@ func _show_result(winner: StringName) -> void:
 	match_scene._release_semantic_actions()
 	var player_team := StringName(match_controller.team_by_fighter_id.get(&"player", &""))
 	var player_won := winner == &"player" or (not player_team.is_empty() and match_controller.winner_team_id == player_team)
+	ForestArenaAudio.finish_match("draw" if match_controller.is_draw else ("victory" if player_won else "defeat"))
 	_new_page("무승부" if match_controller.is_draw else ("승리!" if player_won else "패배"), false)
 	_button("같은 조건으로 재대전", start_match)
 	_button("대전 준비", func() -> void:
@@ -897,6 +920,8 @@ func _text_scale() -> float:
 	return float(store.data.get("accessibility", LocalPlayerStore.default_accessibility()).get("text_scale", 1.0)) if store != null else 1.0
 
 func _close_match() -> void:
+	ForestArenaAudio.stop_effects("Combat")
+	ForestArenaAudio.set_match_paused(false)
 	if is_instance_valid(match_scene):
 		match_scene._release_semantic_actions()
 		match_scene.get_node("Interface/TouchCommandSource").release_all_touches()
@@ -962,21 +987,25 @@ func _connect_db(new_guest: bool) -> void:
 func _change_profile(action: String, payload: Dictionary) -> bool:
 	if storage_busy: return false
 	if not db_mode:
+		var local_ok := false
 		match action:
-			"grant_first": return store.grant_first(payload.id)
-			"purchase": return store.purchase(payload.id)
-			"select": return store.select(payload.character, payload.accessory, payload.opponent)
-			"accessibility": return store.update_accessibility(payload.text_scale, payload.reduce_visual_effects, payload.haptics_enabled)
-			"identity": return store.update_identity(payload.nickname)
-			"minimap": return store.update_minimap(payload)
-		return false
+			"grant_first": local_ok = store.grant_first(payload.id)
+			"purchase": local_ok = store.purchase(payload.id)
+			"select": local_ok = store.select(payload.character, payload.accessory, payload.opponent)
+			"accessibility": local_ok = store.update_accessibility(payload.text_scale, payload.reduce_visual_effects, payload.haptics_enabled)
+			"identity": local_ok = store.update_identity(payload.nickname)
+			"minimap": local_ok = store.update_minimap(payload)
+		ForestArenaAudio.play_event(&"ui_confirm" if local_ok else &"ui_error", {})
+		return local_ok
 	var overlay := _busy_overlay()
 	var ok := await db_client.change(action, payload, store)
 	overlay.queue_free()
 	storage_busy = false
 	store.error = "" if ok else _db_error(db_client.error)
 	if not ok: message = store.error
+	ForestArenaAudio.play_event(&"ui_confirm" if ok else &"ui_error", {})
 	return ok
+
 
 func _retry_db() -> void:
 	if storage_busy: return
@@ -1031,3 +1060,35 @@ func _notification(what: int) -> void:
 		pause_match()
 	elif what in [NOTIFICATION_APPLICATION_FOCUS_IN, NOTIFICATION_APPLICATION_RESUMED] and screen == "pause":
 		pause_match.call_deferred()
+
+
+func _save_audio_levels(music: float, effects: float, muted: bool) -> void:
+	if ForestArenaAudio.set_levels(music, effects, muted) != OK:
+		message = "소리 설정을 저장하지 못했습니다. 현재 실행 중에는 적용됩니다."
+		ForestArenaAudio.play_event(&"ui_error", {})
+
+
+func _audio_slider(title: String, value: float, is_music: bool) -> void:
+	var row := HBoxContainer.new()
+	body.add_child(row)
+	var label := Label.new()
+	label.text = title + " " + str(roundi(value * 100.0)) + "%"
+	label.custom_minimum_size.x = 230
+	row.add_child(label)
+	var slider := HSlider.new()
+	slider.custom_minimum_size = Vector2(320, 58)
+	slider.min_value = 0.0
+	slider.max_value = 1.0
+	slider.step = 0.05
+	slider.value = value
+	slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(slider)
+	slider.value_changed.connect(func(level: float) -> void:
+		label.text = title + " " + str(roundi(level * 100.0)) + "%"
+		_save_audio_levels(level if is_music else ForestArenaAudio.music_level, ForestArenaAudio.effects_level if is_music else level, ForestArenaAudio.muted))
+	slider.drag_ended.connect(func(changed: bool) -> void:
+		if changed and not is_music: ForestArenaAudio.play_event(&"ui_select", {}))
+
+
+func _exit_tree() -> void:
+	ForestArenaAudio.shutdown()

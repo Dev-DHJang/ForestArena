@@ -2,7 +2,7 @@
   "schema_version": "2.0.0",
   "game": "Forest Arena",
   "engine": "Godot 4",
-  "logical_asset_count": 350,
+  "logical_asset_count": 397,
   "quality_dependent_count": 24,
   "assets": [
     {
@@ -4764,6 +4764,288 @@
       "width": 355,
       "height": 355,
       "status": "approved"
+    },
+    {
+      "id": "fa.audio.lobby",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/lobby.ogg"
+    },
+    {
+      "id": "fa.audio.battle",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/battle.ogg"
+    },
+    {
+      "id": "fa.audio.ui_click",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ui_click.wav"
+    },
+    {
+      "id": "fa.audio.ui_back",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ui_back.wav"
+    },
+    {
+      "id": "fa.audio.ui_select",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ui_select.wav"
+    },
+    {
+      "id": "fa.audio.ui_confirm",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ui_confirm.wav"
+    },
+    {
+      "id": "fa.audio.ui_error",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ui_error.wav"
+    },
+    {
+      "id": "fa.audio.jump",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/jump.wav"
+    },
+    {
+      "id": "fa.audio.land",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/land.wav"
+    },
+    {
+      "id": "fa.audio.dash",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/dash.wav"
+    },
+    {
+      "id": "fa.audio.evade",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/evade.wav"
+    },
+    {
+      "id": "fa.audio.respawn",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/respawn.wav"
+    },
+    {
+      "id": "fa.audio.swing_light",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/swing_light.wav"
+    },
+    {
+      "id": "fa.audio.swing_heavy",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/swing_heavy.wav"
+    },
+    {
+      "id": "fa.audio.hit_light",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/hit_light.wav"
+    },
+    {
+      "id": "fa.audio.hit_heavy",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/hit_heavy.wav"
+    },
+    {
+      "id": "fa.audio.guard_hit",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/guard_hit.wav"
+    },
+    {
+      "id": "fa.audio.guard_break",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/guard_break.wav"
+    },
+    {
+      "id": "fa.audio.charge_start",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/charge_start.wav"
+    },
+    {
+      "id": "fa.audio.charge_ready",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/charge_ready.wav"
+    },
+    {
+      "id": "fa.audio.match_start",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/match_start.wav"
+    },
+    {
+      "id": "fa.audio.ring_out",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ring_out.wav"
+    },
+    {
+      "id": "fa.audio.victory",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/victory.wav"
+    },
+    {
+      "id": "fa.audio.defeat",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/defeat.wav"
+    },
+    {
+      "id": "fa.audio.draw",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/draw.wav"
+    },
+    {
+      "id": "fa.audio.special_hit",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/special_hit.wav"
+    },
+    {
+      "id": "fa.audio.ultimate_hit",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ultimate_hit.wav"
+    },
+    {
+      "id": "fa.audio.ja-hyun_special_neutral",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ja-hyun_special_neutral.wav"
+    },
+    {
+      "id": "fa.audio.ja-hyun_special_side",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ja-hyun_special_side.wav"
+    },
+    {
+      "id": "fa.audio.ja-hyun_special_up",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ja-hyun_special_up.wav"
+    },
+    {
+      "id": "fa.audio.ja-hyun_special_down",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ja-hyun_special_down.wav"
+    },
+    {
+      "id": "fa.audio.ja-hyun_ultimate",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/ja-hyun_ultimate.wav"
+    },
+    {
+      "id": "fa.audio.myo-ryung_special_neutral",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/myo-ryung_special_neutral.wav"
+    },
+    {
+      "id": "fa.audio.myo-ryung_special_side",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/myo-ryung_special_side.wav"
+    },
+    {
+      "id": "fa.audio.myo-ryung_special_up",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/myo-ryung_special_up.wav"
+    },
+    {
+      "id": "fa.audio.myo-ryung_special_down",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/myo-ryung_special_down.wav"
+    },
+    {
+      "id": "fa.audio.myo-ryung_ultimate",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/myo-ryung_ultimate.wav"
+    },
+    {
+      "id": "fa.audio.nabi_special_neutral",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/nabi_special_neutral.wav"
+    },
+    {
+      "id": "fa.audio.nabi_special_side",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/nabi_special_side.wav"
+    },
+    {
+      "id": "fa.audio.nabi_special_up",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/nabi_special_up.wav"
+    },
+    {
+      "id": "fa.audio.nabi_special_down",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/nabi_special_down.wav"
+    },
+    {
+      "id": "fa.audio.nabi_ultimate",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/nabi_ultimate.wav"
+    },
+    {
+      "id": "fa.audio.yu-ran_special_neutral",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/yu-ran_special_neutral.wav"
+    },
+    {
+      "id": "fa.audio.yu-ran_special_side",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/yu-ran_special_side.wav"
+    },
+    {
+      "id": "fa.audio.yu-ran_special_up",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/yu-ran_special_up.wav"
+    },
+    {
+      "id": "fa.audio.yu-ran_special_down",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/yu-ran_special_down.wav"
+    },
+    {
+      "id": "fa.audio.yu-ran_ultimate",
+      "category": "audio",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/audio/v01/yu-ran_ultimate.wav"
     }
   ]
 }

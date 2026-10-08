@@ -28,9 +28,13 @@ func _ready() -> void:
 	match_controller.snapshot_changed.connect(_render_snapshot)
 	match_controller.presentation_event.connect(arena_visual.play_combat_event)
 	combat_audio = CombatAudioScript.new()
+	combat_audio.suppress_results = app_shell_mode
 	add_child(combat_audio)
+	if not app_shell_mode and not OS.has_feature("dedicated_server") and DisplayServer.get_name() != "headless": ForestArenaAudio.begin_match()
 	match_controller.presentation_event.connect(combat_audio.play_combat_event)
-	restart.pressed.connect(match_controller.reset_match)
+	restart.pressed.connect(func() -> void:
+		match_controller.reset_match()
+		ForestArenaAudio.begin_match())
 	var participants := {}
 	for fighter: FighterController in match_controller.call("_fighters"):
 		participants[fighter.fighter_id] = {"nickname": String(fighter.fighter_id), "character_id": fighter.character_data.character_id, "team_id": ""}
@@ -135,3 +139,7 @@ func _render_snapshot(snapshot: Dictionary) -> void:
 			var team := String(fighter.get("team_id", ""))
 			lines.append("%s%s  HP %d/%d · 기회 %d · 가드 %d · 특수 %dt · 궁극 %d" % [("[%s] " % team) if not team.is_empty() else "", name, fighter.current_hp, fighter.max_hp, fighter.stocks, fighter.guard_durability, fighter.special_cooldown_ticks, fighter.ultimate_gauge])
 		readout.text = "\n".join(lines)
+
+
+func _exit_tree() -> void:
+	if not app_shell_mode: ForestArenaAudio.shutdown()
