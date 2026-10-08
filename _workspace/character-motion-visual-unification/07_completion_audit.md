@@ -17,10 +17,10 @@
 | 점프 상승·정점·하강·착지·좌향 반전 | `tests/local_fighter_presentation.gd`, Godot 표시 캡처, 공통 발 기준점 검사 | 전체 검사 결과로 확인 |
 | 공격 시간·판정·피해·승패 불변 | `assets/combat`, `fighter_controller.gd`, `match_controller.gd` 변경 없음. 표시 코드의 snapshot 보존 검사 | 통과 |
 | 다른 미커밋 변경 보존 | 이번 재개는 감사 도구·해당 단위 테스트·이 작업 기록만 변경. 등록 검사에서 관련 없는 manifest 항목과 SpriteFrames 불변 확인 | 통과 |
-| 누락·오류 시 감사 실패 | 감사 도구가 4명·각 모션 수·중복·해시·alpha·16프레임을 검사하고 실패 시 exit 1. 단위 검사 9개 통과 | 통과 |
+| 누락·오류 시 감사 실패 | 감사 도구가 4명·각 모션 수·중복·해시·alpha·16프레임을 검사하고 실패 시 exit 1. 단위 검사 10개 통과 | 통과 |
 | 문서·하네스·Godot 리소스 | 문서·하네스 검사 및 논리 자산 346개 확인 통과 | 통과 |
 | `./scripts/verify.sh` 현재 작업트리 전체 검사 | `completion-verify-2026-10-09.log` 정상 종료 및 마지막 완료 문구 확인 | 통과 |
-| 별도 최신 develop 작업 공간의 관련 변경 commit·PR·QA·병합 | 통합 작업 공간 `feature/motion-visual-unification`, 기준 `origin/develop` af41ac0. 기존 #59는 이미 병합됨 | 통합 진행 중; 아직 Goal 완료 아님 |
+| 별도 최신 develop 작업 공간의 관련 변경 commit·PR·QA·병합 | PR #76, 통합 작업 공간 `feature/motion-visual-unification`, 최신 `origin/develop` ec08dd8 정상 병합·push. 기존 #59는 이미 병합됨 | 원격 검토 및 최종 검사 진행 중; 아직 Goal 완료 아님 |
 | Android 재생·메모리·실기기 검증 | 사용자 지시로 이후 진행. 이번 재개에서는 실행하지 않음 | 후속 확인으로 이관; 통과 아님 |
 
 ## 감사 도구 보완

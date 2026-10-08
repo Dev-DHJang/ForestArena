@@ -1,13 +1,36 @@
 """Deterministic regressions for motion extraction; no model calls or runtime writes."""
 import unittest
+import tempfile
+import hashlib
+from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw
 from motion_sheet_regions import split_regions
-from recover_motion_review_sources import gray_review_alpha
+from recover_motion_review_sources import gray_review_alpha, verify_recovery_record
 from audit_character_motion_visuals import detached_regions, validation_errors, EXPECTED_MOTIONS
 
 
 class MotionVisualToolsTest(unittest.TestCase):
+    def test_recovery_rejects_changed_upstream_or_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / 'source.png'
+            output = root / 'output.png'
+            Image.new('RGBA', (2, 2), (0, 0, 0, 255)).save(source)
+            Image.new('RGBA', (2, 2), (1, 2, 3, 255)).save(output)
+            record = {'source':source.name, 'output':output.name,
+                      'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
+                      'output_sha256':hashlib.sha256(output.read_bytes()).hexdigest()}
+            verify_recovery_record(record, root)
+            original = output.read_bytes()
+            output.write_bytes(b'tampered')
+            with self.assertRaises(AssertionError):
+                verify_recovery_record(record, root)
+            output.write_bytes(original)
+            source.write_bytes(b'tampered')
+            with self.assertRaises(AssertionError):
+                verify_recovery_record(record, root)
+
     def audit_report(self):
         return {'characters':{cid:{'motions':[
             {'motion':f'motion_{i}', 'valid_runtime_shape':True,

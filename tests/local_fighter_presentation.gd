@@ -67,6 +67,21 @@ func _run() -> void:
 		fighter.velocity.y = -400.0
 		presentation.sync_visual(0.01)
 		_check(presentation.sprite.frame == 3, "%s air jump restarts ascent" % id)
+		fighter.air_jumps_remaining = 1
+		fighter.velocity.y = -fighter.character_data.base_stats.jump_velocity + 20.0
+		presentation.sync_visual(0.2)
+		_check(presentation.sprite.frame == 5, "%s early ascent has advanced before air jump" % id)
+		fighter._try_jump(CombatRules.new())
+		var early_jump_snapshot := fighter.snapshot()
+		presentation.sync_visual(0.01)
+		_check(fighter.air_jumps_remaining == 0 and presentation.sprite.frame == 3, "%s early real air jump restarts ascent despite small velocity change" % id)
+		_check(early_jump_snapshot == fighter.snapshot(), "%s early air jump display is read-only" % id)
+		presentation.sync_visual(0.2)
+		fighter.launcher_jump_available = true
+		presentation.sync_visual(0.0)
+		fighter._try_jump(CombatRules.new())
+		presentation.sync_visual(0.01)
+		_check(not fighter.launcher_jump_available and presentation.sprite.frame == 3, "%s launcher jump allowance restarts ascent" % id)
 		fighter.state = FighterController.State.IDLE
 		fighter.velocity.y = 0.0
 		presentation.sync_visual(0.01)

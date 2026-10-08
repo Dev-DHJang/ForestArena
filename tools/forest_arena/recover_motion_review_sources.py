@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 import shutil
+import io
 import numpy as np
 from PIL import Image
 import normalize_ja_hyun_approved as ja
@@ -17,6 +18,48 @@ from normalize_chibi_motion_refresh import find_source
 
 ROOT = Path(__file__).resolve().parents[2]
 WORK = ROOT / '_workspace/character-motion-visual-unification'
+
+
+def verify_recovery_record(record, root=ROOT):
+    source = root / record['source']
+    output = root / record['output']
+    assert hashlib.sha256(source.read_bytes()).hexdigest() == record['source_sha256'], source
+    assert hashlib.sha256(output.read_bytes()).hexdigest() == record['output_sha256'], output
+
+
+def verify_recovered_source(path, root=ROOT):
+    if not path.name.endswith('-r00.png'):
+        return
+    records = json.loads((root / '_workspace/character-motion-visual-unification/source-recovery.json').read_text())
+    record = next(r for r in records if r['output'] == str(path.relative_to(root)))
+    verify_recovery_record(record, root)
+
+
+def seal_existing():
+    # Backfill only after reproducing the exact bytes from the recorded upstream.
+    record_path = WORK / 'source-recovery.json'
+    records = json.loads(record_path.read_text())
+    report = json.loads((WORK / '03_staged/report.json').read_text())
+    selected = {r['source_path'] for group in report.values() for r in group['motions']}
+    count = 0
+    for record in records:
+        if record['output'] not in selected:
+            continue
+        source = ROOT / record['source']
+        assert hashlib.sha256(source.read_bytes()).hexdigest() == record['source_sha256'], source
+        with Image.open(source) as image:
+            if 'A' not in image.getbands() or image.getchannel('A').getextrema()[0] >= 250:
+                buffer = io.BytesIO()
+                gray_review_alpha(image).save(buffer, format='PNG')
+                reproduced = buffer.getvalue()
+            else:
+                reproduced = source.read_bytes()
+        actual = (ROOT / record['output']).read_bytes()
+        assert reproduced == actual, record['output']
+        record['output_sha256'] = hashlib.sha256(actual).hexdigest()
+        count += 1
+    record_path.write_text(json.dumps(records, ensure_ascii=False, indent=2) + '\n')
+    print(f'RECOVERY_PROVENANCE: PASS ({count} selected outputs reproduced byte-for-byte; no image changes)')
 
 
 def gray_review_alpha(image):
@@ -45,7 +88,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--character', action='append', choices=['ja-hyun','myo-ryung','nabi','yu-ran'])
     parser.add_argument('--motion', action='append')
+    parser.add_argument('--seal-existing', action='store_true')
     args = parser.parse_args()
+    if args.seal_existing:
+        seal_existing()
+        return
     records = []
     manifest = json.loads((ROOT/'assets/character/manifest.json').read_text())
     for cid in args.character or ['ja-hyun','myo-ryung','nabi','yu-ran']:
@@ -71,7 +118,8 @@ def main():
                     method='immutable approved RGBA source copy; no repainting'
             records.append({'character':cid,'motion':name,'source':str(source.relative_to(ROOT)),
                             'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
-                            'output':str(output.relative_to(ROOT)),'method':method})
+                            'output':str(output.relative_to(ROOT)),
+                            'output_sha256':hashlib.sha256(output.read_bytes()).hexdigest(),'method':method})
     record_path=WORK/'source-recovery.json'
     prior=json.loads(record_path.read_text()) if record_path.exists() else []
     indexed={(r['character'],r['motion']):r for r in prior}

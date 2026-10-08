@@ -38,6 +38,13 @@ def main():
     for group in report.values():
         for row in group['motions']:
             files.update((Path(row['source_path']),Path(row['staged_path'])))
+    selected = {row['source_path'] for group in report.values() for row in group['motions']}
+    for record in json.loads((ROOT/WORK/'source-recovery.json').read_text()):
+        if record['output'] in selected:
+            files.add(Path(record['source']))
+            ignore = ROOT / Path(record['source']).parents[1] / '.gdignore'
+            if ignore.exists():
+                files.add(ignore.relative_to(ROOT))
     for row in receipt['replacements']:
         files.add(Path(row['path']))
         files.add(WORK/'05_before_install'/row['path'])

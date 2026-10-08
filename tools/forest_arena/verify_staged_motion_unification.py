@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib
 import json
 from PIL import Image
+from recover_motion_review_sources import verify_recovered_source
 
 ROOT = Path(__file__).resolve().parents[2]
 WORK = ROOT / '_workspace/character-motion-visual-unification/03_staged'
@@ -22,6 +23,7 @@ def main():
             path = ROOT/row['staged_path']
             assert hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256']
             source = ROOT/row['source_path']
+            verify_recovered_source(source)
             assert hashlib.sha256(source.read_bytes()).hexdigest() == row['source_sha256']
             with Image.open(path) as image:
                 assert image.mode == 'RGBA' and image.size == (2048,128), path

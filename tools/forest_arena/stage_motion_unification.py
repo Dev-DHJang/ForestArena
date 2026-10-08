@@ -9,6 +9,7 @@ from PIL import Image
 
 from audit_character_motion_visuals import render_board
 from motion_sheet_regions import split_regions
+from recover_motion_review_sources import verify_recovered_source
 
 ROOT = Path(__file__).resolve().parents[2]
 WORK = ROOT / '_workspace/character-motion-visual-unification'
@@ -41,6 +42,7 @@ def main():
             continue
         sequences = {}
         for source in sources:
+            verify_recovered_source(source)
             with Image.open(source) as opened:
                 if opened.mode != 'RGBA':
                     raise ValueError(f'No RGBA alpha: {source}')

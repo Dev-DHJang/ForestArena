@@ -24,6 +24,8 @@ var _last_motion: StringName
 var _last_activation := -1
 var _was_airborne := false
 var _previous_vertical_speed := 0.0
+var _previous_air_jumps := 0
+var _previous_launcher_jump := false
 var _jump_stage := -1
 var _jump_stage_elapsed := 0.0
 var _landing_elapsed := -1.0
@@ -138,7 +140,9 @@ func sync_visual(delta: float) -> void:
 	if shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
 		if airborne:
 			var stage := 0 if fighter.velocity.y < -60.0 else (2 if fighter.velocity.y > 60.0 else 1)
-			var restarted := _was_airborne and fighter.velocity.y < _previous_vertical_speed - 120.0
+			# Read the consumed jump allowance, including early same-stage air jumps.
+			var jump_consumed := fighter.air_jumps_remaining < _previous_air_jumps or (_previous_launcher_jump and not fighter.launcher_jump_available)
+			var restarted := _was_airborne and (jump_consumed or fighter.velocity.y < _previous_vertical_speed - 120.0)
 			if stage != _jump_stage or not _was_airborne or restarted:
 				_jump_stage_elapsed = 0.0
 				_jump_stage = stage
@@ -162,6 +166,8 @@ func sync_visual(delta: float) -> void:
 		sprite.frame = index % frames if sprite.sprite_frames.get_animation_loop(shown) else mini(index, frames - 1)
 	_was_airborne = airborne
 	_previous_vertical_speed = fighter.velocity.y
+	_previous_air_jumps = fighter.air_jumps_remaining
+	_previous_launcher_jump = fighter.launcher_jump_available
 	sprite.modulate = Color(1, 1, 1, 0.45) if fighter.invulnerability_ticks > 0 else Color.WHITE
 
 
