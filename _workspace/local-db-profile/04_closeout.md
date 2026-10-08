@@ -20,7 +20,8 @@ DB 확인 후 화면에 반영하며 동일 요청 재시도와 변경 번호 �
 
 - 구현 커밋: 7f2e28a1eb95e41f7db66a193fb7e660295c5307.
 - PR: https://github.com/Dev-DHJang/ForestArena/pull/64.
-- develop 통합 결과는 병합 후 기록한다.
+- develop 병합 커밋: 5f5d818834fbed3fd0554ef3da3ba56e902af5e7. PR #64 병합 완료.
+- 병합 SHA를 기록하는 후속 문서 브랜치: docs/local-db-profile-closeout.
 
 일반 Chrome 로그인 세션으로 PR을 생성했다. 계정·권한·비밀번호 설정은 변경하지 않았다.
 
