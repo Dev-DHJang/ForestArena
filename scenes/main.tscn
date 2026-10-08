@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3]
+[gd_scene load_steps=16 format=3]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
 [ext_resource type="Script" path="res://scripts/arena_visual.gd" id="2_arena"]
@@ -14,6 +14,8 @@
 [ext_resource type="Script" path="res://scripts/offscreen_opponent_indicator.gd" id="12_indicator"]
 [ext_resource type="Script" path="res://scripts/stage_controller.gd" id="13_stage_controller"]
 [ext_resource type="Resource" path="res://assets/combat/stages/forest_ledge_stage.tres" id="14_stage"]
+
+[ext_resource type="Script" path="res://scripts/battle_minimap.gd" id="15_minimap"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_main")
@@ -82,7 +84,7 @@ script = ExtResource("7_touch")
 [node name="HudPanel" type="NinePatchRect" parent="Interface"]
 offset_left = 12.0
 offset_top = 10.0
-offset_right = 1130.0
+offset_right = 980.0
 offset_bottom = 122.0
 mouse_filter = 2
 patch_margin_left = 60
@@ -92,7 +94,7 @@ patch_margin_bottom = 60
 [node name="MatchReadout" type="Label" parent="Interface"]
 offset_left = 24.0
 offset_top = 20.0
-offset_right = 1000.0
+offset_right = 970.0
 offset_bottom = 54.0
 theme_override_colors/font_color = Color(0.93, 0.96, 1, 1)
 theme_override_font_sizes/font_size = 22
@@ -112,9 +114,9 @@ offset_bottom = 112.0
 theme_override_colors/font_color = Color(1, 0.82, 0.42, 1)
 text = "debug"
 [node name="Restart" type="Button" parent="Interface"]
-offset_left = 1120.0
+offset_left = 840.0
 offset_top = 18.0
-offset_right = 1255.0
+offset_right = 975.0
 offset_bottom = 58.0
 text = "재시작"
 [node name="ResourceWarnings" type="Label" parent="Interface"]
@@ -128,3 +130,8 @@ theme_override_colors/font_outline_color = Color(0.45, 0.02, 0.12, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
+
+[node name="BattleMinimap" type="Control" parent="Interface"]
+z_index = 12
+mouse_filter = 2
+script = ExtResource("15_minimap")

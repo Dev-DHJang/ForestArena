@@ -1,7 +1,7 @@
 class_name LocalPlayerStore
 extends RefCounted
 
-const SCHEMA_VERSION := 2
+const SCHEMA_VERSION := 3
 const TEXT_SCALES := [1.0, 1.15, 1.3]
 var catalog: LocalPlayCatalog
 var path: String
@@ -14,7 +14,7 @@ func _init(p_catalog: LocalPlayCatalog, p_path := "user://local_player.json") ->
 	path = p_path
 
 static func fresh_data() -> Dictionary:
-	return {"schema_version": SCHEMA_VERSION, "first_granted": false, "characters": [], "accessories": [], "selected_character": "", "selected_accessory": "", "opponent_character": "ja-hyun", "accessibility": default_accessibility()}
+	return {"schema_version": SCHEMA_VERSION, "first_granted": false, "characters": [], "accessories": [], "selected_character": "", "selected_accessory": "", "opponent_character": "ja-hyun", "accessibility": default_accessibility(), "nickname": "플레이어", "minimap": default_minimap()}
 
 
 static func default_accessibility() -> Dictionary:
@@ -38,15 +38,10 @@ func load_profile() -> bool:
 
 
 func load_profile_read_only() -> bool:
-	# Read v1/v2 and backup without writing a migration to the source.
+	# Upgrade a copy for DB import without changing the device file.
 	for file_path: String in [path, path + ".bak"]:
-		var candidate := _read(file_path)
-		if valid(candidate):
-			data = candidate
-			return true
-		if candidate.get("schema_version") == 1 and _valid_v1(candidate):
-			candidate.schema_version = SCHEMA_VERSION
-			candidate.accessibility = default_accessibility()
+		var candidate := migrate_profile(_read(file_path))
+		if not candidate.is_empty():
 			data = candidate
 			return true
 	if not FileAccess.file_exists(path) and not FileAccess.file_exists(path + ".bak"):
@@ -54,30 +49,58 @@ func load_profile_read_only() -> bool:
 		return true
 	return false
 
-func _load_candidate(candidate: Dictionary) -> bool:
+func migrate_profile(candidate: Dictionary) -> Dictionary:
 	if valid(candidate):
-		data = candidate
-		return true
-	if candidate.get("schema_version") != 1 or not _valid_v1(candidate): return false
+		var normalized := candidate.duplicate(true)
+		normalized.minimap.transparency = int(normalized.minimap.transparency)
+		return normalized
+	var version: Variant = candidate.get("schema_version")
+	if (version != 1 and version != 2) or not _valid_base(candidate): return {}
+	if version == 2 and not _valid_accessibility(candidate.get("accessibility")): return {}
 	var migrated := candidate.duplicate(true)
 	migrated.schema_version = SCHEMA_VERSION
-	migrated.accessibility = default_accessibility()
-	data = migrated
-	# Schema 1 is an authored predecessor, so migrate it once and validate the
-	# resulting v2 record instead of guessing fields from malformed data.
+	if version == 1: migrated.accessibility = default_accessibility()
+	migrated.nickname = "플레이어"
+	migrated.minimap = default_minimap()
+	return migrated if valid(migrated) else {}
+
+func _load_candidate(candidate: Dictionary) -> bool:
+	var migrated := migrate_profile(candidate)
+	if migrated.is_empty(): return false
+	if candidate.get("schema_version") == SCHEMA_VERSION:
+		data = migrated
+		return true
+	# Commit first: failed migration must not replace the in-memory profile.
 	return _commit(migrated)
 
 func valid(value: Dictionary) -> bool:
-	if value.get("schema_version") != SCHEMA_VERSION or not _valid_base(value): return false
-	var accessibility: Variant = value.get("accessibility")
+	return value.get("schema_version") == SCHEMA_VERSION and _valid_base(value) and _valid_accessibility(value.get("accessibility")) and valid_nickname(value.get("nickname")) and valid_minimap(value.get("minimap"))
+
+static func default_minimap() -> Dictionary:
+	return {"transparency": 30, "marker_style": "face", "show_names": true}
+
+static func normalize_nickname(value: String) -> String:
+	return value.strip_edges()
+
+static func valid_nickname(value: Variant) -> bool:
+	if not value is String or value != normalize_nickname(value) or value.length() < 1 or value.length() > 12: return false
+	return not _has_control(value)
+
+static func _has_control(value: String) -> bool:
+	for index: int in value.length():
+		var code: int = value.unicode_at(index)
+		if code < 32 or (code >= 127 and code <= 159) or code == 0x2028 or code == 0x2029: return true
+	return false
+
+static func valid_minimap(value: Variant) -> bool:
+	if not value is Dictionary or value.size() != 3: return false
+	var transparency: Variant = value.get("transparency")
+	return (transparency is int or transparency is float) and float(transparency) == floor(float(transparency)) and transparency >= 0 and transparency <= 90 and value.get("marker_style") in ["face", "dot"] and value.get("show_names") is bool
+
+static func _valid_accessibility(accessibility: Variant) -> bool:
 	if not accessibility is Dictionary or not accessibility.get("reduce_visual_effects") is bool or not accessibility.get("haptics_enabled") is bool: return false
 	var text_scale: Variant = accessibility.get("text_scale")
 	return (text_scale is float or text_scale is int) and TEXT_SCALES.has(float(text_scale))
-
-
-func _valid_v1(value: Dictionary) -> bool:
-	return value.get("schema_version") == 1 and _valid_base(value)
-
 
 func _valid_base(value: Dictionary) -> bool:
 	if not value.get("first_granted") is bool: return false
@@ -126,6 +149,19 @@ func update_accessibility(text_scale: float, reduce_visual_effects: bool, haptic
 	next.accessibility = {"text_scale": text_scale, "reduce_visual_effects": reduce_visual_effects, "haptics_enabled": haptics_enabled}
 	return _commit(next)
 
+func update_identity(nickname: String) -> bool:
+	var next := data.duplicate(true)
+	next.nickname = normalize_nickname(nickname)
+	if not valid_nickname(nickname.strip_edges()) or _has_control(nickname):
+		error = "닉네임은 공백을 제외한 1~12자로 입력하고 줄바꿈·제어 문자는 사용할 수 없습니다."
+		return false
+	return _commit(next)
+
+func update_minimap(settings: Dictionary) -> bool:
+	var next := data.duplicate(true)
+	next.minimap = settings.duplicate(true)
+	return _commit(next)
+
 func reset_profile() -> bool:
 	return _commit(fresh_data())
 
@@ -150,7 +186,7 @@ func _commit(next: Dictionary) -> bool:
 	file.close()
 	if write_error != OK or not valid(_read(temporary)): return _save_failed()
 	# Keep a valid previous snapshot; never replace the backup with corrupt input.
-	if valid(_read(path)):
+	if not migrate_profile(_read(path)).is_empty():
 		if DirAccess.copy_absolute(path, path + ".bak") != OK: return _save_failed()
 	if DirAccess.rename_absolute(temporary, path) != OK: return _save_failed()
 	data = next

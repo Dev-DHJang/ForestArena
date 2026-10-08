@@ -89,6 +89,8 @@ func run() -> void:
 		await press("로비")
 		await press("접근성 설정")
 		check(await app._change_profile("accessibility", {"text_scale": 1.3, "reduce_visual_effects": true, "haptics_enabled": false}), "settings save")
+		check(await app._change_profile("identity", {"nickname": "DB숲지기"}), "nickname saves to DB")
+		check(await app._change_profile("minimap", {"transparency": 65, "marker_style": "dot", "show_names": false}), "minimap saves to DB")
 		check(FileAccess.get_file_as_bytes(source_path) == source_bytes, "device source remains byte-identical")
 		var before: Dictionary = app.store.data.duplicate(true)
 		var address: String = app.db_client.api_url
@@ -138,6 +140,7 @@ func run() -> void:
 		check(app.store.data.selected_character == "yu-ran" and app.store.data.selected_accessory == "fixture-thorns" and app.store.data.opponent_character == "myo-ryung", "restart restores DB selection")
 		check(app.store.data.characters.size() == 4 and app.store.data.accessories.size() == 6, "restart restores DB ownership")
 		check(is_equal_approx(float(app.store.data.accessibility.text_scale), 1.3) and not app.store.data.accessibility.haptics_enabled, "restart restores settings")
+		check(app.store.data.nickname == "DB숲지기" and app.store.data.minimap == {"transparency": 65, "marker_style": "dot", "show_names": false}, "restart restores nickname and minimap")
 		var source := LocalPlayerStore.new(LocalPlayCatalog.new(), source_path)
 		check(source.load_profile() and source.data.characters == ["nabi"], "device data independent of DB")
 	var report := FileAccess.open("/private/tmp/forest-db-profile-%s.json" % run_id, FileAccess.WRITE)

@@ -14,6 +14,7 @@ const CombatAudioScript := preload("res://scripts/combat_audio.gd")
 @onready var restart: Button = $Interface/Restart
 @onready var debug_readout: Label = $Interface/DebugReadout
 @onready var hud_panel: NinePatchRect = $Interface/HudPanel
+@onready var minimap: BattleMinimap = $Interface/BattleMinimap
 @onready var resource_warnings: Label = $Interface/ResourceWarnings
 
 var _missing_resource_ids: PackedStringArray = []
@@ -30,6 +31,10 @@ func _ready() -> void:
 	add_child(combat_audio)
 	match_controller.presentation_event.connect(combat_audio.play_combat_event)
 	restart.pressed.connect(match_controller.reset_match)
+	var participants := {}
+	for fighter: FighterController in match_controller.call("_fighters"):
+		participants[fighter.fighter_id] = {"nickname": String(fighter.fighter_id), "character_id": fighter.character_data.character_id, "team_id": ""}
+	minimap.configure(match_controller.stage_data, participants, match_controller.player.fighter_id, false)
 	_render_snapshot(match_controller.snapshot())
 	debug_readout.visible = OS.is_debug_build()
 
@@ -58,6 +63,12 @@ func apply_accessibility(settings: Dictionary) -> void:
 	readout.add_theme_font_size_override("font_size", roundi(22 * _text_scale))
 	debug_readout.add_theme_font_size_override("font_size", roundi(16 * _text_scale))
 	restart.add_theme_font_size_override("font_size", roundi(18 * _text_scale))
+
+
+func configure_minimap(participants: Dictionary, local_id: StringName, team_mode: bool, settings: Dictionary) -> void:
+	minimap.configure(match_controller.stage_data, participants, local_id, team_mode)
+	minimap.apply_settings(settings, _text_scale)
+	minimap.update_snapshot(match_controller.snapshot())
 
 
 func _button_style(logical_id: String) -> StyleBoxTexture:
@@ -103,6 +114,7 @@ func _release_semantic_actions() -> void:
 
 
 func _render_snapshot(snapshot: Dictionary) -> void:
+	minimap.update_snapshot(snapshot)
 	var fighters: Array = snapshot.get("fighters", [])
 	if fighters.size() < 2:
 		return

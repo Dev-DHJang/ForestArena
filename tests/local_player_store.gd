@@ -28,24 +28,43 @@ func _initialize() -> void:
 	var v1 := store.data.duplicate(true)
 	v1.schema_version = 1
 	v1.erase("accessibility")
+	v1.erase("nickname")
+	v1.erase("minimap")
 	var v1_file := FileAccess.open(v1_path, FileAccess.WRITE)
 	v1_file.store_string(JSON.stringify(v1))
 	v1_file.close()
 	var migrated := LocalPlayerStore.new(catalog, v1_path)
 	var original_v1 := FileAccess.get_file_as_bytes(v1_path)
 	var read_only := LocalPlayerStore.new(catalog, v1_path)
-	check(read_only.load_profile_read_only() and read_only.data.schema_version == 2, "DB import reads v1 in memory")
+	check(read_only.load_profile_read_only() and read_only.data.schema_version == 3, "DB import reads v1 in memory")
 	check(FileAccess.get_file_as_bytes(v1_path) == original_v1, "DB import preserves v1 source bytes")
 	check(migrated.load_profile() and migrated.data.schema_version == LocalPlayerStore.SCHEMA_VERSION and migrated.data.accessibility == LocalPlayerStore.default_accessibility(), "v1 accessibility migration is explicit")
+	check(FileAccess.get_file_as_bytes(v1_path + ".bak") == original_v1, "migration keeps original backup")
 	for character: CharacterData in catalog.combat.characters:
 		for accessory: AccessoryData in catalog.combat.accessories:
 			var selection := LoadoutSelection.new()
 			selection.character_id = character.character_id
 			selection.accessory_id = accessory.accessory_id
 			check(LoadoutBuilder.build(selection, catalog.combat).succeeded(), "all character accessory combinations")
+	check(store.update_identity("  숲지기  ") and store.data.nickname == "숲지기", "nickname normalization")
+	var before := store.data.duplicate(true)
+	for invalid_name: String in ["", "  ", "1234567890123", "a\nb", "a\tb"]:
+		check(not store.update_identity(invalid_name) and store.data == before, "invalid nickname preserves state")
+	check(store.update_minimap({"transparency": 90, "marker_style": "dot", "show_names": false}), "minimap save")
+	check(reload.load_profile() and reload.data.minimap == store.data.minimap and reload.data.nickname == "숲지기", "new settings persist")
+	for opacity: Variant in [-1, 91, 2.5, "30"]:
+		check(not store.update_minimap({"transparency": opacity, "marker_style": "face", "show_names": true}), "invalid transparency")
+	var v2 := store.data.duplicate(true)
+	v2.schema_version = 2
+	v2.erase("nickname")
+	v2.erase("minimap")
+	var upgraded := store.migrate_profile(v2)
+	check(upgraded.schema_version == 3 and upgraded.accessibility == v2.accessibility and upgraded.characters == v2.characters and upgraded.minimap == LocalPlayerStore.default_minimap(), "v2 preserves ownership and accessibility")
 	var old_data := store.data.duplicate(true)
 	store.path = "user://missing-directory-%d/profile.json" % Time.get_ticks_usec()
 	check(not store.select("nabi", "", "ja-hyun") and store.data == old_data, "save failure rolls back memory")
+	check(not store.update_identity("새이름") and store.data == old_data, "nickname failure rolls back memory")
+	check(not store.update_minimap(LocalPlayerStore.default_minimap()) and store.data == old_data, "minimap failure rolls back memory")
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	file.store_string("invalid json")
 	file.close()

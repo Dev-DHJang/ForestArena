@@ -171,7 +171,7 @@ func _accept(result: Dictionary, local: LocalPlayerStore) -> bool:
 	if not result.get("profile") is Dictionary or not local.valid(result.profile) or not (result.get("revision") is int or result.get("revision") is float) or int(result.revision) < 1:
 		error = "invalid_response"
 		return false
-	profile = result.profile.duplicate(true)
+	profile = local.migrate_profile(result.profile)
 	revision = int(result.revision)
 	local.data = profile.duplicate(true)
 	return true

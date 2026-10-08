@@ -5,6 +5,7 @@ const TIMEOUT_MSEC := 7000
 var failures: Array[String] = []
 var app: LocalAiApp
 var guest: LanMatchClient
+var guest_app: Node
 var save_path := "user://test-lan-app-%d.json" % Time.get_ticks_usec()
 
 
@@ -25,25 +26,34 @@ func _run() -> void:
 	var host_selection := LoadoutSelection.new()
 	host_selection.character_id = &"nabi"
 	host_selection.accessory_id = &"fixture-iron-armor"
-	_check(app.lan_client.begin_host("FAH1|ws://127.0.0.1:17777|1", host_selection), "host connect")
+	_check(app.lan_client.begin_host("FAH1|ws://127.0.0.1:17777|1", host_selection, "호스트숲"), "host connect")
 	_check(await _wait_until(func() -> bool: return not app.lan_current_invite.is_empty()), "room invite")
 	app.call("_copy_lan_invite")
 	_check(app.lan_status_label != null and app.lan_status_label.text.contains("복사했습니다"), "invite copy feedback")
-	guest = LanMatchClient.new()
-	add_child(guest)
+	guest_app = load("res://scenes/local_ai_app.tscn").instantiate()
+	guest_app.save_path = save_path + ".guest"
+	guest_app.db_session_path = save_path + ".guest-session"
+	add_child(guest_app)
+	_check(guest_app.store.grant_first("yu-ran"), "guest profile")
+	guest = guest_app.lan_client
 	var guest_selection := LoadoutSelection.new()
 	guest_selection.character_id = &"yu-ran"
 	guest_selection.accessory_id = &"fixture-boxing-gloves"
-	_check(guest.begin_join(app.lan_current_invite, guest_selection), "guest connect")
+	_check(guest.begin_join(app.lan_current_invite, guest_selection, "손님숲"), "guest connect")
 	var entered_match := await _wait_until(func() -> bool: return app.screen == "lan_match" and app.match_controller != null)
 	_check(entered_match, "LAN match screen (screen=%s)" % app.screen)
 	if not entered_match:
 		await _finish()
 		return
 	_check(await _wait_until(func() -> bool: return app.match_controller != null and app.match_controller.player.runtime_profile.character_id == &"nabi" and app.match_controller.training_dummy.runtime_profile.character_id == &"yu-ran"), "network loadouts")
+	var map := app.match_scene.get_node("Interface/BattleMinimap") as BattleMinimap
+	_check(map.participants[&"lan_host"].nickname == "호스트숲" and map.participants[&"lan_guest"].nickname == "손님숲", "nicknames reach actual minimap")
+	_check(map.local_id == &"lan_host" and not map.team_mode, "host minimap self and neutral mode")
 	var camera := app.match_scene.get_node("Camera2D") as Camera2D
 	_check(camera.player == app.match_controller.player, "host camera target")
 	_check(not app.match_controller.is_physics_processing() and app.match_controller.paused, "client is presentation only")
+	var guest_map := guest_app.match_scene.get_node("Interface/BattleMinimap") as BattleMinimap
+	_check(guest_map.local_id == &"lan_guest" and guest_map.participant_color(&"lan_host") == Color.WHITE, "guest sees own marker and neutral colors")
 	guest.call("_send", {"type": "leave"})
 	_check(await _wait_until(func() -> bool: return app.screen == "lan_result"), "LAN result")
 	_check(app.body.get_child_count() > 0, "result UI")
@@ -56,11 +66,13 @@ func _finish() -> void:
 		app.queue_free()
 	if guest != null:
 		guest.stop()
-		guest.queue_free()
+		guest_app.queue_free()
 	await get_tree().process_frame
 	await get_tree().process_frame
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path + ".bak"))
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path + ".guest"))
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path + ".guest.bak"))
 	if failures.is_empty():
 		print("LAN_APP_FLOW: PASS")
 		get_tree().quit(0)
