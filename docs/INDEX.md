@@ -31,6 +31,7 @@
 | Android 기기를 어떻게 연결하는가? | [Android 무선 연결](engineering/godot/android-wireless-debugging.md) | [README 실행 명령](../README.md#실행과-검증) |
 | Codex 대화가 로딩 시간 초과로 열리지 않는가? | [세션 복구](operations/codex-session-recovery.md) | `tools/forest_arena/recover_codex_session.py` |
 | AI 작업은 어떤 절차로 진행하는가? | [AI 개발 절차](operations/ai-development.md) | [AI 역할과 작업 배정](operations/harness/team-spec.md) |
+| 다른 게임 프로젝트의 개발 준비를 어떻게 구성하는가? | [새 게임 사전 구성 지침서](operations/new-game-bootstrap.md) | 독립 입력 양식·핵심 템플릿·실행 절차·검사 규칙 |
 
 ## 폴더별 역할
 
