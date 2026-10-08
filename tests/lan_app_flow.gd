@@ -69,6 +69,8 @@ func _finish() -> void:
 		guest_app.queue_free()
 	await get_tree().process_frame
 	await get_tree().process_frame
+	# AudioServer releases stopped native playback after its next mixing buffer.
+	await get_tree().create_timer(0.2).timeout
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path + ".bak"))
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path + ".guest"))

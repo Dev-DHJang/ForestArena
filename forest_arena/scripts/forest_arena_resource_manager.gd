@@ -44,3 +44,10 @@ func load_texture(id: String) -> Texture2D:
     if texture == null: push_warning("FOREST_ARENA_RESOURCE_MISSING id=%s path=%s reason=texture-load" % [id, p])
     return texture
 func profile() -> Dictionary: return profiles.get(quality, {})
+
+func load_audio(id: String) -> AudioStream:
+    var p := resource_path(id)
+    if p.is_empty(): return null
+    var stream := load(p) as AudioStream
+    if stream == null: push_warning("FOREST_ARENA_RESOURCE_MISSING id=%s reason=audio-load" % id)
+    return stream

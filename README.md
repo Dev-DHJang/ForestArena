@@ -25,7 +25,7 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 - [게임 디자인](docs/gameplay/combat.md)
 - [기능과 UX](docs/gameplay/features-and-ux.md)
 - [기술 아키텍처](docs/engineering/architecture.md)
-- [콘텐츠·아트·오디오](docs/content/art-and-audio.md)
+- [콘텐츠·아트·오디오](docs/content/art-and-audio.md) · [음악과 효과음](docs/content/audio-v01.md)
 - [캐릭터 외형 계약 v01](docs/contracts/character-appearance-v01.json)
 - [개발 순서와 완료 조건](docs/product/roadmap.md)
 - [AI 개발 가이드](docs/operations/ai-development.md)
@@ -87,3 +87,5 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
   서버가 네 캐릭터·장신구 6종의 1대1을 60Hz로 판정하고 20Hz 상태를 전송한다.
 - 미구현: Story 대화·보상·성장·경제, 복수 장신구 동시 장착, 클라우드·8인 정식 온라인,
   출시용 서명·AAB·스토어 등록.
+
+음원 생성·신호 검사는 Python NumPy와 ffmpeg가 필요하다. `python3 tools/forest_arena/verify_audio_v01.py`로 음원 파일·출처 확인값·반복 경계를 검사한다.

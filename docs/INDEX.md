@@ -27,7 +27,7 @@
 | 코드를 어떤 책임으로 나누는가? | [코드 구조](engineering/architecture.md) | [공용 데이터 형식](#공용-데이터-형식) |
 | 관리자 웹을 어떻게 실행·복구하는가? | [로컬 관리자 웹](engineering/admin-web.md) | [개발계 데이터베이스](engineering/database.md) |
 | 개발계 DB를 어떻게 실행하는가? | [개발계 데이터베이스](engineering/database.md) | [코드 구조](engineering/architecture.md) |
-| 이미지·애니메이션·소리는 어떻게 만드는가? | [콘텐츠 제작 원칙](content/art-and-audio.md) | [캐릭터 외형 데이터](contracts/character-appearance-v01.json) |
+| 이미지·애니메이션·소리는 어떻게 만드는가? | [콘텐츠 제작 원칙](content/art-and-audio.md) | [캐릭터 외형 데이터](contracts/character-appearance-v01.json), [음악과 효과음](content/audio-v01.md) |
 | Godot 자산은 어떻게 찾고 교체하는가? | [Godot 설정](engineering/godot/setup.md) | [Godot 자산 규칙](engineering/godot/resource-rules.md) |
 | Android 기기를 어떻게 연결하는가? | [Android 무선 연결](engineering/godot/android-wireless-debugging.md) | [README 실행 명령](../README.md#실행과-검증) |
 | Codex 대화가 로딩 시간 초과로 열리지 않는가? | [세션 복구](operations/codex-session-recovery.md) | `tools/forest_arena/recover_codex_session.py` |

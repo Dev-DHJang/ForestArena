@@ -24,6 +24,8 @@ signal presentation_event(event_id: StringName, payload: Dictionary)
 ## fighters exist. Normal scenes keep the Resource-driven startup path.
 @export var configure_profiles_on_ready := true
 
+var presentation_epoch := 0
+var presentation_sequence := 0
 var tick := 0
 var paused := false
 var winner_id: StringName
@@ -83,6 +85,11 @@ func step_fixed_tick(poll_local_input := true) -> void:
 
 
 func reset_match() -> void:
+	presentation_epoch += 1
+	presentation_sequence = 0
+	for fighter: FighterController in _fighters():
+		var callback := _on_fighter_presentation.bind(fighter)
+		if not fighter.presentation_event.is_connected(callback): fighter.presentation_event.connect(callback)
 	tick = 0
 	paused = false
 	winner_id = &""
@@ -233,8 +240,11 @@ func _resolve_hits() -> void:
 		context.target_position = target.global_position
 		context.source_facing = hit.source.locked_facing
 		context.source_direction = hit.source.locked_direction
+		var guard_before := target.runtime_state.guard_durability
 		var result := HitResolver.resolve(context, rules)
-		presentation_event.emit(&"hit_resolved", {"tick": tick, "attacker_id": hit.source.fighter_id, "defender_id": target.fighter_id, "attack_id": attack.attack_id, "result": HitResult.Type.keys()[result.type], "reaction": result.reaction})
+		_emit_presentation(&"hit_resolved", {"tick": tick, "attacker_id": hit.source.fighter_id, "defender_id": target.fighter_id, "attack_id": attack.attack_id, "result": HitResult.Type.keys()[result.type], "reaction": result.reaction, "action_id": attack.action_id, "character_id": hit.source.character_data.character_id, "activation_serial": hit.source.activation_serial})
+		if result.type == HitResult.Type.BLOCK and guard_before > 0.0 and target.runtime_state.guard_durability <= 0.0:
+			_emit_presentation(&"guard_break", {"tick": tick, "fighter_id": target.fighter_id})
 		if result.landed(): hit.source.register_landed_hit(attack)
 		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 		_hit_counts["%s:last" % hit.key] = tick
@@ -253,7 +263,7 @@ func _resolve_ring_outs() -> void:
 	if ring_outs.is_empty(): return
 	for fighter: FighterController in ring_outs: fighter.ring_out(rules)
 	for fighter: FighterController in ring_outs:
-		presentation_event.emit(&"ring_out", {"tick": tick, "fighter_id": fighter.fighter_id})
+		_emit_presentation(&"ring_out", {"tick": tick, "fighter_id": fighter.fighter_id})
 	_resolve_final_losses()
 
 
@@ -268,7 +278,7 @@ func _resolve_final_losses() -> void:
 			survivors.append(fighter)
 	if survivors.is_empty():
 		is_draw = true
-		presentation_event.emit(&"match_draw", {"tick": tick})
+		_emit_presentation(&"match_draw", {"tick": tick})
 		match_ended.emit(&"DRAW")
 		return
 	if local_match_mode == LocalMatchConfig.Mode.TEAM:
@@ -287,7 +297,7 @@ func _resolve_final_losses() -> void:
 
 
 func _finish_match(payload: Dictionary) -> void:
-	presentation_event.emit(&"match_end", payload)
+	_emit_presentation(&"match_end", payload)
 	for fighter: FighterController in _fighters():
 		fighter.state = FighterController.State.MATCH_ENDED
 	match_ended.emit(winner_id)
@@ -345,3 +355,19 @@ func _apply_stage_spawns() -> void:
 	for index: int in mini(fighters.size(), stage_data.spawn_points.size()):
 		fighters[index].spawn_position = stage_data.spawn_points[index]
 		fighters[index].global_position = stage_data.spawn_points[index]
+
+
+func _emit_presentation(event_id: StringName, payload: Dictionary) -> void:
+	presentation_sequence += 1
+	payload = payload.duplicate()
+	payload["epoch"] = presentation_epoch
+	payload["event_seq"] = presentation_sequence
+	presentation_event.emit(event_id, payload)
+
+
+func _on_fighter_presentation(event_id: StringName, payload: Dictionary, fighter: FighterController) -> void:
+	payload = payload.duplicate()
+	payload["tick"] = tick
+	payload["fighter_id"] = fighter.fighter_id
+	payload["character_id"] = fighter.character_data.character_id
+	_emit_presentation(event_id, payload)

@@ -7,6 +7,8 @@ const EffectData = preload("res://scripts/data/combat_effect_data.gd")
 
 ## Fixed-tick Phase 1 fighter. Geometry and visual state mirror the authority
 ## state for debugging, but physics overlap and animation never decide hits.
+signal presentation_event(event_id: StringName, payload: Dictionary)
+
 enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED }
 
 @export var fighter_id: StringName
@@ -183,7 +185,10 @@ func step_tick(rules: CombatRules) -> void:
 		_finish_tick()
 		return
 	if state == State.CHARGE:
+		var previous_charge := runtime_state.charge_ticks
 		runtime_state.charge_ticks = mini(runtime_state.charge_ticks + 1, charge_attack.charge_max_ticks if charge_attack != null else 0)
+		if charge_attack != null and previous_charge < charge_attack.charge_max_ticks and runtime_state.charge_ticks == charge_attack.charge_max_ticks:
+			presentation_event.emit(&"charge_ready", {})
 		velocity.x = move_toward(velocity.x, 0.0, rules.ground_deceleration / float(rules.physics_ticks_per_second))
 		move_and_slide()
 		_finish_tick()
@@ -376,6 +381,7 @@ func _try_jump(rules: CombatRules) -> void:
 	if is_on_floor():
 		velocity.y = -_stats().jump_velocity
 		state = State.JUMP
+		presentation_event.emit(&"jump", {})
 		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, rules)
 	elif air_jumps_remaining > 0 or launcher_jump_available:
 		if launcher_jump_available:
@@ -384,6 +390,7 @@ func _try_jump(rules: CombatRules) -> void:
 			air_jumps_remaining -= 1
 		velocity.y = -_stats().jump_velocity
 		state = State.JUMP
+		presentation_event.emit(&"jump", {})
 		EffectControllerScript.dispatch(EffectData.Trigger.ON_JUMP, self, null, rules)
 
 
@@ -396,6 +403,7 @@ func _try_dash() -> void:
 	velocity.x = _stats().dash_speed * direction
 	dash_ticks = maxi(1, roundi(_stats().dash_duration_seconds * 60.0))
 	state = State.DASH
+	presentation_event.emit(&"dash", {})
 
 
 func _start_charge(intent: CombatIntent) -> void:
@@ -408,6 +416,7 @@ func _start_charge(intent: CombatIntent) -> void:
 	locked_direction = intent.direction
 	runtime_state.charge_ticks = 0
 	state = State.CHARGE
+	presentation_event.emit(&"charge_start", {})
 
 
 func _release_charge(rules: CombatRules) -> void:
@@ -454,6 +463,11 @@ func _start_attack(next: AttackData, direction: CombatIntent.Direction, rules: C
 	# always supplies its rules; the fallback is only the contract default.
 	if next.action_id == &"attack_special": runtime_state.special_cooldown_ticks = rules.special_cooldown_ticks if rules != null else 45
 	state = State.ATTACK_STARTUP
+	var direction_name := "neutral"
+	if next.input_direction == AttackData.InputDirection.UP: direction_name = "up"
+	elif next.input_direction == AttackData.InputDirection.DOWN: direction_name = "down"
+	elif next.input_direction in [AttackData.InputDirection.FORWARD, AttackData.InputDirection.BACK, AttackData.InputDirection.ANY_HORIZONTAL]: direction_name = "side"
+	presentation_event.emit(&"attack_started", {"attack_id": next.attack_id, "action_id": next.action_id, "activation_serial": activation_serial, "direction": direction_name})
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_ATTACK_START, self, null, rules if rules != null else CombatRules.new(), &"", 0, next.tags)
 
 
@@ -529,6 +543,7 @@ func _respawn(rules: CombatRules) -> void:
 	charge_attack = null
 	runtime_state.charge_ticks = 0
 	state = State.IDLE
+	presentation_event.emit(&"respawn", {})
 
 
 func _try_evade(rules: CombatRules) -> void:
@@ -541,6 +556,7 @@ func _try_evade(rules: CombatRules) -> void:
 	facing = horizontal
 	velocity.x = horizontal * _stats().dash_speed
 	state = State.EVADE
+	presentation_event.emit(&"evade", {})
 
 
 func _try_cancel(intent: CombatIntent, rules: CombatRules) -> bool:
@@ -644,6 +660,8 @@ func _sync_debug_hitbox() -> void:
 
 
 func _finish_tick() -> void:
+	if is_on_floor() and not runtime_state.grounded and state not in [State.SPAWNING, State.DEAD, State.RING_OUT, State.MATCH_ENDED]:
+		presentation_event.emit(&"land", {})
 	runtime_state.state_id = State.keys()[state]
 	runtime_state.active_attack_id = &"" if active_attack == null else active_attack.attack_id
 	runtime_state.velocity = velocity
