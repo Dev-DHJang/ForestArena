@@ -81,6 +81,13 @@ func _test_sequences() -> void:
 	check(audio.played_count == before + 4, "visual reduction does not mute sound")
 
 func _test_voice_budget() -> void:
+	var limiter_count := 0
+	for index: int in AudioServer.get_bus_effect_count(0):
+		var effect := AudioServer.get_bus_effect(0, index)
+		if effect is AudioEffectLimiter:
+			limiter_count += 1
+			check(effect.ceiling_db <= -1.0, "combined mix has headroom below clipping")
+	check(limiter_count == 1, "master has one limiter even with isolated settings managers")
 	audio.stop_effects()
 	for repeat: int in 5:
 		for key: String in ["ui_click", "ui_back", "ui_select", "ui_confirm", "ui_error"]: audio.play_event(StringName(key))
@@ -153,7 +160,10 @@ func _test_music_and_lifecycle() -> void:
 	check(audio.context == "battle", "old result deadline cannot interrupt rematch music")
 
 func _test_settings() -> void:
-	var path := "/private/tmp/audio-contract-%d.cfg" % Time.get_ticks_usec()
+	var temporary_root := OS.get_environment("TMPDIR")
+	if temporary_root.is_empty(): temporary_root = OS.get_environment("TEMP")
+	if temporary_root.is_empty(): temporary_root = "/tmp"
+	var path := temporary_root.path_join("audio-contract-%d.cfg" % Time.get_ticks_usec())
 	var config := ConfigFile.new()
 	config.set_value("audio", "music", "broken")
 	config.set_value("audio", "effects", 3.0)

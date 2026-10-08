@@ -30,6 +30,14 @@ func _ready() -> void:
 			AudioServer.add_bus()
 			AudioServer.set_bus_name(AudioServer.bus_count - 1, bus)
 			AudioServer.set_bus_send(AudioServer.bus_count - 1, &"Master")
+	var has_limiter := false
+	for index: int in AudioServer.get_bus_effect_count(0):
+		if AudioServer.get_bus_effect(0, index) is AudioEffectLimiter: has_limiter = true
+	if not has_limiter:
+		var limiter := AudioEffectLimiter.new()
+		limiter.ceiling_db = -1.0
+		limiter.threshold_db = -3.0
+		AudioServer.add_bus_effect(0, limiter)
 	event_map = JSON.parse_string(FileAccess.get_file_as_string("res://forest_arena/data/audio_events_v01.json"))
 	for index: int in 2:
 		var player := AudioStreamPlayer.new()

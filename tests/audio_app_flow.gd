@@ -19,7 +19,10 @@ func run() -> void:
 	audio.set_levels(0.6, 0.8, false, false)
 	audio.set_suspended(false)
 	var app: Node = (load("res://scenes/local_ai_app.tscn") as PackedScene).instantiate()
-	var path := "/private/tmp/audio-app-%d.json" % Time.get_ticks_usec()
+	var temporary_root := OS.get_environment("TMPDIR")
+	if temporary_root.is_empty(): temporary_root = OS.get_environment("TEMP")
+	if temporary_root.is_empty(): temporary_root = "/tmp"
+	var path := temporary_root.path_join("audio-app-%d.json" % Time.get_ticks_usec())
 	app.save_path = path
 	app.db_session_path = "user://audio-app-no-db.json"
 	root.add_child(app)
