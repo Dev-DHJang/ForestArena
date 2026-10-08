@@ -1,0 +1,55 @@
+# 음악·효과음 v02 청취 시안
+
+현재 게임의 소리 연결을 바꾸기 전, 제작 방향을 듣고 정하는 시안이다. 로비·전투 각30초와 대표 효과음6개를 이전 v01과 비교한다. 사용자가 시안을 듣고 방향을 확정하면 전체 음악80/90초와 효과음45개 제작·교체를 진행한다.
+
+[비교 미리듣기](preview.html)를 브라우저로 연다. 파일을 직접 열어 재생할 수 없으면 이 폴더만 로컬 서버로 제공한다.
+
+```sh
+python3 tools/forest_arena/serve_audio_v02_preview.py
+```
+
+이 서버는 음원 위치 탐색에 필요한 HTTP byte range(파일의 일부만 요청하는 기능)를 지원하며 시안 폴더만127.0.0.1에서 제공한다.
+
+`http://127.0.0.1:8875/preview.html`에서 같은 소리를 A·이전 / B·새 시안으로 바꿔 듣는다. 자동 재생이나 외부 업로드는 없다. 음악 비교는 위치를 이어 듣고, 효과음은 처음부터 듣는다.
+
+## 무엇이 달라졌는가
+
+- 로비: 96 BPM, G major, 오보에 주선율에 플루트 응답, 현악·첼로·하프·피아노·더블베이스·호른·타악으로 구성한 12마디 소품. 도입2마디 뒤 선율을 제시하고 응답·상행·종지로 전개한다.
+- 전투: 128 BPM, A minor, 플루트 선율과 현악·하프의 움직임에 저음·호른·타악을 더한 16마디 소품. 중간 C major 색채와 마지막 Am 종지를 사용한다.
+- 효과음: 높은 종소리·긴 상승·연속 음계를 줄이고 목재 공명, 공기, 중저음 충격을 보강했다. 묘령은 가벼운 공중 질감, 자현은 목재와 기류의 힘을 남겼다.
+- 비교음량: 음악은 EBU R128의 전체 청감 음량(LUFS-I)을 맞췄다. 아주 짧은 효과음은 250ms 간격으로 같은 횟수 반복한 신호를 측정해 맞췄다. 목표는 음악 -18 / 효과음 -22 LUFS이며 두 버전 모두 true peak(샘플 사이까지 추정한 최대 크기) -2dB를 넘지 않도록 필요하면 공통 목표를 낮춘다. 수치·방법은 manifest에 남긴다. 수치 일치가 모든 사람이 같은 크기로 느낀다는 뜻은 아니다.
+
+이 30초 파일은 끝에0.65초 사라지는 구간이 있는 **비반복 청취 시안**이다. 게임용 전체 반복 경계가 검증됐다는 뜻이 아니다. 참고 영상은 사용자가 제시한 MapleStory Title Theme의 제작 완성도 기준이며 녹음·음표·선율을 추출하거나 복사하지 않았다. 이번 악보는 프로젝트 코드에서 별도로 작성했다. 참고 수준의 청감 품질인지 자동 검사만으로 판정하지 않는다.
+
+## 파일과 권리
+
+- `source/music/`: 렌더링한 두 음악과 각각의 악기별 WAV9개, MIDI와 음표·강약·배치 JSON. 악기별 파일은 잔향 확인용2초 여유를 포함한다. 최종30초 비교음원과 길이가 다르다.
+- `source/sfx/`: 직접 합성한 대표 효과음6개. 외부 녹음·음성 없음.
+- `comparison/`: v01/v02의 음량을 맞춘16개 비교 WAV. 44100Hz PCM16, 음악 스테레오/효과음 모노.
+- `manifest.json`: 제작기 확인값(SHA256), 악기 라이브러리·도구 버전·설정·출처·전체 파일 확인값과 음량 측정값.
+- `licenses/FluidR3-COPYRIGHT.txt`: FluidR3 GM의 MIT 허가문·저작자·기여자 표시. Frank Wen ©2000–2002,2008와 기여자에게 악기 샘플 권리가 있다. 프로젝트가 모든 악기 녹음까지 직접 만들었다고 주장하지 않는다.
+
+FluidR3_GM.sf2와 FluidSynth는 제작에만 사용한다. 악기 라이브러리를 저장소나 APK에 넣지 않으며 `assets/audio/.gdignore`가 제작용 파일을 Godot에서 제외한다. 현재 `fa.audio.*` 논리 ID·게임 코드·재생 정책은 기존 v01이다.
+
+## 다시 생성
+
+Python3+NumPy, ffmpeg, FluidSynth2.6.0이 필요하다. macOS에서는 공식 Homebrew의 `brew install fluidsynth`로 설치할 수 있다. 도구 버전이 다르면 결과 파일의 확인값이 달라질 수 있으므로 manifest의 버전을 함께 확인한다.
+
+악기는 Debian 공식 배포의 `fluid-soundfont-gm_3.1-5.3_all.deb`를 받아 **실행하거나 설치하지 않고** 압축을 풀어 사용한다.
+
+- 배포: https://deb.debian.org/debian/pool/main/f/fluid-soundfont/fluid-soundfont-gm_3.1-5.3_all.deb
+- 패키지 SHA256: `6f531493ac4e4d9772fd96b2488ea1790af81c196135fbdd25997da0781fc60e`
+- `ar -x <package.deb> data.tar.xz` 뒤 `tar -xf data.tar.xz`로 추출한다. `usr/share/sounds/sf2/FluidR3_GM.sf2` 확인값은 `74594e8f4250680adf590507a306655a299935343583256f3b722c48a1bc1cb0`이다.
+
+저장소 루트에서 실행한다. `--soundfont`에는 추출한 파일 경로를 지정한다. macOS에서 라이브러리 검색이 안 되면 `--fluidsynth-library /opt/homebrew/lib/libfluidsynth.dylib`를 추가한다.
+
+```sh
+python3 tools/forest_arena/generate_audio_v02_preview.py --soundfont /path/to/FluidR3_GM.sf2
+python3 tools/forest_arena/verify_audio_v02_preview.py
+```
+
+`--output /tmp/audio-preview-rebuild`를 주면 저장된 시안을 덮지 않고 다시 만들 수 있다. `--skip-music`은 이미 렌더링한 음악을 재사용하여 비교음량만 갱신하는 선택 사항이며, 음악을 다시 제작하거나 렌더링한 것으로 기록하지 않는다. 필요한 악기 파일이 없거나 확인값이 다르면 단순 파형 음원으로 대체하지 않고 실패한다.
+
+## 청취 후 확인
+
+AUDIO-V02-PREVIEW: 음악의 자연스러운 음색·선율/반주 분리·숲 분위기·전투 추진력과 효과음의 덜 발랄한 정도·동작 구분을 듣고 대화에 의견을 남긴다. 방향 확정 뒤 전체 제작·8인전 믹스를 확인한다. 실제 Android 청취·출력 전환·중단/복귀는 후속이며 아직 수행하지 않았다.

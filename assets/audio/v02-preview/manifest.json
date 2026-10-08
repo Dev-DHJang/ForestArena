@@ -1,0 +1,849 @@
+{
+  "version": 2,
+  "stage": "listening_preview",
+  "runtime_connected": false,
+  "human_listening_approved": false,
+  "reference": {
+    "url": "https://www.youtube.com/watch?v=paAK7Q_AAlo",
+    "title": "MapleStory OST - Title Theme (Uncompressed)",
+    "use": "Quality reference supplied by user; no audio, melody transcription or recording copied."
+  },
+  "rights": {
+    "composition": "Original project-authored score and procedural SFX.",
+    "music_samples": "FluidR3 GM; MIT; full notices in licenses/FluidR3-COPYRIGHT.txt",
+    "sfx": "Original sample-free synthesis; no third-party recordings; no voices."
+  },
+  "soundfont": {
+    "name": "FluidR3_GM.sf2",
+    "sha256": "74594e8f4250680adf590507a306655a299935343583256f3b722c48a1bc1cb0",
+    "package_url": "https://deb.debian.org/debian/pool/main/f/fluid-soundfont/fluid-soundfont-gm_3.1-5.3_all.deb",
+    "package_sha256": "6f531493ac4e4d9772fd96b2488ea1790af81c196135fbdd25997da0781fc60e",
+    "license_file": "licenses/FluidR3-COPYRIGHT.txt",
+    "bundled": false
+  },
+  "toolchain": {
+    "numpy": "2.4.0",
+    "fluidsynth": "FluidSynth runtime version 2.6.0",
+    "ffmpeg": "ffmpeg version 9.0.1 Copyright (c) 2000-2026 the FFmpeg developers",
+    "settings": {
+      "sample_rate_hz": 44100,
+      "synth_gain": 0.5,
+      "reverb": false,
+      "chorus": false,
+      "cpu_cores": 1,
+      "room_reflections_seconds": [
+        0.037,
+        0.071,
+        0.113,
+        0.179,
+        0.251,
+        0.337,
+        0.457,
+        0.613
+      ],
+      "preview_fade_in_seconds": 0.025,
+      "preview_fade_out_seconds": 0.65
+    }
+  },
+  "generators": [
+    {
+      "path": "tools/forest_arena/audio_v02_music.py",
+      "sha256": "85bf4c1e10701cf6e5a7afcb67c3be5dc514ec9f39ca46d4f9cebfc2bc14c3ea"
+    },
+    {
+      "path": "tools/forest_arena/audio_v02_sfx.py",
+      "sha256": "75da5e270d049ff197be8d47b5f6cbc1eef9e112a1013dc536f14aa57f871f42"
+    },
+    {
+      "path": "tools/forest_arena/generate_audio_v02_preview.py",
+      "sha256": "7287af80664705a2fddf8d8e9f192f7753390e28e19934038b965b5f4d4e7f15"
+    }
+  ],
+  "comparisons": [
+    {
+      "name": "lobby",
+      "duration_seconds": 30.0,
+      "music": true,
+      "matching": {
+        "method": "EBU R128 integrated",
+        "target_lufs": -18.0,
+        "before": [
+          {
+            "i": -14.18,
+            "tp": -3.12,
+            "lra": 1.0,
+            "thresh": -24.18
+          },
+          {
+            "i": -29.85,
+            "tp": -17.59,
+            "lra": 5.1,
+            "thresh": -39.9
+          }
+        ],
+        "after": [
+          {
+            "i": -18.01,
+            "tp": -6.94,
+            "lra": 1.0,
+            "thresh": -28.01
+          },
+          {
+            "i": -18.0,
+            "tp": -5.74,
+            "lra": 5.0,
+            "thresh": -28.05
+          }
+        ]
+      }
+    },
+    {
+      "name": "battle",
+      "duration_seconds": 30.0,
+      "music": true,
+      "matching": {
+        "method": "EBU R128 integrated",
+        "target_lufs": -18.0,
+        "before": [
+          {
+            "i": -16.48,
+            "tp": -3.72,
+            "lra": 0.9,
+            "thresh": -26.51
+          },
+          {
+            "i": -27.45,
+            "tp": -15.93,
+            "lra": 3.8,
+            "thresh": -37.5
+          }
+        ],
+        "after": [
+          {
+            "i": -18.0,
+            "tp": -5.24,
+            "lra": 0.9,
+            "thresh": -28.02
+          },
+          {
+            "i": -18.0,
+            "tp": -6.48,
+            "lra": 3.8,
+            "thresh": -28.05
+          }
+        ]
+      }
+    },
+    {
+      "name": "ui_click",
+      "duration_seconds": 0.22,
+      "music": false,
+      "matching": {
+        "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
+        "target_lufs": -23.93,
+        "before": [
+          {
+            "i": -16.34,
+            "tp": -4.14,
+            "lra": 0.7,
+            "thresh": -26.4
+          },
+          {
+            "i": -25.95,
+            "tp": -4.12,
+            "lra": 0.6,
+            "thresh": -36.35
+          }
+        ],
+        "after": [
+          {
+            "i": -23.93,
+            "tp": -11.73,
+            "lra": 0.7,
+            "thresh": -33.99
+          },
+          {
+            "i": -23.86,
+            "tp": -2.1,
+            "lra": 0.7,
+            "thresh": -34.26
+          }
+        ]
+      }
+    },
+    {
+      "name": "jump",
+      "duration_seconds": 0.22,
+      "music": false,
+      "matching": {
+        "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
+        "target_lufs": -22.0,
+        "before": [
+          {
+            "i": -18.41,
+            "tp": -2.35,
+            "lra": 0.7,
+            "thresh": -28.41
+          },
+          {
+            "i": -19.76,
+            "tp": -2.38,
+            "lra": 0.7,
+            "thresh": -29.82
+          }
+        ],
+        "after": [
+          {
+            "i": -22.01,
+            "tp": -5.94,
+            "lra": 0.7,
+            "thresh": -32.01
+          },
+          {
+            "i": -22.03,
+            "tp": -4.62,
+            "lra": 0.6,
+            "thresh": -32.09
+          }
+        ]
+      }
+    },
+    {
+      "name": "hit_heavy",
+      "duration_seconds": 0.22,
+      "music": false,
+      "matching": {
+        "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
+        "target_lufs": -22.83,
+        "before": [
+          {
+            "i": -23.06,
+            "tp": -2.33,
+            "lra": 0.7,
+            "thresh": -33.12
+          },
+          {
+            "i": -22.56,
+            "tp": -2.32,
+            "lra": 0.6,
+            "thresh": -32.81
+          }
+        ],
+        "after": [
+          {
+            "i": -22.85,
+            "tp": -2.1,
+            "lra": 0.7,
+            "thresh": -32.91
+          },
+          {
+            "i": -22.79,
+            "tp": -2.59,
+            "lra": 0.7,
+            "thresh": -33.04
+          }
+        ]
+      }
+    },
+    {
+      "name": "guard_break",
+      "duration_seconds": 0.65,
+      "music": false,
+      "matching": {
+        "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
+        "target_lufs": -23.11,
+        "before": [
+          {
+            "i": -21.07,
+            "tp": -2.34,
+            "lra": 1.2,
+            "thresh": -32.94
+          },
+          {
+            "i": -23.39,
+            "tp": -2.38,
+            "lra": 1.3,
+            "thresh": -34.94
+          }
+        ],
+        "after": [
+          {
+            "i": -23.09,
+            "tp": -4.38,
+            "lra": 1.2,
+            "thresh": -34.96
+          },
+          {
+            "i": -23.12,
+            "tp": -2.1,
+            "lra": 1.3,
+            "thresh": -34.66
+          }
+        ]
+      }
+    },
+    {
+      "name": "myo-ryung_special_up",
+      "duration_seconds": 0.65,
+      "music": false,
+      "matching": {
+        "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
+        "target_lufs": -22.0,
+        "before": [
+          {
+            "i": -16.24,
+            "tp": -2.38,
+            "lra": 1.1,
+            "thresh": -27.4
+          },
+          {
+            "i": -20.67,
+            "tp": -2.38,
+            "lra": 1.1,
+            "thresh": -31.84
+          }
+        ],
+        "after": [
+          {
+            "i": -22.04,
+            "tp": -8.14,
+            "lra": 1.2,
+            "thresh": -33.2
+          },
+          {
+            "i": -21.97,
+            "tp": -3.71,
+            "lra": 1.1,
+            "thresh": -33.14
+          }
+        ]
+      }
+    },
+    {
+      "name": "ja-hyun_ultimate",
+      "duration_seconds": 1.15,
+      "music": false,
+      "matching": {
+        "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
+        "target_lufs": -22.0,
+        "before": [
+          {
+            "i": -16.51,
+            "tp": -2.35,
+            "lra": 1.1,
+            "thresh": -29.07
+          },
+          {
+            "i": -21.42,
+            "tp": -2.36,
+            "lra": 1.0,
+            "thresh": -33.99
+          }
+        ],
+        "after": [
+          {
+            "i": -21.98,
+            "tp": -7.84,
+            "lra": 1.1,
+            "thresh": -34.49
+          },
+          {
+            "i": -22.02,
+            "tp": -2.94,
+            "lra": 1.0,
+            "thresh": -34.59
+          }
+        ]
+      }
+    }
+  ],
+  "sfx": [
+    {
+      "name": "ui_click",
+      "duration": 0.22,
+      "notes": "높은 단일 종 대신 짧은 나무 스위치 공명과 손끝 마찰. 클릭의 밝은 끝은 소량 유지.",
+      "source": "source/sfx/ui_click.wav",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "sha256": "fcf807a2f8457b4cee89b7ab526bf3381635b8c204f469ee26d97fe51581e27a",
+      "peak": 0.62,
+      "rms": 0.073931
+    },
+    {
+      "name": "jump",
+      "duration": 0.22,
+      "notes": "큰 상승음 대신 짧은 공기 추진과 낮은 탄성. 완만한 상승만 남겨 점프 방향을 표현.",
+      "source": "source/sfx/jump.wav",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "sha256": "85482e24d903eac3e4d068ab155205e48f9f29038449688f1b23390f888f47a2",
+      "peak": 0.76,
+      "rms": 0.162663
+    },
+    {
+      "name": "hit_heavy",
+      "duration": 0.22,
+      "notes": "중저음 충격·목재 균열·짧은 공기층을 겹쳐 무게와 타격의 앞부분을 분리.",
+      "source": "source/sfx/hit_heavy.wav",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "sha256": "0499d5e22dd1fd8941de59b05329d1335ac7b881da8a5cdbe2abe77dfd1606f0",
+      "peak": 0.76,
+      "rms": 0.119843
+    },
+    {
+      "name": "guard_break",
+      "duration": 0.65,
+      "notes": "높은 세 음 종소리를 제거하고 불규칙한 목재 파편과 낮은 받침 붕괴를 표현.",
+      "source": "source/sfx/guard_break.wav",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "sha256": "a5862b714a29ea67dd1488ce5ee6925444ab136edad605501ee002bba5d2b08f",
+      "peak": 0.76,
+      "rms": 0.06515
+    },
+    {
+      "name": "myo-ryung_special_up",
+      "duration": 0.65,
+      "notes": "묘령의 가벼운 공중 감각은 유지하되 상승 아르페지오를 넓은 숨결과 잔잔한 두 공명으로 변경.",
+      "source": "source/sfx/myo-ryung_special_up.wav",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "sha256": "3d2bbb051343c2a380be38f494250d212a0d49b18d4ef0049da8dc127530ac5e",
+      "peak": 0.76,
+      "rms": 0.109103
+    },
+    {
+      "name": "ja-hyun_ultimate",
+      "duration": 1.15,
+      "notes": "자현의 나무·기류 질감은 유지하고 다섯 음 상승을 세 번의 둔한 목재 힘과 낮은 공기 방출로 변경.",
+      "source": "source/sfx/ja-hyun_ultimate.wav",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "sha256": "9c81826018998970e76293506c1e4621e56779808f54ffc999cb6e0dae690d3d",
+      "peak": 0.76,
+      "rms": 0.08154
+    }
+  ],
+  "files": [
+    {
+      "path": "comparison/battle_v01.wav",
+      "sha256": "57dbe4461419c29275f22acbd01d76017365fe00b8d0d1c839d9c6f50f2c9887",
+      "bytes": 5292044,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 30.0
+    },
+    {
+      "path": "comparison/battle_v02.wav",
+      "sha256": "bcc80b1efd4b40db8cc3311ef22bd7a98439b8cc6f5daaf1f5672f289236e2a6",
+      "bytes": 5292044,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 30.0
+    },
+    {
+      "path": "comparison/guard_break_v01.wav",
+      "sha256": "f73ea2df6600457abcd5aa60d1213931dba44f6c224aad3e363ea61913c19953",
+      "bytes": 57374,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.65
+    },
+    {
+      "path": "comparison/guard_break_v02.wav",
+      "sha256": "2590b0e8df04bffb8324bc5e0fddf9b63a9d6692767073cdd6a4574ed69a2a53",
+      "bytes": 57374,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.65
+    },
+    {
+      "path": "comparison/hit_heavy_v01.wav",
+      "sha256": "1067bf4aff5e3851e86229318f6f96307ecdae54d06580fa956980ccc4018491",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "comparison/hit_heavy_v02.wav",
+      "sha256": "7dc63b4f2b891e4bce8375480ef8428aeb61571210618539fcaf2330491552e8",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "comparison/ja-hyun_ultimate_v01.wav",
+      "sha256": "d4dea2430ea0662eb5c0cfcf99b0bec71a2a727d6d53657cd41f7c537437f765",
+      "bytes": 101474,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 1.15
+    },
+    {
+      "path": "comparison/ja-hyun_ultimate_v02.wav",
+      "sha256": "c65543f4a56d5ff5e7f2467126b6077eb86a50a5b540a03fbfa21500ded5edf3",
+      "bytes": 101474,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 1.15
+    },
+    {
+      "path": "comparison/jump_v01.wav",
+      "sha256": "79b2730e6c39e1d0a28b5a81bcf9c48ea978f878bc546931384395bdd499e12d",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "comparison/jump_v02.wav",
+      "sha256": "ce7a2ec555f756c57a40861758a1f6f41a3632e38b20710c28e41f24e728854f",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "comparison/lobby_v01.wav",
+      "sha256": "b2887a2ff773e6cd806a992a552b7f656f063148ce7c22d2d71bb2982de03181",
+      "bytes": 5292044,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 30.0
+    },
+    {
+      "path": "comparison/lobby_v02.wav",
+      "sha256": "851a2b0f359b15cf278f9d8d640beba725750d5094ff3dbf7154c2841c64545c",
+      "bytes": 5292044,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 30.0
+    },
+    {
+      "path": "comparison/myo-ryung_special_up_v01.wav",
+      "sha256": "8a810f99ea6415489610f2df9a860f56ad3ad9639ce54b5fd8dbcf7af05d0ece",
+      "bytes": 57374,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.65
+    },
+    {
+      "path": "comparison/myo-ryung_special_up_v02.wav",
+      "sha256": "35338d8407fd4540b709da9deb4737949f5a5d713df8e7763ffcfd7bc9995806",
+      "bytes": 57374,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.65
+    },
+    {
+      "path": "comparison/ui_click_v01.wav",
+      "sha256": "87bb34e38f4def7e54fb79bb38b872123dcdaadc817172564a3d5f5860fe478c",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "comparison/ui_click_v02.wav",
+      "sha256": "bd7638970578908244a272048adf9d02416f07c0b9cdc5eb5cb5bc28a2cfbbfa",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "licenses/FluidR3-COPYRIGHT.txt",
+      "sha256": "f2f5e6358fc7c1fe62aafc6c8229c4c5898e5afb0d4ce1322b15362a8cbd600e",
+      "bytes": 2132
+    },
+    {
+      "path": "preview.html",
+      "sha256": "023b04edd6d769ff41a135cc19c4af59f8dd0617e4a62e73a2624fdeeddcac9a",
+      "bytes": 13205
+    },
+    {
+      "path": "source/music/battle/answer.wav",
+      "sha256": "786307ab5352fd199c4173b2fdd0fb98519d50198a29e758f5156dca146381c3",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/bass.wav",
+      "sha256": "150e34799d2b3fcd26986a8035aa46ae68d341ad1c0492fe4943aef980e7046a",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/counter.wav",
+      "sha256": "71a6d47668f95cb0ac3e23de08f38842be707e21723f574b41b645b9abe4a208",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/drums.wav",
+      "sha256": "fec61f60ad84c2d02fb1552fac2ce4128aa4cce4b073d15bcd1e7ede7fc40471",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/harp.wav",
+      "sha256": "b29c5f6b1cd20623d92e41be038b3cd71ca24d33a41033a4d935facbdce78078",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/horn.wav",
+      "sha256": "86417f8bcafd9abcfbfcdb314a50c5bea3e77d9fe9a1b20e0c57235ae862c595",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/lead.wav",
+      "sha256": "c1b7a973d2fd83ba0d510ebbc117e3611a5f6eb1fe60ec49120230c03ea175b8",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/piano.wav",
+      "sha256": "ef6ad2d72354d39746b7c1bf71e1d18f605fa6d7e1dcf23893306f88998a2be4",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle/score.json",
+      "sha256": "ea84143763ef808ae11c70f7246d035557ef31eda71321d047e432f5a52b9e11",
+      "bytes": 71424
+    },
+    {
+      "path": "source/music/battle/score.mid",
+      "sha256": "9956df32dca9f8d30c8db0c833712dd2e0925d7759e98d27b06e4dfd5dea79c8",
+      "bytes": 5289
+    },
+    {
+      "path": "source/music/battle/strings.wav",
+      "sha256": "8e6664561e914a6f10d11b539d268789f21cb8aeb90eaeeb541713203e313cad",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/battle_mix.wav",
+      "sha256": "c96941f7759a6ddc8bf4fa0514f22ded87c22865a64b1b65fe51b8fd7c9a977c",
+      "bytes": 5292044,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 30.0
+    },
+    {
+      "path": "source/music/lobby/answer.wav",
+      "sha256": "6b3a471444b881f7b721868b206a1151fbac43c0eca19cba91686b2e49915fbd",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/bass.wav",
+      "sha256": "ca8948448cb636e3ee846590d7ee7c3c6592a58a733bc301a03e5457a7e485ac",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/counter.wav",
+      "sha256": "0b0ad93815b643d1730402c751c25da36285bc57c3d6e06f23b5ef4ccb31673e",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/drums.wav",
+      "sha256": "b102a8fc0abe755d7009329ace4ef9afa5b2dd569f62afcc7e9b9abcbec65918",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/harp.wav",
+      "sha256": "cb47e50b17a3f1b958faaa13ce9fa1e98fed524007e813e83ac51268bd2de04c",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/horn.wav",
+      "sha256": "bd299b9831bcdb96060acafaeb353972a9692827a9e63fcc2bc59da10f36361c",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/lead.wav",
+      "sha256": "0455dbb350f72b1afc1ba3ce385688026cd301355773e3d0edd41fecf721416e",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/piano.wav",
+      "sha256": "039049a532c0bb3b4ca5d17036d5d40a10e2503044b20bcd5c5cd3ba4ae371d7",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby/score.json",
+      "sha256": "2ee80fe7f52de097d1c81107cbb67cb995da786c617d0817c655d7ee93b22328",
+      "bytes": 32374
+    },
+    {
+      "path": "source/music/lobby/score.mid",
+      "sha256": "fe6a8bd1ce11ac08e5181e8c785170cdeaddd2cb8551441cebf7a173d1f123b7",
+      "bytes": 2494
+    },
+    {
+      "path": "source/music/lobby/strings.wav",
+      "sha256": "5a797117cbc005a8c9a92598682be0138a9ceae58f2ce4c0f5fbcd4c8cfb0b44",
+      "bytes": 5644844,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 32.0
+    },
+    {
+      "path": "source/music/lobby_mix.wav",
+      "sha256": "af0faadb3004e56f1aa6ab012c8e5f4a994999f73c9f0e50fce0b734131a15fc",
+      "bytes": 5292044,
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "pcm_bits": 16,
+      "duration_seconds": 30.0
+    },
+    {
+      "path": "source/sfx/guard_break.wav",
+      "sha256": "a5862b714a29ea67dd1488ce5ee6925444ab136edad605501ee002bba5d2b08f",
+      "bytes": 57374,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.65
+    },
+    {
+      "path": "source/sfx/hit_heavy.wav",
+      "sha256": "0499d5e22dd1fd8941de59b05329d1335ac7b881da8a5cdbe2abe77dfd1606f0",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "source/sfx/ja-hyun_ultimate.wav",
+      "sha256": "9c81826018998970e76293506c1e4621e56779808f54ffc999cb6e0dae690d3d",
+      "bytes": 101474,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 1.15
+    },
+    {
+      "path": "source/sfx/jump.wav",
+      "sha256": "85482e24d903eac3e4d068ab155205e48f9f29038449688f1b23390f888f47a2",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "source/sfx/myo-ryung_special_up.wav",
+      "sha256": "3d2bbb051343c2a380be38f494250d212a0d49b18d4ef0049da8dc127530ac5e",
+      "bytes": 57374,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.65
+    },
+    {
+      "path": "source/sfx/ui_click.wav",
+      "sha256": "fcf807a2f8457b4cee89b7ab526bf3381635b8c204f469ee26d97fe51581e27a",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    }
+  ],
+  "limits": [
+    "Listening preview, not a loop or complete 80/90 second track.",
+    "Automatic signal checks cannot establish reference-level perceived quality.",
+    "Human audition and physical Android output not yet verified."
+  ]
+}
