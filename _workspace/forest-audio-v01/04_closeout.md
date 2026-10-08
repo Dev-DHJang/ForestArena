@@ -15,10 +15,10 @@
 - PASS: 47 음원·확인값·재생성 일치·형식·신호·반복 경계.
 - PASS: Godot 음원 로드, 이벤트 분류·음소거·동시 재생·설정 복원·생명주기·빠른 재대전.
 - PASS: 실제 앱 UI·로컬/팀/LAN 결과음·성공/거절 필살기·오디오 유무 전투 결과 동일성.
-- PASS: 실제 LAN 두 클라이언트 연결·경기·재대전 검사(최종 전체 검사에서 추가 확인 중).
+- PASS: 실제 LAN 두 클라이언트 연결·경기·재대전 검사. 최종 전체 검사에서도 verify-lan-runtime: PASS.
 - PASS: Android APK 생성·패키지 규칙. 음원 47개와 이벤트 데이터 포함, 원본 WAV·개발 테스트 제외.
 - PASS: 문서·하네스·397개 Godot 리소스 연결 검사.
-- 진행 중: 최종 ./scripts/verify.sh 한 번의 전체 실행.
+- PASS: 최종 ./scripts/verify.sh 종료 코드 0, Forest Arena verification passed. 4a7cef4에서 전체 실행을 마쳤고, 이후 단독 장면 승패음 보강은 ./scripts/verify-audio.sh로 음원·실제 장면·앱 흐름을 다시 검사해 경고 없이 PASS.
 - 미확인: 사람의 음악 3회 반복 청취, 최대 8인전 믹스, 실제 Android 스피커·이어폰 전환·중단/복귀 청취. adb devices 결과 연결 기기가 없다. 사용자에게 후속 검증으로 남길지 질문했으며 아직 답변을 받지 않았다.
 
 QA에서 발견한 LAN 확인 화면 음악·결과음 순서·전용 서버 장면 접근·종료 소리 자원 정리 문제는 각각 수정하고 재검사했다. Phase 6 완료로 기록하지 않는다.
@@ -28,7 +28,10 @@ QA에서 발견한 LAN 확인 화면 음악·결과음 순서·전용 서버 장
 - 기준: origin/develop b1a0db191becc955045aed828028387c7b4c9b16.
 - 브랜치: feature/forest-audio-v01.
 - 현재 구현 체크아웃: /private/tmp/forest-audio-v01. 원 작업 폴더의 기존 수정 사항을 보존했다.
-- commit·PR·병합: 다음 단계에서 최종 검사 결과와 함께 기록한다. 실제 청취·기기 검증 또는 사용자 명시적 후속 처리 전에는 전체 완료로 기록하지 않는다.
+- 구현 commit: 0179cdd, 믹스·종료 검사 보강: 4a7cef4, 단독 장면 승패음·엄격한 검사 보강: ca6321a.
+- PR: https://github.com/Dev-DHJang/ForestArena/pull/72 (develop 대상 draft). 실제 청취·기기 검증 또는 사용자 명시적 후속 처리 전에는 전체 완료·병합으로 기록하지 않는다.
+- 보존된 검토 체크아웃: /Users/jdh/.codex/worktrees/forest-audio-review/ForestTales.
+- 병합 SHA: 없음. 사용자 검증 처리 답변 대기.
 - 롤백: 이 작업의 PR 병합 commit을 develop에서 revert하고 기존 fa.audio.* 호출·설정을 함께 되돌린다. 새 기기별 소리 cfg는 기존 프로필 데이터와 별개다.
 
 ## 다음 확인
