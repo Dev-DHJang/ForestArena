@@ -29,6 +29,8 @@ godot --headless --path . --script res://tests/character_motion_contract.gd
 godot --headless --path . --script res://tests/character_attack_motion_contract.gd
 godot --headless --path . --script res://tests/combat_concept_contract.gd
 godot --headless --path . --script res://tests/ui_design_contract.gd
+godot --headless --path . --script res://tests/battle_minimap.gd
+godot --headless --path . --script res://tests/battle_minimap_app_flow.gd
 godot --headless --path . --script res://tests/local_player_store.gd
 godot --headless --path . --script res://tools/forest_arena/profile_catalog.gd
 godot --headless --path . --script res://tests/local_ai_behavior.gd

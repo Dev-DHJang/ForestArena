@@ -22,6 +22,8 @@ var websocket_url := ""
 var room_code := ""
 var reconnect_token := ""
 var local_slot := 0
+var participant_names: Dictionary = {"1": "참가자 1", "2": "참가자 2"}
+var _nickname := ""
 var running := false
 var active := false
 var connecting := false
@@ -35,24 +37,29 @@ var _seq := 0
 var _last_direction := CombatIntent.Direction.NEUTRAL
 
 
-func begin_host(host_code: String, selection: LoadoutSelection) -> bool:
+func begin_host(host_code: String, selection: LoadoutSelection, nickname: String = "") -> bool:
 	var parsed := LanInvite.parse_host_code(host_code)
 	if parsed.has("error"):
 		failed.emit(String(parsed.error))
 		return false
-	return _begin(String(parsed.websocket_url), "host", "", selection)
+	return _begin(String(parsed.websocket_url), "host", "", selection, nickname)
 
 
-func begin_join(invite_code: String, selection: LoadoutSelection) -> bool:
+func begin_join(invite_code: String, selection: LoadoutSelection, nickname: String = "") -> bool:
 	var parsed := LanInvite.parse_invite_code(invite_code)
 	if parsed.has("error"):
 		failed.emit(String(parsed.error))
 		return false
-	return _begin(String(parsed.websocket_url), "join", String(parsed.room_code), selection)
+	return _begin(String(parsed.websocket_url), "join", String(parsed.room_code), selection, nickname)
 
 
-func _begin(url: String, intent: String, code: String, selection: LoadoutSelection) -> bool:
+func _begin(url: String, intent: String, code: String, selection: LoadoutSelection, nickname: String = "") -> bool:
 	stop()
+	_nickname = nickname.strip_edges()
+	if not nickname.is_empty() and _valid_nickname(nickname).is_empty():
+		failed.emit("invalid_nickname")
+		return false
+	participant_names = {"1": "참가자 1", "2": "참가자 2"}
 	websocket_url = url
 	room_code = code
 	_intent = intent
@@ -80,7 +87,9 @@ func _process(_delta: float) -> void:
 			if _reconnecting:
 				_send({"type": "resume", "reconnect_token": reconnect_token})
 			else:
-				_send({"type": "create_room" if _intent == "host" else "join_room", "room_code": room_code, "selection": _selection})
+				var request := {"type": "create_room" if _intent == "host" else "join_room", "room_code": room_code, "selection": _selection}
+				if not _nickname.is_empty(): request.nickname = _nickname
+				_send(request)
 		while websocket.get_available_packet_count() > 0:
 			_handle_message(websocket.get_packet().get_string_from_utf8())
 	elif state == MultiplayerPeer.CONNECTION_DISCONNECTED:
@@ -114,13 +123,16 @@ func _handle_message(raw: String) -> void:
 			status_changed.emit("참가자를 기다리는 중")
 			room_waiting.emit()
 		"joined":
+			if message.has("names"): _apply_participant_names(message.names)
 			local_slot = int(message.slot)
 			reconnect_token = String(message.reconnect_token)
 			_reconnecting = false
 			_reconnect_at_msec = 0
 			_reconnect_deadline_msec = 0
 			status_changed.emit("LAN 방에 연결됨")
-		"room_ready": room_ready.emit(message.get("loadouts", {}), local_slot)
+		"room_ready":
+			_apply_participant_names(message.get("names", {}))
+			room_ready.emit(message.get("loadouts", {}), local_slot)
 		"match_start":
 			local_slot = int(message.slot)
 			reconnect_token = String(message.reconnect_token)
@@ -237,3 +249,21 @@ func _fail(code: String) -> void:
 
 func _notification(what: int) -> void:
 	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]: _release_inputs()
+
+
+static func _valid_nickname(value: Variant) -> String:
+	if not value is String: return ""
+	var trimmed: String = value.strip_edges()
+	if trimmed.length() < 1 or trimmed.length() > 12: return ""
+	for index: int in value.length():
+		var codepoint: int = value.unicode_at(index)
+		if codepoint < 32 or (codepoint >= 127 and codepoint <= 159) or codepoint in [0x2028, 0x2029]: return ""
+	return trimmed
+
+
+func _apply_participant_names(value: Variant) -> void:
+	var source: Dictionary = value if value is Dictionary else {}
+	for slot: int in [1, 2]:
+		var key := str(slot)
+		var nickname := _valid_nickname(source.get(key, ""))
+		participant_names[key] = nickname if not nickname.is_empty() else "참가자 %d" % slot

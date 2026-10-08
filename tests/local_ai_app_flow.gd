@@ -42,7 +42,7 @@ func run() -> void:
 	await process_frame
 	check(app.screen == "accessibility", "accessibility settings opens")
 	var accessibility_options := find_options(app)
-	check(accessibility_options.size() == 1, "text scale selector exists")
+	check(accessibility_options.size() == 2, "text scale and minimap marker selectors exist")
 	if not accessibility_options.is_empty():
 		select_option(accessibility_options[0], "매우 크게")
 		await process_frame

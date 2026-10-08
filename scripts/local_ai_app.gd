@@ -259,7 +259,7 @@ func _selected_lan_loadout() -> LoadoutSelection:
 
 
 func _begin_lan_host() -> void:
-	if not lan_client.begin_host(lan_host_code, _selected_lan_loadout()): return
+	if not lan_client.begin_host(lan_host_code, _selected_lan_loadout(), store.data.nickname): return
 	screen = "lan_connecting"
 	_new_page("LAN 서버 연결 중", false)
 	lan_status_label = _label("Mac 호스트에 연결하고 있습니다.")
@@ -267,7 +267,7 @@ func _begin_lan_host() -> void:
 
 
 func _begin_lan_join() -> void:
-	if not lan_client.begin_join(lan_invite_code, _selected_lan_loadout()): return
+	if not lan_client.begin_join(lan_invite_code, _selected_lan_loadout(), store.data.nickname): return
 	screen = "lan_connecting"
 	_new_page("LAN 방 참가 중", false)
 	lan_status_label = _label("초대 코드를 확인하고 있습니다.")
@@ -352,6 +352,12 @@ func _start_lan_match() -> void:
 	readout.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
 	readout.add_theme_color_override("font_outline_color", Color("122d38"))
 	readout.add_theme_constant_override("outline_size", 8)
+	var markers := {}
+	for index: int in 2:
+		var slot := index + 1
+		var fighter := fighters[index]
+		markers[fighter.fighter_id] = {"nickname": lan_client.participant_names.get(str(slot), "참가자 %d" % slot), "character_id": fighter.character_data.character_id, "team_id": ""}
+	match_scene.configure_minimap(markers, local_fighter.fighter_id, false, store.data.minimap)
 	_show_lan_match_controls()
 
 
@@ -376,7 +382,7 @@ func _show_lan_match_controls() -> void:
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var leave := _button("대전 나가기", _show_lan_leave_confirm, page)
-	leave.position = Vector2(1020, 125)
+	_place_match_button(leave)
 
 
 func _show_lan_leave_confirm() -> void:
@@ -513,8 +519,69 @@ func _show_accessibility() -> void:
 	_toggle("진동 피드백", bool(settings.haptics_enabled), func(value: bool) -> void:
 		await _change_profile("accessibility", {"text_scale": float(settings.text_scale), "reduce_visual_effects": bool(settings.reduce_visual_effects), "haptics_enabled": value})
 		_show_accessibility())
+	_add_minimap_settings()
 	_label("소리·진동이 없어도 HP, stock, 가드와 상태 표시는 텍스트로 확인할 수 있습니다.", 18)
 	_button("로비", _show_home)
+
+func _add_minimap_settings() -> void:
+	_label("닉네임과 미니맵", 26)
+	_label("저장한 설정은 다음 경기부터 적용합니다. LAN 닉네임은 방 참가 시 정해집니다.", 18)
+	var nickname_input := _line_input("닉네임 · 1~12자", String(store.data.nickname), func(_value: String) -> void: pass)
+	nickname_input.name = "NicknameInput"
+	nickname_input.max_length = 12
+	_button("닉네임 저장", func() -> void:
+		var ok := await _change_profile("identity", {"nickname": nickname_input.text.strip_edges()})
+		message = "닉네임을 저장했습니다." if ok else (store.error if not store.error.is_empty() else "닉네임은 1~12자로 입력하세요. 줄바꿈과 제어 문자는 사용할 수 없습니다.")
+		_show_accessibility())
+	var settings: Dictionary = store.data.minimap
+	var preview := BattleMinimap.new()
+	preview.name = "MinimapPreview"
+	preview.embedded = true
+	preview.custom_minimum_size = Vector2(240, 150)
+	var preview_row := HBoxContainer.new()
+	preview_row.custom_minimum_size.y = 150
+	body.add_child(preview_row)
+	preview_row.add_child(preview)
+	preview.set_process(false)
+	preview.configure(load("res://assets/combat/stages/forest_ledge_stage.tres") as StageData, {
+		&"self": {"nickname": store.data.nickname, "character_id": store.data.selected_character if store.data.first_granted else "ja-hyun", "team_id": "alpha"},
+		&"other": {"nickname": "AI 1", "character_id": "myo-ryung", "team_id": "beta"}
+	}, &"self", true)
+	preview.apply_settings(settings, _text_scale())
+	preview.update_snapshot({"fighters": [{"id": "self", "stocks": 3, "position": Vector2(100, 420)}, {"id": "other", "stocks": 3, "position": Vector2(1100, 520)}]})
+	var caption := _label("미니맵 투명도 · %d%%" % settings.transparency, 20)
+	var slider := HSlider.new()
+	slider.name = "MinimapTransparency"
+	slider.min_value = 0
+	slider.max_value = 90
+	slider.step = 1
+	slider.value = settings.transparency
+	slider.custom_minimum_size = Vector2(320, 58)
+	body.add_child(slider)
+	slider.value_changed.connect(func(value: float) -> void:
+		caption.text = "미니맵 투명도 · %d%%" % int(value)
+		var draft := settings.duplicate(true)
+		draft.transparency = int(value)
+		preview.apply_settings(draft, _text_scale()))
+	_button("투명도 저장", func() -> void:
+		var next := settings.duplicate(true)
+		next.transparency = int(slider.value)
+		await _save_minimap_settings(next))
+	_choice_labels("캐릭터 표시", ["얼굴", "점"], 0 if settings.marker_style == "face" else 1, func(index: int) -> void:
+		var next := settings.duplicate(true)
+		next.marker_style = "face" if index == 0 else "dot"
+		await _save_minimap_settings(next))
+	_toggle("미니맵 이름 표시", settings.show_names, func(enabled: bool) -> void:
+		var next := settings.duplicate(true)
+		next.show_names = enabled
+		await _save_minimap_settings(next))
+
+
+func _save_minimap_settings(settings: Dictionary) -> void:
+	var ok := await _change_profile("minimap", settings)
+	message = "미니맵 설정을 저장했습니다." if ok else (store.error if not store.error.is_empty() else "미니맵 설정을 저장하지 못했습니다.")
+	_show_accessibility()
+
 
 func _show_prepare() -> void:
 	screen = "prepare"
@@ -635,6 +702,11 @@ func start_match() -> void:
 	for index: int in range(2, config.participants.size()):
 		_add_match_fighter(config.participants[index], index)
 	_configure_bots(config)
+	var markers := {}
+	for index: int in config.participants.size():
+		var participant: LocalMatchParticipant = config.participants[index]
+		markers[participant.participant_id] = {"nickname": store.data.nickname if participant.human_controlled else "AI %d" % index, "character_id": participant.selection.character_id, "team_id": participant.team_id}
+	match_scene.configure_minimap(markers, &"player", config.mode == LocalMatchConfig.Mode.TEAM, store.data.minimap)
 	match_controller.reset_match()
 	_show_match_controls()
 
@@ -722,7 +794,17 @@ func _show_match_controls() -> void:
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	var pause := _button("일시정지", pause_match, page)
-	pause.position = Vector2(1020, 125)
+	_place_match_button(pause)
+
+func _place_match_button(button: Button) -> void:
+	var map := match_scene.get_node("Interface/BattleMinimap") as BattleMinimap
+	var place := func() -> void:
+		if not is_instance_valid(button): return
+		button.position = map.position + Vector2(0, map.size.y + 12)
+		button.size = Vector2(map.size.x, 58)
+	map.item_rect_changed.connect(place)
+	place.call()
+
 
 func pause_match() -> void:
 	if match_controller == null or screen == "result": return
@@ -885,6 +967,8 @@ func _change_profile(action: String, payload: Dictionary) -> bool:
 			"purchase": return store.purchase(payload.id)
 			"select": return store.select(payload.character, payload.accessory, payload.opponent)
 			"accessibility": return store.update_accessibility(payload.text_scale, payload.reduce_visual_effects, payload.haptics_enabled)
+			"identity": return store.update_identity(payload.nickname)
+			"minimap": return store.update_minimap(payload)
 		return false
 	var overlay := _busy_overlay()
 	var ok := await db_client.change(action, payload, store)

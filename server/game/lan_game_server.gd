@@ -87,8 +87,8 @@ func _handle_packet(peer_id: int, raw: String) -> void:
 		_reject(peer_id, "unsupported_protocol")
 		return
 	match String(message.get("type", "")):
-		"create_room": _create_room(peer_id, message.get("selection", {}))
-		"join_room": _join_room(peer_id, String(message.get("room_code", "")), message.get("selection", {}))
+		"create_room": _create_room(peer_id, message.get("selection", {}), message.get("nickname"))
+		"join_room": _join_room(peer_id, String(message.get("room_code", "")), message.get("selection", {}), message.get("nickname"))
 		"resume": _resume(peer_id, String(message.get("reconnect_token", "")))
 		"input": _input_message(peer_id, message)
 		"rematch": _rematch(peer_id, bool(message.get("ready", false)))
@@ -97,7 +97,7 @@ func _handle_packet(peer_id: int, raw: String) -> void:
 		_: _send(peer_id, {"type": "error", "code": "unknown_message"})
 
 
-func _create_room(peer_id: int, value: Variant) -> void:
+func _create_room(peer_id: int, value: Variant, nickname_value: Variant = null) -> void:
 	if not room_code.is_empty():
 		_reject(peer_id, "server_busy")
 		return
@@ -105,13 +105,17 @@ func _create_room(peer_id: int, value: Variant) -> void:
 	if selection == null:
 		_reject(peer_id, "invalid_loadout")
 		return
+	var nickname := _nickname_from(nickname_value, 1)
+	if nickname.is_empty():
+		_reject(peer_id, "invalid_nickname")
+		return
 	room_code = _new_room_code()
-	_register_client(peer_id, 1, selection)
+	_register_client(peer_id, 1, selection, nickname)
 	_send(peer_id, {"type": "room_created", "room_code": room_code, "invite_code": LanInvite.invite_code(advertised_url, room_code), "slot": 1, "reconnect_token": clients[1].reconnect_token})
 	_send(peer_id, {"type": "room_waiting", "room_code": room_code})
 
 
-func _join_room(peer_id: int, requested_code: String, value: Variant) -> void:
+func _join_room(peer_id: int, requested_code: String, value: Variant, nickname_value: Variant = null) -> void:
 	if room_code.is_empty() or requested_code.to_upper() != room_code:
 		_reject(peer_id, "room_not_found")
 		return
@@ -122,13 +126,17 @@ func _join_room(peer_id: int, requested_code: String, value: Variant) -> void:
 	if selection == null:
 		_reject(peer_id, "invalid_loadout")
 		return
-	_register_client(peer_id, 2, selection)
+	var nickname := _nickname_from(nickname_value, 2)
+	if nickname.is_empty():
+		_reject(peer_id, "invalid_nickname")
+		return
+	_register_client(peer_id, 2, selection, nickname)
 	_send(peer_id, {"type": "joined", "slot": 2, "reconnect_token": clients[2].reconnect_token})
 	_start_match()
 
 
-func _register_client(peer_id: int, slot: int, selection: LoadoutSelection) -> void:
-	clients[slot] = {"peer_id": peer_id, "connected": true, "selection": selection, "last_seq": -1, "reconnect_token": _new_token(), "deadline": 0, "rematch": false}
+func _register_client(peer_id: int, slot: int, selection: LoadoutSelection, nickname: String) -> void:
+	clients[slot] = {"peer_id": peer_id, "connected": true, "selection": selection, "nickname": nickname, "last_seq": -1, "reconnect_token": _new_token(), "deadline": 0, "rematch": false}
 	peer_to_slot[peer_id] = slot
 
 
@@ -162,7 +170,7 @@ func _start_match() -> void:
 	tick_accumulator = 0.0
 	rematch_deadline_msec = 0
 	controller.reset_match()
-	_broadcast({"type": "room_ready", "stage_id": "forest-ledge", "seed": match_seed, "loadouts": {"1": _selection_dict(host_selection), "2": _selection_dict(guest_selection)}})
+	_broadcast({"type": "room_ready", "stage_id": "forest-ledge", "seed": match_seed, "names": _participant_names(), "loadouts": {"1": _selection_dict(host_selection), "2": _selection_dict(guest_selection)}})
 	for slot: int in [1, 2]:
 		_send(int(clients[slot].peer_id), {"type": "match_start", "slot": slot, "seed": match_seed, "reconnect_token": clients[slot].reconnect_token})
 
@@ -216,7 +224,7 @@ func _resume(peer_id: int, token: String) -> void:
 		client.reconnect_token = _new_token()
 		clients[slot] = client
 		peer_to_slot[peer_id] = slot
-		_send(peer_id, {"type": "joined", "slot": slot, "reconnect_token": client.reconnect_token, "resumed": true})
+		_send(peer_id, {"type": "joined", "slot": slot, "reconnect_token": client.reconnect_token, "resumed": true, "names": _participant_names()})
 		_send(peer_id, {"type": "snapshot", "state": controller.network_snapshot()})
 		_broadcast({"type": "peer_status", "slot": slot, "connected": true})
 		return
@@ -364,3 +372,15 @@ func _secure_equal(left: String, right: String) -> bool:
 	var difference := 0
 	for index: int in a.size(): difference |= a[index] ^ b[index]
 	return difference == 0
+
+
+func _nickname_from(value: Variant, slot: int) -> String:
+	if value == null: return "참가자 %d" % slot
+	return LanMatchClient._valid_nickname(value)
+
+
+func _participant_names() -> Dictionary:
+	var names: Dictionary = {}
+	for slot: int in clients:
+		names[str(slot)] = String(clients[slot].nickname)
+	return names

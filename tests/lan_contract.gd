@@ -19,6 +19,13 @@ func _initialize() -> void:
 			selection.character_id = character.character_id
 			selection.accessory_id = accessory_id
 			_check(LoadoutBuilder.build(selection, catalog).succeeded(), "LAN loadout %s/%s" % [character.character_id, accessory_id], failures)
+	var client := LanMatchClient.new()
+	client.call("_handle_message", JSON.stringify({"type": "room_ready", "protocol_version": 1, "loadouts": {}}))
+	_check(client.participant_names == {"1": "참가자 1", "2": "참가자 2"}, "old server names default", failures)
+	_check(client.call("_valid_nickname", "  숲지기  ") == "숲지기", "LAN nickname trims", failures)
+	for invalid_name: String in ["a\nb", "a\u2028b", "a\u2029b", "", "  ", "1234567890123"]:
+		_check(client.call("_valid_nickname", invalid_name) == "", "invalid LAN name", failures)
+	client.free()
 	if failures.is_empty():
 		print("LAN_CONTRACT: PASS")
 		quit(0)

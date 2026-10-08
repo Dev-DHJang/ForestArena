@@ -29,6 +29,21 @@ try {
   const concurrent = await Promise.all(["yu-ran", "myo-ryung"].map(id => request("POST", "/v1/profile/actions", token, {request_id: randomUUID(), expected_revision: 2, action: "purchase", payload: {id}})));
   assert.deepEqual(concurrent.map(r => r.status).sort(), [200, 409]);
   assert.equal((await request("POST", "/v1/profile/actions", token, {request_id: randomUUID(), expected_revision: 3, action: "select", payload: {character: "ja-hyun", accessory: "", opponent: "nabi"}})).status, 400);
+  const migrationAuth = await request("POST", "/v1/auth/guest", "", {});
+  await db.query("INSERT INTO app.player_profiles (player_id, profile) VALUES ($1, $2)", [migrationAuth.data.player_id, fresh]);
+  const migrated = await request("GET", "/v1/profile", migrationAuth.data.access_token);
+  assert.equal(migrated.data.profile.schema_version, 3);
+  assert.equal(migrated.data.profile.nickname, "플레이어");
+  assert.deepEqual(migrated.data.profile.minimap, {transparency: 30, marker_style: "face", show_names: true});
+  assert.equal(migrated.data.revision, 1);
+  const migratedRow = (await db.query("SELECT profile FROM app.player_profiles WHERE player_id = $1", [migrationAuth.data.player_id])).rows[0];
+  assert.equal(migratedRow.profile.schema_version, 3);
+  // A recorded v2 response remains replayable after upgrading the server.
+  await db.query("UPDATE app.profile_requests SET response = jsonb_set(response, '{profile}', ((response->'profile') - 'nickname' - 'minimap') || '{\"schema_version\":2}'::jsonb) WHERE player_id=$1 AND request_id=$2", [player, grant.request_id]);
+  const oldReplay = await request("POST", "/v1/profile/actions", token, grant);
+  assert.equal(oldReplay.status, 200);
+  assert.equal(oldReplay.data.profile.schema_version, 3);
+  assert.equal(oldReplay.data.revision, 2);
   const second = await request("POST", "/v1/auth/guest", "", {});
   assert.equal((await request("GET", "/v1/profile", second.data.access_token)).status, 404);
   const rotated = await request("POST", "/v1/auth/refresh", "", {refresh_token: auth.data.refresh_token});
