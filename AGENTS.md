@@ -16,6 +16,13 @@
 - 기본 검사는 `./scripts/verify.sh`다. 문서 변경은 `./scripts/verify-docs.sh`, AI 역할 체계 변경은 `./scripts/verify-harness.sh`도 실행한다.
 - 비전투 UI는 `docs/ui/non-combat-ui-v01.json`, `assets/ui/asset-requirements.csv`, `docs/ui/penpot-setup.md`를 기준으로 한다.
 
+## Codex 대화 로딩 시간 초과
+
+- 사용자가 세션 ID와 메시지 로딩 시간 초과를 알리면 [세션 복구 절차](docs/operations/codex-session-recovery.md)를 먼저 따른다. 이전 채팅을 읽을 수 없어도 진행한다.
+- 프로젝트 루트에서 `python3 tools/forest_arena/recover_codex_session.py repair <세션-ID>`로 해당 세션만 백업·복구한다. 실행 결과는 요약하고 원본 대화나 이미지 문자열 전체를 출력하지 않는다.
+- 복구 뒤 다른 채팅으로 이동했다가 해당 세션을 다시 열고 사용자에게 화면 표시 여부를 확인한다. 서버 조회 성공만으로 해결됐다고 말하지 않는다. Goal·승인·사용량 제한은 별도로 확인하며 자동 변경하지 않는다.
+- 이미지 전달은 파일 업로드를 우선한다. 대용량 base64, 전체 이미지 diff, 긴 도구 출력은 대화에 반복 저장하지 않는다. 이 절차는 앱의 자동 기록까지 제어하지 못하므로 재발하면 같은 명령을 다시 실행한다.
+
 <!-- FOREST_ARENA_GODOT:START -->
 ## Godot 리소스 경계
 

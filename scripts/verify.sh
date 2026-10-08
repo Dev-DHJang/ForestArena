@@ -1,6 +1,8 @@
 #!/bin/sh
 set -eu
 
+python3 tools/forest_arena/test_recover_codex_session.py
+
 python3 tools/forest_arena/verify_forest_ledge_art.py
 python3 tools/forest_arena/verify_job_id_independence.py
 godot --headless --path . --editor --quit
