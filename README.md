@@ -42,6 +42,7 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
     ./scripts/verify-lan-runtime.sh
     ./scripts/lan-host.sh start
     ./scripts/server-dev.sh up
+    ./scripts/verify-db-profile-runtime.sh
     ./scripts/verify-online-server.sh
     ./scripts/server-dev.sh verify-runtime
     ./scripts/export-debug-android.sh
@@ -54,6 +55,11 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 `./scripts/verify.sh`는 화면 없이 Godot 프로젝트 열기, 앱 기본 실행, 전투, 캐릭터·직업·장신구 조합, 로컬 온라인 계약, 데이터 형식과 문서 구조를 한 번에 확인하는 기본 검사다. `./scripts/server-dev.sh verify-runtime`은 실행 중인 로컬 스택에 실제 Godot 클라이언트 두 개를 붙여 매칭·입력·재접속·결과 저장을 확인한다. `./scripts/verify-docs.sh`는 문서 위치·링크·쉬운 문장 규칙을, `./scripts/verify-harness.sh`는 AI 역할·작업 배정 규칙을 빠르게 확인한다.
 
 ## 현재 상태
+
+- 개발용 DB 저장: 첫 선택·로비의 `저장 모드`에서 `로컬 DB 연결`을 선택한다.
+  기본 주소는 `http://127.0.0.1:3000`이며 보유·선택·접근성 설정을 API를 통해
+  PostgreSQL에 저장한다. DB가 비어 있으면 유효한 기기 저장을 한 번 이전하고 원본은 보존한다.
+  DB 모드는 다음 실행에도 복원되며 저장 실패 시 재시도를 안내한다.
 
 - 로컬 플레이: 첫 캐릭터 지급, 0원 상점·기기 저장, 네 캐릭터와 장신구 선택, AI·연습·
   최대 8명 Solo·Team 경기, 결과·재대전이 연결됐다. Story는 보상·성장이 없는 프롤로그로

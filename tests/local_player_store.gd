@@ -32,6 +32,10 @@ func _initialize() -> void:
 	v1_file.store_string(JSON.stringify(v1))
 	v1_file.close()
 	var migrated := LocalPlayerStore.new(catalog, v1_path)
+	var original_v1 := FileAccess.get_file_as_bytes(v1_path)
+	var read_only := LocalPlayerStore.new(catalog, v1_path)
+	check(read_only.load_profile_read_only() and read_only.data.schema_version == 2, "DB import reads v1 in memory")
+	check(FileAccess.get_file_as_bytes(v1_path) == original_v1, "DB import preserves v1 source bytes")
 	check(migrated.load_profile() and migrated.data.schema_version == LocalPlayerStore.SCHEMA_VERSION and migrated.data.accessibility == LocalPlayerStore.default_accessibility(), "v1 accessibility migration is explicit")
 	for character: CharacterData in catalog.combat.characters:
 		for accessory: AccessoryData in catalog.combat.accessories:

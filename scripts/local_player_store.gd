@@ -37,6 +37,23 @@ func load_profile() -> bool:
 	return false
 
 
+func load_profile_read_only() -> bool:
+	# Read v1/v2 and backup without writing a migration to the source.
+	for file_path: String in [path, path + ".bak"]:
+		var candidate := _read(file_path)
+		if valid(candidate):
+			data = candidate
+			return true
+		if candidate.get("schema_version") == 1 and _valid_v1(candidate):
+			candidate.schema_version = SCHEMA_VERSION
+			candidate.accessibility = default_accessibility()
+			data = candidate
+			return true
+	if not FileAccess.file_exists(path) and not FileAccess.file_exists(path + ".bak"):
+		data = fresh_data()
+		return true
+	return false
+
 func _load_candidate(candidate: Dictionary) -> bool:
 	if valid(candidate):
 		data = candidate

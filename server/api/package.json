@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && cp src/profile_catalog.json dist/src/profile_catalog.json",
     "start": "node dist/server.js",
     "test": "npm run build && node --test dist/tests/*.test.js"
   },

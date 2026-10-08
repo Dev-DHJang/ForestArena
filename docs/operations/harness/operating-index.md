@@ -16,7 +16,7 @@
   구현했다. 네 캐릭터·장신구 6종, 60Hz 판정·20Hz 표시, 60초 재접속과 20초 재대전 계약의
   자동 두 클라이언트 검사와 Android 에뮬레이터의 실제 macOS Wi-Fi 접속·결과·재대전은
   통과했다. 물리 Android 두 대 검증은 사용자 결정으로 다음 계획에 반영한다.
-- ADR-008·026의 DB 기반 개발 흐름은 별도로 유지한다. 정식 인터넷 온라인·클라우드·8인전은 Phase 7 전체 범위 전까지 구현하지 않는다.
+- ADR-008·026의 DB 기반 개발 흐름은 별도로 유지한다. ADR-029로 기본 게임의 보유·선택·접근성 설정을 로컬 DB에 저장하는 개발 모드를 추가한다. 정식 인터넷 온라인·클라우드·8인전은 Phase 7 전체 범위 전까지 구현하지 않는다.
 - Godot가 시작할 때 자동으로 준비하는 `ForestArenaResources`는 346개 논리 자산 이름을 실제 파일과 연결하며 24개 품질별 파일 차이를 처리한다. 승인된 전투 배경과 투명 지형을 포함하며 `assets/character/`와 `assets/ui/generated/`의 승인 규칙을 대신하지 않는다.
 
 역할 목록과 요청 라우팅은 [팀 명세](team-spec.md)가 단일 원본이다. 과거 완료 작업과 당시 역할 구성은 `_workspace/` 및 Git 이력의 감사 증적에 보존한다.
@@ -34,6 +34,7 @@
 - 연결된 에뮬레이터 생명주기: `./scripts/verify-android-emulator.sh`
 - Android 실기기 무선 디버깅: `./scripts/android-wireless-debug.sh` (`docs/engineering/godot/android-wireless-debugging.md` 참고)
 - 로컬 서버·DB 시작: `./scripts/server-dev.sh up`
+- 기본 게임 DB 저장·재실행 복원: `./scripts/verify-db-profile-runtime.sh`
 - 온라인 계약: `./scripts/verify-online-server.sh`
 - 온라인 실제 연결: `./scripts/server-dev.sh verify-runtime`
 

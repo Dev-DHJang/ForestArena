@@ -68,6 +68,6 @@ ADR-028의 사용자 LAN 1대1은 이 개발 경로와 분리한다. macOS의 `l
 
 ## 개발계 데이터베이스
 
-개발계 PostgreSQL은 실행·마이그레이션·백업과 로컬 guest player·refresh token hash·match result만 저장한다. Godot 게임 서버와 클라이언트는 DB에 직접 연결하지 않으며 CharacterData 같은 전투 Resource와 한 판용 `RuntimeCombatProfile`의 원본도 바꾸지 않는다. 성장, 재화와 정식 계정은 해당 Phase와 제품 승인이 생긴 뒤에 별도 계약으로 정한다.
+개발계 PostgreSQL은 로컬 guest player·refresh token hash·match result와 ADR-029의 기본 게임 프로필을 저장한다. 프로필 변경은 API가 보유·ID·설정·변경 번호를 검사하고 DB 트랜잭션으로 기록한다. Godot는 API 성공 뒤 변경을 반영한다. 게임 서버와 클라이언트는 DB에 직접 연결하지 않으며 CharacterData 같은 전투 Resource와 한 판용 `RuntimeCombatProfile`의 원본도 바꾸지 않는다. 성장, 재화와 정식 계정은 해당 Phase와 제품 승인이 생긴 뒤에 별도 계약으로 정한다.
 
 개발계·검증계·운영계는 서로 다른 PostgreSQL 인스턴스와 계정을 사용한다. 현재 개발계 실행 방법과 삭제 보호 규칙은 [개발계 데이터베이스](database.md)를 기준으로 한다.
