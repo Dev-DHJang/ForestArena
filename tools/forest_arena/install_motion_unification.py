@@ -56,10 +56,18 @@ def verify_installed(manifest, report, receipt):
     replaced = {entry['asset_id'] for _,entry,_,_ in records}
     assert len(manifest['assets']) == len(previous['assets'])
     changed_fields = {'sha256','verified_on','creation','rights','modifications','motion_unification','foot_pivot_y','visual_state_id'}
+    concept_baseline = {}
+    if (ROOT/'_workspace/character-concept-transparency/installation.json').exists():
+        from install_concept_transparency import check as check_concept_transparency
+        check_concept_transparency()
+        concept_before = json.loads((ROOT/'_workspace/character-concept-transparency/03_backup/manifest.json').read_text())
+        concept_baseline = {e['asset_id']:e for e in concept_before['assets'] if e.get('type') == 'concept'}
     for entry in manifest['assets']:
         original = originals[entry['asset_id']]
         if entry['asset_id'] not in replaced:
-            assert entry == original, entry['asset_id']
+            # A later separately approved alpha-only concept edit is validated above.
+            comparison = concept_baseline.get(entry['asset_id'], entry)
+            assert comparison == original, entry['asset_id']
         else:
             assert {k:v for k,v in entry.items() if k not in changed_fields} == {k:v for k,v in original.items() if k not in changed_fields}, entry['asset_id']
             assert entry['rights']['status'] == original['rights']['status']
