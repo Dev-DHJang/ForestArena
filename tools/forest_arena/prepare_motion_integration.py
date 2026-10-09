@@ -9,6 +9,16 @@ ROOT = Path(__file__).resolve().parents[2]
 WORK = Path('_workspace/character-motion-visual-unification')
 
 
+def nearest_ignore_marker(source, root=ROOT):
+    for parent in source.parents:
+        if parent == root:
+            break
+        ignore = parent / '.gdignore'
+        if ignore.exists():
+            return ignore
+    return None
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('destination',type=Path)
@@ -42,8 +52,8 @@ def main():
     for record in json.loads((ROOT/WORK/'source-recovery.json').read_text()):
         if record['output'] in selected:
             files.add(Path(record['source']))
-            ignore = ROOT / Path(record['source']).parents[1] / '.gdignore'
-            if ignore.exists():
+            ignore = nearest_ignore_marker(ROOT / record['source'])
+            if ignore is not None:
                 files.add(ignore.relative_to(ROOT))
     for row in receipt['replacements']:
         files.add(Path(row['path']))

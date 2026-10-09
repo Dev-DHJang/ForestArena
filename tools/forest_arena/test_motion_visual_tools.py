@@ -8,9 +8,22 @@ from PIL import Image, ImageDraw
 from motion_sheet_regions import split_regions
 from recover_motion_review_sources import gray_review_alpha, verify_recovery_record
 from audit_character_motion_visuals import detached_regions, validation_errors, EXPECTED_MOTIONS
+from prepare_motion_integration import nearest_ignore_marker
 
 
 class MotionVisualToolsTest(unittest.TestCase):
+    def test_integration_copies_task_root_ignore_marker(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            task = root / '_workspace/chibi-task'
+            source = task / '01_drafts/nabi/base/idle.png'
+            source.parent.mkdir(parents=True)
+            marker = task / '.gdignore'
+            marker.touch()
+            self.assertEqual(nearest_ignore_marker(source, root), marker)
+            marker.unlink()
+            self.assertIsNone(nearest_ignore_marker(source, root))
+
     def test_recovery_rejects_changed_upstream_or_output(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
