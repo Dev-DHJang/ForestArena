@@ -12,6 +12,67 @@
     "revision": 2,
     "battle_tension": "User confirmed appropriate; retained in r03"
   },
+  "candidate_selection": [
+    {
+      "name": "lobby",
+      "version": "v01",
+      "source": "comparison/lobby_v01.wav",
+      "preference_confirmed": true
+    },
+    {
+      "name": "battle",
+      "version": "v01",
+      "source": "comparison/battle_v01.wav",
+      "preference_confirmed": true
+    },
+    {
+      "name": "ui_click",
+      "version": "v02",
+      "source": "comparison/ui_click_v02.wav",
+      "preference_confirmed": false
+    },
+    {
+      "name": "jump",
+      "version": "v01",
+      "source": "comparison/jump_v01.wav",
+      "preference_confirmed": true
+    },
+    {
+      "name": "hit_light",
+      "version": "v02",
+      "source": "comparison/hit_light_v02.wav",
+      "preference_confirmed": false
+    },
+    {
+      "name": "hit_heavy",
+      "version": "v02",
+      "source": "comparison/hit_heavy_v02.wav",
+      "preference_confirmed": false
+    },
+    {
+      "name": "guard_break",
+      "version": "v02",
+      "source": "comparison/guard_break_v02.wav",
+      "preference_confirmed": false
+    },
+    {
+      "name": "myo-ryung_special_up",
+      "version": "v01",
+      "source": "comparison/myo-ryung_special_up_v01.wav",
+      "preference_confirmed": true
+    },
+    {
+      "name": "ja-hyun_ultimate",
+      "version": "v02",
+      "source": "comparison/ja-hyun_ultimate_v02.wav",
+      "preference_confirmed": false
+    }
+  ],
+  "selection_feedback": {
+    "revision": 3,
+    "interpretation": "Previous means labeled A / initial v01; Myo-ryung means the previewed special_up only.",
+    "whole_set_approved": false
+  },
   "stage": "listening_preview",
   "runtime_connected": false,
   "human_listening_approved": false,
@@ -68,7 +129,7 @@
     },
     {
       "path": "tools/forest_arena/generate_audio_v02_preview.py",
-      "sha256": "b11bc7c5021ebb06f0f53adce27431d8e8be3e05301860cc5e78df2cf93dc510"
+      "sha256": "58c479f8a9e728612d6adf6691d4242c5baff7b6b5395b6dced06fc4379d50ef"
     }
   ],
   "comparisons": [
@@ -662,8 +723,8 @@
     },
     {
       "path": "preview.html",
-      "sha256": "5bbc13deda6241e7da8bf8f9daa65004102bbef80e3b0f6dcc97eca7f25e4d17",
-      "bytes": 14522
+      "sha256": "abd647d58e4a2e090347a452a4c5351c82852ce1475868bf7dbb1063cbd88511",
+      "bytes": 15679
     },
     {
       "path": "source/music/battle/answer.wav",

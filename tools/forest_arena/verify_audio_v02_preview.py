@@ -10,6 +10,7 @@ import tempfile
 import threading
 import json
 import math
+import re
 import struct
 import subprocess
 import wave
@@ -260,6 +261,37 @@ def verify_feedback_r03(root, out, baseline):
     print(f'PASS: r03 60-second sections/phrase and accompaniment variety, retained tension, five unchanged SFX, revised guard and new light impact against {baseline}.')
 
 
+
+def verify_selection(root, out, baseline):
+    """Record four explicit A preferences without expanding them into full approval."""
+    manifest = json.loads((out/'manifest.json').read_text())
+    names = set(SPECS) | {'lobby','battle'}
+    confirmed = {'lobby','battle','jump','myo-ryung_special_up'}
+    selection = manifest.get('candidate_selection', [])
+    require(len(selection) == 9 and {entry['name'] for entry in selection} == names, 'Selection inventory/duplicates')
+    require(manifest['human_listening_approved'] is False and manifest['runtime_connected'] is False, 'Partial preference expanded into full approval/runtime change')
+    for entry in selection:
+        expected_version = 'v01' if entry['name'] in confirmed else 'v02'
+        require(entry['version'] == expected_version and entry['preference_confirmed'] is (entry['name'] in confirmed), f"Incorrect preference: {entry['name']}")
+        require(entry['source'] == f"comparison/{entry['name']}_{expected_version}.wav" and (out/entry['source']).is_file(), f"Incorrect selected source: {entry['name']}")
+    retained = [path for path in out.rglob('*') if path.is_file() and (path.suffix in ('.wav','.mid') or path.name == 'score.json')]
+    original_paths = subprocess.check_output(['git','ls-tree','-r','--name-only',baseline,'--','assets/audio/v02-preview'],cwd=root,text=True).splitlines()
+    original_paths = {p for p in original_paths if p.endswith(('.wav','.mid','/score.json'))}
+    current_paths = {'assets/audio/v02-preview/'+path.relative_to(out).as_posix() for path in retained}
+    require(current_paths == original_paths, 'Selection changed musical artifact inventory')
+    for path in retained:
+        old = subprocess.check_output(['git','show',f'{baseline}:assets/audio/v02-preview/{path.relative_to(out).as_posix()}'],cwd=root)
+        require(path.read_bytes() == old, f'Selection unexpectedly changed audio/score: {path}')
+    preview = (out/'preview.html').read_text()
+    ui_entries = re.findall(r"\{id:'([^']+)',selectedVersion:'(v0[12])',preferenceConfirmed:(true|false),", preview)
+    require(len(ui_entries) == 9 and {row[0] for row in ui_entries} == names, 'UI selection inventory/duplicates')
+    for name, version, preference in ui_entries:
+        require(version == ('v01' if name in confirmed else 'v02') and (preference == 'true') == (name in confirmed), f'UI selection differs from manifest: {name}')
+    require("track.selectedVersion==='v01'?'A · 이전 v01':'B · r03'" in preview and "track.preferenceConfirmed?'청취 선호 반영':'현재 후보 · 확인 전'" in preview and 'version===track.selectedVersion' in preview, 'Missing distinct selection label/display branches')
+    require(manifest.get('selection_feedback', {}).get('whole_set_approved') is False, 'Selection feedback claims whole-set approval')
+    require('묘령 · 위 특수기' in preview and '게임에 미연결' in preview and '청취 방향 확인 전' in preview, 'Selection scope/status labels')
+    print(f'PASS: four confirmed A preferences/five unconfirmed B candidates, unchanged WAV/MIDI/scores against {baseline}, no full approval/runtime claim.')
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project-root', type=Path, default=ROOT)
@@ -267,6 +299,7 @@ def main():
     parser.add_argument('--http-only', action='store_true', help='Only test preview HTTP server on loopback')
     parser.add_argument('--skip-http', action='store_true', help='Signal/file checks only; explicitly skip HTTP check')
     parser.add_argument('--feedback-baseline-ref', help='Check current r02/r03 feedback against a previous preview Git ref')
+    parser.add_argument('--selection-baseline-ref', help='Check selected candidate metadata and unchanged audio/score artifacts against a preview Git ref')
     parser.add_argument('--baseline-ref', default=None, help='Optional Git ref for unchanged runtime/v01 audit')
     args = parser.parse_args()
     if not args.skip_http: verify_http_server()
@@ -357,6 +390,8 @@ def main():
             verify_feedback_r03(root, out, args.feedback_baseline_ref)
         else:
             verify_feedback_revision(root, out, args.feedback_baseline_ref)
+    if args.selection_baseline_ref:
+        verify_selection(root, out, args.selection_baseline_ref)
     if args.baseline_ref is not None:
         protected = ['forest_arena', 'scripts', 'project.godot', 'assets/audio/v01']
         diff = subprocess.check_output(['git','diff','--name-only',args.baseline_ref,'--',*protected],cwd=root,text=True).strip()
