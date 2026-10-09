@@ -17,7 +17,7 @@ from pathlib import Path
 import numpy as np
 from serve_audio_v02_preview import PreviewHandler
 from audio_v02_sfx import SPECS, SR, effect
-from generate_audio_v02_preview import NAMES, SOUNDFONT_SHA256, PACKAGE_SHA256, FONT_URL, loudness, read_wav
+from generate_audio_v02_preview import SOUNDFONT_SHA256, PACKAGE_SHA256, FONT_URL, loudness, read_wav
 
 ROOT = Path(__file__).resolve().parents[2]
 STEMS = {'lead', 'answer', 'strings', 'counter', 'harp', 'piano', 'bass', 'horn', 'drums'}
@@ -46,6 +46,7 @@ def midi_notes(path, score):
         cursor += 8+length
         pos = tick = 0
         ons, offs, tempo = [], [], None
+        programs, pans = [], []
         ended = False
         while pos < len(track):
             delta = 0
@@ -66,8 +67,10 @@ def midi_notes(path, score):
                     ons.append((tick, event & 15, pitch, value))
                 elif event & 240 == 128 or (event & 240 == 144 and not value):
                     offs.append((tick, event & 15, pitch))
+                elif event & 240 == 176 and pitch == 10:
+                    pans.append((tick, event & 15, value))
             elif event & 240 == 192:
-                pos += 1
+                programs.append((tick, event & 15, track[pos])); pos += 1
             else:
                 raise ValueError(f'{path}: unexpected MIDI status {event}')
         require(ended, f'{path}: missing MIDI end')
@@ -75,6 +78,7 @@ def midi_notes(path, score):
             require(tempo == round(60_000_000/score['tempo_bpm']), f'{path}: MIDI tempo differs from score')
         else:
             source = score['tracks'][index-1]
+            require(programs == [(0, source['channel'], source['program'])] and pans == [(0, source['channel'], source['pan'])], f'{path}: MIDI instrument/pan differs from score')
             expected = sorted((round(n['beat']*480), source['channel'], n['pitch'], n['velocity']) for n in source['notes'])
             expected_off = sorted((round((n['beat']+n['length'])*480), source['channel'], n['pitch']) for n in source['notes'])
             require(sorted(ons) == expected and sorted(offs) == expected_off, f'{path}: MIDI notes differ from {source["id"]} score')
@@ -185,7 +189,7 @@ def verify_feedback_revision(root, out, baseline):
     old_tracks = {t['id']: t for t in old_battle['tracks']}
     require(battle['drums']['gain'] > old_tracks['drums']['gain'] and battle['bass']['gain'] > old_tracks['bass']['gain'], 'r02 battle drum/bass emphasis did not increase')
     require(max(n['velocity'] for n in battle['drums']['notes'] if n['pitch'] == 36) > max(n['velocity'] for n in old_tracks['drums']['notes'] if n['pitch'] == 36), 'r02 bass-drum attack not strengthened')
-    for name in SPECS:
+    for name in (set(SPECS)-{'hit_light'}):
         paths = [f'source/sfx/{name}.wav', f'comparison/{name}_v02.wav']
         if name not in ('ui_click','hit_heavy'): paths.append(f'comparison/{name}_v01.wav')
         for relative in paths:
@@ -195,13 +199,74 @@ def verify_feedback_revision(root, out, baseline):
     print(f'PASS: r02 piano lead/left hand, minor/E7/diminished pulse arrangement, changed click/hit and four unchanged SFX against {baseline}.')
 
 
+def verify_feedback_r03(root, out, baseline):
+    """Validate structural variety and requested SFX changes, not perceived quality."""
+    manifest = json.loads((out/'manifest.json').read_text())
+    require(manifest.get('revision') == 3 and set(manifest.get('feedback', {})) == {'hit_light','hit_heavy','guard_break','lobby','battle'}, 'Expected r03 manifest revision/feedback inventory')
+    require('r03' in (out/'preview.html').read_text(), 'Preview missing latest r03 label')
+    scores = {name: json.loads((out/f'source/music/{name}/score.json').read_text()) for name in ('lobby','battle')}
+    for name, score in scores.items():
+        require(score.get('revision') == 3 and score['duration_seconds'] == 60, f'{name}: r03 score scope')
+        sections = score.get('sections', [])
+        require(len(sections) == 4 and len({s['name'] for s in sections}) == 4, f'{name}: four named sections')
+        cursor = 0
+        for section in sections:
+            require(section['start_bar'] == cursor and section['end_bar'] > cursor, f'{name}: section gap/overlap/empty')
+            cursor = section['end_bar']
+        require(cursor == score['bars'] and abs(score['bars']*4*60/score['tempo_bpm']-60) < .0001, f'{name}: sections do not cover 60-second score')
+        tracks = {track['id']: track for track in score['tracks']}
+        half_beats = score['bars']*2
+        def phrase_signature(notes, start, end):
+            # Ignore velocity and tiny human timing offsets: random jitter is not a new phrase.
+            return sorted((round((n['beat']-start)*16), round(n['length']*20), n['pitch']) for n in notes if start <= n['beat'] < end)
+        lead = tracks['lead']['notes']
+        require(phrase_signature(lead,0,half_beats) != phrase_signature(lead,half_beats,2*half_beats), f'{name}: lead is an identical copied half')
+        profiles = []
+        for section in sections:
+            a,b = section['start_bar']*4, section['end_bar']*4
+            profiles.append(tuple(round(sum(a <= n['beat'] < b for n in track['notes'])/(b-a),3) for track in score['tracks']))
+        require(len(set(profiles)) >= 3, f'{name}: section instrumentation density lacks contrast')
+        require(any(max(row[i] for row in profiles)-min(row[i] for row in profiles) >= .25 for i in range(len(score['tracks']))), f'{name}: density contrast only trivial')
+    lobby = {track['id']: track for track in scores['lobby']['tracks']}
+    require(lobby['lead']['program'] == lobby['piano']['program'] == 0 and lobby['lead']['notes'] and lobby['piano']['notes'], 'r03 lobby piano melody/left hand')
+    require(lobby['lead']['gain'] > max(t['gain'] for key,t in lobby.items() if key != 'lead'), 'r03 piano melody no longer leads arrangement')
+    require(min(n['pitch'] for n in lobby['piano']['notes']) < 60, 'r03 piano left hand lacks low register')
+    left_patterns = []
+    for bar in range(scores['lobby']['bars']):
+        notes = [n for n in lobby['piano']['notes'] if bar*4 <= n['beat'] < (bar+1)*4]
+        if notes: left_patterns.append(tuple(sorted((round((n['beat']-bar*4)*16),round(n['length']*20)) for n in notes)))
+    require(len(set(left_patterns)) >= 3, 'r03 piano left-hand rhythm/duration patterns still uniform')
+    battle = {track['id']: track for track in scores['battle']['tracks']}
+    require(scores['battle']['key'] == 'A minor' and battle['counter']['program'] == 42 and battle['strings']['program'] == 44 and battle['lead']['program'] == 60, 'r03 battle minor/cello character')
+    chords, counts = [], []
+    for bar in range(scores['battle']['bars']):
+        counter = [n for n in battle['counter']['notes'] if bar*4 <= n['beat'] < (bar+1)*4]
+        counts.append(len(counter))
+        harmonic = battle['strings']['notes'] + battle['bass']['notes']
+        chords.append({n['pitch']%12 for n in harmonic if bar*4 <= n['beat'] < (bar+1)*4})
+    require(any({9,0,4} <= chord for chord in chords) and any({11,2,5} <= chord for chord in chords) and any({4,8,11,2} <= chord for chord in chords), 'r03 battle lost minor/diminished/E7 tension vocabulary')
+    require(max(counts) >= 6 and len(set(counts)) >= 2, 'r03 cello pulse lacks repetition/section variation')
+    require(np.median([n['pitch'] for n in battle['counter']['notes']]) <= 65, 'r03 cello pulse no longer low register')
+    preserved = {'ui_click','jump','hit_heavy','myo-ryung_special_up','ja-hyun_ultimate'}
+    for name in preserved:
+        for relative in (f'source/sfx/{name}.wav',f'comparison/{name}_v01.wav',f'comparison/{name}_v02.wav'):
+            old = subprocess.check_output(['git','show',f'{baseline}:assets/audio/v02-preview/{relative}'],cwd=root)
+            require((out/relative).read_bytes() == old, f'r03 preserved SFX changed: {relative}')
+    for relative in ('source/sfx/guard_break.wav','comparison/guard_break_v02.wav'):
+        old = subprocess.check_output(['git','show',f'{baseline}:assets/audio/v02-preview/{relative}'],cwd=root)
+        require((out/relative).read_bytes() != old, f'r03 metallic guard-break revision missing: {relative}')
+    require('hit_light' in SPECS and (out/'source/sfx/hit_light.wav').is_file(), 'r03 light-impact fixture missing')
+    require((out/'source/sfx/hit_light.wav').read_bytes() != (out/'source/sfx/hit_heavy.wav').read_bytes(), 'r03 light/heavy impacts identical')
+    print(f'PASS: r03 60-second sections/phrase and accompaniment variety, retained tension, five unchanged SFX, revised guard and new light impact against {baseline}.')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project-root', type=Path, default=ROOT)
     parser.add_argument('--output', type=Path)
     parser.add_argument('--http-only', action='store_true', help='Only test preview HTTP server on loopback')
     parser.add_argument('--skip-http', action='store_true', help='Signal/file checks only; explicitly skip HTTP check')
-    parser.add_argument('--feedback-baseline-ref', help='Check r02 feedback changes against a previous preview Git ref')
+    parser.add_argument('--feedback-baseline-ref', help='Check current r02/r03 feedback against a previous preview Git ref')
     parser.add_argument('--baseline-ref', default=None, help='Optional Git ref for unchanged runtime/v01 audit')
     args = parser.parse_args()
     if not args.skip_http: verify_http_server()
@@ -211,11 +276,17 @@ def main():
     manifest = json.loads((out/'manifest.json').read_text())
     require(manifest['version'] == 2 and manifest['stage'] == 'listening_preview', 'Not a v02 listening preview')
     require(manifest['runtime_connected'] is False and manifest['human_listening_approved'] is False, 'Preview must not claim runtime connection/human approval')
-    require({c['name'] for c in manifest['comparisons']} == set(NAMES) and len(manifest['comparisons']) == 8, 'Expected exactly eight comparison pairs')
-    require({s['name'] for s in manifest['sfx']} == set(SPECS) and len(manifest['sfx']) == 6, 'Expected exactly six SFX previews')
+    revision = int(manifest.get('revision', 1))
+    require(revision in (1,2,3), 'Unknown preview revision')
+    music_seconds = 60 if revision == 3 else 30
+    expected_sfx = set(SPECS) if revision == 3 else set(SPECS)-{'hit_light'}
+    require(len(expected_sfx) == (7 if revision == 3 else 6), 'Expected SFX scope')
+    expected_names = expected_sfx | {'lobby','battle'}
+    require({c['name'] for c in manifest['comparisons']} == expected_names and len(manifest['comparisons']) == len(expected_names), 'Comparison pair scope/duplicates')
+    require({s['name'] for s in manifest['sfx']} == expected_sfx and len(manifest['sfx']) == len(expected_sfx), 'SFX scope/duplicates')
     expected = {'preview.html', 'licenses/FluidR3-COPYRIGHT.txt'}
-    expected |= {f'comparison/{name}_{v}.wav' for name in NAMES for v in ('v01', 'v02')}
-    expected |= {f'source/sfx/{name}.wav' for name in SPECS}
+    expected |= {f'comparison/{name}_{v}.wav' for name in expected_names for v in ('v01', 'v02')}
+    expected |= {f'source/sfx/{name}.wav' for name in expected_sfx}
     for name in ('lobby', 'battle'):
         expected |= {f'source/music/{name}_mix.wav', f'source/music/{name}/score.mid', f'source/music/{name}/score.json'}
         expected |= {f'source/music/{name}/{stem}.wav' for stem in STEMS}
@@ -241,29 +312,30 @@ def main():
     require(manifest['reference']['url'] == 'https://www.youtube.com/watch?v=paAK7Q_AAlo', 'Quality reference attribution')
     require('no audio' in manifest['reference']['use'] and 'no voices' in manifest['rights']['sfx'], 'Reference/voice boundary record')
     preview = (out/'preview.html').read_text()
-    for name in NAMES:
+    for name in expected_names:
         require("id:'"+name+"'" in preview, f'Preview missing {name}')
     require("comparison/'+track.id+'_'+version+'.wav'" in preview and 'playRequestSerial' in preview, 'Preview links/request cancellation')
     require('게임에 미연결' in preview and '청취 방향 확인 전' in preview, 'Preview status labels')
     require(not any(p.suffix == '.sf2' for p in out.rglob('*')), 'SoundFont unexpectedly bundled')
-    for name, (duration, _) in SPECS.items():
+    for name in expected_sfx:
+        duration = SPECS[name][0]
         actual = pcm(out/f'source/sfx/{name}.wav', duration, 1, True)
         expected_pcm = np.rint(effect(name)*32767).astype('<i2').astype(np.float64)/32768
         require(np.array_equal(actual, expected_pcm), f'{name}: source differs from fixed-seed SFX generator')
     for name in ('lobby', 'battle'):
         score = json.loads((out/f'source/music/{name}/score.json').read_text())
-        require(score['name'] == name and score['duration_seconds'] == 30 and score['loop'] is False, f'{name}: score preview scope')
+        require(score['name'] == name and score['duration_seconds'] == music_seconds and score['loop'] is False, f'{name}: score preview scope')
         require(len(score['tracks']) == 9 and {t['id'] for t in score['tracks']} == STEMS, f'{name}: nine instrument stems')
         midi_notes(out/f'source/music/{name}/score.mid', score)
-        for stem in STEMS: pcm(out/f'source/music/{name}/{stem}.wav', 32, 2)
-        pcm(out/f'source/music/{name}_mix.wav', 30, 2, True)
+        for stem in STEMS: pcm(out/f'source/music/{name}/{stem}.wav', music_seconds+2, 2)
+        pcm(out/f'source/music/{name}_mix.wav', music_seconds, 2, True)
     for entry in manifest['comparisons']:
         name = entry['name']; music = name in ('lobby', 'battle')
-        duration = 30 if music else SPECS[name][0]
+        duration = music_seconds if music else SPECS[name][0]
         require(entry['music'] == music and entry['duration_seconds'] == duration, f'{name}: pair metadata')
         old = read_wav(root/'assets/audio/v01/source'/f'{name}.wav')
         if music:
-            old = old[:30*SR].copy()
+            old = old[:music_seconds*SR].copy()
             old[:round(.025*SR)] *= np.linspace(0,1,round(.025*SR))[:,None]
             old[-round(.65*SR):] *= np.linspace(1,0,round(.65*SR))[:,None]
         new = read_wav(out/(f'source/music/{name}_mix.wav' if music else f'source/sfx/{name}.wav'))
@@ -281,7 +353,10 @@ def main():
         require(abs(measured[0]-measured[1]) <= .3, f'{name}: measured A/B difference exceeds 0.3 LUFS')
         print(f'{name}: independently measured {measured[0]:.2f}/{measured[1]:.2f} LUFS')
     if args.feedback_baseline_ref:
-        verify_feedback_revision(root, out, args.feedback_baseline_ref)
+        if revision == 3:
+            verify_feedback_r03(root, out, args.feedback_baseline_ref)
+        else:
+            verify_feedback_revision(root, out, args.feedback_baseline_ref)
     if args.baseline_ref is not None:
         protected = ['forest_arena', 'scripts', 'project.godot', 'assets/audio/v01']
         diff = subprocess.check_output(['git','diff','--name-only',args.baseline_ref,'--',*protected],cwd=root,text=True).strip()
@@ -291,7 +366,7 @@ def main():
     else:
         print('Runtime/v01 Git baseline audit not requested; use --baseline-ref to check a chosen ref.')
     require((root/'assets/audio/.gdignore').is_file(), 'Preview source not excluded from Godot import/export')
-    print('PASS: 8 pairs, source/mix/stems/MIDI, inventory, provenance, fades, real loudness/true peak, and Godot import/export exclusion.')
+    print(f'PASS: {len(expected_names)} pairs, source/mix/stems/MIDI, inventory, provenance, fades, real loudness/true peak, and Godot import/export exclusion.')
     print('Not established: human listening approval, reference-level timbre/arrangement, full-track loops, or Android output.')
 
 

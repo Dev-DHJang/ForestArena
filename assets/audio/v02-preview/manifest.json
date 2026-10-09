@@ -1,11 +1,16 @@
 {
   "version": 2,
-  "revision": 2,
+  "revision": 3,
   "feedback": {
-    "ui_click": "딸각, mechanical two-contact click",
-    "hit_heavy": "퍽, short low-body thud",
-    "lobby": "Piano-led melody and left-hand accompaniment",
-    "battle": "More tension: minor/diminished/E7, cello ostinato, horns and heavier drums"
+    "hit_light": "파악, bright broad contact",
+    "hit_heavy": "퍽 retained from r02",
+    "guard_break": "채앵, metallic break with inharmonic decay",
+    "lobby": "Piano-led 60 s form with varied melody, harmony and accompaniment",
+    "battle": "Retain tension; 60 s form with contrast, rests and varied rhythmic orchestration"
+  },
+  "listening_feedback": {
+    "revision": 2,
+    "battle_tension": "User confirmed appropriate; retained in r03"
   },
   "stage": "listening_preview",
   "runtime_connected": false,
@@ -55,58 +60,58 @@
   "generators": [
     {
       "path": "tools/forest_arena/audio_v02_music.py",
-      "sha256": "a2fa5504a189df9c106c47e3571e84becf4cdcd839d1faddb27e2c55406b6412"
+      "sha256": "6eb63d6621760719319f32107503ca02f62b0a084c543865a75c89c60e6d8347"
     },
     {
       "path": "tools/forest_arena/audio_v02_sfx.py",
-      "sha256": "ce34eb60d1ec9adf7ff725d5e036397c64f89f11fefe4ecb96ec7ade3595f819"
+      "sha256": "96e6985ae60f1dfe40164c7f658b764994dfa7854a64dbee14677faba388a0d2"
     },
     {
       "path": "tools/forest_arena/generate_audio_v02_preview.py",
-      "sha256": "709eb2c4198836fd4c1be7712679f3732e8c5722d40f81018237e37fe7045fd7"
+      "sha256": "b11bc7c5021ebb06f0f53adce27431d8e8be3e05301860cc5e78df2cf93dc510"
     }
   ],
   "comparisons": [
     {
       "name": "lobby",
-      "duration_seconds": 30.0,
+      "duration_seconds": 60.0,
       "music": true,
       "matching": {
         "method": "EBU R128 integrated",
-        "target_lufs": -18.0,
+        "target_lufs": -18.26,
         "before": [
           {
-            "i": -14.18,
-            "tp": -3.12,
-            "lra": 1.0,
-            "thresh": -24.18
+            "i": -14.74,
+            "tp": -3.1,
+            "lra": 2.7,
+            "thresh": -24.75
           },
           {
-            "i": -33.71,
-            "tp": -17.82,
-            "lra": 4.7,
-            "thresh": -43.76
+            "i": -35.34,
+            "tp": -19.18,
+            "lra": 5.0,
+            "thresh": -45.56
           }
         ],
         "after": [
           {
-            "i": -18.01,
-            "tp": -6.94,
-            "lra": 1.0,
-            "thresh": -28.01
+            "i": -18.26,
+            "tp": -6.62,
+            "lra": 2.8,
+            "thresh": -28.27
           },
           {
-            "i": -18.0,
-            "tp": -2.11,
-            "lra": 4.7,
-            "thresh": -28.05
+            "i": -18.25,
+            "tp": -2.1,
+            "lra": 5.0,
+            "thresh": -28.53
           }
         ]
       }
     },
     {
       "name": "battle",
-      "duration_seconds": 30.0,
+      "duration_seconds": 60.0,
       "music": true,
       "matching": {
         "method": "EBU R128 integrated",
@@ -114,29 +119,29 @@
         "before": [
           {
             "i": -16.48,
-            "tp": -3.72,
-            "lra": 0.9,
-            "thresh": -26.51
+            "tp": -3.08,
+            "lra": 2.6,
+            "thresh": -26.48
           },
           {
-            "i": -28.18,
-            "tp": -15.33,
-            "lra": 2.8,
-            "thresh": -38.2
+            "i": -27.33,
+            "tp": -12.63,
+            "lra": 9.0,
+            "thresh": -37.58
           }
         ],
         "after": [
           {
-            "i": -18.0,
-            "tp": -5.24,
-            "lra": 0.9,
-            "thresh": -28.02
+            "i": -17.99,
+            "tp": -4.6,
+            "lra": 2.7,
+            "thresh": -27.99
           },
           {
             "i": -18.0,
-            "tp": -5.16,
-            "lra": 2.8,
-            "thresh": -28.03
+            "tp": -3.3,
+            "lra": 8.9,
+            "thresh": -28.25
           }
         ]
       }
@@ -216,6 +221,43 @@
       }
     },
     {
+      "name": "hit_light",
+      "duration_seconds": 0.22,
+      "music": false,
+      "matching": {
+        "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
+        "target_lufs": -25.16,
+        "before": [
+          {
+            "i": -22.57,
+            "tp": -2.37,
+            "lra": 0.7,
+            "thresh": -32.83
+          },
+          {
+            "i": -25.32,
+            "tp": -2.26,
+            "lra": 0.7,
+            "thresh": -35.71
+          }
+        ],
+        "after": [
+          {
+            "i": -25.17,
+            "tp": -4.96,
+            "lra": 0.7,
+            "thresh": -35.43
+          },
+          {
+            "i": -25.13,
+            "tp": -2.1,
+            "lra": 0.7,
+            "thresh": -35.52
+          }
+        ]
+      }
+    },
+    {
       "name": "hit_heavy",
       "duration_seconds": 0.22,
       "music": false,
@@ -258,7 +300,7 @@
       "music": false,
       "matching": {
         "method": "EBU R128 repeated events, 250 ms gap, at least 4 s",
-        "target_lufs": -23.11,
+        "target_lufs": -22.0,
         "before": [
           {
             "i": -21.07,
@@ -267,24 +309,24 @@
             "thresh": -32.94
           },
           {
-            "i": -23.39,
-            "tp": -2.38,
-            "lra": 1.3,
-            "thresh": -34.94
+            "i": -21.55,
+            "tp": -1.93,
+            "lra": 1.2,
+            "thresh": -34.23
           }
         ],
         "after": [
           {
-            "i": -23.09,
-            "tp": -4.38,
+            "i": -21.99,
+            "tp": -3.27,
             "lra": 1.2,
-            "thresh": -34.96
+            "thresh": -33.86
           },
           {
-            "i": -23.12,
-            "tp": -2.1,
+            "i": -22.02,
+            "tp": -2.38,
             "lra": 1.3,
-            "thresh": -34.66
+            "thresh": -34.71
           }
         ]
       }
@@ -390,6 +432,18 @@
       "rms": 0.162663
     },
     {
+      "name": "hit_light",
+      "duration": 0.22,
+      "notes": "약한 타격 파악: 강타보다 밝고 넓은 공기층과 짧은 표면 접촉. 금속·목재 공명과 음정 진행 없이 가벼운 몸통을 표현.",
+      "source": "source/sfx/hit_light.wav",
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "sha256": "dd44dcb9992a255dca170efc347024190acf52fcfb423a90255bc16a6113c842",
+      "peak": 0.76,
+      "rms": 0.060684
+    },
+    {
       "name": "hit_heavy",
       "duration": 0.22,
       "notes": "짧고 묵직한 퍽: 살과 둔탁한 타격의 90~135Hz 몸통에 짧은 광대역 접촉을 겹침. 목재 균열·종 공명·상승음 제거.",
@@ -404,14 +458,14 @@
     {
       "name": "guard_break",
       "duration": 0.65,
-      "notes": "높은 세 음 종소리를 제거하고 불규칙한 목재 파편과 낮은 받침 붕괴를 표현.",
+      "notes": "가드 파괴 채앵: 날카로운 첫 접촉과 불규칙한 금속 공명·작은 주파수 차의 떨림·빠른 여운. 목재 붕괴와 발랄한 상승 멜로디는 제거.",
       "source": "source/sfx/guard_break.wav",
       "sample_rate_hz": 44100,
       "channels": 1,
       "pcm_bits": 16,
-      "sha256": "a5862b714a29ea67dd1488ce5ee6925444ab136edad605501ee002bba5d2b08f",
+      "sha256": "69db1a619ecce0c23c46d60fb358b39316a242598f8108de8767cc32a254e7c8",
       "peak": 0.76,
-      "rms": 0.06515
+      "rms": 0.06476
     },
     {
       "name": "myo-ryung_special_up",
@@ -441,25 +495,25 @@
   "files": [
     {
       "path": "comparison/battle_v01.wav",
-      "sha256": "57dbe4461419c29275f22acbd01d76017365fe00b8d0d1c839d9c6f50f2c9887",
-      "bytes": 5292044,
+      "sha256": "7915ec2a60aefd492fc0a6e52feae10e5de1d95ee11ed6e921432458b2ebe54b",
+      "bytes": 10584044,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 30.0
+      "duration_seconds": 60.0
     },
     {
       "path": "comparison/battle_v02.wav",
-      "sha256": "6eb1bbbd59859658f3387025c9c032092167f18aa39cbffbd0117f591dfd366b",
-      "bytes": 5292044,
+      "sha256": "7a8e2fcb735074965b49997cb7d542fcc0ef3d1b0eb62e99d67202f8397ec85e",
+      "bytes": 10584044,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 30.0
+      "duration_seconds": 60.0
     },
     {
       "path": "comparison/guard_break_v01.wav",
-      "sha256": "f73ea2df6600457abcd5aa60d1213931dba44f6c224aad3e363ea61913c19953",
+      "sha256": "a94874c3afdf4f396358dba0129bcf8bb65820b0a3fa4c47467887f6b3b17c3c",
       "bytes": 57374,
       "sample_rate_hz": 44100,
       "channels": 1,
@@ -468,7 +522,7 @@
     },
     {
       "path": "comparison/guard_break_v02.wav",
-      "sha256": "2590b0e8df04bffb8324bc5e0fddf9b63a9d6692767073cdd6a4574ed69a2a53",
+      "sha256": "8bf62434932234494b5dc3bbdd2347aa9f71e7bae57efcd82bc2bca3c42c87e4",
       "bytes": 57374,
       "sample_rate_hz": 44100,
       "channels": 1,
@@ -487,6 +541,24 @@
     {
       "path": "comparison/hit_heavy_v02.wav",
       "sha256": "b93047ddaf878fc089cc38ffd3fa4c04f85c49d3fc1990e343877394898f5d18",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "comparison/hit_light_v01.wav",
+      "sha256": "8dcb48b72b628932efaed44c7669e55015802d220af8ae81eab62f8c7f5b9951",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "comparison/hit_light_v02.wav",
+      "sha256": "e3263af5a721cbe508799b5c91b1d9ce08e5867a05a4f8acaf65e7f4e3923ef3",
       "bytes": 19448,
       "sample_rate_hz": 44100,
       "channels": 1,
@@ -531,21 +603,21 @@
     },
     {
       "path": "comparison/lobby_v01.wav",
-      "sha256": "b2887a2ff773e6cd806a992a552b7f656f063148ce7c22d2d71bb2982de03181",
-      "bytes": 5292044,
+      "sha256": "1139c7f79eea2fa54045bfb7730a9422fd91db9057126f80179a29720f396066",
+      "bytes": 10584044,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 30.0
+      "duration_seconds": 60.0
     },
     {
       "path": "comparison/lobby_v02.wav",
-      "sha256": "31ca35fa2fc0be8f5c07b46724af944a682f0869d1d0b09ce7aec50f69903c8b",
-      "bytes": 5292044,
+      "sha256": "02d4a1ca645d008779a3a88b8912ddd102c3f305055f05ee7716f9105d91fbbd",
+      "bytes": 10584044,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 30.0
+      "duration_seconds": 60.0
     },
     {
       "path": "comparison/myo-ryung_special_up_v01.wav",
@@ -590,212 +662,212 @@
     },
     {
       "path": "preview.html",
-      "sha256": "31765bee882c6a08f2fa645e5021e4613e73ad2223e04c6d41f0c6b583d003c5",
-      "bytes": 13403
+      "sha256": "5bbc13deda6241e7da8bf8f9daa65004102bbef80e3b0f6dcc97eca7f25e4d17",
+      "bytes": 14522
     },
     {
       "path": "source/music/battle/answer.wav",
-      "sha256": "cffe596c79a146d2e53cbe072ba36349295d59bdc0283163df69df4866dc7beb",
-      "bytes": 5644844,
+      "sha256": "0b011b77bb502ffea1dfd65de1b2fa8a23c80b79b8a2e6f933b4c470c12fefe6",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/bass.wav",
-      "sha256": "87e03ecf643e184554fddc4c9fb64b5fd6d8b0ba3288fc568253f60c231cdf87",
-      "bytes": 5644844,
+      "sha256": "277ffa743561368daea0fa08d281582fb0eaca4b35e098a43cbd9f24c1165944",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/counter.wav",
-      "sha256": "b2a935084ffd8874a2cf1df4c39faf556b87f44f71b5947e5d3e878b90b6a813",
-      "bytes": 5644844,
+      "sha256": "33796b1eb9ecef36f89071a193ecfcca44a2f76747ea0008643e02cce7ed0180",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/drums.wav",
-      "sha256": "caf90510c49fa4018e548cc7d456910529bebc1e2f83c79b0bf1578853e8c4c4",
-      "bytes": 5644844,
+      "sha256": "a8f9b9c5ca117ab78d45eb84092fd1d70db0e9ed3c8ff7cbd85eaf2a0858f7a9",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/harp.wav",
-      "sha256": "2af3c9f2b83fdd3c51db41d54c08338ea3116d00711cefd9df2ab0b5d873e46b",
-      "bytes": 5644844,
+      "sha256": "329100dab0860de60723e05e4afd137f97f548def2a34ea05634d38afa22a0e3",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/horn.wav",
-      "sha256": "38ecc0c15b89496f589ec4bf391fd0ae60e07a7170929a181fc47bea7ae25bc9",
-      "bytes": 5644844,
+      "sha256": "05fd1cd86f8a6d5aa0d2fc56f74043ffc79b726c118a975ebb51bbc01fb78ac4",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/lead.wav",
-      "sha256": "fcbc855cab51b2d65824dbd0cebcb321f5821cb9fc3b7dac5558bc55bd8ad8e5",
-      "bytes": 5644844,
+      "sha256": "c214f5aee1553dc5616b120063ca54d90bbc170c2c5ce0b33f3cf2186ddc2219",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/piano.wav",
-      "sha256": "fc6d4536047eba4170a8797f772df22f39c7a4aade7b66479f9af5f5fff87735",
-      "bytes": 5644844,
+      "sha256": "e6dbaba00f6aa6a78dc1161f311bea76670135ce9eaaa3ecd5875edbc339a6b8",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle/score.json",
-      "sha256": "3bdd4977bfc7cebf86ba368e3343d944d3052ec502e73da770ff3720aaf869f8",
-      "bytes": 95740
+      "sha256": "b9abeb4412cf1d590f1ea00f6a532c969fd5965c5563bb3271a7461a1a06f8d4",
+      "bytes": 105811
     },
     {
       "path": "source/music/battle/score.mid",
-      "sha256": "d718ecef6fb0220a5cd92b86b77c5eb05b0f535442614f8d3505865ecf6e95ee",
-      "bytes": 7082
+      "sha256": "31d23738f976824c1cb15164665157bfeb5eb719f711c4c4ac7c1f77569217e1",
+      "bytes": 7741
     },
     {
       "path": "source/music/battle/strings.wav",
-      "sha256": "f04641017e142b49e22aa3fc9d4d80b3f556af61be3c66a475cbdfba891a0cf1",
-      "bytes": 5644844,
+      "sha256": "7a7e99d7c642b43af5f73f1bcaca2f8183282dd18b2e0528c4ce91388d1c2d1a",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/battle_mix.wav",
-      "sha256": "a13fce360da305e89a13f2f67424b453c289732a62b26175e3c4720a0058a16b",
-      "bytes": 5292044,
+      "sha256": "842a60b1d6327c69ac92e8896b54c2fb79922c2e48ce043d6db7507ff0b9ffd6",
+      "bytes": 10584044,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 30.0
+      "duration_seconds": 60.0
     },
     {
       "path": "source/music/lobby/answer.wav",
-      "sha256": "f3dd065eb718c8705b7943ad462046062311407407c4969caa6592adce460b4c",
-      "bytes": 5644844,
+      "sha256": "f2aef51ccac30f2411547a02a978a73b4ddf80477eaacbfa281de8763ac32085",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/bass.wav",
-      "sha256": "5d50c823348478ed8a5f31c95d50adf3298bd530e9dd470b11e1431fd178f889",
-      "bytes": 5644844,
+      "sha256": "f7e02b6039fa1d75577a621faf6ba30b63ddf3f5c9f3213bbc604f412b5b17be",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/counter.wav",
-      "sha256": "256e9ea91484273b58a45cdb50b1544aeab50349c7aa80a3f8ab23734366adae",
-      "bytes": 5644844,
+      "sha256": "ce03948974bffae8cc4c86d70b08a0da50bd08f60b7644c1614836b4f57909b8",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/drums.wav",
-      "sha256": "ac1a96520a4a04fb339564f0e4f230c1e27d7de78b99634ae8aa36414469eda0",
-      "bytes": 5644844,
+      "sha256": "d16eea5a4040c4ec323649b11fd65c0ef96b95507103860363ec1e47390b24db",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/harp.wav",
-      "sha256": "be00cf082f6ff50cb6a14c739dcd99befd7c7891cce23260ced9542627ce9f9f",
-      "bytes": 5644844,
+      "sha256": "dc9913953daa5633e3bda88a9a84b5d3af474bd45f25bdb79f8751dc7e6d4fe1",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/horn.wav",
-      "sha256": "79026f910e830867d448750191dcc5590066b567093fb863b7a8d2043da87f3d",
-      "bytes": 5644844,
+      "sha256": "4ee628dc7e20d7e2e28c647ee9eeaf7d676b4171120938dea4cbce7f1846f0fb",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/lead.wav",
-      "sha256": "27c564a8cba1e29e48c78102d4ec1ccf6b6316266c3fbb0236de4f36608d4451",
-      "bytes": 5644844,
+      "sha256": "f747ae888e33dccbe65cf1784b9ae3e6bf314f933602b4df9aa1ec138a5465c0",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/piano.wav",
-      "sha256": "6ae39eea068238236a237ce2c25c19417d4c1125ac77fd8b3f69823ab3a0375f",
-      "bytes": 5644844,
+      "sha256": "5a96fb26b13952b02fffe399e45e9123c07a229cd6c6589b7d2fdddf4f88378f",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby/score.json",
-      "sha256": "a72f9bec6617ef46e3066c8795fa43e8b74156677a4f5d9a4b543d1a632f1177",
-      "bytes": 39909
+      "sha256": "b97b34098fd0b7f9656c6a2e15eb8f96fc541ec95c8cc1434b1fcdee1f966f95",
+      "bytes": 43172
     },
     {
       "path": "source/music/lobby/score.mid",
-      "sha256": "ccd6e887d8bf1f6667f3660d59a1d51577600cc4931273327f160cc15b5b5496",
-      "bytes": 3042
+      "sha256": "c7bc297eb671a692e8d077086b741b40ad9a91b7eca5b8a5605c8442e155806c",
+      "bytes": 3080
     },
     {
       "path": "source/music/lobby/strings.wav",
-      "sha256": "0a04f7a88679487b345eca4627f2b5e33413532cafa0fff2f5283ed2a99afae2",
-      "bytes": 5644844,
+      "sha256": "6e69b3e900ee1de9185de05ee6339ef6874a86332bf7a7f4ea932d859fdc8f79",
+      "bytes": 10936844,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 32.0
+      "duration_seconds": 62.0
     },
     {
       "path": "source/music/lobby_mix.wav",
-      "sha256": "1ec110c8ecb707330a7b230c328e16bc5615a4fc5bb83a33347e39b61ccb9828",
-      "bytes": 5292044,
+      "sha256": "30bbb75c6f8a75c87fe4a9edfbcc65b8860610c4030a5b88e4d3f12b93c6eee3",
+      "bytes": 10584044,
       "sample_rate_hz": 44100,
       "channels": 2,
       "pcm_bits": 16,
-      "duration_seconds": 30.0
+      "duration_seconds": 60.0
     },
     {
       "path": "source/sfx/guard_break.wav",
-      "sha256": "a5862b714a29ea67dd1488ce5ee6925444ab136edad605501ee002bba5d2b08f",
+      "sha256": "69db1a619ecce0c23c46d60fb358b39316a242598f8108de8767cc32a254e7c8",
       "bytes": 57374,
       "sample_rate_hz": 44100,
       "channels": 1,
@@ -805,6 +877,15 @@
     {
       "path": "source/sfx/hit_heavy.wav",
       "sha256": "f8b3deee0a52240bde0f252f0e370cc7122d6b28906bfceaefb877ff428a85f8",
+      "bytes": 19448,
+      "sample_rate_hz": 44100,
+      "channels": 1,
+      "pcm_bits": 16,
+      "duration_seconds": 0.22
+    },
+    {
+      "path": "source/sfx/hit_light.wav",
+      "sha256": "dd44dcb9992a255dca170efc347024190acf52fcfb423a90255bc16a6113c842",
       "bytes": 19448,
       "sample_rate_hz": 44100,
       "channels": 1,
@@ -849,7 +930,7 @@
     }
   ],
   "limits": [
-    "Listening preview, not a loop or complete 80/90 second track.",
+    "Listening preview, not a loop or complete 80/90 second track; r03 is a 60 second through-arranged study.",
     "Automatic signal checks cannot establish reference-level perceived quality.",
     "Human audition and physical Android output not yet verified."
   ]
