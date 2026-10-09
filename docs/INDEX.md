@@ -21,6 +21,8 @@
 | 로컬 AI 버전은 어떻게 플레이하는가? | [로컬 AI 플레이](gameplay/local-ai-play.md) | [전투 규칙](gameplay/combat.md) |
 | 같은 Wi-Fi에서 두 명이 어떻게 대전하는가? | [LAN 1대1 플레이](gameplay/lan-1v1-play.md) | [코드 구조](engineering/architecture.md) |
 | 중요한 결정이 승인됐는가? | [결정 기록](product/decisions.md) | [용어 가이드의 결정 상태](GLOSSARY.md#프로젝트-진행-용어) |
+| 재화와 구매 가격은 어떻게 제안됐는가? | [재화·가격 제안](product/economy-pricing-v01.md) | [결정 기록 ADR-010](product/decisions.md#adr-010-장신구-획득경제-정책-제안) |
+| 장신구의 효과와 제한은 무엇인가? | [장신구 설정](gameplay/accessories-v01.md) | [전투 규칙](gameplay/combat.md) |
 | 이동·공격·승패는 어떻게 동작하는가? | [전투 규칙](gameplay/combat.md) | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md), [공격 데이터 형식](contracts/attack-system-v01.json) |
 | 자현·묘령·나비는 어떻게 싸우는가? | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md) | [전투 규칙](gameplay/combat.md) |
 | 화면과 터치 조작은 어떻게 구성하는가? | [기능과 사용자 경험](gameplay/features-and-ux.md) | [비전투 화면 데이터](ui/non-combat-ui-v01.json), [Penpot 설계 기준](ui/penpot-setup.md) |

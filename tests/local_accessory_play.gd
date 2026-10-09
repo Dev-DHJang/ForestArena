@@ -70,47 +70,43 @@ func run() -> void:
 			var label := "%s/%s" % [character.character_id, accessory.accessory_id]
 			match accessory.accessory_id:
 				&"fixture-iron-armor":
-					check(is_equal_approx(player.runtime_profile.stats.weight, character.base_stats.weight + 0.5), label + " weight")
+					check(is_equal_approx(player.runtime_profile.stats.weight, character.base_stats.weight * 1.05), label + " weight")
+					check(is_equal_approx(player.runtime_profile.stats.ground_speed, character.base_stats.ground_speed * 0.95), label + " speed tradeoff")
 					var attack := await strike(enemy)
 					if attack != null:
 						check(is_equal_approx(player.current_hp, player_hp - attack.damage), label + " receives damage")
-						check(not hit_events.is_empty() and hit_events[0].result == "ARMOR", label + " armor result")
-						check(player.hitstun_ticks == 0 and is_zero_approx(player.velocity.x), label + " prevents stagger/knockback")
+						check(not hit_events.is_empty() and hit_events[0].result == "HIT", label + " no permanent armor")
+						check(player.hitstun_ticks > 0, label + " still takes hitstun")
 				&"fixture-boxing-gloves":
-					check(is_equal_approx(player.runtime_profile.stats.ground_speed, character.base_stats.ground_speed * 1.2), label + " speed")
+					check(is_equal_approx(player.runtime_profile.stats.ground_speed, character.base_stats.ground_speed), label + " no speed bonus")
 					var attack := await strike(player)
 					if attack != null:
 						check(attack.attack_id == &"yu-ran-light-01", label + " replacement attack executes")
 						check(player.runtime_profile.move_set.combo_links.size() == accessory.replacement_move_set.combo_links.size(), label + " replacement combo links")
 				&"fixture-thorns":
+					check(is_equal_approx(player.runtime_profile.stats.air_speed, character.base_stats.air_speed * 1.05), label + " air speed option")
+					check(is_equal_approx(player.runtime_profile.stats.ground_speed, character.base_stats.ground_speed * 0.95), label + " ground tradeoff")
 					await strike(enemy)
-					check(is_equal_approx(enemy.current_hp, enemy_hp - 3.0), label + " actual damage triggers reflection")
+					check(is_equal_approx(enemy.current_hp, enemy_hp), label + " no reflection damage")
 				&"fixture-explosive-gloves":
+					check(is_equal_approx(player.runtime_profile.stats.jump_velocity, character.base_stats.jump_velocity * 1.05), label + " jump option")
+					check(is_equal_approx(player.runtime_profile.stats.weight, character.base_stats.weight * 0.95), label + " knockback tradeoff")
 					var attack := await strike(player)
-					if attack != null: check(is_equal_approx(enemy.current_hp, enemy_hp - attack.damage - 4.0), label + " actual hit adds explosion damage")
+					if attack != null: check(is_equal_approx(enemy.current_hp, enemy_hp - attack.damage), label + " no explosion damage")
 				&"fixture-ultimate-charm":
 					var attack := await strike(player)
 					if attack != null:
-						var expected := attack.damage * controller.rules.ultimate_gauge_per_damage_dealt + attack.resource_gain + 12.0
+						var expected := attack.damage * controller.rules.ultimate_gauge_per_damage_dealt + attack.resource_gain + 4.0
 						check(is_equal_approx(player.runtime_state.ultimate_gauge, expected), label + " actual hit adds gauge")
+					check(is_equal_approx(player.runtime_profile.stats.ground_speed, character.base_stats.ground_speed * 0.95), label + " gauge tradeoff")
 				&"fixture-phoenix-revive":
+					check(is_equal_approx(player.runtime_profile.stats.gravity, character.base_stats.gravity * 0.95), label + " glide option")
+					check(is_equal_approx(player.runtime_profile.stats.air_speed, character.base_stats.air_speed * 0.95), label + " air control tradeoff")
 					player.stocks = 1
 					player.current_hp = 1
 					await strike(enemy)
-					check(player.stocks == 1 and player.runtime_state.revive_used and player.current_hp == 35.0, label + " lethal hit triggers one revive")
-					check(player.respawn_ticks == 45 and controller.winner_id.is_empty(), label + " normal revive delay before result")
-					await ticks(44)
-					check(player.state == FighterController.State.RING_OUT, label + " no early return")
-					await ticks(1)
-					check(player.current_hp == 35.0 and player.invulnerability_ticks == 60, label + " authored HP and return immunity")
-					# The 60-tick recovery immunity starts only after the 45th tick
-					# returns the fighter. Waiting from the lethal hit would leave 44
-					# immunity ticks and make the next strike correctly resolve IMMUNE.
-					await ticks(controller.rules.respawn_invulnerability_ticks)
-					check(player.invulnerability_ticks == 0, label + " return immunity expires before second lethal hit")
-					player.current_hp = 1
-					await strike(enemy)
-					check(controller.winner_id == enemy.fighter_id and player.stocks == 0, label + " second lethal hit ends match")
+					check(player.stocks == 0 and not player.runtime_state.revive_used, label + " no accessory revival")
+					check(controller.winner_id == enemy.fighter_id, label + " final lethal hit ends match")
 			app.start_match()
 			controller = app.match_controller
 			controller.set_physics_process(false)

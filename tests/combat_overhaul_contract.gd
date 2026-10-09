@@ -21,8 +21,8 @@ func _initialize() -> void:
 		if accessory == null or not accessory.is_valid_definition(): failures.append("invalid fixture: %s" % path)
 	var iron := load("res://assets/loadouts/fixtures/iron_armor_accessory.tres") as AccessoryData
 	var boxing := load("res://assets/loadouts/fixtures/boxing_gloves_accessory.tres") as AccessoryData
-	if iron == null or not iron.combat_rules.any(func(rule: CombatRuleData) -> bool: return rule.kind == CombatRuleData.Kind.SUPER_ARMOR):
-		failures.append("iron armor did not declare data-driven armor")
+	if iron == null or not iron.combat_rules.is_empty():
+		failures.append("iron armor must not grant permanent immunity or armor")
 	if boxing == null or boxing.replacement_move_set == null or boxing.replacement_move_set.move_set_id != &"yu-ran.base":
 		failures.append("boxing gloves did not replace the complete MoveSet")
 	var tagged_attack := AttackData.new()
@@ -92,21 +92,17 @@ func _initialize() -> void:
 	if player.active_attack == null or player.active_attack.attack_id != finisher.attack_id:
 		failures.append("finisher cancellation was accepted")
 
-	# A one-use OnDeath revive grants one stock and enters the ordinary delay.
+	# The legacy owned ID now grants glide options, never an extra stock.
 	var revive_accessory := load("res://assets/loadouts/fixtures/phoenix_revive_accessory.tres") as AccessoryData
 	player.runtime_profile.combat_effects = revive_accessory.combat_effects.duplicate(true)
 	player.stocks = 1
 	player.current_hp = 1.0
 	player.lose_stock(controller.rules)
 	controller.call("_resolve_final_losses")
-	if player.stocks != 1 or player.state != FighterController.State.RING_OUT or player.current_hp != 35.0 or not player.runtime_state.revive_used:
-		failures.append("OnDeath revive did not use normal stock return flow")
-	player.state = FighterController.State.IDLE
-	player.lose_stock(controller.rules)
-	controller.call("_resolve_final_losses")
-	if player.state != FighterController.State.MATCH_ENDED: failures.append("revive was consumed more than once")
+	if player.stocks != 0 or player.runtime_state.revive_used or player.state != FighterController.State.MATCH_ENDED:
+		failures.append("legacy accessory granted a revival")
 
-	# Effect recursion uses the cause ID guard and cannot reflect indefinitely.
+	# The legacy thorns ID no longer applies reflected damage.
 	controller.reset_match()
 	var thorns := load("res://assets/loadouts/fixtures/thorns_accessory.tres") as AccessoryData
 	dummy.runtime_profile.combat_effects = thorns.combat_effects.duplicate(true)
@@ -114,7 +110,7 @@ func _initialize() -> void:
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_DAMAGED, dummy, player, controller.rules, &"fixture-thorns")
 	if player.current_hp != hp_before: failures.append("effect reflected its own cause")
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_DAMAGED, dummy, player, controller.rules, &"other-cause")
-	if player.current_hp != hp_before - 3.0: failures.append("effect reflection was not applied")
+	if player.current_hp != hp_before: failures.append("removed reflection was applied")
 
 	instance.queue_free()
 	if failures.is_empty():

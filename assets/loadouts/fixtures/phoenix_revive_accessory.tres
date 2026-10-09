@@ -1,18 +1,22 @@
 [gd_resource type="Resource" script_class="AccessoryData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/data/combat_effect_data.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="2"]
 
-[sub_resource type="Resource" id="Revive"]
+[sub_resource type="Resource" id="Option0"]
 script = ExtResource("2")
-trigger = 11
-kind = 2
-amount = 35.0
-cause_id = &"fixture-phoenix-revive"
-max_chain_depth = 0
+field = 5
+operation = 1
+value = 0.95
+
+[sub_resource type="Resource" id="Option1"]
+script = ExtResource("2")
+field = 3
+operation = 1
+value = 0.95
 
 [resource]
 script = ExtResource("1")
 schema_version = 2
 accessory_id = &"fixture-phoenix-revive"
-combat_effects = Array[ExtResource("2")]([SubResource("Revive")])
+stat_modifiers = Array[ExtResource("2")]([SubResource("Option0"), SubResource("Option1")])
