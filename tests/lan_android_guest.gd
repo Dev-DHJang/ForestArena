@@ -1,6 +1,6 @@
 extends Node
 
-const PROTOCOL_VERSION := 1
+const PROTOCOL_VERSION := 2
 const TIMEOUT_MSEC := 60_000
 
 var peer := WebSocketMultiplayerPeer.new()
@@ -34,7 +34,7 @@ func _process(_delta: float) -> void:
 		return
 	if not connected and peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
 		connected = true
-		_send({"type": "join_room", "room_code": get_meta("room_code"), "selection": {"schema_version": 1, "character_id": "yu-ran", "job_id": "", "accessory_id": "fixture-boxing-gloves"}})
+		_send({"type": "join_room", "access_token": OS.get_environment("FOREST_ARENA_LAN_ANDROID_ACCESS_TOKEN"), "room_code": get_meta("room_code"), "selection": {"schema_version": 1, "character_id": "yu-ran", "job_id": "", "accessory_id": "fixture-boxing-gloves"}})
 	while peer.get_available_packet_count() > 0:
 		_handle(peer.get_packet().get_string_from_utf8())
 	if not match_running: return

@@ -1,40 +1,68 @@
 class_name LanInvite
 extends RefCounted
 
-const PROTOCOL_VERSION := 1
-const HOST_PREFIX := "FAH1"
-const INVITE_PREFIX := "FA1"
+const PROTOCOL_VERSION := 2
+const HOST_PREFIX := "FAH2"
+const INVITE_PREFIX := "FA2"
 const ROOM_CODE_LENGTH := 8
 
 
-static func host_code(websocket_url: String) -> String:
-	return "%s|%s|%d" % [HOST_PREFIX, websocket_url, PROTOCOL_VERSION] if valid_private_websocket_url(websocket_url) else ""
+static func host_code(websocket_url: String, api_url: String = "") -> String:
+	if not valid_endpoint_pair(websocket_url, api_url): return ""
+	return "%s|%s|%s|%d" % [HOST_PREFIX, api_url, websocket_url, PROTOCOL_VERSION]
 
 
-static func invite_code(websocket_url: String, room_code: String) -> String:
+static func invite_code(websocket_url: String, room_code: String, api_url: String = "") -> String:
 	var normalized := room_code.strip_edges().to_upper()
-	if not valid_private_websocket_url(websocket_url) or not valid_room_code(normalized): return ""
-	return "%s|%s|%s|%d" % [INVITE_PREFIX, websocket_url, normalized, PROTOCOL_VERSION]
+	if not valid_endpoint_pair(websocket_url, api_url) or not valid_room_code(normalized): return ""
+	return "%s|%s|%s|%s|%d" % [INVITE_PREFIX, api_url, websocket_url, normalized, PROTOCOL_VERSION]
 
 
 static func parse_host_code(value: String) -> Dictionary:
-	var parts := value.strip_edges().split("|", false)
-	if parts.size() != 3 or parts[0] != HOST_PREFIX or int(parts[2]) != PROTOCOL_VERSION:
+	var parts := value.strip_edges().split("|", true)
+	if parts[0] == "FAH1": return {"error": "unsupported_protocol"}
+	if parts.size() != 4 or parts[0] != HOST_PREFIX or parts[3] != str(PROTOCOL_VERSION):
 		return {"error": "invalid_host_code"}
-	var url := String(parts[1])
-	if not valid_private_websocket_url(url): return {"error": "invalid_private_endpoint"}
-	return {"websocket_url": url, "protocol_version": PROTOCOL_VERSION}
+	if not valid_endpoint_pair(parts[2], parts[1]): return {"error": "invalid_private_endpoint"}
+	return {"websocket_url": parts[2], "api_url": parts[1], "protocol_version": PROTOCOL_VERSION}
 
 
 static func parse_invite_code(value: String) -> Dictionary:
-	var parts := value.strip_edges().split("|", false)
-	if parts.size() != 4 or parts[0] != INVITE_PREFIX or int(parts[3]) != PROTOCOL_VERSION:
+	var parts := value.strip_edges().split("|", true)
+	if parts[0] == "FA1": return {"error": "unsupported_protocol"}
+	if parts.size() != 5 or parts[0] != INVITE_PREFIX or parts[4] != str(PROTOCOL_VERSION):
 		return {"error": "invalid_invite_code"}
-	var url := String(parts[1])
-	var room_code := String(parts[2]).to_upper()
-	if not valid_private_websocket_url(url): return {"error": "invalid_private_endpoint"}
+	if not valid_endpoint_pair(parts[2], parts[1]): return {"error": "invalid_private_endpoint"}
+	var room_code := String(parts[3]).to_upper()
 	if not valid_room_code(room_code): return {"error": "invalid_room_code"}
-	return {"websocket_url": url, "room_code": room_code, "protocol_version": PROTOCOL_VERSION}
+	return {"websocket_url": parts[2], "api_url": parts[1], "room_code": room_code, "protocol_version": PROTOCOL_VERSION}
+
+
+static func valid_endpoint_pair(websocket_url: String, api_url: String) -> bool:
+	if not api_url.begins_with("http://"): return false
+	var api_ws := api_url.replace("http://", "ws://")
+	return valid_private_websocket_url(websocket_url) and valid_private_websocket_url(api_ws) and websocket_url.substr(5).get_slice(":", 0) == api_ws.substr(5).get_slice(":", 0)
+
+
+static func ipv4_number(value: String) -> int:
+	var parts := value.split(".")
+	if parts.size() != 4: return -1
+	var result := 0
+	for part: String in parts:
+		if not part.is_valid_int() or str(int(part)) != part or int(part) < 0 or int(part) > 255: return -1
+		result = (result << 8) | int(part)
+	return result
+
+
+static func address_in_cidr(address: String, cidr: String) -> bool:
+	var parts := cidr.split("/")
+	if parts.size() != 2 or not parts[1].is_valid_int(): return false
+	var bits := int(parts[1])
+	var base := ipv4_number(parts[0])
+	var candidate := ipv4_number(address.trim_prefix("::ffff:"))
+	if bits < 1 or bits > 32 or base < 0 or candidate < 0: return false
+	var mask := (0xffffffff << (32 - bits)) & 0xffffffff
+	return (base & mask) == (candidate & mask)
 
 
 static func valid_room_code(value: String) -> bool:

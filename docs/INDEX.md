@@ -19,6 +19,7 @@
 | 이 게임은 무엇인가? | [제품 방향](product/vision.md) | [세계관과 중심 이야기](product/world-and-story.md) |
 | 지금 어디까지 만들었는가? | [개발 순서](product/roadmap.md) | [현재 작업 상태](operations/harness/operating-index.md) |
 | 로컬 AI 버전은 어떻게 플레이하는가? | [로컬 AI 플레이](gameplay/local-ai-play.md) | [전투 규칙](gameplay/combat.md) |
+| 무료 APK 데모는 어떻게 설치하는가? | [데모 설치와 서버 실행](gameplay/demo-install.md) | [승인 결정 ADR-032](product/decisions.md#adr-032-무료-apk-게스트-lan-데모) |
 | 같은 Wi-Fi에서 두 명이 어떻게 대전하는가? | [LAN 1대1 플레이](gameplay/lan-1v1-play.md) | [코드 구조](engineering/architecture.md) |
 | 중요한 결정이 승인됐는가? | [결정 기록](product/decisions.md) | [용어 가이드의 결정 상태](GLOSSARY.md#프로젝트-진행-용어) |
 | 재화와 구매 가격은 어떻게 제안됐는가? | [재화·가격 제안](product/economy-pricing-v01.md) | [결정 기록 ADR-010](product/decisions.md#adr-010-장신구-획득경제-정책-제안) |

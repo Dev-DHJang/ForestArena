@@ -34,6 +34,12 @@ var lan_current_invite := ""
 var lan_local_slot := 0
 var lan_loadouts: Dictionary = {}
 var lan_status_label: Label
+var demo_guest: DemoGuestClient
+var demo_guest_session_path := "user://demo_guest_session.json"
+var demo_mode := OS.has_feature("demo") or "--demo" in OS.get_cmdline_user_args()
+var demo_intent := ""
+var demo_api_url := ""
+var demo_generation := 0
 
 func _ready() -> void:
 	get_tree().quit_on_go_back = false
@@ -41,6 +47,7 @@ func _ready() -> void:
 	layer.layer = 10
 	add_child(layer)
 	lan_client = LanMatchClient.new()
+	lan_client.access_token_provider = Callable(self, "_refresh_demo_lan_token")
 	add_child(lan_client)
 	lan_client.status_changed.connect(_on_lan_status)
 	lan_client.room_created.connect(_on_lan_room_created)
@@ -51,6 +58,9 @@ func _ready() -> void:
 	lan_client.match_finished.connect(_on_lan_match_finished)
 	lan_client.rematch_changed.connect(_on_lan_rematch_changed)
 	lan_client.failed.connect(_on_lan_failed)
+	demo_guest = DemoGuestClient.new()
+	demo_guest.session_path = demo_guest_session_path
+	add_child(demo_guest)
 	store = LocalPlayerStore.new(catalog, save_path)
 	db_client = DbProfileClient.new()
 	db_client.session_path = db_session_path
@@ -58,7 +68,7 @@ func _ready() -> void:
 	var configured := OS.get_environment("FOREST_ARENA_API_URL")
 	if not configured.is_empty(): db_address = configured
 	var saved := db_client.saved_connection()
-	var auto_db := bool(saved.get("use_db", false)) or "--db-profile" in OS.get_cmdline_user_args()
+	var auto_db := not demo_mode and (bool(saved.get("use_db", false)) or "--db-profile" in OS.get_cmdline_user_args())
 	if auto_db and configured.is_empty(): db_address = String(saved.get("api_url", db_address))
 	if auto_db:
 		_show_db_connection()
@@ -159,7 +169,7 @@ func _show_first() -> void:
 		else:
 			message = store.error
 			_show_home() if store.data.first_granted else _show_first())
-	_button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
+	if not demo_mode: _button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
 
 func _character_cards(owned_only: bool, callback: Callable) -> void:
 	var row := HBoxContainer.new()
@@ -186,14 +196,16 @@ func _show_home() -> void:
 	_button("LAN 1:1 · 같은 Wi-Fi", _show_lan_menu)
 	_button("상점 · 모두 0원", _show_shop)
 	_button("접근성 설정", _show_accessibility)
-	_button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
+	if not demo_mode: _button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
 	_label("로컬 DB에 저장합니다 · 변경 번호 %d" % db_client.revision if db_mode else "구매와 선택은 이 기기에 저장됩니다.", 18)
 
 
 func _show_lan_menu() -> void:
 	screen = "lan_menu"
 	_new_page("LAN 1:1 · 같은 Wi-Fi")
-	_label("Mac에서 ./scripts/lan-host.sh start를 실행한 뒤 표시되는 한 줄 연결 코드를 사용합니다.", 18)
+	_label("Mac에서 ./scripts/demo-server.sh start를 실행한 뒤 표시되는 한 줄 연결 코드를 사용합니다.", 18)
+	_label("무료 APK 데모 · 같은 네트워크 1대1 · 게스트와 닉네임은 로컬 서버에 저장됩니다.", 18)
+	if not demo_guest.nickname.is_empty(): _label("온라인 닉네임: " + demo_guest.nickname, 18)
 	_button("방 만들기", _show_lan_host)
 	_button("초대 코드로 참가", _show_lan_join)
 	_button("로비", _show_home)
@@ -203,7 +215,7 @@ func _show_lan_host() -> void:
 	screen = "lan_host"
 	_new_page("LAN 방 만들기")
 	_label("Mac 호스트 연결 코드", 18)
-	_line_input("FAH1|ws://192.168.x.x:7777|1", lan_host_code, func(value: String) -> void: lan_host_code = value)
+	_line_input("FAH2|http://192.168.x.x:3001|ws://192.168.x.x:7778|2", lan_host_code, func(value: String) -> void: lan_host_code = value)
 	_button("연결 코드 붙여넣기", _paste_lan_host_code)
 	_lan_loadout_controls(_show_lan_host)
 	_button("방 생성", _begin_lan_host)
@@ -214,7 +226,7 @@ func _show_lan_join() -> void:
 	screen = "lan_join"
 	_new_page("LAN 방 참가")
 	_label("방장이 전달한 한 줄 초대 코드", 18)
-	_line_input("FA1|ws://192.168.x.x:7777|ABCDEFGH|1", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
+	_line_input("FA2|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|2", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
 	_button("초대 코드 붙여넣기", _paste_lan_invite_code)
 	_lan_loadout_controls(_show_lan_join)
 	_button("방 참가", _begin_lan_join)
@@ -262,25 +274,106 @@ func _selected_lan_loadout() -> LoadoutSelection:
 
 
 func _begin_lan_host() -> void:
-	if not lan_client.begin_host(lan_host_code, _selected_lan_loadout(), store.data.nickname): return
-	screen = "lan_connecting"
-	_new_page("LAN 서버 연결 중", false)
-	lan_status_label = _label("Mac 호스트에 연결하고 있습니다.")
-	_button("취소", _leave_lan_to_menu)
+	await _demo_login("host")
 
 
 func _begin_lan_join() -> void:
-	if not lan_client.begin_join(lan_invite_code, _selected_lan_loadout(), store.data.nickname): return
+	await _demo_login("join")
+
+
+func _demo_login(intent: String, new_guest := false) -> void:
+	if demo_guest.busy: return
+	var parsed := LanInvite.parse_host_code(lan_host_code) if intent == "host" else LanInvite.parse_invite_code(lan_invite_code)
+	if parsed.has("error"):
+		_on_lan_failed(String(parsed.error))
+		return
+	demo_intent = intent
+	demo_api_url = String(parsed.api_url)
+	demo_generation += 1
+	var generation := demo_generation
+	screen = "demo_login"
+	_new_page("게스트 접속 중")
+	_label("처음 연결할 때 게스트를 만들고, 이후에는 같은 게스트로 접속합니다.", 18)
+	_button("취소", _cancel_demo_login)
+	var ok := await demo_guest.login(demo_api_url, new_guest)
+	if generation != demo_generation or not is_inside_tree(): return
+	if not ok:
+		screen = "demo_guest_error"
+		_new_page("게스트 연결 확인")
+		_label(_demo_error(demo_guest.error), 18)
+		_button("다시 시도", func() -> void: await _demo_login(intent))
+		if demo_guest.session_invalid or demo_guest.error == "session_endpoint_mismatch":
+			_button("새 게스트 시작 안내", _confirm_new_demo_guest)
+		_button("취소", _cancel_demo_login)
+		return
+	_show_demo_nickname()
+
+
+func _show_demo_nickname() -> void:
+	screen = "demo_nickname"
+	_new_page("온라인 닉네임")
+	_label("한글·영문·숫자·밑줄 2~12자. 다른 게스트와 같은 이름은 사용할 수 없습니다.", 18)
+	var input := _line_input("닉네임", demo_guest.nickname, func(_value: String) -> void: pass)
+	input.name = "DemoNicknameInput"
+	input.max_length = 12
+	_button("닉네임 저장", func() -> void:
+		if demo_guest.busy: return
+		var generation := demo_generation
+		var ok := await demo_guest.set_nickname(input.text)
+		if generation != demo_generation or screen != "demo_nickname": return
+		message = "닉네임을 저장했습니다." if ok else _demo_error(demo_guest.error)
+		_show_demo_nickname())
+	_button("이 닉네임으로 계속", _continue_demo_lan, null, demo_guest.nickname.is_empty())
+	_button("취소", _cancel_demo_login)
+
+
+func _confirm_new_demo_guest() -> void:
+	screen = "demo_guest_reset"
+	_new_page("새 게스트로 시작할까요?")
+	_label("기존 서버 게스트는 삭제하지 않습니다. 이 기기의 무료 보유·선택·설정도 유지합니다. 기존 닉네임은 새 게스트에서 사용할 수 없습니다.", 18)
+	_button("새 게스트 시작", func() -> void: await _demo_login(demo_intent, true))
+	_button("취소", _cancel_demo_login)
+
+
+func _cancel_demo_login() -> void:
+	demo_generation += 1
+	demo_guest.cancel()
+	lan_client.leave()
+	_show_lan_menu()
+
+
+func _refresh_demo_lan_token() -> String:
+	var ok := await demo_guest.login(demo_api_url)
+	return demo_guest.access_token if ok else ""
+
+
+func _continue_demo_lan() -> void:
+	if demo_guest.busy or demo_guest.nickname.is_empty(): return
+	var ok := lan_client.begin_host(lan_host_code, _selected_lan_loadout(), demo_guest.nickname, demo_guest.access_token) if demo_intent == "host" else lan_client.begin_join(lan_invite_code, _selected_lan_loadout(), demo_guest.nickname, demo_guest.access_token)
+	if not ok: return
 	screen = "lan_connecting"
-	_new_page("LAN 방 참가 중", false)
-	lan_status_label = _label("초대 코드를 확인하고 있습니다.")
+	_new_page("LAN 서버 연결 중", false)
+	lan_status_label = _label("인증한 게스트로 방을 연결하고 있습니다.")
 	_button("취소", _leave_lan_to_menu)
+
+
+func _demo_error(code: String) -> String:
+	return {
+		"nickname_taken": "이미 사용 중인 닉네임입니다. 다른 이름을 선택하세요.",
+		"invalid_nickname": "한글·영문·숫자·밑줄로 2~12자를 입력하세요.",
+		"session_invalid": "이전 게스트를 복구하지 못했습니다. 새 게스트 시작을 선택할 수 있습니다.",
+		"invalid_refresh_token": "이전 게스트가 만료되었습니다. 새 게스트 시작을 선택할 수 있습니다.",
+		"session_endpoint_mismatch": "다른 서버의 게스트가 저장돼 있습니다. 이전 서버로 연결하거나 새 게스트를 선택하세요.",
+		"session_save_failed": "게스트 기록을 저장하지 못했습니다. 기기 저장 공간을 확인하세요.",
+		"cancelled": "연결을 취소했습니다.",
+	}.get(code, "게스트 서버 연결 실패. 같은 네트워크와 서버 실행 상태를 확인하세요. (%s)" % code)
 
 
 func _on_lan_room_created(invite_code: String) -> void:
 	lan_current_invite = invite_code
 	screen = "lan_waiting"
 	_new_page("LAN 방 · 참가자 대기", false)
+	_label("내 닉네임: " + demo_guest.nickname, 18)
 	_label("아래 한 줄 초대 코드를 같은 Wi-Fi의 참가자에게 전달하세요.", 18)
 	var code := _line_input("", invite_code, func(_value: String) -> void: pass)
 	code.editable = false
@@ -426,6 +519,7 @@ func _on_lan_match_finished(result: Dictionary) -> void:
 	var title := "무승부" if winner_slot == 0 and result.get("reason") == "draw" else ("승리!" if winner_slot == lan_local_slot else "패배")
 	if result.get("reason") == "room_closed": title = "방이 종료되었습니다"
 	_new_page(title, false)
+	_label("참가자: " + String(lan_client.participant_names.get("1", "참가자 1")) + " · " + String(lan_client.participant_names.get("2", "참가자 2")), 18)
 	_label("종료 사유: " + _lan_reason_text(String(result.get("reason", "combat"))), 18)
 	_button("같은 조건으로 재대전 요청", _request_lan_rematch)
 	_button("LAN 메뉴", _leave_lan_to_menu)
@@ -472,12 +566,20 @@ func _lan_reason_text(code: String) -> String:
 		"room_closed": "방 종료", "room_not_found": "방 코드를 찾을 수 없음", "room_full": "방이 가득 참",
 		"server_busy": "호스트에서 다른 방이 진행 중", "invalid_loadout": "캐릭터 또는 장신구 선택 오류",
 		"invalid_host_code": "호스트 연결 코드 형식 오류", "invalid_invite_code": "초대 코드 형식 오류",
-		"invalid_private_endpoint": "사설 Wi-Fi 주소가 아님", "unsupported_protocol": "앱과 호스트 버전이 다름",
+		"invalid_private_endpoint": "사설 Wi-Fi 주소가 아님", "unsupported_protocol": "앱과 호스트 버전이 다릅니다. 데모 APK를 업데이트하세요.",
+		"nickname_required": "게스트 닉네임을 먼저 설정하세요", "duplicate_guest": "같은 게스트는 두 번 참가할 수 없습니다",
+		"unauthorized": "게스트 인증이 만료되었거나 유효하지 않습니다", "request_timeout": "8초 안에 서버 응답을 받지 못했습니다",
+		"network_not_allowed": "허용된 같은 네트워크에서만 연결할 수 있습니다",
+		"authentication_required": "먼저 게스트로 접속하세요", "authentication_failed": "게스트 인증을 확인하지 못했습니다. 다시 접속하세요",
+		"authentication_timeout": "게스트 확인 시간이 지났습니다. 서버를 확인하고 다시 시도하세요", "authentication_unavailable": "게스트 API를 사용할 수 없습니다",
+		"authentication_refresh_failed": "게스트를 복원하지 못했습니다. LAN 메뉴에서 다시 접속하세요", "reconnect_timeout": "60초 안에 경기로 돌아오지 못했습니다",
 		"connection_lost": "호스트 연결 끊김", "connect_start_failed": "네트워크 연결을 시작하지 못함",
 	}.get(code, code)
 
 
 func _leave_lan_to_menu() -> void:
+	demo_generation += 1
+	demo_guest.cancel()
 	lan_client.leave()
 	_close_match()
 	_show_lan_menu()
@@ -538,7 +640,7 @@ func _show_accessibility() -> void:
 
 func _add_minimap_settings() -> void:
 	_label("닉네임과 미니맵", 26)
-	_label("저장한 설정은 다음 경기부터 적용합니다. LAN 닉네임은 방 참가 시 정해집니다.", 18)
+	_label("아래 닉네임은 오프라인 표시용입니다. 온라인 닉네임은 LAN 게스트 접속 후 서버에서 정합니다.", 18)
 	var nickname_input := _line_input("닉네임 · 1~12자", String(store.data.nickname), func(_value: String) -> void: pass)
 	nickname_input.name = "NicknameInput"
 	nickname_input.max_length = 12
@@ -861,6 +963,8 @@ func handle_back_request(request_msec: int = -1) -> void:
 			_show_home()
 		"lan_menu":
 			_show_home()
+		"demo_login", "demo_nickname", "demo_guest_error", "demo_guest_reset":
+			_cancel_demo_login()
 		"lan_host", "lan_join":
 			_show_lan_menu()
 		"lan_connecting", "lan_waiting", "lan_result", "lan_rematch_wait":
@@ -1040,7 +1144,7 @@ func _show_storage_error() -> void:
 	screen = "storage_error"
 	_new_page("저장 확인 필요")
 	_label(store.error)
-	_button("로컬 DB 연결", _show_db_connection)
+	if not demo_mode: _button("로컬 DB 연결", _show_db_connection)
 	_button("다시 읽기", func() -> void:
 		if store.load_profile(): _show_home() if store.data.first_granted else _show_first()
 		else: _show_storage_error())
@@ -1091,4 +1195,5 @@ func _audio_slider(title: String, value: float, is_music: bool) -> void:
 
 
 func _exit_tree() -> void:
+	if demo_guest != null: demo_guest.cancel()
 	ForestArenaAudio.shutdown()

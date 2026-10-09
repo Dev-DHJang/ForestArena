@@ -13,9 +13,13 @@ signal match_finished(result: Dictionary)
 signal rematch_changed(ready_slots: Array, closed: bool)
 signal failed(code: String)
 
-const PROTOCOL_VERSION := 1
+const PROTOCOL_VERSION := 2
 const RECONNECT_GRACE_MSEC := 60_000
 const ACTIONS: Array[StringName] = [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]
+
+var access_token_provider: Callable
+var _refreshing_auth := false
+var _session_generation := 0
 
 var websocket := WebSocketMultiplayerPeer.new()
 var websocket_url := ""
@@ -24,6 +28,9 @@ var reconnect_token := ""
 var local_slot := 0
 var participant_names: Dictionary = {"1": "참가자 1", "2": "참가자 2"}
 var _nickname := ""
+var _access_token := ""
+var _request_deadline_msec := 0
+const REQUEST_TIMEOUT_MSEC := 8000
 var running := false
 var active := false
 var connecting := false
@@ -37,24 +44,28 @@ var _seq := 0
 var _last_direction := CombatIntent.Direction.NEUTRAL
 
 
-func begin_host(host_code: String, selection: LoadoutSelection, nickname: String = "") -> bool:
+func begin_host(host_code: String, selection: LoadoutSelection, nickname: String = "", access_token: String = "") -> bool:
 	var parsed := LanInvite.parse_host_code(host_code)
 	if parsed.has("error"):
 		failed.emit(String(parsed.error))
 		return false
-	return _begin(String(parsed.websocket_url), "host", "", selection, nickname)
+	return _begin(String(parsed.websocket_url), "host", "", selection, nickname, access_token)
 
 
-func begin_join(invite_code: String, selection: LoadoutSelection, nickname: String = "") -> bool:
+func begin_join(invite_code: String, selection: LoadoutSelection, nickname: String = "", access_token: String = "") -> bool:
 	var parsed := LanInvite.parse_invite_code(invite_code)
 	if parsed.has("error"):
 		failed.emit(String(parsed.error))
 		return false
-	return _begin(String(parsed.websocket_url), "join", String(parsed.room_code), selection, nickname)
+	return _begin(String(parsed.websocket_url), "join", String(parsed.room_code), selection, nickname, access_token)
 
 
-func _begin(url: String, intent: String, code: String, selection: LoadoutSelection, nickname: String = "") -> bool:
+func _begin(url: String, intent: String, code: String, selection: LoadoutSelection, nickname: String = "", access_token: String = "") -> bool:
 	stop()
+	_access_token = access_token
+	if access_token.is_empty():
+		failed.emit("authentication_required")
+		return false
 	_nickname = nickname.strip_edges()
 	if not nickname.is_empty() and _valid_nickname(nickname).is_empty():
 		failed.emit("invalid_nickname")
@@ -67,6 +78,7 @@ func _begin(url: String, intent: String, code: String, selection: LoadoutSelecti
 	active = true
 	connecting = true
 	_handshake_pending = true
+	_request_deadline_msec = Time.get_ticks_msec() + REQUEST_TIMEOUT_MSEC
 	websocket = WebSocketMultiplayerPeer.new()
 	var error := websocket.create_client(websocket_url)
 	if error != OK:
@@ -78,6 +90,14 @@ func _begin(url: String, intent: String, code: String, selection: LoadoutSelecti
 
 func _process(_delta: float) -> void:
 	if not active: return
+	if _request_deadline_msec > 0 and Time.get_ticks_msec() >= _request_deadline_msec:
+		if _reconnecting and Time.get_ticks_msec() < _reconnect_deadline_msec:
+			websocket.close()
+			_request_deadline_msec = 0
+			_reconnect_at_msec = Time.get_ticks_msec() + 1000
+		else:
+			_fail("reconnect_timeout" if _reconnecting else "request_timeout")
+			return
 	websocket.poll()
 	var state := websocket.get_connection_status()
 	if state == MultiplayerPeer.CONNECTION_CONNECTED:
@@ -85,9 +105,9 @@ func _process(_delta: float) -> void:
 			connecting = false
 			_handshake_pending = false
 			if _reconnecting:
-				_send({"type": "resume", "reconnect_token": reconnect_token})
+				_send({"type": "resume", "reconnect_token": reconnect_token, "access_token": _access_token})
 			else:
-				var request := {"type": "create_room" if _intent == "host" else "join_room", "room_code": room_code, "selection": _selection}
+				var request := {"type": "create_room" if _intent == "host" else "join_room", "room_code": room_code, "selection": _selection, "access_token": _access_token}
 				if not _nickname.is_empty(): request.nickname = _nickname
 				_send(request)
 		while websocket.get_available_packet_count() > 0:
@@ -97,7 +117,7 @@ func _process(_delta: float) -> void:
 			if _reconnect_deadline_msec == 0: _reconnect_deadline_msec = Time.get_ticks_msec() + RECONNECT_GRACE_MSEC
 			if Time.get_ticks_msec() < _reconnect_deadline_msec:
 				if _reconnect_at_msec == 0: _reconnect_at_msec = Time.get_ticks_msec() + 1000
-				if Time.get_ticks_msec() >= _reconnect_at_msec: _open_reconnect()
+				if Time.get_ticks_msec() >= _reconnect_at_msec and not _refreshing_auth: _open_reconnect()
 			else:
 				_fail("reconnect_timeout")
 		elif connecting or active:
@@ -116,6 +136,8 @@ func _handle_message(raw: String) -> void:
 		return
 	match String(message.get("type", "")):
 		"room_created":
+			_request_deadline_msec = 0
+			if message.has("names"): _apply_participant_names(message.names)
 			local_slot = int(message.slot)
 			reconnect_token = String(message.reconnect_token)
 			room_created.emit(String(message.invite_code))
@@ -123,6 +145,7 @@ func _handle_message(raw: String) -> void:
 			status_changed.emit("참가자를 기다리는 중")
 			room_waiting.emit()
 		"joined":
+			_request_deadline_msec = 0
 			if message.has("names"): _apply_participant_names(message.names)
 			local_slot = int(message.slot)
 			reconnect_token = String(message.reconnect_token)
@@ -160,6 +183,8 @@ func request_rematch(ready: bool) -> void:
 
 
 func leave() -> void:
+	_session_generation += 1
+	_refreshing_auth = false
 	_release_inputs()
 	running = false
 	active = false
@@ -168,6 +193,8 @@ func leave() -> void:
 	_reconnecting = false
 	_reconnect_at_msec = 0
 	_reconnect_deadline_msec = 0
+	_request_deadline_msec = 0
+	_access_token = ""
 	if websocket.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED:
 		_send({"type": "leave"})
 		_close_after_leave.call_deferred()
@@ -184,6 +211,8 @@ func _close_after_leave() -> void:
 
 
 func stop(close_socket := true) -> void:
+	_session_generation += 1
+	_refreshing_auth = false
 	_release_inputs()
 	running = false
 	active = false
@@ -192,16 +221,33 @@ func stop(close_socket := true) -> void:
 	_reconnecting = false
 	_reconnect_at_msec = 0
 	_reconnect_deadline_msec = 0
+	_request_deadline_msec = 0
+	_access_token = ""
 	if close_socket: websocket.close()
 
 
 func _open_reconnect() -> void:
 	_reconnect_at_msec = Time.get_ticks_msec() + 1000
+	_request_deadline_msec = 0
+	if access_token_provider.is_valid():
+		_refreshing_auth = true
+		var generation := _session_generation
+		var refreshed: String = await access_token_provider.call()
+		if not active or generation != _session_generation: return
+		_refreshing_auth = false
+		if refreshed.is_empty():
+			# API/Wi-Fi may still be unavailable. Preserve the same identity and
+			# retry within the original grace; never create another guest.
+			_reconnect_at_msec = Time.get_ticks_msec() + 1000
+			status_changed.emit("게스트 연결 복구 대기 중")
+			return
+		_access_token = refreshed
 	websocket = WebSocketMultiplayerPeer.new()
 	if websocket.create_client(websocket_url) != OK: return
 	_reconnecting = true
 	connecting = true
 	_handshake_pending = true
+	_request_deadline_msec = Time.get_ticks_msec() + REQUEST_TIMEOUT_MSEC
 	status_changed.emit("LAN 서버에 재접속 중")
 
 

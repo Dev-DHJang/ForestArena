@@ -1,0 +1,24 @@
+name: forest-arena-demo
+services:
+  db:
+    image: postgres:18.6-alpine3.23
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: forest_arena_demo
+      POSTGRES_USER: forest_arena_admin
+      POSTGRES_PASSWORD: ${FOREST_ARENA_DB_ADMIN_PASSWORD}
+      POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+      FOREST_ARENA_DB_APP_USER: forest_arena_app
+      FOREST_ARENA_DB_APP_PASSWORD: ${FOREST_ARENA_DB_APP_PASSWORD}
+    ports: ["127.0.0.1:55433:5432"]
+    volumes:
+      - forest_arena_demo_postgres:/var/lib/postgresql
+      - ./init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U forest_arena_admin -d forest_arena_demo"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+volumes:
+  forest_arena_demo_postgres:
+    name: forest_arena_demo_postgres
