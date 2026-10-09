@@ -9,6 +9,10 @@
 - 닫힌 검은 영역은 수동 확인한 빈 공간만 제거한다. 검은 의상을 임의로 지우지 않으며 원본 해시나 확인한 영역의 형태가 바뀌면 실패한다.
 - 검토판 4개를 흰색·어두운 배경에서 확인했다. 자동 검사와 단위 검사 3개 통과. 원본 PNG 3개와 이전 manifest는 `03_backup/`에 보존했다.
 - 내장 편집 후보는 색상 변화·잔여물로 탈락했으며 등록하지 않았다. 아래 blocked 내용은 승인 전 이력이다.
+- 원격 통합: 최신 develop `60777dd02e192d0db8c56f44c8d7d877b267672d` 기반 별도 작업 공간을 재사용했다. 브랜치 `codex/character-concept-transparency`, 커밋 `c909daa84f651c48b9a1337b6022d53e1813cd8d`, PR https://github.com/Dev-DHJang/ForestArena/pull/79. 관련 변경만 게시했고 원격 검토·전체 검사 결과를 확인 중이다.
+- 원래 작업트리의 Godot 리소스 346개·문서·하네스 검사 및 119종 모션 보존 검사를 통과했다. 통합 공간은 앞선 develop에 연결된 추가 자산 때문에 별도의 전체 검사 결과로 판단한다.
+- 되돌리기: 최종 병합 커밋을 별도 revert(-m 1) 변경으로 검토·병합한다. 이번 작업의 등록 직전 PNG 3개와 manifest는 `03_backup/`에 있다. 실제 되돌리기는 실행하지 않았다.
+- 최신 develop 통합 공간의 `./scripts/verify.sh`가 exit 0으로 종료했고 `Forest Arena verification passed.`를 확인했다. 기록: `develop-verify.log`. 실제 RGBA 검사·전투·모션·AI·온라인 계약·문서·하네스를 포함한다. Android export·설치·기기 검사는 실행하지 않았다.
 
 - 묘령은 기존 1086×1448 RGBA·alpha 0~255로 확인했다. 재생성하지 않았다.
 - 자현·나비·유란은 RGB 검은 배경이었다. 내장 이미지 편집으로 같은 해상도의 투명 RGBA 후보를 만들었다.
