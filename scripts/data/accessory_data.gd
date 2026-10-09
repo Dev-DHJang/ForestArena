@@ -35,6 +35,8 @@ func is_valid_definition() -> bool:
 		if rule == null or not rule.is_valid_definition(): return false
 	for effect: Resource in combat_effects:
 		if effect == null or not effect.has_method("is_valid_definition") or not effect.is_valid_definition(): return false
+		# Accessories change play style, not HP damage or stock count.
+		if not effect is CombatEffectData or effect.kind != CombatEffectData.Kind.GAIN_ULTIMATE: return false
 	return _has_unique_nonempty_ids(added_passive_ids) and _has_unique_nonempty_ids(added_tags)
 
 

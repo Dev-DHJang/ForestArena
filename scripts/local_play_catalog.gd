@@ -2,12 +2,12 @@ class_name LocalPlayCatalog
 extends RefCounted
 
 const ACCESSORIES := [
-	["iron_armor", "철갑옷", "무게 증가 · 슈퍼아머"],
-	["boxing_gloves", "복싱 글러브", "이동 속도 증가 · 기술 목록 교체"],
-	["thorns", "가시 갑옷", "피해를 받으면 반사 피해"],
-	["explosive_gloves", "폭발 장갑", "적중 시 추가 피해"],
-	["ultimate_charm", "필살 장신구", "적중 시 궁극기 게이지 추가"],
-	["phoenix_revive", "1회 부활 장신구", "마지막 기회 소진 시 한 번, HP 35로 부활"],
+	["iron_armor", "철갑옷", "무게 +5% · 지상 속도 -5%"],
+	["boxing_gloves", "복싱 글러브", "유란 기술 목록으로 교체 · 속도 보너스 없음"],
+	["thorns", "균형 장신구", "공중 속도 +5% · 지상 속도 -5%"],
+	["explosive_gloves", "도약 장갑", "점프 속도 +5% · 무게 -5%로 더 잘 밀려남"],
+	["ultimate_charm", "집중 장신구", "유효 적중 시 궁극기 게이지 +4 · 지상 속도 -5%"],
+	["phoenix_revive", "활공 장신구", "중력 -5% · 공중 속도 -5%"],
 ]
 var combat: LoadoutCatalog
 var products: Array[Dictionary] = []

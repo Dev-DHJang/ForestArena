@@ -1,18 +1,22 @@
 [gd_resource type="Resource" script_class="AccessoryData" format=3]
 
 [ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1"]
-[ext_resource type="Script" path="res://scripts/data/combat_effect_data.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/data/stat_modifier.gd" id="2"]
 
-[sub_resource type="Resource" id="Thorns"]
+[sub_resource type="Resource" id="Option0"]
 script = ExtResource("2")
-trigger = 5
-kind = 0
-amount = 3.0
-cause_id = &"fixture-thorns"
-max_chain_depth = 1
+field = 3
+operation = 1
+value = 1.05
+
+[sub_resource type="Resource" id="Option1"]
+script = ExtResource("2")
+field = 2
+operation = 1
+value = 0.95
 
 [resource]
 script = ExtResource("1")
 schema_version = 2
 accessory_id = &"fixture-thorns"
-combat_effects = Array[ExtResource("2")]([SubResource("Thorns")])
+stat_modifiers = Array[ExtResource("2")]([SubResource("Option0"), SubResource("Option1")])
