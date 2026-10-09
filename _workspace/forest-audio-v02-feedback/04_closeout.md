@@ -15,6 +15,9 @@
 
 기준: origin/develop ec08dd8dbff349fb07f93694d5289a6627eddb50.
 작업 브랜치: codex/audio-v02-feedback.
-구현 PR과 병합 결과는 병합 후 기록한다.
+구현 커밋: b1458acf8c3dbe556fb6dc9990171a8fc240d68c.
+구현 PR: https://github.com/Dev-DHJang/ForestArena/pull/77.
+독립 QA와 전체 검사 뒤 develop 병합 완료: 54b526a8a62f31db71819f67c1de5b11d7774e87.
+병합 확인: GitHub PR 상태 MERGED, 2026-10-09. 마무리 기록은 별도 문서 PR로 반영한다.
 
-이전 시안 r01은 7df53101081293a953c1aa87e2898de49959a09f에 보존했다. 롤백은 이번 구현 병합 커밋을 `git revert -m 1 <merge-sha>`로 되돌리는 별도 PR로 수행한다. 현재 게임은 기존 v01 음원을 계속 사용한다.
+이전 시안 r01은 7df53101081293a953c1aa87e2898de49959a09f에 보존했다. 롤백은 이번 구현 병합 커밋을 `git revert -m 1 54b526a8a62f31db71819f67c1de5b11d7774e87`로 되돌리는 별도 PR로 수행한다. 현재 게임은 기존 v01 음원을 계속 사용한다.
