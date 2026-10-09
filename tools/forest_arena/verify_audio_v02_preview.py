@@ -150,12 +150,58 @@ def verify_http_server():
             server.shutdown(); server.server_close(); thread.join(timeout=5)
 
 
+def verify_feedback_revision(root, out, baseline):
+    """Check requested r02 changes without treating arrangement as listening approval."""
+    manifest = json.loads((out/'manifest.json').read_text())
+    require(manifest.get('revision') == 2 and set(manifest.get('feedback', {})) == {'ui_click','hit_heavy','lobby','battle'}, 'Expected r02 revision/feedback inventory')
+    require('r02' in (out/'preview.html').read_text(), 'Preview missing latest r02 label')
+    scores = {name: json.loads((out/f'source/music/{name}/score.json').read_text()) for name in ('lobby','battle')}
+    require(all(score.get('revision') == 2 for score in scores.values()), 'Expected r02 music scores')
+    lobby = {track['id']: track for track in scores['lobby']['tracks']}
+    require(lobby['lead']['program'] == 0 and lobby['piano']['program'] == 0, 'r02 lobby needs piano melody and left-hand part')
+    require(lobby['lead']['notes'] and lobby['piano']['notes'], 'r02 piano melody/left hand empty')
+    require(lobby['lead']['gain'] > max(t['gain'] for key,t in lobby.items() if key != 'lead'), 'r02 piano melody gain should lead the arrangement')
+    for bar in range(scores['lobby']['bars']):
+        left = [n for n in lobby['piano']['notes'] if bar*4 <= n['beat'] < (bar+1)*4]
+        require(len(left) >= 4 and min(n['pitch'] for n in left) < 60, f'r02 lobby left-hand accompaniment bar {bar}')
+    battle = {track['id']: track for track in scores['battle']['tracks']}
+    require(scores['battle']['key'] == 'A minor' and battle['strings']['program'] == 44 and battle['counter']['program'] == 42 and battle['lead']['program'] == 60, 'r02 battle minor/tremolo/cello/horn instrumentation')
+    chords, bass_roots = [], []
+    for bar in range(scores['battle']['bars']):
+        counter = [n for n in battle['counter']['notes'] if bar*4 <= n['beat'] < (bar+1)*4]
+        require(len(counter) == 8, f'r02 battle eight-note cello pulse bar {bar}')
+        times = sorted(n['beat'] for n in counter)
+        require(all(abs(b-a-.5) < .001 for a,b in zip(times,times[1:])), f'r02 cello eighth-note spacing bar {bar}')
+        require(max(n['pitch'] for n in counter) <= 65 and max(n['length'] for n in counter) <= .4, f'r02 cello low/short pulse bar {bar}')
+        harmonic = battle['strings']['notes'] + battle['bass']['notes']
+        chords.append({n['pitch']%12 for n in harmonic if bar*4 <= n['beat'] < (bar+1)*4})
+        bass_roots.append({n['pitch']%12 for n in battle['bass']['notes'] if bar*4 <= n['beat'] < (bar+1)*4})
+    require(any({9,0,4} <= chord for chord in chords), 'r02 battle missing A minor harmony')
+    require(any({11,2,5} <= chord for chord in chords), 'r02 battle missing diminished preparation')
+    require(any({4,8,11,2} <= chord for chord in chords), 'r02 battle missing E7 tension')
+    # Am/G contains C/E/G as a subset but is a minor pedal, not a C-root lift.
+    require(not any(0 in bass and {0,4,7} <= chord for chord,bass in zip(chords,bass_roots)), 'r02 battle unexpectedly retains C-root major lift')
+    old_battle = json.loads(subprocess.check_output(['git','show',f'{baseline}:assets/audio/v02-preview/source/music/battle/score.json'],cwd=root))
+    old_tracks = {t['id']: t for t in old_battle['tracks']}
+    require(battle['drums']['gain'] > old_tracks['drums']['gain'] and battle['bass']['gain'] > old_tracks['bass']['gain'], 'r02 battle drum/bass emphasis did not increase')
+    require(max(n['velocity'] for n in battle['drums']['notes'] if n['pitch'] == 36) > max(n['velocity'] for n in old_tracks['drums']['notes'] if n['pitch'] == 36), 'r02 bass-drum attack not strengthened')
+    for name in SPECS:
+        paths = [f'source/sfx/{name}.wav', f'comparison/{name}_v02.wav']
+        if name not in ('ui_click','hit_heavy'): paths.append(f'comparison/{name}_v01.wav')
+        for relative in paths:
+            old = subprocess.check_output(['git','show',f'{baseline}:assets/audio/v02-preview/{relative}'],cwd=root)
+            same = (out/relative).read_bytes() == old
+            require(same == (name not in ('ui_click','hit_heavy')), f'r02 unexpected SFX change/preservation: {relative}')
+    print(f'PASS: r02 piano lead/left hand, minor/E7/diminished pulse arrangement, changed click/hit and four unchanged SFX against {baseline}.')
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project-root', type=Path, default=ROOT)
     parser.add_argument('--output', type=Path)
     parser.add_argument('--http-only', action='store_true', help='Only test preview HTTP server on loopback')
     parser.add_argument('--skip-http', action='store_true', help='Signal/file checks only; explicitly skip HTTP check')
+    parser.add_argument('--feedback-baseline-ref', help='Check r02 feedback changes against a previous preview Git ref')
     parser.add_argument('--baseline-ref', default=None, help='Optional Git ref for unchanged runtime/v01 audit')
     args = parser.parse_args()
     if not args.skip_http: verify_http_server()
@@ -234,6 +280,8 @@ def main():
             measured.append(stats['i'])
         require(abs(measured[0]-measured[1]) <= .3, f'{name}: measured A/B difference exceeds 0.3 LUFS')
         print(f'{name}: independently measured {measured[0]:.2f}/{measured[1]:.2f} LUFS')
+    if args.feedback_baseline_ref:
+        verify_feedback_revision(root, out, args.feedback_baseline_ref)
     if args.baseline_ref is not None:
         protected = ['forest_arena', 'scripts', 'project.godot', 'assets/audio/v01']
         diff = subprocess.check_output(['git','diff','--name-only',args.baseline_ref,'--',*protected],cwd=root,text=True).strip()

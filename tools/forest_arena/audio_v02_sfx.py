@@ -15,9 +15,9 @@ SEED = 20261009
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUTPUT = ROOT / 'assets/audio/v02-preview/source/sfx'
 SPECS = {
-    'ui_click': (.22, '높은 단일 종 대신 짧은 나무 스위치 공명과 손끝 마찰. 클릭의 밝은 끝은 소량 유지.'),
+    'ui_click': (.22, '기계 스위치의 딸각: 밝고 짧은 첫 접촉 뒤 24ms에 낮은 접촉. 음정·종소리 없이 서로 다른 잡음 대역을 사용.'),
     'jump': (.22, '큰 상승음 대신 짧은 공기 추진과 낮은 탄성. 완만한 상승만 남겨 점프 방향을 표현.'),
-    'hit_heavy': (.22, '중저음 충격·목재 균열·짧은 공기층을 겹쳐 무게와 타격의 앞부분을 분리.'),
+    'hit_heavy': (.22, '짧고 묵직한 퍽: 살과 둔탁한 타격의 90~135Hz 몸통에 짧은 광대역 접촉을 겹침. 목재 균열·종 공명·상승음 제거.'),
     'guard_break': (.65, '높은 세 음 종소리를 제거하고 불규칙한 목재 파편과 낮은 받침 붕괴를 표현.'),
     'myo-ryung_special_up': (.65, '묘령의 가벼운 공중 감각은 유지하되 상승 아르페지오를 넓은 숨결과 잔잔한 두 공명으로 변경.'),
     'ja-hyun_ultimate': (1.15, '자현의 나무·기류 질감은 유지하고 다섯 음 상승을 세 번의 둔한 목재 힘과 낮은 공기 방출로 변경.'),
@@ -58,16 +58,22 @@ def effect(name: str) -> np.ndarray:
                 * np.minimum(age / attack, 1) * (t >= offset))
 
     if name == 'ui_click':
-        out += wood(.56, low=620, decay=60) + wood(.11, .025, low=450, decay=65)
-        out += air(.13, 11, 100) + tone(1250, .065, 75)
+        # Two brief mechanical contacts: bright "딸", followed by lower "각".
+        # Broadband decays avoid pitched/bell ringing and a musical interval.
+        out += air(.44, 5, 190, attack=.0005)
+        out += air(.20, 15, 135, attack=.0008)
+        out += air(.52, 35, 155, .024, attack=.0006)
+        out += air(.15, 9, 210, .024, attack=.0005)
     elif name == 'jump':
         out += air(.34, 35, 11, attack=.015)
         out += tone(185, .23, 13, attack=.008, ratio=1.6)
         out += wood(.11, low=310, decay=50)
     elif name == 'hit_heavy':
-        out += tone(112, .61, 24, ratio=.38) + tone(63, .18, 17)
-        out += wood(.28, .003, low=430, decay=49) + air(.38, 7, 47)
-        out += air(.16, 43, 18, .014)
+        # A short flesh/body thud: no wood modes and no pitched sweep.
+        out += tone(90, .67, 38, attack=.001)
+        out += tone(135, .23, 65, attack=.001)
+        out += air(.46, 5, 155, attack=.0006)
+        out += air(.28, 67, 43, .003, attack=.0015)
     elif name == 'guard_break':
         out += tone(145, .45, 15, ratio=.55) + air(.19, 21, 15)
         for offset, low, gain in ((.006, 510, .32), (.047, 370, .21), (.116, 740, .13), (.193, 430, .09)):

@@ -38,50 +38,50 @@ def score(battle=False):
     rng = np.random.default_rng(20261009 + battle)
     bpm, bars = (128, 16) if battle else (96, 12)
     specs = [
-        ('lead', 73 if battle else 68, 60, .80, '플루트' if battle else '오보에'),
-        ('answer', 68 if battle else 73, 74, .53, '오보에' if battle else '플루트'),
-        ('strings', 48, 48, .62, '현악 합주'),
-        ('counter', 42, 82, .47, '첼로 대선율'),
-        ('harp', 46, 38, .57, '하프'),
-        ('piano', 0, 86, .40, '어쿠스틱 피아노'),
-        ('bass', 43, 64, .67, '더블베이스'),
-        ('horn', 60, 57, .42 if battle else .24, '프렌치 호른'),
-        ('drums', 0, 64, .44 if battle else .23, '팀파니·타악'),
+        ('lead', 60 if battle else 0, 64, .82 if battle else 1.05, '호른 주선율' if battle else '피아노 주선율'),
+        ('answer', 68 if battle else 73, 74, .33 if battle else .20, '오보에' if battle else '플루트 응답'),
+        ('strings', 44 if battle else 48, 48, .60 if battle else .28, '트레몰로 현악' if battle else '현악 받침'),
+        ('counter', 42, 76, .66 if battle else .22, '첼로 반복 리듬' if battle else '첼로 대선율'),
+        ('harp', 46, 38, .28 if battle else .19, '하프'),
+        ('piano', 0, 52, .50 if battle else .64, '피아노 저음 강조' if battle else '피아노 왼손 반주'),
+        ('bass', 43, 64, .82 if battle else .34, '더블베이스'),
+        ('horn', 60, 57, .45 if battle else .08, '프렌치 호른'),
+        ('drums', 0, 64, .65 if battle else .07, '저음 북·타악'),
     ]
     tracks = [{'id': name, 'program': program, 'pan': pan, 'gain': gain,
                'instrument': label, 'channel': 9 if name == 'drums' else i,
                'notes': []} for i, (name, program, pan, gain, label) in enumerate(specs)]
     by = {t['id']: t for t in tracks}
     if battle:
-        # A minor with contrasting C-major lift; 4 four-bar sentences.
-        harmony = [(45, [57,60,64]), (41,[57,60,65]), (48,[55,60,64]), (43,[55,59,62]),
-                   (45,[57,60,64]), (41,[57,60,65]), (38,[57,62,65]), (40,[56,59,64]),
-                   (48,[55,60,64]), (43,[55,59,62]), (45,[57,60,64]), (41,[57,60,65]),
-                   (38,[57,62,65]), (45,[57,60,64]), (40,[56,59,64]), (45,[57,60,64])]
+        # Minor pedal, diminished preparation and E7 pull; no C-major lift.
+        harmony = [(45,[57,60,64]),(43,[57,60,64]),(41,[57,60,65]),(40,[56,59,62]),
+                   (38,[57,62,65]),(47,[59,62,65]),(40,[56,59,62]),(45,[57,60,64]),
+                   (45,[57,60,64]),(41,[57,60,65]),(38,[57,62,65]),(40,[56,59,62]),
+                   (47,[59,62,65]),(40,[56,59,62]),(40,[56,59,62]),(45,[57,60,64])]
         phrases = [
-            [(0,1,76),(1,.5,72),(1.5,.5,74),(2,1.4,69)],
-            [(0,.75,72),(1,.5,77),(1.5,.5,76),(2,1,72),(3,.65,69)],
-            [(0,1,67),(1,1,72),(2,.5,76),(2.5,.5,74),(3,.7,72)],
-            [(0,.5,71),(.5,.5,74),(1,1,79),(2,1.5,74)],
-            [(0,.75,76),(1,.5,79),(1.5,.5,76),(2,1,81),(3,.75,79)],
-            [(0,1.5,77),(2,.5,76),(2.5,.5,72),(3,.75,69)],
-            [(0,1,74),(1,.5,77),(1.5,.5,76),(2,1,74),(3,.65,69)],
-            [(0,.75,71),(1,.5,68),(1.5,.5,71),(2,1.6,76)],
-            [(0,1,79),(1,.5,76),(1.5,.5,74),(2,1.7,72)],
-            [(0,1,74),(1,.5,71),(1.5,.5,67),(2,1.5,71)],
-            [(0,.75,72),(1,.5,76),(1.5,.5,79),(2,1.5,81)],
-            [(0,1,77),(1,.5,76),(1.5,.5,72),(2,1.6,69)],
-            [(0,1,74),(1,1,77),(2,.5,76),(2.5,.5,74),(3,.75,69)],
-            [(0,.75,72),(1,.5,76),(1.5,.5,74),(2,1,72),(3,.7,69)],
-            [(0,1,71),(1,.5,68),(1.5,.5,71),(2,1.7,76)],
-            [(0,2.9,69)],
+            [(0,.55,76),(.75,.25,76),(1.5,.4,72),(2,.75,71),(3,.55,69)],
+            [(0,.55,72),(.75,.25,71),(1.5,.5,69),(2.5,.85,76)],
+            [(0,.55,77),(.75,.25,76),(1.5,.4,72),(2.25,.4,71),(3,.65,69)],
+            [(0,.55,71),(.75,.25,68),(1.5,.5,74),(2.5,.85,76)],
+            [(0,.55,74),(.75,.25,74),(1.5,.5,77),(2.25,.4,76),(3,.55,74)],
+            [(0,.55,71),(.75,.25,74),(1.5,.45,77),(2.5,.75,74)],
+            [(0,.55,76),(.75,.25,74),(1.5,.45,71),(2.5,.85,68)],
+            [(0,1.25,69),(2,.4,72),(2.75,.75,76)],
+            [(0,.55,81),(.75,.25,79),(1.5,.5,76),(2.25,.4,72),(3,.55,71)],
+            [(0,.55,77),(.75,.25,76),(1.5,.5,72),(2.5,.85,69)],
+            [(0,.55,74),(.75,.25,77),(1.5,.5,76),(2.5,.85,74)],
+            [(0,.55,71),(.75,.25,68),(1.5,.5,74),(2.5,.85,76)],
+            [(0,.55,77),(.75,.25,74),(1.5,.5,71),(2.5,.85,74)],
+            [(0,.55,76),(.75,.25,74),(1.5,.5,71),(2.5,.85,68)],
+            [(0,.55,71),(.75,.25,74),(1.5,.5,76),(2.25,.4,74),(3,.55,68)],
+            [(0,2.8,69)],
         ]
     else:
         # G major / relative E minor, a 12-bar miniature with intro and cadence.
         harmony = [(43,[55,59,62]),(38,[54,57,62]),(43,[55,59,62]),(40,[55,59,64]),
                    (36,[55,60,64]),(38,[54,57,62]),(43,[55,59,62]),(40,[55,59,64]),
                    (36,[55,60,64]),(45,[57,60,64]),(38,[54,57,62]),(43,[55,59,62])]
-        phrases = [[],[],
+        phrases = [[(0,1,67),(1.5,.5,71),(2.5,1,74)],[(0,1.3,69),(2,.5,66),(2.75,.75,62)],
             [(0,1.4,71),(1.75,.5,74),(2.5,1,69)],
             [(0,1,67),(1.25,.5,71),(2,1.6,76)],
             [(0,1.5,72),(2,.5,71),(2.75,.8,67)],
@@ -99,8 +99,12 @@ def score(battle=False):
         for i, p in enumerate(chord):
             note(by['strings'], origin + i*.012, 3.82, p+12,
                  int((57 if battle else 49)*intensity) + i*2)
-        # Connected low-register answers avoid doubling the lead at all times.
-        if bar >= 2:
+        # Repeated low strings add urgency; lobby leaves space around the piano.
+        if battle:
+            for step in range(8):
+                pitch=chord[[0,0,2,0,1,0,2,1][step]]
+                note(by['counter'],origin+step*.5+.008,.32,pitch,78 if step%2==0 else 65)
+        elif bar >= 2:
             note(by['counter'], origin+.04, 1.8, chord[0], 55 if battle else 48)
             note(by['counter'], origin+2.03, 1.72, chord[1], 51 if battle else 45)
         steps = 8 if battle or bar % 4 != 3 else 4
@@ -109,15 +113,21 @@ def score(battle=False):
             offset = float(rng.uniform(-.008,.008))
             note(by['harp'], max(0,origin+step*(4/steps)+offset), .76, p+12,
                  int((58 if step%2==0 else 45)*intensity)+int(rng.integers(-3,4)))
-        for b in ([0,1.5,2,3.5] if battle else [0,2]):
+        for b in ([0,.75,1.5,2,2.75,3.5] if battle else [0,2]):
             note(by['bass'], origin+b, .65 if battle else 1.6, root-12,
-                 72 if battle and b in (0,2) else 59)
-        if bar % 2 == 0:
-            for i,p in enumerate(chord):
-                note(by['piano'], origin+i*.035, 2.8, p+12, 43+i*2)
+                 83 if battle and b in (0,2) else 68 if battle else 50)
+        if battle:
+            for b in (0,1.5,2.75):
+                note(by['piano'],origin+b,.42,root,70 if b==0 else 57)
+        else:
+            for step in range(6):
+                p=([root]+chord+[chord[2]+12,chord[1]])[step]
+                note(by['piano'],origin+[0,.5,1,2,2.5,3][step]+.012,1.25,p,58 if step in (0,3) else 48)
         for start, length, p in phrases[bar]:
-            v = int((84 if battle else 76)*intensity) + int(rng.integers(-4,5))
-            note(by['lead'], origin+start+.013, length*.93, p, v)
+            v = int((91 if battle else 87)*intensity) + int(rng.integers(-4,5))
+            note(by['lead'], origin+start+.013, length*(.82 if battle else .96), p, v)
+            if not battle and bar in (6,8) and start==0:
+                note(by['lead'],origin+start+.018,length*.88,p-12,v-16)
         if bar in ([3,7,11] if battle else [1,5,7,9]):
             for start, p in [(2.55,chord[1]+24),(3.2,chord[2]+12)]:
                 note(by['answer'], origin+start, .56, p, 63 if battle else 54)
@@ -126,15 +136,17 @@ def score(battle=False):
             note(by['horn'],origin+.025,3.35,chord[2],51 if battle else 38)
         # GM percussion: low orchestral bass drum, side stick, brushes/shakers.
         if battle:
-            for b in (0,2): note(by['drums'],origin+b,.18,36,76 if b==0 else 64)
-            for b in (1,3): note(by['drums'],origin+b+.006,.12,37,51)
-            for step in range(8): note(by['drums'],origin+step*.5,.10,42,35 if step%2 else 44)
+            for b in (0,1.5,2,2.75): note(by['drums'],origin+b,.18,36,91 if b==0 else 72)
+            for b in (1,3): note(by['drums'],origin+b+.006,.12,38,66)
+            for step in range(8): note(by['drums'],origin+step*.5,.10,42,37 if step%2 else 49)
+            if bar in (3,7,11,14):
+                for step in range(4): note(by['drums'],origin+3+step*.25,.08,42,41+step*4)
             if bar in (3,7,11,14):
                 for step in range(3): note(by['drums'],origin+3+step/3,.14,45+step*2,50+step*6)
         elif bar >= 2:
             note(by['drums'],origin,.17,36,42)
             for b in (1,3): note(by['drums'],origin+b,.10,42,30)
-    return {'version':2,'name':'battle' if battle else 'lobby','tempo_bpm':bpm,'bars':bars,
+    return {'version':2,'revision':2,'name':'battle' if battle else 'lobby','tempo_bpm':bpm,'bars':bars,
             'meter':'4/4','key':'A minor' if battle else 'G major','duration_seconds':30,
             'loop':False,'seed':20261009+int(battle),'tracks':tracks}
 
