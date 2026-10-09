@@ -17,7 +17,7 @@ from audio_v02_sfx import generate as generate_sfx
 ROOT=Path(__file__).resolve().parents[2]
 DEFAULT_OUTPUT=ROOT/'assets/audio/v02-preview'
 NAMES=['lobby','battle','ui_click','jump','hit_light','hit_heavy','guard_break','myo-ryung_special_up','ja-hyun_ultimate']
-PREFERRED_PREVIOUS={'lobby','battle','jump','myo-ryung_special_up'}
+PREFERRED_PREVIOUS={'lobby','battle','jump','hit_heavy','myo-ryung_special_up'}
 FONT_URL='https://deb.debian.org/debian/pool/main/f/fluid-soundfont/fluid-soundfont-gm_3.1-5.3_all.deb'
 PACKAGE_SHA256='6f531493ac4e4d9772fd96b2488ea1790af81c196135fbdd25997da0781fc60e'
 
@@ -107,7 +107,7 @@ def generate(soundfont, output=DEFAULT_OUTPUT, library=None, skip_music=False):
                     record.update(sample_rate_hz=f.getframerate(),channels=f.getnchannels(),pcm_bits=f.getsampwidth()*8,
                                   duration_seconds=f.getnframes()/f.getframerate())
             files.append(record)
-    manifest={'version':2,'revision':3,'feedback':{'hit_light':'파악, bright broad contact','hit_heavy':'퍽 retained from r02','guard_break':'채앵, metallic break with inharmonic decay','lobby':'Piano-led 60 s form with varied melody, harmony and accompaniment','battle':'Retain tension; 60 s form with contrast, rests and varied rhythmic orchestration'},'listening_feedback':{'revision':2,'battle_tension':'User confirmed appropriate; retained in r03'},'candidate_selection':[{'name':name,'version':'v01' if name in PREFERRED_PREVIOUS else 'v02','source':f'comparison/{name}_{"v01" if name in PREFERRED_PREVIOUS else "v02"}.wav','preference_confirmed':name in PREFERRED_PREVIOUS} for name in NAMES],'selection_feedback':{'revision':3,'interpretation':'Previous means labeled A / initial v01; Myo-ryung means the previewed special_up only.','whole_set_approved':False},'stage':'listening_preview','runtime_connected':False,'human_listening_approved':False,
+    manifest={'version':2,'revision':3,'feedback':{'hit_light':'파악, bright broad contact','hit_heavy':'퍽 retained from r02','guard_break':'채앵, metallic break with inharmonic decay','lobby':'Piano-led 60 s form with varied melody, harmony and accompaniment','battle':'Retain tension; 60 s form with contrast, rests and varied rhythmic orchestration'},'listening_feedback':{'revision':2,'battle_tension':'User confirmed appropriate; retained in r03'},'candidate_selection':[{'name':name,'version':'v01' if name in PREFERRED_PREVIOUS else 'v02','source':f'comparison/{name}_{"v01" if name in PREFERRED_PREVIOUS else "v02"}.wav','preference_confirmed':True} for name in NAMES],'selection_feedback':{'revision':3,'interpretation':'Previous means labeled A / initial v01; Myo-ryung means the previewed special_up only.','whole_set_approved':True,'approval_scope':'Selected nine-item combination only; the preserved A/B comparison library is not wholly approved.'},'selection_runtime_applied':True,'stage':'listening_preview','runtime_connected':False,'human_listening_approved':False,
        'reference':{'url':'https://www.youtube.com/watch?v=paAK7Q_AAlo','title':'MapleStory OST - Title Theme (Uncompressed)',
                     'use':'Quality reference supplied by user; no audio, melody transcription or recording copied.'},
        'rights':{'composition':'Original project-authored score and procedural SFX.',
@@ -124,7 +124,7 @@ def generate(soundfont, output=DEFAULT_OUTPUT, library=None, skip_music=False):
                      for name in ['audio_v02_music.py','audio_v02_sfx.py','generate_audio_v02_preview.py']],
        'comparisons':comparisons,'sfx':sfx,'files':files,
        'limits':['Listening preview, not a loop or complete 80/90 second track; r03 is a 60 second through-arranged study.','Automatic signal checks cannot establish reference-level perceived quality.',
-                 'Human audition and physical Android output not yet verified.']}
+                 'User approved the selected nine-item combination; this does not approve every preserved A/B version or all 47 sounds. Physical Android output is not yet verified.']}
     (output/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     return manifest
 
