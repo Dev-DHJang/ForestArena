@@ -26,7 +26,7 @@ func _run() -> void:
 	var host_selection := LoadoutSelection.new()
 	host_selection.character_id = &"nabi"
 	host_selection.accessory_id = &"fixture-iron-armor"
-	_check(app.lan_client.begin_host("FAH1|ws://127.0.0.1:17777|1", host_selection, "호스트숲"), "host connect")
+	_check(app.lan_client.begin_host("FAH2|http://127.0.0.1:18081|ws://127.0.0.1:17777|2", host_selection, "호스트숲", "host"), "host connect")
 	_check(await _wait_until(func() -> bool: return not app.lan_current_invite.is_empty()), "room invite")
 	app.call("_copy_lan_invite")
 	_check(app.lan_status_label != null and app.lan_status_label.text.contains("복사했습니다"), "invite copy feedback")
@@ -39,7 +39,7 @@ func _run() -> void:
 	var guest_selection := LoadoutSelection.new()
 	guest_selection.character_id = &"yu-ran"
 	guest_selection.accessory_id = &"fixture-boxing-gloves"
-	_check(guest.begin_join(app.lan_current_invite, guest_selection, "손님숲"), "guest connect")
+	_check(guest.begin_join(app.lan_current_invite, guest_selection, "손님숲", "guest"), "guest connect")
 	var entered_match := await _wait_until(func() -> bool: return app.screen == "lan_match" and app.match_controller != null)
 	_check(entered_match, "LAN match screen (screen=%s)" % app.screen)
 	if not entered_match:

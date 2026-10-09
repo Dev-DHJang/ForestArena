@@ -1,17 +1,18 @@
 #!/bin/sh
 set -eu
 
-apk_path=build/android/ForestArena-debug.apk
+apk_path=${FOREST_ARENA_APK_PATH:-build/android/ForestArena-debug.apk}
+preset=${FOREST_ARENA_ANDROID_PRESET:-Android Debug}
 debug_aar=$(find android/build/libs/debug -maxdepth 1 -name '*.aar' -print -quit 2>/dev/null || true)
 
 if [ -f android/build/build.gradle ] && [ -n "$debug_aar" ]; then
-	godot --headless --path . --export-debug "Android Debug" "$apk_path"
+	godot --headless --path . --export-debug "$preset" "$apk_path"
 else
 	template_backup=$(mktemp -d /tmp/forest-arena-android-template.XXXXXX)
 	if [ -d android/build ]; then
 		mv android/build "$template_backup/build"
 	fi
-	if ! godot --headless --path . --install-android-build-template --export-debug "Android Debug" "$apk_path"; then
+	if ! godot --headless --path . --install-android-build-template --export-debug "$preset" "$apk_path"; then
 		if [ -d android/build ]; then
 			mv android/build "$template_backup/failed-build"
 		fi

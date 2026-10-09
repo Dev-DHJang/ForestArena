@@ -1,6 +1,6 @@
 extends Node
 
-const PROTOCOL_VERSION := 1
+const PROTOCOL_VERSION := 2
 const SNAPSHOT_INTERVAL_TICKS := 3
 const RECONNECT_GRACE_MSEC := 60_000
 const REMATCH_GRACE_MSEC := 20_000
@@ -25,6 +25,11 @@ var tick_accumulator := 0.0
 var rematch_deadline_msec := 0
 var match_seed := 0
 var advertised_url := ""
+var api_url := ""
+var auth_api_url := ""
+var service_token := ""
+var allowed_cidr := ""
+var pending_auth: Dictionary = {}
 
 
 func _ready() -> void:
@@ -37,6 +42,15 @@ func _ready() -> void:
 	if advertised_url.is_empty(): advertised_url = "ws://%s:%d" % [bind_host, port]
 	if not LanInvite.valid_private_websocket_url(advertised_url):
 		push_error("LAN advertised URL must use a private IPv4 address: %s" % advertised_url)
+		get_tree().quit(2)
+		return
+	api_url = OS.get_environment("FOREST_ARENA_LAN_API_URL")
+	auth_api_url = OS.get_environment("FOREST_ARENA_API_BASE_URL")
+	if auth_api_url.is_empty(): auth_api_url = api_url
+	service_token = OS.get_environment("FOREST_ARENA_SERVICE_TOKEN")
+	allowed_cidr = OS.get_environment("FOREST_ARENA_ALLOWED_CIDR")
+	if not LanInvite.valid_private_websocket_url("ws://%s:%d" % [bind_host, port]) or not LanInvite.valid_endpoint_pair(auth_api_url.replace("http://", "ws://"), auth_api_url) or not LanInvite.valid_endpoint_pair(advertised_url, api_url) or service_token.is_empty() or not LanInvite.address_in_cidr(bind_host, allowed_cidr):
+		push_error("LAN requires explicit private bind IP, API URL, service token and matching CIDR")
 		get_tree().quit(2)
 		return
 	var error := peer.create_server(port, bind_host)
@@ -54,7 +68,7 @@ func _ready() -> void:
 	controller.pause_match(true)
 	controller.match_ended.connect(_on_match_ended)
 	controller.presentation_event.connect(_on_presentation_event)
-	print("FOREST_ARENA_LAN_READY %s" % LanInvite.host_code(advertised_url))
+	print("FOREST_ARENA_LAN_READY %s" % LanInvite.host_code(advertised_url, api_url))
 
 
 func _process(delta: float) -> void:
@@ -75,7 +89,8 @@ func _process(delta: float) -> void:
 
 
 func _handle_packet(peer_id: int, raw: String) -> void:
-	if raw.length() > MAX_PACKET_BYTES:
+	if not known_peers.has(peer_id) or pending_disconnects.has(peer_id): return
+	if raw.to_utf8_buffer().size() > MAX_PACKET_BYTES:
 		_reject(peer_id, "message_too_large")
 		return
 	var parsed: Variant = JSON.parse_string(raw)
@@ -87,9 +102,7 @@ func _handle_packet(peer_id: int, raw: String) -> void:
 		_reject(peer_id, "unsupported_protocol")
 		return
 	match String(message.get("type", "")):
-		"create_room": _create_room(peer_id, message.get("selection", {}), message.get("nickname"))
-		"join_room": _join_room(peer_id, String(message.get("room_code", "")), message.get("selection", {}), message.get("nickname"))
-		"resume": _resume(peer_id, String(message.get("reconnect_token", "")))
+		"create_room", "join_room", "resume": _authenticate(peer_id, message)
 		"input": _input_message(peer_id, message)
 		"rematch": _rematch(peer_id, bool(message.get("ready", false)))
 		"leave": _leave(peer_id)
@@ -97,7 +110,57 @@ func _handle_packet(peer_id: int, raw: String) -> void:
 		_: _send(peer_id, {"type": "error", "code": "unknown_message"})
 
 
-func _create_room(peer_id: int, value: Variant, nickname_value: Variant = null) -> void:
+func _authenticate(peer_id: int, message: Dictionary) -> void:
+	if pending_auth.has(peer_id) or peer_to_slot.has(peer_id):
+		_reject(peer_id, "authentication_in_progress" if pending_auth.has(peer_id) else "already_joined")
+		return
+	var token: Variant = message.get("access_token", "")
+	if not token is String or token.is_empty():
+		_reject(peer_id, "authentication_required")
+		return
+	var request := HTTPRequest.new()
+	request.timeout = 8.0
+	add_child(request)
+	pending_auth[peer_id] = request
+	request.request_completed.connect(_auth_completed.bind(peer_id, message, request), CONNECT_ONE_SHOT)
+	var error := request.request(auth_api_url + "/internal/v1/lan/auth", ["Content-Type: application/json", "x-forest-arena-service-token: " + service_token], HTTPClient.METHOD_POST, JSON.stringify({"access_token": token}))
+	if error != OK:
+		pending_auth.erase(peer_id)
+		request.queue_free()
+		_reject(peer_id, "authentication_unavailable")
+
+
+func _auth_completed(result: int, status: int, _headers: PackedStringArray, body: PackedByteArray, peer_id: int, message: Dictionary, request: HTTPRequest) -> void:
+	var current: bool = pending_auth.get(peer_id) == request
+	if current: pending_auth.erase(peer_id)
+	request.queue_free()
+	if not current or not known_peers.has(peer_id) or pending_disconnects.has(peer_id): return
+	var parser := JSON.new()
+	var profile: Variant = parser.data if parser.parse(body.get_string_from_utf8()) == OK else null
+	if result != HTTPRequest.RESULT_SUCCESS:
+		_reject(peer_id, "authentication_timeout" if result == HTTPRequest.RESULT_TIMEOUT else "authentication_unavailable")
+		return
+	if status != 200 or not profile is Dictionary:
+		_reject(peer_id, "nickname_required" if status == 409 else "authentication_failed")
+		return
+	var player_id := String(profile.get("player_id", ""))
+	var nickname := LanMatchClient._valid_nickname(profile.get("nickname", ""))
+	if player_id.is_empty() or nickname.is_empty():
+		_reject(peer_id, "authentication_failed")
+		return
+	var kind := String(message.get("type", ""))
+	if kind == "resume":
+		_resume(peer_id, String(message.get("reconnect_token", "")), player_id)
+		return
+	for client: Dictionary in clients.values():
+		if client.player_id == player_id:
+			_reject(peer_id, "duplicate_guest")
+			return
+	if kind == "create_room": _create_room(peer_id, message.get("selection", {}), nickname, player_id)
+	else: _join_room(peer_id, String(message.get("room_code", "")), message.get("selection", {}), nickname, player_id)
+
+
+func _create_room(peer_id: int, value: Variant, nickname_value: Variant, player_id: String) -> void:
 	if not room_code.is_empty():
 		_reject(peer_id, "server_busy")
 		return
@@ -110,12 +173,12 @@ func _create_room(peer_id: int, value: Variant, nickname_value: Variant = null) 
 		_reject(peer_id, "invalid_nickname")
 		return
 	room_code = _new_room_code()
-	_register_client(peer_id, 1, selection, nickname)
-	_send(peer_id, {"type": "room_created", "room_code": room_code, "invite_code": LanInvite.invite_code(advertised_url, room_code), "slot": 1, "reconnect_token": clients[1].reconnect_token})
+	_register_client(peer_id, 1, selection, nickname, player_id)
+	_send(peer_id, {"type": "room_created", "room_code": room_code, "invite_code": LanInvite.invite_code(advertised_url, room_code, api_url), "slot": 1, "reconnect_token": clients[1].reconnect_token, "names": _participant_names()})
 	_send(peer_id, {"type": "room_waiting", "room_code": room_code})
 
 
-func _join_room(peer_id: int, requested_code: String, value: Variant, nickname_value: Variant = null) -> void:
+func _join_room(peer_id: int, requested_code: String, value: Variant, nickname_value: Variant, player_id: String) -> void:
 	if room_code.is_empty() or requested_code.to_upper() != room_code:
 		_reject(peer_id, "room_not_found")
 		return
@@ -130,13 +193,13 @@ func _join_room(peer_id: int, requested_code: String, value: Variant, nickname_v
 	if nickname.is_empty():
 		_reject(peer_id, "invalid_nickname")
 		return
-	_register_client(peer_id, 2, selection, nickname)
+	_register_client(peer_id, 2, selection, nickname, player_id)
 	_send(peer_id, {"type": "joined", "slot": 2, "reconnect_token": clients[2].reconnect_token})
 	_start_match()
 
 
-func _register_client(peer_id: int, slot: int, selection: LoadoutSelection, nickname: String) -> void:
-	clients[slot] = {"peer_id": peer_id, "connected": true, "selection": selection, "nickname": nickname, "last_seq": -1, "reconnect_token": _new_token(), "deadline": 0, "rematch": false}
+func _register_client(peer_id: int, slot: int, selection: LoadoutSelection, nickname: String, player_id: String) -> void:
+	clients[slot] = {"player_id": player_id, "peer_id": peer_id, "connected": true, "selection": selection, "nickname": nickname, "last_seq": -1, "reconnect_token": _new_token(), "deadline": 0, "rematch": false}
 	peer_to_slot[peer_id] = slot
 
 
@@ -213,10 +276,10 @@ func _input_message(peer_id: int, message: Dictionary) -> void:
 	controller.submit_intent(CombatIntent.new(controller.tick + 1, fighter.fighter_id, StringName(action), direction as CombatIntent.Direction, edge as CombatIntent.Edge, context))
 
 
-func _resume(peer_id: int, token: String) -> void:
+func _resume(peer_id: int, token: String, player_id: String) -> void:
 	for slot: int in clients:
 		var client: Dictionary = clients[slot]
-		if bool(client.connected) or int(client.deadline) < Time.get_ticks_msec() or not _secure_equal(String(client.reconnect_token), token): continue
+		if client.player_id != player_id or bool(client.connected) or int(client.deadline) < Time.get_ticks_msec() or not _secure_equal(String(client.reconnect_token), token): continue
 		client.peer_id = peer_id
 		client.connected = true
 		client.deadline = 0
@@ -280,10 +343,19 @@ func _on_presentation_event(event_id: StringName, payload: Dictionary) -> void:
 
 
 func _on_peer_connected(peer_id: int) -> void:
+	var socket := peer.get_peer(peer_id)
+	if socket == null or not LanInvite.address_in_cidr(socket.get_connected_host(), allowed_cidr):
+		peer.disconnect_peer(peer_id)
+		return
 	known_peers[peer_id] = true
 
 
 func _on_peer_disconnected(peer_id: int) -> void:
+	if pending_auth.has(peer_id):
+		var request: HTTPRequest = pending_auth[peer_id]
+		request.cancel_request()
+		request.queue_free()
+		pending_auth.erase(peer_id)
 	known_peers.erase(peer_id)
 	pending_disconnects.erase(peer_id)
 	if not peer_to_slot.has(peer_id): return

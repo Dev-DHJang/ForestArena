@@ -1,7 +1,7 @@
 extends Node
 
 const TIMEOUT_MSEC := 5000
-const PROTOCOL_VERSION := 1
+const PROTOCOL_VERSION := 2
 
 var websocket_url := "ws://127.0.0.1:17777"
 var clients: Array[Dictionary] = []
@@ -28,22 +28,39 @@ func _run() -> void:
 	_send_raw(wrong_version, {"type": "create_room", "protocol_version": 99, "selection": _selection("nabi", "")})
 	_require((await _wait_message(wrong_version, "error")).code == "unsupported_protocol", "version_rejected")
 	_close_client(wrong_version)
+	for token: String in ["", "invalid", "expired", "unnamed"]:
+		var unauth := await _open_client()
+		_send(unauth, {"type": "create_room", "access_token": token, "selection": _selection("nabi", "")})
+		var expected := "authentication_required" if token.is_empty() else ("nickname_required" if token == "unnamed" else "authentication_failed")
+		_require((await _wait_message(unauth, "error")).code == expected, "invalid_auth_" + token)
+		_close_client(unauth)
 	var invalid_loadout := await _open_client()
-	_send(invalid_loadout, {"type": "create_room", "selection": _selection("missing-character", "")})
-	_require((await _wait_message(invalid_loadout, "error")).code == "invalid_loadout", "invalid_loadout_rejected")
+	_send(invalid_loadout, {"type": "create_room", "access_token": "host", "selection": _selection("missing-character", "")})
+	var loadout_error := await _wait_message(invalid_loadout, "error")
+	_require(loadout_error.code == "invalid_loadout", "invalid_loadout_rejected:" + str(loadout_error))
 	_close_client(invalid_loadout)
 	var oversized := await _open_client()
 	var oversized_peer: WebSocketMultiplayerPeer = oversized.peer
 	_require(oversized_peer.put_packet("x".repeat(8193).to_utf8_buffer()) == OK, "oversized_send")
 	_require((await _wait_message(oversized, "error")).code == "message_too_large", "oversized_rejected")
 	_close_client(oversized)
+	# A cancelled asynchronous authentication must not create an orphan room.
+	var cancelled := await _open_client()
+	_send(cancelled, {"type": "create_room", "access_token": "slow-host", "selection": _selection("nabi", "")})
+	await get_tree().create_timer(0.1).timeout
+	_close_client(cancelled)
+	await get_tree().create_timer(0.4).timeout
 	var host := await _open_client()
-	_send(host, {"type": "create_room", "nickname": "  호스트숲  ", "selection": _selection("nabi", "fixture-iron-armor")})
+	_send(host, {"type": "create_room", "access_token": "host", "nickname": "공격자위조", "selection": _selection("nabi", "fixture-iron-armor")})
 	var created := await _wait_message(host, "room_created")
 	_require(LanInvite.parse_invite_code(String(created.invite_code)).room_code == created.room_code, "invite")
 	await _wait_message(host, "room_waiting")
+	var duplicate := await _open_client()
+	_send(duplicate, {"type": "join_room", "access_token": "host", "room_code": created.room_code, "selection": _selection("yu-ran", "")})
+	_require((await _wait_message(duplicate, "error")).code == "duplicate_guest", "same_guest_rejected")
+	_close_client(duplicate)
 	var guest := await _open_client()
-	_send(guest, {"type": "join_room", "nickname": "손님숲", "room_code": created.room_code, "selection": _selection("yu-ran", "fixture-boxing-gloves")})
+	_send(guest, {"type": "join_room", "access_token": "guest", "nickname": "공격자위조", "room_code": created.room_code, "selection": _selection("yu-ran", "fixture-boxing-gloves")})
 	var guest_joined := await _wait_message(guest, "joined")
 	var host_ready := await _wait_message(host, "room_ready")
 	var guest_ready := await _wait_message(guest, "room_ready")
@@ -60,14 +77,18 @@ func _run() -> void:
 	var advanced := await _wait_snapshot_after(host, int(snapshot.state.tick))
 	_require(int(advanced.state.tick) > int(snapshot.state.tick), "input_tick")
 	var third := await _open_client()
-	_send(third, {"type": "join_room", "room_code": created.room_code, "selection": _selection("ja-hyun", "")})
+	_send(third, {"type": "join_room", "room_code": created.room_code, "access_token": "third", "selection": _selection("ja-hyun", "")})
 	_require((await _wait_message(third, "error")).code == "room_full", "third_rejected")
 	_close_client(third)
 	_close_client(host)
 	var peer_down := await _wait_message(guest, "peer_status")
 	_require(peer_down.slot == 1 and not peer_down.connected, "disconnect_status")
+	var stolen := await _open_client()
+	_send(stolen, {"type": "resume", "access_token": "third", "reconnect_token": host_start.reconnect_token})
+	_require((await _wait_message(stolen, "error")).code == "resume_rejected", "other_guest_resume_rejected")
+	_close_client(stolen)
 	var resumed := await _open_client()
-	_send(resumed, {"type": "resume", "reconnect_token": host_start.reconnect_token})
+	_send(resumed, {"type": "resume", "access_token": "host", "reconnect_token": host_start.reconnect_token})
 	var resumed_joined := await _wait_message(resumed, "joined")
 	_require(bool(resumed_joined.resumed) and resumed_joined.slot == 1, "resume")
 	_require(resumed_joined.get("names") == host_ready.get("names"), "resume preserves names")
