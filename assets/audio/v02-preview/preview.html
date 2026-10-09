@@ -12,13 +12,13 @@
 <body>
 <main>
 <header>
-<div class="eyebrow">FOREST ARENA · SOUND STUDY 02</div>
-<h1>숲의 분위기를 더 깊게,<br>소리의 표정을 조금 차분하게.</h1>
-<p class="intro">v02 시안: 청취 후 전체 제작. 로비·전투 음악 각 30초와 대표 효과음 6개를 이전 버전과 비교합니다. 음악은 악기 음색·편곡·믹스의 완성도를 높이고, 효과음은 발랄함을 조금 낮추는 방향입니다.</p>
+<div class="eyebrow">FOREST ARENA · SOUND STUDY 02 · REVISION 02</div>
+<h1>피아노가 이끄는 로비,<br>긴장감이 살아나는 전투.</h1>
+<p class="intro">v02 수정 시안 r02: 청취 후 전체 제작. 로비·전투 음악 각 30초와 대표 효과음 6개를 이전 버전과 비교합니다. 로비는 피아노 중심, 전투는 단조·반복 리듬으로 수정했습니다. 버튼은 ‘딸각’, 타격은 ‘퍽’을 목표로 다시 만들었습니다.</p>
 <div class="badges"><span class="badge">청취 방향 확인 전</span><span class="badge">게임에 미연결</span><span class="badge">실기기 미확인</span><span class="badge">음성 없음</span></div>
 </header>
 <aside class="guide" aria-label="비교 안내">
-<p>같은 기기와 같은 음량으로 A/B를 들어 보세요. 비교 파일은 비슷한 청감 음량으로 준비했습니다. 음악의 이전/새 시안을 바꾸면 현재 위치를 이어 듣고, 효과음은 처음부터 재생합니다. 한 번에 하나의 소리만 재생됩니다.</p>
+<p>같은 기기와 같은 음량으로 A/B를 들어 보세요. A는 최초 v01, B는 피드백을 반영한 최신 r02입니다. 지난 r01 시안은 제작 이력에 보존했습니다. 비교 파일은 비슷한 청감 음량으로 준비했습니다. 음악의 이전/새 시안을 바꾸면 현재 위치를 이어 듣고, 효과음은 처음부터 재생합니다. 한 번에 하나의 소리만 재생됩니다.</p>
 <p style="margin-top:10px">품질 참고: <a href="https://youtu.be/paAK7Q_AAlo?si=GulUlffjqw3V6_Iv" target="_blank" rel="noopener noreferrer">MapleStory OST Title Theme ↗</a> · 참고곡의 악기·편곡·믹스 완성도를 지향하며, Forest Arena를 위한 독자적인 음악입니다.</p>
 </aside>
 <section class="section" aria-labelledby="music-heading"><h2 id="music-heading">음악 · 30초 시안</h2><p>자연스러운 악기 음색, 선율과 반주의 분리, 구간 변화와 반복 피로감을 확인해 주세요.</p><div class="grid" id="music-grid"></div></section>
@@ -26,11 +26,11 @@
 <section class="section card" aria-labelledby="feedback-heading">
 <h2 id="feedback-heading">청취 의견</h2><p>이 페이지는 의견을 서버로 전송하거나 저장하지 않습니다. 아래 내용을 복사해 대화에 붙여 넣어 주세요.</p>
 <fieldset><legend>확인한 항목</legend><div class="checks">
-<label><input type="checkbox" value="음악의 악기 음색이 더 자연스럽다">음악의 악기 음색이 더 자연스럽다</label>
-<label><input type="checkbox" value="선율과 반주가 잘 구분된다">선율과 반주가 잘 구분된다</label>
+<label><input type="checkbox" value="로비에서 피아노가 중심으로 들린다">로비에서 피아노가 중심으로 들린다</label>
+<label><input type="checkbox" value="전투 음악의 긴장감이 적절하다">전투 음악의 긴장감이 적절하다</label>
 <label><input type="checkbox" value="숲 판타지 분위기가 어울린다">숲 판타지 분위기가 어울린다</label>
-<label><input type="checkbox" value="효과음의 발랄함이 적절히 줄었다">효과음의 발랄함이 적절히 줄었다</label>
-<label><input type="checkbox" value="타격·가드·필살기의 힘이 잘 전달된다">타격·가드·필살기의 힘이 잘 전달된다</label>
+<label><input type="checkbox" value="버튼이 딸각 소리로 들린다">버튼이 딸각 소리로 들린다</label>
+<label><input type="checkbox" value="타격이 퍽 소리로 들린다">타격이 퍽 소리로 들린다</label>
 <label><input type="checkbox" value="이 방향으로 전체 제작해도 좋다">이 방향으로 전체 제작해도 좋다</label>
 </div></fieldset>
 <label for="feedback">수정할 점 또는 특히 마음에 드는 소리</label>
@@ -44,11 +44,11 @@
 <script>
 'use strict';
 const tracks = [
- {id:'lobby',title:'로비',detail:'편안한 숲의 공기. 목관 선율과 현악·하프의 어울림을 비교합니다.',music:true},
- {id:'battle',title:'전투',detail:'대전에 어울리는 추진력. 선율을 가리지 않는 베이스·타악의 균형을 비교합니다.',music:true},
- {id:'ui_click',title:'버튼 클릭',detail:'짧고 또렷한 반응. 높은 장난감 같은 음색이 줄었는지 확인합니다.'},
+ {id:'lobby',title:'로비',detail:'피아노가 주선율과 왼손 반주를 맡고 현악·하프는 뒤에서 받칩니다.',music:true},
+ {id:'battle',title:'전투',detail:'단조 화성·첼로 반복 리듬·호른·무거운 북으로 긴장감을 더했습니다.',music:true},
+ {id:'ui_click',title:'버튼 클릭',detail:'‘딸각’ · 짧은 두 접촉으로 기계 스위치 느낌을 표현했습니다. 종소리는 뺐습니다.'},
  {id:'jump',title:'점프',detail:'가볍게 뛰어오르는 동작. 과장된 상승음을 줄이고 움직임을 남깁니다.'},
- {id:'hit_heavy',title:'강한 타격',detail:'몸으로 느껴지는 충격. 중저음과 타격 순간의 선명함을 비교합니다.'},
+ {id:'hit_heavy',title:'강한 타격',detail:'‘퍽’ · 목재 균열 대신 짧고 묵직한 몸통 울림과 접촉음을 겹쳤습니다.'},
  {id:'guard_break',title:'가드 파괴',detail:'방어가 무너지는 순간. 목재·균열 질감과 결과의 구분을 확인합니다.'},
  {id:'myo-ryung_special_up',title:'묘령 · 위 특수기',detail:'캐릭터의 개성은 유지하며 높은 반짝임과 빠른 음계의 비중을 낮춥니다.'},
  {id:'ja-hyun_ultimate',title:'자현 · 필살기',detail:'중요한 기술의 무게. 과한 발랄함 없이 힘과 여운이 전달되는지 확인합니다.'}
@@ -67,7 +67,7 @@ for(const track of tracks){
   const player=document.createElement('div');player.className='player';
   const top=document.createElement('div');top.className='player-top';
   const label=document.createElement('span');label.className='version';
-  const strong=document.createElement('strong');strong.textContent=version==='v01'?'A · 이전':'B · 새 시안';label.append(strong,version);top.append(label);
+  const strong=document.createElement('strong');strong.textContent=version==='v01'?'A · 이전':'B · 수정 시안';label.append(strong,version==='v02'?'v02 r02':version);top.append(label);
   const button=document.createElement('button');button.type='button';button.dataset.version=version;button.textContent='재생';button.setAttribute('aria-label',track.title+' '+(version==='v01'?'이전 버전':'새 시안')+' 재생');top.append(button);player.append(top);
   const audio=document.createElement('audio');audio.controls=true;audio.preload='none';audio.src='comparison/'+track.id+'_'+version+'.wav';audio.setAttribute('aria-label',track.title+' '+version+' 재생 조절');player.append(audio);players.append(player);allAudio.push(audio);local.push(audio);
   button.addEventListener('click',()=>{
@@ -92,7 +92,7 @@ for(const track of tracks){
 document.getElementById('copy-feedback').addEventListener('click',async()=>{
  const checked=Array.from(document.querySelectorAll('input[type="checkbox"]:checked'),input=>'✓ '+input.value);
  const opinion=document.getElementById('feedback').value.trim();
- const text=['Forest Arena 오디오 v02 시안 청취 의견',...checked,opinion||'(추가 의견 없음)'].join('\n');
+ const text=['Forest Arena 오디오 v02 r02 시안 청취 의견',...checked,opinion||'(추가 의견 없음)'].join('\n');
  const status=document.getElementById('copy-status');const fallback=document.getElementById('copy-fallback');
  try{if(!navigator.clipboard)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText(text);fallback.hidden=true;status.textContent='복사했습니다. 대화에 붙여 넣어 주세요.';}
  catch{fallback.hidden=false;fallback.value=text;fallback.focus();fallback.select();status.textContent='아래 선택된 내용을 직접 복사해 주세요. ⌘C 또는 Ctrl+C';}

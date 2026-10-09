@@ -106,7 +106,7 @@ def generate(soundfont, output=DEFAULT_OUTPUT, library=None, skip_music=False):
                     record.update(sample_rate_hz=f.getframerate(),channels=f.getnchannels(),pcm_bits=f.getsampwidth()*8,
                                   duration_seconds=f.getnframes()/f.getframerate())
             files.append(record)
-    manifest={'version':2,'stage':'listening_preview','runtime_connected':False,'human_listening_approved':False,
+    manifest={'version':2,'revision':2,'feedback':{'ui_click':'딸각, mechanical two-contact click','hit_heavy':'퍽, short low-body thud','lobby':'Piano-led melody and left-hand accompaniment','battle':'More tension: minor/diminished/E7, cello ostinato, horns and heavier drums'},'stage':'listening_preview','runtime_connected':False,'human_listening_approved':False,
        'reference':{'url':'https://www.youtube.com/watch?v=paAK7Q_AAlo','title':'MapleStory OST - Title Theme (Uncompressed)',
                     'use':'Quality reference supplied by user; no audio, melody transcription or recording copied.'},
        'rights':{'composition':'Original project-authored score and procedural SFX.',
