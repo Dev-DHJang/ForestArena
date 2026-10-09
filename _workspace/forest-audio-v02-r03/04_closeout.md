@@ -25,5 +25,8 @@
 
 기준 origin/develop: 60777dd02e192d0db8c56f44c8d7d877b267672d.
 작업 브랜치: codex/audio-v02-r03.
-구현 PR·병합 커밋은 병합 후 마무리 문서 PR에 기록한다.
-지난 r02는 54b526a8a62f31db71819f67c1de5b11d7774e87에 보존한다. 롤백은 이번 구현 병합을 `git revert -m 1 <merge-sha>`로 되돌리는 별도 PR로 수행한다. 사용자 원래 작업 폴더는 수정하지 않았다.
+구현 커밋: df3041919544d541c556a5879af99702e4e113a3.
+구현 PR: https://github.com/Dev-DHJang/ForestArena/pull/80.
+QA와 전체 검사 뒤 develop 병합: 131353aafa36ae65d4067f1ca4b627a2ccc871e7.
+2026-10-09 GitHub 상태 MERGED 및 원격 develop 커밋을 확인했다. 마무리 기록은 별도 문서 PR로 반영한다.
+지난 r02는 54b526a8a62f31db71819f67c1de5b11d7774e87에 보존한다. 롤백은 이번 구현 병합을 `git revert -m 1 131353aafa36ae65d4067f1ca4b627a2ccc871e7`로 되돌리는 별도 PR로 수행한다. 사용자 원래 작업 폴더는 수정하지 않았다.
