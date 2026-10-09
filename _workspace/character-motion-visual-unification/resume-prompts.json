@@ -1,0 +1,61 @@
+{
+  "common": "Use case: identity-preserve. Asset: Forest Arena transparent RGBA game sprite poses. Reference is identity/style only. Make exactly 16 full-body poses in a strict 4 by 4 grid, row-major chronological order. Every pose faces right. Each character occupies at most 45% of its own cell width and height, with generous transparent gutters on all four sides. No grid lines, text, floor, shadows, detached body fragments or background. Preserve the reference face, costume, palette, proportions and rendering. Never crop any ear, hair, hand, foot or tail. Keep the same character size in all cells. Clear preparation, active and recovery phases.",
+  "xs": [
+    {
+      "character": "ja-hyun",
+      "motion": "special_neutral",
+      "action": "A mid-range ribbon reel. Poses1-4 guard and extend BOTH BLUE COSTUME RIBBONS forward to the right,5-9 reach and reel inward,10-12 draw hands back,13-16 guard. Ribbons must remain entirely inside their own cell, never touch another figure. Preserve exactly two round mouse ears and one thin pink tail, silver-blue hair, white-blue hoodie, black cargo pants, human hands and shoes.",
+      "revision": 4,
+      "reference": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    },
+    {
+      "character": "ja-hyun",
+      "motion": "ultimate",
+      "action": "A wide blue costume ribbon rotation followed by forward finishing palm strike. Poses1-4 wind up,5-9 torso turn with compact circular ribbon arcs,10-12 forward palm finish,13-16 recover. NO giant effects beyond each cell. Exactly two round mouse ears, one thin pink tail, silver-blue hair, white-blue hoodie and black cargo pants.",
+      "revision": 4,
+      "reference": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    },
+    {
+      "character": "nabi",
+      "motion": "hitstun",
+      "action": "A brief hit reaction, not an attack. Poses1-4 guarded stance,5-9 torso recoils backward with arms open and pained expression,10-12 regains balance,13-16 guarded recovery. Exactly two triangular cat ears and one furry purple tail, purple eyes and hair, black-purple-white hoodie/skirt, gold bell, human hands and legs with purple claw accessories.",
+      "revision": 4,
+      "reference": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    },
+    {
+      "character": "nabi",
+      "motion": "ring_out",
+      "action": "A ring-out tumble. Poses1-4 startled balance loss,5-9 rotate backward in the air,10-12 tumble farther,13-16 compact falling pose, never a standing recovery. No disappearance, ALL16 full character visible. Exactly two cat ears and one purple tail, human hands/legs, reference costume.",
+      "revision": 4,
+      "reference": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    },
+    {
+      "character": "nabi",
+      "motion": "spawn",
+      "action": "A spawn arrival: poses1-4 descending airborne pose,5-8 lowers legs,9-12 crouched landing absorption,13-16 rises into guard. Exactly two cat ears and one purple tail; complete head, human arms and legs, shoes, purple-white-black outfit, gold bells and claw accessories.",
+      "revision": 4,
+      "reference": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    },
+    {
+      "character": "yu-ran",
+      "motion": "attack_air_heavy",
+      "action": "A large aerial tail sweep finisher. Poses1-4 tuck and wind up in midair,5-9 extend torso and sweep one large brown-white striped tail horizontally right,10-12 retract tail,13-16 return to descending airborne pose. No landing/grounded guard. Exactly two round ears and one striped tail, silver hair, brown eyes, brown-white-black jacket/shorts, teal gems, human hands and legs.",
+      "revision": 4,
+      "reference": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    },
+    {
+      "character": "yu-ran",
+      "motion": "jump",
+      "action": "One jump cycle: poses1-3 crouch and takeoff preparation;4-6 ascent with bent knees;7-10 compact apex tuck;11-13 legs extend for DESCENT;14-16 land, bend knees, recover. All sixteen poses complete and isolated. Exactly two round ears and one large striped tail, human hands/legs, silver-gray hair, brown eyes, brown-white-black outfit, teal gems.",
+      "revision": 4,
+      "reference": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    },
+    {
+      "character": "yu-ran",
+      "motion": "ring_out",
+      "action": "A ring-out tumble: poses1-4 lose balance,5-9 backward rotation airborne,10-12 tumble,13-16 compact falling pose. ALL16 full body visible, no disappearance or tiny shrinking character. Exactly two round ears and ONE brown-white striped tail; complete human face/arms/legs/shoes, silver hair, brown eyes, brown-white-black outfit and teal gems.",
+      "revision": 4,
+      "reference": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png"
+    }
+  ]
+}

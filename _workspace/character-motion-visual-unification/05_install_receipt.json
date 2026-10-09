@@ -1,0 +1,724 @@
+{
+  "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+  "approved_on": "2026-10-08",
+  "retained_anchor_sha256": "ace7c74679e9923ac81b80c5eecf148d218f26670ce635976fe86dc0a0bac6e2",
+  "sprite_frames_sha256": {
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_heavy.tres": "69c408d7b181db9fe06c2621570716495d41769dc34c046342c01ec9d936ba1b",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres": "f96b06083cf197f7d1962bb858c5c8463bda0d69c792b688058d5676db39e844",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_heavy.tres": "2c1a6b070cd0cbeb39c696e390c4e834de983a19f638a50440b0b6daaaba2be8",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_light.tres": "1b63ae32a22ab7b6217a718322de4995aaf8dce39ad3a7aebbae5ca9d018aa95",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_down.tres": "a49b73d7e597b27317b7e6090c3cd10631fb2bffc17bd6463edf04c6903aa356",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_side.tres": "5728f1190744a3d629ad700275cd9520042e25c442e35ae3cef54dc19406143b",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_up.tres": "ea872717a671a7081bb1acf5ec097f9c4195556595d788f050526d664fc0bacb",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres": "cbb10adcaa71d9bb86ad179cc832505980b673a7376b4cfaeacd5de4e5fb4f7a",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres": "f515c7a1973444dcb089efd459d4bab62fe12bf8d453c5b0e7b12d0a2a524bc9",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_03.tres": "835536d3e73439f03eb5525c408248d2fab8e2cd937f24fbf4f692c2f0c4a8fc",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_down.tres": "e5c3089ed5002b9ba9fba7dc6518e7b9bd57a1d705668d1080cad3f9b3119846",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_up.tres": "2b3adf013d2441d57f113797b0c6ff8fb56aad14fc5fea966d812e97bd4aa8ac",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres": "7167a50e35fc610e8e5d397578f0c44a69872684455e53d81c3aa064084142d8",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/evade.tres": "27d6d06527fa2e7c36f7ce10f72456a4ce4e91c9180b3cdd3dc94effa3524c40",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres": "21184f6f6b2d69246b2d49366e09ea7fd11ae421ab82a1ab0ff4b6aff2e7b905",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres": "ce5ea6686de3fac67e3f5ae4072b42b1a60581f5d1d0f4cb78a93798663c9f52",
+    "assets/character/ja-hyun/animation/runtime/idle.tres": "c416cb8b33b9b932ac24e9c689eaf41a3f90e8714e48d8cbfa65bd10ef25bc74",
+    "assets/character/ja-hyun/animation/runtime/jump.tres": "84d0a70be2bad274308cdbeaae2b5f21842517976e2aaa09ffa19cefc3f0f053",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres": "71b17d1252477ce322e85ef6c07e4e2a513f0172f4c07b3a0f890e5e3af2d50c",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres": "cde9f4a264ef920705963ddb817edb059b48468128df0f0a65170e1d8041f276",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres": "481cee65f6885fbb8d9661875f46f2c83516ba241465eb0cbde4147c1aad1dd0",
+    "assets/character/ja-hyun/animation/runtime/run.tres": "2bbe7085c4b838deeee77d42de73d50cb1cceb578e0ea1828221a0e4b1f62057",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres": "c29b090258ca06cbdc82f376559d58d32f7c22172a592a802b988fb728814e4a",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_down.tres": "23fd685cae104e30fd053f35f53dd1d8983ccd74c63fd92504d5697aafef8118",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres": "197b5f74bad0724bc2c18069a8423d29d04511ee593b6fd49092c4b5c6774ceb",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_side.tres": "851e3f2b4e7cde511bdb7069ac1155d4ae79a42d3190b725051d0427a009fa65",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_up.tres": "7fbb1d7e1093257a165d494750b2bb7a0c6d27549d535dbf7c61179e82eea467",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/ultimate.tres": "17968c847d247dab5d951f14cbc04483c51adf2b8277b2fad5b1659735ea8144",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres": "42e964de90d5d5e99e28f4ae58ed760de8f3e0553abd94fc0f5a251c751b727e",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy.tres": "725eddcfabf4040b1c8039e38f45e784a6c7738f60f90e087b6d84b4bc370c10",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light.tres": "ab460952f8bffd065e8ba1dbe487ababc10076a02b56d10d25734200567741e4",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy.tres": "c3c089d110a8551f2d3905ba22596520409ddcd54a0ca34dc22a126506813543",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light.tres": "2a96185c869acd7d5291a2e5992fbdfdcde78436a9b484a11ad6cd0f62db1478",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge.tres": "3bdf467de22d991d005ced823568be1ee3a0db082129f7676b10951a1a612f23",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down.tres": "30c7f42902fc83326893759b42509805f40e39a229a7304b6c3f8d9fea568b20",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side.tres": "3bf313fb669944a32c2474f60e7e21191e706883976375dc0402b7f6770c8387",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up.tres": "d053e154f916dd63eb5801d668ec4ccc0ec90af7661b4951a647153d4f3ca78b",
+    "assets/character/myo-ryung/animation/runtime/attack_light_combo_01.tres": "559873625c17cfa6585e0990cb6938a72f3e1250f64a3887760dd18fc8dbc033",
+    "assets/character/myo-ryung/animation/runtime/attack_light_combo_02.tres": "7b5a2779d6749dcafc4ab464ada4c3a640b482fa630311690b27df279cc0bd81",
+    "assets/character/myo-ryung/animation/runtime/attack_light_combo_03.tres": "659fda221a5eefdd7a7d44e6f0e2a161f87b75c3ebd6a841993d394207ecec3d",
+    "assets/character/myo-ryung/animation/runtime/attack_light_combo_04.tres": "c228189a7d7d2dbf3679ff1edd9466f8a6fc7bd8d3e9c74f7feb7461ff9b8644",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down.tres": "50eac4909627511ff0155d735556cb6fc144e757ea016c200f755e60d4b6ff08",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up.tres": "70aa4996e916943de56997e38b6e8e78ab1eb1d40a543ea8216a71c71fc41c2d",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/death.tres": "23994f8ec10ef2662e6914b60fc28447ed8ec75914fb7f7a9622cef50ae332ed",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/evade.tres": "69848e07d0802f77a1c7a9171e9f026476c8981cf0927c864a9580ec53e57ef9",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/guard.tres": "0612128673a6f2c22a639f866570beaca9ab6858c18036af577d16728fc94c58",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/hitstun.tres": "9e95ec785aa27bb4f4184d523fc6b5e78a4d944ac6f65dce1e9f88a06b61c927",
+    "assets/character/myo-ryung/animation/runtime/idle.tres": "ce170dc0d6c74a6e59381c968945ba4602feb0e2b0ab0915218f39a673744854",
+    "assets/character/myo-ryung/animation/runtime/jump.tres": "de162a39b778663f08add0a722ebb81ad1d2ca746583a01053834e28095450fb",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down.tres": "a118667b32524c980812e57195f61643a056f4477344e835d0fa374b04c5b9b5",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/launch.tres": "97be15b97c6dc2dbb795cbd01cd7535f573f1fc91d0d65985fa55f48cc386718",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out.tres": "7922eedb92e4d2b4208debcbc3cb2422871e4486971f94022027502836ff788f",
+    "assets/character/myo-ryung/animation/runtime/run.tres": "70fa08656788a16822d5a1e1e91623d2929e59b572c8cc4f0972d16bc0a2ee22",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn.tres": "c92933183e56465ae617500c1db7e1e673f5d45853cdc9ebd04c23d5a20c56d9",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down.tres": "66a1e917d47922e6f456334d60313f42e07386f4534e2e250ff252e1ee16572d",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral.tres": "9d05f63ff19958e07a485ac15872a6efe844c4b0fd34ff31351fedefee6306ad",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side.tres": "026ecb268db27879a7e0fe97005c3123abe1f8740fe15d3da31e9f18a4388892",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up.tres": "7d9d0b78f2d9b9d6c38fd3a93f71ad66c06eef32775f52ada9ea10a913d9069c",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate.tres": "450127b53a481ebabb2768cf8b9be8f1a8dbaffea17388c82fe270f7f815e595",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up.tres": "71f1cdd60be0410833f1362507c6efb7ff4cee06b8adac3b637973d03e58a3e2",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy.tres": "a6a06b2b886c953d91ed9748d494bfbda677d956d16bad6bde1e55e9292f6c27",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres": "1ce0fd217593d8030dbd770ded5aeea58a4e932a2dec0b18af00c7325697db48",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_heavy.tres": "9f021a09688ef3e7f860420271c4ad1a9a6bdca439f4fc1e8ba03aee217831ca",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_light.tres": "b9cacda39c8fe4d708ed99f8ad909ca1285357d79dc1e6638f76214c8e7d74b9",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_charge.tres": "2031d1978242cab589a044815b2bfa5de5f71561cb4239895e7e378acf2d51c5",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_down.tres": "e034881d7bc354727fa78dc8b016e172c41172e90e0403ff34d1d1cc67b52663",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_side.tres": "0f0bb8b83fff8ba10f812fb903005d24436c7fec1a0635687d9c3036e97e8285",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres": "e00d5f43c968d7cb237fd8b8d6a3b1867bf5ca53fade373c08412a5885131f5b",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres": "3b670d1ee3f129bb201977f7c9298035abac7da709d8ffb69ed31d0c43a6d162",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres": "ab875b7685963eabadccbc4d8547afcb29b86d8dba4f739157f516aa999c2ca6",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_down.tres": "15717d74a8d8fc7422edd7dc85f5902c57f797c9f5b0e61217e2448415638db5",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres": "0857daa957b933de69c355b07f5184daa79c83b2c2d4bbc8372ca051f092acbd",
+    "assets/character/nabi/animation/runtime/local_ai_v01/death.tres": "d3f82d6f3722e0481bdb2bd44f6a96f93a635afe2a82bcab444d2130249c6a62",
+    "assets/character/nabi/animation/runtime/local_ai_v01/evade.tres": "9f514856aedac2c29ed5813e7239f0446d85c0c0dfe9efbc4132a350f10f7058",
+    "assets/character/nabi/animation/runtime/local_ai_v01/guard.tres": "0603eb7af38233cb1a8402d2a9d20b9a8ab8e1448e11b416d595ef9b637265ce",
+    "assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres": "ce69464559ba9d827ed5a61b041e25962d1c2cfa7f39f4727c37f353081e76cf",
+    "assets/character/nabi/animation/runtime/idle.tres": "ae13e2fef33008f6436388049fc620daec09929911c4acfbc868ed7325c136b2",
+    "assets/character/nabi/animation/runtime/jump.tres": "da14c3449857b4484773bb01748cc5001139c5a6a54c967f2f79878110aa2de8",
+    "assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres": "1407422a8738bdbdc86a7c7462fdbecf1a95e63c1d5a1c19518cf51223f905db",
+    "assets/character/nabi/animation/runtime/local_ai_v01/launch.tres": "c9fef77fef17c056633f083347ad64dd3a09e8672dc4a2e8ef2bfe421eb8ada5",
+    "assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres": "d745b23f2b2e82216438570ac758f3520b9c2072874d9dbc609054398a043328",
+    "assets/character/nabi/animation/runtime/run.tres": "e73638537ca89ed90ea5c434b6c7f184b0dfb2ee8dc465b264fe04ea6fcf4c88",
+    "assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres": "2a73576a8b08a082fd6ecead2976afefe6d8a1a7ee1a55d4458986d344c4f0f0",
+    "assets/character/nabi/animation/runtime/local_ai_v01/special_down.tres": "79b8c6dd10cf593ac5f23a81dea08e5f23f720221516ff67fbad53fbaaf6af1f",
+    "assets/character/nabi/animation/runtime/local_ai_v01/special_neutral.tres": "1edb9da8bc8d28edb62b14d143304b3ff40c61666be62217ce86c7d6eeea11df",
+    "assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres": "785ea871ed54246fdf17790b5fe85afbdb2f4db7b500a8890f827cde004dfac2",
+    "assets/character/nabi/animation/runtime/local_ai_v01/special_up.tres": "007e984e5dde41f7170fa20120be038498ff61466f7e3f44b111f130eac9735c",
+    "assets/character/nabi/animation/runtime/local_ai_v01/ultimate.tres": "dfb6390d2c6ba334e141303c47fa48788f5ead9c23e640db84372949a90b0f44",
+    "assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres": "fdc5e54cc1d2c056f87877f2df4189a51e0cd39326688b6e8833dc20785c3562",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_heavy.tres": "ac9a84f75860185363f515b199d3f6fe2ddea8ac77e5e2e6e4fb26715daa70c9",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_light.tres": "9e979558f14a19b19d3b827262226046216241e93305117e354190ef34b0570b",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_heavy.tres": "5ad2d60a68ba4bb8427ecbd530ad4c409036033d11046a37450cd318cea017a0",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_light.tres": "b866d4b5c0bb689ec49dafd495ede20862c994d3be67718844dbd6c5cb5f95a0",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge.tres": "789f883848c28588eaac5697cc6025db552235a407e55adf9891b1582a0c32eb",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_down.tres": "123b5b256797a93f3374b50205c92ccda9f9eeaa2f2bcae4bc2c4cd6e1e3aabf",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_side.tres": "8a0ae5ebd94adb1127aee3f8c3ef4af755c352f0b40d6ee68e51340410b3bb28",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_up.tres": "5242cd035a901d1b46dd64a483da54becba158b1d255a1ec70e4781404eb2bf8",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01.tres": "c34200717be4a0ad0b862feef303725b7aabdc66d838507215293134d10a9b85",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02.tres": "8318fc7754df437ec94ee17153d9b202fc15536ba568be7dbcf205fbf8eff8a6",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03.tres": "bc58cea62460e4e5e54c7dbb3aede8285034d17089db6d6dc2e8f8f15588c0f7",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_down.tres": "28cc94957254c4482120c4f5005f7c8dbb19ba1dd94632f304ad3f65374b2848",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_up.tres": "3085c125f1e69c481caca60981c5f4ec74bb0ad52bcf1b5c68999b1871d3b9a8",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/death.tres": "02e7e185510127c708a35e61028183f65170f8911aa960afae5d3805b2bc7d26",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/evade.tres": "9c01bfef08d17749eb96bee6652d93e1abc7919ef07de3cdc9588ea3a0bf8cc4",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/guard.tres": "30c16ba821efc96d1d7979d512caef5bd7837e9de3bd4f274982c6b0c560d584",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/hitstun.tres": "6959cd01deaa30d5b4a59f2096d1e037147a17dc455e1acc1e2aaf0733e2e191",
+    "assets/character/yu-ran/animation/runtime/idle.tres": "9988370ff971584794e8cdd8e10e4b7b45df866eaaf80b227dc231c619137f28",
+    "assets/character/yu-ran/animation/runtime/jump.tres": "3ab0c9e220eebe74ecaca7680f908ae857d2a6b12887493a3177299302f03178",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/knock_down.tres": "4026e0cef79355e87a9d87f013b1767fddf4158e38d28e66d567c068f05d5b93",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/launch.tres": "a284ccaf787411e68c75add45163a82c8b3ef703d6d1aeef5a2bee20f418a112",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/ring_out.tres": "772c5ed71efac39f4262bed0f9061170cbd841d1d39bd478249d305806c579bd",
+    "assets/character/yu-ran/animation/runtime/run.tres": "4ddc976ce5af2d34322478bd02996ebc1daaf35a53d2f3b0b68ba4bcf3958b36",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/spawn.tres": "11d0f78113196de75495b62ea827e4c9d8830dbd0c1730e9873ff687800b5158",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/special_down.tres": "5ef1673901911cd146896bab05cd08697fa3aaa1bc4f57030aad6d6be8070723",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/special_neutral.tres": "bb6cd58294fa0e99503fc430e042b88bfec5cc621bbb63ff78a33c10e36687f4",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/special_side.tres": "9e14bdb78ef3a2a57cf650cb3b25542f9db89d63eb1bb63277f67f677a9e75d2",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/special_up.tres": "3fa17e15a9822d07af4b868e651a08bfb7ee65f738a9b6cbdedd447dc23acb67",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/ultimate.tres": "9ab4348cdd430383f75eff688d4ce16174519ac583494320029434716b67ca36",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/wake_up.tres": "1de8df1f9757e079cf4fcdeb3ec6f23bef2b76adaf5d012037655149bf1a6e65"
+  },
+  "previous_manifest_sha256": "40acf1e9bb446e67f7435e100e9de2ac37d6e918f50bf5c936302bf1f89565f2",
+  "replacements": [
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+      "before_sha256": "7392a0a087f5defc52e956241da60130070f259ea1ea0246d3296db4294e810c",
+      "after_sha256": "e0917da078f586a1019e9478dafede67df0127569054842fecf46f088c521ae3"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "before_sha256": "892fe7bf9b1f190faeef43fea09f3d6af115b635146f861eb6a197e89b2fdb4b",
+      "after_sha256": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+      "before_sha256": "cc3fd56c4b925b062ccfa9406585548d7672a7a4170ec3e8e8087b2b54283055",
+      "after_sha256": "d1409261995c9d163ba3d63c6682c7abe0efe799a343687f4032bccc36664208"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+      "before_sha256": "652bc28957b999b4b8663d8ce13c018f449add632ce7e16d7f48ebdcf5e5e828",
+      "after_sha256": "4755f65719e84fca6e7235437b9bdf49cf0905d9953ef70772c17321c984e71d"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+      "before_sha256": "50e491bba3283c2d0abaf8ee34941f698f698c596877cf68494f0498fdabe914",
+      "after_sha256": "e164066b9fabded4241d36a44e73540545ccfeaad8d8f131088f36751efe65ed"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+      "before_sha256": "2aead1f036e33ee39d8a9bb0e0c49d96567e7414a6c435f036b4fb1bfcc9f7a8",
+      "after_sha256": "c0c2ccb5f5b4350884028a1b8f98acd731b09078bf3d945a0c91d018022687e1"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+      "before_sha256": "d57b435dd8e90cf990d137edb963a4cb814b667721d50354f94fff2862c8a3d3",
+      "after_sha256": "bf59be198db2cef364a3e00d93077350d826bede5e66b26f2923ecdf4929109f"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png",
+      "before_sha256": "eeb8d63d825eead9e5e59d5f023c0cbf5c7d2be87079b9260312da5dd6564333",
+      "after_sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png",
+      "before_sha256": "936bed9589480219fbb773da73a6b636910eec848322eb327b6e15bfeeca9810",
+      "after_sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_03_16f.png",
+      "before_sha256": "c93785b53fec5a3d088e46dc9b39aeb384f31d06dbad1e13029fd3e9ae31ae58",
+      "after_sha256": "584897a891216b42c2ff321ff8f4a4ff87485de8031349d6b325217994a3945b"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+      "before_sha256": "a16a228f3666cdd796010f4352787236ca757608c22f843ec80014712d464cd9",
+      "after_sha256": "962bf4074bc79b3052858eb2ff0a0f37e5b8f890f55e961808f672aa7495bab1"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+      "before_sha256": "2a4f48942e47b5436c99535672d212bb947f167b55f8b266ec159a591565307e",
+      "after_sha256": "7a05081a88ea9951b592421467cdf52eb75cd485e22d0c4cacf3578b96a0f6d6"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death_16f.png",
+      "before_sha256": "764b40300ee4e9aed748fd58e35e57801698399256787fa1d74ec765e5c81db8",
+      "after_sha256": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/evade_16f.png",
+      "before_sha256": "e7999f79aee28badcac1a8585d1b11b00dfa54b0f00858e153e905ac65d42d72",
+      "after_sha256": "e8cff000e56939f3025a31ba07f6c831770789b56f456b2fb7d181510a260571"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard_16f.png",
+      "before_sha256": "8c2af0422cecd317e9cb3e5b889909fabfefaeb22d36ecec5480bdd656ce3ab3",
+      "after_sha256": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "before_sha256": "be49dde928ff5452d9c3dc298d11991ff1d37772f027959e87395fcfd5fdd1d7",
+      "after_sha256": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/idle_16f.png",
+      "before_sha256": "8d8c2898f69c3f0dc780eeb1047f7989945e295664bc9e3fc39d457733529220",
+      "after_sha256": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/jump_16f.png",
+      "before_sha256": "9580c4a0babc407d34125f93cd40cfc8336cc2586d92de59dfd57f99972a0d55",
+      "after_sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "before_sha256": "e9a2016ee30cc6932e779935f793f781e465eb9c9949e2c83f7a3133c7676f33",
+      "after_sha256": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch_16f.png",
+      "before_sha256": "8f671cc50cd8aafa44128ad3c36f80e6166a7e96956660bd54d804c0d0934d2c",
+      "after_sha256": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "before_sha256": "38801b7ad8d34822e7aa30bdd234dfaa4ab72bd91d49ba6076b708b5cf218770",
+      "after_sha256": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/run_16f.png",
+      "before_sha256": "e4b79af732fc25b57ca586a7fa93e4baaede70dd6f93a376638e9f20646d2bb4",
+      "after_sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn_16f.png",
+      "before_sha256": "dd40dffa8c77af5b689df10024ad0efc2467d0077b19bc1a6d1b864f9fe61cee",
+      "after_sha256": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_down_16f.png",
+      "before_sha256": "87ede954fa75fd66a90f301acdd0faf0d16dc3d3dd0c4c300b914219fff2c68b",
+      "after_sha256": "d59f7e567248f4f8e601b6f7a7872b53f48e5db70f226bea2539e00409c42cd8"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral_16f.png",
+      "before_sha256": "7cc0ac756eb926f71dbdba2e01da099a492c4a0d1a5a4e81980748622731e4d0",
+      "after_sha256": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_side_16f.png",
+      "before_sha256": "c01c3829a4592fc8ff574dc5d5ded81c2c3f7b0934889f6d15476be5504d899c",
+      "after_sha256": "396ba33cc5cb8f016845482c01419f62eeff6a9b8e6fc737c121f80292e40f5a"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_up_16f.png",
+      "before_sha256": "7874267d1877b8d3eca15cfff6c2e0e02999ec99d66e833c1a7e66ce41677935",
+      "after_sha256": "8a1790bcde658ef60187a4d7592b1ee832a9add952a388ef497a9141ebc64ba8"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ultimate_16f.png",
+      "before_sha256": "21996958643ab8e732a5e1f225739c878a100482c07f5ca9f355a3fd3ccaec52",
+      "after_sha256": "53459a9979ada30921db43a5090ae61fa25226e1968cc90863cf40fa1aa22b27"
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "before_sha256": "672708d6ff91741168c1449c712b9c4230a85bebece6656b9a2d1e64ee3a399c",
+      "after_sha256": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+      "before_sha256": "e624ffaf749fd8bb100b20802261177e74f5f742c0c5be3f77ef636fa6fce1ca",
+      "after_sha256": "1cfc61cfa43385a461654e919badc51c32f1bcafe992df889f34c67eb3f9080d"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "before_sha256": "607d77740be3b86aa3e0d970690c4bfb90644fc0bcffdc3460528462839e317e",
+      "after_sha256": "b4e9565f1fd4bb907ce833298282adad6956e6b86e85f567f71cf44386fc8988"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+      "before_sha256": "46aecde0c469da7ea619f1f6645baad39d02f3889dde87dcca5a8d592408079c",
+      "after_sha256": "5f3ebbb08cc4f02ee537146284efcac411b7c482ff29e828e4dc44e82d17233f"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+      "before_sha256": "acfa511591522d59f82a8455b673e3f17e41817bfcdc870db4d576ad015d1e47",
+      "after_sha256": "d34ddedfb2e95fe86d5bdc63eeb52e008a7afac385fd05b87bcc2c67e7547e2d"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+      "before_sha256": "5b5d3760f4f59fd7a8533d8ae892432b18bf8904311f5c72bf446ec23fd71a1f",
+      "after_sha256": "eacbd4efe753c27d66b081dd332bb8a0d67d6376575319f8a965f0615f8123cc"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+      "before_sha256": "2f70fbe747e50a3bd7923bf2433f7f6600ab5b9bb33bd1947a25993c55f673ce",
+      "after_sha256": "372182201a92ea2c0ba2e3b430f2d89599ddf4e41ec2c8ba372deab3ee6751bf"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+      "before_sha256": "03efed25b0df1420ea23253839583561c8f2db9cd326a8e5c5f4019f9743d7ed",
+      "after_sha256": "468642f71393c3b4ee33dbb3371dcb525f60c7330d72aca6516019adf5e71d88"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+      "before_sha256": "29a07df16089e37dc48151bde5777d891323fb3cf8610156c1c46e56e6abde57",
+      "after_sha256": "89285af125213ae5672b1600a1720f1ad3c96838391de290f97c2a60900196a1"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_01_16f.png",
+      "before_sha256": "d8c26724651fc39dbe1a8a80514e7609c0078c08ff30ed64c385390a73d203fe",
+      "after_sha256": "302fec8d66c52af5c83b8ec9dba1d810ebe271295b7c7842f7be2a8200bb45e5"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_02_16f.png",
+      "before_sha256": "e0667f2a2d8771761f7a8896e4d6fe31c518ae9f9707521bda68f6211b371fb4",
+      "after_sha256": "1a15c110f8994535a0b5f1ff641c680fad85f735934747afb92c0bed05fe9e72"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_03_16f.png",
+      "before_sha256": "0806ffbee055add131de06afdf11282888b83dfd52fe6465fdf9ede8dfd5ecd5",
+      "after_sha256": "14cfcaf3d73c1c65c68eb14b796a8b794c569ad68d543b0e34a3a001adce70d0"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_04_16f.png",
+      "before_sha256": "dee8cd7c758cee2ba1c85b8b89377ab04245be5b3cac0a92d45be5f43b7bbe18",
+      "after_sha256": "37cea20bcaf22c6e2dd34c53ac928f1cb1dd1a055256dfe9fb0a32f296900da2"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+      "before_sha256": "ef03e6b776748a960fcb07ba668653dc6de99ce455f37a2748337005c9ae0093",
+      "after_sha256": "687bb6b411b6c613a5d126552c249100efdaa378fcec48b2ceea22d4a01fd936"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+      "before_sha256": "9b2b912f1c825e89dc6e83db146d097e9b514650e01c3fad6576dc518b879c54",
+      "after_sha256": "d2a8f5cc602e65caf827aa18a4abdd848943e3f94818151e48ffa05267a4ebf3"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/death_16f.png",
+      "before_sha256": "27df288269a67bf7bf9b54e5e13ac167afc9f81b9fb0e1d6728204e71aca11c5",
+      "after_sha256": "175dcb9e6fa5a433cde35d81be6e4e6708b7ceaa1ac55325ddcd9e26863269c6"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/evade_16f.png",
+      "before_sha256": "e5c786259f8e339429ed1333f1f1158cf7d7a3328bd7a00162d67f4829252e1a",
+      "after_sha256": "9893b97ee76ea4dd6480eaf5ded24818948578411c6e41ca223d668cf97af3b2"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/guard_16f.png",
+      "before_sha256": "ec4f1d9f16c2fa52b96db05a5b2c6222951af08afe85f59463da889fc18ac5a3",
+      "after_sha256": "50718ebf44f1ca13fdfe5418665371f9a487d73a15563dddb547bf62e6f2a69a"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "before_sha256": "76793bba328e74f59b2ad3883cd66abc4589b4cba9c94f23aecfdff6353f48cb",
+      "after_sha256": "d4dc71f7f1cf59dfc7d29f097b9168a16c6a62e46ef865f335f197f0b64a6432"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/idle_16f.png",
+      "before_sha256": "87b2dc7a65686040f097e21fc8d583ca3e89fa6c532104c6e9e1db531b622cad",
+      "after_sha256": "d92da66be1a4ead486654a4a3ecccce694bae29680e18542891d5d450ffe4c54"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/jump_16f.png",
+      "before_sha256": "78d4f436235bdd3e8b5f3c417d0de9f5941b9663aea2fa12c54820f55fc0af33",
+      "after_sha256": "2aad6786cd3244569244da34c07d01dcc17f2a0cbe6db5f7c4267f503f322527"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "before_sha256": "4d4538b45f80924b5aa241421795fbc3b39db5b84b88ed2b23fa65535c2ae81b",
+      "after_sha256": "c951e45f9ef22e5369129eea78b868a201fef6c1cbae13e0c27d88017868286f"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/launch_16f.png",
+      "before_sha256": "4fe1e384786036fc3a83b5185e2e1bae58fb62830ebe89a212f34e429597f066",
+      "after_sha256": "5523725db8c48be0b9464278c4809904bacd3ea445f13eb8595558dfb713dc4a"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "before_sha256": "51f695af37a1c8ff42dcdb90ea63e7b02de45e39b10e77a15249e04b1bc269fc",
+      "after_sha256": "c5309bdb83d42a9ad4a924570737f1f72465a2ada6eb371eb370f0c5f014f8bc"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/run_16f.png",
+      "before_sha256": "11deabef62337554d8a06bc20aef59dfb6a8dc95bcec4aa1e3b3150522d4df07",
+      "after_sha256": "656f17f8a3725f170534379cf42f6bd5ebed3e6bd075c6dcb32caaa249cf5282"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn_16f.png",
+      "before_sha256": "771ed8f4c7c599fd33ff582c7ff03ead111cbdcf83661dc1c76f5215951eb9b4",
+      "after_sha256": "1b6fd9e0e5bbc23ad9641fdba72ac95c1b094369a5bda4a7a07170359641ecc7"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down_16f.png",
+      "before_sha256": "e8aa1f100df8754db12bd59992a44a5473b945290381a883bf0d3c32a976cacd",
+      "after_sha256": "e5c585888c0741b60f78e5a2a0fe024f636fc7b94ae466ae3288d9f06d6cad7a"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral_16f.png",
+      "before_sha256": "f4620f668d19f4faed63b17225e9f323898241ea389d325426af9370084e7e9c",
+      "after_sha256": "f4995ef6dcc983105bc8faee3a653830af5f018cfb7d903af80f8934c6ff6bac"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side_16f.png",
+      "before_sha256": "fe25681bcd3b0059df14eb5675075be0c9a23c74c230b5867393a8ba8800deb8",
+      "after_sha256": "561d31680b3ffc5f88a880bdcabddc20c102ea9370a8bcd42188380a3a69720b"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up_16f.png",
+      "before_sha256": "3bf98ea2085458ee9de56bdcf42f08ba783929250bccc35deac4a0f38372279c",
+      "after_sha256": "bfee6426ae6eb25417edff16cb818f03e65d62e70ebfa7e733abee3ae89cc131"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate_16f.png",
+      "before_sha256": "2f78993ba5a8cc90215537a6e0aea29c62d43d699401cba85bcce4455b07fbf1",
+      "after_sha256": "c470b3788f9e276ccebd2bc4add7ee77acd4c68e6a827639823c077c0670ee22"
+    },
+    {
+      "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "before_sha256": "293e46d34d87c2b8126fac950071d1e6f734629a03a7dc5d4fdd29473315585d",
+      "after_sha256": "f4b4a209e65b417a646edccc5e5ad9dfb25410a85c2d52c291bd462cfc427122"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+      "before_sha256": "9945665120f2e057cbf4b16f5096b6b7e459aa27e96cd43ca7b2efaa4f98d4dd",
+      "after_sha256": "2c33dd4db9d4df78d0747a4704db4f61180665eea9017e3b8bc6943f9f51ee44"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "before_sha256": "53feb42158c6d26e2904fa8d517044401f3059ecbf38491b5276a536b676598f",
+      "after_sha256": "1fd8446736ef055497d5e4c557d364a01241cbbe562a5049fa073c386707f658"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+      "before_sha256": "862623e81f6143ff59a7fa3dd008a5b26c99fa965bf48a1e202494cb835f6323",
+      "after_sha256": "afa3794d5635ef23a2205ba1cc09e353fb2de13fc706e33ca4c5c7518fe3d118"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+      "before_sha256": "54a0a38a401191f4a3d4ef266d1d30fd629b13b2c2ac63cc71d9595fcbe220ee",
+      "after_sha256": "69c19cea8bfa08146566d94e48265727d4879707520fce70669995bd45631838"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+      "before_sha256": "d32ad9d88196de26725a509dd5c933be0c4d2982d40c9bd0acc83a300210246e",
+      "after_sha256": "607e754f9eae56afd14fb3cd37b5d569fff5d1fda8de411b6da3ec410ca7f84e"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+      "before_sha256": "65ddb6fb0c1f0f38dd7c84d00ed2c248791afd5bdae8e20e0b9152b372585138",
+      "after_sha256": "fe6e98aedaad0d2d646b668e5772ef9267d553a4fc2bfdb66cc618cf3fb7d120"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+      "before_sha256": "27fe18a961e3f4c6346ab3f2cfe51892d37a6cbb09c98cfbaea37243f41a07c0",
+      "after_sha256": "12a8add83b2ce9fd4e5b89f0b1fbdf72687ec690a7026d82915bbd711fa1902f"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+      "before_sha256": "fcb7dae5b4b0ee69803cc506a5f18aebf38ddc29b3e43275ade26f4833ccdd73",
+      "after_sha256": "f3ca060ab6fcf7796cd76cb6f0a260cefdcfa33526e4b2ab4b885ac8d8820b75"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+      "before_sha256": "1c4614f98d1ce541417163ab608d215645a766a35f52d3e84c3d5704ab443559",
+      "after_sha256": "4fb046e48ceffd7dfbfbe24cfacb1944c65e4d64d30ad82cd3443160d864ea73"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+      "before_sha256": "b9124c17f4d56dd50a119c27418f187ac4ace0242674cf6d165838f2016fb7ff",
+      "after_sha256": "36017b7527d12e085f44a9a110e2ec56dd68f3a09a5eb6e63bfe1cc71835a915"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+      "before_sha256": "c9a92b0eae4dba293bc8e3be290b160a7ff4bc6e9cd6218a4a474d955aee58b3",
+      "after_sha256": "d4564b64d83a1000eea5a99c610167068f934a4c85f5e555cba1f3fba2e4ba5d"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+      "before_sha256": "7edbc227fb88444d8968817c3631b427d630d0077f643b529a550fad9a7656fe",
+      "after_sha256": "a03070977b5b30d8638120d7e2d744955333ee281c6dae0bd81b6e1cc5a6bbe3"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/death_16f.png",
+      "before_sha256": "8c39649116fc953f8f0fabcb84631f85c0c8882508ccdaab77da6e608bdba27e",
+      "after_sha256": "426bf83de741044b617b0b5c960ebb59e6941da6b8e3336fcd6ab6591dcc7d34"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/evade_16f.png",
+      "before_sha256": "d38d22ae27e64c30792707b5871ebce4a49bb40923e4e46b224dd51d80cc80a0",
+      "after_sha256": "b5cff1698c9f215b5c05b293608da06f28b53fdbf2a1b0e38a032c0e5d094884"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/guard_16f.png",
+      "before_sha256": "ef21df7d3437e133f62331ff7eeb39c2052812f5531455456f169e0d7a76795a",
+      "after_sha256": "3128a6432c52aaf943c1a69a560704d1ccb950dcdd83a962fe868d33931478ba"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "before_sha256": "58098d107ae2b6d4cf7db8cf888b6365abcc5d3ba0ec310f602e0bc315c3e3da",
+      "after_sha256": "e4568e161ffd19cfeaa34dd9e9f0a9c8d092e8a7dba16ca06f6798831b4d58e7"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/idle_16f.png",
+      "before_sha256": "c6a04ec1e2f3c81192fcc16e8b9fe018e2a13252cfaf262d076e4ba639bebe37",
+      "after_sha256": "a7a69ae6c46a476eede5f7a28bf4106037e4871128aeed1b2d87a462c7662bd7"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/jump_16f.png",
+      "before_sha256": "c2115ea3d84e25fe42ffc854b45aa4727d2c212fbd028a9d27b1df23167131aa",
+      "after_sha256": "ca5eea2f0d880ae4309b125991557b9b10234cdc7ed219300c0b7edc6f33c8cc"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "before_sha256": "8ae848dc684aa198a1bd95775c82bec4dacbceb9c586f83d78876bac9c5d639a",
+      "after_sha256": "c983b60b4666b72ac850ea3d899db9b2f40fc1595e29d1758973bc5280bbc736"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/launch_16f.png",
+      "before_sha256": "b595ac44bfb5ad5c470d19650a7039e81677ca82b4c0a0e34a167b3fb182ea1f",
+      "after_sha256": "82db280a446cfe7e942e19459e019f5591c56034db51e130a827d7eb24ffb8be"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "before_sha256": "e28b32d1c592939a1225b599ba12a345d936b5a935587b777fd9969678bb9446",
+      "after_sha256": "b4fa1a4feb7c28c8c0ea00e28efba68ce386b0c3d08977014c7775cce6532de0"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/run_16f.png",
+      "before_sha256": "13eb637badcf8c7686a6080fb60756185909052d017e44d8a2639b9fe3be930a",
+      "after_sha256": "fdfbd5fcbf4b990e81c28a4cb4391d09b0acc67bda8e3690e6e7f0871cc5a917"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/spawn_16f.png",
+      "before_sha256": "cbff6993df7087660dcfb6c69f3221d1a11a353a1a440001c04a3b7be34ae4a8",
+      "after_sha256": "9134157bba9995c5896dcf3620e392fc608d065c438329a036b6ac33c980d818"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_down_16f.png",
+      "before_sha256": "02896d0e4b357a4519d469c2ac207f4b827bec3c6ee2f7024c748b20abeb0bfb",
+      "after_sha256": "632946836f0cb17321e674ef3802cd27bce35791c015f882ed0c69228bd228c8"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_neutral_16f.png",
+      "before_sha256": "47425a8b7c67051991a84bc9ade60ab2926da4b90736565d18d7d8d38d23059e",
+      "after_sha256": "d64fbf1ebf214a49fa3442030866d6660c1e1d0767292756538e89b0e1271b79"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_side_16f.png",
+      "before_sha256": "ba851cea73ba44bb497e6d03339040d8f3f8111e39a1baa83df4458aa54e701a",
+      "after_sha256": "f4e8024ad538201e5e03e10bfa7f8fa7a2e1181adc5e38c4243674ecf10f0186"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_up_16f.png",
+      "before_sha256": "597b5cd4dcdcd62295a86763c7d9999be409e4a62ffeb916c5ff12296613aee2",
+      "after_sha256": "9edb17d287fe9a74e995204181a2cdef0b0074db3e73220b0282bbc7bf206e70"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/ultimate_16f.png",
+      "before_sha256": "22f1592e1c10e8d8c4ec00e1b9219316b48e4140298d150b4fe0ba7366c8f074",
+      "after_sha256": "932232c78b500750fe6e427f4e43adc1b101ba315a6a18c8e801e7406a16db24"
+    },
+    {
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "before_sha256": "cbce5c59ad132f9d63d054cef1ea444cb8a07575aadf5a46223ec499a928b6b6",
+      "after_sha256": "c34da6daf9ef91aa08370acda67b2a5d28b678516421f7b9ace5b9a4f4e04900"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+      "before_sha256": "c68fb69355b50310be5685c39f8b714125681c08aff2518776af862e84460162",
+      "after_sha256": "d138175241a41cd919ef81a0d6571e00b6363b527c7335569db2714464b1a9fe"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "before_sha256": "d0814ce8fff2c5b08233895b00eefa65ea70ce039f59ab364a8b632197e82aa6",
+      "after_sha256": "130dd6e7e4418edc4a260a39dad0b81ff023367a900d62d3c11d89fd354ae1fb"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+      "before_sha256": "d9edd1c49ef345d4b14ca728200c6ebe9ab953497388c57082a0c2cf930eba6a",
+      "after_sha256": "830730357f870a2ec747a52beb769a53ef2341d2b4eb87d3b30523b81a103cdf"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+      "before_sha256": "ab34d8938fbf97ebe96c2de0cfeb004186b8bdcf894f1454b6ed2a5991c38e03",
+      "after_sha256": "2819bbeb33f2602f55883b4009a2b9bb87a66fded4aad6da2a390476fcd41562"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+      "before_sha256": "b49972eb2a40baad6ae8e98b521cfe9d4a71628e2d5be05aaeaa5b1f66973a41",
+      "after_sha256": "fca4638b144e527ba0430be4f911e83dd5bafb7b24d8cd2b91b1cef326a57956"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+      "before_sha256": "643142c6aa076abd93a1bd713a52ff62f876a95e6e04e469660d2e7c788c70fb",
+      "after_sha256": "efd3b72fec8b4097838a0d0532ad261b620a6e46e24c2d460ab16e4ac326819d"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+      "before_sha256": "cbfddca2755b2ea1c405180088dee9e8ad06cd7c012cb699e056779b89b51c5f",
+      "after_sha256": "6343cfe414394ce783e4ec4169b0096e9064d6d48d8749a34d5e027f706a6d3b"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+      "before_sha256": "aa13cbef8192bef37edad0060efe250aeffcde2182d5e07749d82b95bc3d24e9",
+      "after_sha256": "fb9430bfa75fd9e0acdb8ce3381d3a88d49733d01a6bd9ee7538f5128b0fc04f"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+      "before_sha256": "0c8a1378cebf440de06e19fbd9d79a801764c47ae33fc86c41d2bb6e82e323da",
+      "after_sha256": "9e7bdf5fcd7aa2d776dbf6d8507a6a4ebc9c9ac665a1c57f0900095dc57a5aba"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+      "before_sha256": "a12b6bb0edc2de02bdbf1899ed7a0f1078368a5bf6d797ae4737ba5180a37904",
+      "after_sha256": "bb6932db1171ed12f27bc81e659fa3433b9ecbeb34f95b2edcbb67a3e081233f"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03_16f.png",
+      "before_sha256": "75e3dd9fc99539e9c98ac6cbe38b79d6bd507ed6bc0f178fc1a4fbef9dacbe37",
+      "after_sha256": "663584f89da3c9a045b2d4c9bb71f7e5e807b81e537fbb56728538e7bfca8639"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+      "before_sha256": "a05ae328c81e63a9a261e1468b1b836e49fae89f4b74dfa383dd5e6eabfd61c8",
+      "after_sha256": "1e7178a651e44800b00e309134341c21e579ca32f7f2c5f0726edbb69e466a24"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+      "before_sha256": "f56ce90d6c17517f783da00e449eaa78a71eea5b90ced38f3f526cd4122f9ef2",
+      "after_sha256": "a02f838cc561f31ce1a007d302532d704bcc0732c43073aec83fb4e78550bb4b"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/death_16f.png",
+      "before_sha256": "9f45de8fd784068e0202e1b6cd8d1af98340ed6168ae7a0794abe175a8510152",
+      "after_sha256": "1a4f62a0ad8de7710cda4b27299a25227ad8803dfd818365d38c98e954c2bbb9"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/evade_16f.png",
+      "before_sha256": "4f73ae07b57bd4aba7dc1c3deee85da62032151c91f0102ca09f80978845619f",
+      "after_sha256": "a0812cd4a85982c99ef911095f90634e44c23585c144be4bc29d4803d62675d2"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/guard_16f.png",
+      "before_sha256": "00fa2853d0e2ef773443051854fad7647cec003f9a05d16eb9fa497b46394236",
+      "after_sha256": "1624cf1ab972bb6b9288ea2cf5e38940246a2acc377446f259a18d736add98fd"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "before_sha256": "01e19302524afa6596f576eba379ea03eaf8ca8cf429780c1ed1518e131776de",
+      "after_sha256": "3ce15b919199964a9d93c23f4345622b7cbc08414682aa3bece23b7d42c2c966"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/idle_16f.png",
+      "before_sha256": "4122991f1d38126c14b414678a36d2e3727059d50cc08dccfbb5ee21b36b9ec6",
+      "after_sha256": "b806aa1573b7f914550de100c0356bdf75cda642a8f46359ce9686ef4d1d269b"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/jump_16f.png",
+      "before_sha256": "174fd2c2984ff02646415c284362c09c6e220f5915a0f619b0f88bc4c4175e14",
+      "after_sha256": "0f4e2ee3ddc5df067166ab262262051f127c87829030d4a5133f0eef3d6cb865"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "before_sha256": "75347d173ec7ccc35bca40b5e4d2c6f254b9477745352117fd4e85ce364331d9",
+      "after_sha256": "fbd89df337c6069fe94742eddcd3a5ffa07aeec122780e30b7d023a8af475860"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/launch_16f.png",
+      "before_sha256": "b61c4b3e2543488d4b3abe133496b05c9319457f1811735ebd82bdf0a06413bd",
+      "after_sha256": "6e781ad6ab1ae99e1cc11ab0202d8fb253031048f3b3c615da91faf2c25b5296"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "before_sha256": "a3b1c172fcd1f7e1433bd37655e745504ffdaf261472191b59c194f3e2bb1454",
+      "after_sha256": "669d5c7bffc6e503bab9deaa6a855ae156d9470c0f6db1402df7704c3904fc5f"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/run_16f.png",
+      "before_sha256": "bf3279fb68dac20a72aba01a4016fd177cfa42ee9225d73733eba854d699dd4b",
+      "after_sha256": "b2995c966425a533fdbba9f02d678edd802606eba5b0ad35f6468d62dc3a86b7"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/spawn_16f.png",
+      "before_sha256": "9daece923c1288f1d1d341c9fdfc9ed95e6d0a4965cf8b42162d57b69fc339d3",
+      "after_sha256": "742a42d1f9caec559417aedc3fd91f689536717a0069ae9f2e338cd48eb12c3d"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_down_16f.png",
+      "before_sha256": "ac5e7a4b826dac3a5a1665fd15def69c35e593c658291d16cb5ea34b14daba42",
+      "after_sha256": "cb96199712319b70cb3a5c6a5e267f98ddb55f12729ca79a4b904d4adc596a17"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_neutral_16f.png",
+      "before_sha256": "a34aaabd2c89f0e9c98e74d9ebdc090a53ea13ae0a0351f0c49aaba75c152232",
+      "after_sha256": "107c6ce1f9b4c106de69386fe1e5d5f557701dc431a74fbf96e0c6d5095121b9"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_side_16f.png",
+      "before_sha256": "284dc31e242e116c406ed78d96ddaf94af1411ae3e45e7b2f0297ffc3f3dc927",
+      "after_sha256": "ed24a5611a38ac360768a8551af052127a5b597fdeb12587a08f0aead6e14d6d"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_up_16f.png",
+      "before_sha256": "2ca2a8c4f6d5a323b2c946d13b0771de26c25b0c24842bc9af604617c89bfb91",
+      "after_sha256": "43333be7ada639068a1948ebd414be7826d6cebf731a2e438dad3b23e638a497"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ultimate_16f.png",
+      "before_sha256": "7a0a5d0d3e024e5fad04f3480734539ebe5cee2731bbac833131eefccef8d017",
+      "after_sha256": "9acb6c02ab6d7c5feab789c1fee8ce40d5ea77034abbd7b39d1886c30dd5a2be"
+    },
+    {
+      "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "before_sha256": "f09a391846414303de1b9041b597b5212a7edce6175db3c01ef4a81c6e084c2e",
+      "after_sha256": "24a32f0ee442b60b5d6b300ff28775f5407d5c77f661b187d481b213c418cd6e"
+    }
+  ]
+}

@@ -22,6 +22,13 @@ var _motion_layouts: Dictionary = {}
 var _elapsed := 0.0
 var _last_motion: StringName
 var _last_activation := -1
+var _was_airborne := false
+var _previous_vertical_speed := 0.0
+var _previous_air_jumps := 0
+var _previous_launcher_jump := false
+var _jump_stage := -1
+var _jump_stage_elapsed := 0.0
+var _landing_elapsed := -1.0
 
 
 func _ready() -> void:
@@ -93,7 +100,22 @@ func sync_visual(delta: float) -> void:
 		for motion: StringName in paths:
 			_motions[motion] = load(paths[motion]) as SpriteFrames
 		_last_motion = &""
+		_was_airborne = false
+		_jump_stage = -1
+		_landing_elapsed = -1.0
 	requested_motion = STATE_MOTIONS.get(fighter.state, &"idle")
+	var airborne := fighter.state in [FighterController.State.JUMP, FighterController.State.FALL]
+	if airborne:
+		_landing_elapsed = -1.0
+	elif _was_airborne and fighter.state == FighterController.State.IDLE and fighter.active_attack == null:
+		_landing_elapsed = 0.0
+	if _landing_elapsed >= 0.0:
+		if fighter.state != FighterController.State.IDLE or fighter.active_attack != null:
+			_landing_elapsed = -1.0
+		elif _landing_elapsed < 0.25:
+			requested_motion = &"jump"
+		else:
+			_landing_elapsed = -1.0
 	if fighter.active_attack != null:
 		requested_motion = fighter.active_attack.visual_state_id
 	missing_motion = &"" if _motions.has(requested_motion) else requested_motion
@@ -115,7 +137,21 @@ func sync_visual(delta: float) -> void:
 		sprite.animation = shown
 	_elapsed += delta
 	var frames := sprite.sprite_frames.get_frame_count(shown)
-	if fighter.active_attack != null and missing_motion.is_empty():
+	if shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
+		if airborne:
+			var stage := 0 if fighter.velocity.y < -60.0 else (2 if fighter.velocity.y > 60.0 else 1)
+			# Read the consumed jump allowance, including early same-stage air jumps.
+			var jump_consumed := fighter.air_jumps_remaining < _previous_air_jumps or (_previous_launcher_jump and not fighter.launcher_jump_available)
+			var restarted := _was_airborne and (jump_consumed or fighter.velocity.y < _previous_vertical_speed - 120.0)
+			if stage != _jump_stage or not _was_airborne or restarted:
+				_jump_stage_elapsed = 0.0
+				_jump_stage = stage
+			_jump_stage_elapsed += delta
+			sprite.frame = airborne_jump_frame(fighter.velocity.y, _jump_stage_elapsed)
+		else:
+			sprite.frame = mini(13 + int(_landing_elapsed * 12.0), 15)
+			_landing_elapsed += delta
+	elif fighter.active_attack != null and missing_motion.is_empty():
 		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, layout.get("phase_frame_ranges", []))
 	else:
 		var index: int
@@ -128,7 +164,18 @@ func sync_visual(delta: float) -> void:
 		if layout.has("state_hold_frame"):
 			index = mini(index, int(layout.state_hold_frame))
 		sprite.frame = index % frames if sprite.sprite_frames.get_animation_loop(shown) else mini(index, frames - 1)
+	_was_airborne = airborne
+	_previous_vertical_speed = fighter.velocity.y
+	_previous_air_jumps = fighter.air_jumps_remaining
+	_previous_launcher_jump = fighter.launcher_jump_available
 	sprite.modulate = Color(1, 1, 1, 0.45) if fighter.invulnerability_ticks > 0 else Color.WHITE
+
+
+static func airborne_jump_frame(vertical_speed: float, stage_elapsed: float) -> int:
+	# Physics owns position. Airborne art never advances into grounded landing poses.
+	var begin := 3 if vertical_speed < -60.0 else (10 if vertical_speed > 60.0 else 6)
+	var end := 5 if vertical_speed < -60.0 else (12 if vertical_speed > 60.0 else 9)
+	return mini(begin + int(stage_elapsed * 12.0), end)
 
 
 static func attack_frame(attack: AttackData, state: int, tick: int, count: int, ranges: Array = []) -> int:

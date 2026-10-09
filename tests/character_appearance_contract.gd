@@ -22,11 +22,11 @@ const EXPECTED := {
 	},
 	"nabi": {
 		"concept_asset_id": "nabi-concept-v01",
-		"approved_design_version": "v05-white-tail-chibi",
+		"approved_design_version": "v06-purple-cat-user-concept",
 		"gender_presentation": "adult female",
 		"animal_motif": "cat",
-		"must_keep": ["two white cat ears", "one long full white cat tail", "human face hands feet and body", "short lavender claw guards"],
-		"must_not_add": ["animal muzzle", "fur-covered limbs", "paw feet", "digitigrade or animal legs", "bell accessory", "ribbon accessory", "paw-print emblem", "cat-face emblem"],
+		"must_keep": ["two dark cat ears with pink inner fur", "one long full dark-violet cat tail", "human face hands feet and body", "long lavender claw guards", "small gold bell and purple ribbon accents", "black cat and paw emblem accents"],
+		"must_not_add": ["animal muzzle", "fur-covered limbs", "paw feet", "digitigrade or animal legs", "additional tails"],
 	},
 	"yu-ran": {
 		"concept_asset_id": "yu-ran-concept-v01",

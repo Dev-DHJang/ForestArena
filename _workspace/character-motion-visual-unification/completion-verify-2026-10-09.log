@@ -1,0 +1,363 @@
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.114s
+
+OK
+FOREST_LEDGE_ART: PASS (3 quality variants, 5 collision-aligned surfaces)
+verify-job-id-independence: PASS (1 authored job IDs, no shared-code literals)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 프로젝트 초기화 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 파일 구조 스캔 중...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 전역 클래스 이름을 불러오는 중...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | GDExtensions 검증 중...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 오토로드 스크립트를 만드는 중...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 플러그인을 초기화 중...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 파일 스캔 시작 중...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 편집기를 불러오는 중 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 편집기 레이아웃을 불러오는 중...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 독을 불러오는 중...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 씬을 다시 여는 중...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 중앙 편집기 레이아웃을 불러오는 중...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 플러그인 창 레이아웃을 불러오는 중...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 편집기 레이아웃이 준비되었습니다.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_TOUCH action=jump edge=press pointer=10
+FOREST_ARENA_TOUCH action=jump edge=press pointer=11
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=12
+FOREST_ARENA_TOUCH action=jump edge=release pointer=10
+FOREST_ARENA_TOUCH action=jump edge=release pointer=11
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=12
+PHASE0_SMOKE: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_COMBAT_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_COMBAT_BEHAVIOR: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_MATCH_RULES: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_DETERMINISM: PASS d1f6e90e59947da9709b27715f586d2151265bd5bb246279422573b0a9b5e90c
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMBAT_FEEL_STAGE_V2: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_TOUCH action=move_up edge=press pointer=21
+FOREST_ARENA_TOUCH action=dash edge=press pointer=22
+FOREST_ARENA_TOUCH action=move_up edge=release pointer=21
+FOREST_ARENA_TOUCH action=dash edge=release pointer=22
+FOREST_ARENA_TOUCH action=move_left edge=press pointer=20
+FOREST_ARENA_TOUCH action=move_left edge=release pointer=20
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=20
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=20
+PHASE1_INPUT_UI: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+Phase 2 loadout contract passed.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+Phase 2 runtime wiring passed.
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE3_STYLE_COMPARISON: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE3_STYLE_PLAYTEST_ENTRY: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE4_ACCESSORY_VALIDATION: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE5_JOB_INHERITANCE: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE6_LOCAL_MODE_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE6_MULTIFIGHTER_MATCH: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE6_AUDIO_CONTRACT: PASS
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMBAT_OVERHAUL_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CHARACTER_DATA_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CHARACTER_APPEARANCE_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CHARACTER_MOTION_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CHARACTER_ATTACK_MOTION_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMBAT_CONCEPT_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+UI_DESIGN_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LOCAL_PLAYER_STORE: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PROFILE_CATALOG: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LOCAL_AI_BEHAVIOR: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LOCAL_AI_SOAK_MATCH: ja-hyun/myo-ryung seed=9100 ticks=3612 winner_character=ja-hyun draw=false
+LOCAL_AI_SOAK_MATCH: myo-ryung/nabi seed=9101 ticks=4104 winner_character=nabi draw=false
+LOCAL_AI_SOAK_MATCH: nabi/yu-ran seed=9102 ticks=3562 winner_character=yu-ran draw=false
+LOCAL_AI_SOAK_MATCH: yu-ran/ja-hyun seed=9103 ticks=3646 winner_character=ja-hyun draw=false
+LOCAL_AI_SOAK_MATCH: ja-hyun/myo-ryung seed=9100 ticks=3612 winner_character=ja-hyun draw=false
+LOCAL_AI_SOAK_MATCH: ja-hyun/ja-hyun seed=9200 ticks=3814 winner_character=ja-hyun draw=false
+LOCAL_AI_SOAK_MATCH: ja-hyun/nabi seed=9202 ticks=4198 winner_character=nabi draw=false
+LOCAL_AI_SOAK_MATCH: ja-hyun/yu-ran seed=9203 ticks=3756 winner_character=ja-hyun draw=false
+LOCAL_AI_SOAK_MATCH: myo-ryung/ja-hyun seed=9204 ticks=3700 winner_character=myo-ryung draw=false
+LOCAL_AI_SOAK_MATCH: myo-ryung/myo-ryung seed=9205 ticks=4128 winner_character=myo-ryung draw=false
+LOCAL_AI_SOAK_MATCH: myo-ryung/yu-ran seed=9207 ticks=4066 winner_character=yu-ran draw=false
+LOCAL_AI_SOAK_MATCH: nabi/ja-hyun seed=9208 ticks=4236 winner_character=nabi draw=false
+LOCAL_AI_SOAK_MATCH: nabi/myo-ryung seed=9209 ticks=3096 winner_character=myo-ryung draw=false
+LOCAL_AI_SOAK_MATCH: nabi/nabi seed=9210 ticks=3504 winner_character=nabi draw=false
+LOCAL_AI_SOAK_MATCH: yu-ran/myo-ryung seed=9213 ticks=3516 winner_character=yu-ran draw=false
+LOCAL_AI_SOAK_MATCH: yu-ran/nabi seed=9214 ticks=3816 winner_character=nabi draw=false
+LOCAL_AI_SOAK_MATCH: yu-ran/yu-ran seed=9215 ticks=3742 winner_character=yu-ran draw=false
+LOCAL_AI_SOAK: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LOCAL_FIGHTER_PRESENTATION: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_BACK_REQUEST {"msec":800,"previous_msec":-200,"screen":"accessibility"}
+FOREST_ARENA_BACK_REQUEST {"msec":1000,"previous_msec":800,"screen":"shop"}
+FOREST_ARENA_BACK_REQUEST {"msec":1001,"previous_msec":1000,"screen":"home"}
+FOREST_ARENA_BACK_REQUEST {"msec":1500,"previous_msec":1000,"screen":"prepare"}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_BACK_REQUEST {"msec":2000,"previous_msec":1500,"screen":"match"}
+FOREST_ARENA_BACK_REQUEST {"msec":2500,"previous_msec":2000,"screen":"pause"}
+FOREST_ARENA_BACK_REQUEST {"msec":3000,"previous_msec":2500,"screen":"result"}
+LOCAL_AI_APP_FLOW: PASS
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_PERFORMANCE {"draw_calls":0.0,"fps":136.496755168804,"frame_p95_ms":6.94444444444444,"frames":300,"texture_bytes":0.0}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_PERFORMANCE {"draw_calls":0.0,"fps":135.508155583438,"frame_p95_ms":7.54133333333314,"frames":300,"texture_bytes":0.0}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_PERFORMANCE {"draw_calls":0.0,"fps":134.715771853266,"frame_p95_ms":7.14285714285714,"frames":300,"texture_bytes":0.0}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.87109375,"y":0.120312497019768}
+FOREST_ARENA_PERFORMANCE {"draw_calls":0.0,"fps":132.434823550463,"frame_p95_ms":8.33333333333333,"frames":300,"texture_bytes":0.0}
+LOCAL_ACCESSORY_PLAY: PASS
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=1
+FOREST_ARENA_TOUCH action=evade edge=press pointer=2
+FOREST_ARENA_TOUCH action=evade edge=release pointer=2
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=2
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=3
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=2
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=3
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=1
+FOREST_ARENA_TOUCH action=move_left edge=press pointer=1
+FOREST_ARENA_TOUCH action=evade edge=press pointer=2
+FOREST_ARENA_TOUCH action=move_left edge=release pointer=1
+FOREST_ARENA_TOUCH action=evade edge=release pointer=2
+FOREST_ARENA_TOUCH action=move_down edge=press pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=2
+FOREST_ARENA_TOUCH action=move_down edge=release pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=2
+FOREST_ARENA_TOUCH action=move_left edge=press pointer=1
+FOREST_ARENA_TOUCH action=evade edge=press pointer=2
+FOREST_ARENA_TOUCH action=move_left edge=release pointer=1
+FOREST_ARENA_TOUCH action=evade edge=release pointer=2
+FOREST_ARENA_TOUCH action=evade edge=press pointer=2
+FOREST_ARENA_TOUCH action=evade edge=release pointer=2
+FOREST_ARENA_TOUCH action=move_left edge=press pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=2
+FOREST_ARENA_TOUCH action=move_left edge=release pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=2
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=2
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=2
+FOREST_ARENA_TOUCH action=move_down edge=press pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=2
+FOREST_ARENA_TOUCH action=move_down edge=release pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=2
+FOREST_ARENA_TOUCH action=move_up edge=press pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=2
+FOREST_ARENA_TOUCH action=move_up edge=release pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=2
+LOCAL_TOUCH_CONTROLS: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LAN_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LAN_RUNTIME: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"자현","x":0.170703127980232,"y":0.286718755960464}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"묘령","x":0.390234380960464,"y":0.286718755960464}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"나비","x":0.609765648841858,"y":0.286718755960464}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"유란","x":0.829296886920929,"y":0.286718755960464}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"저장 모드 · 기기 저장","x":0.5,"y":0.342968761920929}
+FOREST_ARENA_UI_BUTTON {"screen":"lan_waiting","text":"초대 코드 복사","x":0.5,"y":0.2109375}
+FOREST_ARENA_UI_BUTTON {"screen":"lan_waiting","text":"방 닫기","x":0.5,"y":0.267187505960464}
+FOREST_ARENA_UI_BUTTON {"screen":"lan_match","text":"대전 나가기","x":0.87109375,"y":0.120312497019768}
+LAN_APP_FLOW: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+verify-lan-runtime: PASS
+
+added 18 packages in 1s
+
+> forest-arena-local-api@0.1.0 test
+> npm run build && node --test dist/tests/*.test.js
+
+
+> forest-arena-local-api@0.1.0 build
+> tsc -p tsconfig.json && cp src/profile_catalog.json dist/src/profile_catalog.json
+
+TAP version 13
+# Subtest: access token checks kind, signature and expiry
+ok 1 - access token checks kind, signature and expiry
+  ---
+  duration_ms: 1.819667
+  type: 'test'
+  ...
+# Subtest: match ticket carries fixed slot and expires after 60 seconds
+ok 2 - match ticket carries fixed slot and expires after 60 seconds
+  ---
+  duration_ms: 0.462375
+  type: 'test'
+  ...
+# Subtest: matchmaker pairs fixed loadouts, prevents a second active room and releases after completion
+ok 3 - matchmaker pairs fixed loadouts, prevents a second active room and releases after completion
+  ---
+  duration_ms: 0.479541
+  type: 'test'
+  ...
+# Subtest: only a waiting player can cancel its own entry
+ok 4 - only a waiting player can cancel its own entry
+  ---
+  duration_ms: 0.126834
+  type: 'test'
+  ...
+# Subtest: profile grants, free purchases, selection and accessibility preserve source
+ok 5 - profile grants, free purchases, selection and accessibility preserve source
+  ---
+  duration_ms: 1.373667
+  type: 'test'
+  ...
+# Subtest: invalid, duplicate and unowned actions are rejected
+ok 6 - invalid, duplicate and unowned actions are rejected
+  ---
+  duration_ms: 0.691833
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 101.794084
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 프로젝트 초기화 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 파일 구조 스캔 중...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 전역 클래스 이름을 불러오는 중...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | GDExtensions 검증 중...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 오토로드 스크립트를 만드는 중...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 플러그인을 초기화 중...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 파일 스캔 시작 중...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 편집기를 불러오는 중 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 편집기 레이아웃을 불러오는 중...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 독을 불러오는 중...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | 씬을 다시 여는 중...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | 중앙 편집기 레이아웃을 불러오는 중...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | 플러그인 창 레이아웃을 불러오는 중...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | 편집기 레이아웃이 준비되었습니다.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ONLINE_CONTRACT: PASS
+WARNING: 1 ObjectDB instance was leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+verify-online-server: PASS
+- 인증·매칭 단위 검사, WebSocket 계약과 Godot 권위 상태 검사 확인
+OK: 346 logical assets
+Quality-dependent assets: 24 (high/medium/low)
+verify-docs: PASS
+- 목적별 7개 문서 폴더와 중앙 색인 확인
+- 이전 경로, 쉬운 문장 규칙과 상대 링크 확인
+verify-harness: PASS
+- 14 active roles from team spec
+- Korean skill structure, merged ownership, dynamic roster, resource, approval and online gates
+Forest Arena verification passed.
