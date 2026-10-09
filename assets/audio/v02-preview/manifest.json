@@ -29,7 +29,7 @@
       "name": "ui_click",
       "version": "v02",
       "source": "comparison/ui_click_v02.wav",
-      "preference_confirmed": false
+      "preference_confirmed": true
     },
     {
       "name": "jump",
@@ -41,19 +41,19 @@
       "name": "hit_light",
       "version": "v02",
       "source": "comparison/hit_light_v02.wav",
-      "preference_confirmed": false
+      "preference_confirmed": true
     },
     {
       "name": "hit_heavy",
-      "version": "v02",
-      "source": "comparison/hit_heavy_v02.wav",
-      "preference_confirmed": false
+      "version": "v01",
+      "source": "comparison/hit_heavy_v01.wav",
+      "preference_confirmed": true
     },
     {
       "name": "guard_break",
       "version": "v02",
       "source": "comparison/guard_break_v02.wav",
-      "preference_confirmed": false
+      "preference_confirmed": true
     },
     {
       "name": "myo-ryung_special_up",
@@ -65,14 +65,16 @@
       "name": "ja-hyun_ultimate",
       "version": "v02",
       "source": "comparison/ja-hyun_ultimate_v02.wav",
-      "preference_confirmed": false
+      "preference_confirmed": true
     }
   ],
   "selection_feedback": {
     "revision": 3,
     "interpretation": "Previous means labeled A / initial v01; Myo-ryung means the previewed special_up only.",
-    "whole_set_approved": false
+    "whole_set_approved": true,
+    "approval_scope": "Selected nine-item combination only; the preserved A/B comparison library is not wholly approved."
   },
+  "selection_runtime_applied": true,
   "stage": "listening_preview",
   "runtime_connected": false,
   "human_listening_approved": false,
@@ -129,7 +131,7 @@
     },
     {
       "path": "tools/forest_arena/generate_audio_v02_preview.py",
-      "sha256": "58c479f8a9e728612d6adf6691d4242c5baff7b6b5395b6dced06fc4379d50ef"
+      "sha256": "da1a4ff83c5c99816eff6d6a032a7ce889792ec244099be59d942cd47a38ec33"
     }
   ],
   "comparisons": [
@@ -723,8 +725,8 @@
     },
     {
       "path": "preview.html",
-      "sha256": "abd647d58e4a2e090347a452a4c5351c82852ce1475868bf7dbb1063cbd88511",
-      "bytes": 15679
+      "sha256": "89afd693c8a291615b3aff4573ab9df58d108da3106f8715649642470c716448",
+      "bytes": 15835
     },
     {
       "path": "source/music/battle/answer.wav",
@@ -993,6 +995,6 @@
   "limits": [
     "Listening preview, not a loop or complete 80/90 second track; r03 is a 60 second through-arranged study.",
     "Automatic signal checks cannot establish reference-level perceived quality.",
-    "Human audition and physical Android output not yet verified."
+    "User approved the selected nine-item combination; this does not approve every preserved A/B version or all 47 sounds. Physical Android output is not yet verified."
   ]
 }

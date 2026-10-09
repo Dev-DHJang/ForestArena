@@ -4,6 +4,7 @@ ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 log_file=$(mktemp /tmp/forest-arena-audio-XXXXXX)
 trap 'rm -f "$log_file"' EXIT INT TERM
 python3 "$ROOT/tools/forest_arena/verify_audio_v01.py"
+python3 "$ROOT/tools/forest_arena/verify_audio_v02_selected.py"
 for test_script in phase6_audio_contract.gd audio_app_flow.gd; do
   if ! godot --headless --path "$ROOT" --script "res://tests/$test_script" >"$log_file" 2>&1; then
     cat "$log_file"

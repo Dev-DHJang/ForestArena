@@ -263,15 +263,17 @@ def verify_feedback_r03(root, out, baseline):
 
 
 def verify_selection(root, out, baseline):
-    """Record four explicit A preferences without expanding them into full approval."""
+    """Check partial preferences or the exact final nine approved versions."""
     manifest = json.loads((out/'manifest.json').read_text())
     names = set(SPECS) | {'lobby','battle'}
-    confirmed = {'lobby','battle','jump','myo-ryung_special_up'}
+    approved = manifest.get('selection_feedback', {}).get('whole_set_approved') is True
+    previous = {'lobby','battle','jump','myo-ryung_special_up'} | ({'hit_heavy'} if approved else set())
+    confirmed = names if approved else previous
     selection = manifest.get('candidate_selection', [])
     require(len(selection) == 9 and {entry['name'] for entry in selection} == names, 'Selection inventory/duplicates')
     require(manifest['human_listening_approved'] is False and manifest['runtime_connected'] is False, 'Partial preference expanded into full approval/runtime change')
     for entry in selection:
-        expected_version = 'v01' if entry['name'] in confirmed else 'v02'
+        expected_version = 'v01' if entry['name'] in previous else 'v02'
         require(entry['version'] == expected_version and entry['preference_confirmed'] is (entry['name'] in confirmed), f"Incorrect preference: {entry['name']}")
         require(entry['source'] == f"comparison/{entry['name']}_{expected_version}.wav" and (out/entry['source']).is_file(), f"Incorrect selected source: {entry['name']}")
     retained = [path for path in out.rglob('*') if path.is_file() and (path.suffix in ('.wav','.mid') or path.name == 'score.json')]
@@ -286,11 +288,17 @@ def verify_selection(root, out, baseline):
     ui_entries = re.findall(r"\{id:'([^']+)',selectedVersion:'(v0[12])',preferenceConfirmed:(true|false),", preview)
     require(len(ui_entries) == 9 and {row[0] for row in ui_entries} == names, 'UI selection inventory/duplicates')
     for name, version, preference in ui_entries:
-        require(version == ('v01' if name in confirmed else 'v02') and (preference == 'true') == (name in confirmed), f'UI selection differs from manifest: {name}')
-    require("track.selectedVersion==='v01'?'A · 이전 v01':'B · r03'" in preview and "track.preferenceConfirmed?'청취 선호 반영':'현재 후보 · 확인 전'" in preview and 'version===track.selectedVersion' in preview, 'Missing distinct selection label/display branches')
-    require(manifest.get('selection_feedback', {}).get('whole_set_approved') is False, 'Selection feedback claims whole-set approval')
-    require('묘령 · 위 특수기' in preview and '게임에 미연결' in preview and '청취 방향 확인 전' in preview, 'Selection scope/status labels')
-    print(f'PASS: four confirmed A preferences/five unconfirmed B candidates, unchanged WAV/MIDI/scores against {baseline}, no full approval/runtime claim.')
+        require(version == ('v01' if name in previous else 'v02') and (preference == 'true') == (name in confirmed), f'UI selection differs from manifest: {name}')
+    require("track.selectedVersion==='v01'?'A · 이전 v01':'B · r03'" in preview and 'version===track.selectedVersion' in preview, 'Missing selection version/display branches')
+    require(('확정·게임에 적용' in preview) if approved else ("track.preferenceConfirmed?'청취 선호 반영':'현재 후보 · 확인 전'" in preview), 'Incorrect approved/partial selection labels')
+    require('묘령 · 위 특수기' in preview, 'Selection broadens Myo-ryung scope')
+    if approved:
+        require(manifest.get('selection_runtime_applied') is True and '게임' in preview and '적용' in preview, 'Final selection runtime status missing')
+        print(f'PASS: exactly nine approved versions (five A/four B), unchanged preview WAV/MIDI/scores against {baseline}.')
+    else:
+        require(manifest.get('selection_feedback', {}).get('whole_set_approved') is False, 'Selection feedback missing partial status')
+        require('게임에 미연결' in preview and '청취 방향 확인 전' in preview, 'Partial selection scope/status labels')
+        print(f'PASS: four confirmed A preferences/five unconfirmed B candidates, unchanged WAV/MIDI/scores against {baseline}, no full approval/runtime claim.')
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -348,7 +356,10 @@ def main():
     for name in expected_names:
         require("id:'"+name+"'" in preview, f'Preview missing {name}')
     require("comparison/'+track.id+'_'+version+'.wav'" in preview and 'playRequestSerial' in preview, 'Preview links/request cancellation')
-    require('게임에 미연결' in preview and '청취 방향 확인 전' in preview, 'Preview status labels')
+    if manifest.get('selection_feedback', {}).get('whole_set_approved') is True:
+        require(manifest.get('selection_runtime_applied') is True and '게임' in preview and '적용' in preview, 'Approved selection application labels')
+    else:
+        require('게임에 미연결' in preview and '청취 방향 확인 전' in preview, 'Preview status labels')
     require(not any(p.suffix == '.sf2' for p in out.rglob('*')), 'SoundFont unexpectedly bundled')
     for name in expected_sfx:
         duration = SPECS[name][0]
@@ -402,7 +413,10 @@ def main():
         print('Runtime/v01 Git baseline audit not requested; use --baseline-ref to check a chosen ref.')
     require((root/'assets/audio/.gdignore').is_file(), 'Preview source not excluded from Godot import/export')
     print(f'PASS: {len(expected_names)} pairs, source/mix/stems/MIDI, inventory, provenance, fades, real loudness/true peak, and Godot import/export exclusion.')
-    print('Not established: human listening approval, reference-level timbre/arrangement, full-track loops, or Android output.')
+    if manifest.get('selection_feedback', {}).get('whole_set_approved') is True:
+        print('Selected nine versions approved; not established: approval of every preserved A/B alternative, physical Android output, or eight-player listening mix.')
+    else:
+        print('Not established: whole-set human listening approval, reference-level timbre/arrangement, full-track loops, or Android output.')
 
 
 if __name__ == '__main__':
