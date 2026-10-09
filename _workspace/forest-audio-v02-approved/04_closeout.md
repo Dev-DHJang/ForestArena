@@ -18,5 +18,9 @@
 
 기준 origin/develop: 8d0591d2c929fedbd95c4b8b40740e877bf379b5.
 작업 브랜치: codex/audio-v02-approved.
-구현 PR·병합 커밋은 병합 뒤 마무리 문서 PR에 기록한다.
-롤백은 이번 구현 병합을 `git revert -m 1 <merge-sha>`로 되돌리는 별도 PR로 수행한다. v01 원본과 실행 파일은 그대로 보존했다.
+구현 커밋: 5ed68ae65cbe5e7f274ba2e1e5bd73c740b37e91.
+구현 PR: https://github.com/Dev-DHJang/ForestArena/pull/84.
+전체 검사와 독립 QA 뒤 develop 병합: a9f5b0bfa270e1a91072f3158a64fdc4b50b9380.
+2026-10-09 GitHub 상태 MERGED 및 원격 develop 커밋을 확인했다. 마무리 기록은 별도 문서 PR로 보존한다.
+자동 병합 검토의 최초 권한 거절은 사용자 AGENTS가 지정한 team-spec 74행의 명시적 develop 병합 범위, 기본 브랜치 main·develop 보호 없음의 읽기 증거를 확인한 뒤 같은 작업의 재검토 승인으로 해결했다. 다른 병합 방법이나 우회는 사용하지 않았다.
+롤백은 이번 구현 병합을 `git revert -m 1 a9f5b0bfa270e1a91072f3158a64fdc4b50b9380`로 되돌리는 별도 PR로 수행한다. v01 원본과 실행 파일은 그대로 보존했다.
