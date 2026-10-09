@@ -16,7 +16,7 @@ from audio_v02_sfx import generate as generate_sfx
 
 ROOT=Path(__file__).resolve().parents[2]
 DEFAULT_OUTPUT=ROOT/'assets/audio/v02-preview'
-NAMES=['lobby','battle','ui_click','jump','hit_heavy','guard_break','myo-ryung_special_up','ja-hyun_ultimate']
+NAMES=['lobby','battle','ui_click','jump','hit_light','hit_heavy','guard_break','myo-ryung_special_up','ja-hyun_ultimate']
 FONT_URL='https://deb.debian.org/debian/pool/main/f/fluid-soundfont/fluid-soundfont-gm_3.1-5.3_all.deb'
 PACKAGE_SHA256='6f531493ac4e4d9772fd96b2488ea1790af81c196135fbdd25997da0781fc60e'
 
@@ -81,7 +81,7 @@ def generate(soundfont, output=DEFAULT_OUTPUT, library=None, skip_music=False):
         is_music=name in ('lobby','battle')
         old=read_wav(ROOT/'assets/audio/v01/source'/f'{name}.wav')
         if is_music:
-            old=old[:30*SR].copy()
+            old=old[:60*SR].copy()
             old[:round(.025*SR)]*=np.linspace(0,1,round(.025*SR))[:,None]
             old[-round(.65*SR):]*=np.linspace(1,0,round(.65*SR))[:,None]
             source=output/'source/music'/f'{name}_mix.wav'
@@ -106,7 +106,7 @@ def generate(soundfont, output=DEFAULT_OUTPUT, library=None, skip_music=False):
                     record.update(sample_rate_hz=f.getframerate(),channels=f.getnchannels(),pcm_bits=f.getsampwidth()*8,
                                   duration_seconds=f.getnframes()/f.getframerate())
             files.append(record)
-    manifest={'version':2,'revision':2,'feedback':{'ui_click':'딸각, mechanical two-contact click','hit_heavy':'퍽, short low-body thud','lobby':'Piano-led melody and left-hand accompaniment','battle':'More tension: minor/diminished/E7, cello ostinato, horns and heavier drums'},'stage':'listening_preview','runtime_connected':False,'human_listening_approved':False,
+    manifest={'version':2,'revision':3,'feedback':{'hit_light':'파악, bright broad contact','hit_heavy':'퍽 retained from r02','guard_break':'채앵, metallic break with inharmonic decay','lobby':'Piano-led 60 s form with varied melody, harmony and accompaniment','battle':'Retain tension; 60 s form with contrast, rests and varied rhythmic orchestration'},'listening_feedback':{'revision':2,'battle_tension':'User confirmed appropriate; retained in r03'},'stage':'listening_preview','runtime_connected':False,'human_listening_approved':False,
        'reference':{'url':'https://www.youtube.com/watch?v=paAK7Q_AAlo','title':'MapleStory OST - Title Theme (Uncompressed)',
                     'use':'Quality reference supplied by user; no audio, melody transcription or recording copied.'},
        'rights':{'composition':'Original project-authored score and procedural SFX.',
@@ -122,7 +122,7 @@ def generate(soundfont, output=DEFAULT_OUTPUT, library=None, skip_music=False):
        'generators':[{ 'path':f'tools/forest_arena/{name}','sha256':sha(ROOT/'tools/forest_arena'/name)}
                      for name in ['audio_v02_music.py','audio_v02_sfx.py','generate_audio_v02_preview.py']],
        'comparisons':comparisons,'sfx':sfx,'files':files,
-       'limits':['Listening preview, not a loop or complete 80/90 second track.','Automatic signal checks cannot establish reference-level perceived quality.',
+       'limits':['Listening preview, not a loop or complete 80/90 second track; r03 is a 60 second through-arranged study.','Automatic signal checks cannot establish reference-level perceived quality.',
                  'Human audition and physical Android output not yet verified.']}
     (output/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     return manifest

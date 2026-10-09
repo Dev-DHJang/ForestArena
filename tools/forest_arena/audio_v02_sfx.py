@@ -17,8 +17,9 @@ DEFAULT_OUTPUT = ROOT / 'assets/audio/v02-preview/source/sfx'
 SPECS = {
     'ui_click': (.22, '기계 스위치의 딸각: 밝고 짧은 첫 접촉 뒤 24ms에 낮은 접촉. 음정·종소리 없이 서로 다른 잡음 대역을 사용.'),
     'jump': (.22, '큰 상승음 대신 짧은 공기 추진과 낮은 탄성. 완만한 상승만 남겨 점프 방향을 표현.'),
+    'hit_light': (.22, '약한 타격 파악: 강타보다 밝고 넓은 공기층과 짧은 표면 접촉. 금속·목재 공명과 음정 진행 없이 가벼운 몸통을 표현.'),
     'hit_heavy': (.22, '짧고 묵직한 퍽: 살과 둔탁한 타격의 90~135Hz 몸통에 짧은 광대역 접촉을 겹침. 목재 균열·종 공명·상승음 제거.'),
-    'guard_break': (.65, '높은 세 음 종소리를 제거하고 불규칙한 목재 파편과 낮은 받침 붕괴를 표현.'),
+    'guard_break': (.65, '가드 파괴 채앵: 날카로운 첫 접촉과 불규칙한 금속 공명·작은 주파수 차의 떨림·빠른 여운. 목재 붕괴와 발랄한 상승 멜로디는 제거.'),
     'myo-ryung_special_up': (.65, '묘령의 가벼운 공중 감각은 유지하되 상승 아르페지오를 넓은 숨결과 잔잔한 두 공명으로 변경.'),
     'ja-hyun_ultimate': (1.15, '자현의 나무·기류 질감은 유지하고 다섯 음 상승을 세 번의 둔한 목재 힘과 낮은 공기 방출로 변경.'),
 }
@@ -68,6 +69,12 @@ def effect(name: str) -> np.ndarray:
         out += air(.34, 35, 11, attack=.015)
         out += tone(185, .23, 13, attack=.008, ratio=1.6)
         out += wood(.11, low=310, decay=50)
+    elif name == 'hit_light':
+        # A brighter surface "파악": broad air/contact rather than a ringing note.
+        out += air(.48, 9, 39, attack=.003)
+        out += air(.30, 3, 120, .002, attack=.0007)
+        out += air(.16, 23, 31, .008, attack=.004)
+        out += tone(150, .15, 58, attack=.0015)
     elif name == 'hit_heavy':
         # A short flesh/body thud: no wood modes and no pitched sweep.
         out += tone(90, .67, 38, attack=.001)
@@ -75,9 +82,15 @@ def effect(name: str) -> np.ndarray:
         out += air(.46, 5, 155, attack=.0006)
         out += air(.28, 67, 43, .003, attack=.0015)
     elif name == 'guard_break':
-        out += tone(145, .45, 15, ratio=.55) + air(.19, 21, 15)
-        for offset, low, gain in ((.006, 510, .32), (.047, 370, .21), (.116, 740, .13), (.193, 430, .09)):
-            out += wood(gain, offset, low, decay=31) + air(gain * .45, 9, 40, offset)
+        # Simultaneous inharmonic metal modes, not an arpeggio or pitched sweep.
+        out += air(.39, 3, 145, attack=.0006)
+        for ratio, gain, decay in ((1., .20, 8), (1.414, .19, 9), (1.932, .15, 13),
+                                   (2.631, .11, 16), (3.791, .065, 22)):
+            freq = 965 * ratio
+            out += tone(freq, gain, decay, .001, attack=.001)
+            out += tone(freq * 1.0023, gain * .24, decay * 1.15, .001, attack=.001)
+        out += air(.11, 5, 90, .043, attack=.0007)
+        out += air(.06, 3, 130, .076, attack=.0006)
     elif name == 'myo-ryung_special_up':
         # Airborne character retains a light upper signature, without stepped notes.
         out += air(.27, 49, 4.5, attack=.032)
@@ -102,7 +115,7 @@ def effect(name: str) -> np.ndarray:
 
 
 def generate(output_dir: Path | str = DEFAULT_OUTPUT) -> list[dict]:
-    """Write exactly the six preview WAVs and return metadata for the parent manifest."""
+    """Write the seven preview WAVs and return metadata for the parent manifest."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     entries = []
