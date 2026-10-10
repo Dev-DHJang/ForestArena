@@ -66,6 +66,8 @@ docs/
 
 ## 문서 밖 주요 폴더
 
+폴더의 용도와 정리 가능한 생성 파일은 [프로젝트 폴더와 저장 공간 관리](operations/project-maintenance.md)를 따른다.
+
 | 경로 | 들어 있는 것 |
 | --- | --- |
 | `forest_arena/` | Godot에서 실행되는 게임 코드, 장면과 자산 연결 데이터 |

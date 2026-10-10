@@ -1,9 +1,14 @@
 .DS_Store
+# Python 실행 및 작업 이미지의 자동 생성 파일.
+__pycache__/
+*.py[cod]
+_workspace/**/*.import
 .godot/
 .forest-arena-backup/
 android/
 
 build/*
+!build/.gdignore
 !build/android/
 build/android/*
 !build/android/.gitkeep
