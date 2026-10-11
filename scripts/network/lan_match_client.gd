@@ -31,6 +31,9 @@ var _nickname := ""
 var _access_token := ""
 var _request_deadline_msec := 0
 const REQUEST_TIMEOUT_MSEC := 8000
+var qa_autoplay := false
+var _qa_disconnect_until_msec := 0
+
 var running := false
 var active := false
 var connecting := false
@@ -90,6 +93,7 @@ func _begin(url: String, intent: String, code: String, selection: LoadoutSelecti
 
 func _process(_delta: float) -> void:
 	if not active: return
+	if qa_interrupted(): return
 	if _request_deadline_msec > 0 and Time.get_ticks_msec() >= _request_deadline_msec:
 		if _reconnecting and Time.get_ticks_msec() < _reconnect_deadline_msec:
 			websocket.close()
@@ -122,7 +126,7 @@ func _process(_delta: float) -> void:
 				_fail("reconnect_timeout")
 		elif connecting or active:
 			_fail("connection_lost")
-	if running: _poll_input()
+	if running and not (OS.is_debug_build() and has_meta("qa_active") and qa_autoplay): _poll_input()
 
 
 func _handle_message(raw: String) -> void:
@@ -183,6 +187,8 @@ func request_rematch(ready: bool) -> void:
 
 
 func leave() -> void:
+	_qa_disconnect_until_msec = 0
+	qa_autoplay = false
 	_session_generation += 1
 	_refreshing_auth = false
 	_release_inputs()
@@ -211,6 +217,8 @@ func _close_after_leave() -> void:
 
 
 func stop(close_socket := true) -> void:
+	_qa_disconnect_until_msec = 0
+	qa_autoplay = false
 	_session_generation += 1
 	_refreshing_auth = false
 	_release_inputs()
@@ -227,6 +235,7 @@ func stop(close_socket := true) -> void:
 
 
 func _open_reconnect() -> void:
+	if qa_interrupted(): return
 	_reconnect_at_msec = Time.get_ticks_msec() + 1000
 	_request_deadline_msec = 0
 	if access_token_provider.is_valid():
@@ -313,3 +322,20 @@ func _apply_participant_names(value: Variant) -> void:
 		var key := str(slot)
 		var nickname := _valid_nickname(source.get(key, ""))
 		participant_names[key] = nickname if not nickname.is_empty() else "참가자 %d" % slot
+
+# Available only to an explicitly enabled QA session; normal transport stays unchanged.
+func qa_interrupted() -> bool:
+	return OS.is_debug_build() and bool(get_meta("qa_active", false)) and Time.get_ticks_msec() < _qa_disconnect_until_msec
+
+func interrupt_qa_connection(seconds: int) -> void:
+	if not OS.is_debug_build() or not bool(get_meta("qa_active", false)) or seconds not in [10, 65] or not running: return
+	_release_inputs()
+	websocket.close()
+	_qa_disconnect_until_msec = Time.get_ticks_msec() + seconds * 1000
+	_reconnect_deadline_msec = Time.get_ticks_msec() + RECONNECT_GRACE_MSEC
+
+func submit_qa_intent(intent: CombatIntent) -> void:
+	if not OS.is_debug_build() or not bool(get_meta("qa_active", false)) or not qa_autoplay or not running or qa_interrupted(): return
+	_send_input(intent.action_id, intent.direction, intent.edge)
+	if intent.action_id == &"move":
+		_last_direction = CombatIntent.Direction.NEUTRAL if intent.edge == CombatIntent.Edge.RELEASE else intent.direction

@@ -2,6 +2,8 @@
 set -eu
 
 python3 tools/forest_arena/test_recover_codex_session.py
+python3 tools/forest_arena/test_android_fleet.py
+python3 tools/forest_arena/test_prepare_android_qa.py
 
 python3 tools/forest_arena/verify_forest_ledge_art.py
 python3 tools/forest_arena/verify_job_id_independence.py
@@ -41,8 +43,10 @@ godot --headless --path . --script res://tests/local_fighter_presentation.gd
 godot --headless --path . --script res://tests/local_ai_app_flow.gd
 godot --headless --path . --script res://tests/local_accessory_play.gd
 godot --headless --path . --script res://tests/local_touch_controls.gd
+godot --headless --path . --script res://tests/android_qa_session.gd
 godot --headless --path . --script res://tests/lan_contract.gd
 ./scripts/verify-lan-runtime.sh
+./scripts/verify-android-qa-lan.sh
 ./scripts/verify-online-server.sh
 ./scripts/verify-harness.sh
 

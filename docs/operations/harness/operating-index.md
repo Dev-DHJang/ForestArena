@@ -26,6 +26,7 @@
 - 하네스: `./scripts/verify-harness.sh`
 - 전체 회귀: `./scripts/verify.sh`
 - LAN 실제 연결 자동 검사: `./scripts/verify-lan-runtime.sh`
+- Android 자동 검사 LAN 두 경기 분리: `./scripts/verify-android-qa-lan.sh` (화면 없는 로컬 테스트, 실기기 결과와 구분)
 - macOS LAN 한 경기 서버: `./scripts/lan-host.sh start|stop|status|logs`
 - 직업 ID 독립성: `python3 tools/forest_arena/verify_job_id_independence.py`
 - Godot 리소스: `python tools/forest_arena/verify_godot_resources.py --project-root .`
@@ -33,12 +34,16 @@
 - Android 패키지: `./scripts/verify-android-package.sh`
 - 연결된 에뮬레이터 생명주기: `./scripts/verify-android-emulator.sh`
 - Android 실기기 무선 디버깅: `./scripts/android-wireless-debug.sh` (`docs/engineering/godot/android-wireless-debugging.md` 참고)
+- Android 1~4대 실기기 자동 플레이: `./scripts/verify-android-fleet.sh --apk <apk> --serial <serial> --suite smoke|soak|extended` ([사용 방법과 케이스](../../engineering/godot/android-device-autoplay.md), `--serial`은 대상마다 반복)
 - 로컬 서버·DB 시작: `./scripts/server-dev.sh up`
 - 기본 게임 DB 저장·재실행 복원: `./scripts/verify-db-profile-runtime.sh`
 - 온라인 계약: `./scripts/verify-online-server.sh`
 - 온라인 실제 연결: `./scripts/server-dev.sh verify-runtime`
 
 ## 미확인 항목
+
+- 실기기 자동 플레이 도구의 검증과 실제 물리 기기 실행 결과를 구분한다. 최신 APK의
+  1~4대 자동 플레이와 LAN 두 경기 동시 실행은 연결된 실기기로 수행한 증거가 필요하다.
 
 - 최신 APK에서 네 캐릭터의 선택·경기 진입은 확인했다. 다만 모든 신규 모션·장신구 조합의
   물리 Android 기기 재생은 미확인이다.
