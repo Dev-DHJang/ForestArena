@@ -828,6 +828,68 @@ class RunnerTests(unittest.TestCase):
         for edit in ({'winner_id':''},{'winner_id':'unknown'},{'final_tick':0},{'snapshot_hash':'invalid'}):
             with self.assertRaises(fleet.Failure): d.validate_result({**good,**edit},snapshot)
         with self.assertRaises(fleet.Failure): d.validate_result({**good,'winner_slot':0,'reason':'room_closed'},snapshot,lan=True)
+    @staticmethod
+    def resume_state(msec, foreground=True, screen='pause', x=.5, boot='same-boot'):
+        return {'boot_id':boot,'msec':msec,'foreground':foreground,'screen':screen,'touch':{'active':[]},
+                'ui':[{'id':'pause/button/계속하기','text':'계속하기','kind':'button','visible':True,'disabled':False,
+                       'x':x,'y':.6,'width':.2,'height':.1}]}
+    def test_resume_rejects_stale_pause_background_and_duplicate_publication(self):
+        states = [self.resume_state(100), self.resume_state(150, foreground=False),
+                  self.resume_state(200), self.resume_state(200), self.resume_state(510)]
+        d = self.device(states)
+        state = d.wait_resumed('same-boot', 100, 'pause', '계속하기')
+        self.assertEqual(state['msec'], 510)
+        self.assertGreater(self.clock.now, .45)
+        self.assertFalse(self.adb.commands)
+    def test_resume_never_accepts_only_old_or_background_state(self):
+        for state in (self.resume_state(100), self.resume_state(500, foreground=False)):
+            d = self.device([state])
+            with self.assertRaisesRegex(fleet.Failure, 'foreground'):
+                d.wait_resumed('same-boot', 100, 'pause', '계속하기')
+        d = self.device([self.resume_state(500, boot='new-boot')])
+        with self.assertRaisesRegex(fleet.Failure, '프로세스'):
+            d.wait_resumed('same-boot', 100, 'pause', '계속하기')
+    def test_resume_waits_for_two_fresh_stable_position_publications(self):
+        d = self.device([self.resume_state(200,x=.2), self.resume_state(510,x=.7),
+                         self.resume_state(700,x=.7), self.resume_state(900,x=.7)])
+        state = d.wait_resumed('same-boot', 100, 'pause', '계속하기')
+        self.assertEqual(state['msec'], 900)
+        self.assertEqual(state['ui'][0]['x'], .7)
+    def test_home_resume_rechecks_latest_position_before_actual_touch(self):
+        states = [self.resume_state(100,screen='match'), self.resume_state(200,foreground=False),
+                  self.resume_state(200), self.resume_state(300,x=.3), self.resume_state(610,x=.3),
+                  self.resume_state(650,x=.7), self.resume_state(700,x=.7), self.resume_state(1010,x=.7),
+                  self.resume_state(1020,x=.7), self.resume_state(1200,screen='match')]
+        d = self.device(states)
+        d.physical_size = (1000,1000)
+        details = d.home_and_return('pause','계속하기')
+        touches = [entry for entry in self.adb.commands if isinstance(entry,list) and entry and isinstance(entry[0],int)]
+        self.assertEqual(touches, [[700,600,0]])
+        self.assertEqual(details['before_home_msec'], 100)
+        self.assertEqual(details['after_home_msec'], 200)
+        self.assertEqual(details['resumed_msec'], 1010)
+        self.assertEqual(details['resume_button']['msec'], 1020)
+        self.assertEqual(d.state['screen'], 'match')
+        lines = (self.output/'adb-touch.jsonl').read_text().splitlines()
+        self.assertEqual(json.loads(lines[0])['x'],700)
+    def test_lan_home_resume_requires_fresh_foreground_publications(self):
+        states = [self.resume_state(100,screen='lan_match'), self.resume_state(200,foreground=False,screen='lan_match'),
+                  self.resume_state(200,screen='lan_match'), self.resume_state(300,foreground=False,screen='lan_match'),
+                  self.resume_state(400,screen='lan_match'), self.resume_state(710,screen='lan_match')]
+        d = self.device(states)
+        details = d.home_and_return('lan_match')
+        self.assertEqual(details['resumed_msec'],710)
+        self.assertTrue(details['foreground'])
+        self.assertNotIn('resume_button',details)
+        self.assertEqual(len(self.adb.commands),2)
+    def test_life_only_recheck_has_fresh_dev_ui_prerequisites(self):
+        d = Mock()
+        d.case.return_value = 'pass'
+        self.assertTrue(fleet.offline(d, Path('game.apk'), 'smoke', 0, [], selected_case='LIFE-01'))
+        self.assertEqual([call.args[0] for call in d.case.call_args_list], ['DEV-01','UI-01','LIFE-01'])
+        d.soak.assert_not_called()
+        self.assertEqual(fleet.parser().parse_args(['--case','LIFE-01']).case,'LIFE-01')
+
     def test_modes_reject_wrong_mode_and_solo_teams(self):
         d = self.device([])
         good = {'mode':1,'fighters':[{'team_id':''} for _ in range(8)]}

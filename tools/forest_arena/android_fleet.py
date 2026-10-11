@@ -432,14 +432,77 @@ class DeviceRun:
         width, height = self.viewport()
         return round(float(item['x']) * width), round(float(item['y']) * height)
 
-    def tap(self, text=None, id=None, kind=None, hold_ms=0, occurrence=0):
-        item = self.node(text=text, id=id, kind=kind, occurrence=occurrence)
+    def _touch_node(self, item, hold_ms=0):
         x, y = self.center(item)
         self.adb.touch(x, y, hold_ms)
         self.sleep(.30)
         with (self.output / 'adb-touch.jsonl').open('a', encoding='utf-8') as stream:
             stream.write(json.dumps({'case_id': self.case_id, 'input_source': 'adb_touch', 'id': item['id'], 'x': x, 'y': y, 'hold_ms': hold_ms}, ensure_ascii=False) + '\n')
         return self.read()
+
+    def tap(self, text=None, id=None, kind=None, hold_ms=0, occurrence=0):
+        return self._touch_node(self.node(text=text, id=id, kind=kind, occurrence=occurrence), hold_ms)
+
+    @staticmethod
+    def _resume_button(state, text):
+        return next((item for item in state.get('ui', []) if item.get('text') == text and item.get('visible', True) and not item.get('clipped', False) and not item.get('disabled', False)), None)
+
+    @staticmethod
+    def _node_geometry(item):
+        return tuple(item.get(key) for key in ('id', 'x', 'y', 'width', 'height'))
+
+    def wait_resumed(self, boot_id, after_msec, screen, button=None, timeout=None, stable_msec=300):
+        require(boot_id and isinstance(after_msec, (int, float)), 'HOME 복귀 전에 앱 프로세스·발행 시각 진단이 필요합니다.')
+        deadline = self.clock()+(self.screen_timeout if timeout is None else timeout)
+        first_msec = previous_msec = None
+        signature, samples = None, 0
+        while self.clock() < deadline:
+            state = self.read()
+            require(not state.get('boot_id') or state['boot_id'] == boot_id, 'HOME 복귀 중 앱 프로세스가 바뀌었습니다.')
+            msec = state.get('msec')
+            item = self._resume_button(state, button) if button else None
+            ready = state.get('boot_id') == boot_id and state.get('foreground') is True and state.get('screen') == screen and isinstance(msec, (int, float)) and msec > after_msec and (not button or item is not None)
+            if ready:
+                geometry = self._node_geometry(item) if button else (screen,)
+                if geometry != signature:
+                    signature, first_msec, previous_msec, samples = geometry, msec, msec, 1
+                elif msec > previous_msec:
+                    previous_msec, samples = msec, samples+1
+                if samples >= 2 and msec-first_msec >= stable_msec:
+                    return state
+            else:
+                signature, first_msec, previous_msec, samples = None, None, None, 0
+            self.sleep(.15)
+        raise Failure('HOME 복귀 뒤 새 foreground 화면·버튼 위치 안정 확인 시간 초과')
+
+    def home_and_return(self, screen, resume_button=None):
+        before = self.read()
+        boot_id, before_msec = before.get('boot_id'), before.get('msec')
+        require(boot_id and isinstance(before_msec, (int, float)), 'HOME 전 앱 프로세스·발행 시각 진단이 없습니다.')
+        self.adb.shell('input', 'keyevent', '3')
+        self.sleep(1)
+        away = self.read()
+        require(away.get('boot_id') == boot_id, 'HOME 중 앱 프로세스가 바뀌었습니다.')
+        after_msec = max(before_msec, away.get('msec', before_msec))
+        self.adb.shell('am', 'start', '-W', '-n', f'{self.adb.package}/{self.activity}')
+        deadline = self.clock()+self.screen_timeout
+        while self.clock() < deadline:
+            resumed = self.wait_resumed(boot_id, after_msec, screen, resume_button, timeout=deadline-self.clock())
+            details = {'boot_id': boot_id, 'before_home_msec': before_msec, 'after_home_msec': away.get('msec'),
+                       'resumed_msec': resumed['msec'], 'foreground': True, 'fresh_publications': True}
+            if not resume_button:
+                return details
+            stable_item = self._resume_button(resumed, resume_button)
+            # Read the latest actual node again. A deferred page rebuild can
+            # move it after the stability wait, so restart if its geometry moved.
+            latest = self.node(text=resume_button, scroll=False)
+            current = self.state
+            if current.get('boot_id') == boot_id and current.get('foreground') is True and current.get('screen') == screen and current.get('msec', 0) >= resumed['msec'] and self._node_geometry(latest) == self._node_geometry(stable_item):
+                details['resume_button'] = {'id': latest['id'], 'center': list(self.center(latest)), 'msec': current['msec']}
+                self._touch_node(latest)
+                return details
+            after_msec = max(after_msec, current.get('msec', after_msec))
+        raise Failure('HOME 복귀 뒤 최신 버튼 위치 확인 시간 초과')
 
     def select_option(self, title, value):
         node = self.node(id=f"{self.state['screen']}/choice/{title}")
@@ -815,6 +878,7 @@ class DeviceRun:
         require(not touch['active'], message)
 
     def lifecycle(self):
+        self.case_observations = {}
         self.prepare()
         self.command('select_config', mode=3, character='ja-hyun', accessory='')
         self.start_match()
@@ -824,17 +888,17 @@ class DeviceRun:
         self.assert_released(state, '일시정지 뒤 터치 입력 고착')
         self.tap('계속하기')
         self.screen('match')
-        self.adb.shell('input', 'keyevent', '3')
-        self.sleep(1)
-        self.adb.shell('am', 'start', '-W', '-n', f'{self.adb.package}/{self.activity}')
-        self.screen('pause')
+        self.case_observations['back_pause_resume'] = True
+        self.case_observations['home_resume'] = self.home_and_return('pause', '계속하기')
+        resume = self.case_observations['home_resume']
+        self.wait(lambda state: state.get('boot_id') == resume['boot_id'] and state.get('foreground') is True and state.get('screen') == 'match' and state.get('msec', 0) > resume['resume_button']['msec'], label='실제 계속하기 뒤 새 전투 화면')
         self.assert_released(self.state, 'HOME 복귀 뒤 터치 입력 고착')
-        self.tap('계속하기')
-        self.screen('match')
+        self.case_observations['home_pause_resume'] = True
         self.prepare()
         self.tap('로비')
         self.screen('home')
-        return {'back_pause_resume': True, 'home_pause_resume': True, 'prepare_home': True}
+        self.case_observations['prepare_home'] = True
+        return self.case_observations
 
     def combat_result(self, deadline=None, lan=False):
         started = self.clock()
@@ -1354,10 +1418,7 @@ def lan_pair(host, guest, server):
         invite = _pair_join(host, guest, server)
         full = _third_guest_rejection(server, invite)
         # HOME during LAN: server continues, local input is cleared.
-        host.adb.shell('input', 'keyevent', '3')
-        time.sleep(1)
-        host.adb.shell('am', 'start', '-W', '-n', f'{host.adb.package}/{host.activity}')
-        host.screen('lan_match')
+        home_restore = host.home_and_return('lan_match')
         host.assert_released(host.state, 'LAN HOME 복귀 뒤 입력 고착')
         host.command('autoplay', enabled=True)
         guest.command('autoplay', enabled=True)
@@ -1371,7 +1432,7 @@ def lan_pair(host, guest, server):
             device.wait_new_match(generation, lan=True)
             device.assert_reset()
             device.mark('LAN-01', 'pass', '방·결과·서버 일치·재대전 초기화 확인')
-            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1', 'home_restore_input': True}
+            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1', 'home_restore_input': True, 'home_resume': home_restore}
             device.evidence('rematch')
         current = 'LAN-03'
         host.case_id = guest.case_id = current
@@ -1446,8 +1507,8 @@ def selected_case_scope(selected_case):
         return ('DEV-01', 'UI-01', 'OFF-01')
     if selected_case == 'LAN-01':
         return ('DEV-01', 'UI-01', 'LAN-01', 'LAN-02', 'LAN-03')
-    if selected_case == 'MODE-01':
-        return ('DEV-01', 'UI-01', 'MODE-01')
+    if selected_case in ('MODE-01', 'LIFE-01'):
+        return ('DEV-01', 'UI-01', selected_case)
     return CASES
 
 
@@ -1531,7 +1592,7 @@ def parser():
     parse.add_argument('--lan-protocol', type=int, choices=(1, 2), default=2, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
     parse.add_argument('--apk', type=Path, default=ROOT / 'build/android/ForestArena-debug.apk')
     parse.add_argument('--serial', '--serials', action='append', default=[], help='ADB serial; 반복 또는 쉼표 목록. 자동 전체 선택 없음')
-    parse.add_argument('--case', choices=('OFF-01', 'MODE-01', 'LAN-01'), help='선택·장신구, 모드 또는 LAN-01/02/03 독립 재검사; DEV-01/UI-01 준비 포함')
+    parse.add_argument('--case', choices=('OFF-01', 'LIFE-01', 'MODE-01', 'LAN-01'), help='선택·장신구, 생명주기, 모드 또는 LAN-01/02/03 독립 재검사; DEV-01/UI-01 준비 포함')
     parse.add_argument('--suite', '--mode', dest='mode', choices=('smoke', 'soak', 'extended'), default='smoke')
     parse.add_argument('--duration', type=float, help='반복 대전 초; 기본 smoke0/soak600/extended1800')
     parse.add_argument('--output', type=Path, default=ROOT / 'artifacts/android-fleet')
@@ -1615,7 +1676,7 @@ def main(argv=None):
     devices, global_results = [], []
     stage = 'DEV-01'
     try:
-        meta.update(archive_runner_sources(output, include_auth=args.lan_protocol == 2 and args.case not in ('OFF-01', 'MODE-01')))
+        meta.update(archive_runner_sources(output, include_auth=args.lan_protocol == 2 and args.case not in ('OFF-01', 'LIFE-01', 'MODE-01')))
         if not serials:
             raise Blocked('선택한 실기기가 없습니다. --serial을 명시하세요. 자동 전체 선택은 하지 않습니다.')
         require(args.project_root.is_dir(), '프로젝트 경로가 없습니다.')
@@ -1645,7 +1706,7 @@ def main(argv=None):
             futures = [pool.submit(offline, device, args.apk, args.mode, duration, jobs[index], selected_case=args.case) for index, device in enumerate(devices)]
             eligible = [future.result() for future in futures]
         stage = 'LAN-01'
-        bind = None if args.case in ('OFF-01', 'MODE-01') else (args.lan_bind or (discover_bind() if len(devices) >= 2 else None))
+        bind = None if args.case in ('OFF-01', 'LIFE-01', 'MODE-01') else (args.lan_bind or (discover_bind() if len(devices) >= 2 else None))
         if bind:
             ip = ipaddress.ip_address(bind)
             require(ip.version == 4 and ip.is_private and not ip.is_loopback, 'LAN bind는 실제 사설 IPv4여야 합니다.')
@@ -1665,7 +1726,7 @@ def main(argv=None):
                                 device.mark(case, 'blocked', '앞선 기기 검사 문제로 두 APK LAN 검사 불가')
                 for future in futures:
                     future.result()
-        if args.case not in ('OFF-01', 'MODE-01') and len(devices) % 2:
+        if args.case not in ('OFF-01', 'LIFE-01', 'MODE-01') and len(devices) % 2:
             for case in ('LAN-01', 'LAN-02', 'LAN-03'):
                 devices[-1].mark(case, '미실행', '마지막 기기는 짝이 없어 오프라인만 실행합니다.')
         for device in devices:
