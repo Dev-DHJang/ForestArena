@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 import android_fleet as fleet
 from android_fleet_auth_fixture import GuestFixture
@@ -78,6 +78,22 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(d.case('UI-01', lambda: d.screen('shop')), 'blocked')
         self.assertEqual([r['status'] for r in d.results], ['pass', 'blocked'])
         self.assertEqual(json.loads((self.output/'results.json').read_text())[1]['status'], 'blocked')
+    def test_combat_negative_stocks_fails_immediately_preserves_actual_snapshot(self):
+        state = {'screen':'match', 'snapshot':{'fighters':[{'id':'eliminated','stocks':-1,'state':'FALL','current_hp':0}]}}
+        d = self.device([state])
+        with self.assertRaisesRegex(fleet.Failure, 'eliminated=-1'):
+            d.combat_result()
+        self.assertEqual(self.clock.now, 0)
+        self.assertEqual(d.case_observations['invalid_combat_state']['snapshot'], state['snapshot'])
+        self.assertEqual(d.case_observations['invalid_combat_state']['reason'], 'negative_stocks')
+        self.assertTrue(list(self.output.glob('*negative-stocks.json')))
+    def test_zero_stocks_dead_is_valid_elimination_not_negative_invariant(self):
+        d = self.device([{'screen':'match','snapshot':{'fighters':[{'id':'eliminated','stocks':0,'state':'DEAD','current_hp':0}]}},
+                         {'screen':'result','snapshot':{'fighters':[{'id':'player','stocks':1}, {'id':'eliminated','stocks':0,'state':'DEAD'}]},
+                          'latest_result':{'winner_id':'player','final_tick':42,'snapshot_hash':'a'*64}}])
+        self.assertEqual(d.combat_result()['winner_id'], 'player')
+        self.assertNotIn('invalid_combat_state', d.case_observations)
+
     def test_combat_stall_is_fail(self):
         d = self.device([{'screen':'match', 'snapshot': {'fighters':[{'id':'player','current_hp':100,'stocks':3}]}}])
         with self.assertRaisesRegex(fleet.Failure, '피해'): d.combat_result()
@@ -265,6 +281,481 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(swipe[2],str(round(3088*.19)))
         self.assertEqual(swipe[2],swipe[4])
         self.assertLess(int(swipe[2]),3088*.4)
+    def test_websocket_handshake_eof_fails_immediately(self):
+        sock = Mock()
+        sock.recv.return_value = b''
+        with self.assertRaisesRegex(fleet.Failure,'응답 전 종료'):
+            fleet._websocket_upgrade(sock,b'request',clock=lambda: 0)
+        sock.recv.assert_called_once()
+    def test_websocket_handshake_has_total_deadline(self):
+        sock = Mock()
+        sock.recv.return_value = b'partial'
+        with self.assertRaisesRegex(fleet.Failure,'시간 초과'):
+            fleet._websocket_upgrade(sock,b'request',clock=iter([0,0,11]).__next__)
+        sock.recv.assert_called_once()
+    def test_websocket_handshake_limits_header_bytes(self):
+        sock = Mock()
+        sock.recv.return_value = b'a'*4096
+        with self.assertRaisesRegex(fleet.Failure,'크기 오류'):
+            fleet._websocket_upgrade(sock,b'request',clock=lambda: 0)
+        self.assertEqual(sock.recv.call_count,5)
+    def test_websocket_handshake_checks_cancellation(self):
+        sock = Mock()
+        with patch.object(fleet.CANCELLED,'is_set',return_value=True):
+            with self.assertRaises(fleet.Blocked): fleet._websocket_upgrade(sock,b'request')
+        sock.recv.assert_not_called()
+    def test_websocket_handshake_preserves_appended_frame(self):
+        sock = Mock()
+        sock.recv.return_value = b'HTTP/1.1 101 Switching Protocols\r\n\r\nframe'
+        self.assertEqual(fleet._websocket_upgrade(sock,b'request'),'frame'.encode())
+    def test_logcat_failure_records_unavailability_and_stderr(self):
+        d = self.device([])
+        self.adb.shell = lambda *_args,**_kwargs: 'package:com.example.game uid:123'
+        process = Mock(returncode=1)
+        process.poll.return_value = 1
+        def failed_logcat(*_args,**kwargs):
+            kwargs['stderr'].write(b'logcat: unsupported --uid argument')
+            return process
+        self.adb.run = Mock(return_value=b'--uid UID filter')
+        with patch.object(fleet.subprocess,'Popen',side_effect=failed_logcat): d.start_logcat()
+        d.close()
+        evidence = json.loads((self.output/'game-log.json').read_text())
+        self.assertEqual(evidence['status'],'unavailable')
+        self.assertEqual(evidence['exit_status'],1)
+        self.assertIn('unsupported --uid',evidence['stderr'])
+        self.assertEqual(evidence['stdout_bytes'],0)
+        self.assertFalse(evidence['running_until_cleanup'])
+        self.assertFalse((self.output/'game-log-stderr.raw').exists())
+    def test_android11_pid_log_filter_follows_cold_launches(self):
+        d = self.device([])
+        self.adb.run = Mock(return_value=b'--pid PID filter')
+        self.adb.shell = Mock(side_effect=['package:com.example.game uid:123', '101', '202'])
+        first, second = Mock(), Mock()
+        first.poll.return_value = None
+        second.poll.return_value = None
+        with patch.object(fleet.subprocess, 'Popen', side_effect=[first, second]) as spawn:
+            d.start_logcat()
+            spawn.assert_not_called()
+            d.state = {'boot_id': 'one'}
+            d._start_pid_logcat()
+            d.state = {'boot_id': 'two'}
+            d._start_pid_logcat()
+        first.terminate.assert_called_once()
+        first.wait.assert_called_once()
+        arguments = [call.args[0] for call in spawn.call_args_list]
+        self.assertIn('--pid=101', arguments[0])
+        self.assertIn('--pid=202', arguments[1])
+        self.assertEqual([x['boot_id'] for x in d.game_log['segments']], ['one', 'two'])
+        d.logfile.close()
+        d.logstderr.close()
+    def test_current_accessory_runtime_ratios_and_replacements(self):
+        base = {'max_hp': 100, 'weight': 100, 'ground_speed': 200, 'air_speed': 150,
+                'jump_velocity': -500, 'gravity': 1000, 'dash_speed': 300, 'air_jump_count': 1}
+        policy = {'': {}, 'fixture-boxing-gloves': {},
+                  'fixture-iron-armor': {'weight': 1.05, 'ground_speed': .95},
+                  'fixture-thorns': {'air_speed': 1.05, 'ground_speed': .95},
+                  'fixture-explosive-gloves': {'jump_velocity': 1.05, 'weight': .95},
+                  'fixture-phoenix-revive': {'gravity': .95, 'air_speed': .95},
+                  'fixture-ultimate-charm': {'ground_speed': .95}}
+        for accessory, ratios in policy.items():
+            profile = {'base_stats': base, 'stats': {k: v*ratios.get(k, 1) for k, v in base.items()},
+                       'move_set_id': 'yu-ran.base', 'replacement_move_set': 'yu-ran.base',
+                       'attack_ids': ['yu-ran-light-01'],
+                       'combat_effects': [{'cause_id': accessory, 'kind': 3, 'trigger': 2, 'amount': 4}]}
+            observed = fleet.DeviceRun.validate_current_profile({'runtime_profile': profile}, accessory)
+            self.assertEqual(observed['actual_effect_trigger'], '미실행: 별도 전투 동작 검사')
+            profile['stats'] = {**profile['stats'], 'max_hp': 105}
+            with self.assertRaises(fleet.Failure):
+                fleet.DeviceRun.validate_current_profile({'runtime_profile': profile}, accessory)
+    def test_boxing_accepts_canonical_special_ids_rejects_other_characters(self):
+        profile = {'base_stats': {'weight': 100}, 'stats': {'weight': 100},
+                   'move_set_id': 'yu-ran.base', 'replacement_move_set': 'yu-ran.base',
+                   'attack_ids': ['yu-ran-light-01', 'yu-ran.base-special-side', 'yu-ran.base-special-down', 'yu-ran.base-ultimate']}
+        fleet.DeviceRun.validate_current_profile({'runtime_profile': profile}, 'fixture-boxing-gloves')
+        for invalid in ('ja-hyun-light-01', 'nabi.base-special-down', 'yu-ranx-ultimate', 'yu-ran.baseX-ultimate'):
+            profile['attack_ids'] = ['yu-ran-light-01', invalid]
+            with self.assertRaises(fleet.Failure):
+                fleet.DeviceRun.validate_current_profile({'runtime_profile': profile}, 'fixture-boxing-gloves')
+
+    def test_current_boxing_and_ultimate_effect_reject_old_bonus_contract(self):
+        profile = {'base_stats': {'weight': 100}, 'stats': {'weight': 100},
+                   'move_set_id': 'ja-hyun.base', 'replacement_move_set': '', 'attack_ids': ['ja-hyun-light-01']}
+        with self.assertRaises(fleet.Failure):
+            fleet.DeviceRun.validate_current_profile({'runtime_profile': profile}, 'fixture-boxing-gloves')
+        profile['combat_effects'] = [{'cause_id': 'fixture-ultimate-charm', 'kind': 3, 'trigger': 2, 'amount': 6}]
+        with self.assertRaises(fleet.Failure):
+            fleet.DeviceRun.validate_current_profile({'runtime_profile': profile}, 'fixture-ultimate-charm')
+
+    def test_positive_evade_requires_both_actual_touch_edges_and_evasion(self):
+        d = self.device([])
+        d.touch_helper = self.output/'helper.jar'
+        d.command = Mock()
+        before = {'snapshot': {'fighters': [{'id': 'player', 'state': 'IDLE'}]}, 'touch_events': [], 'combat_events': []}
+        after = {**before, 'touch': {'active': []}, 'combat_events': [{'id': 'fighter_state', 'fighter_id': 'player', 'seq': 1, 'state': 'EVADE'}]}
+        def wait(predicate, **_args):
+            state = before if not d.state else after
+            self.assertTrue(predicate(state))
+            d.state = state
+            return state
+        d.wait = wait
+        d.node = Mock(side_effect=[{'x':.1,'y':.8}, {'x':.8,'y':.8}])
+        d.center = Mock(side_effect=[(100,800), (800,800)])
+        d.assert_touch_edges = Mock()
+        with patch('android_touch.perform', return_value={'source': 'adb_touch_multi_pointer'}) as perform:
+            observed = d.positive_evade()
+        perform.assert_called_once_with(self.adb, d.touch_helper, (100,800), (800,800))
+        self.assertEqual([call.args[0] for call in d.assert_touch_edges.call_args_list], ['move_right','evade'])
+        self.assertEqual(observed['combat_state'], 'EVADE')
+        self.assertIn('미실행', observed['human_multitouch_quality'])
+
+    def test_manual_pending_preserves_measured_subchecks(self):
+        d = self.device([])
+        observed = {'actions': ['jump'], 'ultimate_after_ready': True, 'evade_positive': '미실행'}
+        def measured():
+            raise fleet.ManualPending('동시 터치 수동 검사 필요', observed)
+        self.assertEqual(d.case('INPUT-01', measured), 'blocked')
+        self.assertEqual(d.results[-1]['observed'], observed)
+    def test_recoverable_case_failure_continues_independent_cases(self):
+        d = Mock()
+        d.output = self.output
+        d.case.side_effect = ['pass', 'pass', 'pass', 'blocked', 'pass', 'pass', 'pass']
+        self.assertTrue(fleet.offline(d, Path('game.apk'), 'soak', 600, []))
+        self.assertEqual(d.prepare.call_count, 2)
+        d.soak.assert_called_once_with(600, [])
+        d.mark.assert_not_called()
+        self.assertEqual([call.args[0] for call in d.case.call_args_list], ['DEV-01', 'UI-01', 'OFF-01', 'INPUT-01', 'LIFE-01', 'OFF-02', 'MODE-01'])
+    def test_failed_soak_can_recover_to_home_for_independent_lan(self):
+        d = Mock()
+        d.output = self.output
+        d.case.return_value = 'pass'
+        # DeviceRun.soak writes its own failed case and returns normally.
+        d.soak.return_value = None
+        self.assertTrue(fleet.offline(d, Path('game.apk'), 'soak', 600, []))
+        d.command.assert_called_once_with('autoplay', enabled=False)
+        d.prepare.assert_called_once()
+        d.tap.assert_called_once_with('로비')
+        d.screen.assert_called_once_with('home')
+        self.assertTrue(json.loads((self.output/'offline-cleanup.json').read_text())['lan_eligible'])
+    def test_soak_cleanup_failure_prevents_lan_without_promoting_case(self):
+        d = Mock()
+        d.output = self.output
+        d.case.return_value = 'pass'
+        d.command.side_effect = fleet.Blocked('ADB 단절')
+        self.assertFalse(fleet.offline(d, Path('game.apk'), 'soak', 600, []))
+        evidence = json.loads((self.output/'offline-cleanup.json').read_text())
+        self.assertFalse(evidence['lan_eligible'])
+        d.mark.assert_not_called()
+    def test_off_selection_only_recheck_has_fresh_prerequisites_and_unexecuted_other_cases(self):
+        d = Mock()
+        d.case.return_value = 'pass'
+        self.assertTrue(fleet.offline(d, Path('game.apk'), 'smoke', 0, [], selected_case='OFF-01'))
+        self.assertEqual([call.args[0] for call in d.case.call_args_list], ['DEV-01', 'UI-01', 'OFF-01'])
+        d.soak.assert_not_called()
+        marks = [(call.args[0], call.args[1]) for call in d.mark.call_args_list]
+        self.assertEqual(marks, [(case, '미실행') for case in fleet.CASES if case not in ('DEV-01', 'UI-01', 'OFF-01')])
+    def test_runner_source_archive_hashes_remain_immutable_after_tools_change(self):
+        source = self.output/'tools'
+        source.mkdir()
+        known = ['android_fleet.py', 'android_touch.py', 'android_fleet_touch/FleetTouch.java', 'android_fleet_auth_fixture.py']
+        for name in known:
+            target = source/name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_text('original '+name)
+        (source/'debug.keystore').write_text('private key')
+        (source/'auth.env').write_text('private token')
+        archive = self.output/'attempt-one'
+        metadata = fleet.archive_runner_sources(archive, include_auth=True, source_root=source)
+        for name in known:
+            original_hash = fleet.hash_file(archive/'runner-source'/name)
+            self.assertEqual(metadata['runner_source_files'][name], original_hash)
+            (source/name).write_text('changed after launch')
+            self.assertEqual(fleet.hash_file(archive/'runner-source'/name), original_hash)
+        self.assertTrue((archive/'runner-source/.gdignore').exists())
+        self.assertFalse((archive/'runner-source/debug.keystore').exists())
+        self.assertFalse((archive/'runner-source/auth.env').exists())
+        self.assertEqual(metadata['runner_tool_sha256'], metadata['runner_source_files']['android_fleet.py'])
+        second = fleet.archive_runner_sources(self.output/'attempt-two', include_auth=False, source_root=source)
+        self.assertNotIn('android_fleet_auth_fixture.py', second['runner_source_files'])
+        self.assertNotEqual(metadata['runner_source_sha256'], second['runner_source_sha256'])
+        with self.assertRaises(FileExistsError): fleet.archive_runner_sources(archive, source_root=source)
+
+    def setup_mode_device(self, combat_failure=None, recovery_failure=False):
+        d = self.device([])
+        d.selected_mode = None
+        d.attempted = []
+        def command(op, **args):
+            if op == 'select_config':
+                mode = args['mode']
+                d.selected_mode = mode
+                d.attempted.append(mode)
+                teams = ['alpha']*4+['beta']*4 if mode == 2 else ['']*(8 if mode == 1 else 2)
+                d.state = {'screen': 'match', 'touch': {'active': []},
+                           'snapshot': {'mode': mode, 'fighters': [{'id': str(i), 'team_id': team} for i,team in enumerate(teams)]}}
+        def prepare():
+            if recovery_failure and d.selected_mode == 1:
+                raise fleet.Blocked('복귀 중 ADB 단절')
+            d.state['screen'] = 'prepare'
+        def result():
+            if d.selected_mode == combat_failure:
+                raise fleet.Failure('전투가 300초 안에 끝나지 않았습니다.')
+            return {'winner_id': '0', 'winner_team_id': 'alpha' if d.selected_mode == 2 else ''}
+        d.command = command
+        d.prepare = prepare
+        d.start_match = Mock()
+        d.combat_result = result
+        d.evidence = Mock()
+        d.read = lambda: d.state
+        return d
+    def test_mode_solo_failure_preserves_observation_and_still_checks_team_story(self):
+        d = self.setup_mode_device(combat_failure=1)
+        self.assertEqual(d.case('MODE-01', d.modes), 'fail')
+        self.assertEqual(d.attempted, [4,1,2,0])
+        subcases = d.results[-1]['observed']['modes']
+        self.assertEqual([r['status'] for r in subcases], ['pass','fail','pass','pass'])
+        self.assertEqual(subcases[1]['observed']['initial_snapshot']['mode'], 1)
+        self.assertIn('last_snapshot', subcases[1]['observed'])
+        self.assertTrue(subcases[2]['observed']['return_to_prepare'])
+        self.assertTrue(subcases[3]['observed']['entry'])
+        self.assertNotIn('result', subcases[3]['observed'])
+        for record in subcases:
+            for key in ('schema_version','run_id','case_id','mode_case_id','device','step','expected','observed'):
+                self.assertIn(key, record)
+        self.assertEqual(json.loads((self.output/'mode-results.json').read_text())['modes'][1]['status'], 'fail')
+    def test_modes_block_later_cases_only_when_recovery_fails(self):
+        d = self.setup_mode_device(combat_failure=1, recovery_failure=True)
+        self.assertEqual(d.case('MODE-01', d.modes), 'fail')
+        self.assertEqual(d.attempted, [4,1])
+        subcases = d.results[-1]['observed']['modes']
+        self.assertEqual([r['status'] for r in subcases], ['pass','fail','blocked','blocked'])
+        self.assertIn('recovery', subcases[1]['observed'])
+    def test_modes_pass_requires_all_subcases_and_return_input_release(self):
+        d = self.setup_mode_device()
+        self.assertEqual(d.case('MODE-01', d.modes), 'pass')
+        self.assertEqual([r['status'] for r in d.results[-1]['observed']['modes']], ['pass']*4)
+    def test_mode_only_recheck_has_prerequisites_and_no_lan_or_soak(self):
+        d = Mock()
+        d.case.return_value = 'pass'
+        self.assertTrue(fleet.offline(d, Path('game.apk'), 'smoke', 0, [], selected_case='MODE-01'))
+        self.assertEqual([call.args[0] for call in d.case.call_args_list], ['DEV-01','UI-01','MODE-01'])
+        d.soak.assert_not_called()
+        marks = {call.args[0]: call.args[1] for call in d.mark.call_args_list}
+        self.assertEqual(marks['LAN-01'], '미실행')
+        self.assertEqual(marks['SOAK-01'], '미실행')
+        self.assertEqual(fleet.parser().parse_args(['--case','MODE-01']).case, 'MODE-01')
+
+    def test_lan_recheck_runs_only_dev_ui_and_verifies_home_entry(self):
+        d = Mock()
+        d.output = self.output
+        d.case.return_value = 'pass'
+        d.read.return_value = {'screen': 'home'}
+        self.assertTrue(fleet.offline(d, Path('game.apk'), 'smoke', 0, [], selected_case='LAN-01'))
+        self.assertEqual([call.args[0] for call in d.case.call_args_list], ['DEV-01', 'UI-01'])
+        d.soak.assert_not_called()
+        d.prepare.assert_not_called()
+        d.screen.assert_called_once_with('home')
+        marks = {call.args[0]: call.args[1] for call in d.mark.call_args_list}
+        self.assertEqual(marks['OFF-01'], '미실행')
+        self.assertEqual(marks['SOAK-01'], '미실행')
+        self.assertNotIn('LAN-01', marks)
+        self.assertNotIn('LAN-02', marks)
+        self.assertNotIn('LAN-03', marks)
+    def test_lan_recheck_summary_preserves_error_case_results(self):
+        d = self.device([])
+        for case in ('DEV-01', 'UI-01', 'LAN-01', 'LAN-03'):
+            d.mark(case, 'pass', 'observed')
+        d.mark('LAN-02', 'fail', 'actual error UI mismatch')
+        summary = fleet.write_summary(self.output, 'test', {'selected_case': 'LAN-01'}, [d], [])
+        self.assertEqual(summary['status'], 'fail')
+        self.assertIn('LAN-01/02/03', summary['scope'])
+        self.assertFalse(summary['full_suite_executed'])
+        self.assertIn('actual error UI mismatch', (self.output/'summary.md').read_text())
+    def test_lan_pair_does_not_enter_ui_before_both_apps_recovered_home(self):
+        host, guest, server = Mock(), Mock(), Mock()
+        host.read.return_value = {'screen': 'home'}
+        guest.read.return_value = {'screen': 'match'}
+        with patch.object(fleet, '_lan_login') as login, self.assertRaises(fleet.Blocked):
+            fleet._pair_join(host, guest, server)
+        login.assert_not_called()
+        host.tap.assert_not_called()
+        guest.tap.assert_not_called()
+
+    def test_failed_selected_setup_keeps_unselected_cases_unexecuted(self):
+        d = Mock()
+        d.case.return_value = 'blocked'
+        self.assertFalse(fleet.offline(d, Path('game.apk'), 'smoke', 0, [], selected_case='OFF-01'))
+        marks = {call.args[0]: call.args[1] for call in d.mark.call_args_list}
+        self.assertEqual(marks['OFF-01'], 'blocked')
+        self.assertEqual(marks['SOAK-01'], '미실행')
+        self.assertEqual(marks['LAN-01'], '미실행')
+    def test_selected_case_summary_labels_limited_scope(self):
+        d = self.device([])
+        for case in ('DEV-01', 'UI-01', 'OFF-01'):
+            d.mark(case, 'pass', 'observed')
+        summary = fleet.write_summary(self.output, 'test', {'selected_case': 'OFF-01'}, [d], [])
+        self.assertEqual(summary['status'], 'pass')
+        self.assertFalse(summary['full_suite_executed'])
+        self.assertIn('독립 재검사', summary['scope'])
+        self.assertIn('다른 사례의 통과를 뜻하지 않습니다', (self.output/'summary.md').read_text())
+
+    def test_recheck_rejects_soak_time_before_device_operations(self):
+        with patch('sys.stderr'), self.assertRaises(SystemExit):
+            fleet.main(['--case', 'OFF-01', '--suite', 'soak'])
+        self.assertEqual(fleet.parser().parse_args(['--case', 'OFF-01']).case, 'OFF-01')
+
+    def test_failed_recovery_blocks_later_observations(self):
+        d = Mock()
+        d.case.side_effect = ['pass', 'fail']
+        d.command.side_effect = fleet.Blocked('연결 단절')
+        self.assertFalse(fleet.offline(d, Path('game.apk'), 'soak', 600, []))
+        d.soak.assert_not_called()
+        self.assertIn('SOAK-01', [call.args[0] for call in d.mark.call_args_list])
+    def test_v1_server_uses_snapshot_without_api_fixture_or_credentials(self):
+        server = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output, 'godot', 'run', '/tmp/snapshot', 1)
+        process = Mock()
+        process.poll.return_value = None
+        def start(args, **kwargs):
+            kwargs['stdout'].write(b'FOREST_ARENA_LAN_READY FAH1|ws://192.168.1.2:7777|1\n')
+            kwargs['stdout'].flush()
+            return process
+        with patch.object(fleet.subprocess, 'Popen', side_effect=start) as spawn, \
+             patch.dict(fleet.os.environ, {'FOREST_ARENA_SERVICE_TOKEN': 'external', 'FOREST_ARENA_API_BASE_URL': 'external'}), \
+             patch('android_fleet_auth_fixture.GuestFixture') as fixture:
+            server.start()
+        fixture.assert_not_called()
+        self.assertEqual(spawn.call_args.args[0][3], '/tmp/snapshot')
+        self.assertNotIn('FOREST_ARENA_SERVICE_TOKEN', spawn.call_args.kwargs['env'])
+        self.assertNotIn('FOREST_ARENA_API_BASE_URL', spawn.call_args.kwargs['env'])
+        server.stream.close()
+    def test_v1_full_room_probe_sends_v1_selection_without_auth(self):
+        import struct
+        server = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output, 'godot', 'run', protocol=1)
+        sock = Mock()
+        error = json.dumps({'type': 'error', 'code': 'room_full'}).encode()
+        with patch.object(fleet.socket, 'create_connection', return_value=sock), \
+             patch.object(fleet, '_websocket_upgrade', return_value=bytes([0x82, len(error)]) + error), \
+             patch('urllib.request.urlopen') as http:
+            result = fleet._third_guest_rejection(server, 'FA1|ws://192.168.1.2:7777|ABCDEFGH|1')
+        http.assert_not_called()
+        frame = sock.sendall.call_args.args[0]
+        length = frame[1] & 127
+        offset = 2
+        if length == 126:
+            length = struct.unpack('!H', frame[2:4])[0]
+            offset = 4
+        mask = frame[offset:offset+4]
+        message = json.loads(bytes(v ^ mask[i%4] for i,v in enumerate(frame[offset+4:])))
+        self.assertEqual(message['protocol_version'], 1)
+        self.assertEqual(message['room_code'], 'ABCDEFGH')
+        self.assertNotIn('access_token', message)
+        self.assertEqual(result['source'], 'protocol_v1_probe')
+        sock.close.assert_called_once()
+
+    def test_source_manifest_preserves_token_filename_hashes_but_redacts_private_metadata(self):
+        manifest = {'files': {'server/api/tokens.ts': 'a'*64, 'server/game/token_verifier.gd': 'b'*64},
+                    'access_token': 'actual-private-token', 'nested': {'reconnect_token': 'actual-reconnect-token'},
+                    'log': 'Authorization Bearer actualsecret'}
+        destination = self.output/'source-manifest.json'
+        fleet.dump_source_manifest(destination, manifest)
+        saved = json.loads(destination.read_text())
+        self.assertEqual(saved['files'], manifest['files'])
+        self.assertEqual(saved['access_token'], '[redacted]')
+        self.assertEqual(saved['nested']['reconnect_token'], '[redacted]')
+        self.assertNotIn('actualsecret', destination.read_text())
+        self.assertEqual(manifest['access_token'], 'actual-private-token')
+        self.assertEqual(fleet.redact(manifest)['files']['server/api/tokens.ts'], '[redacted]')
+    def test_source_manifest_rejects_non_sha_values_and_unsafe_paths_before_writing(self):
+        destination = self.output/'source-manifest.json'
+        for invalid in ('real-token-content', 'a'*63, 'a'*65, 'A'*64, None, 123, {'hash':'a'*64}):
+            with self.assertRaises(fleet.Failure):
+                fleet.dump_source_manifest(destination, {'files': {'server/api/tokens.ts': invalid}})
+            self.assertFalse(destination.exists())
+        for invalid in ('../secret', '/absolute/path', 'path/../secret', 'path//source', 'path\\source', 'path\nsource', ''):
+            with self.assertRaises(fleet.Failure):
+                fleet.dump_source_manifest(destination, {'files': {invalid: 'a'*64}})
+            self.assertFalse(destination.exists())
+        with self.assertRaises(fleet.Failure):
+            fleet.source_manifest_metadata({'snapshot_root':'/tmp/source','git_head':'a'*40,'files':{'file':'not-sha'}}, '/tmp/source')
+
+    def test_source_manifest_identifies_original_dirty_source_not_parent_git(self):
+        manifest = {'snapshot_root': '/tmp/snapshot', 'source_root': '/tmp/original', 'git_head': 'a'*40,
+                    'git_status': ' M asset.png', 'files': {'asset.png': 'b'*64, 'app.gd': 'c'*64}}
+        metadata = fleet.source_manifest_metadata(manifest, Path('/tmp/snapshot'))
+        self.assertEqual(metadata['code_version'], 'a'*40)
+        self.assertTrue(metadata['code_dirty'])
+        self.assertEqual(metadata['source_file_count'], 2)
+        reversed_manifest = {**manifest, 'files': dict(reversed(list(manifest['files'].items())))}
+        self.assertEqual(metadata['source_files_sha256'], fleet.source_manifest_metadata(reversed_manifest, '/tmp/snapshot')['source_files_sha256'])
+        with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata(manifest, '/tmp/other')
+        with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata({**manifest, 'files': {}}, '/tmp/snapshot')
+
+    def test_explicit_project_and_lan_protocol_preserve_default_v2(self):
+        args = fleet.parser().parse_args(['--project-root', '/tmp/snapshot', '--lan-protocol', '1'])
+        self.assertEqual(args.project_root, Path('/tmp/snapshot'))
+        self.assertEqual(args.lan_protocol, 1)
+        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 2)
+        v1 = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output, 'godot', 'run', '/tmp/snapshot', 1)
+        self.assertEqual(v1.code, 'FAH1|ws://192.168.1.2:7777|1')
+        self.assertEqual(v1.project_root, Path('/tmp/snapshot'))
+    def test_v1_ui_join_skips_v2_auth_screens(self):
+        d = Mock()
+        d.node.return_value = {'id': 'native-input'}
+        with patch.object(fleet, '_menu'):
+            fleet._lan_login(d, 'join', 'FA1|ws://192.168.1.2:7777|ABCDEFGH|1', 1)
+        d.screen.assert_called_once_with('lan_join')
+        self.assertEqual([call.args[0] for call in d.tap.call_args_list], ['초대 코드로 참가', '방 참가'])
+
+    def test_soak_summary_requires_completion_on_every_selected_device(self):
+        first = self.device([])
+        first.mark('SOAK-01','pass','one complete round')
+        second = self.device([])
+        second.alias = 'device-2'
+        second.mark('DEV-01','pass','connected')
+        second.mark('SOAK-01','미실행','legitimate duration cutoff')
+        for mode in ('soak','extended'):
+            summary = fleet.write_summary(self.output,'test',{'mode':mode},[first,second],[])
+            self.assertEqual(summary['status'],'blocked')
+        second.mark('SOAK-01','pass','round completed')
+        self.assertEqual(fleet.write_summary(self.output,'test',{'mode':'soak'},[first,second],[])['status'],'pass')
+        second.mark('SOAK-01','fail','stall')
+        self.assertEqual(fleet.write_summary(self.output,'test',{'mode':'soak'},[first,second],[])['status'],'fail')
+    def test_option_unfocused_popup_first_down_establishes_focus(self):
+        node = {'id':'prepare/choice/장신구','x':.5,'y':.5,'selected':4,'options':[{'id':str(i)} for i in range(5)]}
+        def state(visible,focus,selected=4):
+            return {'screen':'prepare','ui':[{**node,'popup_visible':visible,'popup_focused':focus,'selected':selected}]}
+        d = self.device([state(False,-1),state(True,-1),state(True,0),state(True,2),state(False,-1,2)])
+        d.state = {'screen':'prepare'}
+        d.node = lambda **_kwargs: node
+        d.select_option('장신구','2')
+        keys = [c[-1] for c in self.adb.commands if c[:2] == ['input','keyevent']]
+        self.assertEqual(keys,['20','20','20','66'])
+        self.assertEqual(d.state['ui'][0]['selected'],2)
+    def test_option_uses_observed_popup_focus_instead_of_selected(self):
+        node = {'id':'prepare/choice/장신구','x':.5,'y':.5,'selected':0,'options':[{'id':str(i)} for i in range(5)]}
+        def state(visible,focus,selected=0):
+            return {'screen':'prepare','ui':[{**node,'popup_visible':visible,'popup_focused':focus,'selected':selected}]}
+        d = self.device([state(False,-1),state(True,3),state(True,1),state(False,-1,1)])
+        d.state = {'screen':'prepare'}
+        d.node = lambda **_kwargs: node
+        d.select_option('장신구','1')
+        keys = [c[-1] for c in self.adb.commands if c[:2] == ['input','keyevent']]
+        self.assertEqual(keys,['19','19','66'])
+    def test_option_unobserved_popup_never_sends_enter(self):
+        node = {'id':'prepare/choice/장신구','x':.5,'y':.5,'selected':0,'options':[{'id':'0'}]}
+        d = self.device([{'screen':'prepare','ui':[node]}])
+        d.state = {'screen':'prepare'}
+        d.node = lambda **_kwargs: node
+        with self.assertRaisesRegex(fleet.Failure,'선택 목록 열기'): d.select_option('장신구','0')
+        self.assertFalse(any(c[:2] == ['input','keyevent'] for c in self.adb.commands))
+    def test_global_and_mark_case_records_have_complete_envelope(self):
+        d = self.device([])
+        d.mark('UI-01','blocked','unavailable')
+        self.assertIn('step',d.results[0])
+        fleet.write_summary(self.output,'test-run',{},[d],[{'case_id':'DEV-01','status':'blocked','message':'no devices'}])
+        cases = json.loads((self.output/'results.json').read_text())['cases']
+        for case in cases:
+            for field in ('schema_version','run_id','device','case_id','step','expected','observed'):
+                self.assertIn(field,case)
+        self.assertEqual(cases[0]['device'],'전체')
     def test_server_reset_log_ignores_other_records_and_corrupt_lines(self):
         server = fleet.LanServer('127.0.0.1','127.0.0.0/8',1,2,self.output,'godot','run')
         (self.output/'server.raw').write_text('FOREST_ARENA_QA_LAN_INPUT_RESET bad\nFOREST_ARENA_QA_LAN_INPUT_RESET {"slot":1,"tick":30,"input_direction":0,"buffered_action":""}\n')

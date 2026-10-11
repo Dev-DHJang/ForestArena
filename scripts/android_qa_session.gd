@@ -149,6 +149,57 @@ func _enrich_snapshot() -> void:
 		value.accessory_id = String(fighter.runtime_profile.accessory_id)
 		value.input_direction = int(fighter.input_direction)
 		value.buffered_action = "" if fighter.buffered_intent == null else String(fighter.buffered_intent.action_id)
+		value.runtime_profile = _profile_value(fighter)
+		var presentation := fighter.get_node_or_null("Presentation")
+		if presentation != null: value.presentation = _presentation_value(presentation)
+
+static func _has_property(owner: Object, key: String) -> bool:
+	if owner == null: return false
+	for entry: Dictionary in owner.get_property_list():
+		if entry.name == key: return true
+	return false
+
+func _stats_value(stats: Object) -> Dictionary:
+	var value := {}
+	for key: String in ["max_hp", "weight", "ground_speed", "air_speed", "jump_velocity", "gravity", "dash_speed", "dash_duration_seconds", "air_jump_count"]:
+		if _has_property(stats, key): value[key] = stats.get(key)
+	return value
+
+func _profile_value(fighter: FighterController) -> Dictionary:
+	var profile := fighter.runtime_profile
+	var value := {"stats": _stats_value(profile.stats), "base_stats": _stats_value(fighter.character_data.base_stats) if fighter.character_data != null else {}, "move_set_id": "" if profile.move_set == null else String(profile.move_set.move_set_id), "attack_ids": [], "combat_effects": [], "replacement_move_set": ""}
+	for attack: AttackData in fighter.attacks:
+		if attack != null: value.attack_ids.append(String(attack.attack_id))
+	for effect: Resource in profile.combat_effects:
+		if effect == null: continue
+		var observed := {}
+		for key: String in ["kind", "amount", "trigger", "cause_id"]:
+			if _has_property(effect, key): observed[key] = _json_value(effect.get(key))
+		value.combat_effects.append(observed)
+	if app.catalog.combat.has_method("accessory_by_id"):
+		var accessory: Object = app.catalog.combat.call("accessory_by_id", profile.accessory_id)
+		if _has_property(accessory, "replacement_move_set"):
+			var replacement: Object = accessory.get("replacement_move_set")
+			if _has_property(replacement, "move_set_id"): value.replacement_move_set = String(replacement.get("move_set_id"))
+	return value
+
+func _presentation_value(presentation: Node) -> Dictionary:
+	var value := {"available": true, "screen_bounds": null}
+	for key: String in ["requested_motion", "missing_motion"]:
+		if _has_property(presentation, key): value[key] = String(presentation.get(key))
+		else: value.available = false
+	var sprite := presentation.get("sprite") as AnimatedSprite2D if _has_property(presentation, "sprite") else null
+	if sprite != null:
+		value.visible = sprite.visible
+		value.animation = String(sprite.animation)
+		value.frame = sprite.frame
+		value.resource_path = "" if sprite.sprite_frames == null else sprite.sprite_frames.resource_path
+	else: value.available = false
+	if presentation.has_method("screen_bounds"):
+		var bounds: Variant = presentation.call("screen_bounds")
+		if bounds is Rect2: value.screen_bounds = {"x": bounds.position.x, "y": bounds.position.y, "width": bounds.size.x, "height": bounds.size.y}
+	if value.screen_bounds == null: value.available = false
+	return value
 
 func _lan_snapshot(value: Dictionary) -> void:
 	snapshot = value.duplicate(true)
@@ -319,6 +370,8 @@ func _ui() -> Array[Dictionary]:
 		item.node_name = String(control.name)
 		if control is OptionButton:
 			item.selected = control.selected
+			item.popup_visible = control.get_popup().visible
+			item.popup_focused = control.get_popup().get_focused_item()
 			item.options = []
 			var ids: Array = control.get_meta("qa_values", [])
 			for index: int in control.item_count:

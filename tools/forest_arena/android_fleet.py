@@ -9,6 +9,7 @@ import concurrent.futures
 import hashlib
 import ipaddress
 import json
+import math
 import os
 from pathlib import Path
 import re
@@ -34,6 +35,13 @@ CASES = ('DEV-01', 'UI-01', 'OFF-01', 'INPUT-01', 'LIFE-01', 'OFF-02', 'MODE-01'
 
 class Blocked(RuntimeError):
     """Environment/transport prevented a measurement."""
+
+
+class ManualPending(Blocked):
+    """Automatic subchecks finished; an actual simultaneous-touch check remains."""
+    def __init__(self, message, observed):
+        super().__init__(message)
+        self.observed = observed
 
 
 class NotExecuted(RuntimeError):
@@ -95,9 +103,57 @@ def dump_json(path, value):
     path.write_text(json.dumps(redact(value), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
+def validated_source_file_hashes(manifest):
+    files = manifest.get('files')
+    require(isinstance(files, dict) and files, '소스 내역의 코드·자산 파일 해시가 없습니다.')
+    for name, digest in files.items():
+        relative = isinstance(name, str) and bool(name) and not Path(name).is_absolute()
+        require(relative and all(part not in ('', '.', '..') for part in name.split('/')) and not any(c in name for c in ('\\', '\0', '\n', '\r')), '소스 내역의 파일 경로가 올바르지 않습니다.')
+        require(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest), '소스 내역은 파일 경로와 SHA256 해시만 보관할 수 있습니다.')
+    return dict(files)
+
+
+def dump_source_manifest(path, manifest):
+    # Source paths may contain "token" in their names. Preserve only strictly
+    # validated SHA256 values there; apply the normal private-data filter to all
+    # other fields, including unexpected authentication metadata.
+    files = validated_source_file_hashes(manifest)
+    safe = redact({key: value for key, value in manifest.items() if key != 'files'})
+    safe['files'] = files
+    path.write_text(json.dumps(safe, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
+
+
 def hash_file(path):
     with Path(path).open('rb') as stream:
         return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+
+def source_manifest_metadata(manifest, project_root):
+    require(Path(manifest.get('snapshot_root', '')).resolve() == Path(project_root).resolve(), '소스 내역의 복제 경로와 실행 프로젝트가 다릅니다.')
+    require(re.fullmatch(r'[0-9a-f]{40}', manifest.get('git_head', '')), '소스 내역의 원본 코드 버전이 없습니다.')
+    files = validated_source_file_hashes(manifest)
+    return {'code_version': manifest['git_head'], 'code_dirty': bool(manifest.get('git_status')),
+            'source_root': manifest.get('source_root', ''), 'source_file_count': len(files),
+            'source_files_sha256': hashlib.sha256(json.dumps(files, sort_keys=True, separators=(',', ':')).encode()).hexdigest()}
+
+
+def archive_runner_sources(output, include_auth=False, source_root=None):
+    source_root = Path(source_root) if source_root else Path(__file__).resolve().parent
+    files = ['android_fleet.py', 'android_touch.py', 'android_fleet_touch/FleetTouch.java']
+    if include_auth:
+        files.append('android_fleet_auth_fixture.py')
+    destination = Path(output) / 'runner-source'
+    destination.mkdir(parents=True, exist_ok=False)
+    (destination / '.gdignore').touch()
+    hashes = {}
+    for name in files:
+        content = (source_root / name).read_bytes()
+        target = destination / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(content)
+        hashes[name] = hashlib.sha256(content).hexdigest()
+    return {'runner_tool_sha256': hashes['android_fleet.py'], 'runner_source_files': hashes,
+            'runner_source_sha256': hashlib.sha256(json.dumps(hashes, sort_keys=True, separators=(',', ':')).encode()).hexdigest()}
 
 
 def run_process(args, timeout=30, data=None, env=None):
@@ -278,12 +334,14 @@ class ADB:
 
 
 class DeviceRun:
-    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None):
+    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None, current_policy=False, touch_helper=None):
         self.adb, self.alias, self.run_id, self.output, self.activity = adb, alias, run_id, output, activity
         self.output.mkdir(parents=True, exist_ok=True)
         self.screen_timeout, self.match_timeout, self.stall_timeout = screen_timeout, match_timeout, stall_timeout
         self.install_timeout = install_timeout
         self.apk_sha256 = apk_sha256
+        self.current_policy = current_policy
+        self.touch_helper = touch_helper
         self.apk_identity = {}
         self.clock, self.sleep = clock, sleep
         self.seq, self.case_id, self.state = 0, 'DEV-01', {}
@@ -291,6 +349,8 @@ class DeviceRun:
         self.device_info = {}
         self.logcat = None
         self.logfile = None
+        self.logstderr = None
+        self.game_log = {'status': '미실행', 'exit_status': None, 'stderr': ''}
         self.evidence_seq = 0
         self.physical_size = None
         self.performance_signature = None
@@ -299,6 +359,9 @@ class DeviceRun:
         self.metric_thread = None
         self.cleanup_autoplay = '미실행'
         self.original_hashes = None
+        self.case_observations = {}
+        self.log_mode = None
+        self.log_uid = None
 
     def read(self):
         if CANCELLED.is_set():
@@ -380,17 +443,27 @@ class DeviceRun:
 
     def select_option(self, title, value):
         node = self.node(id=f"{self.state['screen']}/choice/{title}")
-        self.tap(id=node['id'])
-        # PopupMenu exposes no public item rectangles. Android keyboard events
-        # select the actual focused native/Godot popup, then verify profile data.
         options = node.get('options', [])
         index = next((i for i, item in enumerate(options) if item.get('id') == value or item.get('text') == value), None)
         require(index is not None, f'선택 항목이 없습니다: {title}/{value}')
-        delta = index - int(node.get('selected', 0))
+        self.tap(id=node['id'])
+        def choice(state):
+            return next((item for item in state.get('ui', []) if item.get('id') == node['id']), {})
+        state = self.wait(lambda s: choice(s).get('popup_visible', False), label=f'{title} 선택 목록 열기')
+        focused = int(choice(state).get('popup_focused', -1))
+        # A newly opened popup can have no focused item even when the option
+        # has a selected value. The first DOWN establishes actual focus.
+        if focused < 0:
+            self.adb.shell('input', 'keyevent', '20')
+            state = self.wait(lambda s: choice(s).get('popup_visible', False) and int(choice(s).get('popup_focused', -1)) >= 0, label=f'{title} 선택 목록 포커스')
+            focused = int(choice(state)['popup_focused'])
+        require(0 <= focused < len(options), f'{title} 선택 목록 포커스 오류')
+        delta = index - focused
         for _ in range(abs(delta)):
             self.adb.shell('input', 'keyevent', '20' if delta > 0 else '19')
+        self.wait(lambda s: choice(s).get('popup_visible', False) and choice(s).get('popup_focused') == index, label=f'{title} 선택 목록 항목 이동')
         self.adb.shell('input', 'keyevent', '66')
-        self.sleep(.35)
+        self.wait(lambda s: not choice(s).get('popup_visible', True) and choice(s).get('selected') == index, label=f'{title} 선택 반영')
         with (self.output / 'adb-touch.jsonl').open('a', encoding='utf-8') as stream:
             stream.write(json.dumps({'case_id': self.case_id, 'input_source': 'adb_keyevent', 'id': node['id'], 'option': value, 'index': index}, ensure_ascii=False) + '\n')
 
@@ -406,6 +479,7 @@ class DeviceRun:
     def case(self, case_id, callback, input_source='adb_touch+debug_autoplay'):
         self.case_id = case_id
         started = self.clock()
+        self.case_observations = {}
         try:
             if self.state:
                 self.command('context')
@@ -414,9 +488,9 @@ class DeviceRun:
         except NotExecuted as error:
             observed, status, message = {}, '미실행', str(error)
         except Blocked as error:
-            observed, status, message = {}, 'blocked', str(error)
+            observed, status, message = getattr(error, 'observed', self.case_observations), 'blocked', str(error)
         except (Failure, KeyError, TypeError, ValueError) as error:
-            observed, status, message = {}, 'fail', str(error)
+            observed, status, message = self.case_observations, 'fail', str(error)
         self.evidence('end')
         result = {'schema_version': 1, 'run_id': self.run_id, 'device': self.alias, 'case_id': case_id,
                   'status': status, 'step': self.state.get('step', ''), 'input_source': input_source, 'duration_seconds': round(self.clock()-started, 3),
@@ -427,7 +501,7 @@ class DeviceRun:
 
     def mark(self, case_id, status, message):
         self.results.append({'schema_version': 1, 'run_id': self.run_id, 'device': self.alias, 'case_id': case_id,
-                             'status': status, 'expected': CASE_EXPECTATIONS[case_id], 'observed': {}, 'message': message})
+                             'status': status, 'step': self.state.get('step', 'unobserved'), 'expected': CASE_EXPECTATIONS[case_id], 'observed': {}, 'message': message})
 
     def launch(self):
         prior_boot = self.read().get('boot_id')
@@ -435,6 +509,8 @@ class DeviceRun:
         self.adb.launch(self.activity, self.run_id, self.alias)
         state = self.wait(lambda s: s.get('boot_id') and s.get('boot_id') != prior_boot, label='새 앱 프로세스 시작')
         self.seq = max(self.seq, int(state.get('command_seq', 0)))
+        if self.log_mode == 'pid':
+            self._start_pid_logcat()
 
     def setup(self, apk):
         before_hash = hash_file(apk)
@@ -482,12 +558,37 @@ class DeviceRun:
             raise Blocked('선택한 원본 APK와 실기기에 설치된 APK 해시가 다릅니다. 새 실행으로 재검사하세요.')
 
     def start_logcat(self):
+        self.game_log['status'] = '미확인'
         listing = self.adb.shell('pm', 'list', 'packages', '-U', self.adb.package)
         uid = re.search(r'uid:(\d+)', listing)
         require(uid, 'APK UID를 읽지 못해 앱 로그 수집 불가')
+        self.log_uid = uid.group(1)
+        help_text = self.adb.run('logcat', '--help', check=False).decode(errors='replace')
+        self.log_mode = 'uid' if '--uid' in help_text else 'pid'
+        self.game_log['filter'] = self.log_mode
+        self.game_log['segments'] = []
         self.logfile = (self.output / 'game-log.raw').open('wb')
-        # UID remains stable across cold starts; capture startup and relaunched processes.
-        self.logcat = subprocess.Popen([self.adb.executable, '-s', self.adb.serial, 'logcat', f'--uid={uid.group(1)}', '-T', '1', '-v', 'threadtime'], stdout=self.logfile, stderr=subprocess.DEVNULL)
+        self.logstderr = (self.output / 'game-log-stderr.raw').open('wb')
+        if self.log_mode == 'uid':
+            self._spawn_logcat(f'--uid={self.log_uid}')
+        # Android 11 may lack --uid. Start an app-only PID collector after
+        # every cold launch; buffered app messages include that launch.
+
+    def _spawn_logcat(self, filter_arg):
+        self.logcat = subprocess.Popen([self.adb.executable, '-s', self.adb.serial, 'logcat', filter_arg, '-T', '100', '-v', 'threadtime'], stdout=self.logfile, stderr=self.logstderr)
+        self.game_log['segments'].append({'filter': filter_arg, 'boot_id': self.state.get('boot_id', '')})
+
+    def _start_pid_logcat(self):
+        if self.logcat and self.logcat.poll() is None:
+            self.logcat.terminate()
+            try:
+                self.logcat.wait(timeout=5)
+            except subprocess.TimeoutExpired:
+                self.logcat.kill()
+                self.logcat.wait()
+        process_ids = self.adb.shell('pidof', self.adb.package).strip().split()
+        require(len(process_ids) == 1 and process_ids[0].isdigit(), '앱 PID를 읽지 못해 해당 앱 로그 수집 불가')
+        self._spawn_logcat(f'--pid={process_ids[0]}')
 
     def initial_ui(self):
         cards = [item for item in self.read().get('ui', []) if item.get('kind') == 'button' and item.get('text') not in ('저장 모드 · 기기 저장',)]
@@ -545,21 +646,22 @@ class DeviceRun:
     def selections(self):
         self.prepare()
         validated = []
+        self.case_observations = {'actual_match_selections': validated}
         for character in CHARACTERS:
             self.tap(CHARACTER_LABELS[character])
             self.wait(lambda s: s.get('profile', {}).get('selected_character') == character)
             accessory = self.state['profile']['selected_accessory']
             self.start_match()
-            self.assert_config(character, accessory)
-            validated.append({'character': character, 'accessory': accessory})
+            observed = self.assert_config(character, accessory)
+            validated.append({'character': character, 'accessory': accessory, **observed})
             self.prepare()
         for accessory in ACCESSORIES:
             self.select_option('장신구', accessory)
             self.wait(lambda s: s.get('profile', {}).get('selected_accessory') == accessory)
             character = self.state['profile']['selected_character']
             self.start_match()
-            self.assert_config(character, accessory)
-            validated.append({'character': character, 'accessory': accessory})
+            observed = self.assert_config(character, accessory)
+            validated.append({'character': character, 'accessory': accessory, **observed})
             self.prepare()
         return {'actual_match_selections': validated}
 
@@ -567,6 +669,36 @@ class DeviceRun:
         fighter = self.player(self.read())
         require(fighter.get('character_id') == character and fighter.get('accessory_id', '') == accessory,
                 '선택과 실제 경기 데이터가 다릅니다.')
+        observed = {'presentation': fighter.get('presentation', {})}
+        if self.current_policy:
+            observed['runtime_configuration'] = self.validate_current_profile(fighter, accessory)
+        return observed
+
+    @staticmethod
+    def validate_current_profile(fighter, accessory):
+        profile = fighter.get('runtime_profile', {})
+        base, stats = profile.get('base_stats', {}), profile.get('stats', {})
+        require(base and stats and set(base) == set(stats), '현재 장신구 기준값/경기 능력치 진단 누락')
+        multipliers = {
+            'fixture-iron-armor': {'weight': 1.05, 'ground_speed': .95},
+            'fixture-thorns': {'air_speed': 1.05, 'ground_speed': .95},
+            'fixture-explosive-gloves': {'jump_velocity': 1.05, 'weight': .95},
+            'fixture-phoenix-revive': {'gravity': .95, 'air_speed': .95},
+            'fixture-ultimate-charm': {'ground_speed': .95},
+        }.get(accessory, {})
+        for field, original in base.items():
+            expected = float(original) * multipliers.get(field, 1.)
+            require(math.isclose(float(stats[field]), expected, rel_tol=1e-5, abs_tol=1e-4),
+                    f'{accessory or "미장착"} {field}: 기대 {expected}, 관측 {stats[field]}')
+        if accessory == 'fixture-boxing-gloves':
+            require(profile.get('move_set_id') == 'yu-ran.base' and profile.get('replacement_move_set') == 'yu-ran.base', '복싱 글러브의 유란 동작 세트 교체 누락')
+            require(profile.get('attack_ids') and all(a.startswith(('yu-ran-', 'yu-ran.base-')) for a in profile['attack_ids']), '복싱 글러브의 실제 공격 ID 교체 누락')
+        if accessory == 'fixture-ultimate-charm':
+            effects = [e for e in profile.get('combat_effects', []) if e.get('cause_id') == accessory]
+            require(len(effects) == 1 and effects[0].get('kind') == 3 and effects[0].get('trigger') == 2 and effects[0].get('amount') == 4, '궁극기 부적은 피격 성공 시 GAIN_ULTIMATE 4만 적용해야 합니다.')
+        return {'stats': stats, 'base_stats': base, 'move_set_id': profile.get('move_set_id'),
+                'attack_ids': profile.get('attack_ids', []), 'combat_effects': profile.get('combat_effects', []),
+                'evidence_kind': 'live_runtime_configuration', 'actual_effect_trigger': '미실행: 별도 전투 동작 검사'}
 
     def player(self, state=None):
         state = state or self.state
@@ -587,6 +719,25 @@ class DeviceRun:
         self.assert_released(state)
         return state
 
+    def positive_evade(self):
+        from android_touch import prepare, perform
+        if not self.touch_helper:
+            sdk = Path(os.environ.get('ANDROID_HOME', str(Path(self.adb.executable).resolve().parent.parent)))
+            self.touch_helper = prepare(sdk, ROOT / 'build/android-fleet-touch-cache')
+        self.command('autoplay', enabled=False)
+        before = self.wait(lambda state: self.player(state).get('state') == 'IDLE', label='방향+회피 실제 터치 준비')
+        touch_seq = max((e.get('seq', 0) for e in before.get('touch_events', [])), default=0)
+        combat_seq = max((e.get('seq', 0) for e in before.get('combat_events', [])), default=0)
+        first = self.center(self.node(id='touch/move_right', scroll=False))
+        second = self.center(self.node(id='touch/evade', scroll=False))
+        evidence = perform(self.adb, self.touch_helper, first, second)
+        self.assert_touch_edges('move_right', touch_seq)
+        self.assert_touch_edges('evade', touch_seq)
+        self.wait(lambda state: any(e.get('seq', 0) > combat_seq and e.get('fighter_id') == 'player' and e.get('id') == 'fighter_state' and e.get('state') == 'EVADE' for e in state.get('combat_events', [])), label='방향+회피 실제 EVADE 상태')
+        self.assert_released(self.state)
+        return {**evidence, 'combat_state': 'EVADE', 'touch_edges_verified': True,
+                'human_multitouch_quality': '미실행: 별도 수동 검사'}
+
     def inputs(self):
         self.prepare()
         self.command('select_config', character='ja-hyun', accessory='', mode=4)
@@ -594,7 +745,8 @@ class DeviceRun:
         self.command('autoplay', enabled=False)
         self.wait(lambda state: self.player(state).get('state') not in ('SPAWNING', 'DEAD', 'RING_OUT', None), label='플레이어 입력 준비')
         checked = []
-        for action in ('move_right', 'move_left', 'jump', 'attack_light', 'attack_heavy', 'attack_special', 'evade'):
+        self.case_observations = {'actions': checked, 'evade_positive': '미실행: 실제 방향+회피 동시 터치 수동 검사 필요'}
+        for action in ('move_right', 'move_left', 'jump', 'attack_light', 'attack_heavy', 'attack_special'):
             before = self.read()
             previous_seq = max((e.get('seq', 0) for e in before.get('touch_events', [])), default=0)
             combat_seq = max((e.get('seq', 0) for e in before.get('combat_events', [])), default=0)
@@ -610,12 +762,31 @@ class DeviceRun:
                     return delta_x > 1 if action == 'move_right' else delta_x < -1
                 if action == 'jump':
                     return any(e.get('state') == 'JUMP' for e in observations)
-                if action == 'evade':
-                    return any(e.get('state') == 'EVADE' for e in observations)
                 return any(self.attack_family_matches(action, e.get('attack_id')) for e in observations)
             self.wait(changed, label=f'{action} 실제 전투 상태 변화')
             checked.append(action)
             self.sleep(1.0)
+        # A neutral evade touch cannot enter EVADE: normal game rules require
+        # held direction. Validate its touch edges without inventing a positive
+        # simultaneous-touch result, and keep testing ultimate independently.
+        before = self.read()
+        combat_seq = max((e.get('seq', 0) for e in before.get('combat_events', [])), default=0)
+        previous_seq = max((e.get('seq', 0) for e in before.get('touch_events', [])), default=0)
+        require(self.player(before).get('input_direction', 0) == 0, '중립 회피 검사에서 방향 입력이 남았습니다.')
+        self.tap(id='touch/evade', hold_ms=160)
+        self.assert_touch_edges('evade', previous_seq)
+        self.sleep(.3)
+        require(not any(e.get('seq', 0) > combat_seq and e.get('fighter_id') == 'player' and e.get('state') == 'EVADE' for e in self.read().get('combat_events', [])), '방향 없는 회피가 EVADE로 처리됐습니다.')
+        self.case_observations['evade_neutral_touch'] = 'pass'
+        pending_evade = None
+        try:
+            self.case_observations['evade_positive'] = self.positive_evade()
+            checked.append('evade')
+        except (RuntimeError, FileNotFoundError, subprocess.TimeoutExpired) as error:
+            if isinstance(error, (Blocked, Failure)):
+                raise
+            pending_evade = str(error)
+            self.case_observations['evade_positive'] = {'status': 'blocked', 'message': pending_evade}
         # Gauge starts empty. This test uses real combat to earn readiness, never injects gauge.
         before = self.read()
         require(self.player(before).get('ultimate_gauge', float('inf')) < before.get('snapshot', {}).get('ultimate_gauge_max', 0), '궁극기 준비 전 검사의 실제 게이지 조건이 맞지 않습니다.')
@@ -623,6 +794,7 @@ class DeviceRun:
         self.tap(id='touch/ultimate')
         self.assert_touch_edges('ultimate', previous_seq)
         require(not self.player().get('ultimate_used_this_stock'), '조건 충족 전에 궁극기가 사용됐습니다.')
+        self.case_observations['ultimate_before_ready'] = False
         self.command('autoplay', enabled=True, ultimate=False)
         self.wait(lambda s: self.player(s).get('ultimate_gauge', 0) >= s.get('snapshot', {}).get('ultimate_gauge_max', 100), timeout=self.match_timeout, label='정상 전투 궁극기 준비')
         self.command('autoplay', enabled=False)
@@ -630,8 +802,11 @@ class DeviceRun:
         self.tap(id='touch/ultimate', hold_ms=160)
         self.assert_touch_edges('ultimate', previous_seq)
         self.wait(lambda s: self.player(s).get('ultimate_used_this_stock') is True, label='궁극기 사용')
+        self.case_observations['ultimate_after_ready'] = True
         self.prepare()
-        return {'actions': checked, 'ultimate_before_ready': False, 'ultimate_after_ready': True}
+        if pending_evade:
+            raise ManualPending('방향+회피의 실제 복수 터치 전달 불가: ' + pending_evade, self.case_observations)
+        return self.case_observations
 
     @staticmethod
     def assert_released(state, message='터치 입력이 해제되지 않았습니다.'):
@@ -668,6 +843,11 @@ class DeviceRun:
         result_screen = 'lan_result' if lan else 'result'
         while self.clock() < stop:
             state = self.read()
+            negative = [f for f in state.get('snapshot', {}).get('fighters', []) if f.get('stocks', 0) < 0]
+            if negative:
+                self.case_observations['invalid_combat_state'] = {'reason': 'negative_stocks', 'fighters': negative, 'snapshot': state.get('snapshot', {})}
+                self.evidence('negative-stocks')
+                raise Failure('남은 기회가 음수인 실제 경기 상태: '+', '.join(f'{f.get("id", "unknown")}={f["stocks"]}' for f in negative))
             if state.get('screen') == result_screen:
                 self.evidence('result')
                 result = state.get('latest_result', {})
@@ -739,21 +919,61 @@ class DeviceRun:
         return {'result': result, 'rematch_reset': True}
 
     def modes(self):
-        modes = []
-        for mode, count in ((4, 2), (1, 8), (2, 8), (0, 2)):
-            self.prepare()
-            self.command('select_config', mode=mode, solo_count=8, team_size=4)
-            self.start_match()
-            self.validate_mode_snapshot(self.state['snapshot'], mode, count)
-            if mode != 4:
-                self.command('autoplay', enabled=True)
-                result = self.combat_result()
+        definitions = ((4, 2, 'practice', '연습 진입·입력 해제·준비 화면 복귀'),
+                       (1, 8, 'solo', 'Solo 8명·팀 없음·정상 전투 결과·복귀'),
+                       (2, 8, 'team', 'Team 4대4 구분·정상 전투 결과·복귀'),
+                       (0, 2, 'story', '현재 Story 프롤로그 진입·입력 해제·복귀'))
+        observations = []
+        self.case_observations = {'modes': observations}
+        recoverable = True
+        for mode, count, name, expected in definitions:
+            record = {'schema_version': 1, 'run_id': self.run_id, 'case_id': 'MODE-01',
+                      'mode_case_id': name, 'device': self.alias, 'step': 'mode_entry',
+                      'mode': mode, 'participants': count, 'expected': expected, 'observed': {}}
+            observations.append(record)
+            if not recoverable:
+                record.update(status='blocked', message='이전 모드 뒤 준비 화면·입력 해제를 복구하지 못했습니다.')
+                continue
+            started = self.clock()
+            try:
+                self.prepare()
+                self.command('select_config', mode=mode, solo_count=8, team_size=4)
+                self.start_match()
+                record['observed']['initial_snapshot'] = self.state['snapshot']
+                self.validate_mode_snapshot(self.state['snapshot'], mode, count)
+                self.evidence('mode-'+name+'-entry')
+                if mode in (1, 2):
+                    self.command('autoplay', enabled=True)
+                    record['step'] = 'combat_result'
+                    record['observed']['result'] = self.combat_result()
+                else:
+                    record['observed']['entry'] = True
+                record.update(status='pass', message='기대 모드 동작을 실제 경기에서 확인했습니다.')
+            except (Blocked, Failure, KeyError, TypeError, ValueError) as error:
+                record.update(status='blocked' if isinstance(error, Blocked) else 'fail', message=str(error))
+                record['observed']['last_snapshot'] = self.state.get('snapshot', {})
+                self.evidence('mode-'+name+'-failure')
+            try:
                 self.command('autoplay', enabled=False)
-            else:
-                result = {'practice_exit': True}
-            modes.append({'mode': mode, 'participants': count, 'result': result})
-            self.prepare()
-        return {'modes': modes}
+                self.prepare()
+                self.assert_released(self.read(), '모드 복귀 뒤 입력이 해제되지 않았습니다.')
+                record['observed']['return_to_prepare'] = True
+                record['observed']['input_released'] = True
+            except (Blocked, Failure, KeyError, TypeError, ValueError) as error:
+                record['observed']['recovery'] = {'status': 'blocked', 'message': str(error)}
+                if record['status'] == 'pass':
+                    record.update(status='blocked', message='모드 검사 뒤 복귀를 확인하지 못했습니다: '+str(error))
+                recoverable = False
+            record['duration_seconds'] = round(self.clock()-started, 3)
+            dump_json(self.output/'mode-results.json', self.case_observations)
+        dump_json(self.output/'mode-results.json', self.case_observations)
+        failed = [r['mode_case_id'] for r in observations if r['status'] == 'fail']
+        blocked = [r['mode_case_id'] for r in observations if r['status'] == 'blocked']
+        if failed:
+            raise Failure('모드 하위 검사 실패: '+', '.join(failed))
+        if blocked:
+            raise Blocked('모드 하위 검사 확인 불가: '+', '.join(blocked))
+        return self.case_observations
 
     def soak(self, duration, jobs):
         if not duration:
@@ -844,22 +1064,35 @@ class DeviceRun:
                 dump_json(self.output / 'original-stores.json', {'before': self.original_hashes, 'after': None, 'unchanged': None, 'status': 'blocked'})
                 self.mark('UI-01', 'blocked', '검사 종료 뒤 기존 저장 파일 보존 여부를 확인하지 못했습니다.')
         if self.logcat:
-            self.logcat.terminate()
-            try:
-                self.logcat.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                self.logcat.kill()
-                self.logcat.wait()
+            self.game_log['exit_status'] = self.logcat.poll()
+            self.game_log['running_until_cleanup'] = self.game_log['exit_status'] is None
+            if self.game_log['running_until_cleanup']:
+                self.logcat.terminate()
+                try:
+                    self.logcat.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    self.logcat.kill()
+                    self.logcat.wait()
+            self.game_log['cleanup_exit_status'] = self.logcat.returncode
+        if self.logstderr:
+            self.logstderr.close()
+            raw_stderr = self.output / 'game-log-stderr.raw'
+            self.game_log['stderr'] = redact(raw_stderr.read_text(errors='replace')[:8192])
+            raw_stderr.unlink()
         if self.logfile:
             self.logfile.close()
             raw = self.output / 'game-log.raw'
             log = raw.read_text(errors='replace')
+            self.game_log['stdout_bytes'] = raw.stat().st_size
+            self.game_log['status'] = 'unavailable' if self.game_log['exit_status'] not in (None, 0) else ('available' if log.strip() else '미확인')
             if re.search(r'FATAL EXCEPTION|Fatal signal|ANR in|Application Not Responding', log):
                 self.mark('SOAK-01', 'fail', '앱 로그에서 충돌 또는 응답 멈춤을 발견했습니다.')
             (self.output / 'game.log').write_text(redact(log), encoding='utf-8')
             raw.unlink()
+        dump_json(self.output / 'game-log.json', self.game_log)
         dump_json(self.output / 'performance.json', {'samples': self.metrics, 'system_samples': self.system_metrics,
                   'runtime_available': bool(self.metrics), 'cleanup_autoplay': self.cleanup_autoplay,
+                  'game_log': self.game_log,
                   'thresholds': '미승인: 측정값만 보고'})
         dump_json(self.output / 'results.json', self.results)
         dump_json(self.output / 'device.json', self.device_info)
@@ -882,30 +1115,36 @@ CASE_EXPECTATIONS = {
 
 class LanServer:
     """Independent game process and in-memory guest fixture per device pair."""
-    def __init__(self, bind, cidr, port, api_port, output, godot, run_id):
+    def __init__(self, bind, cidr, port, api_port, output, godot, run_id, project_root=ROOT, protocol=2):
         self.bind, self.cidr, self.port, self.api_port = bind, cidr, port, api_port
         self.output, self.godot, self.run_id = output, godot, run_id
         self.output.mkdir(parents=True, exist_ok=True)
+        require(protocol in (1, 2), '지원하지 않는 LAN 프로토콜입니다.')
+        self.project_root, self.protocol = Path(project_root), protocol
         self.fixture = self.process = self.stream = None
-        self.code = f'FAH2|http://{bind}:{api_port}|ws://{bind}:{port}|2'
+        self.code = f'FAH2|http://{bind}:{api_port}|ws://{bind}:{port}|2' if protocol == 2 else f'FAH1|ws://{bind}:{port}|1'
 
     def start(self):
-        from android_fleet_auth_fixture import GuestFixture
-        import secrets
-        token = secrets.token_urlsafe(32)
-        try:
-            self.fixture = GuestFixture(self.bind, self.api_port, token).start()
-        except OSError as error:
-            raise Blocked(f'LAN 테스트 API 포트를 열 수 없습니다: {error}') from error
         env = os.environ.copy()
-        env.update(FOREST_ARENA_LAN_API_URL=f'http://{self.bind}:{self.api_port}',
-                   FOREST_ARENA_API_BASE_URL=f'http://{self.bind}:{self.api_port}',
-                   FOREST_ARENA_SERVICE_TOKEN=token, FOREST_ARENA_ALLOWED_CIDR=self.cidr,
-                   FOREST_ARENA_LAN_BIND_HOST=self.bind, FOREST_ARENA_LAN_ADVERTISED_WS_URL=f'ws://{self.bind}:{self.port}',
+        if self.protocol == 2:
+            from android_fleet_auth_fixture import GuestFixture
+            import secrets
+            token = secrets.token_urlsafe(32)
+            try:
+                self.fixture = GuestFixture(self.bind, self.api_port, token).start()
+            except OSError as error:
+                raise Blocked(f'LAN 테스트 API 포트를 열 수 없습니다: {error}') from error
+            env.update(FOREST_ARENA_LAN_API_URL=f'http://{self.bind}:{self.api_port}',
+                       FOREST_ARENA_API_BASE_URL=f'http://{self.bind}:{self.api_port}', FOREST_ARENA_SERVICE_TOKEN=token)
+        else:
+            for name in ('FOREST_ARENA_LAN_API_URL', 'FOREST_ARENA_API_BASE_URL', 'FOREST_ARENA_SERVICE_TOKEN'):
+                env.pop(name, None)
+        env.update(FOREST_ARENA_ALLOWED_CIDR=self.cidr, FOREST_ARENA_LAN_BIND_HOST=self.bind,
+                   FOREST_ARENA_LAN_ADVERTISED_WS_URL=f'ws://{self.bind}:{self.port}',
                    FOREST_ARENA_LAN_PORT=str(self.port), FOREST_ARENA_QA_RUN=self.run_id)
         self.stream = (self.output / 'server.raw').open('wb')
         try:
-            self.process = subprocess.Popen([self.godot, '--headless', '--path', str(ROOT), 'res://server/game/lan_game_server.tscn'], stdout=self.stream, stderr=subprocess.STDOUT, env=env)
+            self.process = subprocess.Popen([self.godot, '--headless', '--path', str(self.project_root), 'res://server/game/lan_game_server.tscn'], stdout=self.stream, stderr=subprocess.STDOUT, env=env)
         except FileNotFoundError as error:
             raise Blocked('Godot 실행 파일이 없습니다.') from error
         deadline = time.monotonic()+30
@@ -973,13 +1212,15 @@ def _menu(device):
     device.screen('lan_menu')
 
 
-def _lan_login(device, intent, code):
+def _lan_login(device, intent, code, protocol=2):
     _menu(device)
     device.tap('방 만들기' if intent == 'host' else '초대 코드로 참가')
     device.screen('lan_host' if intent == 'host' else 'lan_join')
     line = device.node(kind='input')
     device.command('set_text', id=line['id'], value=code)
     device.tap('방 생성' if intent == 'host' else '방 참가')
+    if protocol == 1:
+        return
     device.screen('demo_nickname')
     nickname = next((n for n in device.state.get('ui', []) if n.get('node_name') == 'DemoNicknameInput'), None)
     nickname = nickname or device.node(kind='input')
@@ -990,11 +1231,14 @@ def _lan_login(device, intent, code):
 
 
 def _pair_join(host, guest, server):
+    for device in (host, guest):
+        if device.read().get('screen') != 'home':
+            raise Blocked('LAN 독립 검사 전에 두 APK의 로비 복귀를 확인해야 합니다.')
     generations = [int(d.read().get('match_generation', 0)) for d in (host, guest)]
-    _lan_login(host, 'host', server.code)
+    _lan_login(host, 'host', server.code, server.protocol)
     host.screen('lan_waiting')
     invite = host.wait(lambda s: bool(s.get('lan_invite')), label='공개 초대 코드')['lan_invite']
-    _lan_login(guest, 'join', invite)
+    _lan_login(guest, 'join', invite, server.protocol)
     host.wait_new_match(generations[0], lan=True)
     guest.wait_new_match(generations[1], lan=True)
     return invite
@@ -1010,6 +1254,27 @@ def _compare_lan_results(host, guest, server, timeout=300):
     return results[0]
 
 
+def _websocket_upgrade(sock, request, timeout=10, clock=time.monotonic):
+    """Bound HTTP upgrade even when a peer closes or sends endless headers."""
+    sock.sendall(request)
+    deadline, buffer = clock() + timeout, b''
+    while b'\r\n\r\n' not in buffer:
+        if CANCELLED.is_set():
+            raise Blocked('사용자가 실행을 중단했습니다.')
+        remaining = deadline - clock()
+        require(remaining > 0, '정원 초과 검사 socket handshake 시간 초과')
+        sock.settimeout(min(1, remaining))
+        try:
+            chunk = sock.recv(4096)
+        except socket.timeout:
+            continue
+        require(chunk, '정원 초과 검사 socket handshake 응답 전 종료')
+        buffer += chunk
+        require(len(buffer) <= 16384, '정원 초과 검사 socket handshake 응답 크기 오류')
+    require(buffer.startswith(b'HTTP/1.1 101'), '정원 초과 검사 socket 연결 실패')
+    return buffer.split(b'\r\n\r\n', 1)[1]
+
+
 def _third_guest_rejection(server, invite):
     """Protocol probe for 2-device fleet; clearly separate from actual APK UI."""
     import base64
@@ -1022,19 +1287,20 @@ def _third_guest_rejection(server, invite):
         req = urllib.request.Request(f'http://{server.bind}:{server.api_port}'+path, data=json.dumps(data).encode(), headers=headers, method='PATCH' if path.endswith('/profile') else 'POST')
         with urllib.request.urlopen(req, timeout=5) as response:
             return json.load(response)
-    auth = request('/v1/auth/guest', {})
-    request('/v1/guest/profile', {'nickname': 'QA_third'}, auth['access_token'])
-    room = invite.split('|')[3]
+    auth = {}
+    if server.protocol == 2:
+        auth = request('/v1/auth/guest', {})
+        request('/v1/guest/profile', {'nickname': 'QA_third'}, auth['access_token'])
+    room = invite.split('|')[3 if server.protocol == 2 else 2]
     sock = socket.create_connection((server.bind, server.port), timeout=10)
     try:
         key = base64.b64encode(os.urandom(16)).decode()
-        sock.sendall(f'GET / HTTP/1.1\r\nHost: {server.bind}:{server.port}\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: {key}\r\nSec-WebSocket-Version: 13\r\n\r\n'.encode())
-        buffer = b''
-        while b'\r\n\r\n' not in buffer:
-            buffer += sock.recv(4096)
-        require(buffer.startswith(b'HTTP/1.1 101'), '정원 초과 검사 socket 연결 실패')
-        buffered = buffer.split(b'\r\n\r\n', 1)[1]
-        payload = json.dumps({'protocol_version': 2, 'type': 'join_room', 'room_code': room, 'selection': {'character_id': 'ja-hyun', 'accessory_id': ''}, 'access_token': auth['access_token']}).encode()
+        buffered = _websocket_upgrade(sock, f'GET / HTTP/1.1\r\nHost: {server.bind}:{server.port}\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: {key}\r\nSec-WebSocket-Version: 13\r\n\r\n'.encode())
+        response_deadline = time.monotonic() + 10
+        message = {'protocol_version': server.protocol, 'type': 'join_room', 'room_code': room, 'selection': {'character_id': 'ja-hyun', 'accessory_id': ''}}
+        if server.protocol == 2:
+            message['access_token'] = auth['access_token']
+        payload = json.dumps(message).encode()
         mask = os.urandom(4)
         header = bytes([0x82, 0x80 | len(payload)]) if len(payload) < 126 else bytes([0x82, 0xFE])+struct.pack('!H', len(payload))
         sock.sendall(header+mask+bytes(v ^ mask[i % 4] for i, v in enumerate(payload)))
@@ -1042,7 +1308,15 @@ def _third_guest_rejection(server, invite):
             nonlocal buffered
             chunks, buffered = buffered[:size], buffered[size:]
             while len(chunks) < size:
-                part = sock.recv(size-len(chunks))
+                if CANCELLED.is_set():
+                    raise Blocked('사용자가 실행을 중단했습니다.')
+                remaining = response_deadline - time.monotonic()
+                require(remaining > 0, '정원 초과 socket 응답 시간 초과')
+                sock.settimeout(min(1, remaining))
+                try:
+                    part = sock.recv(size-len(chunks))
+                except socket.timeout:
+                    continue
                 require(part, '정원 초과 응답 전 socket 종료')
                 chunks += part
             return chunks
@@ -1064,7 +1338,7 @@ def _third_guest_rejection(server, invite):
             break
         require(response, '정원 초과 응답 없음')
         require(response.get('code') == 'room_full', f'정원 초과 오류 불일치: {response.get("code")}')
-        return {'room_full': 'pass', 'source': 'authenticated_protocol_probe', 'actual_third_apk_ui': '미실행'}
+        return {'room_full': 'pass', 'source': 'authenticated_protocol_probe' if server.protocol == 2 else 'protocol_v1_probe', 'actual_third_apk_ui': '미실행'}
     finally:
         sock.close()
 
@@ -1096,8 +1370,8 @@ def lan_pair(host, guest, server):
         for device, generation in zip((host, guest), generations):
             device.wait_new_match(generation, lan=True)
             device.assert_reset()
-            device.mark('LAN-01', 'pass', '게스트/닉네임·방·결과·서버 일치·재대전 초기화 확인')
-            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture', 'home_restore_input': True}
+            device.mark('LAN-01', 'pass', '방·결과·서버 일치·재대전 초기화 확인')
+            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1', 'home_restore_input': True}
             device.evidence('rematch')
         current = 'LAN-03'
         host.case_id = guest.case_id = current
@@ -1139,19 +1413,19 @@ def lan_pair(host, guest, server):
         _menu(host)
         # Syntactically valid missing room on live server.
         parts = invite.split('|')
-        parts[3] = 'ZZZZZZZZ'
-        _lan_login(host, 'join', '|'.join(parts))
+        parts[3 if server.protocol == 2 else 2] = 'ZZZZZZZZ'
+        _lan_login(host, 'join', '|'.join(parts), server.protocol)
         host.wait(lambda s: s.get('last_lan_error') in ('room_not_found', 'invalid_room'), label='없는 방 안내')
         _menu(host)
         # Keep guest API up, stop game service; nickname/guest still normal.
         server.process.terminate()
         server.process.wait(timeout=5)
-        _lan_login(host, 'host', server.code)
+        _lan_login(host, 'host', server.code, server.protocol)
         host.wait(lambda s: s.get('last_lan_error') in ('connection_failed', 'connection_lost', 'request_timeout'), label='꺼진 LAN 서버 안내')
         _menu(host)
-        host.mark(current, 'pass', '잘못된 코드·없는 방·꺼진 서버 APK 안내/복귀와 인증된 정원 초과 probe 확인')
-        host.results[-1]['observed'] = {'full_room': full, 'actual_error_ui_device': host.alias, 'auth_provider': 'ephemeral_test_fixture'}
-        host.results[-1]['input_source'] = 'adb_touch+debug_text_setup+authenticated_protocol_probe'
+        host.mark(current, 'pass', '잘못된 코드·없는 방·꺼진 서버 APK 안내/복귀와 정원 초과 probe 확인')
+        host.results[-1]['observed'] = {'full_room': full, 'actual_error_ui_device': host.alias, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1'}
+        host.results[-1]['input_source'] = 'adb_touch+debug_text_setup+' + full['source']
         host.evidence('errors')
         guest.mark(current, '미실행', f'접속 실패 화면은 짝 기기 {host.alias}에서 확인했습니다. 이 기기에서는 해당 화면을 조작하지 않았습니다.')
     except (Blocked, Failure, OSError, ValueError, KeyError) as error:
@@ -1167,18 +1441,71 @@ def lan_pair(host, guest, server):
         server.close()
 
 
-def offline(device, apk, mode, duration, jobs):
+def selected_case_scope(selected_case):
+    if selected_case == 'OFF-01':
+        return ('DEV-01', 'UI-01', 'OFF-01')
+    if selected_case == 'LAN-01':
+        return ('DEV-01', 'UI-01', 'LAN-01', 'LAN-02', 'LAN-03')
+    if selected_case == 'MODE-01':
+        return ('DEV-01', 'UI-01', 'MODE-01')
+    return CASES
+
+
+def mark_unselected_cases(device, selected_case):
+    scope = selected_case_scope(selected_case)
+    for case_id in CASES:
+        if case_id not in scope:
+            device.mark(case_id, '미실행', f'{selected_case} 독립 재검사에서 선택하지 않은 사례입니다.')
+
+
+def prepare_lan_entry(device):
+    try:
+        device.command('autoplay', enabled=False)
+        if device.read().get('screen') != 'home':
+            device.prepare()
+            device.tap('로비')
+        device.screen('home')
+    except (Blocked, Failure, KeyError, TypeError, ValueError) as error:
+        dump_json(device.output / 'offline-cleanup.json', {'status': 'blocked', 'message': str(error), 'lan_eligible': False})
+        return False
+    dump_json(device.output / 'offline-cleanup.json', {'status': 'pass', 'screen': 'home', 'autoplay': False, 'lan_eligible': True})
+    return True
+
+
+def offline(device, apk, mode, duration, jobs, selected_case=None):
     steps = [('DEV-01', lambda: device.setup(apk)), ('UI-01', device.initial_ui), ('OFF-01', device.selections),
              ('INPUT-01', device.inputs), ('LIFE-01', device.lifecycle), ('OFF-02', device.offline_result), ('MODE-01', device.modes)]
+    if selected_case:
+        steps = [step for step in steps if step[0] in selected_case_scope(selected_case)]  # A fresh isolated run still installs and acquires its prerequisites.
+    sources = {'DEV-01': 'adb_install+adb_launch', 'UI-01': 'adb_touch+adb_keyevent',
+               'OFF-01': 'adb_touch+adb_keyevent', 'INPUT-01': 'adb_touch+debug_config+debug_autoplay',
+               'LIFE-01': 'adb_keyevent+adb_touch+debug_config',
+               'OFF-02': 'adb_touch+debug_config+debug_autoplay',
+               'MODE-01': 'adb_touch+debug_config+debug_autoplay'}
     for index, (case, callback) in enumerate(steps):
-        status = device.case(case, callback)
+        status = device.case(case, callback, sources[case])
         if status != 'pass':
+            if index > 0:
+                try:
+                    device.command('autoplay', enabled=False)
+                    device.prepare()
+                    continue
+                except (Blocked, Failure, KeyError, TypeError, ValueError):
+                    pass
             for remaining, _ in steps[index+1:]:
                 device.mark(remaining, 'blocked', f'{case} 문제로 후속 검사 불가')
-            device.mark('SOAK-01', 'blocked', f'{case} 문제로 반복 검사 불가')
+            if selected_case:
+                mark_unselected_cases(device, selected_case)
+            else:
+                device.mark('SOAK-01', 'blocked', f'{case} 문제로 반복 검사 불가')
             return False
+    if selected_case:
+        mark_unselected_cases(device, selected_case)
+        return prepare_lan_entry(device) if selected_case == 'LAN-01' else True
     device.soak(duration, jobs)
-    return True
+    # A failed/incomplete round can leave combat active. Only a verified home
+    # screen permits independent LAN execution; preserve the original result.
+    return prepare_lan_entry(device)
 
 
 def discover_bind():
@@ -1197,8 +1524,14 @@ def discover_bind():
 
 def parser():
     parse = argparse.ArgumentParser(description='명시적으로 선택한 Android 실기기 1~4대 자동 플레이 검사')
+    parse.add_argument('--project-root', type=Path, default=ROOT, help='APK를 만든 소스와 LAN 서버의 프로젝트 경로')
+    parse.add_argument('--source-manifest', type=Path, help='원본 코드·자산 복제 내역 JSON; 실행 증거에 보존')
+    parse.add_argument('--touch-helper', type=Path, help='SDK로 컴파일한 실제 복수 터치 jar; 없으면 입력 검사에서 준비')
+    parse.add_argument('--current-policy', action='store_true', help='현재 개발 버전 장신구 능력치·공격 교체 계약 검사')
+    parse.add_argument('--lan-protocol', type=int, choices=(1, 2), default=2, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
     parse.add_argument('--apk', type=Path, default=ROOT / 'build/android/ForestArena-debug.apk')
     parse.add_argument('--serial', '--serials', action='append', default=[], help='ADB serial; 반복 또는 쉼표 목록. 자동 전체 선택 없음')
+    parse.add_argument('--case', choices=('OFF-01', 'MODE-01', 'LAN-01'), help='선택·장신구, 모드 또는 LAN-01/02/03 독립 재검사; DEV-01/UI-01 준비 포함')
     parse.add_argument('--suite', '--mode', dest='mode', choices=('smoke', 'soak', 'extended'), default='smoke')
     parse.add_argument('--duration', type=float, help='반복 대전 초; 기본 smoke0/soak600/extended1800')
     parse.add_argument('--output', type=Path, default=ROOT / 'artifacts/android-fleet')
@@ -1217,17 +1550,29 @@ def parser():
 
 
 def write_summary(output, run_id, meta, devices, global_results):
-    results = global_results+[r for device in devices for r in device.results]
+    results = []
+    for record in global_results+[r for device in devices for r in device.results]:
+        defaults = {'schema_version': 1, 'run_id': run_id, 'device': '전체', 'step': 'preflight',
+                    'expected': CASE_EXPECTATIONS.get(record.get('case_id'), '실행 전제 및 증거 확인'), 'observed': {}}
+        results.append({**defaults, **record})
     summary = aggregate(results)
-    if meta.get('mode') in ('soak', 'extended') and summary['status'] == 'pass' and not any(r['case_id'] == 'SOAK-01' and r['status'] == 'pass' for r in results):
-        summary['status'] = 'blocked'
+    if meta.get('selected_case'):
+        summary['scope'] = ('LAN-01/02/03' if meta['selected_case'] == 'LAN-01' else meta['selected_case']) + ' 독립 재검사 및 DEV-01/UI-01 준비 검사'
+        summary['full_suite_executed'] = False
+    if meta.get('mode') in ('soak', 'extended') and summary['status'] == 'pass':
+        every_device_completed = bool(devices) and all(any(r['case_id'] == 'SOAK-01' and r['status'] == 'pass' for r in device.results) for device in devices)
+        if not every_device_completed:
+            summary['status'] = 'blocked'
     required = [(c, a) for c in CHARACTERS for a in ACCESSORIES]
     completed = {(j['character'], j['accessory']) for d in devices for j in d.combos}
     coverage = [{'character': c, 'accessory': a, 'status': 'pass' if (c, a) in completed else '미실행'} for c, a in required]
     dump_json(output / 'results.json', {'schema_version': 1, 'run_id': run_id, 'metadata': meta, 'summary': summary, 'cases': results, 'combination_coverage': coverage})
     lines = [f'# Android 실기기 자동 플레이 · {run_id}', '', f'전체 판정: **{summary["status"]}**', '',
-             '실기기에서 관측한 사례만 pass로 기록합니다. 테스트용 게스트 API는 제품 DB/API 검증 결과가 아닙니다.', '',
+             '실기기에서 관측한 사례만 pass로 기록합니다. LAN v1은 인증 API 없이 검사하며 v2 테스트용 게스트 API는 제품 DB/API 검증 결과가 아닙니다.', '',
              '| 기기 | 사례 | 판정 | 내용 |', '| --- | --- | --- | --- |']
+    if meta.get('selected_case'):
+        lines.insert(4, f'판정 범위: **{summary["scope"]}**. 다른 사례의 통과를 뜻하지 않습니다.')
+        lines.insert(5, '')
     lines += [f'| {r.get("device", "전체")} | {r["case_id"]} | {r["status"]} | {r["message"].replace("|", "/")} |' for r in results]
     lines += ['', f'28개 조합 중 완료 {len(completed)}개; 나머지는 미실행.', '',
               '성능 수치는 승인된 합격 기준이 없어 측정값만 제공합니다. 실제 Wi-Fi 끄기/켜기, 동시 터치, 소리 청취·진동 체감은 수동 재검사입니다.', '']
@@ -1244,6 +1589,8 @@ def main(argv=None):
             previous_handlers[signum] = signal.signal(signum, lambda _signum, _frame: CANCELLED.set())
     try:
         serials = selected_serials(args.serial)
+        if args.case and (args.mode != 'smoke' or args.duration not in (None, 0)):
+            raise ValueError('--case 재검사는 smoke/반복 시간 0만 사용할 수 있습니다.')
         duration = args.duration if args.duration is not None else {'smoke': 0, 'soak': 600, 'extended': 1800}[args.mode]
         if any(v <= 0 for v in (args.install_timeout, args.screen_timeout, args.match_timeout, args.stall_timeout)) or duration < 0:
             raise ValueError('대기 시간은 양수, 반복 시간은 0 이상이어야 합니다.')
@@ -1258,17 +1605,27 @@ def main(argv=None):
     output.mkdir(parents=True, exist_ok=False)
     (output / '.gdignore').touch()
     meta = {'mode': args.mode, 'duration_seconds': duration, 'apk': str(args.apk.resolve()), 'selected_serials': serials,
-            'auth_provider': 'ephemeral_test_fixture', 'code_version': ''}
-    git = run_process(['git', '-C', str(ROOT), 'rev-parse', 'HEAD'])
+            'auth_provider': 'ephemeral_test_fixture' if args.lan_protocol == 2 else 'none_protocol_v1',
+            'lan_protocol': args.lan_protocol, 'current_policy': args.current_policy, 'selected_case': args.case, 'project_root': str(args.project_root.resolve()), 'code_version': ''}
+    git = run_process(['git', '-C', str(args.project_root), 'rev-parse', 'HEAD'])
     meta['code_version'] = git.stdout.decode().strip()
     meta['install_timeout_seconds'] = args.install_timeout
-    meta['code_dirty'] = bool(run_process(['git', '-C', str(ROOT), 'status', '--porcelain']).stdout.strip())
-    meta['tracked_diff_sha256'] = hashlib.sha256(run_process(['git', '-C', str(ROOT), 'diff', '--binary', 'HEAD']).stdout).hexdigest()
+    meta['code_dirty'] = bool(run_process(['git', '-C', str(args.project_root), 'status', '--porcelain']).stdout.strip())
+    meta['tracked_diff_sha256'] = hashlib.sha256(run_process(['git', '-C', str(args.project_root), 'diff', '--binary', 'HEAD']).stdout).hexdigest()
     devices, global_results = [], []
     stage = 'DEV-01'
     try:
+        meta.update(archive_runner_sources(output, include_auth=args.lan_protocol == 2 and args.case not in ('OFF-01', 'MODE-01')))
         if not serials:
             raise Blocked('선택한 실기기가 없습니다. --serial을 명시하세요. 자동 전체 선택은 하지 않습니다.')
+        require(args.project_root.is_dir(), '프로젝트 경로가 없습니다.')
+        if args.source_manifest:
+            source_manifest = json.loads(args.source_manifest.read_text())
+            meta['runner_code_version'] = meta['code_version']
+            meta.update(source_manifest_metadata(source_manifest, args.project_root))
+            meta['tracked_diff_sha256'] = None  # Original source is represented by its complete per-file snapshot, not parent checkout diff.
+            meta['source_manifest'] = {'path': str(args.source_manifest.resolve()), 'sha256': hash_file(args.source_manifest)}
+            dump_source_manifest(output / 'source-manifest.json', source_manifest)
         meta['apk_metadata'] = inspect_apk(args.apk, args.aapt)
         identities = set()
         for index, serial in enumerate(serials):
@@ -1280,15 +1637,15 @@ def main(argv=None):
             if identity in identities:
                 raise Failure('서로 다른 ADB serial이 같은 물리 기기를 가리킵니다. 한 경로만 선택하세요.')
             identities.add(identity)
-            device = DeviceRun(adb, f'device-{index+1}', run_id, output / f'device-{index+1}', meta['apk_metadata']['activity'], args.screen_timeout, args.match_timeout, args.stall_timeout, install_timeout=args.install_timeout, apk_sha256=meta['apk_metadata'].get('sha256'))
+            device = DeviceRun(adb, f'device-{index+1}', run_id, output / f'device-{index+1}', meta['apk_metadata']['activity'], args.screen_timeout, args.match_timeout, args.stall_timeout, install_timeout=args.install_timeout, apk_sha256=meta['apk_metadata'].get('sha256'), current_policy=args.current_policy, touch_helper=args.touch_helper)
             device.device_info = info
             devices.append(device)
         jobs = combination_jobs(len(devices))
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(devices)) as pool:
-            futures = [pool.submit(offline, device, args.apk, args.mode, duration, jobs[index]) for index, device in enumerate(devices)]
+            futures = [pool.submit(offline, device, args.apk, args.mode, duration, jobs[index], selected_case=args.case) for index, device in enumerate(devices)]
             eligible = [future.result() for future in futures]
         stage = 'LAN-01'
-        bind = args.lan_bind or (discover_bind() if len(devices) >= 2 else None)
+        bind = None if args.case in ('OFF-01', 'MODE-01') else (args.lan_bind or (discover_bind() if len(devices) >= 2 else None))
         if bind:
             ip = ipaddress.ip_address(bind)
             require(ip.version == 4 and ip.is_private and not ip.is_loopback, 'LAN bind는 실제 사설 IPv4여야 합니다.')
@@ -1300,7 +1657,7 @@ def main(argv=None):
                 for index in range(0, len(devices)-1, 2):
                     if eligible[index] and eligible[index+1]:
                         pair = index//2
-                        server = LanServer(bind, cidr, args.lan_port+pair, args.api_port+pair, output/f'lan-pair-{pair+1}', args.godot, run_id)
+                        server = LanServer(bind, cidr, args.lan_port+pair, args.api_port+pair, output/f'lan-pair-{pair+1}', args.godot, run_id, project_root=args.project_root, protocol=args.lan_protocol)
                         futures.append(pool.submit(lan_pair, devices[index], devices[index+1], server))
                     else:
                         for device in devices[index:index+2]:
@@ -1308,10 +1665,12 @@ def main(argv=None):
                                 device.mark(case, 'blocked', '앞선 기기 검사 문제로 두 APK LAN 검사 불가')
                 for future in futures:
                     future.result()
-        if len(devices) % 2:
+        if args.case not in ('OFF-01', 'MODE-01') and len(devices) % 2:
             for case in ('LAN-01', 'LAN-02', 'LAN-03'):
                 devices[-1].mark(case, '미실행', '마지막 기기는 짝이 없어 오프라인만 실행합니다.')
         for device in devices:
+            if any(r['case_id'] == 'MANUAL-01' for r in device.results):
+                continue
             device.mark('MANUAL-01', '미실행', '실제 Wi-Fi 단절·동시 터치·소리·진동은 사용자 수동 재검사 필요')
     except (Blocked, Failure, OSError, ValueError) as error:
         global_results.append({'case_id': stage, 'status': 'blocked' if isinstance(error, (Blocked, OSError)) else 'fail', 'message': str(error)})
