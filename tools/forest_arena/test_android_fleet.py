@@ -543,6 +543,97 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual(marks['SOAK-01'], '미실행')
         self.assertEqual(fleet.parser().parse_args(['--case','MODE-01']).case, 'MODE-01')
 
+    def test_soak_only_scope_runs_preparation_positive_duration_and_input_cleanup(self):
+        d = Mock()
+        d.output = self.output
+        d.case.return_value = 'pass'
+        d.read.return_value = {'screen':'match'}
+        jobs = [{'character':'ja-hyun','accessory':''}]
+        self.assertTrue(fleet.offline(d, Path('game.apk'), 'soak', 600, jobs, selected_case='SOAK-01'))
+        self.assertEqual([call.args[0] for call in d.case.call_args_list], ['DEV-01','UI-01'])
+        d.soak.assert_called_once_with(600,jobs)
+        d.command.assert_called_once_with('autoplay',enabled=False)
+        d.prepare.assert_called_once()
+        d.tap.assert_called_once_with('로비')
+        d.screen.assert_called_once_with('home')
+        marks = {call.args[0]:call.args[1] for call in d.mark.call_args_list}
+        self.assertNotIn('SOAK-01',marks)
+        self.assertEqual(marks['MODE-01'],'미실행')
+        self.assertEqual(marks['LAN-01'],'미실행')
+    def test_selected_soak_failed_prerequisites_always_record_soak_blocked(self):
+        for statuses in (['blocked'],['pass','fail']):
+            d = Mock()
+            d.case.side_effect = statuses
+            self.assertFalse(fleet.offline(d,Path('game.apk'),'soak',600,[],selected_case='SOAK-01'))
+            d.soak.assert_not_called()
+            d.command.assert_not_called()  # Failed UI prerequisites cannot be promoted by screen recovery.
+            marks = {call.args[0]:call.args[1] for call in d.mark.call_args_list}
+            self.assertEqual(marks['SOAK-01'],'blocked')
+            self.assertEqual(marks['LAN-01'],'미실행')
+            self.assertEqual(marks['MODE-01'],'미실행')
+    def test_selected_soak_failed_cleanup_is_not_promoted_to_completion(self):
+        d = Mock()
+        d.output = self.output
+        d.case.return_value = 'pass'
+        d.command.side_effect = fleet.Blocked('ADB 단절')
+        self.assertFalse(fleet.offline(d,Path('game.apk'),'soak',600,[],selected_case='SOAK-01'))
+        d.soak.assert_called_once_with(600,[])
+        self.assertFalse(json.loads((self.output/'offline-cleanup.json').read_text())['lan_eligible'])
+        self.assertTrue(any(call.args[0]=='SOAK-01' and call.args[1]=='blocked' for call in d.mark.call_args_list))
+    def test_selected_soak_duration_defaults_and_smoke_recheck_limits(self):
+        parse = fleet.parser()
+        for mode,seconds in (('soak',600),('extended',1800)):
+            self.assertEqual(fleet.execution_duration(parse.parse_args(['--case','SOAK-01','--suite',mode])),seconds)
+        self.assertEqual(fleet.execution_duration(parse.parse_args(['--case','SOAK-01','--suite','soak','--duration','30'])),30)
+        for argv in (['--case','SOAK-01'], ['--case','SOAK-01','--duration','600'],
+                     ['--case','SOAK-01','--suite','soak','--duration','0'],
+                     ['--case','SOAK-01','--suite','extended','--duration','-1'],
+                     ['--case','SOAK-01','--suite','soak','--duration','nan'],
+                     ['--case','SOAK-01','--suite','soak','--duration','inf']):
+            with self.assertRaises(ValueError): fleet.execution_duration(parse.parse_args(argv))
+        for case in ('OFF-01','LIFE-01','MODE-01','LAN-01'):
+            self.assertEqual(fleet.execution_duration(parse.parse_args(['--case',case,'--suite','smoke'])),0)
+            for extra in (['--suite','soak'],['--duration','1']):
+                with self.assertRaises(ValueError): fleet.execution_duration(parse.parse_args(['--case',case]+extra))
+    def test_selected_soak_main_never_starts_lan_even_with_explicit_bind(self):
+        d = Mock()
+        d.output = self.output/'fake-device'
+        d.output.mkdir()
+        d.alias = 'device-1'
+        d.results,d.combos = [],[]
+        d.read.return_value = {'screen':'home'}
+        def mark(case,status,message):
+            d.results.append({'case_id':case,'status':status,'message':message})
+        def case(case_id,*_args):
+            mark(case_id,'pass','fake unit observation')
+            return 'pass'
+        d.mark.side_effect = mark
+        d.case.side_effect = case
+        d.soak.side_effect = lambda *_args: mark('SOAK-01','pass','fake unit round')
+        with patch.object(fleet,'run_process') as process, patch.object(fleet,'inspect_apk',return_value={'package':'com.example','activity':'Game'}), \
+             patch.object(fleet,'ADB') as adb, patch.object(fleet,'DeviceRun',return_value=d), patch.object(fleet,'LanServer') as server:
+            process.return_value.stdout = b'head'
+            adb.return_value.inspect.return_value = {'ro.serialno':'physical-one'}
+            result = fleet.main(['--case','SOAK-01','--suite','soak','--serial','one',
+                                 '--lan-bind','192.168.1.2','--output',str(self.output/'runs')])
+        self.assertEqual(result,0)
+        server.assert_not_called()
+        d.soak.assert_called_once()
+        self.assertEqual(d.soak.call_args.args[0],600)
+        artifact = json.loads(next((self.output/'runs').glob('*/results.json')).read_text())
+        self.assertFalse(artifact['summary']['full_suite_executed'])
+        self.assertIn('SOAK-01',artifact['summary']['scope'])
+        self.assertTrue(all(r['status']=='미실행' for r in artifact['cases'] if r['case_id'].startswith('LAN-')))
+    def test_selected_soak_preflight_error_records_unstarted_soak_blocked(self):
+        with patch.object(fleet,'run_process') as process, patch.object(fleet,'inspect_apk',side_effect=fleet.Blocked('APK 검사 불가')):
+            process.return_value.stdout = b'head'
+            result = fleet.main(['--case','SOAK-01','--suite','extended','--serial','one','--output',str(self.output)])
+        self.assertEqual(result,2)
+        artifact = json.loads(next(self.output.glob('*/results.json')).read_text())
+        self.assertEqual(artifact['metadata']['duration_seconds'],1800)
+        self.assertTrue(any(r['case_id']=='SOAK-01' and r['status']=='blocked' for r in artifact['cases']))
+        self.assertFalse(artifact['summary']['full_suite_executed'])
+
     def test_lan_recheck_runs_only_dev_ui_and_verifies_home_entry(self):
         d = Mock()
         d.output = self.output
@@ -626,6 +717,228 @@ class RunnerTests(unittest.TestCase):
         self.assertNotIn('FOREST_ARENA_SERVICE_TOKEN', spawn.call_args.kwargs['env'])
         self.assertNotIn('FOREST_ARENA_API_BASE_URL', spawn.call_args.kwargs['env'])
         server.stream.close()
+    def test_protocol_peer_handles_godot_id_ping_mask_and_cleanup(self):
+        server = Mock(protocol=1,bind='127.0.0.1',port=1)
+        sock = Mock()
+        message = json.dumps({'type':'joined','slot':2}).encode()
+        key = b'1234'
+        masked = bytes(value^key[i%4] for i,value in enumerate(message))
+        frames = b'\x82\x04ID42'+b'\x89\x01P'+bytes([0x82,0x80|len(masked)])+key+masked
+        with patch.object(fleet.socket,'create_connection',return_value=sock), patch.object(fleet,'_websocket_upgrade',return_value=frames):
+            peer = fleet.ProtocolPeer(server)
+        self.assertEqual(peer.receive_until(lambda m:m.get('type')=='joined')['slot'],2)
+        pong = sock.sendall.call_args.args[0]
+        self.assertEqual(pong[0],0x8a)
+        self.assertTrue(pong[1]&0x80)
+        peer.close()
+        peer.close()
+        sock.close.assert_called_once()
+    def test_protocol_peer_eof_oversize_and_cancel_are_bounded(self):
+        server = Mock(protocol=1,bind='127.0.0.1',port=1)
+        for frame in (b'\x82\x7e\x20\x01', b'\x88\x00'):
+            sock = Mock()
+            with patch.object(fleet.socket,'create_connection',return_value=sock), patch.object(fleet,'_websocket_upgrade',return_value=frame):
+                peer = fleet.ProtocolPeer(server)
+            with self.assertRaises(fleet.Failure): peer.receive_until(lambda _m:False)
+            peer.close()
+        sock = Mock()
+        sock.recv.return_value = b''
+        with patch.object(fleet.socket,'create_connection',return_value=sock), patch.object(fleet,'_websocket_upgrade',return_value=b''):
+            peer = fleet.ProtocolPeer(server)
+        with self.assertRaisesRegex(fleet.Failure,'socket 종료'): peer.receive_until(lambda _m:False)
+        with patch.object(fleet.CANCELLED,'is_set',return_value=True), self.assertRaises(fleet.Blocked):
+            peer.receive_until(lambda _m:False)
+        peer.close()
+    def test_capacity_guest_occupies_only_slot2_and_closes_after_error(self):
+        server = Mock(protocol=2)
+        peer = Mock()
+        peer.receive_until.side_effect = [{'type':'joined','slot':2,'reconnect_token':'private'}, {'type':'match_start','slot':2}, {'type':'match_end'}]
+        with patch.object(fleet,'_protocol_auth',return_value={'access_token':'private'}), patch.object(fleet,'ProtocolPeer',return_value=peer):
+            guest = fleet.CapacityGuest(server,'FA2|http://127.0.0.1:1|ws://127.0.0.1:2|ABCDEFGH|2').start()
+        self.assertEqual(guest.observed['slot'],2)
+        self.assertEqual(peer.send.call_args_list[0].args[0]['selection']['schema_version'],1)
+        self.assertFalse(guest.observed['actual_apk'])
+        self.assertFalse(guest.observed['combat_input_sent'])
+        self.assertNotIn('private',json.dumps(guest.observed))
+        guest.close()
+        self.assertEqual([call.args[0]['type'] for call in peer.send.call_args_list],['join_room','leave'])
+        peer.close.assert_called_once()
+        rejected = Mock()
+        rejected.receive_until.return_value = {'type':'error','code':'room_full'}
+        with patch.object(fleet,'_protocol_auth',return_value={}), patch.object(fleet,'ProtocolPeer',return_value=rejected):
+            fixture = fleet.CapacityGuest(Mock(protocol=1),'FA1|ws://127.0.0.1:1|ABCDEFGH|1')
+            with self.assertRaises(fleet.Failure): fixture.start()
+        rejected.close.assert_called_once()
+    def room_full_ui_devices(self, show_error=True):
+        host,guest = Mock(),Mock()
+        events = []
+        for alias,device in (('host-apk',host),('guest-apk',guest)):
+            device.alias = alias
+            device.state = {'screen':'lan_menu','match_generation':4,'touch':{'active':[]},'boot_id':alias+'-boot','msec':100,'foreground':True}
+            device.node.return_value = {'id':'lan-input'}
+            device.read.side_effect = lambda d=device:d.state
+            def screen(expected,d=device):
+                self.assertEqual(d.state['screen'],expected)
+                return d.state
+            device.screen.side_effect = screen
+            def wait(predicate,d=device,**_kwargs):
+                self.assertTrue(predicate(d.state))
+                return d.state
+            device.wait.side_effect = wait
+            def tap(text,d=device):
+                events.append((d.alias,text))
+                d.state = {**d.state,'msec':d.state['msec']+300}
+                if text=='방 만들기': d.state['screen']='lan_host'
+                elif text=='초대 코드로 참가': d.state['screen']='lan_join'
+                elif text=='방 생성': d.state.update(screen='lan_waiting',lan_invite='FA1|ws://127.0.0.1:1|ABCDEFGH|1')
+                elif text=='방 참가':
+                    d.state.update(screen='lan_menu',last_lan_error='room_full',ui=[{'text':'LAN 연결 실패: 방이 가득 참' if show_error else 'unrelated text'}])
+                elif text=='대전 나가기': d.state['screen']='lan_leave_confirm' if d.state['screen']=='lan_match' else 'lan_menu'
+                elif text=='방 닫기': d.state['screen']='lan_menu'
+                return d.state
+            device.tap.side_effect = tap
+            device.assert_released = Mock(side_effect=lambda state,*_args:fleet.DeviceRun.assert_released(state))
+        host.wait_new_match.side_effect = lambda *_args,**_kwargs: host.state.update(screen='lan_match')
+        return host,guest,events
+    def test_full_room_case_uses_actual_other_apk_join_ui_and_menu_return(self):
+        host,guest,events = self.room_full_ui_devices()
+        server = Mock(protocol=1,code='FAH1|ws://127.0.0.1:1|1')
+        fixture = Mock(observed={'source':'protocol_capacity_fixture','slot':2,'actual_apk':False,'combat_input_sent':False})
+        with patch.object(fleet,'CapacityGuest',return_value=fixture):
+            observed = fleet._room_full_apk_ui(host,guest,server)
+        self.assertIn(('host-apk','방 생성'),events)
+        self.assertIn(('guest-apk','방 참가'),events)
+        self.assertEqual(guest.state['screen'],'lan_menu')
+        self.assertEqual(host.state['screen'],'lan_menu')
+        self.assertEqual(observed['actual_error_ui_device'],'guest-apk')
+        self.assertEqual(observed['error'],'room_full')
+        self.assertEqual(observed['error_event'],'room_full')
+        self.assertEqual(observed['status'],'blocked')
+        self.assertEqual(observed['error_event_status'],'pass')
+        self.assertEqual(observed['menu_return_status'],'pass')
+        self.assertEqual(observed['error_notice_visual']['reason'],'ManualPending')
+        self.assertIn('미확인',observed['actual_error_text_visual'])
+        self.assertFalse(observed['capacity_fixture']['actual_apk'])
+        self.assertEqual(guest.command.call_args_list[-1].kwargs['value'],'FA1|ws://127.0.0.1:1|ABCDEFGH|1')
+        fixture.close.assert_called_once()
+    def test_full_room_frozen_label_omission_preserves_error_capture_before_menu(self):
+        host,guest,_events = self.room_full_ui_devices(show_error=False)
+        fixture = Mock()
+        captures = []
+        guest.evidence.side_effect = lambda label:captures.append((label,dict(guest.state)))
+        with patch.object(fleet,'CapacityGuest',return_value=fixture):
+            observed = fleet._room_full_apk_ui(host,guest,Mock(protocol=1,code='FAH1|ws://127.0.0.1:1|1'))
+        self.assertIn('미확인',observed['actual_error_text_visual'])
+        self.assertEqual(captures[0][0],'room-full-error-event')
+        self.assertEqual(captures[0][1]['last_lan_error'],'room_full')
+        self.assertEqual(captures[0][1]['ui'][0]['text'],'unrelated text')
+        fixture.close.assert_called_once()
+        self.assertEqual(host.state['screen'],'lan_menu')
+
+    @staticmethod
+    def lan_motion(msec,tick,state='RUN',x=20,vx=150,**changes):
+        value = {'boot_id':'lan-boot','msec':msec,'foreground':True,'screen':'lan_match',
+                 'connected':True,'peer_connected':True,'reconnecting':False,'lan_slot':1,
+                 'match_generation':4,'autocontrol':True,'touch':{'active':[]},'snapshot':{'tick':tick,'fighters':[
+                     {'id':'lan_host','state':state,'position':{'x':x,'y':100},'velocity':{'x':vx,'y':0},
+                      'current_hp':100,'stocks':3,'input_direction':0}]}}
+        value.update(changes)
+        return value
+
+    def motion_device(self,states):
+        d = self.device(states)
+        d.command = Mock(return_value=self.lan_motion(101,11,state='IDLE',x=0,vx=0,autocontrol=False))
+        d.case_id = 'LAN-03'
+        return d
+
+    def test_lan_before_interrupt_requires_new_neutral_then_two_run_positions_not_renderer_input(self):
+        d = self.motion_device([self.lan_motion(100,10,state='IDLE',x=0,vx=0,autocontrol=False),
+                                self.lan_motion(101,11,state='IDLE',x=0,vx=0,autocontrol=False),
+                                self.lan_motion(102,12,x=1),self.lan_motion(103,13,x=3)])
+        result = fleet._lan_before_interrupt(d,10,timeout=1)
+        self.assertEqual(result['movement'],'pass')
+        self.assertEqual([s['tick'] for s in result['samples']],[12,13])
+        self.assertFalse(result['renderer_input_direction_used'])
+        self.assertIn('미확인',result['server_nonzero_input'])
+        self.assertEqual(d.command.call_args_list[0].kwargs,{'enabled':False})
+        self.assertEqual(d.command.call_args_list[1].kwargs,{'enabled':True})
+        self.assertTrue(list(self.output.glob('*debug-movement.json')))
+
+    def test_lan_before_interrupt_rejects_stale_background_new_boot_result_and_knockback(self):
+        invalid = [self.lan_motion(102,12,state='HITSTUN'), self.lan_motion(101,12),
+                   self.lan_motion(102,11), self.lan_motion(102,12,foreground=False),
+                   self.lan_motion(102,12,boot_id='another-boot'), self.lan_motion(102,12,screen='lan_result'),
+                   self.lan_motion(102,12,connected=False),self.lan_motion(102,12,match_generation=5)]
+        for state in invalid:
+            with self.subTest(state=state):
+                d = self.motion_device([self.lan_motion(100,10,state='IDLE',x=0,vx=0,autocontrol=False),
+                                        self.lan_motion(101,11,state='IDLE',x=0,vx=0,autocontrol=False),state])
+                with self.assertRaisesRegex(fleet.Blocked,'이동 미확인'):
+                    fleet._lan_before_interrupt(d,65,timeout=.3)
+                self.assertEqual(d.command.call_args_list[-1].kwargs,{'enabled':False})
+                self.assertEqual(d.case_observations['before_interrupt_65']['movement'],'미확인')
+
+    def test_lan_movement_duplicate_sample_and_unchanged_position_do_not_pass(self):
+        for last in (self.lan_motion(102,12,x=1),self.lan_motion(103,13,x=1),self.lan_motion(103,13,x=0,vx=-150)):
+            with self.subTest(last=last):
+                d = self.motion_device([self.lan_motion(100,10,state='IDLE',x=0,vx=0,autocontrol=False),
+                                        self.lan_motion(101,11,state='IDLE',x=0,vx=0,autocontrol=False),
+                                        self.lan_motion(102,12,x=1),last])
+                with self.assertRaises(fleet.Blocked): fleet._lan_before_interrupt(d,10,timeout=.6)
+
+    def test_lan_movement_rejects_damage_and_zero_stocks(self):
+        for field,value in (('current_hp',90),('stocks',0)):
+            last = self.lan_motion(103,13,x=3)
+            last['snapshot']['fighters'][0][field] = value
+            d = self.motion_device([self.lan_motion(100,10,state='IDLE',x=0,vx=0,autocontrol=False),
+                                    self.lan_motion(101,11,state='IDLE',x=0,vx=0,autocontrol=False),
+                                    self.lan_motion(102,12,x=1),last])
+            with self.assertRaises(fleet.Blocked): fleet._lan_before_interrupt(d,10,timeout=.6)
+
+    def test_lan_interrupt_orders_active_movement_interrupt_disable_and_new_server_reset(self):
+        for seconds in (10,65):
+            host,guest,server = Mock(),Mock(),Mock()
+            host.assert_released = Mock()
+            host.state = self.lan_motion(105,15,interrupt_active=True,connected=False,autocontrol=False)
+            guest.state = {'boot_id':'guest-boot','msec':105,'screen':'lan_match','peer_connected':False}
+            guest.read.return_value = {'boot_id':'guest-boot','msec':100}
+            calls = []
+            host.command.side_effect = lambda op,**args:calls.append((op,args))
+            host.wait.side_effect = lambda predicate,**_kwargs: host.state if predicate(host.state) else self.fail('host predicate')
+            guest.wait.side_effect = lambda predicate,**_kwargs: guest.state if predicate(guest.state) else self.fail('guest predicate')
+            reset = {'slot':1,'tick':14,'input_direction':0,'buffered_action':''}
+            server.input_resets.side_effect = [[],[reset],[reset]]
+            movement = {'samples':[{'boot_id':'lan-boot','msec':103,'tick':13}]}
+            with patch.object(fleet,'_lan_before_interrupt',return_value=movement) as before:
+                observed = fleet._lan_interrupt_with_movement(host,guest,server,seconds)
+            before.assert_called_once_with(host,seconds)
+            self.assertEqual(calls,[('interrupt',{'seconds':seconds}),('autoplay',{'enabled':False})])
+            self.assertEqual(observed['server_input_resets'],[reset])
+            self.assertTrue(observed['peer_offline'])
+
+    def test_lan_interrupt_rejects_old_or_non_neutral_server_reset(self):
+        for record,message in (({'slot':1,'tick':12,'input_direction':0,'buffered_action':''},'시간 초과'),
+                               ({'slot':1,'tick':14,'input_direction':1,'buffered_action':''},'불일치')):
+            with self.subTest(record=record):
+                host = self.device([self.lan_motion(105,15,interrupt_active=True,connected=False,autocontrol=False)])
+                host.command = Mock()
+                guest = Mock()
+                guest.read.return_value = {'boot_id':'guest-boot','msec':100}
+                guest.wait.side_effect = lambda predicate,**_kwargs: self.assertTrue(predicate({'boot_id':'guest-boot','msec':105,'screen':'lan_match','peer_connected':False}))
+                server = Mock()
+                old = {'slot':1,'tick':1,'input_direction':0,'buffered_action':''}
+                server.input_resets.side_effect = lambda: [old] if server.input_resets.call_count==1 else [old,record]
+                with patch.object(fleet,'_lan_before_interrupt',return_value={'samples':[{'boot_id':'lan-boot','msec':103,'tick':13}]}), self.assertRaisesRegex(fleet.Failure,message):
+                    fleet._lan_interrupt_with_movement(host,guest,server,10)
+                self.assertEqual(host.command.call_args_list[-1].kwargs,{'enabled':False})
+
+    def test_lan_interrupt_rejects_stale_other_apk_offline_snapshot(self):
+        host = self.device([self.lan_motion(105,15,interrupt_active=True,connected=False,autocontrol=False)])
+        host.command = Mock()
+        guest = fleet.DeviceRun(FakeADB([{'boot_id':'guest-boot','msec':100,'screen':'lan_match','peer_connected':False}]),'guest','run',self.output,'Game',clock=self.clock.time,sleep=self.clock.sleep)
+        with patch.object(fleet,'_lan_before_interrupt',return_value={'samples':[{'boot_id':'lan-boot','msec':103,'tick':13}]}), self.assertRaisesRegex(fleet.Failure,'새 단절 표시'):
+            fleet._lan_interrupt_with_movement(host,guest,Mock(input_resets=Mock(return_value=[])),65)
+
     def test_v1_full_room_probe_sends_v1_selection_without_auth(self):
         import struct
         server = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output, 'godot', 'run', protocol=1)

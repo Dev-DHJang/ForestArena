@@ -1271,6 +1271,12 @@ def _menu(device):
         device.tap('대전 나가기')
         device.screen('lan_leave_confirm')
         device.tap('대전 나가기')
+    elif device.state.get('screen') == 'lan_waiting':
+        device.tap('방 닫기')
+    elif device.state.get('screen') == 'lan_rematch_wait':
+        device.tap('재대전 취소')
+    elif device.state.get('screen') == 'lan_connecting':
+        device.tap('취소')
     elif device.state.get('screen') in ('lan_result', 'lan_host', 'lan_join'):
         device.tap('LAN 메뉴')
     device.screen('lan_menu')
@@ -1339,77 +1345,297 @@ def _websocket_upgrade(sock, request, timeout=10, clock=time.monotonic):
     return buffer.split(b'\r\n\r\n', 1)[1]
 
 
-def _third_guest_rejection(server, invite):
-    """Protocol probe for 2-device fleet; clearly separate from actual APK UI."""
-    import base64
-    import struct
+def _protocol_auth(server):
+    if server.protocol == 1:
+        return {}
     import urllib.request
     def request(path, data, token=None):
         headers = {'Content-Type': 'application/json'}
         if token:
             headers['Authorization'] = 'Bearer '+token
-        req = urllib.request.Request(f'http://{server.bind}:{server.api_port}'+path, data=json.dumps(data).encode(), headers=headers, method='PATCH' if path.endswith('/profile') else 'POST')
+        req = urllib.request.Request(f'http://{server.bind}:{server.api_port}'+path, data=json.dumps(data).encode(), headers=headers,
+                                     method='PATCH' if path.endswith('/profile') else 'POST')
         with urllib.request.urlopen(req, timeout=5) as response:
             return json.load(response)
-    auth = {}
-    if server.protocol == 2:
-        auth = request('/v1/auth/guest', {})
-        request('/v1/guest/profile', {'nickname': 'QA_third'}, auth['access_token'])
-    room = invite.split('|')[3 if server.protocol == 2 else 2]
-    sock = socket.create_connection((server.bind, server.port), timeout=10)
-    try:
-        key = base64.b64encode(os.urandom(16)).decode()
-        buffered = _websocket_upgrade(sock, f'GET / HTTP/1.1\r\nHost: {server.bind}:{server.port}\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: {key}\r\nSec-WebSocket-Version: 13\r\n\r\n'.encode())
-        response_deadline = time.monotonic() + 10
-        message = {'protocol_version': server.protocol, 'type': 'join_room', 'room_code': room, 'selection': {'character_id': 'ja-hyun', 'accessory_id': ''}}
-        if server.protocol == 2:
-            message['access_token'] = auth['access_token']
-        payload = json.dumps(message).encode()
+    auth = request('/v1/auth/guest', {})
+    request('/v1/guest/profile', {'nickname':'QA_'+uuid.uuid4().hex[:7]}, auth['access_token'])
+    return {'access_token':auth['access_token']}
+
+
+class ProtocolPeer:
+    """Bounded, masked WebSocket fixture; never a physical APK participant."""
+    def __init__(self, server):
+        import base64
+        self.server, self.buffer, self.sock = server, b'', None
+        self.peer_id_received = False
+        try:
+            self.sock = socket.create_connection((server.bind,server.port),timeout=10)
+            key = base64.b64encode(os.urandom(16)).decode()
+            self.buffer = _websocket_upgrade(self.sock, f'GET / HTTP/1.1\r\nHost: {server.bind}:{server.port}\r\nUpgrade: websocket\r\nConnection: Upgrade\r\nSec-WebSocket-Key: {key}\r\nSec-WebSocket-Version: 13\r\n\r\n'.encode())
+        except Exception:
+            self.close()
+            raise
+
+    def _send_frame(self, payload, opcode=2):
+        import struct
+        require(self.sock is not None, '정원 검사 socket이 닫혔습니다.')
+        require(len(payload)<=8192, '정원 검사 송신 크기 오류')
         mask = os.urandom(4)
-        header = bytes([0x82, 0x80 | len(payload)]) if len(payload) < 126 else bytes([0x82, 0xFE])+struct.pack('!H', len(payload))
-        sock.sendall(header+mask+bytes(v ^ mask[i % 4] for i, v in enumerate(payload)))
-        def exact(size):
-            nonlocal buffered
-            chunks, buffered = buffered[:size], buffered[size:]
-            while len(chunks) < size:
-                if CANCELLED.is_set():
-                    raise Blocked('사용자가 실행을 중단했습니다.')
-                remaining = response_deadline - time.monotonic()
-                require(remaining > 0, '정원 초과 socket 응답 시간 초과')
-                sock.settimeout(min(1, remaining))
-                try:
-                    part = sock.recv(size-len(chunks))
-                except socket.timeout:
-                    continue
-                require(part, '정원 초과 응답 전 socket 종료')
-                chunks += part
-            return chunks
-        response = None
-        # Godot WebSocketMultiplayerPeer sends a four-byte peer ID before
-        # application packets; preserve frames appended to HTTP handshake.
-        for _ in range(5):
-            first, second = exact(2)
-            length = second & 0x7f
-            if length == 126:
-                length = struct.unpack('!H', exact(2))[0]
-            elif length == 127:
-                length = struct.unpack('!Q', exact(8))[0]
-            require(length <= 8192, '정원 초과 응답 크기 오류')
-            data = exact(length)
-            if length == 4 and (first & 0xf) == 2:
+        header = bytes([0x80|opcode,0x80|len(payload)]) if len(payload)<126 else bytes([0x80|opcode,0xFE])+struct.pack('!H',len(payload))
+        self.sock.sendall(header+mask+bytes(v^mask[i%4] for i,v in enumerate(payload)))
+
+    def send(self, message):
+        self._send_frame(json.dumps({'protocol_version':self.server.protocol,**message}).encode())
+
+    def _exact(self, size, deadline):
+        chunks,self.buffer = self.buffer[:size],self.buffer[size:]
+        while len(chunks)<size:
+            if CANCELLED.is_set():
+                raise Blocked('사용자가 실행을 중단했습니다.')
+            remaining = deadline-time.monotonic()
+            require(remaining>0, '정원 검사 socket 응답 시간 초과')
+            self.sock.settimeout(min(1,remaining))
+            try:
+                part = self.sock.recv(size-len(chunks))
+            except socket.timeout:
                 continue
-            response = json.loads(data)
-            break
-        require(response, '정원 초과 응답 없음')
-        require(response.get('code') == 'room_full', f'정원 초과 오류 불일치: {response.get("code")}')
-        return {'room_full': 'pass', 'source': 'authenticated_protocol_probe' if server.protocol == 2 else 'protocol_v1_probe', 'actual_third_apk_ui': '미실행'}
+            require(part, '정원 검사 응답 전 socket 종료')
+            chunks += part
+        return chunks
+
+    def receive_until(self, predicate, timeout=10):
+        import struct
+        deadline = time.monotonic()+timeout
+        for _ in range(128):
+            if CANCELLED.is_set():
+                raise Blocked('사용자가 실행을 중단했습니다.')
+            require(time.monotonic()<deadline, '정원 검사 socket 응답 시간 초과')
+            first,second = self._exact(2,deadline)
+            require(first&0x80, '정원 검사 fragmented frame 미지원')
+            opcode,length = first&0x0f,second&0x7f
+            if length==126:
+                length = struct.unpack('!H',self._exact(2,deadline))[0]
+            elif length==127:
+                length = struct.unpack('!Q',self._exact(8,deadline))[0]
+            require(length<=8192, '정원 검사 응답 크기 오류')
+            mask = self._exact(4,deadline) if second&0x80 else b''
+            data = self._exact(length,deadline)
+            if mask:
+                data = bytes(v^mask[i%4] for i,v in enumerate(data))
+            if opcode==8:
+                raise Failure('정원 검사 응답 전 WebSocket 종료')
+            if opcode==9:
+                self._send_frame(data,10)
+                continue
+            if opcode==10:
+                continue
+            require(opcode in (1,2), '정원 검사 socket 응답 형식 오류')
+            # Godot's first binary frame carries its four-byte peer ID.
+            if opcode==2 and length==4 and not self.peer_id_received:
+                self.peer_id_received = True
+                continue
+            message = json.loads(data)
+            require(isinstance(message,dict), '정원 검사 응답은 객체여야 합니다.')
+            if predicate(message):
+                return message
+        raise Failure('정원 검사 응답 메시지 수 초과')
+
+    def close(self):
+        if self.sock is not None:
+            self.sock.close()
+            self.sock = None
+
+
+class CapacityGuest:
+    """Occupies slot 2 only, without input, combat or device pass claims."""
+    def __init__(self,server,invite):
+        self.server,self.invite,self.peer = server,invite,None
+        self.observed = {'source':'protocol_capacity_fixture','protocol_version':server.protocol,
+                         'actual_apk':False,'combat_input_sent':False}
+
+    def start(self):
+        try:
+            auth = _protocol_auth(self.server)
+            self.peer = ProtocolPeer(self.server)
+            room = self.invite.split('|')[3 if self.server.protocol==2 else 2]
+            self.peer.send({'type':'join_room','room_code':room,'selection':{'schema_version':1,'character_id':'ja-hyun','job_id':'','accessory_id':''},**auth})
+            joined = self.peer.receive_until(lambda m:m.get('type') in ('joined','error'))
+            require(joined.get('type')=='joined' and joined.get('slot')==2, '정원용 임시 참가자가 슬롯 2에 들어가지 못했습니다.')
+            started = self.peer.receive_until(lambda m:m.get('type') in ('match_start','error'))
+            require(started.get('type')=='match_start' and started.get('slot')==2, '정원용 임시 참가자의 경기 시작 확인 실패')
+            self.observed['slot'] = 2
+            return self
+        except Exception:
+            self.close()
+            raise
+
+    def close(self):
+        if self.peer is not None:
+            try:
+                self.peer.send({'type':'leave'})
+                response = self.peer.receive_until(lambda message:message.get('type') in ('match_end','error'),timeout=2)
+                self.observed['leave_acknowledged'] = response.get('type')=='match_end'
+            except (OSError,Failure,Blocked,ValueError):
+                self.observed['leave_acknowledged'] = False
+            finally:
+                self.peer.close()
+                self.peer = None
+
+
+def _third_guest_rejection(server,invite):
+    """Extra protocol evidence, separate from the actual APK room-full UI."""
+    auth = _protocol_auth(server)
+    peer = ProtocolPeer(server)
+    try:
+        room = invite.split('|')[3 if server.protocol==2 else 2]
+        peer.send({'type':'join_room','room_code':room,'selection':{'schema_version':1,'character_id':'ja-hyun','job_id':'','accessory_id':''},**auth})
+        response = peer.receive_until(lambda m:m.get('type')=='error')
+        require(response.get('code')=='room_full',f'정원 초과 오류 불일치: {response.get("code")}')
+        return {'room_full':'pass','source':'authenticated_protocol_probe' if server.protocol==2 else 'protocol_v1_probe',
+                'actual_third_apk_ui':'미실행'}
     finally:
-        sock.close()
+        peer.close()
+
+
+def _room_full_apk_ui(host,guest,server):
+    for device in (host,guest):
+        device.command('autoplay',enabled=False)
+        _menu(device)
+    generation = int(host.read().get('match_generation',0))
+    _lan_login(host,'host',server.code,server.protocol)
+    host.screen('lan_waiting')
+    invite = host.wait(lambda state:bool(state.get('lan_invite')),label='정원 검사 새 방 초대 코드')['lan_invite']
+    fixture = CapacityGuest(server,invite)
+    try:
+        fixture.start()
+        host.wait_new_match(generation,lan=True)
+        before = guest.read()
+        require(before.get('boot_id') and isinstance(before.get('msec'),(int,float)), '정원 검사 전 실제 APK의 발행 시각 진단이 없습니다.')
+        _lan_login(guest,'join',invite,server.protocol)
+        state = guest.wait(lambda s:s.get('boot_id')==before['boot_id'] and s.get('foreground') is True and s.get('msec',0)>before['msec'] and s.get('screen')=='lan_menu' and s.get('last_lan_error')=='room_full',label='실제 APK 정원 초과 오류 안내')
+        # Frozen APK diagnostics omit Label nodes. Preserve the error screen
+        # before navigation; visual text review is a separate observation.
+        guest.evidence('room-full-error-event')
+        _menu(guest)
+        guest.assert_released(guest.state,'정원 초과 안내 복귀 뒤 입력 고착')
+        guest.evidence('room-full-apk-ui')
+        return {'status':'blocked','actual_error_ui_device':guest.alias,'error':'room_full','returned_screen':'lan_menu',
+                'error_event':'room_full','error_event_status':'pass','menu_return_status':'pass',
+                'error_notice_visual':{'status':'blocked','reason':'ManualPending','observation':'미확인: 화면 캡처 별도 검토 필요','evidence_label':'room-full-error-event'},
+                'actual_error_text_visual':'미확인: 화면 캡처 별도 검토 필요',
+                'capacity_fixture':fixture.observed,'actual_third_apk':'미실행: 두 실제 APK와 정원용 통신 참가자를 사용함'}
+    finally:
+        try:
+            _menu(host)
+        finally:
+            fixture.close()
+
+
+def _lan_movement_sample(state, boot, generation, slot, after_msec, after_tick):
+    snapshot = state.get('snapshot', {})
+    msec, tick = state.get('msec'), snapshot.get('tick')
+    if not (state.get('boot_id') == boot and state.get('foreground') is True
+            and state.get('screen') == 'lan_match' and state.get('connected') is True
+            and not state.get('reconnecting') and state.get('lan_slot') == slot
+            and state.get('match_generation') == generation
+            and isinstance(msec,(int,float)) and msec > after_msec
+            and isinstance(tick,(int,float)) and tick > after_tick):
+        return None
+    fighter_id = 'lan_host' if slot == 1 else 'lan_guest'
+    fighter = next((f for f in snapshot.get('fighters',[]) if f.get('id') == fighter_id), {})
+    values = (fighter.get('position',{}).get('x'), fighter.get('velocity',{}).get('x'),
+              fighter.get('current_hp'),fighter.get('stocks'))
+    if not all(isinstance(v,(int,float)) and math.isfinite(v) for v in values):
+        return None
+    if values[2] <= 0 or values[3] <= 0:
+        return None
+    return {'boot_id':boot,'msec':msec,'tick':tick,'match_generation':generation,
+            'fighter_id':fighter_id,'state':fighter.get('state'),'position_x':values[0],
+            'velocity_x':values[1],'current_hp':values[2],'stocks':values[3]}
+
+
+def _lan_before_interrupt(device, seconds, timeout=10):
+    """Observe server snapshot movement, never renderer input_direction."""
+    before = device.read()
+    boot, generation, slot = before.get('boot_id'),before.get('match_generation'),before.get('lan_slot')
+    require(boot and slot in (1,2) and isinstance(generation,int)
+            and isinstance(before.get('msec'),(int,float)) and isinstance(before.get('snapshot',{}).get('tick'),(int,float)),
+            'LAN 단절 전 새 경기 진단 정보가 없습니다.')
+    observed = {'seconds':seconds,'device':device.alias,'input_source':'debug_autoplay',
+                'server_nonzero_input':'미확인: 동결 서버는 단절 전 입력값을 발행하지 않음',
+                'renderer_input_direction_used':False,'movement':'미확인','samples':[]}
+    device.case_observations[f'before_interrupt_{seconds}'] = observed
+    device.command('autoplay',enabled=False)
+    baseline = None
+    def neutral(state):
+        nonlocal baseline
+        sample = _lan_movement_sample(state,boot,generation,slot,before['msec'],before['snapshot']['tick'])
+        if sample and state.get('autocontrol') is False and sample['state']=='IDLE' and abs(sample['velocity_x']) < .01:
+            baseline = sample
+            return True
+        return False
+    try:
+        device.wait(neutral,timeout=timeout,label='LAN 자동 입력 전 새 정지 상태')
+        observed['baseline'] = baseline
+        enabled = device.command('autoplay',enabled=True)
+        after_msec = max(baseline['msec'],enabled.get('msec',baseline['msec']))
+        after_tick = max(baseline['tick'],enabled.get('snapshot',{}).get('tick',baseline['tick']))
+        samples = []
+        def moving(state):
+            sample = _lan_movement_sample(state,boot,generation,slot,after_msec,after_tick)
+            if not sample or state.get('autocontrol') is not True:
+                return False
+            if sample['state']!='RUN' or abs(sample['velocity_x']) < 1 or sample['current_hp']!=baseline['current_hp'] or sample['stocks']!=baseline['stocks']:
+                samples.clear()
+                return False
+            if samples and (sample['msec']<=samples[-1]['msec'] or sample['tick']<=samples[-1]['tick']):
+                return False
+            if samples:
+                delta = sample['position_x']-samples[-1]['position_x']
+                if delta*sample['velocity_x']<=0 or abs(delta)<.1 or sample['velocity_x']*samples[-1]['velocity_x']<=0:
+                    samples.clear()
+            samples.append(sample)
+            observed['samples'] = samples[-2:].copy()
+            return len(samples)>=2
+        device.wait(moving,timeout=timeout,label='LAN 자동 입력 뒤 새 RUN 이동 두 표본')
+        observed['movement'] = 'pass'
+        device.evidence(f'before-interrupt-{seconds}-debug-movement')
+        return observed
+    except Failure as error:
+        device.command('autoplay',enabled=False)
+        device.evidence(f'before-interrupt-{seconds}-movement-unconfirmed')
+        raise Blocked(f'단절 전 정상 이동 미확인: {error}') from error
+
+
+def _lan_interrupt_with_movement(host, guest, server, seconds):
+    movement = _lan_before_interrupt(host,seconds)
+    guest_before = guest.read()
+    require(guest_before.get('boot_id') and isinstance(guest_before.get('msec'),(int,float)), '단절 전 상대 APK의 발행 시각 진단이 없습니다.')
+    records_before = len(server.input_resets())
+    host.command('interrupt',seconds=seconds)
+    host.command('autoplay',enabled=False)
+    state = host.wait(lambda s:s.get('boot_id')==movement['samples'][-1]['boot_id']
+                      and s.get('msec',0)>movement['samples'][-1]['msec'] and s.get('interrupt_active') is True
+                      and s.get('autocontrol') is False
+                      and (s.get('reconnecting') or s.get('connected') is False),timeout=5,label=f'{seconds}초 앱 연결 단절')
+    host.assert_released(state,'LAN 단절 입력 고착')
+    guest.wait(lambda s:s.get('boot_id')==guest_before.get('boot_id') and s.get('msec',0)>guest_before.get('msec',0)
+               and s.get('screen')=='lan_match' and s.get('peer_connected') is False,timeout=5,label='상대 APK 새 단절 표시')
+    slot = host.state.get('lan_slot')
+    def reset_seen(_state):
+        records = [r for r in server.input_resets()[records_before:] if r.get('slot')==slot and r.get('tick',-1)>=movement['samples'][-1]['tick']]
+        return bool(records)
+    host.wait(reset_seen,timeout=5,label='실제 서버 새 단절 입력 해제')
+    records = [r for r in server.input_resets()[records_before:] if r.get('slot')==slot and r.get('tick',-1)>=movement['samples'][-1]['tick']]
+    require(all(r.get('input_direction')==0 and not r.get('buffered_action') for r in records),'실제 서버 단절 입력 해제 불일치')
+    return {'before_input':movement,'server_input_resets':records,'peer_offline':True,'autoplay_disabled':True}
 
 
 def lan_pair(host, guest, server):
     """Record each LAN case on both APKs, preserving partial results and blockers."""
     current = 'LAN-01'
+    lan02_observed = {}
+    lan03_observed = {}
     try:
         server.start()
         host.case_id = guest.case_id = current
@@ -1436,29 +1662,32 @@ def lan_pair(host, guest, server):
             device.evidence('rematch')
         current = 'LAN-03'
         host.case_id = guest.case_id = current
+        host.case_observations = {}
+        guest.case_observations = {}
         for device in (host, guest):
             device.command('context')
         slot = host.state.get('lan_slot')
         reset = host.state.get('input_reset_count', 0)
-        reset_records_before = len(server.input_resets())
-        host.command('interrupt', seconds=10)
-        host.wait(lambda s: s.get('reconnecting') or not s.get('connected', True), timeout=5, label='10초 앱 연결 단절')
-        host.assert_released(host.state, 'LAN 단절 입력 고착')
-        guest.wait(lambda s: s.get('peer_connected') is False, timeout=5, label='상대 APK 단절 표시')
-        host.wait(lambda s: s.get('connected') and not s.get('reconnecting') and s.get('lan_slot') == slot, timeout=25, label='같은 LAN 슬롯 복귀')
+        lan03_observed['interrupt_10'] = _lan_interrupt_with_movement(host,guest,server,10)
+        offline_msec = host.state.get('msec',0)
+        guest_offline_msec = guest.state.get('msec',0)
+        boot = lan03_observed['interrupt_10']['before_input']['samples'][-1]['boot_id']
+        host.wait(lambda s: s.get('boot_id')==boot and s.get('foreground') is True and s.get('screen')=='lan_match'
+                  and s.get('msec',0)>offline_msec and s.get('connected') and not s.get('reconnecting') and s.get('lan_slot') == slot, timeout=25, label='같은 LAN 슬롯 새 복귀')
         require(host.state.get('input_reset_count', 0) > reset, 'LAN 단절 시 입력 초기화 미확인')
-        guest.wait(lambda s: s.get('peer_connected') is True, timeout=5, label='상대 APK 복귀 표시')
-        host.command('interrupt', seconds=65)
+        guest.wait(lambda s: s.get('screen')=='lan_match' and s.get('msec',0)>guest_offline_msec and s.get('peer_connected') is True, timeout=5, label='상대 APK 새 복귀 표시')
+        lan03_observed['interrupt_65'] = _lan_interrupt_with_movement(host,guest,server,65)
         guest.screen('lan_result', timeout=75)
         require(guest.state.get('latest_result', {}).get('reason') == 'disconnect' and guest.state.get('latest_result', {}).get('winner_slot') == guest.state.get('lan_slot'), '60초 초과 단절이 이탈 패배로 처리되지 않았습니다.')
         time.sleep(5)
         host.read()
         host.assert_released(host.state, '65초 단절 뒤 입력 고착')
-        server_resets = [r for r in server.input_resets()[reset_records_before:] if r.get('slot') == slot]
+        server_resets = [r for check in lan03_observed.values() for r in check['server_input_resets']]
         require(len(server_resets) >= 2 and all(r.get('input_direction') == 0 and not r.get('buffered_action') for r in server_resets), '10초/65초 실제 서버 입력 해제를 확인하지 못했습니다.')
         for device in (host, guest):
             device.mark(current, 'pass', '10초 같은 슬롯 복귀와 65초 이탈 패배·양쪽 APK/서버 입력 해제 확인')
-            device.results[-1]['observed'] = {'server_input_resets': server_resets, 'peer_offline_and_online': True}
+            device.results[-1]['observed'] = {**lan03_observed,'server_input_resets': server_resets, 'peer_offline_and_online': True}
+            device.results[-1]['input_source'] = 'debug_autoplay+debug_connection_control+server_observation'
             device.evidence('disconnect')
         current = 'LAN-02'
         for device in (host, guest):
@@ -1471,29 +1700,43 @@ def lan_pair(host, guest, server):
         host.tap('방 참가')
         host.wait(lambda s: bool(s.get('last_lan_error')), label='잘못된 초대 코드 안내')
         require(host.state['last_lan_error'] in ('invalid_invite_code', 'invalid_room_code'), '잘못된 코드 오류 불일치')
+        lan02_observed['invalid_code'] = {'status':'pass','actual_error_ui_device':host.alias,'error':host.state['last_lan_error']}
         _menu(host)
         # Syntactically valid missing room on live server.
         parts = invite.split('|')
         parts[3 if server.protocol == 2 else 2] = 'ZZZZZZZZ'
         _lan_login(host, 'join', '|'.join(parts), server.protocol)
         host.wait(lambda s: s.get('last_lan_error') in ('room_not_found', 'invalid_room'), label='없는 방 안내')
+        lan02_observed['missing_room'] = {'status':'pass','actual_error_ui_device':host.alias,'error':host.state['last_lan_error']}
         _menu(host)
+        # A protocol-only guest fills slot 2 so the other actual APK can
+        # exercise room_full UI and menu return without a third device.
+        full_ui = _room_full_apk_ui(host,guest,server)
+        lan02_observed['full_room_apk_ui'] = full_ui
         # Keep guest API up, stop game service; nickname/guest still normal.
         server.process.terminate()
         server.process.wait(timeout=5)
         _lan_login(host, 'host', server.code, server.protocol)
         host.wait(lambda s: s.get('last_lan_error') in ('connection_failed', 'connection_lost', 'request_timeout'), label='꺼진 LAN 서버 안내')
+        lan02_observed['server_off'] = {'status':'pass','actual_error_ui_device':host.alias,'error':host.state['last_lan_error']}
         _menu(host)
-        host.mark(current, 'pass', '잘못된 코드·없는 방·꺼진 서버 APK 안내/복귀와 정원 초과 probe 확인')
-        host.results[-1]['observed'] = {'full_room': full, 'actual_error_ui_device': host.alias, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1'}
+        host.mark(current, 'blocked', '자동 오류 이벤트·복귀 검사 완료; 정원 초과 문구는 화면 캡처의 별도 시각 확인 대기')
+        host.results[-1]['observed'] = {**lan02_observed, 'full_room': full, 'full_room_apk_ui': full_ui, 'actual_error_ui_device': host.alias, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1'}
         host.results[-1]['input_source'] = 'adb_touch+debug_text_setup+' + full['source']
         host.evidence('errors')
-        guest.mark(current, '미실행', f'접속 실패 화면은 짝 기기 {host.alias}에서 확인했습니다. 이 기기에서는 해당 화면을 조작하지 않았습니다.')
+        guest.mark(current, 'blocked', '정원 초과 이벤트·LAN 메뉴 복귀·입력 해제 확인; 오류 문구 시각 확인 대기')
+        guest.results[-1]['observed'] = {'full_room_apk_ui':full_ui,'invalid_code_missing_room_server_off':'미실행: 짝 기기에서 수행'}
+        guest.results[-1]['input_source'] = 'adb_touch+debug_text_setup+protocol_capacity_fixture'
     except (Blocked, Failure, OSError, ValueError, KeyError) as error:
         status = 'blocked' if isinstance(error, (Blocked, OSError)) else 'fail'
         for device in (host, guest):
             if not any(r['case_id'] == current for r in device.results):
                 device.mark(current, status, str(error))
+                if current == 'LAN-02':
+                    device.results[-1]['observed'] = {**lan02_observed, 'completed_subchecks_preserved':True}
+                elif current == 'LAN-03':
+                    device.results[-1]['observed'] = {**lan03_observed, **host.case_observations, 'completed_subchecks_preserved':True}
+                    device.results[-1]['input_source'] = 'debug_autoplay+debug_connection_control+server_observation'
             for case in ('LAN-01', 'LAN-02', 'LAN-03'):
                 if not any(r['case_id'] == case for r in device.results):
                     device.mark(case, 'blocked', f'{current} 문제로 후속 검사 불가')
@@ -1507,7 +1750,7 @@ def selected_case_scope(selected_case):
         return ('DEV-01', 'UI-01', 'OFF-01')
     if selected_case == 'LAN-01':
         return ('DEV-01', 'UI-01', 'LAN-01', 'LAN-02', 'LAN-03')
-    if selected_case in ('MODE-01', 'LIFE-01'):
+    if selected_case in ('MODE-01', 'LIFE-01', 'SOAK-01'):
         return ('DEV-01', 'UI-01', selected_case)
     return CASES
 
@@ -1546,7 +1789,7 @@ def offline(device, apk, mode, duration, jobs, selected_case=None):
     for index, (case, callback) in enumerate(steps):
         status = device.case(case, callback, sources[case])
         if status != 'pass':
-            if index > 0:
+            if index > 0 and selected_case != 'SOAK-01':
                 try:
                     device.command('autoplay', enabled=False)
                     device.prepare()
@@ -1556,13 +1799,22 @@ def offline(device, apk, mode, duration, jobs, selected_case=None):
             for remaining, _ in steps[index+1:]:
                 device.mark(remaining, 'blocked', f'{case} 문제로 후속 검사 불가')
             if selected_case:
+                if selected_case == 'SOAK-01':
+                    device.mark('SOAK-01', 'blocked', f'{case} 준비 검사 문제로 반복 검사 불가')
                 mark_unselected_cases(device, selected_case)
             else:
                 device.mark('SOAK-01', 'blocked', f'{case} 문제로 반복 검사 불가')
             return False
     if selected_case:
+        if selected_case == 'SOAK-01':
+            device.soak(duration, jobs)
         mark_unselected_cases(device, selected_case)
-        return prepare_lan_entry(device) if selected_case == 'LAN-01' else True
+        if selected_case in ('LAN-01', 'SOAK-01'):
+            ready = prepare_lan_entry(device)
+            if not ready and selected_case == 'SOAK-01':
+                device.mark('SOAK-01', 'blocked', '반복 검사 뒤 자동 입력 해제·로비 복귀를 확인하지 못했습니다. 완료한 대전 결과는 보존합니다.')
+            return ready
+        return True
     device.soak(duration, jobs)
     # A failed/incomplete round can leave combat active. Only a verified home
     # screen permits independent LAN execution; preserve the original result.
@@ -1592,7 +1844,7 @@ def parser():
     parse.add_argument('--lan-protocol', type=int, choices=(1, 2), default=2, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
     parse.add_argument('--apk', type=Path, default=ROOT / 'build/android/ForestArena-debug.apk')
     parse.add_argument('--serial', '--serials', action='append', default=[], help='ADB serial; 반복 또는 쉼표 목록. 자동 전체 선택 없음')
-    parse.add_argument('--case', choices=('OFF-01', 'LIFE-01', 'MODE-01', 'LAN-01'), help='선택·장신구, 생명주기, 모드 또는 LAN-01/02/03 독립 재검사; DEV-01/UI-01 준비 포함')
+    parse.add_argument('--case', choices=('OFF-01', 'LIFE-01', 'MODE-01', 'LAN-01', 'SOAK-01'), help='선택·장신구, 생명주기, 모드, LAN-01/02/03 또는 반복 대전 독립 재검사; DEV-01/UI-01 준비 포함')
     parse.add_argument('--suite', '--mode', dest='mode', choices=('smoke', 'soak', 'extended'), default='smoke')
     parse.add_argument('--duration', type=float, help='반복 대전 초; 기본 smoke0/soak600/extended1800')
     parse.add_argument('--output', type=Path, default=ROOT / 'artifacts/android-fleet')
@@ -1641,6 +1893,18 @@ def write_summary(output, run_id, meta, devices, global_results):
     return summary
 
 
+def execution_duration(args):
+    duration = args.duration if args.duration is not None else {'smoke': 0, 'soak': 600, 'extended': 1800}[args.mode]
+    if not math.isfinite(duration) or duration < 0:
+        raise ValueError('반복 시간은 유한한 0 이상의 초여야 합니다.')
+    if args.case == 'SOAK-01':
+        if args.mode not in ('soak', 'extended') or duration <= 0:
+            raise ValueError('--case SOAK-01 재검사는 soak/extended와 양수 반복 시간이 필요합니다.')
+    elif args.case and (args.mode != 'smoke' or duration != 0):
+        raise ValueError('--case 재검사는 smoke/반복 시간 0만 사용할 수 있습니다.')
+    return duration
+
+
 def main(argv=None):
     args = parser().parse_args(argv)
     CANCELLED.clear()
@@ -1650,9 +1914,7 @@ def main(argv=None):
             previous_handlers[signum] = signal.signal(signum, lambda _signum, _frame: CANCELLED.set())
     try:
         serials = selected_serials(args.serial)
-        if args.case and (args.mode != 'smoke' or args.duration not in (None, 0)):
-            raise ValueError('--case 재검사는 smoke/반복 시간 0만 사용할 수 있습니다.')
-        duration = args.duration if args.duration is not None else {'smoke': 0, 'soak': 600, 'extended': 1800}[args.mode]
+        duration = execution_duration(args)
         if any(v <= 0 for v in (args.install_timeout, args.screen_timeout, args.match_timeout, args.stall_timeout)) or duration < 0:
             raise ValueError('대기 시간은 양수, 반복 시간은 0 이상이어야 합니다.')
         if not 1 <= args.lan_port <= 65534 or not 1 <= args.api_port <= 65534:
@@ -1676,7 +1938,7 @@ def main(argv=None):
     devices, global_results = [], []
     stage = 'DEV-01'
     try:
-        meta.update(archive_runner_sources(output, include_auth=args.lan_protocol == 2 and args.case not in ('OFF-01', 'LIFE-01', 'MODE-01')))
+        meta.update(archive_runner_sources(output, include_auth=args.lan_protocol == 2 and args.case not in ('OFF-01', 'LIFE-01', 'MODE-01', 'SOAK-01')))
         if not serials:
             raise Blocked('선택한 실기기가 없습니다. --serial을 명시하세요. 자동 전체 선택은 하지 않습니다.')
         require(args.project_root.is_dir(), '프로젝트 경로가 없습니다.')
@@ -1706,7 +1968,7 @@ def main(argv=None):
             futures = [pool.submit(offline, device, args.apk, args.mode, duration, jobs[index], selected_case=args.case) for index, device in enumerate(devices)]
             eligible = [future.result() for future in futures]
         stage = 'LAN-01'
-        bind = None if args.case in ('OFF-01', 'LIFE-01', 'MODE-01') else (args.lan_bind or (discover_bind() if len(devices) >= 2 else None))
+        bind = None if args.case in ('OFF-01', 'LIFE-01', 'MODE-01', 'SOAK-01') else (args.lan_bind or (discover_bind() if len(devices) >= 2 else None))
         if bind:
             ip = ipaddress.ip_address(bind)
             require(ip.version == 4 and ip.is_private and not ip.is_loopback, 'LAN bind는 실제 사설 IPv4여야 합니다.')
@@ -1726,7 +1988,7 @@ def main(argv=None):
                                 device.mark(case, 'blocked', '앞선 기기 검사 문제로 두 APK LAN 검사 불가')
                 for future in futures:
                     future.result()
-        if args.case not in ('OFF-01', 'LIFE-01', 'MODE-01') and len(devices) % 2:
+        if args.case not in ('OFF-01', 'LIFE-01', 'MODE-01', 'SOAK-01') and len(devices) % 2:
             for case in ('LAN-01', 'LAN-02', 'LAN-03'):
                 devices[-1].mark(case, '미실행', '마지막 기기는 짝이 없어 오프라인만 실행합니다.')
         for device in devices:
@@ -1735,8 +1997,14 @@ def main(argv=None):
             device.mark('MANUAL-01', '미실행', '실제 Wi-Fi 단절·동시 터치·소리·진동은 사용자 수동 재검사 필요')
     except (Blocked, Failure, OSError, ValueError) as error:
         global_results.append({'case_id': stage, 'status': 'blocked' if isinstance(error, (Blocked, OSError)) else 'fail', 'message': str(error)})
+        if args.case == 'SOAK-01' and stage != 'SOAK-01':
+            global_results.append({'case_id': 'SOAK-01', 'status': 'blocked', 'message': f'{stage} 실행 전제 문제로 선택한 반복 검사를 시작하지 못했습니다.'})
     finally:
         for device in devices:
+            if args.case:
+                for case_id in CASES:
+                    if case_id not in selected_case_scope(args.case) and not any(item['case_id'] == case_id for item in device.results):
+                        device.mark(case_id, '미실행', f'{args.case} 독립 재검사에서 선택하지 않은 사례입니다.')
             for case_id in CASES:
                 if not any(item['case_id'] == case_id for item in device.results):
                     device.mark(case_id, '미실행' if case_id == 'MANUAL-01' else 'blocked', '실행 전제 또는 앞선 검사 문제로 관측하지 못했습니다.')
