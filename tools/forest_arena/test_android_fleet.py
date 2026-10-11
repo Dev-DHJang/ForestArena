@@ -835,6 +835,55 @@ class RunnerTests(unittest.TestCase):
         fixture.close.assert_called_once()
         self.assertEqual(host.state['screen'],'lan_menu')
 
+    def test_all_lan_error_captures_before_menu_with_named_files_and_visual_pending(self):
+        cases = [('invalid_invite_code','invalid-code-error'),('room_not_found','missing-room-error'),
+                 ('connection_lost','server-off-error'),('room_full','room-full-error-event')]
+        for error,label in cases:
+            with self.subTest(error=error):
+                events = []
+                state = {'boot_id':'boot','msec':101,'foreground':True,'screen':'lan_menu','last_lan_error':error,'touch':{'active':[]}}
+                d = self.device([state])
+                d.case_id = 'LAN-02'
+                d.adb.screenshot = lambda path:(events.append(('capture',d.state['last_lan_error'])),path.write_bytes(b'unit-test-placeholder'))
+                def menu(device):
+                    events.append(('menu',device.state['last_lan_error']))
+                    device.state = {**device.state,'last_lan_error':''}
+                with patch.object(fleet,'_menu',side_effect=menu):
+                    observed = fleet._lan_error_apk_ui(d,{'boot_id':'boot','msec':100},(error,),label)
+                self.assertEqual(events,[('capture',error),('menu',error)])
+                self.assertEqual(observed['error_event_status'],'pass')
+                self.assertEqual(observed['menu_return_status'],'pass')
+                self.assertEqual(observed['status'],'blocked')
+                visual = observed['error_notice_visual']
+                self.assertEqual(visual['reason'],'ManualPending')
+                self.assertEqual(visual['evidence_label'],label)
+                for filename in visual['evidence_files'].values():
+                    self.assertTrue((self.output/filename).exists())
+                    self.assertIn(label,filename)
+                captured = json.loads((self.output/visual['evidence_files']['json']).read_text())
+                self.assertEqual(captured['last_lan_error'],error)
+
+    def test_lan_error_capture_rejects_stale_background_wrong_boot_screen_or_error(self):
+        state = {'boot_id':'boot','msec':101,'foreground':True,'screen':'lan_menu','last_lan_error':'room_not_found','touch':{'active':[]}}
+        for changes in ({'msec':100},{'boot_id':'old-boot'},{'foreground':False},{'screen':'lan_join'},{'last_lan_error':'room_full'}):
+            with self.subTest(changes=changes):
+                d = self.device([{**state,**changes}])
+                d.evidence = Mock()
+                with patch.object(fleet,'_menu') as menu, self.assertRaisesRegex(fleet.Failure,'시간 초과'):
+                    fleet._lan_error_apk_ui(d,{'boot_id':'boot','msec':100},('room_not_found',),'missing-room-error')
+                d.evidence.assert_not_called()
+                menu.assert_not_called()
+                self.assertLess(self.clock.now,1.3)
+
+    def test_lan_error_capture_release_failure_keeps_pre_return_evidence(self):
+        d = self.device([{'boot_id':'boot','msec':101,'foreground':True,'screen':'lan_menu','last_lan_error':'connection_lost','touch':{'active':['light']}}])
+        d.case_id = 'LAN-02'
+        with patch.object(fleet,'_menu'), self.assertRaisesRegex(fleet.Failure,'입력 고착'):
+            fleet._lan_error_apk_ui(d,{'boot_id':'boot','msec':100},('connection_lost',),'server-off-error')
+        capture = list(self.output.glob('*server-off-error.json'))
+        self.assertEqual(len(capture),1)
+        self.assertEqual(json.loads(capture[0].read_text())['last_lan_error'],'connection_lost')
+
     @staticmethod
     def lan_motion(msec,tick,state='RUN',x=20,vx=150,**changes):
         value = {'boot_id':'lan-boot','msec':msec,'foreground':True,'screen':'lan_match',

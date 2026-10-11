@@ -538,6 +538,7 @@ class DeviceRun:
             self.adb.screenshot(self.output / f'{stem}.png')
         except (Blocked, Failure):
             pass
+        return {'json':f'{stem}.json','screenshot':f'{stem}.png' if (self.output / f'{stem}.png').exists() else None}
 
     def case(self, case_id, callback, input_source='adb_touch+debug_autoplay'):
         self.case_id = case_id
@@ -1497,6 +1498,25 @@ def _third_guest_rejection(server,invite):
         peer.close()
 
 
+def _lan_error_apk_ui(device, before, expected_errors, label):
+    """Fresh error event plus return; Label text needs independent review."""
+    require(before.get('boot_id') and isinstance(before.get('msec'),(int,float)), 'LAN 오류 검사 전 앱 발행 시각 진단이 없습니다.')
+    state = device.wait(lambda s:s.get('boot_id')==before['boot_id'] and s.get('foreground') is True
+                        and isinstance(s.get('msec'),(int,float)) and s['msec']>before['msec']
+                        and s.get('screen')=='lan_menu' and s.get('last_lan_error') in expected_errors,
+                        label=f'새 LAN 오류 이벤트: {label}')
+    error,msec = state['last_lan_error'],state['msec']
+    # Capture before any menu transition can consume the displayed message.
+    capture = device.evidence(label)
+    _menu(device)
+    device.assert_released(device.state,'LAN 오류 안내 복귀 뒤 입력 고착')
+    return {'status':'blocked','actual_error_ui_device':device.alias,'error':error,'returned_screen':'lan_menu',
+            'error_event':error,'error_event_status':'pass','menu_return_status':'pass','event_msec':msec,
+            'error_notice_visual':{'status':'blocked','reason':'ManualPending','observation':'미확인: 화면 캡처 별도 검토 필요',
+                                   'evidence_label':label,'evidence_files':capture},
+            'actual_error_text_visual':'미확인: 화면 캡처 별도 검토 필요'}
+
+
 def _room_full_apk_ui(host,guest,server):
     for device in (host,guest):
         device.command('autoplay',enabled=False)
@@ -1510,19 +1530,10 @@ def _room_full_apk_ui(host,guest,server):
         fixture.start()
         host.wait_new_match(generation,lan=True)
         before = guest.read()
-        require(before.get('boot_id') and isinstance(before.get('msec'),(int,float)), '정원 검사 전 실제 APK의 발행 시각 진단이 없습니다.')
         _lan_login(guest,'join',invite,server.protocol)
-        state = guest.wait(lambda s:s.get('boot_id')==before['boot_id'] and s.get('foreground') is True and s.get('msec',0)>before['msec'] and s.get('screen')=='lan_menu' and s.get('last_lan_error')=='room_full',label='실제 APK 정원 초과 오류 안내')
-        # Frozen APK diagnostics omit Label nodes. Preserve the error screen
-        # before navigation; visual text review is a separate observation.
-        guest.evidence('room-full-error-event')
-        _menu(guest)
-        guest.assert_released(guest.state,'정원 초과 안내 복귀 뒤 입력 고착')
+        observed = _lan_error_apk_ui(guest,before,('room_full',),'room-full-error-event')
         guest.evidence('room-full-apk-ui')
-        return {'status':'blocked','actual_error_ui_device':guest.alias,'error':'room_full','returned_screen':'lan_menu',
-                'error_event':'room_full','error_event_status':'pass','menu_return_status':'pass',
-                'error_notice_visual':{'status':'blocked','reason':'ManualPending','observation':'미확인: 화면 캡처 별도 검토 필요','evidence_label':'room-full-error-event'},
-                'actual_error_text_visual':'미확인: 화면 캡처 별도 검토 필요',
+        return {**observed,
                 'capacity_fixture':fixture.observed,'actual_third_apk':'미실행: 두 실제 APK와 정원용 통신 참가자를 사용함'}
     finally:
         try:
@@ -1697,18 +1708,15 @@ def lan_pair(host, guest, server):
         host.tap('초대 코드로 참가')
         host.screen('lan_join')
         host.command('set_text', id=host.node(kind='input')['id'], value='INVALID')
+        before_error = host.read()
         host.tap('방 참가')
-        host.wait(lambda s: bool(s.get('last_lan_error')), label='잘못된 초대 코드 안내')
-        require(host.state['last_lan_error'] in ('invalid_invite_code', 'invalid_room_code'), '잘못된 코드 오류 불일치')
-        lan02_observed['invalid_code'] = {'status':'pass','actual_error_ui_device':host.alias,'error':host.state['last_lan_error']}
-        _menu(host)
+        lan02_observed['invalid_code'] = _lan_error_apk_ui(host,before_error,('invalid_invite_code','invalid_room_code'),'invalid-code-error')
         # Syntactically valid missing room on live server.
         parts = invite.split('|')
         parts[3 if server.protocol == 2 else 2] = 'ZZZZZZZZ'
+        before_error = host.read()
         _lan_login(host, 'join', '|'.join(parts), server.protocol)
-        host.wait(lambda s: s.get('last_lan_error') in ('room_not_found', 'invalid_room'), label='없는 방 안내')
-        lan02_observed['missing_room'] = {'status':'pass','actual_error_ui_device':host.alias,'error':host.state['last_lan_error']}
-        _menu(host)
+        lan02_observed['missing_room'] = _lan_error_apk_ui(host,before_error,('room_not_found','invalid_room'),'missing-room-error')
         # A protocol-only guest fills slot 2 so the other actual APK can
         # exercise room_full UI and menu return without a third device.
         full_ui = _room_full_apk_ui(host,guest,server)
@@ -1716,11 +1724,10 @@ def lan_pair(host, guest, server):
         # Keep guest API up, stop game service; nickname/guest still normal.
         server.process.terminate()
         server.process.wait(timeout=5)
+        before_error = host.read()
         _lan_login(host, 'host', server.code, server.protocol)
-        host.wait(lambda s: s.get('last_lan_error') in ('connection_failed', 'connection_lost', 'request_timeout'), label='꺼진 LAN 서버 안내')
-        lan02_observed['server_off'] = {'status':'pass','actual_error_ui_device':host.alias,'error':host.state['last_lan_error']}
-        _menu(host)
-        host.mark(current, 'blocked', '자동 오류 이벤트·복귀 검사 완료; 정원 초과 문구는 화면 캡처의 별도 시각 확인 대기')
+        lan02_observed['server_off'] = _lan_error_apk_ui(host,before_error,('connection_failed','connection_lost','request_timeout'),'server-off-error')
+        host.mark(current, 'blocked', '자동 오류 이벤트·복귀 검사 완료; 네 오류 문구는 화면 캡처의 별도 시각 확인 대기')
         host.results[-1]['observed'] = {**lan02_observed, 'full_room': full, 'full_room_apk_ui': full_ui, 'actual_error_ui_device': host.alias, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1'}
         host.results[-1]['input_source'] = 'adb_touch+debug_text_setup+' + full['source']
         host.evidence('errors')
