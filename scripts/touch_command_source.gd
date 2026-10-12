@@ -1,6 +1,8 @@
 extends Control
 signal diagnostic_event(action: StringName, edge: String)
 
+signal diagnostic_event(action: StringName, edge: String)
+
 ## A single cardinal pad occupies the lower-left 42% inside the 6.5% safe edge.
 const SAFE_EDGE_RATIO := 0.065
 const DPAD_IDS := {

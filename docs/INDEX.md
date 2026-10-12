@@ -33,6 +33,7 @@
 | 이미지·애니메이션·소리는 어떻게 만드는가? | [콘텐츠 제작 원칙](content/art-and-audio.md) | [캐릭터 외형 데이터](contracts/character-appearance-v01.json), [음악과 효과음](content/audio-v01.md) |
 | Godot 자산은 어떻게 찾고 교체하는가? | [Godot 설정](engineering/godot/setup.md) | [Godot 자산 규칙](engineering/godot/resource-rules.md) |
 | Android 기기를 어떻게 연결하는가? | [Android 무선 연결](engineering/godot/android-wireless-debugging.md) | [README 실행 명령](../README.md#실행과-검증) |
+| 여러 Android 실기기를 자동 플레이로 검사하는가? | [실기기 자동 플레이](engineering/godot/android-device-autoplay.md) | [Android 무선 연결](engineering/godot/android-wireless-debugging.md) |
 | Codex 대화가 로딩 시간 초과로 열리지 않는가? | [세션 복구](operations/codex-session-recovery.md) | `tools/forest_arena/recover_codex_session.py` |
 | AI 작업은 어떤 절차로 진행하는가? | [AI 개발 절차](operations/ai-development.md) | [AI 역할과 작업 배정](operations/harness/team-spec.md) |
 | 다른 게임 프로젝트의 개발 준비를 어떻게 구성하는가? | [새 게임 사전 구성 지침서](operations/new-game-bootstrap.md) | 독립 입력 양식·핵심 템플릿·실행 절차·검사 규칙 |

@@ -41,8 +41,17 @@ var demo_mode := OS.has_feature("demo") or "--demo" in OS.get_cmdline_user_args(
 var demo_intent := ""
 var demo_api_url := ""
 var demo_generation := 0
+var qa_session: AndroidQaSession
+var _qa_button_counts: Dictionary = {}
 
 func _ready() -> void:
+	if OS.is_debug_build() and Array(OS.get_cmdline_user_args()).any(func(value: String) -> bool: return value.begins_with("--qa-run=")):
+		qa_session = AndroidQaSession.new()
+		if not qa_session.configure(self, OS.get_cmdline_user_args(), true):
+			push_error("Invalid Android QA arguments")
+			get_tree().quit(2)
+			return
+		_attach_qa_session.call_deferred()
 	get_tree().quit_on_go_back = false
 	layer = CanvasLayer.new()
 	layer.layer = 10
@@ -81,7 +90,11 @@ func _ready() -> void:
 	if auto_db:
 		_connect_db.call_deferred(false)
 
+func _attach_qa_session() -> void:
+	if qa_session != null: add_child(qa_session)
+
 func _new_page(title: String, background := true) -> void:
+	_qa_button_counts.clear()
 	ForestArenaAudio.set_context(screen)
 	if page != null:
 		layer.remove_child(page)
@@ -153,6 +166,10 @@ func _button(text: String, callback: Callable, parent: Node = null, disabled := 
 	button.disabled = disabled
 	var family := "primary" if text in ["대전 시작", "오프라인 대전", "같은 조건으로 재대전", "방 생성", "참가"] else "secondary"
 	FORESTLIGHT.skin_button(button, family)
+	var qa_key := screen + "/button/" + text
+	var qa_occurrence := int(_qa_button_counts.get(qa_key, 0))
+	_qa_button_counts[qa_key] = qa_occurrence + 1
+	button.set_meta("qa_id", qa_key + "/" + str(qa_occurrence))
 	button.pressed.connect(func() -> void:
 		ForestArenaAudio.play_event(&"ui_back" if text in ["로비", "취소", "계속하기", "대전 준비", "LAN 메뉴"] else &"ui_click", {})
 		callback.call())
@@ -334,6 +351,7 @@ func _show_lan_join() -> void:
 
 func _line_input(placeholder: String, value: String, callback: Callable) -> LineEdit:
 	var input := LineEdit.new()
+	input.set_meta("qa_id", screen + "/input/" + placeholder)
 	input.placeholder_text = placeholder
 	input.text = value
 	input.custom_minimum_size = Vector2(760, 58)
@@ -381,6 +399,7 @@ func _begin_lan_join() -> void:
 
 
 func _demo_login(intent: String, new_guest := false) -> void:
+	if qa_session != null: qa_session.last_lan_error = ""
 	if demo_guest.busy: return
 	var parsed := LanInvite.parse_host_code(lan_host_code) if intent == "host" else LanInvite.parse_invite_code(lan_invite_code)
 	if parsed.has("error"):
@@ -657,6 +676,7 @@ func _on_lan_status(text: String) -> void:
 
 
 func _on_lan_failed(code: String) -> void:
+	if qa_session != null: qa_session.last_lan_error = code
 	ForestArenaAudio.play_event(&"ui_error", {})
 	_close_match()
 	message = "LAN 연결 실패: " + _lan_reason_text(code)
@@ -711,9 +731,10 @@ func _show_shop() -> void:
 		text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		row.add_child(text)
 		var owned := store.owns(item.id)
-		_button("보유 중" if owned else "0원 · 무료 구매", func() -> void:
+		var purchase_button := _button("보유 중" if owned else "0원 · 무료 구매", func() -> void:
 			if not await _change_profile("purchase", {"id": item.id}): message = store.error
 			_show_shop(), row, owned)
+		purchase_button.set_meta("qa_id", "purchase/" + String(item.id))
 	_button("로비", _show_home)
 
 
@@ -856,7 +877,9 @@ func _choice(title: String, ids: Array, selected: String, callback: Callable) ->
 	label.custom_minimum_size.x = 150
 	row.add_child(label)
 	var options := OptionButton.new()
+	options.set_meta("qa_id", screen + "/choice/" + title)
 	options.custom_minimum_size = Vector2(320, 58)
+	options.set_meta("qa_values", ids.duplicate())
 	for id: String in ids:
 		options.add_item("미장착" if id == "" else String(catalog.product(id).name))
 	options.select(ids.find(selected))
@@ -874,6 +897,7 @@ func _choice_labels(title: String, labels: Array[String], selected_index: int, c
 	label.custom_minimum_size.x = 150
 	row.add_child(label)
 	var options := OptionButton.new()
+	options.set_meta("qa_id", screen + "/choice/" + title)
 	options.custom_minimum_size = Vector2(320, 58)
 	for item: String in labels: options.add_item(item)
 	options.select(maxi(0, selected_index))
@@ -894,6 +918,7 @@ func _toggle(title: String, enabled: bool, callback: Callable) -> void:
 	var toggle := CheckButton.new()
 	FORESTLIGHT.skin_button(toggle)
 	toggle.custom_minimum_size = Vector2(128, 58)
+	toggle.set_meta("qa_id", screen + "/toggle/" + title)
 	toggle.text = "켜짐" if enabled else "꺼짐"
 	toggle.button_pressed = enabled
 	toggle.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
