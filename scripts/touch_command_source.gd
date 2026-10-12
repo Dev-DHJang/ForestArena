@@ -1,5 +1,7 @@
 extends Control
 
+signal diagnostic_event(action: StringName, edge: String)
+
 ## A single cardinal pad occupies the lower-left 42% inside the 6.5% safe edge.
 const SAFE_EDGE_RATIO := 0.065
 const DPAD_IDS := {
@@ -170,6 +172,7 @@ func _press(index: int, action: StringName) -> void:
 		_last_dpad_action = action
 	_refresh_visuals()
 	print("FOREST_ARENA_TOUCH action=%s edge=press pointer=%d" % [action, index])
+	diagnostic_event.emit(action, "press")
 
 
 func _release(index: int) -> void:
@@ -183,6 +186,7 @@ func _release(index: int) -> void:
 		_last_dpad_action = _held_dpad_action()
 	_refresh_visuals()
 	print("FOREST_ARENA_TOUCH action=%s edge=release pointer=%d" % [action, index])
+	diagnostic_event.emit(action, "release")
 
 
 func _held_dpad_action() -> StringName:

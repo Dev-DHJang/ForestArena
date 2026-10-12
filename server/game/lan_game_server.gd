@@ -331,7 +331,10 @@ func _on_match_ended(winner_id: StringName) -> void:
 	if winner_id == &"lan_host": winner_slot = 1
 	elif winner_id == &"lan_guest": winner_slot = 2
 	var reason := "draw" if winner_id == &"DRAW" else ending_reason
-	_broadcast({"type": "match_end", "reason": reason, "winner_slot": winner_slot, "final_tick": controller.tick, "snapshot_hash": controller.snapshot_hash()})
+	var result := {"type": "match_end", "reason": reason, "winner_slot": winner_slot, "final_tick": controller.tick, "snapshot_hash": controller.snapshot_hash()}
+	if OS.is_debug_build() and not OS.get_environment("FOREST_ARENA_QA_RUN").is_empty():
+		print("FOREST_ARENA_QA_LAN_RESULT " + JSON.stringify(result))
+	_broadcast(result)
 
 
 func _broadcast_snapshot() -> void:
@@ -369,6 +372,9 @@ func _on_peer_disconnected(peer_id: int) -> void:
 	clients[slot] = client
 	if running:
 		controller.release_fighter_input(controller.player.fighter_id if slot == 1 else controller.training_dummy.fighter_id)
+		if OS.is_debug_build() and not OS.get_environment("FOREST_ARENA_QA_RUN").is_empty():
+			var fighter := controller.player if slot == 1 else controller.training_dummy
+			print("FOREST_ARENA_QA_LAN_INPUT_RESET " + JSON.stringify({"slot": slot, "tick": controller.tick, "input_direction": int(fighter.input_direction), "buffered_action": "" if fighter.buffered_intent == null else String(fighter.buffered_intent.action_id)}))
 		_broadcast({"type": "peer_status", "slot": slot, "connected": false, "grace_seconds": 60})
 	else:
 		_reset_room()
