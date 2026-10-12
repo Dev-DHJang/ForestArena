@@ -4,7 +4,7 @@
 
 ## 코드와 통합 검사
 
-최신 origin/develop cf081dd334ef619450d612844f6206f560ea2cc0에서 별도 작업 사본 `/Users/jdh/.codex/worktrees/android-current-fixes/ForestArena`와 `codex/android-current-device-fixes`를 만들었다. HEAD 9de51fbff130417c207ef4ef3d1e7c4e7c8d0fbf는 원격에 push했고 PR #90은 draft다. 자동 검사 도구 PR #89의 f7061f5 코드를 합쳤다. 아직 develop 병합은 하지 않았다.
+최신 origin/develop cf081dd334ef619450d612844f6206f560ea2cc0에서 별도 작업 사본 `/Users/jdh/.codex/worktrees/android-current-fixes/ForestArena`와 `codex/android-current-device-fixes`를 만들었다. HEAD 9de51fbff130417c207ef4ef3d1e7c4e7c8d0fbf는 원격에 push했고 PR #90은 draft다. 자동 검사 도구 PR #89의 f7061f5 코드를 합쳤다. 도구 PR89 develop 병합은 아래 실제 SHA로 확인했다. 게임 수정 PR90 통합은 다음 단계다.
 
 - 전투: 방향 입력 중 일반 공격의 불필요한 이동, 피격 중 행동, 접지 피격 미끄러짐, 콤보 시작·방향과 종료 상태를 수정했다. 네 캐릭터 실제 적중 콤보는 자현 3단/15, 묘령 4단/19, 나비 2단/11, 유란 3단/15다.
 - 표현: 승인 120모션의 해시가 맞을 때만 모션별 고정 몸 배율과 발 기준을 적용한다. 원본 그림·SpriteFrames·manifest 변경은 0이다. 실제 renderer 0/8/15 프레임 비교와 QA를 마쳤고 전체 프레임의 사람 검사로 확대하지 않는다.
@@ -38,3 +38,11 @@ PR #90: https://github.com/Dev-DHJang/ForestArena/pull/90
 develop 통합은 QA와 실제 재검사 뒤 진행하며 병합 SHA와 실제 rollback 명령을 추가한다. main 승격·release 분기·강제 push·원격 브랜치 삭제는 하지 않는다. 되돌릴 때 이 작업의 통합 커밋을 revert하고 APK·실패·사용자 응답 증거는 보존한다.
 
 빌드 당시2101파일을 frozen-apk-source-r01 사본으로 보존해 SHA변경0을 확인했다. 이후 명령 진단의device/step/expected/observed와 실제 응답 기록 보완은 도구만 바꾸며 게임APK a428…는 그대로다. 변경된 host120개와 실제 같은 APK S23context명령 호환성 확인을 추가했다. 최종12사례/사용자7항목의 결과와 정확한 한계는 06_fixed_device_results.md/final-device-composite.json에 있다.
+
+## 원격 통합 1단계 · 실제 완료
+
+검사 도구 PR #89를 expected head44ec782b4f1a6e4f133094e3b96eb2fefae89586으로 develop에 merge했다. 실제 병합 SHA는 `2fecc0ac00f8e5b2612eb5932804c29f05cdcaea`다. origin/develop을 fetch하여 확인하고 수정 브랜치에 충돌 없이 합쳤다(로컬merge83817f0d9d3576d3b3fb660d4dd6e1b17346ccc3).
+
+합친 뒤 host120개/문서/diff검사는 통과했다. 빌드 당시 source2101개와 현재tree 비교의 차이는 외부검사도구 android_fleet.py/test_android_fleet.py 두 파일뿐이다. 전투·Godot·승인리소스·APK는 unchanged이며 별도동결사본은2101개 hash그대로다. 이 두 진단파일 변경은 독립QA와 동일APK 실제명령 응답을 확인했고 전체게임검사 재실행으로 확대하지 않는다.
+
+도구만 되돌릴 때 `git revert -m 1 2fecc0ac00f8e5b2612eb5932804c29f05cdcaea`를 새 작업 브랜치에서 수행하고 관련검사/QA/PR을 거친다. 게임수정 PR90도 합친 뒤라면 게임수정을 먼저되돌린다. 설치된APK의 교체는 코드revert와 별도이며 새패키지검사가 필요하다. PR90 실제병합 SHA는 다음단계에서 기록한다.
