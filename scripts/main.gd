@@ -1,10 +1,11 @@
 extends Node2D
 
 const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]
-const HUD_PANEL_ID := "fa.ui.panel.panel.dark.l"
-const RESTART_NORMAL_ID := "fa.ui.button.base.btn.secondary.m.default"
-const RESTART_PRESSED_ID := "fa.ui.button.base.btn.secondary.m.pressed"
-const RESTART_DISABLED_ID := "fa.ui.button.base.btn.secondary.m.disabled"
+const HUD_PANEL_ID := "fa.ui.forestlight.panel.default"
+const RESTART_NORMAL_ID := "fa.ui.forestlight.secondary.default"
+const RESTART_PRESSED_ID := "fa.ui.forestlight.secondary.pressed"
+const RESTART_DISABLED_ID := "fa.ui.forestlight.secondary.disabled"
+const ForestlightHudScript := preload("res://scripts/forestlight_match_hud.gd")
 const CombatAudioScript := preload("res://scripts/combat_audio.gd")
 
 @onready var match_controller: MatchController = $MatchController
@@ -21,10 +22,17 @@ var _missing_resource_ids: PackedStringArray = []
 var app_shell_mode := false
 var _text_scale := 1.0
 var combat_audio: CombatAudio
+var forestlight_hud: Control
 
 
 func _ready() -> void:
 	_apply_resource_ui()
+	if app_shell_mode:
+		forestlight_hud = ForestlightHudScript.new()
+		forestlight_hud.name = "ForestlightMatchHud"
+		$Interface.add_child(forestlight_hud)
+		readout.hide()
+		hud_panel.hide()
 	match_controller.snapshot_changed.connect(_render_snapshot)
 	match_controller.presentation_event.connect(arena_visual.play_combat_event)
 	combat_audio = CombatAudioScript.new()
@@ -66,12 +74,20 @@ func apply_accessibility(settings: Dictionary) -> void:
 	combat_audio.apply_accessibility(settings)
 	touch.apply_accessibility(settings)
 	readout.add_theme_font_size_override("font_size", roundi(22 * _text_scale))
+	if forestlight_hud != null: forestlight_hud.configure(forestlight_hud.identities, _text_scale)
 	debug_readout.add_theme_font_size_override("font_size", roundi(16 * _text_scale))
 	restart.add_theme_font_size_override("font_size", roundi(18 * _text_scale))
 
 
 func configure_minimap(participants: Dictionary, local_id: StringName, team_mode: bool, settings: Dictionary) -> void:
 	minimap.configure(match_controller.stage_data, participants, local_id, team_mode)
+	if forestlight_hud != null:
+		var identities := participants.duplicate(true)
+		for id: Variant in identities:
+			var fighter := match_controller.call("_fighter_by_id", StringName(id)) as FighterController
+			if fighter != null and fighter.character_data != null: identities[id]["character_name"] = fighter.character_data.display_name
+		forestlight_hud.configure(identities, _text_scale)
+		forestlight_hud.update_snapshot(match_controller.snapshot())
 	minimap.apply_settings(settings, _text_scale)
 	minimap.update_snapshot(match_controller.snapshot())
 
@@ -120,6 +136,7 @@ func _release_semantic_actions() -> void:
 
 func _render_snapshot(snapshot: Dictionary) -> void:
 	minimap.update_snapshot(snapshot)
+	if forestlight_hud != null: forestlight_hud.update_snapshot(snapshot)
 	var fighters: Array = snapshot.get("fighters", [])
 	if fighters.size() < 2:
 		return

@@ -14,6 +14,23 @@ func _run() -> void:
 	_check(Presentation.airborne_jump_frame(-60.0, 0.0) == 6, "negative apex boundary inclusive")
 	_check(Presentation.airborne_jump_frame(60.0, 0.0) == 6, "positive apex boundary inclusive")
 	_check(Presentation.airborne_jump_frame(60.01, 0.0) == 10, "descent just outside apex boundary")
+	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Presentation.MANIFEST_PATH))
+	var drawing_document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(Presentation.DISPLAY_LAYOUT_PATH))
+	_check(drawing_document.schema_version == 1 and drawing_document.motions.size() == 120, "MOTION-SIZE-01 covers the 120 approved sheets")
+	var calibrated_entries := {}
+	for entry: Dictionary in manifest.assets:
+		if entry.get("type") == "animation-runtime":
+			calibrated_entries["%s/%s" % [entry.character_id, entry.visual_state_id]] = entry
+	for row: Dictionary in drawing_document.motions:
+		var key := "%s/%s" % [row.character_id, row.motion_id]
+		_check(calibrated_entries.has(key), "MOTION-SIZE-01 calibration targets a registered motion")
+		var entry: Dictionary = calibrated_entries.get(key, {})
+		var drawing := Presentation.display_layout(entry)
+		_check(drawing.calibrated, "MOTION-SIZE-01 binds the current approved sheet hash")
+		var stale := entry.duplicate(true)
+		stale.sha256 = "different-approved-art-version"
+		var fallback := Presentation.display_layout(stale)
+		_check(not fallback.calibrated and is_equal_approx(fallback.scale, float(stale.get("presentation_scale", 1.0))), "MOTION-SIZE-01 never applies this artwork calibration to other sheets")
 	for id: StringName in ROSTER:
 		var paths := Presentation.approved_motion_paths(id)
 		if id == &"nabi":
@@ -43,6 +60,25 @@ func _run() -> void:
 		_check(presentation.sprite.visible, "%s has visible approved sprite" % id)
 		_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, fighter.ground_contact_offset_y()), "%s basic motion uses approved 124px contact point" % id)
 		_check(presentation.screen_bounds().has_area(), "%s exposes its actual visible screen bounds" % id)
+		for row: Dictionary in drawing_document.motions:
+			if row.character_id != String(id):
+				continue
+			var visual_attack := AttackData.new()
+			visual_attack.visual_state_id = StringName(row.motion_id)
+			fighter.active_attack = visual_attack
+			fighter.state = FighterController.State.ATTACK_STARTUP
+			var untouched := fighter.snapshot()
+			for phase_tick: int in [0, 3, 7, 12]:
+				fighter.attack_phase_tick = phase_tick
+				presentation.sync_visual(0.1)
+				_check(presentation.sprite.animation == StringName(row.motion_id), "MOTION-SIZE-01 shows the exact approved motion")
+				_check(is_equal_approx(presentation.sprite.scale.x, float(row.scale)), "MOTION-SIZE-01 fixed body calibration does not pulse between frames")
+				_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, fighter.ground_contact_offset_y()), "MOTION-SIZE-01 foot contact survives the independent body scale")
+				untouched.attack_phase_tick = phase_tick
+				_check(untouched == fighter.snapshot(), "MOTION-SIZE-01 drawing keeps combat data read-only")
+		fighter.active_attack = null
+		fighter.state = FighterController.State.IDLE
+		presentation.sync_visual(0.0)
 		fighter.facing = -1
 		presentation.sync_visual(0.01)
 		_check(presentation.sprite.flip_h, "facing mirrors visuals")

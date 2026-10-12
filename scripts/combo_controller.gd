@@ -32,8 +32,14 @@ static func opening_attack(move_set: MoveSetData, intent: CombatIntent, context:
 	for attack: AttackData in move_set.attacks():
 		if attack.action_id != intent.action_id or (attack.activation_context != context and attack.activation_context != AttackData.ActivationContext.BOTH): continue
 		if attack.requires_dash != dashing: continue
-		if intent.action_id == &"attack_light" and context == AttackData.ActivationContext.GROUND and not dashing and not move_set.opening_attack_ids.has(attack.attack_id): continue
-		if _direction_matches(attack.input_direction, _relative_direction(intent.direction, facing)): return attack
+		var direction := _relative_direction(intent.direction, facing)
+		if intent.action_id == &"attack_light" and context == AttackData.ActivationContext.GROUND and not dashing:
+			var opening := move_set.opening_attack_ids.has(attack.attack_id)
+			# Authored neutral combo openings also accept left/right: that input
+			# chooses their facing, not a separate move or a later combo stage.
+			if opening and attack.input_direction == AttackData.InputDirection.NEUTRAL and direction in [AttackData.InputDirection.NEUTRAL, AttackData.InputDirection.FORWARD, AttackData.InputDirection.BACK]: return attack
+			if not opening and attack.input_direction not in [AttackData.InputDirection.UP, AttackData.InputDirection.DOWN]: continue
+		if _direction_matches(attack.input_direction, direction): return attack
 	return null
 
 

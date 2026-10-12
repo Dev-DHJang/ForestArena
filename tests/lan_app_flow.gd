@@ -3,7 +3,7 @@ extends Node
 const TIMEOUT_MSEC := 7000
 
 var failures: Array[String] = []
-var app: LocalAiApp
+var app: Node
 var guest: LanMatchClient
 var guest_app: Node
 var save_path := "user://test-lan-app-%d.json" % Time.get_ticks_usec()
@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _run() -> void:
-	app = LocalAiApp.new()
+	app = load("res://scripts/local_ai_app.gd").new()
 	app.save_path = save_path
 	add_child(app)
 	app.lan_client.failed.connect(func(code: String) -> void: print("LAN_APP_FLOW_CLIENT_ERROR " + code))

@@ -174,7 +174,7 @@ func run() -> void:
 
 
 func find_button(app: Node, text: String) -> Button:
-	for child: Node in app.body.find_children("*", "Button", true, false):
+	for child: Node in app.page.find_children("*", "Button", true, false):
 		var button := child as Button
 		if button.text == text and not button.disabled: return button
 	return null

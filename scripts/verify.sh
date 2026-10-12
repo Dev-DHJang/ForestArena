@@ -12,6 +12,7 @@ godot --headless --path . --script res://tests/phase1_combat_behavior.gd
 godot --headless --path . --script res://tests/phase1_match_rules.gd
 godot --headless --path . --script res://tests/phase1_determinism.gd
 godot --headless --path . --script res://tests/combat_feel_stage_v2.gd
+godot --headless --path . --script res://tests/android_device_combat_regression.gd
 godot --headless --path . --script res://tests/phase1_input_ui.gd
 godot --headless --path . --script res://tests/phase2_loadout_contract.gd
 godot --headless --path . --script res://tests/phase2_runtime_wiring.gd
@@ -23,6 +24,7 @@ godot --headless --path . --script res://tests/phase5_job_inheritance.gd
 godot --headless --path . --script res://tests/phase6_local_mode_contract.gd
 godot --headless --path . --script res://tests/phase6_multifighter_match.gd
 ./scripts/verify-audio.sh
+godot --headless --path . --script res://tests/android_audio_store.gd
 godot --headless --path . --script res://tests/combat_overhaul_contract.gd
 godot --headless --path . --script res://tests/character_data_contract.gd
 godot --headless --path . --script res://tests/character_appearance_contract.gd
@@ -39,9 +41,12 @@ godot --headless --path . --script res://tests/local_ai_behavior.gd
 godot --headless --path . --script res://tests/local_ai_soak.gd
 godot --headless --path . --script res://tests/local_fighter_presentation.gd
 godot --headless --path . --script res://tests/local_ai_app_flow.gd
+godot --headless --path . --script res://tests/forestlight_runtime.gd
 godot --headless --path . --script res://tests/local_accessory_play.gd
 godot --headless --path . --script res://tests/local_touch_controls.gd
+godot --headless --path . --script res://tests/forestlight_touch_input.gd
 godot --headless --path . --script res://tests/lan_contract.gd
+godot --headless --path . --script res://tests/lan_resume_pending.gd
 ./scripts/verify-lan-runtime.sh
 ./scripts/verify-online-server.sh
 ./scripts/verify-harness.sh

@@ -21,7 +21,7 @@ func run() -> void:
 	var field := app.page.find_child("NicknameInput", true, false) as LineEdit
 	check(field != null, "nickname field exists")
 	if field != null: field.text = "숲지기"
-	for node: Node in app.body.find_children("*", "Button", true, false):
+	for node: Node in app.page.find_children("*", "Button", true, false):
 		if node.text == "닉네임 저장":
 			node.pressed.emit()
 			break
@@ -30,7 +30,7 @@ func run() -> void:
 	var slider := app.body.find_child("MinimapTransparency", true, false) as HSlider
 	check(slider != null, "transparency slider exists")
 	if slider != null: slider.value = 55
-	for node: Node in app.body.find_children("*", "Button", true, false):
+	for node: Node in app.page.find_children("*", "Button", true, false):
 		if node.text == "투명도 저장":
 			node.pressed.emit()
 			break
