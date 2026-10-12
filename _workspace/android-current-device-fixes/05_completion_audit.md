@@ -1,6 +1,6 @@
 # 계획 이행 확인표 · 실기기 재검사 진행 중
 
-제품과 현재 승인 기기 범위의 검사는 완료했다. 원격 통합과 실제 병합/rollback 기록이 남아 있어 목표 완료 처리는 그 뒤에 한다. 사용자가 변경한 기기 역할은 S23 주 검사·Tab S5e LAN 상대다. 동일 APK를 실제로 확인한 증거만 기기 통과로 판단하며 이전 APK 통과를 새 APK 결과로 옮기지 않는다. 최초 새 APK 실패 b49ce3fd6dfc40528deeeae426611207은 사용자 조작이 섞였으므로 별도 재시도를 사용한다.
+제품과 현재 승인 기기 범위의 검사는 완료했다. 도구/게임PR의develop병합과 실제SHA/rollback기록도 확인했다. 마무리기록PR원격통합을 마지막으로 확인한다. 사용자가 변경한 기기 역할은 S23 주 검사·Tab S5e LAN 상대다. 동일 APK를 실제로 확인한 증거만 기기 통과로 판단하며 이전 APK 통과를 새 APK 결과로 옮기지 않는다. 최초 새 APK 실패 b49ce3fd6dfc40528deeeae426611207은 사용자 조작이 섞였으므로 별도 재시도를 사용한다.
 
 | 계획 요구 | 현재 증거 | 판정과 남은 작업 |
 | --- | --- | --- |
@@ -25,7 +25,7 @@
 | FPS/p95/PSS/발열·승인 수치 없음·불가 미확인 | b49 performance.json/memory.txt/thermal.txt | S23반복/LAN양기기의fresh샘플·p95/PSS/센서측정과 한계보고 완료. 성능 합격으로 단정하지 않음 |
 | release 비활성/입력 초기화/저장 분리·두 서버 간 간섭 | Godot ANDROID_QA_SESSION·audio store·LAN runtime 및 native Java 검사 | 자동 검사 완료. 실제 release 설치 검사와 4대 실경기는 미실행 |
 | verify/docs/LAN runtime/리소스/Android 패키지 | verify-integrated-r02.log exit0, export-r02.log 실제 APK pass | 완료. runtime 코드 변경이 없으므로 기록 추가만으로 전체 검사를 반복하지 않음 |
-| 작업 기록·문서 색인·기존 작업/승인 자산 보존·원격 통합 | 00/01/02/03/04·docs/INDEX·UI문서·PR89/90 draft | 코드 QA 완료, 최종 실제 증거 독립QA pass,develop병합 SHA/rollback기록 필요 |
+| 작업 기록·문서 색인·기존 작업/승인 자산 보존·원격 통합 | 00/01/02/03/04·docs/INDEX·UI문서·PR89/90 draft | 코드 QA 완료, 최종 실제 증거 독립QA pass,develop병합89:2fecc0a/90:d81f180 및rollback기록 완료 |
 
 기기 페어링·디버그 키·재접속 토큰은 기록하지 않는다. v2 게스트 API는 이번 검사용 메모리 fixture이며 개발 DB/정식 온라인 검증으로 확대하지 않는다. 실제 Wi-Fi는 사람 조작, 자동 장애는 앱 연결만 끊는다.
 
@@ -34,3 +34,7 @@
 명령에도 기기 별칭·단계·기대값·관측값을 포함하도록 도구를 보완했다. observed pending은 실행 전 미관측이며 실제 command_seq/command_error 응답 또는 실패를 같은 순번으로 commands.jsonl에 따로 기록한다. host120개와 실제 S23 같은 APK의 context 응답을 확인했다. 기존 Godot v1·debug/release 경계를 바꾸지 않는 추가 진단 필드다. 실제 APK와 빌드 입력2101파일을 별도 frozen-apk-source-r01 사본에 SHA그대로 보존하고 도구 진단 변경과 분리했다.
 
 현재 승인 범위의 남은 필수 제품 오류는 독립QA에서 발견되지 않았다. 미실행/미확인 범위는 네 실제 기기·30분28조합(기존요청18행 범위제외),Tab오프라인 사람 체감·모든모션16프레임 사람 전수·실제release설치,정확Wi-FiOFF초수/추가peer전이원인/정원fixture나가기ACK/일부무선단절로그다. 이 항목을 pass로 바꾸지 않고 현재 범위 완료와 구분한다.
+
+## 원격 완료 근거
+
+GitHub PR89/90의 merged응답과origin/develop d81f180f2745cc2d8c41a61e6653c62bc41e16aa를 확인했다. 실제병합SHA와역순rollback은 두작업04_closeout.md에 기록했다. 최종기록PR의 병합응답·developfile byte를 확인한 뒤 목표완료를 처리한다. 단일실기기시도의rawfail/blocked 또는 범위제외를 삭제해서완료를만들지않는다.
