@@ -1,6 +1,6 @@
 # 실기기 발견 문제 수정 마무리 상태
 
-전체 목표는 진행 중이다. 새 APK의 S23 기능 검사와 10분 반복 재검사는 완료됐고, 사용자 조작 재확인이 남아 있다. 원래 작업 폴더의 미커밋 코드와 승인 캐릭터 PNG·SpriteFrames·manifest는 보존했다. 이전 APK와 실패·차단 증거도 별도로 유지한다.
+현재 승인 범위의 제품 검사는 완료됐다. 새 APK의 S23 기능·10분9판,두 APK LAN·앱 단절,실제 Wi-Fi 복귀와 S23 자현 사용자7항목 정상 재확인을 마쳤다. 독립QA가 통과 판정했고 원격 통합과 병합/rollback 기록을 마무리 중이다. 원래 작업 폴더의 미커밋 코드와 승인 캐릭터 PNG·SpriteFrames·manifest는 보존했다. 이전 APK와 실패·차단 증거도 별도로 유지한다.
 
 ## 코드와 통합 검사
 
@@ -33,6 +33,8 @@
 PR #89: https://github.com/Dev-DHJang/ForestArena/pull/89
 PR #90: https://github.com/Dev-DHJang/ForestArena/pull/90
 
-새 APK의 LAN 자동 검사는 완료했고 실제 Wi-Fi 10초 재접속, 사람의 방향+공격/회피·모션·경직·콤보·BGM·효과음·진동 확인이 남아 있다. 성능에는 승인된 합격 수치가 없어서 측정값만 보고한다. 독립 QA의 코드 검사와 전체/APK/실기기 증거 감사는 구분한다.
+새 APK의 LAN 자동 검사는 완료했고 실제 Wi-Fi 재접속은 새 수동 경기에서 같은 슬롯 복귀와 사용자의 이동/공격 가능 응답을 확인했다. 정확한 OFF 초 수·Tab 문구 체감은 미확인이다. S23 자현의 방향+공격/회피·모션·경직·콤보·BGM·효과음·진동은 사용자 정상 답변과 실제 화면/저장/로그를 확인했다. 성능에는 승인된 합격 수치가 없어서 측정값만 보고한다. 독립 QA의 코드 검사와 전체/APK/실기기 증거 감사는 구분한다.
 
 develop 통합은 QA와 실제 재검사 뒤 진행하며 병합 SHA와 실제 rollback 명령을 추가한다. main 승격·release 분기·강제 push·원격 브랜치 삭제는 하지 않는다. 되돌릴 때 이 작업의 통합 커밋을 revert하고 APK·실패·사용자 응답 증거는 보존한다.
+
+빌드 당시2101파일을 frozen-apk-source-r01 사본으로 보존해 SHA변경0을 확인했다. 이후 명령 진단의device/step/expected/observed와 실제 응답 기록 보완은 도구만 바꾸며 게임APK a428…는 그대로다. 변경된 host120개와 실제 같은 APK S23context명령 호환성 확인을 추가했다. 최종12사례/사용자7항목의 결과와 정확한 한계는 06_fixed_device_results.md/final-device-composite.json에 있다.

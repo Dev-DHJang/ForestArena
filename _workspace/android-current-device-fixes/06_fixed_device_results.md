@@ -16,7 +16,7 @@ APK는 `a42857320d1a41a5e707a457d6ce71f03aba9b0e38241e4d693b04fe1f850e48`이다.
 | SOAK-01 | d600 600초 설정·608.196초 관측·9판 결과/재대전·9조합 | pass |
 | LAN-01/03 | 03b5e3f0513048ed8dd6738433bcb885 두 APK 정상 결과·재대전·10/65초 앱 단절 | pass |
 | LAN-02 | 같은 실행 실제 네 오류 PNG를 root가 읽고 별도 lan02-visual-review.json 저장 | 쌍별 시각 확인 pass; raw blocked 보존 |
-| MANUAL-01 및 사용자 수정 재확인 | 새 APK 실제 Wi-Fi·방향+회피/공격·모션·경직·콤보·소리/진동 | 미실행 |
+| MANUAL-01 및 사용자 수정 재확인 | 새 APK 실제 Wi-Fi·방향+회피/공격·모션·경직·콤보·소리/진동 | pass(S23 자현 직접 확인) |
 
 최초 b49 실행은 원시 집계13pass2fail8blocked2미실행을 보존한다. 사용자가 검사 도중 직접 조작했다고 확인했으며 S23 SOAK 실패는 pause 캡처, Tab MODE 실패는 pause/foreground 손실/최근앱 캡처다. 직접 조작이 섞인 시도라고 구분하며 모든 실패의 원인을 확정하거나 원본 fail을 pass로 덮어쓰지 않는다. 정확한 조작 시점은 미확인이다.
 
@@ -47,3 +47,21 @@ S23 일반 저장은 b49와 d600에서 before{}/after{} unchanged true다. 기�
 ## 실제 Wi-Fi와 사용자 조작 준비
 
 첫 수동 준비 `fa60f34c84f04fe09915acfa4dc23d17`는 자동 실행 ID의 게스트 저장을 다른 임시 API로 연결하며 demo_guest_error가 나타나 demo_nickname30초 대기 실패로 종료했다. 실제 Wi-Fi 조작은 아직 요청하지 않았고 준비 blocked로 보존했다. 자동 검사 통과나 제품 Wi-Fi 실패로 분류하지 않는다. 새 수동 helper는 실제 같은 APK hash를 확인한 뒤 별도 새 QA 실행 ID·저장으로 준비한다. 최초 helper의 source/context/session-error와 게임 로그는 이전 시도에 보존하며 일반 저장은 그대로 둔다.
+
+수동 Wi-Fi 경기 `339d7f5cbf1f4434b78454b54e7819c2`는 새 QA run a4a6a2bc1d97418e9947d7c71e4db8c8에서 자동 입력을 끄고 준비했다. 사용자는 “복귀 후 이동 및 공격 가능하다.”라고 답했다. S23은 전후 boot21848 동일·경기generation1·slot1로 복귀하고 Tab도 boot26644·generation1·slot2를 유지했다. Tab의 peer_connected는 False→True로 바뀌었다. server 입력은 tick5817/6320에 방향0·대기입력빈값으로 기록됐고 해당 수동 관측에서 server-results는 빈 목록이다. 별도 manual-wifi-user-observation.json에 pass를 기록한다. 실제 Wi-Fi OFF 정확한 초 수와 Tab 문구의 사람 관측은 별도 답변이 없어 미확인으로 남긴다.
+
+Wi-Fi 뒤 S23 무선 디버그 포트가 바뀌어 로그 일부와 종료 시 일반 저장 after는 조회하지 못했다. 그 원시 unavailable/blocked는 유지한다. 재연결 후 original-stores-after-reconnect.json에서 별도로 before{}/after_reconnect{} 일치를 확인했다. Tab 종료 저장은 {}→{} unchanged true다. 게임의 재접속 복구와 무선 디버깅 관측 공백을 구분한다. 실제 전후 경기 PNG·앱 상태·Tab peer 변화·server 입력 해제와 사용자 응답을 함께 사용하며, 단순 ADB 연결만으로 경기 복귀를 판정하지 않는다.
+
+이후 S23만 연습 모드로 준비한 수동 artifact0ab50ed6862f46fda3812d1ec951a6ba에서 자동 입력false·실제 자현 연습을 확인하고 사용자 조작·모션·경직·콤보·소리/진동 재확인 응답을 기다린다. Tab은 LAN 종료 뒤 추가 조작하지 않는다.
+
+## 사용자 수정 재검사와 최종 집계
+
+S23 자현의 실제 수동 재검사 응답은 방향 누른 지상 약공격 정상, 방향+회피 정상, 3단콤보 정상, 경직모션 정상, 캐릭터크기 정상, 수정 UI/HUD 정상, 음악·효과음·진동 정상이다. `0ab50.../manual-user-results.json`에 각 항목의 버전/실행 ID/기기/단계/기대값/사용자 관측값을 기록했다. 별도 직접 체감이며 소리나 진동 요청 수로 대신하지 않았다. S23 연습 정리도 종료0·자동 입력 confirmed_disabled·일반 저장{}→{} 동일이다.
+
+`build/android-current-fixes/final-device-composite.json`은 같은 새 APK의 보존된 여러 시도에서 현재 승인 범위의 이름 있는12사례와 사용자 수정7항목을 연결한다. 단일 실행의 전체 통과라고 해석하지 않는다. S23 주 오프라인 검사/Tab LAN 상대,10분 반복,자현 사람 관측 범위이며 네 실제 기기/30분28조합·Tab 오프라인 수동 체감은 제외/미실행 기록을 유지한다.
+
+마지막 명령 형식 점검으로 도구에 device/step/expected/observed 필드와 commands.jsonl의 요청/실제 응답·실패 기록을 추가했다. host120개 통과와 같은 APK S23의 실제 context명령 ACK를 확인했다. 게임 소스나 APK는 바꾸지 않았다. 빌드 당시2101파일은 수정 전에473MiB의 frozen-apk-source-r01 사본으로 복사해 SHA차이0을 확인했다. 이후 도구 진단 변경과 APK 입력 소스의 버전을 구분한다.
+
+LAN 측정은 준비·경기·장애·오류·정리를 포함한다. S23 fresh25샘플FPS60.00~72.75/중앙60.00,p95구간16.666~16.939ms/PSS248.76~471.66MiB/양수sensor34.6~44.3℃,Tab fresh32샘플FPS48.59~54.26/중앙51.68,p95구간21.212~35.454ms/PSS291.34~362.72MiB/양수sensor26.2~39.1℃다. 승인 수치가 없으므로 성능 합격으로 기록하지 않는다.
+
+Wi-Fi 최종 관측에는 neutralreset15913과 Tab의 추가False→True 전이가 포함된다. 직접 원인은 미확인이며 정확히 단일10초 끊김이었던 것으로 확대하지 않는다. 동일 경기/슬롯 복귀·입력 해제·사용자 이동/공격 가능이라는 확인 범위는 유지한다.
