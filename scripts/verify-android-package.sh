@@ -44,4 +44,11 @@ if $aapt_path list "$apk_path" | grep -E '(^|/)(_workspace|docs|tests|\.agents)/
 	exit 1
 fi
 
+for data_file in resource_registry.json audio_events_v01.json character_display_layout_v01.json; do
+	if ! "$aapt_path" list "$apk_path" | grep -Fx "assets/forest_arena/data/$data_file" >/dev/null; then
+		echo "APK contract mismatch: missing runtime data $data_file" >&2
+		exit 1
+	fi
+done
+
 echo "Android APK contract verification passed."

@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "renderer": "Godot 4.7.1 Compatibility OpenGL API 4.1 Metal - Apple M4",
+  "screens": [
+    {
+      "file": "build/android-current-fixes/ui-render/battle-20x9.png",
+      "size": [
+        1600,
+        720
+      ],
+      "sha256": "2b29a7027e274372dcfc9bbda9511007ded4096f27cb436ecbd79ad6151c7ab5"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/battle.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "b1c3f25769bc894c976c22088aa7beee922d2ac915974cdfcb9f7c6c3b3f4f4c"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/first.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "fda89b747029077c84b0aa9e175af690faebe94e63141e043cc31069c09bba96"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/home-20x9.png",
+      "size": [
+        1600,
+        720
+      ],
+      "sha256": "16907e24a2a59cff0230152128c289b0b096b2303c98d9551ab09903a16c7e0d"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/home.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "6928b616f585eeb3dcebbd551c812ae43a20829c60b7eda33208d33518c8cb50"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/lan-menu.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "3d53bee064a8c57081b7f41ae56a35b1167f09e68d351cde3d4774129db98475"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/prepare.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "c24ec9327177ef762a25ebb8b4bcc6ccd3783e0d3a3362dc65502fc4193bd011"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/result.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "56bb9bbd37b3d422a82bd285f2f26f213a5882199ae9088ef000e4d2ec2140d4"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/settings.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "82d489aed97d38f49966934bda36485edbedce1ce7ff036ba9c9d0663da34238"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/shop.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "0841fff96c0e088f23294d834896ab095e77af65c6678ebbc76a9bab1763ecc2"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/solo8-1280.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "7631dcfddaa8f93c7157975dc074d677c53268f0a0541b4ad18d8b9ceafb1686"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/solo8-1600.png",
+      "size": [
+        1600,
+        720
+      ],
+      "sha256": "4f4f332609bf5ae04bcf30416f295fdbabbe61023b484e7e1f0aaae870d13147"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/team4x4-1280.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "4c2ffaa0013a7425566eae02b44d268c8ea546ab29c6246269d92d5910b1b385"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/team4x4-1600.png",
+      "size": [
+        1600,
+        720
+      ],
+      "sha256": "12e885eea6631ab64366979128181abd8e7e0175c4740464a9d28ad60eec3946"
+    },
+    {
+      "file": "build/android-current-fixes/ui-render/team4x4-large-text.png",
+      "size": [
+        1280,
+        720
+      ],
+      "sha256": "231837cb350a15f3466fdc8ab4b77a5a46f88458ee608f38af0e810b7a1f411d"
+    }
+  ],
+  "scope": "Desktop actual renderer; Android retest pending.",
+  "review": {
+    "noncombat": "Native text readable, approved background/character/cards/button icons visible, key prepare controls inside 16:9 viewport.",
+    "combat": "Actual snapshot cards show nickname, character, P index, A/B team, HP, remaining chances, ultimate and guard. 2/8-participant native HUD and fixed joystick/action skins fit 16:9/20:9; Team4x4 text scale1.3 remains clear of minimap/touch. Minimum fixed_zoom=0.5 is QA-only; normal fixed_zoom=1.25 unchanged and existing background boundary at minimum zoom has grey empty space."
+  },
+  "runtime_checks": {
+    "forestlight_runtime_headless": "pass",
+    "forestlight_runtime_actual_renderer": "pass",
+    "local_ai_app_flow": "pass",
+    "battle_minimap_app_flow": "pass",
+    "audio_app_flow": "pass",
+    "runtime_errors_final_renderer": 0,
+    "exit_resource_warning_headless": "4 resources in use, preserved",
+    "actual_android": "미실행: new APK retest owned by root"
+  }
+}

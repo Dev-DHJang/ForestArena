@@ -1,0 +1,851 @@
+{
+  "version": 1,
+  "source_manifest_sha256": "d8dca2d59e12db3ed1023b55edc4e99052afc6368058855bfb1878a27d2b2c78",
+  "preserved_originals": true,
+  "quality_policy": "UI common high-quality images are shared by high/medium/low; existing 24 quality variants unchanged.",
+  "assets": [
+    {
+      "logical_id": "fa.ui.forestlight.primary.default",
+      "source": "assets/ui/forestlight-video-reference-v06/primary-default.png",
+      "sha256": "7b38e74fc70367bc797057705fcd4b68b7c5b57d1ea15f183005af17ada01e4d",
+      "runtime_path": "forest_arena/assets/ui/forestlight/primary-default.png",
+      "approved_vector_or_background_sha256": "b33b3dec26c6b64bb7da79827bc1968983cb975e4020a713e26da7c7fc6dfda4",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/primary-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.primary.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/primary-pressed.png",
+      "sha256": "3cb904b0afe0deddc462fdeb6f1838cd3516f417fc435b5171a95a0aea41770c",
+      "runtime_path": "forest_arena/assets/ui/forestlight/primary-pressed.png",
+      "approved_vector_or_background_sha256": "9a64cbf8b7f2a01fe18e13cdc767212b5c73f176a06121333b71bc4d59584e6c",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/primary-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.primary.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/primary-selected.png",
+      "sha256": "fef9f1fb8e504f4edd85f5b07fcb2828e5f693a5a4b1174126e3fadf3dcf1440",
+      "runtime_path": "forest_arena/assets/ui/forestlight/primary-selected.png",
+      "approved_vector_or_background_sha256": "df412f0af2eac0f5beb5e689a7ab7b3b41a67b12f9f54a38fbd1620d7b3fac9f",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/primary-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.primary.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/primary-disabled.png",
+      "sha256": "a20cd50891a909b34fb4d0364435174b04b443d7a30c0f11bcaada6b430990a9",
+      "runtime_path": "forest_arena/assets/ui/forestlight/primary-disabled.png",
+      "approved_vector_or_background_sha256": "4302237af9e25e209c1184ebd7ac67c895cb6ec09452f593505194c45e392062",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/primary-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.secondary.default",
+      "source": "assets/ui/forestlight-video-reference-v06/secondary-default.png",
+      "sha256": "e9aeb4ce1c08c5e79e42aa3a86da66d2777253c1a4f5f51ec50b576a097f0aec",
+      "runtime_path": "forest_arena/assets/ui/forestlight/secondary-default.png",
+      "approved_vector_or_background_sha256": "f54529881e3ca501ded2b8eb3029db1bba43181fbc1227ed1a938c7231162067",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/secondary-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.secondary.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/secondary-pressed.png",
+      "sha256": "37afc7541c3673305b88f1ee1953ad75fa0fd36be8cb64a205c045ac94e53bc4",
+      "runtime_path": "forest_arena/assets/ui/forestlight/secondary-pressed.png",
+      "approved_vector_or_background_sha256": "476db514befa11fe03feee8a6108057b36fb6bfafed6515424c8c99f071fed7b",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/secondary-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.secondary.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/secondary-selected.png",
+      "sha256": "652b58b78d076bed1902a91e25fee1791cf83294c0d9115a570d1230247485f6",
+      "runtime_path": "forest_arena/assets/ui/forestlight/secondary-selected.png",
+      "approved_vector_or_background_sha256": "e6e1aa0d3f86f9b6102629a5f9cfc0e9dcd3ceefd6caf93fac15f669e19aac98",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/secondary-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.secondary.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/secondary-disabled.png",
+      "sha256": "7be32e8e569ffb78adf9671e4fa78ba7ac9dfedfd9f831e43cd2905d40de5b41",
+      "runtime_path": "forest_arena/assets/ui/forestlight/secondary-disabled.png",
+      "approved_vector_or_background_sha256": "ce9b23013d725f90835b547194181c51e580a881363d58866306012dadb263c5",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/secondary-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.danger.default",
+      "source": "assets/ui/forestlight-video-reference-v06/danger-default.png",
+      "sha256": "625e94a44d91407d81bcae0d8cf3ada3053f080164e6fb7367831dfc64d4365e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/danger-default.png",
+      "approved_vector_or_background_sha256": "30d3b751f25fd558a7706fdb05bf48c3bd34923ed336f1ae779fc3458d0eb609",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/danger-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.danger.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/danger-pressed.png",
+      "sha256": "6c653921353a372163fa5fa5b39673fc11b344a36b7c5bd342b75086ab226899",
+      "runtime_path": "forest_arena/assets/ui/forestlight/danger-pressed.png",
+      "approved_vector_or_background_sha256": "211c9eccc46306806a8ae2a5850e0881dc334df9dab4f9dbefa39f415a629e24",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/danger-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.danger.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/danger-selected.png",
+      "sha256": "cb7e166ea1b2f9386844b70d6685a9fc35f72d5ce93812520b17c51de7d51c9e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/danger-selected.png",
+      "approved_vector_or_background_sha256": "c7ffbf2eb9b21a8afd30101cd89c5f8b0c414e13fcb34634f07a83f82ac7ccb9",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/danger-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.danger.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/danger-disabled.png",
+      "sha256": "a20cd50891a909b34fb4d0364435174b04b443d7a30c0f11bcaada6b430990a9",
+      "runtime_path": "forest_arena/assets/ui/forestlight/danger-disabled.png",
+      "approved_vector_or_background_sha256": "4302237af9e25e209c1184ebd7ac67c895cb6ec09452f593505194c45e392062",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/danger-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.tab.default",
+      "source": "assets/ui/forestlight-video-reference-v06/tab-default.png",
+      "sha256": "e9aeb4ce1c08c5e79e42aa3a86da66d2777253c1a4f5f51ec50b576a097f0aec",
+      "runtime_path": "forest_arena/assets/ui/forestlight/tab-default.png",
+      "approved_vector_or_background_sha256": "f54529881e3ca501ded2b8eb3029db1bba43181fbc1227ed1a938c7231162067",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/tab-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.tab.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/tab-pressed.png",
+      "sha256": "37afc7541c3673305b88f1ee1953ad75fa0fd36be8cb64a205c045ac94e53bc4",
+      "runtime_path": "forest_arena/assets/ui/forestlight/tab-pressed.png",
+      "approved_vector_or_background_sha256": "476db514befa11fe03feee8a6108057b36fb6bfafed6515424c8c99f071fed7b",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/tab-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.tab.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/tab-selected.png",
+      "sha256": "1c0100a2dd3a5753a6ccabdfa8141bf53abbd1b86e42f8e8442501b94b58144e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/tab-selected.png",
+      "approved_vector_or_background_sha256": "c8ee4f2da939ab6f5060bb4b14c87108fca5ae3a20b6b2266a7aadf42666fbff",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/tab-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.tab.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/tab-disabled.png",
+      "sha256": "7be32e8e569ffb78adf9671e4fa78ba7ac9dfedfd9f831e43cd2905d40de5b41",
+      "runtime_path": "forest_arena/assets/ui/forestlight/tab-disabled.png",
+      "approved_vector_or_background_sha256": "ce9b23013d725f90835b547194181c51e580a881363d58866306012dadb263c5",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/tab-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.panel.default",
+      "source": "assets/ui/forestlight-video-reference-v06/panel-default.png",
+      "sha256": "a0706e99c5882cb02383e4eddbb9ca27e18c57cb91466b5d5f0fcfc9fccaae32",
+      "runtime_path": "forest_arena/assets/ui/forestlight/panel-default.png",
+      "approved_vector_or_background_sha256": "fc326bfd3f7374276cc3307e67e73f65c4d0900180b9d47b169fa779de8e9bbe",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/panel-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.panel.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/panel-pressed.png",
+      "sha256": "15574ff9c7d7ceeb85fe5d29c5f515c4ce82c5b4ad0a9926f891e5df589581ce",
+      "runtime_path": "forest_arena/assets/ui/forestlight/panel-pressed.png",
+      "approved_vector_or_background_sha256": "86a901f675aafa663c2eb403986e30e945e27696c2b7a514ca24d1ba35e993ca",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/panel-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.panel.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/panel-selected.png",
+      "sha256": "edaa82e7e27b54a13398134e497782a526d9a555448721ed111a3165950664cb",
+      "runtime_path": "forest_arena/assets/ui/forestlight/panel-selected.png",
+      "approved_vector_or_background_sha256": "54aa000905dd4fe742cea19efcb18a06075e369235d500bde482cf2ad9f05818",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/panel-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.panel.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/panel-disabled.png",
+      "sha256": "182d7d628ce2981fe4ed3e1bff618efed5e9cb9f46e7e2b6e59b2a1ca511b312",
+      "runtime_path": "forest_arena/assets/ui/forestlight/panel-disabled.png",
+      "approved_vector_or_background_sha256": "e882b26df7088d1b36aad1c9d925b66aabb0ee994edf1256380794b656ceb10a",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/panel-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.card.default",
+      "source": "assets/ui/forestlight-video-reference-v06/card-default.png",
+      "sha256": "5b4154a43c9410348fb16e95f619b94d049b094724602d940a3c2dfafad57c44",
+      "runtime_path": "forest_arena/assets/ui/forestlight/card-default.png",
+      "approved_vector_or_background_sha256": "45d5b826b5033cf535c86821b68014f15ff752f974e2b600344bb816e13625b4",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/card-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.card.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/card-pressed.png",
+      "sha256": "595b363676bf67fb8c8cb177b326d7ddc41ee815e12063f9a3e38dcb793f7f2f",
+      "runtime_path": "forest_arena/assets/ui/forestlight/card-pressed.png",
+      "approved_vector_or_background_sha256": "d57970640677621d79a23f767d6c78c024f2f0be397adb8096582bf287e2eaaf",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/card-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.card.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/card-selected.png",
+      "sha256": "2719eed32958112e8405c9f3a3cec92d6087a6073a9079d1b008d9c2398b9925",
+      "runtime_path": "forest_arena/assets/ui/forestlight/card-selected.png",
+      "approved_vector_or_background_sha256": "aa97d9509803b7ee0d2ad389d0b7d9483ca2c53778bc823a12d93abc3853ccc9",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/card-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.card.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/card-disabled.png",
+      "sha256": "2b16057e63a4e6a4aa821efb02dc96c4564eb17b7d81c0c921573e900b849165",
+      "runtime_path": "forest_arena/assets/ui/forestlight/card-disabled.png",
+      "approved_vector_or_background_sha256": "a462cb7183d1c7cee8e91b2d9a1ef9d9573ac87e0936c61bda2fa7cf42e0726f",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/card-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.nav.default",
+      "source": "assets/ui/forestlight-video-reference-v06/nav-default.png",
+      "sha256": "1c88fefe09701b028a652a972a77cdfd9eac29854ad0a8a17ea9197bcf00aa17",
+      "runtime_path": "forest_arena/assets/ui/forestlight/nav-default.png",
+      "approved_vector_or_background_sha256": "eb5bb1287ade35bd2e894ebf54576dd40beaa137860ea2e8895680047891c6a9",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/nav-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.nav.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/nav-pressed.png",
+      "sha256": "ef244c91f1266417100da1022ebc16de96f07c0864a459b59ddb1abe2c5614fd",
+      "runtime_path": "forest_arena/assets/ui/forestlight/nav-pressed.png",
+      "approved_vector_or_background_sha256": "a6d80b2f5cb4733d54c043f56c280a9f523872538c1e0be4b23502960a1295a0",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/nav-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.nav.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/nav-selected.png",
+      "sha256": "01ccca3a4997be4f7767612b9971fcc83b4d307e6995fb89cfe3904fa4d74d0f",
+      "runtime_path": "forest_arena/assets/ui/forestlight/nav-selected.png",
+      "approved_vector_or_background_sha256": "86e85e978fcbf9ed98e654a79e04ee4640a6c60b51fc2fca2be3d2b0ffbde930",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/nav-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.nav.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/nav-disabled.png",
+      "sha256": "32f05de07bd4e11efdd89a615a7f14209e021a87952c70578c20ac8f0f4609ea",
+      "runtime_path": "forest_arena/assets/ui/forestlight/nav-disabled.png",
+      "approved_vector_or_background_sha256": "d2e0a0ea841e2ae6577740da326d6e932f6355d357d49fb2d6da01ceb1c94c8a",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/nav-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.leaf",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-leaf.png",
+      "sha256": "d5c8e1bb0ab752d97260a93988f3560b90567ecafbec86a4a1e89f4f1da34533",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-leaf.png",
+      "approved_vector_or_background_sha256": "73baa6cbcf9a1043b7be9e6f8020c1f22e2e22832b4fa5be5973b56bf399aaad",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-leaf.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.light",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-light.png",
+      "sha256": "20f2565600ad9a61f5c67803e45de3d6ea87dc12093e96b705273428020dbc46",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-light.png",
+      "approved_vector_or_background_sha256": "f6aa2f5cc0aa4279bd0432f880b590feb8b28e2c5422bb117de796e96a70bfec",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-light.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.heavy",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-heavy.png",
+      "sha256": "61652939057aebba7a7898d4c5d95bfb92eba90939c57dd90f832f6012d5555a",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-heavy.png",
+      "approved_vector_or_background_sha256": "cb6563dd6646354c3231599cf2c63ad095be590bb8aab8cc267069a5b1ddea2f",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-heavy.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.special",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-special.png",
+      "sha256": "5e396f161d256eec1c93d109e8d316322edc45c44890cc987a0bc56ad03222d5",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-special.png",
+      "approved_vector_or_background_sha256": "a992c303d0dcd6f02e1b25b3cbf5c9caa3c77bb48dbf8a310c9441cb52bc12c0",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-special.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.jump",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-jump.png",
+      "sha256": "85158cd47e2027f3cc45a79267cf6e9b3c248cc5f26d9d5c09c59de8e7a0712a",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-jump.png",
+      "approved_vector_or_background_sha256": "9bd9bebb90edddc9c7f45d78661e2c3569a34d0174a73df166a1ac1c6fd3c523",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-jump.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.dash",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-dash.png",
+      "sha256": "6e8a036b049192e65ce03d0673a94b09b988726caed17fcb59210f45c4e49b20",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-dash.png",
+      "approved_vector_or_background_sha256": "ddb04883698549445a053f85149a989c21c119cd762d5a6822c870d2e82b1530",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-dash.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.back",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-back.png",
+      "sha256": "beac04457a4d9f8cd702042782a3ce3c588df9e197611894f59e9994f992fa7e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-back.png",
+      "approved_vector_or_background_sha256": "8352920f903d5e0a2ceaa98875aedfa8709cc7356a584deae8f9355187bf8197",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-back.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.close",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-close.png",
+      "sha256": "ce9bf6cd5697db7c397b29c9f1b208e9218e7355549f52a029ac1a2cf2d70595",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-close.png",
+      "approved_vector_or_background_sha256": "65b5c5b0e8f24c305b4aa308dad33cf95231ba31b7c24f8825777675125f97a4",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-close.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.settings",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-settings.png",
+      "sha256": "a8e3bf77aceae6f6fa8d70d101e9368354c05732184a5e8f0dd92ec704de76e9",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-settings.png",
+      "approved_vector_or_background_sha256": "498119e210bd7e8ead77855937e9bd43199a6b6f8d5178e672516e56b9f0ed75",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-settings.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.check",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-check.png",
+      "sha256": "56e5a8614c2c70ab4853e10176f742a651be9e0f413a295413fa97d3d01ff810",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-check.png",
+      "approved_vector_or_background_sha256": "9b78b89b6a9a5dffd32ed02d690793cea26abe12f0f4d0f2931e778c72ceb59e",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-check.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.lock",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-lock.png",
+      "sha256": "1b4afcc9e3852acbc417f9f0ac578c5612c2feb5d4cbee7ba80ce7215f3a9d41",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-lock.png",
+      "approved_vector_or_background_sha256": "7f8d4d9726807d907ae40a09de7bcfdc54b40d2ac3d28e214c86662854882f20",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-lock.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.story",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-story.png",
+      "sha256": "89c38a4df08344076c2e7439dd84cda1fdbe651dd42ec438e0b9431437484011",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-story.png",
+      "approved_vector_or_background_sha256": "7cf7e36175f01d1d00ecb9b737d8c30c434b6658c8086a7f0855905217ab7414",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-story.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.solo",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-solo.png",
+      "sha256": "e330872b77eb291019700cfea55aada59d7e0c36adb29d07d10ab0eb7a168515",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-solo.png",
+      "approved_vector_or_background_sha256": "920bcf9814aa0b24f41da522029dec78abc042d2a46367ff3ac5147690861166",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-solo.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.team",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-team.png",
+      "sha256": "3f375b8cd6401c69c185f3dfa0cfedc80b928619029078298db1607f1da338bb",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-team.png",
+      "approved_vector_or_background_sha256": "e204997057b91a27c87a922293e7aa9e1698a3958c17b1efbd24d8fd1dba7506",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-team.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.ai",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-ai.png",
+      "sha256": "0f911a233dde09584ac3b253d262a9228a14a761c6ab34d55a4dc7965313772d",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-ai.png",
+      "approved_vector_or_background_sha256": "729aceec5a3788ae45d6863d8efdf189cff8937faca9c68bbd62aa3cb189f9b0",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-ai.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.practice",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-practice.png",
+      "sha256": "d2ced934ec63c9b598acbf86ad4ed8e6bfe8a436afc3757112d7dda9693b8f9f",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-practice.png",
+      "approved_vector_or_background_sha256": "afaa9100f6a0cccf3f1d4c89bcce27c67bd2ea2b22f32bfb3ddd335eb8641b78",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-practice.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.character",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-character.png",
+      "sha256": "d4f37d271649bcd3793253b162a3820e7a064273a68bcb5f9675da12d52bdc06",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-character.png",
+      "approved_vector_or_background_sha256": "32572212d964ef051da30272c2f515b66f0b8bc7528c0b507c8f72f6311640a7",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-character.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.accessory",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-accessory.png",
+      "sha256": "a760ed2ca373d22995ce5ceb1b8922c55c27bf3a9e35e1b897d8e3f1c2310d4b",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-accessory.png",
+      "approved_vector_or_background_sha256": "e9d970edf2cdf5eef8c6b74ce7dc1e04bea5da91b3805220e80f9f0e39164edb",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-accessory.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.shop",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-shop.png",
+      "sha256": "ddcdf04cb428b80c1fb6e6ffc009e29b4e6625e3cd7430ae797fb5d14a9fb617",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-shop.png",
+      "approved_vector_or_background_sha256": "03bc5b274a42d5ed788a50c945818639abe43d21536010b2410130d96a849965",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-shop.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.social",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-social.png",
+      "sha256": "cad1c3eeeb3c18d8ee880e8e52bf1bfb7ec06e7bbcc64d6ca2f746a2c59c9d7b",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-social.png",
+      "approved_vector_or_background_sha256": "065ed8af80bb05b00734fc3fe23f08fb54b3e5e4f82e4d2d95ab3aa0e265278c",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-social.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.mission",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-mission.png",
+      "sha256": "127af693ba6a04204503b9d046b0afa54dcdbe61e58bc77bcf79a6877644cfe5",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-mission.png",
+      "approved_vector_or_background_sha256": "dc2e273876ac151de3c1d1738c6b452eeaeb318812019639211bda49d4a59f67",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-mission.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.profile",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-profile.png",
+      "sha256": "76041168c5e59199cffcc203c1c84ca70be42f8c00e9cca469786f252c6710f5",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-profile.png",
+      "approved_vector_or_background_sha256": "86d161de64989a7980bf99689ec764dd94943db420a759c5bdcdece2455f67e1",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-profile.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.play",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-play.png",
+      "sha256": "4519218902958c1ed22bad99f9b7d5b0d7bebe2e79e761d14f4b9d1ae572b492",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-play.png",
+      "approved_vector_or_background_sha256": "e9a78f2a64def48a41a2855f5ee37bd209f0bf835f170845f8d92bf6a39654ad",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-play.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.pause",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-pause.png",
+      "sha256": "9d30d4533742d3054b7cc4ecd3be8259f15431fdab8d4fdececf56b369bcad37",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-pause.png",
+      "approved_vector_or_background_sha256": "84c9c418d2c1246a2788dc9dfa10ce2100a97cf41cf6079e0fe0fbf41ce8312e",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-pause.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.seed",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-seed.png",
+      "sha256": "e0e8040baf9cd1a2c65a0112fd0a3ba8ded7e0a8fc5f0d63db60187547b4b9f9",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-seed.png",
+      "approved_vector_or_background_sha256": "49b4fafc8ddfa3efc715c9d3b58309919dbc32ffb9e04f91ef1cae3f34780b53",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-seed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.ringout",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-ringout.png",
+      "sha256": "e0ebd94671ec21f0004fbb610893bbd3b7d15d365daa788ad67a84b1bd092824",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-ringout.png",
+      "approved_vector_or_background_sha256": "c30a6806bca4fad848197147216cf8b898689673359705c6f5631a158e6cc12f",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-ringout.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.respawn",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-respawn.png",
+      "sha256": "2c568771ff6627cf2604ef90aa2c94404f20c7f6276525a8b5e36abeeb58c788",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-respawn.png",
+      "approved_vector_or_background_sha256": "3105e7de685dcb019c9bf578d98a617bbb57aace81bc21596ae978248fe7d460",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-respawn.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.eliminated",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-eliminated.png",
+      "sha256": "cbc172934c9a041205817c94381e82917a1707de7a101b8b5f4837a539fcc415",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-eliminated.png",
+      "approved_vector_or_background_sha256": "adbf8f11cce514ed7cbd36abe24ab9bb96b1812453bb416b74222d8966ddd880",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-eliminated.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.filter",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-filter.png",
+      "sha256": "bb829a9cc3a957b49fde157e43cf41afedfb1c7850f2dca821822ae65cd90287",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-filter.png",
+      "approved_vector_or_background_sha256": "6970ca5f26dc9e256cbbb5b60239f0330639353f1a09d17d82e599cb5c1a6c2b",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-filter.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.sound",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-sound.png",
+      "sha256": "7879192b7447de43863fc7d6e2219894d7fd88c6e2850a5382d15daba4bcbd77",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-sound.png",
+      "approved_vector_or_background_sha256": "be8fb8364a6d40e770cf06b60fd8d36fadb120cc8130cfc07fbfe57ac7de2b4f",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-sound.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.arena",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-arena.png",
+      "sha256": "8458df018bd2d998a2c19455c2e77bac12c97c09ef40b05c9a553057cd6a521f",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-arena.png",
+      "approved_vector_or_background_sha256": "e21a295fee6c556b38080ae4d4625adf648577c39f3f4dc0eb4b03c32935abc2",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-arena.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.job",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-job.png",
+      "sha256": "7728bb689258e59cc6602d5417db5471e74f95cc3f3c0d3100ebdc1ece959f02",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-job.png",
+      "approved_vector_or_background_sha256": "063de3ac2d825280114777d56c84aaba53c5495a0d06fb4f737cc046e0e9fcb0",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-job.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.icon.trophy",
+      "source": "assets/ui/forestlight-video-reference-v06/icon-trophy.png",
+      "sha256": "4df21d9abf46e9f527ec46ac419ce7eea1f4ac6a0c4016e353d8f037943d39a4",
+      "runtime_path": "forest_arena/assets/ui/forestlight/icon-trophy.png",
+      "approved_vector_or_background_sha256": "6845527b1bfd028e6a0a443c24362cdba68b5252298c8d8fd4be958a94e6a284",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/icon-trophy.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.light.default",
+      "source": "assets/ui/forestlight-video-reference-v06/action-light-default.png",
+      "sha256": "3783bfa28d2561895f016a6919b9cf8b05d3e22268e678d68904072762db32ce",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-light-default.png",
+      "approved_vector_or_background_sha256": "cf7ff9780edf8357d246f2cb38033f68059da34c016980286e420a51d3d1f7fc",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-light-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.light.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/action-light-pressed.png",
+      "sha256": "5799254f105da2cfab54bbf6c2ac6228a1e1025d8cd8485090ceea077855c22a",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-light-pressed.png",
+      "approved_vector_or_background_sha256": "317fe74fd7ee9b6dd4a13abecab15055c6d0dd54c9c79c6a82501c1fade9acea",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-light-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.light.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/action-light-selected.png",
+      "sha256": "eb302685079b9299a1c040cb66e3717125b35988abe7576f57e90b63da634735",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-light-selected.png",
+      "approved_vector_or_background_sha256": "004bfda19d41d29e80d60be00c37f6c64d91e09d19f9bb718511eac85a4536c3",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-light-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.light.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/action-light-disabled.png",
+      "sha256": "29946f4eef0a69f5596ab876214599039b619ac564ee4aa4e25dd0607ddb3364",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-light-disabled.png",
+      "approved_vector_or_background_sha256": "13673164f1c5d7054599212c47eebd77872d9bed100dcf84430592dc557d3c73",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-light-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.heavy.default",
+      "source": "assets/ui/forestlight-video-reference-v06/action-heavy-default.png",
+      "sha256": "de33dd353ef21ee76b938fae917c02a937f498f6aa95595548ab1025a670b557",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-heavy-default.png",
+      "approved_vector_or_background_sha256": "13d7182a53d6b14598715b1c81b01dc657baa16b9ba46dee954dae5a9b0a2974",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-heavy-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.heavy.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/action-heavy-pressed.png",
+      "sha256": "2ee4e504629a5ca7a5ec7c824fe1adc403a99cca17c02a05c89f77dab05a69d9",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-heavy-pressed.png",
+      "approved_vector_or_background_sha256": "1452b3866a4ab5fd2d12d46e3a8d22b2cf348b7cd4b295847aa04d23b63f5f84",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-heavy-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.heavy.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/action-heavy-selected.png",
+      "sha256": "b10239da92762bea1d02b98dfd8f7cfbe8f6aaaa700e097da4d66ce4c37521c6",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-heavy-selected.png",
+      "approved_vector_or_background_sha256": "a3ee9278d209cd6a93b4cc256e84d12eff6515eecc91979dd374184a6a29c4c1",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-heavy-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.heavy.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/action-heavy-disabled.png",
+      "sha256": "2a30fe6ff3f3e538cc651758498f7925dc407b2319cffc90c75647849c7e5a2a",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-heavy-disabled.png",
+      "approved_vector_or_background_sha256": "a4b6529c8cfe4b108b43e0493c15073e0abfd2803e0997111c24446af71b0f2b",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-heavy-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.special.default",
+      "source": "assets/ui/forestlight-video-reference-v06/action-special-default.png",
+      "sha256": "767e7e52310d619ad2de0ddc032230066de8b341e84d8c29f357ff715704bfba",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-special-default.png",
+      "approved_vector_or_background_sha256": "ec218e449d91fb19e6d85eb52018f290652bf5c4e23eaed5993b68f3735753a9",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-special-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.special.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/action-special-pressed.png",
+      "sha256": "5770893d2af94272f95c54c2163d4310ada2a09ad91556f3e24691695226e28c",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-special-pressed.png",
+      "approved_vector_or_background_sha256": "436dbe8ce05fc999c0adcdd0fb82213e6a41a2e4e71132fee3ee0fc35b7d8ffe",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-special-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.special.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/action-special-selected.png",
+      "sha256": "0e2125edf606a6c35751554307d60045835afb8819a0c6ced5a828b08745e8f7",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-special-selected.png",
+      "approved_vector_or_background_sha256": "cc36e5cdd7d7e3dbcf5e54ca42de4f3819fa64ae2bc0387231d68ed5aad67bfc",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-special-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.special.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/action-special-disabled.png",
+      "sha256": "36eb4e96ca3e4b8caecd96afe46f37e468da90def7d9cb96329a52a046bc8c8e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-special-disabled.png",
+      "approved_vector_or_background_sha256": "5d24fa6e6ce672da8b159a3708657266bebae7babb5027cdcbce51013bdf909a",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-special-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.jump.default",
+      "source": "assets/ui/forestlight-video-reference-v06/action-jump-default.png",
+      "sha256": "c55a25b5d44300fe15e20f8015519309eecdae97fef33f42818c8b39f7581373",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-jump-default.png",
+      "approved_vector_or_background_sha256": "8e840b145499d263d1ca7d24c6cf006b08dc595b9ea8c1c8adc1ceffa7b7c9f7",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-jump-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.jump.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/action-jump-pressed.png",
+      "sha256": "7e192f04554709bde1e2cfae59dbc4ec639dc0d73f66b18e2a23bab4de28e59e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-jump-pressed.png",
+      "approved_vector_or_background_sha256": "db427bf269fd7e0a2402d83c1e8f3a5b8bc58724f196f5c71032cf30c673f317",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-jump-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.jump.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/action-jump-selected.png",
+      "sha256": "7417019f17bee20bbb9b8a6da2b90234a3089d3a19b922e570ff26dcaf231538",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-jump-selected.png",
+      "approved_vector_or_background_sha256": "123283a34481e5feaa50d5d969914d037b15f86052df6795a40c49d499855e2c",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-jump-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.jump.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/action-jump-disabled.png",
+      "sha256": "360c6b2a9a0b6678a9884b77695748c82c70425915722e6dbe4df82c4a8b6dcf",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-jump-disabled.png",
+      "approved_vector_or_background_sha256": "c975bd349ecd4373fdb6881c3417c5f3c655c3511fb9f5da69a0f8e87c580611",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-jump-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.dash.default",
+      "source": "assets/ui/forestlight-video-reference-v06/action-dash-default.png",
+      "sha256": "b902904f85ecf30990f558471921be33a3bfdbb549b3bf42e7acf28fb91062ec",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-dash-default.png",
+      "approved_vector_or_background_sha256": "e9c7fedf2aa8c6578154985dbda9b50eb02f279a2c83c28ffb32f044f2a6ff6f",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-dash-default.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.dash.pressed",
+      "source": "assets/ui/forestlight-video-reference-v06/action-dash-pressed.png",
+      "sha256": "d26e6c7f19c7964a4603a354a65d4e77829ba441bf1e4fcde5efb05beb151bcc",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-dash-pressed.png",
+      "approved_vector_or_background_sha256": "a8420cf822b8cee94dfa6c143e7fdd336b1eaf84fb5efd39e32f451def62a57a",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-dash-pressed.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.dash.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/action-dash-selected.png",
+      "sha256": "35ced65599305e9e1eca73512c67afeb947ef1993502a7281cd9c4b7716bad03",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-dash-selected.png",
+      "approved_vector_or_background_sha256": "7064390c3b214418abf3d50b5375eabe386b5129d24ada45660f1fabac5448cf",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-dash-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.action.dash.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/action-dash-disabled.png",
+      "sha256": "803894e066d68d76579418ea58e2730d63bcbc97d498785e414134ce1eb6a13d",
+      "runtime_path": "forest_arena/assets/ui/forestlight/action-dash-disabled.png",
+      "approved_vector_or_background_sha256": "e03798e4d1653880a62c579402bb73ebd0bae4bb6aed64a090ecc7acfc7ff2a4",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/action-dash-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.joystick.neutral",
+      "source": "assets/ui/forestlight-video-reference-v06/joystick-neutral.png",
+      "sha256": "ff59b566233075ff2916250077e9bf5a488f801fe0d35c3943695de6c8b4cb04",
+      "runtime_path": "forest_arena/assets/ui/forestlight/joystick-neutral.png",
+      "approved_vector_or_background_sha256": "3c32879c6c316e5622aba5914a9d40f68a9eae77d414d51024763687b0c2606e",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/joystick-neutral.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.joystick.active",
+      "source": "assets/ui/forestlight-video-reference-v06/joystick-active.png",
+      "sha256": "be5989421603c90b9db27878a15880f52bd930c656ea2034d6b5f7a7ad85a369",
+      "runtime_path": "forest_arena/assets/ui/forestlight/joystick-active.png",
+      "approved_vector_or_background_sha256": "6a71c518788605ad226a5d8a078a228579a871a3af67de152737391256a60ce1",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/joystick-active.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.joystick.selected",
+      "source": "assets/ui/forestlight-video-reference-v06/joystick-selected.png",
+      "sha256": "70512ff2b0a8d3b3ccecd86c03bae960e6488ec4e0d199efb9c8950a8a31c9f9",
+      "runtime_path": "forest_arena/assets/ui/forestlight/joystick-selected.png",
+      "approved_vector_or_background_sha256": "876d197c66a3a28c0e1e5d81d474e28d4fb83a0366342e87094c7c81e3f16ea8",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/joystick-selected.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.joystick.disabled",
+      "source": "assets/ui/forestlight-video-reference-v06/joystick-disabled.png",
+      "sha256": "e2f685c61c43438353523119d555b5a1d514be0062f1bf09101d46d890d8d81e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/joystick-disabled.png",
+      "approved_vector_or_background_sha256": "4f72ef0e5ef56984905b95394cabe24c07a8b20fa3a8f49f976f345b5fffe7ea",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/joystick-disabled.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.joystick.base",
+      "source": "assets/ui/forestlight-video-reference-v06/joystick-base.png",
+      "sha256": "50de5cf86bdb29dad7f0916d25c8da5ae648c64015a414744b9cb7ea8bc5d967",
+      "runtime_path": "forest_arena/assets/ui/forestlight/joystick-base.png",
+      "approved_vector_or_background_sha256": "b475748be4bde93469660f76a2b27b9c7ac371cc2d42637b8076bbde7b7da66a",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/joystick-base.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.joystick.knob",
+      "source": "assets/ui/forestlight-video-reference-v06/joystick-knob.png",
+      "sha256": "393ddbf59e8c090fa4462a47b6ed36f0ddfc33a43fcb59929b1fc50f31cc1d5e",
+      "runtime_path": "forest_arena/assets/ui/forestlight/joystick-knob.png",
+      "approved_vector_or_background_sha256": "1a55f90194c68a2ac264bb86405906e90df23fcd3ee5bff7c12c58024cd627ca",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/joystick-knob.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.joystick.floating.zone",
+      "source": "assets/ui/forestlight-video-reference-v06/joystick-floating-zone.png",
+      "sha256": "18ea74f697e8f5447a86c9d1086987fe039276f1d7e9975b9220a44793363fce",
+      "runtime_path": "forest_arena/assets/ui/forestlight/joystick-floating-zone.png",
+      "approved_vector_or_background_sha256": "5fdb1edc5605733bb12ff1b671ad4b7a96331fd7fd444768ddbb910c619327ba",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/joystick-floating-zone.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.slider",
+      "source": "assets/ui/forestlight-video-reference-v06/slider.png",
+      "sha256": "e117bd6cf36adcbc30a05b325426dc977cc81e8b1c76f00633b699f68ed1fd07",
+      "runtime_path": "forest_arena/assets/ui/forestlight/slider.png",
+      "approved_vector_or_background_sha256": "88acaa143c02211eac66c67e5d297db223190c010a9de7cf76c89b3c87561a7b",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/slider.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.toggle.on",
+      "source": "assets/ui/forestlight-video-reference-v06/toggle-on.png",
+      "sha256": "fba65b0943a33e9a7588305d6456a6bb72c791781930a781f17966c08218790c",
+      "runtime_path": "forest_arena/assets/ui/forestlight/toggle-on.png",
+      "approved_vector_or_background_sha256": "2e0e4bd898ed12b191dc7c02cc56443bc180ad3bcf6bada93c39399894bfadc8",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/toggle-on.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.toggle.off",
+      "source": "assets/ui/forestlight-video-reference-v06/toggle-off.png",
+      "sha256": "baef751cd0eb25902a3dacdde20d9222550057aaeaa1f679c323cf05a66e3658",
+      "runtime_path": "forest_arena/assets/ui/forestlight/toggle-off.png",
+      "approved_vector_or_background_sha256": "724f85f6ac358aebf86f56a18de0005170d967a9188fae5c43e2cc6836e99c2e",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/toggle-off.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.loading",
+      "source": "assets/ui/forestlight-video-reference-v06/loading.png",
+      "sha256": "91be219cafb95043566a475c0aaadba3add9131dec74448bb9761ce7c0163341",
+      "runtime_path": "forest_arena/assets/ui/forestlight/loading.png",
+      "approved_vector_or_background_sha256": "27c397e014942f3f1c7938f8462e2dc0f9db78b8a5eea187d7b01456c67a05b6",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/loading.svg",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.background.forest.v06",
+      "source": "assets/ui/forestlight-video-reference-v06/background-forest-v06.png",
+      "sha256": "cff0a648b74b4dce4adaa435994a47b27b10391ba8e79c65af41c834ebb83340",
+      "runtime_path": "forest_arena/assets/ui/forestlight/background-forest-v06.png",
+      "approved_vector_or_background_sha256": "cff0a648b74b4dce4adaa435994a47b27b10391ba8e79c65af41c834ebb83340",
+      "approved_source": "assets/ui/forestlight-video-reference-v06/background-forest-v06.png",
+      "approved_source_verified": true
+    },
+    {
+      "logical_id": "fa.ui.forestlight.lobby.character",
+      "source": "_workspace/lobby-character-motion/assets/ja-hyun-lobby-transparent-v01.png",
+      "sha256": "7cf993762d4a3e7ed91f22fb8b2866799030c9520d32fbf1be24d8d6e0c2dbb4",
+      "runtime_path": "forest_arena/assets/ui/forestlight/ja-hyun-lobby-transparent-v01.png"
+    }
+  ]
+}
