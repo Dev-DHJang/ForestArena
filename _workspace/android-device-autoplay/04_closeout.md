@@ -65,3 +65,9 @@ LAN 실행 종료 뒤 정상 전투·결과·재대전과 10초/65초 앱 연결
 마지막 계획 대조에서 명령의 device/step/expected/observed 진단 필드를 보완했다. 같은 schema1 추가 필드는 기존 Godot 처리와 호환되며 APK·입력·전투 의미를 바꾸지 않는다. 요청의 observed는 pending으로 표시하고 commands.jsonl에서 실제 ACK 또는 실패를 같은 순번으로 기록한다. 명령 인수는 증거 로그에 중복 보관하지 않고 관측 오류의 비밀값은 제거한다. LAN HOME 공유 증거에 실제 조작 기기를 명시했다. host120검사 통과와 실제 S23 같은 APK context 응답을 확인했으며 전체 기능 재실행 통과로 확대하지 않는다.
 
 원래 전체 verify118개+리소스/문서/Android/LAN 검사 뒤 위 기록 변경의 host120/문서 검사와 기존 APK 실제 응답을 추가했다. APK 빌드 source2101개는 수정 전에 별도 frozen-apk-source-r01 사본에 보존해 hash차이0을 확인했다. 실제 APK가 바뀐 것으로 표시하지 않는다. QA 뒤 PR89→90 순서로 develop에 합치고 병합 SHA와 rollback 명령을 기록한다.
+
+## 실제 최종 통합
+
+도구PR89는 expected head44ec782b4f1a6e4f133094e3b96eb2fefae89586으로 develop에 병합됐고 실제SHA는2fecc0ac00f8e5b2612eb5932804c29f05cdcaea다. 게임수정PR90도 expected head2d0d9d6eeab004ecfe6c1b9bde07ee06a142d7aa으로 병합됐고 실제SHA는d81f180f2745cc2d8c41a61e6653c62bc41e16aa다. GitHub merged응답과origin/develop을 대조했다. 최신병합뒤 차이는 검증한외부도구 진단두파일이며 host120/문서/diffpass,게임/승인자산/검증APK는동일하다.
+
+되돌릴 때 게임merge d81f180…를 먼저 `git revert -m 1`하고 그다음도구merge2fecc0a…를 같은방식으로 되돌린다. 새작업브랜치/관련검사/QA/PR을 거치며 설치APK교체는별도검사를한다. 과거실패와미확인범위를 삭제하지않는다. 상세실제현재결과/독립QA/병합SHA/rollback은 수정작업의04_closeout.md/06_fixed_device_results.md에도기록한다.

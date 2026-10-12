@@ -42,17 +42,17 @@ S23 일반 저장은 b49와 d600에서 before{}/after{} unchanged true다. 기�
 
 정원 테스트용 통신 참가자는 slot2에 입장하지만 실제 세 번째 APK가 아니다. 실제 Tab의 room_full 오류·화면·복귀는 확인했고 fixture의 leave_acknowledged false는 미확인이다. 방 정리 때문에 나온 추가 서버 disconnect결과tick898을 해당 ACK 또는 별도 정상 경기 통과로 사용하지 않는다.
 
-두 기기 모두 설치 APK hash가 원본과 같고 일반 저장before{}/after{} unchanged true다. 게임·서버 로그와 주요 캡처는 해당 실행 디렉터리에 보존한다. 독립 QA가 최종 실제 LAN 증거를 별도로 감사 중이다.
+두 기기 모두 설치 APK hash가 원본과 같고 일반 저장before{}/after{} unchanged true다. 게임·서버 로그와 주요 캡처는 해당 실행 디렉터리에 보존한다. 독립 QA도 최종 실제 LAN 증거를 감사해 통과 판정했다.
 
 ## 실제 Wi-Fi와 사용자 조작 준비
 
-첫 수동 준비 `fa60f34c84f04fe09915acfa4dc23d17`는 자동 실행 ID의 게스트 저장을 다른 임시 API로 연결하며 demo_guest_error가 나타나 demo_nickname30초 대기 실패로 종료했다. 실제 Wi-Fi 조작은 아직 요청하지 않았고 준비 blocked로 보존했다. 자동 검사 통과나 제품 Wi-Fi 실패로 분류하지 않는다. 새 수동 helper는 실제 같은 APK hash를 확인한 뒤 별도 새 QA 실행 ID·저장으로 준비한다. 최초 helper의 source/context/session-error와 게임 로그는 이전 시도에 보존하며 일반 저장은 그대로 둔다.
+첫 수동 준비 `fa60f34c84f04fe09915acfa4dc23d17`는 자동 실행 ID의 게스트 저장을 다른 임시 API로 연결하며 demo_guest_error가 나타나 demo_nickname30초 대기 실패로 종료했다. 당시 실제 Wi-Fi 조작을 요청하기 전이었으며 준비 blocked로 보존했다. 자동 검사 통과나 제품 Wi-Fi 실패로 분류하지 않는다. 새 수동 helper는 실제 같은 APK hash를 확인한 뒤 별도 새 QA 실행 ID·저장으로 준비한다. 최초 helper의 source/context/session-error와 게임 로그는 이전 시도에 보존하며 일반 저장은 그대로 둔다.
 
 수동 Wi-Fi 경기 `339d7f5cbf1f4434b78454b54e7819c2`는 새 QA run a4a6a2bc1d97418e9947d7c71e4db8c8에서 자동 입력을 끄고 준비했다. 사용자는 “복귀 후 이동 및 공격 가능하다.”라고 답했다. S23은 전후 boot21848 동일·경기generation1·slot1로 복귀하고 Tab도 boot26644·generation1·slot2를 유지했다. Tab의 peer_connected는 False→True로 바뀌었다. server 입력은 tick5817/6320에 방향0·대기입력빈값으로 기록됐고 해당 수동 관측에서 server-results는 빈 목록이다. 별도 manual-wifi-user-observation.json에 pass를 기록한다. 실제 Wi-Fi OFF 정확한 초 수와 Tab 문구의 사람 관측은 별도 답변이 없어 미확인으로 남긴다.
 
 Wi-Fi 뒤 S23 무선 디버그 포트가 바뀌어 로그 일부와 종료 시 일반 저장 after는 조회하지 못했다. 그 원시 unavailable/blocked는 유지한다. 재연결 후 original-stores-after-reconnect.json에서 별도로 before{}/after_reconnect{} 일치를 확인했다. Tab 종료 저장은 {}→{} unchanged true다. 게임의 재접속 복구와 무선 디버깅 관측 공백을 구분한다. 실제 전후 경기 PNG·앱 상태·Tab peer 변화·server 입력 해제와 사용자 응답을 함께 사용하며, 단순 ADB 연결만으로 경기 복귀를 판정하지 않는다.
 
-이후 S23만 연습 모드로 준비한 수동 artifact0ab50ed6862f46fda3812d1ec951a6ba에서 자동 입력false·실제 자현 연습을 확인하고 사용자 조작·모션·경직·콤보·소리/진동 재확인 응답을 기다린다. Tab은 LAN 종료 뒤 추가 조작하지 않는다.
+이후 S23만 연습 모드로 준비한 수동 artifact0ab50ed6862f46fda3812d1ec951a6ba에서 자동 입력false·실제 자현 연습을 확인하고 사용자의 조작·모션·경직·콤보·소리/진동 정상 재확인 응답을 받았다. Tab은 LAN 종료 뒤 추가 조작하지 않는다.
 
 ## 사용자 수정 재검사와 최종 집계
 
