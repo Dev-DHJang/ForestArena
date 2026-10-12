@@ -12,9 +12,9 @@
 | BACK/HOME/복귀·입력 해제·로비 | 새 APK S23 LIFE-01 pass, 동일 boot 및 foreground·pause 재개 | 오프라인 완료. LAN 복귀는 LAN 새 시도에서 확인 |
 | 정상 전투 승패·결과·재대전 HP/기회/입력 초기화 | 새 APK S23 OFF-02 pass | 완료 |
 | 연습/Solo8/Team4대4/Story 프롤로그 | 새 APK S23 MODE-01의 하위 practice/solo/team/story 모두 pass | 완료. Story 보상·성장은 범위 밖 |
-| 두 APK LAN 생성/참가/전투/재대전·승자/tick/hash 일치 | 코드 LAN runtime 검사는 통과, 새 APK b49 LAN은 blocked | 실제 새 LAN 시도 필요 |
-| 잘못된 코드/없는 방/꺼진 서버/정원 초과 안내와 복귀 | 이전 APK 쌍별 네 화면 확인은 보존, 새 APK는 미실행 | 새 APK 실제 네 오류 화면과 복귀 확인 필요 |
-| 10초 앱 LAN 단절 같은 슬롯·해제, 65초 단절 60초 이탈 패배 | 이전 APK 결과는 보존, 새 resume_pending fixture 통과 | 새 APK 실제 자동 장애 필요 |
+| 두 APK LAN 생성/참가/전투/재대전·승자/tick/hash 일치 | 코드 LAN runtime 검사는 통과, 새 APK b49 LAN은 blocked | 03b5의 서버+두 APK winner2/tick4959/hash일치·재대전·HOME pass |
+| 잘못된 코드/없는 방/꺼진 서버/정원 초과 안내와 복귀 | 이전 APK 쌍별 네 화면 확인은 보존, 새 APK는 미실행 | 03b5 네 실제 PNG 시각 확인 pass(쌍별 범위), rawblocked와 fixture ACK미확인 보존 |
+| 10초 앱 LAN 단절 같은 슬롯·해제, 65초 단절 60초 이탈 패배 | 이전 APK 결과는 보존, 새 resume_pending fixture 통과 | 03b5 10초 같은 슬롯·serverneutral/65초 이탈 pass. 65초 hash일치는서버+Tab 범위 |
 | 10분 반복·정상 결과/재대전·고착/충돌/응답 멈춤 없음 | 최초 새 APK SOAK201.825초 fail 원본 보존; 사용자 직접 조작 확인; d6002041832f4ba6a2f37babd9907609 종료 0, SOAK608.196초/600초 설정/9판 pass | S23 반복 완료. Tab 오프라인 반복은 갱신된 목표 범위 밖 |
 | extended30분·28조합 기기 배정·미완료 미실행 | 실행 도구 시간/배정 검사와 최초 새 시도 3개 결과 | extended 별도 실행 결과 없음. 실행 모드와 완료 조합 범위를 명확히 남김 |
 | 실제 Wi-Fi10초·같은 경기 복귀/이탈 패배 | 이전 APK 사용자 실패와 서버/앱 증거 보존 | 새 APK 수동 재검사 필요 |

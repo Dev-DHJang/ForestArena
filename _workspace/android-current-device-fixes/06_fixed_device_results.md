@@ -14,7 +14,8 @@ APK는 `a42857320d1a41a5e707a457d6ce71f03aba9b0e38241e4d693b04fe1f850e48`이다.
 | OFF-02 | b49 정상 전투 결과·재대전 체력/기회/입력 초기화 | pass |
 | MODE-01 | b49 연습/Story 진입·복귀와 Solo8/Team4대4 실제 결과 | pass |
 | SOAK-01 | d600 600초 설정·608.196초 관측·9판 결과/재대전·9조합 | pass |
-| LAN-01/02/03 | 03b5e3f0513048ed8dd6738433bcb885 두 APK 별도 새 시도 | 실행 중 |
+| LAN-01/03 | 03b5e3f0513048ed8dd6738433bcb885 두 APK 정상 결과·재대전·10/65초 앱 단절 | pass |
+| LAN-02 | 같은 실행 실제 네 오류 PNG를 root가 읽고 별도 lan02-visual-review.json 저장 | 쌍별 시각 확인 pass; raw blocked 보존 |
 | MANUAL-01 및 사용자 수정 재확인 | 새 APK 실제 Wi-Fi·방향+회피/공격·모션·경직·콤보·소리/진동 | 미실행 |
 
 최초 b49 실행은 원시 집계13pass2fail8blocked2미실행을 보존한다. 사용자가 검사 도중 직접 조작했다고 확인했으며 S23 SOAK 실패는 pause 캡처, Tab MODE 실패는 pause/foreground 손실/최근앱 캡처다. 직접 조작이 섞인 시도라고 구분하며 모든 실패의 원인을 확정하거나 원본 fail을 pass로 덮어쓰지 않는다. 정확한 조작 시점은 미확인이다.
@@ -30,3 +31,19 @@ S23 일반 저장은 b49와 d600에서 before{}/after{} unchanged true다. 기�
 앱 UID 로그는 검사 종료까지 살아 있고 cleanup 종료-15는 도구가 수집 process를 끝낸 값이다. 게임 충돌 exit코드로 해석하지 않는다. 자동 입력 끄기는 confirmed_disabled, offline-cleanup은 home/autoplay false/lan_eligible true다. 게임/서버 로그에서 토큰과 비밀값은 제거하고 APK·JSON·주요 PNG는 별도 build 증거에 보존한다.
 
 원본 작업 폴더 기준2913파일의 재해시 차이0을 `original-preservation-r02.json`에서 확인했다. 전체 코드 검사·APK 검사와 실제 사용자 관측은 다른 증거이며, 사람이 새 APK를 확인하기 전에는 이전 사용자 실패를 해결 완료로 기록하지 않는다.
+
+## 새 APK 두 기기 LAN 자동 검사
+
+`03b5e3f0513048ed8dd6738433bcb885`는 종료2, 원시 집계8pass2blocked14미실행이다. blocked2건은 오류 문구의 시각 확인 대기이고, 오류 이벤트·실제 메뉴 복귀·입력 해제는 자동 검사에서 확인했다. 실제 네 PNG를 읽어 별도 `lan02-visual-review.json`에 pass를 남겼다. S23 초대 코드 형식 오류·없는 방·꺼진 호스트와 Tab 방 정원 초과를 합친 한 쌍 범위이며, 각 기기가 네 종류 모두 실행했다고 확대하지 않는다. 원시 blocked는 덮어쓰지 않았다.
+
+정상 경기는 서버와 두 APK에서 승자2·종료tick4959·해시 `e78e07e67d5212d11a6f9ef1f6bc7e8de2e5e633f8cc05ec00f28baf4b7b33ff`가 일치한다. S23 HOME 뒤 새 foreground 화면·입력 해제와 두 기기 재대전 HP/기회/player 입력 초기화를 확인했다.
+
+10초 앱 연결 단절 후 같은 슬롯1로 돌아왔고 Tab의 상대 상태도 새 offline/online으로 바뀌었다. 단절 전에는 실제 position/velocity/tick 변화가 확인된 정상 이동 입력을 보냈다. 서버는 단절tick1479/2759에 input_direction0·buffered_action빈 값을 기록했다. 65초 단절의 이탈 패배는 서버와 남은 Tab에서 승자2·종료tick6360·해시 `2a5e347e12d065db28b46e556dc937acf656f637cfbfce8752fec16bdf0bdae7`가 일치한다. S23은 lan_menu와 latest_result{}이므로 양쪽 APK가 이탈 결과 해시를 가졌다고 주장하지 않는다.
+
+정원 테스트용 통신 참가자는 slot2에 입장하지만 실제 세 번째 APK가 아니다. 실제 Tab의 room_full 오류·화면·복귀는 확인했고 fixture의 leave_acknowledged false는 미확인이다. 방 정리 때문에 나온 추가 서버 disconnect결과tick898을 해당 ACK 또는 별도 정상 경기 통과로 사용하지 않는다.
+
+두 기기 모두 설치 APK hash가 원본과 같고 일반 저장before{}/after{} unchanged true다. 게임·서버 로그와 주요 캡처는 해당 실행 디렉터리에 보존한다. 독립 QA가 최종 실제 LAN 증거를 별도로 감사 중이다.
+
+## 실제 Wi-Fi와 사용자 조작 준비
+
+첫 수동 준비 `fa60f34c84f04fe09915acfa4dc23d17`는 자동 실행 ID의 게스트 저장을 다른 임시 API로 연결하며 demo_guest_error가 나타나 demo_nickname30초 대기 실패로 종료했다. 실제 Wi-Fi 조작은 아직 요청하지 않았고 준비 blocked로 보존했다. 자동 검사 통과나 제품 Wi-Fi 실패로 분류하지 않는다. 새 수동 helper는 실제 같은 APK hash를 확인한 뒤 별도 새 QA 실행 ID·저장으로 준비한다. 최초 helper의 source/context/session-error와 게임 로그는 이전 시도에 보존하며 일반 저장은 그대로 둔다.
