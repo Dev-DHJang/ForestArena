@@ -113,7 +113,35 @@ class RunnerTests(unittest.TestCase):
         d.read()
         d.command('context')
         command = self.adb.commands[0]
-        self.assertEqual(command, {'schema_version':1,'run_id':'test-run','seq':1,'case_id':'DEV-01','op':'context','args':{}})
+        self.assertEqual({key: command[key] for key in ('schema_version','run_id','seq','case_id','op','args')}, {'schema_version':1,'run_id':'test-run','seq':1,'case_id':'DEV-01','op':'context','args':{}})
+        self.assertEqual(command['device'], d.alias)
+        self.assertEqual(command['step'], command['op'])
+        self.assertEqual(command['expected']['command_seq'], command['seq'])
+        records = [json.loads(line) for line in (d.output/'commands.jsonl').read_text().splitlines()]
+        self.assertEqual([record['status'] for record in records], ['pending','pass'])
+        self.assertEqual(records[-1]['observed']['command_seq'], command['seq'])
+        self.assertEqual(records[-1]['observed']['command_error'], command['expected']['command_error'])
+    def test_command_disconnect_keeps_observed_blocked(self):
+        d = self.device([{'screen':'home'}])
+        d.read()
+        d.adb.write_command = Mock(side_effect=fleet.Blocked('disconnected'))
+        with self.assertRaises(fleet.Blocked): d.command('context')
+        records = [json.loads(line) for line in (d.output/'commands.jsonl').read_text().splitlines()]
+        self.assertEqual(records[-1]['status'], 'blocked')
+        self.assertEqual(records[-1]['observed']['error'], 'disconnected')
+        self.assertFalse(any(record['status']=='pass' for record in records))
+    def test_command_error_is_failure_and_private_values_are_redacted(self):
+        d = self.device([{'screen':'home'}])
+        d.read()
+        original = d.adb.write_command
+        def fail(run, command):
+            original(run, command)
+            d.adb.last['command_error'] = 'access_token=synthetic-private-value'
+        d.adb.write_command = fail
+        with self.assertRaises(fleet.Failure): d.command('context')
+        raw = (d.output/'commands.jsonl').read_text()
+        self.assertNotIn('synthetic-private-value', raw)
+        self.assertEqual(json.loads(raw.splitlines()[-1])['status'], 'fail')
     def test_physical_coordinate_scaling_uses_center(self):
         d = self.device([])
         d.physical_size = (2400,1080)
