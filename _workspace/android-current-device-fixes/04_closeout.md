@@ -36,7 +36,7 @@
 - 게임수정 PR90: https://github.com/Dev-DHJang/ForestArena/pull/90
   expected head2d0d9d6eeab004ecfe6c1b9bde07ee06a142d7aa,develop merge `d81f180f2745cc2d8c41a61e6653c62bc41e16aa`.
 - 두 병합은 GitHub merged응답과origin/develop fetch로 확인했다. main승격·release/hotfix분기·강제push·원격브랜치삭제·계정/비밀정보변경은 하지 않았다.
-- 최신develop d81f180…에서 codex/android-device-test-closeout 브랜치로 실제병합/마무리기록만 따로 통합한다. 이 문서의최종원격상태는 해당기록PR의GitHub응답과origin/develop으로 확인한다.
+- 최신develop d81f180…에서 codex/android-device-test-closeout 브랜치로 실제병합/마무리기록만 따로 통합한다. 마무리 기록 PR91: https://github.com/Dev-DHJang/ForestArena/pull/91. 이 문서의최종원격상태는 해당기록PR의GitHub응답과origin/develop으로 확인한다.
 
 되돌릴 때 새 작업브랜치에서 아래순서로 수행하고 관련검사·QA·PR을 거친다. 이미설치된APK는 코드revert와 별개이며 교체APK를 만들 때 패키지/실기기검사를 다시한다. 과거APK/실패/사용자관측 증거는 남긴다.
 
