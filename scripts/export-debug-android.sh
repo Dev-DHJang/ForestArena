@@ -13,7 +13,7 @@ else
 	if [ -d android/build ]; then
 		mv android/build "$template_backup/build"
 	fi
-	if ! godot --headless --path . --install-android-build-template || ! python3 tools/forest_arena/prepare_android_qa.py || ! godot --headless --path . --export-debug "$preset" "$apk_path"; then
+	if ! godot --headless --path . --install-android-build-template --export-debug "$preset" "$apk_path" || ! python3 tools/forest_arena/prepare_android_qa.py || ! godot --headless --path . --export-debug "$preset" "$apk_path"; then
 		if [ -d android/build ]; then
 			mv android/build "$template_backup/failed-build"
 		fi
