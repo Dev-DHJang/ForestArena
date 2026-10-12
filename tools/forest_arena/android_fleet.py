@@ -261,7 +261,8 @@ class ADB:
 
     def original_store_hashes(self):
         paths = ('files/local_player.json', 'files/local_player.json.bak',
-                 'files/db_profile_session.json', 'files/demo_guest_session.json')
+                 'files/db_profile_session.json', 'files/demo_guest_session.json',
+                 'files/forest_arena_audio.cfg')
         if self.run('get-state').strip() != b'device':
             raise Blocked('기존 저장 파일 확인 중 ADB 연결 상태를 확인하지 못했습니다.')
         installed = self.shell('pm', 'path', self.package)

@@ -236,6 +236,15 @@ class RunnerTests(unittest.TestCase):
         checksum_args = command.call_args_list[1].args
         self.assertTrue(any('sha256sum' in arg for arg in checksum_args))
         self.assertNotIn('cat',checksum_args)
+    def test_original_audio_settings_hash_is_preserved_without_reading_values(self):
+        adb = fleet.ADB('adb','phone','com.example')
+        digest = 'b'*64
+        with patch.object(adb,'shell',side_effect=['package:/data/app/game.apk','/data/user/0/game']), patch.object(adb,'run',side_effect=[b'device',(digest+'  files/forest_arena_audio.cfg\nFOREST_ARENA_STORE_HASHES_DONE').encode(),b'device']) as command:
+            result = adb.original_store_hashes()
+        self.assertEqual(result,{'files/forest_arena_audio.cfg':digest})
+        checksum_args = command.call_args_list[1].args
+        self.assertTrue(any('files/forest_arena_audio.cfg' in arg for arg in checksum_args))
+        self.assertNotIn('cat',checksum_args)
     def test_empty_transient_checksum_output_is_blocked_not_deleted(self):
         adb = fleet.ADB('adb','phone','com.example')
         with patch.object(adb,'shell',side_effect=['package:/data/app/game.apk','/data/user/0/game']), patch.object(adb,'run',side_effect=[b'device',b'',b'device']):
