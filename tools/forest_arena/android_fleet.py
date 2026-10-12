@@ -393,11 +393,30 @@ class DeviceRun:
     def screen(self, *names, timeout=None):
         return self.wait(lambda state: state.get('screen') in names, timeout, ' / '.join(names))
 
+    def command_message(self, op, args):
+        return {'schema_version': 1, 'run_id': self.run_id, 'seq': self.seq,
+                'case_id': self.case_id, 'device': self.alias, 'step': op,
+                'expected': {'command_seq': self.seq, 'command_error': ''},
+                'observed': {'status': 'pending'}, 'op': op, 'args': args}
+
+    def record_command(self, message, observed, status):
+        entry = {key: value for key, value in message.items() if key != 'args'}
+        entry.update(observed=observed, status=status, input_source='debug_command')
+        with (self.output / 'commands.jsonl').open('a', encoding='utf-8') as stream:
+            stream.write(json.dumps(redact(entry), ensure_ascii=False) + '\n')
+
     def command(self, op, **args):
         self.seq += 1
-        self.adb.write_command(self.run_id, {'schema_version': 1, 'run_id': self.run_id, 'seq': self.seq,
-                                           'case_id': self.case_id, 'op': op, 'args': args})
-        state = self.wait(lambda state: state.get('command_seq') == self.seq, label=f'명령 {op}')
+        message = self.command_message(op, args)
+        self.record_command(message, message['observed'], 'pending')
+        try:
+            self.adb.write_command(self.run_id, message)
+            state = self.wait(lambda state: state.get('command_seq') == self.seq, label=f'명령 {op}')
+        except (Blocked, Failure) as error:
+            self.record_command(message, {'error': str(error)}, 'blocked' if isinstance(error, Blocked) else 'fail')
+            raise
+        self.record_command(message, {key: state.get(key) for key in ('command_seq', 'command_error', 'screen', 'boot_id')},
+                            'fail' if state.get('command_error') else 'pass')
         require(not state.get('command_error'), f'테스트 명령 {op}: {state.get("command_error")}')
         return state
 
@@ -1100,8 +1119,7 @@ class DeviceRun:
         if not self.state or not self.state.get('boot_id'):
             return
         self.seq = max(self.seq, int(self.state.get('command_seq', 0)))+1
-        command = {'schema_version': 1, 'run_id': self.run_id, 'seq': self.seq,
-                   'case_id': self.case_id, 'op': 'autoplay', 'args': {'enabled': False}}
+        command = self.command_message('autoplay', {'enabled': False})
         try:
             self.adb.write_command(self.run_id, command, timeout=2)
             stop = time.monotonic()+2
@@ -1670,7 +1688,7 @@ def lan_pair(host, guest, server):
             device.wait_new_match(generation, lan=True)
             device.assert_reset()
             device.mark('LAN-01', 'pass', '방·결과·서버 일치·재대전 초기화 확인')
-            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1', 'home_restore_input': True, 'home_resume': home_restore}
+            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1', 'home_restore_input': True, 'home_restore_device': host.alias, 'home_resume': home_restore}
             device.evidence('rematch')
         current = 'LAN-03'
         host.case_id = guest.case_id = current

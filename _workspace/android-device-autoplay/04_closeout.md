@@ -57,3 +57,11 @@ LAN 실행 종료 뒤 정상 전투·결과·재대전과 10초/65초 앱 연결
 수동 연습 세션 `8325e1e2b5be4adcb4d46c3f93f415f9`에서 사용자가 일곱 항목을 두 기기 모두 실패로 확인했다. 두 기기의 원래 저장 전후 unchanged true와 로그 정리를 확인했다. 방향+회피 체감은 별도 미확인이다. 새 수정 작업 사본 `/Users/jdh/.codex/worktrees/android-current-fixes/ForestArena`와 `codex/android-current-device-fixes`에서 기존 실패의 수정·재검사를 진행한다. 원본 작업 폴더와 실패 APK는 보존한다.
 
 새 APK의 음악 설정 보존을 위해 일반 `forest_arena_audio.cfg`도 내용 대신 해시만 비교하도록 도구를 보완했다. 최신 호스트 118개·문서·공백 검사를 통과했다. 기존 실행의 저장 검사 범위를 소급 확대하지 않는다. 도구 구현의 통과·실제 제품 실패·새 수정본 미실행을 구분하며 전체 완료를 주장하지 않는다.
+
+## 수정 APK 재검사와 최종 명령 형식 확인
+
+새 게임 수정 PR #90의 APK a4285732…는 S23 주 검사·Tab LAN 상대라는 사용자 갱신 범위에서 기능·S23 10분9판·두 APK LAN·10/65초 앱 단절·실제 Wi-Fi 같은 경기 복귀를 확인했다. 사용자는 S23 자현의 방향+공격/회피·3단 콤보·경직·크기·수정 UI/HUD·음악/효과음/진동을 모두 정상이라고 답했고 독립 QA가 실제 증거를 대조했다. 이 기록으로 이전 APK의 실패를 덮어쓰거나 새 Tab 오프라인 체감을 통과로 기록하지 않는다. 자세한 원본/실기기 범위는 수정 작업의 03_qa_r01.md/06_fixed_device_results.md를 따른다.
+
+마지막 계획 대조에서 명령의 device/step/expected/observed 진단 필드를 보완했다. 같은 schema1 추가 필드는 기존 Godot 처리와 호환되며 APK·입력·전투 의미를 바꾸지 않는다. 요청의 observed는 pending으로 표시하고 commands.jsonl에서 실제 ACK 또는 실패를 같은 순번으로 기록한다. 명령 인수는 증거 로그에 중복 보관하지 않고 관측 오류의 비밀값은 제거한다. LAN HOME 공유 증거에 실제 조작 기기를 명시했다. host120검사 통과와 실제 S23 같은 APK context 응답을 확인했으며 전체 기능 재실행 통과로 확대하지 않는다.
+
+원래 전체 verify118개+리소스/문서/Android/LAN 검사 뒤 위 기록 변경의 host120/문서 검사와 기존 APK 실제 응답을 추가했다. APK 빌드 source2101개는 수정 전에 별도 frozen-apk-source-r01 사본에 보존해 hash차이0을 확인했다. 실제 APK가 바뀐 것으로 표시하지 않는다. QA 뒤 PR89→90 순서로 develop에 합치고 병합 SHA와 rollback 명령을 기록한다.
