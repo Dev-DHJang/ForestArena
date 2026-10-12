@@ -258,7 +258,7 @@ func _resolve_ring_outs() -> void:
 	var ring_outs: Array[FighterController] = []
 	for fighter: FighterController in _fighters():
 		var point := fighter.global_position
-		if fighter.state != FighterController.State.RING_OUT and not stage_data.ring_bounds.has_point(point):
+		if fighter.state not in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED] and not stage_data.ring_bounds.has_point(point):
 			ring_outs.append(fighter)
 	if ring_outs.is_empty(): return
 	for fighter: FighterController in ring_outs: fighter.ring_out(rules)

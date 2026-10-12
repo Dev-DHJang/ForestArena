@@ -1,6 +1,7 @@
 extends Node2D
 ## Read-only presentation. Resource discovery stays outside combat calculations.
 const MANIFEST_PATH := "res://assets/character/manifest.json"
+const DISPLAY_LAYOUT_PATH := "res://forest_arena/data/character_display_layout_v01.json"
 const STATE_MOTIONS := {
 	FighterController.State.RUN: &"run", FighterController.State.DASH: &"run",
 	FighterController.State.JUMP: &"jump", FighterController.State.FALL: &"jump",
@@ -19,6 +20,8 @@ var requested_motion: StringName = &"idle"
 var missing_motion: StringName
 var _motions: Dictionary = {}
 var _motion_layouts: Dictionary = {}
+static var _display_layouts: Dictionary = {}
+static var _display_layouts_loaded := false
 var _elapsed := 0.0
 var _last_motion: StringName
 var _last_activation := -1
@@ -80,6 +83,23 @@ static func approved_motion_paths(id: StringName) -> Dictionary:
 	return result
 
 
+static func display_layout(entry: Dictionary) -> Dictionary:
+	# The drawing calibration belongs to the approved sheet, not its path alone.
+	# Reading manifest hashes also works after Android texture import/remapping.
+	if not _display_layouts_loaded:
+		_display_layouts_loaded = true
+		var document: Variant = JSON.parse_string(FileAccess.get_file_as_string(DISPLAY_LAYOUT_PATH))
+		if document is Dictionary and int(document.get("schema_version", 0)) == 1:
+			for row: Dictionary in document.get("motions", []):
+				var key := "%s/%s" % [row.get("character_id", ""), row.get("motion_id", "")]
+				_display_layouts[key] = row
+	var key := "%s/%s" % [entry.get("character_id", ""), entry.get("visual_state_id", "")]
+	var calibration: Dictionary = _display_layouts.get(key, {})
+	if not calibration.is_empty() and not String(entry.get("sha256", "")).is_empty() and calibration.get("asset_sha256") == entry.get("sha256"):
+		return {"scale": float(calibration.scale), "foot_pivot_y": float(calibration.foot_pivot_y), "calibrated": true}
+	return {"scale": float(entry.get("presentation_scale", 1.0)), "foot_pivot_y": float(entry.get("foot_pivot_y", 128)), "calibrated": false}
+
+
 func _process(delta: float) -> void:
 	sync_visual(delta)
 
@@ -125,9 +145,10 @@ func sync_visual(delta: float) -> void:
 		return
 	sprite.visible = true
 	var layout: Dictionary = _motion_layouts.get(shown, {})
-	var display_scale := float(layout.get("presentation_scale", 1.0))
+	var drawing := display_layout(layout)
+	var display_scale := float(drawing.scale)
 	sprite.scale = Vector2.ONE * display_scale
-	sprite.position.y = fighter.ground_contact_offset_y() - (float(layout.get("foot_pivot_y", 128)) - 64.0) * display_scale
+	sprite.position.y = fighter.ground_contact_offset_y() - (float(drawing.foot_pivot_y) - 64.0) * display_scale
 	sprite.flip_h = fighter.facing < 0
 	if shown != _last_motion or fighter.activation_serial != _last_activation:
 		_elapsed = 0.0

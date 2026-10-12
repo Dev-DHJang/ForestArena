@@ -5,6 +5,7 @@ const MATCH_SCENE := preload("res://scenes/main.tscn")
 const PRESENTATION = preload("res://scripts/local_fighter_presentation.gd")
 const BOT = preload("res://scripts/local_ai_command_source.gd")
 const EXTRA_FIGHTER_SCENE := preload("res://scenes/fighters/ja_hyun_fighter.tscn")
+const FORESTLIGHT := preload("res://scripts/forestlight_ui.gd")
 const BACK_REQUEST_DEBOUNCE_MSEC := 200
 var catalog := LocalPlayCatalog.new()
 var store: LocalPlayerStore
@@ -99,26 +100,42 @@ func _new_page(title: String, background := true) -> void:
 		layer.remove_child(page)
 		page.queue_free()
 	page = Control.new()
+	page.theme = FORESTLIGHT.theme()
 	layer.add_child(page)
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	if background:
 		var image := TextureRect.new()
-		image.texture = ForestArenaResources.load_texture("fa.background.bg.lobby.forest.town")
+		image.texture = ForestArenaResources.load_texture("fa.ui.forestlight.background.forest.v06")
 		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 		image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		page.add_child(image)
 		image.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var shade := ColorRect.new()
-	shade.color = Color(0.04, 0.12, 0.13, 0.88 if background else 0.75)
+	shade.color = Color(0.96, 0.98, 0.93, 0.06) if background else Color(0.07, 0.18, 0.16, 0.62)
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	page.add_child(shade)
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var surface := PanelContainer.new()
+	surface.name = "ForestlightContent"
+	surface.add_theme_stylebox_override("panel", FORESTLIGHT.style("card.default", 26.0))
+	page.add_child(surface)
+	surface.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	surface.offset_left = 64
+	surface.offset_right = -64
+	surface.offset_top = 24
+	surface.offset_bottom = -24
+	if screen in ["result", "lan_result", "pause", "lan_leave_confirm"]:
+		surface.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+		surface.offset_left = -380
+		surface.offset_right = 380
+		surface.offset_top = -220
+		surface.offset_bottom = 220
 	var margin := MarginContainer.new()
-	page.add_child(margin)
+	surface.add_child(margin)
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	for side: String in ["left", "right"]: margin.add_theme_constant_override("margin_" + side, 84)
-	for side: String in ["top", "bottom"]: margin.add_theme_constant_override("margin_" + side, 30)
+	for side: String in ["left", "right"]: margin.add_theme_constant_override("margin_" + side, 22)
+	for side: String in ["top", "bottom"]: margin.add_theme_constant_override("margin_" + side, 10)
 	var scroll := ScrollContainer.new()
 	margin.add_child(scroll)
 	body = VBoxContainer.new()
@@ -147,17 +164,8 @@ func _button(text: String, callback: Callable, parent: Node = null, disabled := 
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.add_theme_font_size_override("font_size", roundi(21 * _text_scale()))
 	button.disabled = disabled
-	var style := StyleBoxTexture.new()
-	style.texture = ForestArenaResources.load_texture("fa.ui.button.base.btn.secondary.m.default")
-	for side: int in [SIDE_LEFT, SIDE_RIGHT, SIDE_TOP, SIDE_BOTTOM]:
-		style.set_texture_margin(side, 16)
-		style.set_content_margin(side, 10)
-	button.add_theme_stylebox_override("normal", style)
-	button.add_theme_stylebox_override("hover", style)
-	var pressed := style.duplicate() as StyleBoxTexture
-	pressed.texture = ForestArenaResources.load_texture("fa.ui.button.base.btn.secondary.m.pressed")
-	button.add_theme_stylebox_override("pressed", pressed)
-	button.add_theme_color_override("font_color", Color("243d36"))
+	var family := "primary" if text in ["대전 시작", "오프라인 대전", "같은 조건으로 재대전", "방 생성", "참가"] else "secondary"
+	FORESTLIGHT.skin_button(button, family)
 	var qa_key := screen + "/button/" + text
 	var qa_occurrence := int(_qa_button_counts.get(qa_key, 0))
 	_qa_button_counts[qa_key] = qa_occurrence + 1
@@ -188,18 +196,26 @@ func _show_first() -> void:
 			_show_home() if store.data.first_granted else _show_first())
 	if not demo_mode: _button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
 
-func _character_cards(owned_only: bool, callback: Callable) -> void:
-	var row := HBoxContainer.new()
+func _character_cards(owned_only: bool, callback: Callable, compact := false) -> void:
+	var row: Container = GridContainer.new() if compact else HBoxContainer.new()
+	if compact:
+		(row as GridContainer).columns = 2
+		row.add_theme_constant_override("h_separation", 10)
+		row.add_theme_constant_override("v_separation", 10)
 	row.add_theme_constant_override("separation", 12)
 	body.add_child(row)
 	for character: CharacterData in catalog.combat.characters:
 		if owned_only and not store.owns(String(character.character_id)): continue
+		var frame := PanelContainer.new()
+		frame.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		frame.add_theme_stylebox_override("panel", FORESTLIGHT.style("card.selected" if String(character.character_id) == store.data.selected_character else "card.default"))
+		row.add_child(frame)
 		var card := VBoxContainer.new()
 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(card)
+		frame.add_child(card)
 		var image := TextureRect.new()
 		image.texture = character.concept_image
-		image.custom_minimum_size = Vector2(190, 120 if owned_only else 200)
+		image.custom_minimum_size = Vector2(166, 112 if compact else (126 if owned_only else 220))
 		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		card.add_child(image)
@@ -207,14 +223,97 @@ func _character_cards(owned_only: bool, callback: Callable) -> void:
 
 func _show_home() -> void:
 	screen = "home"
+	var home_message := message
 	_new_page("Forest Arena · 대전 로비")
-	_label("네 캐릭터와 함께 숲의 경기장으로")
-	_button("오프라인 대전", _show_prepare)
-	_button("LAN 1:1 · 같은 Wi-Fi", _show_lan_menu)
-	_button("상점 · 모두 0원", _show_shop)
-	_button("접근성 설정", _show_accessibility)
-	if not demo_mode: _button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection)
-	_label("로컬 DB에 저장합니다 · 변경 번호 %d" % db_client.revision if db_mode else "구매와 선택은 이 기기에 저장됩니다.", 18)
+	page.get_node("ForestlightContent").hide()
+	var canvas := Control.new()
+	canvas.name = "LobbyCanvas"
+	page.add_child(canvas)
+	canvas.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	canvas.offset_left = -640
+	canvas.offset_right = 640
+	canvas.offset_top = -360
+	canvas.offset_bottom = 360
+	canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var character := FORESTLIGHT.image(canvas, "LobbyCharacter", "lobby.character")
+	if store.data.selected_character != "ja-hyun":
+		character.texture = catalog.combat.character_by_id(StringName(store.data.selected_character)).concept_image
+	character.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	character.anchor_left = 0.33
+	character.anchor_right = 0.67
+	character.anchor_top = 0.10
+	character.anchor_bottom = 0.81
+	var heading := Label.new()
+	heading.text = "FOREST ARENA"
+	heading.add_theme_font_size_override("font_size", 32)
+	heading.add_theme_color_override("font_outline_color", FORESTLIGHT.LIGHT)
+	heading.add_theme_constant_override("outline_size", 5)
+	canvas.add_child(heading)
+	heading.position = Vector2(64, 30)
+	var profile := _button("접근성 설정", _show_accessibility, canvas)
+	profile.position = Vector2(1010, 28)
+	profile.size = Vector2(206, 58)
+	profile.icon = FORESTLIGHT.texture("icon.settings")
+	profile.expand_icon = true
+	profile.add_theme_constant_override("icon_max_width", 32)
+	var roster := PanelContainer.new()
+	roster.name = "LobbyLoadout"
+	roster.add_theme_stylebox_override("panel", FORESTLIGHT.style("panel.default", 20.0))
+	canvas.add_child(roster)
+	roster.position = Vector2(64, 144)
+	roster.size = Vector2(284, 220)
+	var roster_text := Label.new()
+	roster_text.text = "현재 편성\n\n" + String(catalog.product(store.data.selected_character).name) + "\n장신구 · " + ("미장착" if store.data.selected_accessory.is_empty() else String(catalog.product(store.data.selected_accessory).name)) + "\n\n" + ("로컬 DB에 저장합니다 · 변경 번호 %d" % db_client.revision if db_mode else "구매와 선택은 이 기기에 저장됩니다.")
+	roster_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	roster_text.add_theme_font_size_override("font_size", 20)
+	roster_text.add_theme_color_override("font_color", FORESTLIGHT.LIGHT)
+	roster.add_child(roster_text)
+	if not home_message.is_empty():
+		var notice := PanelContainer.new()
+		notice.add_theme_stylebox_override("panel", FORESTLIGHT.style("panel.default"))
+		canvas.add_child(notice)
+		notice.position = Vector2(64, 466)
+		notice.size = Vector2(284, 110)
+		var notice_text := Label.new()
+		notice_text.text = home_message
+		notice_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		notice_text.add_theme_color_override("font_color", FORESTLIGHT.LIGHT)
+		notice.add_child(notice_text)
+	var play := _button("오프라인 대전", _show_prepare, canvas)
+	play.position = Vector2(936, 484)
+	play.size = Vector2(280, 80)
+	play.icon = FORESTLIGHT.texture("icon.play")
+	play.expand_icon = true
+	play.add_theme_constant_override("icon_max_width", 42)
+	var lan := _button("LAN 1:1 · 같은 Wi-Fi", _show_lan_menu, canvas)
+	lan.position = Vector2(936, 394)
+	lan.size = Vector2(280, 64)
+	var navigation := HBoxContainer.new()
+	navigation.name = "LobbyNavigation"
+	navigation.add_theme_constant_override("separation", 8)
+	canvas.add_child(navigation)
+	navigation.position = Vector2(64, 598)
+	navigation.size = Vector2(1152, 80)
+	var menus := ["캐릭터", "장신구", "프리셋", "미션", "친구", "상점 · 모두 0원"]
+	var icons := ["character", "accessory", "job", "mission", "social", "shop"]
+	for index: int in menus.size():
+		var menu := _button(menus[index], _show_prepare if index < 2 else (_show_shop if index == 5 else _show_unavailable.bind(menus[index])), navigation)
+		menu.custom_minimum_size = Vector2(180, 72)
+		menu.add_theme_font_size_override("font_size", roundi(18 * _text_scale()))
+		FORESTLIGHT.skin_button(menu, "nav")
+		menu.icon = FORESTLIGHT.texture("icon." + icons[index])
+		menu.expand_icon = true
+		menu.add_theme_constant_override("icon_max_width", 36)
+	if not demo_mode:
+		var storage := _button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection, canvas)
+		storage.position = Vector2(64, 390)
+		storage.size = Vector2(284, 58)
+
+func _show_unavailable(feature: String) -> void:
+	screen = "unavailable"
+	_new_page(feature)
+	_label("현재 개발 단계에서는 제공하지 않습니다. 현재는 오프라인 대전과 같은 Wi-Fi 1대1을 이용할 수 있습니다.")
+	_button("로비", _show_home)
 
 
 func _show_lan_menu() -> void:
@@ -422,6 +521,7 @@ func _start_lan_match() -> void:
 	match_scene = MATCH_SCENE.instantiate()
 	match_scene.app_shell_mode = true
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
+	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
 	add_child(match_scene)
 	match_controller = match_scene.get_node("MatchController") as MatchController
 	match_controller.set_physics_process(false)
@@ -461,7 +561,9 @@ func _start_lan_match() -> void:
 	match_scene.get_node("Interface/Restart").hide()
 	match_scene.get_node("Interface/DebugReadout").hide()
 	match_scene.get_node("Interface/PhaseLabel").hide()
-	match_scene.get_node("Interface/HudPanel").hide()
+	if match_scene.forestlight_hud != null:
+		match_scene.get_node("Interface/HudPanel").hide()
+		match_scene.get_node("Interface/MatchReadout").hide()
 	var readout := match_scene.get_node("Interface/MatchReadout") as Label
 	readout.position = Vector2(84, 24)
 	readout.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
@@ -495,6 +597,7 @@ func _show_lan_match_controls() -> void:
 		layer.remove_child(page)
 		page.queue_free()
 	page = Control.new()
+	page.theme = FORESTLIGHT.theme()
 	layer.add_child(page)
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -722,6 +825,23 @@ func _save_minimap_settings(settings: Dictionary) -> void:
 func _show_prepare() -> void:
 	screen = "prepare"
 	_new_page("대전 준비 · " + _mode_name(selected_mode))
+	var outer := body
+	var columns := HBoxContainer.new()
+	columns.add_theme_constant_override("separation", 24)
+	outer.add_child(columns)
+	var roster := VBoxContainer.new()
+	roster.custom_minimum_size.x = 480
+	columns.add_child(roster)
+	var choices := VBoxContainer.new()
+	choices.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	choices.add_theme_constant_override("separation", 14)
+	columns.add_child(choices)
+	body = roster
+	_label("내 캐릭터: " + catalog.product(store.data.selected_character).name)
+	_character_cards(true, func(id: String) -> void:
+		if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}): message = store.error
+		_show_prepare(), true)
+	body = choices
 	_choice_labels("모드", ["스토리 프롤로그 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"], int(selected_mode), func(index: int) -> void:
 		selected_mode = index as LocalMatchConfig.Mode
 		_show_prepare())
@@ -733,10 +853,6 @@ func _show_prepare() -> void:
 		_choice_labels("팀 인원", ["1 대 1", "2 대 2", "3 대 3", "4 대 4"], team_size - 1, func(index: int) -> void:
 			team_size = index + 1
 			_show_prepare())
-	_label("내 캐릭터: " + catalog.product(store.data.selected_character).name)
-	_character_cards(true, func(id: String) -> void:
-		if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}): message = store.error
-		_show_prepare())
 	_choice("장신구", [""] + store.data.accessories, store.data.selected_accessory, func(id: String) -> void:
 		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": id, "opponent": store.data.opponent_character}): message = store.error
 		_show_prepare())
@@ -746,15 +862,19 @@ func _show_prepare() -> void:
 		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": store.data.selected_accessory, "opponent": id}): message = store.error
 		_show_prepare())
 	_label("숲의 경기장 · 중앙 통과형 발판 · 양끝 낭떠러지 · 3 STOCK · 온라인 없음", 18)
-	_button("대전 시작", start_match)
-	_button("로비", _show_home)
+	body = outer
+	var actions := HBoxContainer.new()
+	actions.add_theme_constant_override("separation", 16)
+	body.add_child(actions)
+	_button("로비", _show_home, actions)
+	_button("대전 시작", start_match, actions)
 
 func _choice(title: String, ids: Array, selected: String, callback: Callable) -> void:
 	var row := HBoxContainer.new()
 	body.add_child(row)
 	var label := Label.new()
 	label.text = title
-	label.custom_minimum_size.x = 180
+	label.custom_minimum_size.x = 150
 	row.add_child(label)
 	var options := OptionButton.new()
 	options.set_meta("qa_id", screen + "/choice/" + title)
@@ -774,7 +894,7 @@ func _choice_labels(title: String, labels: Array[String], selected_index: int, c
 	body.add_child(row)
 	var label := Label.new()
 	label.text = title
-	label.custom_minimum_size.x = 180
+	label.custom_minimum_size.x = 150
 	row.add_child(label)
 	var options := OptionButton.new()
 	options.set_meta("qa_id", screen + "/choice/" + title)
@@ -796,6 +916,8 @@ func _toggle(title: String, enabled: bool, callback: Callable) -> void:
 	label.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
 	row.add_child(label)
 	var toggle := CheckButton.new()
+	FORESTLIGHT.skin_button(toggle)
+	toggle.custom_minimum_size = Vector2(128, 58)
 	toggle.set_meta("qa_id", screen + "/toggle/" + title)
 	toggle.text = "켜짐" if enabled else "꺼짐"
 	toggle.button_pressed = enabled
@@ -833,13 +955,16 @@ func start_match() -> void:
 	match_controller.match_ended.connect(_on_match_ended.bind(match_controller))
 	match_controller.presentation_event.connect(_on_presentation_event)
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
+	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
 	add_child(match_scene)
 	match_scene.apply_accessibility(store.data.accessibility)
 	if OS.is_debug_build(): match_scene.add_child(load("res://scripts/local_performance_probe.gd").new())
 	match_scene.get_node("Interface/Restart").hide()
 	match_scene.get_node("Interface/DebugReadout").hide()
 	match_scene.get_node("Interface/PhaseLabel").hide()
-	match_scene.get_node("Interface/HudPanel").hide()
+	if match_scene.forestlight_hud != null:
+		match_scene.get_node("Interface/HudPanel").hide()
+		match_scene.get_node("Interface/MatchReadout").hide()
 	var readout := match_scene.get_node("Interface/MatchReadout") as Label
 	readout.position = Vector2(84, 24)
 	readout.add_theme_font_size_override("font_size", roundi(20 * _text_scale()))
@@ -937,6 +1062,7 @@ func _show_match_controls() -> void:
 		layer.remove_child(page)
 		page.queue_free()
 	page = Control.new()
+	page.theme = FORESTLIGHT.theme()
 	layer.add_child(page)
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	page.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -945,13 +1071,22 @@ func _show_match_controls() -> void:
 
 func _place_match_button(button: Button) -> void:
 	var map := match_scene.get_node("Interface/BattleMinimap") as BattleMinimap
+	var button_ref: WeakRef = weakref(button)
+	var map_ref: WeakRef = weakref(map)
+	var viewport := get_viewport()
 	var place := func() -> void:
-		if not is_instance_valid(button): return
-		button.position = map.position + Vector2(0, map.size.y + 12)
-		button.size = Vector2(map.size.x, 58)
+		var target := button_ref.get_ref() as Button
+		var current_map := map_ref.get_ref() as BattleMinimap
+		if target == null or current_map == null or not target.is_inside_tree() or not current_map.is_inside_tree(): return
+		target.position = current_map.position + Vector2(0, current_map.size.y + 12)
+		target.size = Vector2(current_map.size.x, 58)
 	map.item_rect_changed.connect(place)
-	place.call()
-
+	viewport.size_changed.connect(place)
+	button.tree_exiting.connect(func() -> void:
+		if viewport.size_changed.is_connected(place): viewport.size_changed.disconnect(place)
+		var current_map := map_ref.get_ref() as BattleMinimap
+		if current_map != null and current_map.item_rect_changed.is_connected(place): current_map.item_rect_changed.disconnect(place))
+	place.call_deferred()
 
 func pause_match() -> void:
 	if match_controller == null or screen == "result": return
@@ -984,7 +1119,7 @@ func handle_back_request(request_msec: int = -1) -> void:
 		return
 	last_back_request_msec = now_msec
 	match screen:
-		"shop", "prepare", "accessibility":
+		"shop", "prepare", "accessibility", "unavailable":
 			_show_home()
 		"lan_menu":
 			_show_home()
@@ -1038,8 +1173,9 @@ func _show_result(winner: StringName) -> void:
 		_show_home())
 
 
-func _on_presentation_event(event_id: StringName, _payload: Dictionary) -> void:
+func _on_presentation_event(event_id: StringName, payload: Dictionary) -> void:
 	if event_id not in [&"hit_resolved", &"ring_out", &"match_end", &"match_draw"] or not bool(store.data.accessibility.haptics_enabled): return
+	if event_id == &"hit_resolved" and String(payload.get("result", "")) not in ["HIT", "BLOCK", "PERFECT_GUARD", "ARMOR"]: return
 	haptic_request_count += 1
 	if OS.has_feature("mobile"):
 		Input.vibrate_handheld(18 if event_id == &"hit_resolved" else 45, 0.35)

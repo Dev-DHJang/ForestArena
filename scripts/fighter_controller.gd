@@ -108,17 +108,24 @@ func reset_for_match(rules: CombatRules) -> void:
 	invulnerability_ticks = 0
 	respawn_ticks = 0
 	hitstun_ticks = 0
+	dash_ticks = 0
+	attack_phase_tick = 0
+	attack_landed = false
 	state = State.IDLE
 	_sync_debug_hitbox()
 
 
 func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
+	if state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED]: return
 	if intent.action_id == &"move":
 		input_direction = CombatIntent.Direction.NEUTRAL if intent.edge == CombatIntent.Edge.RELEASE else intent.direction
 		if intent.edge == CombatIntent.Edge.RELEASE and state == State.GUARD:
 			runtime_state.guarding = false
 			state = State.IDLE if is_on_floor() else State.FALL
 		return
+	# Direction releases can still clear a held input, but no action (including
+	# ultimate or platform drop) may bypass an effective hit's action lock.
+	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]: return
 	if active_attack != null and intent.edge == CombatIntent.Edge.PRESS and _try_cancel(intent, rules):
 		return
 	if intent.action_id == &"guard":
@@ -166,6 +173,11 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 func step_tick(rules: CombatRules) -> void:
 	if runtime_profile == null:
 		return
+	if state in [State.DEAD, State.MATCH_ENDED]:
+		velocity = Vector2.ZERO
+		input_direction = CombatIntent.Direction.NEUTRAL
+		_finish_tick()
+		return
 	diagnostic = ""
 	if invulnerability_ticks > 0:
 		invulnerability_ticks -= 1
@@ -204,6 +216,10 @@ func step_tick(rules: CombatRules) -> void:
 		return
 	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]:
 		hitstun_ticks -= 1
+		# Ordinary grounded stagger slows with the same fixed-tick ground drag.
+		# Launch/knock-down motion remains distinct and keeps its authored momentum.
+		if state == State.HITSTUN and is_on_floor():
+			velocity.x = move_toward(velocity.x, 0.0, rules.ground_deceleration / float(rules.physics_ticks_per_second))
 		_apply_gravity(rules)
 		move_and_slide()
 		if hitstun_ticks <= 0:
@@ -269,6 +285,11 @@ func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int,
 	hitstun_ticks = stun_ticks
 	active_attack = null
 	buffered_intent = null
+	charge_attack = null
+	runtime_state.charge_ticks = 0
+	runtime_state.guarding = false
+	runtime_state.evade_ticks = 0
+	dash_ticks = 0
 	air_jumps_remaining = 0
 	launcher_jump_available = false
 	var reaction: int = attack.hit_reaction if reaction_override < 0 else reaction_override
@@ -287,7 +308,7 @@ func ring_out(rules: CombatRules) -> bool:
 
 
 func lose_stock(rules: CombatRules) -> bool:
-	if state in [State.RING_OUT, State.DEAD]: return false
+	if state in [State.RING_OUT, State.DEAD, State.MATCH_ENDED] or stocks <= 0: return false
 	stocks -= 1
 	current_hp = 0.0
 	runtime_state.pending_respawn_hp = 0.0
@@ -297,6 +318,12 @@ func lose_stock(rules: CombatRules) -> bool:
 	combo_index = 0
 	input_direction = CombatIntent.Direction.NEUTRAL
 	launcher_jump_available = false
+	charge_attack = null
+	runtime_state.charge_ticks = 0
+	runtime_state.guarding = false
+	runtime_state.evade_ticks = 0
+	dash_ticks = 0
+	hitstun_ticks = 0
 	if stocks <= 0:
 		state = State.DEAD
 	else:
@@ -410,10 +437,13 @@ func _start_charge(intent: CombatIntent) -> void:
 	var next := _select_attack(intent)
 	if next == null:
 		return
+	_face_ground_attack(intent.direction)
 	charge_attack = next
 	charge_direction = intent.direction
 	locked_facing = facing
 	locked_direction = intent.direction
+	velocity.x = 0.0
+	dash_ticks = 0
 	runtime_state.charge_ticks = 0
 	state = State.CHARGE
 	presentation_event.emit(&"charge_start", {})
@@ -443,10 +473,16 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 	var relative := _relative_direction(intent.direction)
 	if intent.action_id == &"attack_special" and relative == AttackData.InputDirection.UP and not up_special_available:
 		return null
-	return ComboControllerScript.opening_attack(runtime_profile.move_set, intent, context, facing, state == State.DASH)
+	# Dash light has a dedicated slot. Dash heavy ends the dash and enters the
+	# ordinary directional charge, rather than requesting a nonexistent dash slot.
+	return ComboControllerScript.opening_attack(runtime_profile.move_set, intent, context, facing, state == State.DASH and intent.action_id == &"attack_light")
 
 
-func _start_attack(next: AttackData, direction: CombatIntent.Direction, rules: CombatRules = null) -> void:
+func _start_attack(next: AttackData, direction: CombatIntent.Direction, rules: CombatRules = null, preserve_facing := false) -> void:
+	if is_on_floor() and not next.requires_dash:
+		if not preserve_facing: _face_ground_attack(direction)
+		velocity.x = 0.0
+		dash_ticks = 0
 	active_attack = next
 	activation_serial += 1
 	attack_phase_tick = 0
@@ -488,7 +524,7 @@ func _advance_attack(rules: CombatRules) -> void:
 		if queued != null:
 			var next := ComboControllerScript.linked_attack(runtime_profile.move_set, finished, queued, 0, attack_landed)
 			if next != null:
-				_start_attack(next, queued.direction, rules)
+				_start_attack(next, queued.direction, rules, true)
 				return
 		combo_index = 0
 		state = State.IDLE if is_on_floor() else State.FALL
@@ -618,6 +654,11 @@ func _relative_direction(direction: CombatIntent.Direction) -> AttackData.InputD
 		CombatIntent.Direction.LEFT: return AttackData.InputDirection.FORWARD if facing < 0 else AttackData.InputDirection.BACK
 		CombatIntent.Direction.RIGHT: return AttackData.InputDirection.FORWARD if facing > 0 else AttackData.InputDirection.BACK
 		_: return AttackData.InputDirection.NEUTRAL
+
+
+func _face_ground_attack(direction: CombatIntent.Direction) -> void:
+	if direction == CombatIntent.Direction.LEFT: facing = -1
+	elif direction == CombatIntent.Direction.RIGHT: facing = 1
 
 
 func _direction_matches(required: AttackData.InputDirection, actual: AttackData.InputDirection) -> bool:

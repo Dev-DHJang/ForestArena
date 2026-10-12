@@ -178,7 +178,20 @@ func _handle_message(raw: String) -> void:
 			_release_inputs()
 			match_finished.emit(message)
 		"rematch_state": rematch_changed.emit(message.get("ready_slots", []), bool(message.get("closed", false)))
-		"error": _fail(String(message.get("code", "server_error")))
+		"error":
+			var code := String(message.get("code", "server_error"))
+			if code == "resume_pending" and _reconnecting and running and Time.get_ticks_msec() < _reconnect_deadline_msec:
+				# The old socket is still accounted for. Never take its slot or
+				# extend the original grace while waiting for server disconnect.
+				_release_inputs()
+				websocket.close()
+				_request_deadline_msec = 0
+				connecting = false
+				_handshake_pending = false
+				_reconnect_at_msec = Time.get_ticks_msec() + 1000
+				status_changed.emit("이전 연결 종료를 기다리는 중")
+			else:
+				_fail("reconnect_timeout" if code == "resume_pending" and _reconnecting else code)
 		"pong": pass
 
 

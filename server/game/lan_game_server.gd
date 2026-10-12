@@ -279,7 +279,13 @@ func _input_message(peer_id: int, message: Dictionary) -> void:
 func _resume(peer_id: int, token: String, player_id: String) -> void:
 	for slot: int in clients:
 		var client: Dictionary = clients[slot]
-		if client.player_id != player_id or bool(client.connected) or int(client.deadline) < Time.get_ticks_msec() or not _secure_equal(String(client.reconnect_token), token): continue
+		if client.player_id != player_id or not _secure_equal(String(client.reconnect_token), token): continue
+		if bool(client.connected):
+			if int(client.peer_id) != peer_id:
+				_reject(peer_id, "resume_pending")
+				return
+			continue
+		if int(client.deadline) < Time.get_ticks_msec(): continue
 		client.peer_id = peer_id
 		client.connected = true
 		client.deadline = 0

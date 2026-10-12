@@ -36,11 +36,19 @@ require_badging "targetSdkVersion:'36'" "target API 36"
 require_badging "application-label:'Forest Arena'" "application label"
 require_badging "uses-feature: name='android.hardware.screen.landscape'" "landscape feature"
 require_badging "uses-permission: name='android.permission.INTERNET'" "LAN WebSocket permission"
+require_badging "uses-permission: name='android.permission.VIBRATE'" "combat haptic feedback permission"
 require_badging "native-code: 'arm64-v8a' 'x86_64'" "arm64 device and x86_64 emulator ABIs"
 
 if $aapt_path list "$apk_path" | grep -E '(^|/)(_workspace|docs|tests|\.agents)/' >/dev/null; then
 	echo "APK contains development-only documentation, tests, or workspace evidence" >&2
 	exit 1
 fi
+
+for data_file in resource_registry.json audio_events_v01.json character_display_layout_v01.json; do
+	if ! "$aapt_path" list "$apk_path" | grep -Fx "assets/forest_arena/data/$data_file" >/dev/null; then
+		echo "APK contract mismatch: missing runtime data $data_file" >&2
+		exit 1
+	fi
+done
 
 echo "Android APK contract verification passed."

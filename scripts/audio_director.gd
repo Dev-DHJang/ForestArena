@@ -24,6 +24,10 @@ var result_deadline := -1.0
 var settings_path := SETTINGS_PATH
 
 func _ready() -> void:
+	if settings_path == SETTINGS_PATH:
+		settings_path = debug_settings_path(OS.get_cmdline_user_args(), OS.is_debug_build())
+		if settings_path != SETTINGS_PATH:
+			DirAccess.make_dir_recursive_absolute(settings_path.get_base_dir())
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	for bus: String in ["Music", "UI", "Combat"]:
 		if AudioServer.get_bus_index(bus) < 0:
@@ -51,6 +55,21 @@ func _ready() -> void:
 		var saved_mute: Variant = config.get_value("audio", "muted", false)
 		muted = saved_mute if saved_mute is bool else false
 	_apply_levels()
+
+
+static func debug_settings_path(arguments: PackedStringArray, debug_build: bool) -> String:
+	if not debug_build or not OS.is_debug_build(): return SETTINGS_PATH
+	var run_id := ""
+	var count := 0
+	for argument: String in arguments:
+		if argument.begins_with("--qa-run="):
+			run_id = argument.trim_prefix("--qa-run=")
+			count += 1
+	if count != 1 or run_id.is_empty() or run_id.length() > 64: return SETTINGS_PATH
+	for index: int in run_id.length():
+		var code := run_id.unicode_at(index)
+		if not (code >= 65 and code <= 90 or code >= 97 and code <= 122 or code >= 48 and code <= 57 or code in [45, 95]): return SETTINGS_PATH
+	return "user://qa/" + run_id + "/audio.cfg"
 
 func _valid_level(value: Variant, fallback: float) -> float:
 	if not (value is float or value is int) or not is_finite(float(value)): return fallback
