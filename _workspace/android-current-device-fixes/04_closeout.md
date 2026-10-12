@@ -1,13 +1,38 @@
 # 실기기 발견 문제 수정 마무리 상태
 
-수정과 독립 코드 검사를 진행했고 통합 검사·새 APK 실기기 재검사는 남아 있다. 전투·모션·UI·음악 연결·진동 권한·기존 LAN 재접속 경합을 보완했다. 이전 실패 APK 6b855d25…와 사용자 응답·게임/서버 로그는 도구 작업 사본에 보존했다. 원래 미커밋 작업 폴더와 승인 PNG·SpriteFrames·manifest는 덮어쓰지 않았다.
+전체 목표는 진행 중이다. 새 APK의 S23 기능 검사는 완료됐고, 10분 반복 재검사와 LAN·사용자 조작 재확인이 남아 있다. 원래 작업 폴더의 미커밋 코드와 승인 캐릭터 PNG·SpriteFrames·manifest는 보존했다. 이전 APK와 실패·차단 증거도 별도로 유지한다.
 
-최신 origin/develop cf081dd334ef619450d612844f6206f560ea2cc0에서 별도 managed worktree를 만들고 codex/android-current-device-fixes 브랜치를 사용한다. 자동 기기 검사 도구 PR #89의 코드와 새 수정본을 합쳐 검사할 예정이며 전체 목표 완료·develop 병합은 아직 아니다.
+## 코드와 통합 검사
 
-전투는 원래 코드에서 새 검사37개 실패를 재현했고 수정 코드에서 네 캐릭터 기본 콤보의 실제 적중·피격 행동 제한·종료 상태·결정론을 확인했다. 표시 보정은 승인120시트의 각 모션 해시를 확인해 고정 몸 배율과 발 기준을 적용한다. 실제 renderer의 0/8/15 프레임 비교판을 생산자와 QA가 읽었지만 사람의 전체120모션 전수 통과는 주장하지 않는다.
+최신 origin/develop cf081dd334ef619450d612844f6206f560ea2cc0에서 별도 작업 사본 `/Users/jdh/.codex/worktrees/android-current-fixes/ForestArena`와 `codex/android-current-device-fixes`를 만들었다. HEAD 9de51fbff130417c207ef4ef3d1e7c4e7c8d0fbf는 원격에 push했고 PR #90은 draft다. 자동 검사 도구 PR #89의 f7061f5 코드를 합쳤다. 아직 develop 병합은 하지 않았다.
 
-UI는 승인된 숲빛v06 자산을 복사·논리ID로 등록하고 현재 실제 첫 선택·로비·준비·상점·설정·LAN·결과·전투 조작과 다인전 상태 카드에 연결했다. 미래 보상·경제·정식 온라인은 구현하지 않는다. 고정 조이스틱의 접촉 소유·해제·포커스손실, 일반 설정과 QA 오디오 저장 분리도 검사했다. 진동 권한은 새 APK 실제 패키지에서 다시 확인해야 한다.
+- 전투: 방향 입력 중 일반 공격의 불필요한 이동, 피격 중 행동, 접지 피격 미끄러짐, 콤보 시작·방향과 종료 상태를 수정했다. 네 캐릭터 실제 적중 콤보는 자현 3단/15, 묘령 4단/19, 나비 2단/11, 유란 3단/15다.
+- 표현: 승인 120모션의 해시가 맞을 때만 모션별 고정 몸 배율과 발 기준을 적용한다. 원본 그림·SpriteFrames·manifest 변경은 0이다. 실제 renderer 0/8/15 프레임 비교와 QA를 마쳤고 전체 프레임의 사람 검사로 확대하지 않는다.
+- UI: 승인 숲빛 v06 자산을 논리 ID로 현재 메뉴·선택·상점·설정·LAN·결과·전투 HUD·고정 조이스틱에 연결했다. 다인전 카드의 같은 인원 수 ID 변경과 제거 직전 viewport callback 문제도 QA 지적 뒤 고쳤다.
+- 오디오/진동: 기존 승인 음악·효과음을 포함하며 QA 오디오 설정 저장을 분리하고 Android VIBRATE 권한을 추가했다. 실제 청취·진동은 사용자 재검사 전까지 미확인이다.
+- LAN: 인증된 기존 참가자의 유효 토큰으로 새 연결이 기존 socket 종료를 기다릴 때 resume_pending 재시도, 입력 해제, 기존 60초 기한 불연장을 검사했다. 이전 실제 Wi-Fi 실패 원인 전체가 확정됐다고 주장하지 않는다.
 
-독립 QA에서 HUD 동일인원 ID교체와 제거 직전 화면크기 callback 오류를 발견했고 생산자 수정 뒤 재검사했다. 새 LAN 경합의 server/client fixture도 검사했다. 자세한 범위와 미확인은 03_qa_r01.md를 따른다. 아직 새 APK 실제 청취·진동·동시 입력·모션 전환·UI·LAN·10분 반복 증거가 없다.
+`build/android-current-fixes/verify-integrated-r02.log`는 전체 verify.sh 종료 코드 0, “Forest Arena verification passed.”, host 118개, SCRIPT ERROR 0이다. Android native touch·실행 인자, 모드·전투·오디오, LAN/API/서버 분리·문서·하네스·리소스를 포함한다. 리소스는 논리 ID 491개·품질 변형 24개다. 일부 기존 종료 정리 경고는 로그에 보존한다. 최초 통합 r01의 중복 signal 실패와 종료 코드 143은 삭제하지 않았다.
 
-PR 생성·통합 SHA·롤백 증거는 통합과 실제 검사 뒤 기록한다. 되돌릴 때 이 작업의 통합 커밋을 revert하고 이전 APK 증거는 보존한다. main 승격·release 분기·강제push·원격브랜치삭제는 하지 않는다.
+## 실제 생성 APK
+
+`build/android-current-fixes/ForestArena-current-fixed-r01.apk` SHA-256은 `a42857320d1a41a5e707a457d6ce71f03aba9b0e38241e4d693b04fe1f850e48`이다. package com.forestarena.welllbeing, source HEAD 9de51fb, Godot 4.7.1. source-before-export-r02.json의 2101개 파일은 export 전후 변경 0이다. apk-fixed-r01.json과 export-r02.log에서 실제 export 종료 0, Android 패키지 검사 통과, INTERNET/VIBRATE 권한과 리소스·오디오·표시 JSON 포함을 확인했다.
+
+새 Android template 설치가 독립 옵션만으로 앱을 실행하던 exporter를 지원되는 export-debug와 함께 실행하도록 고쳤다. 최초 export-r01 중단 로그와 owned process 종료 143은 유지한다. 새 export-r02는 실제 fresh template 생성과 native QA adapter 준비 뒤 최종 APK export를 완료했다.
+
+## 실기기 재검사
+
+첫 새 APK 실행 `b49ce3fd6dfc40528deeeae426611207`의 원본 집계는 13 pass / 2 fail / 8 blocked / 2 미실행이다. S23은 DEV/UI/OFF-01/INPUT/LIFE/OFF-02/MODE 통과했고, 연습·Solo 8명·Team 4대4 실제 결과·Story 프롤로그 진입과 복귀를 확인했다. SOAK은 약 201.8초·완료 조합 3개 뒤 일시정지 화면으로 바뀌어 실패했다. Tab은 기능 6개 pass, MODE 실패와 저장 종료 확인 blocked다. LAN은 실행되지 않았다.
+
+사용자가 검사 도중 직접 조작했음을 확인했다. S23에 자동 대전 중 실제 touch 이벤트가 추가되고 Tab foreground 손실/일시정지가 기록됐다. 조작이 섞인 시도임을 기록하지만 원본 fail을 pass로 수정하지 않는다. S23 기존 일반 저장 전후는 {}→{}, unchanged true이며 Tab의 after는 읽지 못해 미확인이다.
+
+사용자의 갱신 지시에 따라 S23만 오프라인 주 검사 기기로 삼고 Tab은 LAN 상대에만 사용한다. 새 무선 주소는 mDNS 발견과 hardware serial 확인 뒤 연결했다. S23 10분 반복 재검사 실행은 `d6002041832f4ba6a2f37babd9907609`이며 시작 시에는 실행 중이다. 이전 관측이 끊긴 실행은 results.json과 살아 있는 process를 확인하고 종료된 사실을 확인했다.
+
+## 원격 통합과 남은 확인
+
+PR #89: https://github.com/Dev-DHJang/ForestArena/pull/89
+PR #90: https://github.com/Dev-DHJang/ForestArena/pull/90
+
+새 APK의 S23 10분 반복, 두 APK LAN 결과·재대전·오류·10/65초 앱 단절, 실제 Wi-Fi 10초 재접속, 사람의 방향+공격/회피·모션·경직·콤보·BGM·효과음·진동 확인이 남아 있다. 성능에는 승인된 합격 수치가 없어서 측정값만 보고한다. 독립 QA의 코드 검사와 전체/APK/실기기 증거 감사는 구분한다.
+
+develop 통합은 QA와 실제 재검사 뒤 진행하며 병합 SHA와 실제 rollback 명령을 추가한다. main 승격·release 분기·강제 push·원격 브랜치 삭제는 하지 않는다. 되돌릴 때 이 작업의 통합 커밋을 revert하고 APK·실패·사용자 응답 증거는 보존한다.
