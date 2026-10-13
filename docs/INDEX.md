@@ -97,6 +97,7 @@ docs/
 | 한 판 시작 조합 예시 | `assets/loadouts/` |
 | 논리 자산 이름을 실제 파일로 연결 | `forest_arena/scripts/forest_arena_resource_manager.gd`, `forest_arena/data/resource_registry.json` |
 | 자동 검사 | `tests/`와 `./scripts/verify.sh` |
+| 대전 개선의 행동 시간·화면 검사 | `tests/match_playtest_combat.gd`, `tests/match_playtest_ui.gd` |
 
 ## 저장소 최상위 파일
 

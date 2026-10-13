@@ -91,17 +91,16 @@ func _initialize() -> void:
 	fake.fighters[0].current_hp = 87.0
 	instance.call("_render_snapshot", fake)
 	if player.current_hp != before: failures.append("HUD mutated fighter HP")
-	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("87/"):
+	if not instance.forestlight_hud.cards[String(player.fighter_id)].health.text.contains("87/"):
 		failures.append("HUD did not render snapshot HP")
-	if not (instance.get_node("Interface/MatchReadout") as Label).text.contains("G ") or not (instance.get_node("Interface/MatchReadout") as Label).text.contains("U "):
-		failures.append("HUD did not render guard and ultimate resources")
+	if instance.forestlight_hud.cards.size() != 2: failures.append("common HUD did not render both participants")
 
-	# Camera keeps the local fighter centered at the fixed ten-character framing.
+	# Camera keeps the local fighter centered at the fixed closer framing.
 	player.global_position = Vector2(controller.stage_data.ring_bounds.position.x, 400)
 	controller.training_dummy.global_position = Vector2(controller.stage_data.ring_bounds.end.x, 400)
 	var camera := instance.get_node("Camera2D") as Camera2D
 	camera.call("_process", 0.016)
-	if not is_equal_approx(camera.zoom.x, 1.25): failures.append("camera did not retain fixed 1.25 zoom")
+	if not is_equal_approx(camera.zoom.x, 1.50): failures.append("camera did not retain fixed 1.50 zoom")
 	if camera.position != player.global_position: failures.append("camera did not target the local fighter")
 	controller.training_dummy.global_position = Vector2(controller.stage_data.ring_bounds.position.x, 400)
 	camera.call("_process", 0.016)
@@ -132,7 +131,7 @@ func _initialize() -> void:
 	camera.call("_process", 0.016)
 	if controller.snapshot_hash() != presentation_hash: failures.append("camera or arrow mutated combat state")
 	# A sprite that still clips the viewport edge is visible and must not get an arrow.
-	controller.training_dummy.global_position = Vector2(1145, 520)
+	controller.training_dummy.global_position = player.global_position + Vector2(camera.get_viewport_rect().size.x / camera.zoom.x / 2.0 - 7.0, 0)
 	await process_frame
 	indicator.update_indicator()
 	if indicator.visible: failures.append("partly visible opponent kept an offscreen arrow")

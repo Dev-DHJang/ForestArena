@@ -3,10 +3,10 @@ extends SceneTree
 const FIGHTERS := ["res://scenes/fighters/ja_hyun_fighter.tscn", "res://scenes/fighters/myo_ryung_fighter.tscn", "res://scenes/fighters/nabi_fighter.tscn", "res://scenes/fighters/yu_ran_fighter.tscn"]
 const EXPECTED_COMBOS := {"ja-hyun": 3, "myo-ryung": 4, "nabi": 2, "yu-ran": 3}
 const TIMINGS := {
-	"light": [6, 4, 12, 4.0, 120.0, 20], "finisher": [8, 4, 16, 7.0, 210.0, 18],
-	"directional_light": [6, 4, 12, 5.0, 150.0, 16], "heavy": [12, 5, 18, 10.0, 260.0, 22],
-	"dash_light": [6, 4, 12, 6.0, 170.0, 16], "dash_heavy": [10, 5, 16, 10.0, 240.0, 22],
-	"air_light": [6, 4, 12, 5.0, 150.0, 16], "air_heavy": [10, 5, 16, 9.0, 230.0, 22],
+	"light": [8, 4, 18, 4.0, 120.0, 16], "finisher": [10, 4, 22, 7.0, 210.0, 18],
+	"directional_light": [8, 4, 18, 5.0, 150.0, 16], "heavy": [12, 5, 18, 10.0, 260.0, 22],
+	"dash_light": [8, 4, 18, 6.0, 170.0, 16], "dash_heavy": [10, 5, 16, 10.0, 240.0, 22],
+	"air_light": [8, 4, 18, 5.0, 150.0, 16], "air_heavy": [10, 5, 16, 9.0, 230.0, 22],
 	"special": [10, 6, 18, 8.0, 220.0, 18], "up_special": [10, 6, 18, 7.0, 190.0, 18],
 }
 

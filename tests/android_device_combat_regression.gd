@@ -22,7 +22,7 @@ func _initialize() -> void:
 	var start_x := player.global_position.x
 	player.consume_intent(_intent(player, &"attack_light", CombatIntent.Direction.RIGHT), controller.rules)
 	_check(player.active_attack != null and not player.active_attack.requires_dash, "ordinary directional light was rejected or selected a dash slot")
-	for ignored: int in 22: player.step_tick(controller.rules)
+	for ignored: int in 30: player.step_tick(controller.rules)
 	_check(is_equal_approx(start_x, player.global_position.x), "ordinary light retained RUN momentum: %.3f px" % (player.global_position.x - start_x))
 	player.step_tick(controller.rules)
 	_check(player.velocity.x > 0.0, "held direction did not resume after recovery")
@@ -56,9 +56,9 @@ func _initialize() -> void:
 	player.facing = 1
 	player.consume_intent(_intent(player, &"attack_light", CombatIntent.Direction.LEFT), controller.rules)
 	_check(player.locked_facing == -1, "first left light did not choose its facing")
-	for ignored: int in 8: player.step_tick(controller.rules)
+	for ignored: int in 10: player.step_tick(controller.rules)
 	player.consume_intent(_intent(player, &"attack_light", CombatIntent.Direction.RIGHT), controller.rules)
-	for ignored: int in 14: player.step_tick(controller.rules)
+	for ignored: int in 20: player.step_tick(controller.rules)
 	_check(player.active_attack != null and player.active_attack.attack_id == &"ja-hyun-light-02" and player.locked_facing == -1, "a buffered combo stage reversed its first facing")
 
 	# An effective hit locks every action until its data-driven stun expires. A
@@ -90,8 +90,8 @@ func _initialize() -> void:
 		if String(attack.visual_state_id).begins_with("attack_light_combo_"): total_damage += attack.damage
 	player.consume_intent(_intent(player, &"attack_light", CombatIntent.Direction.RIGHT), controller.rules)
 	var seen: Dictionary = {}
-	for index: int in 70:
-		if index in [8, 30]: controller.submit_intent(_intent(player, &"attack_light", CombatIntent.Direction.RIGHT))
+	for index: int in 100:
+		if index in [10, 40]: controller.submit_intent(_intent(player, &"attack_light", CombatIntent.Direction.RIGHT))
 		controller.step_fixed_tick(false)
 		if player.active_attack != null: seen[player.active_attack.attack_id] = true
 	_check(seen.has(&"ja-hyun-light-01") and seen.has(&"ja-hyun-light-02") and seen.has(&"ja-hyun-light-03"), "three presses did not execute three authored combo moves")
@@ -102,8 +102,8 @@ func _initialize() -> void:
 	target.global_position = Vector2(655, 572)
 	hp_before = target.current_hp
 	player.consume_intent(_intent(player, &"attack_light", CombatIntent.Direction.NEUTRAL), controller.rules)
-	for index: int in 70:
-		if index in [8, 30]: controller.submit_intent(_intent(player, &"attack_light", CombatIntent.Direction.NEUTRAL))
+	for index: int in 100:
+		if index in [10, 40]: controller.submit_intent(_intent(player, &"attack_light", CombatIntent.Direction.NEUTRAL))
 		controller.step_fixed_tick(false)
 	_check(is_equal_approx(hp_before - target.current_hp, total_damage), "neutral practice combo drifted outside follow-up range: %.3f / %.3f" % [hp_before - target.current_hp, total_damage])
 	_all_authored_combos(controller)
@@ -192,7 +192,7 @@ func _all_authored_combos(controller: MatchController) -> void:
 			player.consume_intent(_intent(player, &"attack_light", CombatIntent.Direction.RIGHT), controller.rules)
 			var seen: Dictionary = {}
 			var buffered_activations: Dictionary = {}
-			for ignored: int in 120:
+			for ignored: int in 150:
 				if player.active_attack != null:
 					seen[player.active_attack.attack_id] = true
 					if not player.active_attack.is_finisher and player.state == FighterController.State.ATTACK_ACTIVE and player.attack_phase_tick == 2 and not buffered_activations.has(player.activation_serial):
