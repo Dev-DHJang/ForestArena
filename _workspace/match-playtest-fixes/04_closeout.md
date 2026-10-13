@@ -35,7 +35,9 @@
 ## 통합
 
 - 작업 브랜치: `codex/match-playtest-fixes`.
-- PR·구현 커밋·develop 병합 SHA는 원격 통합 완료 뒤 이 절에 기록한다.
+- 구현 커밋: `e073981b45317c976b533e7b98b98f73a0b1edd8`.
+- PR: https://github.com/Dev-DHJang/ForestArena/pull/92.
+- develop 병합 SHA는 병합 완료 후 후속 문서 변경으로 기록한다.
 
 ## 남은 실제 기기 확인과 복구
 
