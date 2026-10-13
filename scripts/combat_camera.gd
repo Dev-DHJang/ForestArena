@@ -1,7 +1,7 @@
 extends Camera2D
 
 @export var player: FighterController
-@export_range(0.5, 2.0, 0.01) var fixed_zoom := 1.25
+@export_range(0.5, 2.0, 0.01) var fixed_zoom := 1.50
 
 
 func _ready() -> void:

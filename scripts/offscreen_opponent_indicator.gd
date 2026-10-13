@@ -50,12 +50,28 @@ func update_indicator() -> void:
 	if arrow_direction.is_zero_approx():
 		visible = false
 		return
-	var safe := safe_rect(viewport_size, horizontal_margin_ratio, safe_top_ratio, safe_bottom_ratio)
+	var safe := indicator_safe_rect()
 	# Use the safe region's center so the whole arrow stays between the top HUD
 	# and bottom touch controls even on wide Android screens.
 	arrow_position = edge_position(safe.get_center(), arrow_direction, safe)
 	visible = true
 	queue_redraw()
+
+
+func indicator_safe_rect() -> Rect2:
+	var bounds := safe_rect(get_viewport_rect().size, horizontal_margin_ratio, safe_top_ratio, safe_bottom_ratio)
+	var hud := get_parent().get_node_or_null("ForestlightMatchHud") as Control
+	var top := bounds.position.y
+	if hud != null and hud.is_visible_in_tree():
+		# Keep the 20px arrow tip plus an 8px gap below the real accessible HUD.
+		top = maxf(top, hud.get_global_rect().end.y + 28.0)
+	var minimap := get_parent().get_node_or_null("BattleMinimap") as Control
+	if minimap != null and minimap.is_visible_in_tree():
+		# The app shell places pause/leave 12px below the map with a 58px height.
+		var shell := get_parent().get_parent()
+		var pause_reservation := 70.0 if bool(shell.get("app_shell_mode")) else 0.0
+		top = maxf(top, minimap.get_global_rect().end.y + pause_reservation + 28.0)
+	return Rect2(Vector2(bounds.position.x, top), Vector2(bounds.size.x, maxf(0, bounds.end.y - top)))
 
 
 func _nearest_visible_enemy() -> FighterController:

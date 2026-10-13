@@ -15,6 +15,7 @@ godot --headless --path . --script res://tests/phase1_combat_behavior.gd
 godot --headless --path . --script res://tests/phase1_match_rules.gd
 godot --headless --path . --script res://tests/phase1_determinism.gd
 godot --headless --path . --script res://tests/combat_feel_stage_v2.gd
+godot --headless --path . --script res://tests/match_playtest_combat.gd
 godot --headless --path . --script res://tests/android_device_combat_regression.gd
 godot --headless --path . --script res://tests/phase1_input_ui.gd
 godot --headless --path . --script res://tests/phase2_loadout_contract.gd
@@ -48,6 +49,7 @@ godot --headless --path . --script res://tests/forestlight_runtime.gd
 godot --headless --path . --script res://tests/local_accessory_play.gd
 godot --headless --path . --script res://tests/local_touch_controls.gd
 godot --headless --path . --script res://tests/forestlight_touch_input.gd
+godot --headless --path . --script res://tests/match_playtest_ui.gd
 godot --headless --path . --script res://tests/android_qa_session.gd
 godot --headless --path . --script res://tests/lan_contract.gd
 godot --headless --path . --script res://tests/lan_resume_pending.gd
