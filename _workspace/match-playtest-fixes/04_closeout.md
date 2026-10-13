@@ -37,7 +37,9 @@
 - 작업 브랜치: `codex/match-playtest-fixes`.
 - 구현 커밋: `e073981b45317c976b533e7b98b98f73a0b1edd8`.
 - PR: https://github.com/Dev-DHJang/ForestArena/pull/92.
-- develop 병합 SHA는 병합 완료 후 후속 문서 변경으로 기록한다.
+- develop 병합 SHA: `493439d91f9b6daf6cef4815238901180940d397`. PR #92 병합 완료.
+- 병합 SHA를 기록하는 후속 문서 브랜치: `codex/match-playtest-fixes-closeout`.
+- 새 UI 검사의 종료 시 효과음 잔류 경고는 인위적 입력 뒤 새 장면의 전투 진행을 막는 테스트 정리로 제거했고, 재개 후 마지막 UI 검사는 경고 없이 PASS했다. 일부 기존 검사의 종료 경고는 위에 별도로 기록했다.
 
 ## 남은 실제 기기 확인과 복구
 
