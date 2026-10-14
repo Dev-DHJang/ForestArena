@@ -4,7 +4,7 @@
 
 ## 적용 범위
 
-캐릭터 목록·상세, 장신구 목록·상세, 프리셋, 상점, 도감, 미션, 친구, 랭크, 프로필, 일반·조작 설정의 13개 기본 화면과 관련 메뉴 상태가 대상이다. 공식 24개 화면 ID를 유지한다. 로비·시작·플레이 준비·실시간 전투·결과 화면은 보존한다. Godot 구현·저장·네트워크·런타임 등록은 이번 작업에서 바꾸지 않는다.
+캐릭터 목록·상세, 장신구 목록·상세, 프리셋, 상점, 도감, 미션, 친구, 랭크, 프로필, 일반·조작 설정의 13개 기본 화면과 관련 메뉴 상태68개(총81개)가 대상이다. 공식 24개 화면 ID를 유지한다. 로비·시작·플레이 준비·실시간 전투·결과 화면은 보존한다. Godot 구현·저장·네트워크·런타임 등록은 이번 작업에서 바꾸지 않는다.
 
 [Penpot 파일](https://design.penpot.app/#/workspace?team-id=40e06342-8830-80d6-8008-9c1bc3d57d29&file-id=d8ac01df-6646-81d2-8008-a3696fea940e), [작업 기록](../../_workspace/premium-menu-v07/00_request.md), [UI 제작 기록](../../_workspace/premium-menu-v07/02_ui.md), [이미지 제작 기록](../../_workspace/premium-menu-v07/02_image.md)을 함께 본다.
 
@@ -18,10 +18,16 @@
 
 ## 전달 자료
 
-자산은 [v07 자산 폴더](../../assets/ui/premium-menu-v07/)에, 편집 가능한 화면 제작 명세·PNG·실제 클릭 좌표·이미지 연결표·검사 결과는 [v07 작업 폴더](../../_workspace/premium-menu-v07/)에 둔다. 전용 배경은 정확한 출력 해상도와 생성 프롬프트·출처·SHA-256을 기록한다. 디자인용 이미지 별칭은 Godot 논리 ID가 아니다.
+자산은 [v07 자산 폴더](../../assets/ui/premium-menu-v07/)에, 편집 가능한 화면 제작 명세·PNG·상태표·실제 클릭 좌표·이미지 연결표·검사 결과는 [v07 작업 폴더](../../_workspace/premium-menu-v07/)에 둔다. 전용 배경은 정확한 출력 해상도와 생성 프롬프트·출처·SHA-256을 기록한다. 디자인용 이미지 별칭은 Godot 논리 ID가 아니다.
 
 미래 기능은 작은 공통 안내로 표시한다. 미정 가격·보상·성장 수치나 신규 기능을 만들지 않는다. 친구 이름·접속과 보유 상태는 설계 예시다. 메뉴 전용 빈 목록·선택 누락·연결 실패·설정 복원은 기존 전투 상태 화면과 분리한다.
 
 ## 확인
 
-전체 Penpot 적용·저장·프로토타입·출력 검토는 작업 마무리 기록에서 확인한다. 실제 Android 기기 검사는 이 설계 작업에 포함하지 않는다. 기준 검사는 `./scripts/verify-docs.sh`, `./scripts/verify.sh`와 Godot 리소스 검사다.
+전체 81개 메뉴 화면의 편집 가능한 원본과 프로토타입을 작성했고, PNG 98개를 내보냈다. 실제 저장·클릭 이동과 독립 검토의 최종 판정은 [마무리 기록](../../_workspace/premium-menu-v07/04_closeout.md)과 [최종 품질 확인](../../_workspace/premium-menu-v07/03_qa_r02.md)에서 확인한다. 실제 Android 기기 검사는 이 설계 작업에 포함하지 않는다. 기준 검사는 `./scripts/verify-docs.sh`, `./scripts/verify.sh`와 Godot 리소스 검사다.
+
+## 결과 찾아보기
+
+- [상점 1280×720](../../_workspace/premium-menu-v07/exports/SCR_19_Shop-9fad7e9b-v07.png), [캐릭터 상세 1920×1080](../../_workspace/premium-menu-v07/exports/SCR_05_CharacterDetail-5e60d9d2-v07-1920.png), [일반 설정 1280×720](../../_workspace/premium-menu-v07/exports/EXT_06_GeneralSettings-2f61d3b5-v07.png).
+- [전체 화면 상태표](../../_workspace/premium-menu-v07/state-table.csv), [컴포넌트 상태표](../../_workspace/premium-menu-v07/component-state-table.csv), [실제 클릭 좌표](../../_workspace/premium-menu-v07/control-coordinates.csv), [이미지 매핑](../../_workspace/premium-menu-v07/image-mapping.csv).
+- [자동 전달 검사](../../_workspace/premium-menu-v07/delivery-audit.json), [Penpot 실제 파일 검사](../../_workspace/premium-menu-v07/final-audit.json), [출력 해시](../../_workspace/premium-menu-v07/export-hashes.json), [미제작 목록](../../_workspace/premium-menu-v07/missing-assets.md).

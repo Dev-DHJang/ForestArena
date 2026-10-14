@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "scope": "Independent delivered files, prior visual review hashes, and native audit consistency; manual viewer evidence reviewed separately",
+  "checked_at": "2026-10-14T09:20:16.222327+00:00",
+  "input_sha256": {
+    "scene-spec.json": "7ca5a164431e539fe55f71cc4e6ae7cbbd3a29cb75feeaddc0154c5445663a37",
+    "export-records.json": "4101bd43e71ef1e9541824aa9c1f653f651c58d40fae664d44f60c95005e7836",
+    "export-hashes.json": "fa85d5dad2b11e7eb83671fb61ef0bbedfbed936a19313be4ef0a84359e6d150",
+    "baseline-audit.json": "f2f781622c065e37630673d1a01a3e7f3cf1f3092a2a8957d163d4fdab772123",
+    "final-audit.json": "f2fb1aaf301bdbb1794a9074394654ba8c3d66bbaef92c4136168b5916bee345",
+    "legacy-native-preservation.json": "ecd77142cf308f721d65c13db84b7dd2db905525a5b5eb7052a81d3bbbe54c43"
+  },
+  "scene_count": 81,
+  "base_count": 13,
+  "wide_count": 4,
+  "design_count": 13,
+  "issues": [],
+  "wide_pixel_comparisons": [
+    {
+      "name": "CMP20 / MENU07 / SCR_19_Shop",
+      "source": "SCR_19_Shop",
+      "exact_center_match": false,
+      "different_pixels": 5576,
+      "total_pixels": 921600,
+      "mean_channel_difference": [
+        0.16435004340277778,
+        0.1635991753472222,
+        0.1570236545138889
+      ]
+    },
+    {
+      "name": "CMP20 / MENU07 / SCR_04_CharacterCollection",
+      "source": "SCR_04_CharacterCollection",
+      "exact_center_match": false,
+      "different_pixels": 100,
+      "total_pixels": 921600,
+      "mean_channel_difference": [
+        0.0004958767361111111,
+        0.00010850694444444444,
+        0.00047200520833333334
+      ]
+    },
+    {
+      "name": "CMP20 / MENU07 / SCR_22_Social",
+      "source": "SCR_22_Social",
+      "exact_center_match": false,
+      "different_pixels": 2358,
+      "total_pixels": 921600,
+      "mean_channel_difference": [
+        0.11894314236111111,
+        0.11623480902777777,
+        0.11400716145833334
+      ]
+    },
+    {
+      "name": "CMP20 / MENU07 / EXT_06_GeneralSettings",
+      "source": "EXT_06_GeneralSettings",
+      "exact_center_match": false,
+      "different_pixels": 855,
+      "total_pixels": 921600,
+      "mean_channel_difference": [
+        0.02080837673611111,
+        0.019369574652777777,
+        0.0185546875
+      ]
+    }
+  ],
+  "notes": [
+    "Baseline 287 links and official 24 screens compared in full; all 846 control coordinates/destinations and 681 active native links compared with spec"
+  ],
+  "android_device": "not-run"
+}

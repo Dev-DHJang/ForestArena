@@ -20,5 +20,74 @@
     }
   },
   "android_device": "not-run",
-  "penpot": "in-progress"
+  "penpot": "PASS",
+  "worktree_checks": {
+    "docs": {
+      "status": "PASS",
+      "error_lines": 0,
+      "script_error_lines": 0,
+      "resource_exit_error_lines": 0,
+      "warning_lines": 0,
+      "logical_assets": null,
+      "log": "verify-docs-worktree.log"
+    },
+    "resources": {
+      "status": "PASS",
+      "error_lines": 0,
+      "script_error_lines": 0,
+      "resource_exit_error_lines": 0,
+      "warning_lines": 0,
+      "logical_assets": 491,
+      "log": "verify-resources-worktree.log"
+    },
+    "full": {
+      "status": "PASS",
+      "error_lines": 9,
+      "script_error_lines": 0,
+      "resource_exit_error_lines": 9,
+      "warning_lines": 13,
+      "logical_assets": 491,
+      "log": "verify-worktree.log"
+    }
+  },
+  "final_worktree_checks": {
+    "docs": {
+      "status": "PASS",
+      "exit_code": 0,
+      "error_lines": 0,
+      "script_error_lines": 0,
+      "resource_exit_error_lines": 0,
+      "warning_lines": 0,
+      "log": "verify-docs-worktree-final.log"
+    },
+    "resources": {
+      "status": "PASS",
+      "exit_code": 0,
+      "error_lines": 0,
+      "script_error_lines": 0,
+      "resource_exit_error_lines": 0,
+      "warning_lines": 0,
+      "log": "verify-resources-worktree-final.log"
+    },
+    "full": {
+      "status": "PASS",
+      "exit_code": 0,
+      "error_lines": 8,
+      "script_error_lines": 0,
+      "resource_exit_error_lines": 8,
+      "warning_lines": 12,
+      "log": "verify-worktree-final.log"
+    }
+  },
+  "initial_branch_base": "1b7ec98",
+  "final_branch_base": "403b0b61758ca5e619ec923063b0bf9d2faea7cb",
+  "manual_viewer": {
+    "status": "PASS",
+    "count": 101,
+    "log": "manual-click-review.json"
+  },
+  "delivery": {
+    "status": "PASS",
+    "log": "delivery-audit.json"
+  }
 }

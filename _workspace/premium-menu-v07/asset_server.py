@@ -1,5 +1,6 @@
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
+from urllib.parse import urlsplit,unquote
 import json,re,base64
 ROOT=Path(__file__).resolve().parents[2]
 TASK=ROOT/'_workspace/premium-menu-v07'
@@ -20,11 +21,13 @@ class Handler(SimpleHTTPRequestHandler):
    if key in ['character-room','accessory-workshop','shop-market','archive','social-lodge','observatory']:
     path=ROOT/'assets/ui/premium-menu-v07/backgrounds'/f'{key}-v07.png'
    elif key in ['ja-hyun','myo-ryung','nabi','yu-ran']:
-    path=ROOT/'assets/character'/key/'concept'/f'{key}-concept-v01.png'
+    path=TASK/'approved-source'/f'{key}-concept-v01.png'
    else:return self.send_error(404)
    data=json.dumps({'base64':base64.b64encode(path.read_bytes()).decode()}).encode()
    self.send_response(200);self.send_header('Content-Type','application/json');self.end_headers();self.wfile.write(data)
   elif self.path.startswith('/_workspace/premium-menu-v07/') or self.path.startswith('/assets/ui/premium-menu-v07/'):
+   resolved=(ROOT/unquote(urlsplit(self.path).path).lstrip('/')).resolve()
+   if not (resolved.is_relative_to(TASK) or resolved.is_relative_to(ROOT/'assets/ui/premium-menu-v07')):return self.send_error(403)
    return super().do_GET()
   else:return self.send_error(404)
  def do_OPTIONS(self):self.send_response(204);self.end_headers()

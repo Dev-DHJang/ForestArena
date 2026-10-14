@@ -4,8 +4,8 @@ import json, math
 ROOT=Path(__file__).resolve().parents[2];TASK=Path(__file__).resolve().parent
 C={'bg':'#10181C','panel':'#1C282C','text':'#F2F3ED','muted':'#BBC6C6','gold':'#D9C58E','mint':'#8CBFB2','line':'#455455','danger':'#DD9B92'}
 S={};cur=None
-CHARS=[('ja-hyun','자현','균형 · 간격 조절','짧은 연속 공격과 거리 조절'),('myo-ryung','묘령','빠른 이동 · 근접 압박','빠른 발놀림으로 기회를 만드는 동료'),('nabi','나비','공중 이동 · 유연한 공격','위치를 바꾸며 흐름을 이어가는 동료'),('yu-ran','유란','복싱 · 근접 연계','가까운 거리에서 연속 공격을 잇는 동료')]
-ITEMS=[('iron_armor','철갑옷','방어','무게를 더하는 대신 지상 이동이 느려집니다.','armor'),('boxing_gloves','복싱 글러브','기술','유란의 기술 목록으로 전투 방식을 바꿉니다.','glove'),('thorns','균형 장신구','이동','공중 이동과 지상 이동의 균형을 바꿉니다.','balance'),('explosive_gloves','도약 장갑','이동','점프를 높이는 대신 밀려나기 쉬워집니다.','jump'),('ultimate_charm','집중 장신구','기술','적중으로 궁극기를 준비하는 대신 지상 이동이 느려집니다.','focus'),('phoenix_revive','활공 장신구','이동','낮은 중력과 느린 공중 이동으로 궤적을 바꿉니다.','wing')]
+CHARS=[('ja-hyun','자현','균형 · 간격 조절','짧은 연속 공격과\n거리 조절'),('myo-ryung','묘령','빠른 이동 · 근접 압박','빠른 발놀림으로 기회를\n만드는 동료'),('nabi','나비','공중 이동 · 유연한 공격','위치를 바꾸며 흐름을\n이어가는 동료'),('yu-ran','유란','복싱 · 근접 연계','가까운 거리에서\n연속 공격을 잇는 동료')]
+ITEMS=[('iron_armor','철갑옷','방어','무게를 더하는 대신\n지상 이동이 느려집니다.','armor'),('boxing_gloves','복싱 글러브','기술','유란의 기술 목록으로\n전투 방식을 바꿉니다.','glove'),('thorns','균형 장신구','이동','공중 이동과 지상 이동의\n균형을 바꿉니다.','balance'),('explosive_gloves','도약 장갑','이동','점프를 높이는 대신\n밀려나기 쉬워집니다.','jump'),('ultimate_charm','집중 장신구','기술','적중으로 궁극기를 준비하는 대신\n지상 이동이 느려집니다.','focus'),('phoenix_revive','활공 장신구','이동','낮은 중력과 느린 공중 이동으로\n궤적을 바꿉니다.','wing')]
 # Hand authored original glyph illustrations, independent of commercial reference assets.
 PATHS={
 'armor':'<path d="M48 24L72 36L90 28L114 52L100 72L94 66L94 113Q64 126 34 113L34 66L28 72L14 52L38 28L56 36Z"/><path d="M48 24Q64 40 80 24M64 45V110M40 65H88M40 89H88"/>',
@@ -31,7 +31,15 @@ def add(kind,name,x,y,w,h,**kw):cur['elements'].append(dict(kind=kind,name=name,
 def rect(name,x,y,w,h,color='panel',opacity=1,r=8,stroke=None):add('rect',name,x,y,w,h,color=C.get(color,color),opacity=opacity,r=r,stroke=C.get(stroke,stroke))
 def text(name,t,x,y,w=500,size=32,color='text',weight='500',align='left'):
  lines=t.count('\n')+1;add('text',name,x,y,w,math.ceil(size*1.45*lines),text=t,size=size,color=C.get(color,color),weight=weight,align=align)
-def art(key,x,y,w,h,slot=None):add('image','ART / '+key,x,y,w,h,key=key,slot=slot)
+def art(key,x,y,w,h,slot=None):
+ small=w<=300 and h<=300
+ if key=='ja-hyun':slot='IMG/char/mouse/face' if small else 'IMG/char/mouse/full'
+ elif key=='myo-ryung':slot='IMG/char/rabbit/face' if small else 'IMG/char/rabbit/full'
+ elif key=='nabi':slot='IMG/char/roster/cat' if small else 'DESIGN/char/nabi/full'
+ elif key=='yu-ran':slot='DESIGN/char/yu-ran/portrait' if small else 'DESIGN/char/yu-ran/full'
+ elif key in ['character-room','accessory-workshop']:slot='IMG/bg/'+key
+ elif not slot:slot='DESIGN/bg/'+key
+ add('image','ART / '+key,x,y,w,h,key=key,slot=slot)
 def icon(key,x,y,size=64):add('svg','ICON / '+key,x,y,size,size,svg=svg(key),key=key)
 def surface(name,x,y,w,h,state='default'):add('surface',name,x,y,w,h,state=state)
 def btn(t,x,y,w=280,h=80,dest=None,state='default',legacy=None,iconkey=None):add('button','BUTTON / '+t,x,y,w,h,text=t,state=state,dest=dest,legacy=legacy or 'BUTTON / '+t,icon=iconkey)
@@ -61,6 +69,7 @@ def tabs(labels,x,y,width=760,active=0,dests=None):
 def chars(base,idx=0,detail=False,tab=0,role_filter='전체'):
  name=base if idx==0 and tab==0 and role_filter=='전체' else suffix(base,f'char-{idx}-tab-{tab}-filter-{role_filter}')
  new(name,'캐릭터 상세' if detail else '캐릭터', 'character-room',section='동료의 방 / CHARACTER')
+ if detail:cur['elements'][4]['dest']='SCR_04_CharacterCollection' if idx==0 else suffix('SCR_04_CharacterCollection',f'char-{idx}-tab-0-filter-전체')
  cid,label,role,trait=CHARS[idx]
  filterbase='SCR_04_CharacterCollection' if detail else base
  tabs(['전체','균형','근접'],96,206,384, ['전체','균형','근접'].index(role_filter),[filterbase,suffix(filterbase,'char-0-tab-0-filter-균형'),suffix(filterbase,'char-1-tab-0-filter-근접')])
@@ -86,8 +95,8 @@ def chars(base,idx=0,detail=False,tab=0,role_filter='전체'):
    text('Story title','숲의 동료',1256,510,528,36,weight='700');text('Story description','캐릭터 이야기는 준비 중입니다.\n\n새로운 이야기와 대화는\n확정된 콘텐츠 이후 제공됩니다.',1256,576,528,32)
  else:
   line(1256,402,528);text('Trait',trait+'\n\n큰 원화로 모습을 살펴보고\n기술과 전투 특징을 확인하세요.',1256,440,528,32)
-  btn('기술 살펴보기',1256,784,528,80,'SCR_05_CharacterDetail',state='ghost')
- btn('연습하기' if detail else '상세 보기',1216,968,280,80,'EXT_05_PracticeSetup' if detail else 'SCR_05_CharacterDetail',state='ghost')
+  btn('기술 살펴보기',1256,784,528,80,'SCR_05_CharacterDetail' if idx==0 else suffix('SCR_05_CharacterDetail',f'char-{idx}-tab-0-filter-전체'),state='ghost')
+ btn('연습하기' if detail else '상세 보기',1216,968,280,80,'EXT_05_PracticeSetup' if detail else ('SCR_05_CharacterDetail' if idx==0 else suffix('SCR_05_CharacterDetail',f'char-{idx}-tab-0-filter-전체')),state='ghost')
  btn('편성에 넣기' if detail else '이 캐릭터 선택',1520,968,304,80,'SCR_08_Preset','primary')
  note('캐릭터 선택 / 원화와 전투 특징',96,990,1000)
  return name
@@ -98,20 +107,22 @@ for i in range(4):
 
 def accessories(base,idx=0,category='전체',detail=False):
  name=base if idx==0 and category=='전체' else suffix(base,f'item-{idx}-filter-{category}')
+ if category!='전체' and ITEMS[idx][2]!=category:idx=next(i for i,it in enumerate(ITEMS) if it[2]==category)
  new(name,'장신구 상세' if detail else '장신구','accessory-workshop',section='숲의 공방 / ACCESSORY')
+ if detail:cur['elements'][4]['dest']='SCR_06_AccessoryCollection' if idx==0 else suffix('SCR_06_AccessoryCollection',f'item-{idx}-filter-전체')
  item=ITEMS[idx];iid,n,cat,desc,ik=item
  filterbase='SCR_06_AccessoryCollection' if detail else base
  tabs(['전체','이동','방어','기술'],96,206,1088,['전체','이동','방어','기술'].index(category),[filterbase,suffix(filterbase,'item-0-filter-이동'),suffix(filterbase,'item-0-filter-방어'),suffix(filterbase,'item-0-filter-기술')])
  for pos,(j,it) in enumerate((j,it) for j,it in enumerate(ITEMS) if category=='전체' or it[2]==category):
   x=96+(pos%4)*272;y=322+(pos//4)*288
   surface('Accessory card / '+it[1],x,y,248,256,'selected' if j==idx else 'default');icon(it[4],x+60,y+20,128)
-  text('Accessory name',it[1],x+16,y+166,216,30,weight='700');text('Accessory category','✓ 장착' if j==idx else it[2],x+16,y+212,216,26,'gold' if j==idx else 'muted')
+  text('Accessory name',it[1],x+16,y+166,216,30,weight='700');text('Accessory category','✓ 선택' if j==idx else ('✓ 장착' if j==0 else it[2]),x+16,y+212,216,26,'gold' if j==idx else 'muted')
   add('hotspot','SELECT / '+it[1],x,y,248,256,dest=base if j==0 else suffix(base,f'item-{j}-filter-전체'))
  surface('Accessory detail surface',1216,206,608,698);icon(ik,1432,242,176)
  text('Selected accessory',n,1256,448,528,48,weight='700');text('Functional category','기능 / '+cat,1256,526,528,30,'gold');line(1256,590,528)
- text('Accessory effect',desc.replace(' 대신','\n대신')+'\n\n효과와 선택의 차이를\n연습장에서 비교하세요.',1256,624,528,30)
+ text('Accessory effect',desc+'\n\n효과와 선택의 차이를\n연습장에서 비교하세요.',1256,624,528,30)
  if detail:btn('연습하기',96,968,288,80,'EXT_05_PracticeSetup',state='ghost')
- else:btn('상세 보기',1216,968,280,80,'SCR_07_AccessoryDetail',state='ghost')
+ else:btn('상세 보기',1216,968,280,80,'SCR_07_AccessoryDetail' if idx==0 else suffix('SCR_07_AccessoryDetail',f'item-{idx}-filter-전체'),state='ghost')
  btn('장착하기' if detail else '이 장신구 선택',1520,968,304,80,'SCR_08_Preset','primary')
  note('기능과 조작 방식으로 선택하세요.',96 if not detail else 420,990,740)
  return name
@@ -144,7 +155,7 @@ def shop(category='추천'):
   if category=='캐릭터':art(it[0],x+96,y+10,144,144,'IMG/char/roster/'+it[0])
   else:icon(it[4],x+104,y+16,128)
   text('Product name',it[1],x+20,y+164,296,32,weight='700');text('Product descriptor',it[2],x+20,y+212,296,26,'muted')
-  add('hotspot','PRODUCT / '+it[1],x,y,336,256,dest='SCR_05_CharacterDetail' if category=='캐릭터' else suffix(base,f'detail-{i}'))
+  add('hotspot','PRODUCT / '+it[1],x,y,336,256,dest=('SCR_05_CharacterDetail' if i==0 else suffix('SCR_05_CharacterDetail',f'char-{i}-tab-0-filter-전체')) if category=='캐릭터' else suffix(base,f'detail-{i}'))
  note('획득 방식·가격은 확정된 정책에 따라 표시합니다.',96,978,1296)
  return name
 for c in ['추천','장신구','캐릭터']:shop(c)
@@ -159,7 +170,8 @@ def collection(accessory=False,unowned=False):
   if accessory:icon(it[4],x+72,y+16,120)
   else:art(it[0],x+64,y+8,136,152,'IMG/char/roster/'+it[0])
   text('Collection name',it[1],x+20,y+162,224,30,weight='700');text('Owned state','미보유 예시' if unowned else '보유 예시',x+20,y+206,224,24,'muted')
-  add('hotspot','ENTRY / '+it[1],x,y,264,244,dest='SCR_07_AccessoryDetail' if accessory else 'SCR_05_CharacterDetail')
+  target='SCR_07_AccessoryDetail' if accessory else 'SCR_05_CharacterDetail'
+  add('hotspot','ENTRY / '+it[1],x,y,264,244,dest=target if i==0 else suffix(target,f'item-{i}-filter-전체' if accessory else f'char-{i}-tab-0-filter-전체'))
  surface('Collection summary',1304,322,520,556);icon('book',1480,360,152);text('Collection introduction','동료들의 기록',1344,566,440,42,weight='700');text('Collection description','캐릭터와 장신구의\n특징을 한곳에서 살펴보세요.\n\n보유 목록과 진행 정보는\n설계 예시입니다.',1344,638,440,30)
  note('보유·미보유는 글자와 상태 표시로 구분합니다.',96,990,1180)
 collection();collection(True);collection(False,True)
@@ -185,6 +197,8 @@ for i in range(3):social(False,i)
 social(True)
 
 new('SCR_23_Rank','랭크','observatory',section='숲의 전망대 / RANK',future=True)
+for e in cur['elements']:
+ if e['kind']=='text' and e.get('text')=='미래 기능 · 설계안':e.update(x=96,y=888,w=680)
 icon('crown',272,310,328);text('Rank season','다음 시즌의 숲',96,720,680,60,weight='700');text('Rank status','시즌과 랭크 정책 준비 중',96,814,680,32,'gold')
 surface('Rank description',824,206,1000,698);text('Rank introduction','도전의 기록',872,260,904,48,weight='700');line(872,352,904)
 for i,(l,d) in enumerate([('시즌','시즌 일정은 아직 정하지 않았습니다.'),('진행','등급과 진행 규칙은 준비 중입니다.'),('보상','시즌 보상 정책은 미확정입니다.')]):text('Rank label',l,872,398+i*150,904,32,'gold');text('Rank value',d,872,450+i*150,904,32)
@@ -237,6 +251,13 @@ overlay('MENU07 / SettingsReset','CBT_08_Settings','기본값으로 복원할까
 overlay('MENU07 / ControlsParameters','CBT_08_Settings','조작 크기와 투명도','현재 기준은 크기 100%, 투명도 85%입니다.\n조절 범위는 구현 시 확정할 설정입니다.',[('닫기','CBT_08_Settings','ghost'),('설정으로','CBT_08_Settings','primary')],'gear')
 overlay('MENU07 / EmptyList','SCR_20_Collection','표시할 항목이 없습니다.','다른 분류를 선택해 보세요.\n목록이 비어 있어도 메뉴로 돌아갈 수 있습니다.',[('닫기','SCR_20_Collection','ghost'),('전체 보기','SCR_20_Collection','primary')],'book')
 overlay('MENU07 / SelectionRequired','SCR_08_Preset','동료를 먼저 선택하세요.','전투 편성을 준비하려면\n캐릭터를 선택해야 합니다.',[('취소','SCR_08_Preset','ghost'),('캐릭터 선택','SCR_04_CharacterCollection','primary')],'people')
+# Failure examples use their own empty data, leaving the base menus intact.
+S['MENU07 / EmptyList']['elements']=[e for e in S['MENU07 / EmptyList']['elements'] if not (e['name'].startswith('Collection card / ') or e['name'] in ['Collection name','Owned state'] or e['name'].startswith('ENTRY / ') or (e['kind']=='image' and e.get('key') in [c[0] for c in CHARS]))]
+S['MENU07 / SelectionRequired']['elements']=[e for e in S['MENU07 / SelectionRequired']['elements'] if not (e['kind']=='image' and e.get('key')=='ja-hyun')]
+for e in S['MENU07 / SelectionRequired']['elements']:
+ if e['name']=='Slot value' and e.get('text')=='자현 · 균형':e['text']='캐릭터를 선택하세요.'
+ if e['name']=='Preset title':e['text']='동료를 기다리는 편성'
+ if e['name']=='BUTTON / 편성으로 플레이':e.update(state='disabled',dest=None)
 overlay(suffix('SCR_22_Social','connection-error'),'SCR_22_Social','연결을 확인할 수 없습니다.','친구 기능은 온라인 구현 이후 제공됩니다.\n현재 화면은 연결 실패의 설계 예시입니다.',[('닫기','SCR_22_Social','ghost'),('친구 목록','SCR_22_Social','primary')],'people')
 overlay(suffix('SCR_22_Social','search-empty'),'SCR_22_Social','친구 찾기 준비 중','찾기 기능과 검색 결과가 없는 상태의 설계입니다.\n온라인 기능 이후 제공됩니다.',[('닫기','SCR_22_Social','ghost'),('친구 목록','SCR_22_Social','primary')],'people')
 # Preserve the existing combat-settings return while providing lobby-specific returns.
@@ -262,6 +283,7 @@ for source,dest,returnto in [('MENU07 / SettingsReset','MENU07 / SettingsResetLo
  v=deepcopy(S[source]);v.update(name=dest,target=False);S[dest]=v
  for e in v['elements']:
   if e.get('dest')=='CBT_08_Settings':e['dest']=returnto
+overlay('MENU07 / SettingsResetGeneral','EXT_06_GeneralSettings','일반 설정을 복원할까요?','소리·화면 효과·접근성 설정을 기본값으로 되돌립니다.\n복원 여부를 선택하세요.',[('취소','EXT_06_GeneralSettings','ghost'),('복원','EXT_06_GeneralSettings','primary')],'gear')
 
 # Reachable boundary examples for prototype QA, contained in a separate review index.
 for nm,title,bg in [('MENU07 / Review','메뉴 상태 검토','archive')]:
@@ -269,6 +291,9 @@ for nm,title,bg in [('MENU07 / Review','메뉴 상태 검토','archive')]:
  for i,(l,d) in enumerate([('빈 목록','MENU07 / EmptyList'),('선택 누락','MENU07 / SelectionRequired'),('연결 실패',suffix('SCR_22_Social','connection-error')),('설정 복원','MENU07 / SettingsReset')]):btn(l,96+(i%2)*880,264+(i//2)*240,848,192,d,'ghost')
  note('이 보드는 설계 검토 도구이며 실제 게임 메뉴가 아닙니다.',96,990,1728)
 
+for scene in S.values():
+ for e in scene['elements']:
+  if e['kind'] in ['button','hotspot'] and e['y']+e['h']>1032:e['y']=1032-e['h']
 TASK.mkdir(exist_ok=True);(TASK/'scene-spec.json').write_text(json.dumps({'version':7,'palette':C,'base':BASE,'scenes':list(S.values())},ensure_ascii=False,indent=2))
 ASSETS=ROOT/'assets/ui/premium-menu-v07';(ASSETS/'icons').mkdir(parents=True,exist_ok=True)
 for k in PATHS:(ASSETS/'icons'/f'{k}-v07.svg').write_text(svg(k))
