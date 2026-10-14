@@ -1,0 +1,268 @@
+ Container forest-arena-development-db-1 Recreate 
+ Container forest-arena-development-db-1 Recreated 
+ Container forest-arena-development-db-1 Starting 
+ Container forest-arena-development-db-1 Started 
+ Container forest-arena-development-db-1 Waiting 
+ Container forest-arena-development-db-1 Healthy 
+ALTER ROLE
+db-dev: 백업 생성: /Users/jdh/.codex/worktrees/premium-menu-v07/ForestArena/database/backups/forest_arena_dev_20261014T151932Z.dump
+db-dev: 적용 0006_demo_guest_nickname.sql
+BEGIN
+ALTER TABLE
+ALTER TABLE
+CREATE INDEX
+INSERT 0 1
+COMMIT
+db-dev: 개발계 DB가 준비되었습니다: 127.0.0.1:55432/forest_arena_dev
+time="2026-10-15T00:19:33+09:00" level=warning msg="buildx Docker CLI plugin not found: falling back to the classic builder. BuildKit-only build features (multi-arch, secrets, ssh, additional contexts, ...) will not be available"
+ Image forest-arena-development-api Building 
+ Image forest-arena-development-api Building 
+Sending build context to Docker daemon  18.58kB
+Step 1/18 : FROM node:24.10.0-alpine3.22 AS build
+ ---> 775ba24d35a1
+Step 2/18 : WORKDIR /app
+ ---> Using cache
+ ---> d271c718e67d
+Step 3/18 : COPY package.json package-lock.json ./
+ ---> Using cache
+ ---> 9850301b1df2
+Step 4/18 : RUN npm ci
+ ---> Using cache
+ ---> 3c59b730d4b9
+Step 5/18 : COPY tsconfig.json ./
+ ---> Using cache
+ ---> 2c2fcd1f36f7
+Step 6/18 : COPY src ./src
+ ---> 501743a2229b
+Step 7/18 : COPY tests ./tests
+ ---> b043c8d20c10
+Step 8/18 : RUN npm run build && npm test
+ ---> Running in 2545654de0ae
+
+> forest-arena-local-api@0.1.0 build
+> tsc -p tsconfig.json && cp src/profile_catalog.json dist/src/profile_catalog.json
+
+
+> forest-arena-local-api@0.1.0 test
+> npm run build && node --test dist/tests/*.test.js
+
+
+> forest-arena-local-api@0.1.0 build
+> tsc -p tsconfig.json && cp src/profile_catalog.json dist/src/profile_catalog.json
+
+✔ Java and TypeScript share accepted and rejected administrator profile examples (4.303333ms)
+✔ access token checks kind, signature and expiry (3.318392ms)
+✔ match ticket carries fixed slot and expires after 60 seconds (0.821584ms)
+✔ matchmaker pairs fixed loadouts, prevents a second active room and releases after completion (0.476067ms)
+✔ only a waiting player can cancel its own entry (0.202095ms)
+✔ nickname uses NFC without trim and accepts only 2 to 12 permitted characters (1.620311ms)
+✔ CIDR admits socket LAN and loopback, rejects public and outside addresses (11.044341ms)
+✔ profile grants, free purchases, selection and accessibility preserve source (3.302512ms)
+✔ invalid, duplicate and unowned actions are rejected (3.738085ms)
+✔ nickname and minimap actions preserve other fields and validate limits (2.113889ms)
+✔ v2 migration preserves selection ownership and accessibility (0.980009ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 446.633518
+ ---> Removed intermediate container 2545654de0ae
+ ---> 029d8c87ceaa
+Step 9/18 : FROM node:24.10.0-alpine3.22 AS runtime
+ ---> 775ba24d35a1
+Step 10/18 : ENV NODE_ENV=production
+ ---> Using cache
+ ---> f7711922e230
+Step 11/18 : WORKDIR /app
+ ---> Using cache
+ ---> c9bf34cf399c
+Step 12/18 : COPY package.json package-lock.json ./
+ ---> Using cache
+ ---> 90d27ee36974
+Step 13/18 : RUN npm ci --omit=dev && npm cache clean --force
+ ---> Using cache
+ ---> ef985c392938
+Step 14/18 : COPY --from=build /app/dist ./dist
+ ---> 4f40a9c132b0
+Step 15/18 : USER node
+ ---> Running in 295d1977876b
+ ---> Removed intermediate container 295d1977876b
+ ---> d3b6762e0517
+Step 16/18 : EXPOSE 3000
+ ---> Running in 50c7619cd957
+ ---> Removed intermediate container 50c7619cd957
+ ---> 5baae4572b0d
+Step 17/18 : CMD ["node", "dist/src/server.js"]
+ ---> Running in de72d16caad2
+ ---> Removed intermediate container de72d16caad2
+ ---> 943c3ac8ae8b
+Step 18/18 : LABEL com.docker.compose.image.builder=classic
+ ---> Running in 63f20e63d531
+ ---> Removed intermediate container 63f20e63d531
+ ---> 3a16b1e6e560
+Successfully built 3a16b1e6e560
+Successfully tagged forest-arena-development-api:latest
+ Image forest-arena-development-api Built 
+ Image forest-arena-development-api Built 
+ Image forest-arena-development-game-server Building 
+ Image forest-arena-development-game-server Building 
+Sending build context to Docker daemon  551.8kBSending build context to Docker daemon  3.241MB
+Step 1/16 : FROM ubuntu:24.04
+ ---> 534baea6a22c
+Step 2/16 : ARG TARGETARCH
+ ---> Using cache
+ ---> e3dd6a8a79c7
+Step 3/16 : ARG GODOT_VERSION=4.7.1
+ ---> Using cache
+ ---> 1d4401674cc9
+Step 4/16 : ARG GODOT_ARM64_SHA512=de64efe4d936ac0403769e078a73d961a9c647cab04168c5fb5a7fe33728e200a67324ed99368eeb27964e205e72a61e48efb63b52d5de34d12dd6a95ca0fc45
+ ---> Using cache
+ ---> 98c725114544
+Step 5/16 : ARG GODOT_AMD64_SHA512=4ccdab7a48eeccbe8819a2fc1f6262f8d72065d98601bcb3743fcbd7ebd39f373758a788ee3293a05ec5b2c48538266c437404312e372225cd2df273945a2de9
+ ---> Using cache
+ ---> bd5f2d085008
+Step 6/16 : RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends       ca-certificates curl unzip netcat-openbsd libfontconfig1 libx11-6 libxcursor1 libxinerama1 libgl1 libasound2t64 libpulse0 &&     rm -rf /var/lib/apt/lists/* &&     BUILD_ARCH="${TARGETARCH:-$(dpkg --print-architecture)}" &&     case "$BUILD_ARCH" in       arm64|aarch64) GODOT_ARCH=arm64; GODOT_SHA512="$GODOT_ARM64_SHA512" ;;       amd64|x86_64) GODOT_ARCH=x86_64; GODOT_SHA512="$GODOT_AMD64_SHA512" ;;       *) echo "unsupported architecture: $BUILD_ARCH" >&2; exit 1 ;;     esac &&     GODOT_ZIP="Godot_v${GODOT_VERSION}-stable_linux.${GODOT_ARCH}.zip" &&     curl -fsSLO "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/${GODOT_ZIP}" &&     echo "${GODOT_SHA512}  ${GODOT_ZIP}" | sha512sum -c - &&     unzip "$GODOT_ZIP" -d /usr/local/bin &&     mv "/usr/local/bin/Godot_v${GODOT_VERSION}-stable_linux.${GODOT_ARCH}" /usr/local/bin/godot &&     chmod 0755 /usr/local/bin/godot && rm "$GODOT_ZIP"
+ ---> Using cache
+ ---> 8b9e0c006722
+Step 7/16 : RUN useradd --create-home --uid 10001 --shell /usr/sbin/nologin forestarena
+ ---> Using cache
+ ---> cf74bd45cd50
+Step 8/16 : WORKDIR /game
+ ---> Using cache
+ ---> 57f921f0b93b
+Step 9/16 : COPY --chown=forestarena:forestarena . .
+ ---> 163ceb571973
+Step 10/16 : COPY --chown=forestarena:forestarena server/game/project.server.godot /game/project.godot
+ ---> fb5c317012aa
+Step 11/16 : RUN chown forestarena:forestarena /game
+ ---> Running in 449384a406ad
+ ---> Removed intermediate container 449384a406ad
+ ---> d89ed2ea91c9
+Step 12/16 : USER forestarena
+ ---> Running in e08d837c887e
+ ---> Removed intermediate container e08d837c887e
+ ---> 194ddddc5739
+Step 13/16 : RUN godot --headless --path /game --editor --quit
+ ---> Running in 79e0122bcd67
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (42 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | AccessoryData[39m[0m
+[   2% ] [90m[1mupdate_scripts_classes[22m | AttackData[39m[0m
+[   4% ] [90m[1mupdate_scripts_classes[22m | CancelRuleData[39m[0m
+[   6% ] [90m[1mupdate_scripts_classes[22m | CharacterData[39m[0m
+[   9% ] [90m[1mupdate_scripts_classes[22m | CharacterStats[39m[0m
+[  11% ] [90m[1mupdate_scripts_classes[22m | CombatEffectData[39m[0m
+[  13% ] [90m[1mupdate_scripts_classes[22m | CombatRules[39m[0m
+[  16% ] [90m[1mupdate_scripts_classes[22m | CombatRuleData[39m[0m
+[  18% ] [90m[1mupdate_scripts_classes[22m | ComboLinkData[39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | JobData[39m[0m
+[  23% ] [90m[1mupdate_scripts_classes[22m | LoadoutBuilder[39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | LoadoutBuildResult[39m[0m
+[  27% ] [90m[1mupdate_scripts_classes[22m | LoadoutCatalog[39m[0m
+[  30% ] [90m[1mupdate_scripts_classes[22m | LoadoutSelection[39m[0m
+[  32% ] [90m[1mupdate_scripts_classes[22m | MoveSetData[39m[0m
+[  34% ] [90m[1mupdate_scripts_classes[22m | MoveSlotData[39m[0m
+[  37% ] [90m[1mupdate_scripts_classes[22m | MoveSlotPatch[39m[0m
+[  39% ] [90m[1mupdate_scripts_classes[22m | RuntimeCombatProfile[39m[0m
+[  41% ] [90m[1mupdate_scripts_classes[22m | RuntimeCombatState[39m[0m
+[  44% ] [90m[1mupdate_scripts_classes[22m | StageData[39m[0m
+[  46% ] [90m[1mupdate_scripts_classes[22m | StageSurfaceData[39m[0m
+[  48% ] [90m[1mupdate_scripts_classes[22m | StatModifier[39m[0m
+[  51% ] [90m[1mupdate_scripts_classes[22m | CombatIntent[39m[0m
+[  53% ] [90m[1mupdate_scripts_classes[22m | CombatMath[39m[0m
+[  55% ] [90m[1mupdate_scripts_classes[22m | ComboController[39m[0m
+[  58% ] [90m[1mupdate_scripts_classes[22m | CommandResolver[39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | EffectController[39m[0m
+[  62% ] [90m[1mupdate_scripts_classes[22m | FighterController[39m[0m
+[  65% ] [90m[1mupdate_scripts_classes[22m | HitContext[39m[0m
+[  67% ] [90m[1mupdate_scripts_classes[22m | HitResolver[39m[0m
+[  69% ] [90m[1mupdate_scripts_classes[22m | HitResult[39m[0m
+[  72% ] [90m[1mupdate_scripts_classes[22m | LocalMatchConfig[39m[0m
+[  74% ] [90m[1mupdate_scripts_classes[22m | LocalMatchParticipant[39m[0m
+[  76% ] [90m[1mupdate_scripts_classes[22m | LocalPlayerStore[39m[0m
+[  79% ] [90m[1mupdate_scripts_classes[22m | LocalPlayCatalog[39m[0m
+[  81% ] [90m[1mupdate_scripts_classes[22m | MatchController[39m[0m
+[  83% ] [90m[1mupdate_scripts_classes[22m | PushboxResolver[39m[0m
+[  86% ] [90m[1mupdate_scripts_classes[22m | StageController[39m[0m
+[  88% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  90% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  93% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  95% ] [90m[1mupdate_scripts_classes[22m | OnlineTokenVerifier[39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (2 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | ja-hyun-concept-v01.png[39m[0m
+[  33% ] [90m[1m_update_scan_actions[22m | myo-ryung-concept-v01.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (2 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  33% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | ja-hyun-concept-v01.png[39m[0m
+[   0% ] [90m[1mreimport[22m | ja-hyun-concept-v01.png[39m[0m
+[  33% ] [90m[1mreimport[22m | myo-ryung-concept-v01.png[39m[0m
+[  66% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (2 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+ ---> Removed intermediate container 79e0122bcd67
+ ---> 73091ed6ab4a
+Step 14/16 : EXPOSE 7777
+ ---> Running in 704c2a137b78
+ ---> Removed intermediate container 704c2a137b78
+ ---> ca4a956b28de
+Step 15/16 : CMD ["godot", "--headless", "--path", "/game", "res://server/game/game_server.tscn"]
+ ---> Running in 6073c880c135
+ ---> Removed intermediate container 6073c880c135
+ ---> e14f0aad6b32
+Step 16/16 : LABEL com.docker.compose.image.builder=classic
+ ---> Running in b70c0547c6c8
+ ---> Removed intermediate container b70c0547c6c8
+ ---> d339c4bd693f
+Successfully built d339c4bd693f
+Successfully tagged forest-arena-development-game-server:latest
+ Image forest-arena-development-game-server Built 
+ Image forest-arena-development-game-server Built 
+ Container forest-arena-development-db-1 Running 
+ Container forest-arena-development-api-1 Recreate 
+ Container forest-arena-development-api-1 Recreated 
+ Container forest-arena-development-game-server-1 Recreate 
+ Container forest-arena-development-game-server-1 Recreated 
+ Container forest-arena-development-db-1 Waiting 
+ Container forest-arena-development-db-1 Healthy 
+ Container forest-arena-development-api-1 Starting 
+ Container forest-arena-development-api-1 Started 
+ Container forest-arena-development-api-1 Waiting 
+ Container forest-arena-development-api-1 Healthy 
+ Container forest-arena-development-game-server-1 Starting 
+ Container forest-arena-development-game-server-1 Started 
+ Container forest-arena-development-api-1 Waiting 
+ Container forest-arena-development-game-server-1 Waiting 
+ Container forest-arena-development-db-1 Waiting 
+ Container forest-arena-development-api-1 Healthy 
+ Container forest-arena-development-db-1 Healthy 
+ Container forest-arena-development-game-server-1 Healthy 
+server-dev: API http://127.0.0.1:3000
+server-dev: Game ws://127.0.0.1:7777

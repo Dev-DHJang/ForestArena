@@ -1,0 +1,204 @@
+{
+  "autocontrol": false,
+  "boot_id": "4525-be16827538c0d25f",
+  "case_id": "DEV-01",
+  "combat_events": [],
+  "command_error": "",
+  "command_seq": 0,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "emulator",
+  "foreground": true,
+  "input_reset_count": 0,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 0,
+  "msec": 14848,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": false,
+      "text_scale": 1.0
+    },
+    "accessories": [],
+    "characters": [
+      "ja-hyun"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/menu_emu_36e2b635d6564cad",
+  "reconnecting": false,
+  "reset_snapshot": {},
+  "run_id": "menu_emu_36e2b635d6564cad",
+  "schema_version": 1,
+  "screen": "character_collection",
+  "snapshot": {},
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": []
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/back",
+      "kind": "button",
+      "node_name": "@Button@67",
+      "text": "뒤로",
+      "visible": true,
+      "width": 0.0625,
+      "x": 0.197916641235352,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/all_menu",
+      "kind": "button",
+      "node_name": "@Button@70",
+      "text": "전체 메뉴",
+      "visible": true,
+      "width": 0.1125,
+      "x": 0.830416641235352,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/filter/전체",
+      "kind": "button",
+      "node_name": "@Button@77",
+      "text": "전체 ✓",
+      "visible": true,
+      "width": 0.054375,
+      "x": 0.193854141235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/filter/균형",
+      "kind": "button",
+      "node_name": "@Button@78",
+      "text": "균형",
+      "visible": true,
+      "width": 0.054375,
+      "x": 0.255729141235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/filter/근접",
+      "kind": "button",
+      "node_name": "@Button@79",
+      "text": "근접",
+      "visible": true,
+      "width": 0.055,
+      "x": 0.317916641235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_collection/character/ja-hyun",
+      "kind": "button",
+      "node_name": "@Button@84",
+      "text": "자현\n✓ 장착 중 ✓",
+      "visible": true,
+      "width": 0.17375,
+      "x": 0.253541641235352,
+      "y": 0.370833333333333
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_collection/character/myo-ryung",
+      "kind": "button",
+      "node_name": "@Button@85",
+      "text": "묘령\n미보유",
+      "visible": true,
+      "width": 0.17375,
+      "x": 0.253541641235352,
+      "y": 0.506944444444444
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_collection/character/nabi",
+      "kind": "button",
+      "node_name": "@Button@86",
+      "text": "나비\n미보유",
+      "visible": true,
+      "width": 0.17375,
+      "x": 0.253541641235352,
+      "y": 0.643055555555556
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_collection/character/yu-ran",
+      "kind": "button",
+      "node_name": "@Button@87",
+      "text": "유란\n미보유",
+      "visible": true,
+      "width": 0.17375,
+      "x": 0.253541641235352,
+      "y": 0.779166666666667
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/detail",
+      "kind": "button",
+      "node_name": "@Button@100",
+      "text": "기술 살펴보기",
+      "visible": false,
+      "width": 0.20875,
+      "x": 0.757291641235352,
+      "y": 0.859722222222222
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/detail_footer",
+      "kind": "button",
+      "node_name": "@Button@101",
+      "text": "상세 보기",
+      "visible": true,
+      "width": 0.1125,
+      "x": 0.710416641235352,
+      "y": 0.905555555555556
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_collection/select",
+      "kind": "button",
+      "node_name": "@Button@102",
+      "text": "이 캐릭터 선택",
+      "visible": true,
+      "width": 0.1125,
+      "x": 0.830416641235352,
+      "y": 0.905555555555556
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1600.0
+  }
+}

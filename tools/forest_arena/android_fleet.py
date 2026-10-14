@@ -441,9 +441,9 @@ class DeviceRun:
             if scroll:
                 width, height = self.viewport()
                 start_y, end_y = (.25, .80) if target_y is not None and target_y < .2 else (.80, .25)
-                # Shop purchase buttons consume drags on the right. The left
-                # label/image column lets the ScrollContainer receive them.
-                scroll_x = round(width * .19)
+                # Premium shop categories occupy the left rail. Drag the product
+                # image/body column; preserve the existing path on other screens.
+                scroll_x = round(width * (.40 if state.get('screen') == 'shop' else .19))
                 self.adb.shell('input', 'swipe', str(scroll_x), str(round(height*start_y)), str(scroll_x), str(round(height*end_y)), '600')
                 self.sleep(.35)
         raise Failure(f'터치할 UI를 찾지 못했습니다: {id or text or kind}')
@@ -682,22 +682,33 @@ class DeviceRun:
         self.screen('home')
         self.tap('상점 · 모두 0원')
         self.screen('shop')
-        # All ten products must be bought by actual taps, re-reading after refresh.
-        for _ in range(10):
-            state = self.read()
-            if len(state.get('profile', {}).get('characters', [])) == 4 and len(state.get('profile', {}).get('accessories', [])) == 6:
-                break
-            self.tap('0원 · 무료 구매')
-            self.wait(lambda s: s.get('screen') == 'shop')
+        # The first character is already owned. Buy every remaining catalog ID
+        # through its card and confirmation modal, with fresh state after each tap.
+        for category, field, products in (('character', 'characters', CHARACTERS),
+                                          ('accessory', 'accessories', ACCESSORIES[1:])):
+            self.tap(id=f'menu/shop/category/{category}')
+            for product_id in products:
+                if product_id in self.read().get('profile', {}).get(field, []):
+                    continue
+                self.tap(id=f'purchase/{product_id}')
+                self.tap(id=f'menu/shop/purchase_confirm/{product_id}')
+                self.wait(lambda s, product_id=product_id, field=field:
+                          s.get('screen') == 'shop' and product_id in s.get('profile', {}).get(field, []),
+                          label=f'상점 구매 저장 {product_id}')
         self.evidence('shop-owned')
         profile = self.read()['profile']
-        require(len(profile['characters']) == 4 and len(profile['accessories']) == 6, '상점 보유 목록이 네 캐릭터/여섯 장신구와 다릅니다.')
+        require(set(profile['characters']) == set(CHARACTERS) and set(profile['accessories']) == set(ACCESSORIES[1:])
+                and len(profile['characters']) == 4 and len(profile['accessories']) == 6,
+                '상점 보유 목록이 네 캐릭터/여섯 장신구와 다릅니다.')
         self.adb.shell('input', 'keyevent', '4')
         self.screen('home')
         self.tap('접근성 설정')
         self.screen('accessibility')
-        self.tap(id='accessibility/toggle/피격 번쩍임 줄이기')
-        self.wait(lambda s: s.get('profile', {}).get('accessibility', {}).get('reduce_visual_effects') is True)
+        self.tap(id='menu/settings/category/effects')
+        self.tap(id='menu/settings/draft/reduce_visual_effects')
+        self.tap(id='menu/settings/settings_apply')
+        self.wait(lambda s: s.get('profile', {}).get('accessibility', {}).get('reduce_visual_effects') is True,
+                  label='화면 효과 설정 적용')
         saved = self.state['profile']
         self.launch()
         self.screen('home')

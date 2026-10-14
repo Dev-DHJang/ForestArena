@@ -51,4 +51,21 @@ for data_file in resource_registry.json audio_events_v01.json character_display_
 	fi
 done
 
+python3 - "$apk_path" <<'PYCODE'
+import hashlib, json, sys, zipfile
+with zipfile.ZipFile(sys.argv[1]) as apk:
+    names = set(apk.namelist())
+    registry = json.loads(apk.read("assets/forest_arena/data/resource_registry.json"))
+    menu = [asset for asset in registry["assets"] if ".menu.v07." in asset["id"]]
+    assert len(menu) == 27, "프리미엄 메뉴 자산27개 등록 누락"
+    for asset in menu:
+        path = "assets/" + asset["path"].removeprefix("res://")
+        assert path in names or path + ".import" in names, "프리미엄 메뉴 파일 누락: " + asset["id"]
+    manifest = json.loads(apk.read("assets/forest_arena/assets/ui/premium-menu-v07/manifest.json"))
+    font = next(asset for asset in manifest["assets"] if asset["logical_id"].startswith("fa.font."))
+    license_bytes = apk.read("assets/" + font["license_path"])
+    assert hashlib.sha256(license_bytes).hexdigest() == font["license_sha256"], "Noto Sans KR 라이선스 누락·변경"
+print("Premium menu runtime assets and font license: PASS")
+PYCODE
+
 echo "Android APK contract verification passed."

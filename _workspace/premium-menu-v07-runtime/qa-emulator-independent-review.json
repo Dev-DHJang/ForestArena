@@ -1,0 +1,108 @@
+{
+  "run_id": "menu_emu_4fae78c1a0554aab",
+  "kind": "emulator_only",
+  "status": "pass",
+  "apk_matches_build_record": true,
+  "checks": [
+    {
+      "name": "cold-start",
+      "status": "pass",
+      "boot_id": "3831-9eca76379bfb3574"
+    },
+    {
+      "name": "first-grant",
+      "status": "pass",
+      "character": "ja-hyun"
+    },
+    {
+      "name": "character-back-lobby",
+      "status": "pass"
+    },
+    {
+      "name": "zero-price-modal-purchase",
+      "status": "pass",
+      "id": "fixture-iron-armor"
+    },
+    {
+      "name": "controls-apply-relaunch-restore",
+      "status": "pass",
+      "controls": {
+        "button_scale": 1.0,
+        "button_transparency": 0,
+        "joystick_mode": "floating"
+      }
+    },
+    {
+      "name": "pause-controls-back-resume",
+      "status": "pass"
+    }
+  ],
+  "original_hashes_unchanged": true,
+  "screens": [
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/001-EMULATOR-SMOKE-cold-start-first.png",
+      "sha256": "bd5376cd4c8c60f0e2b19938565b57b5efe7c5e430a1d519df2d72a140bcbac3",
+      "size": [
+        2400,
+        1080
+      ]
+    },
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/002-EMULATOR-SMOKE-first-grant-lobby.png",
+      "sha256": "08d872c16977fe4f7ec887f503dba30d3652ce2736af96123aba19d7095ac9fe",
+      "size": [
+        2400,
+        1080
+      ]
+    },
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/003-EMULATOR-SMOKE-character-menu.png",
+      "sha256": "ef4f211ba9b8f3a7c6a6d3f7be3b742188583bf0e369c8261b2867e1966f82bb",
+      "size": [
+        2400,
+        1080
+      ]
+    },
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/004-EMULATOR-SMOKE-purchase-modal.png",
+      "sha256": "993fe471f46f5ffc081ef099399f1bcec37641a6acf1af240d9d6d716b83ada9",
+      "size": [
+        2400,
+        1080
+      ]
+    },
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/005-EMULATOR-SMOKE-purchase-completed.png",
+      "sha256": "3a463308d10cb68a828942294b421e2ded56226de42615670dadff0371e492b0",
+      "size": [
+        2400,
+        1080
+      ]
+    },
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/006-EMULATOR-SMOKE-controls-applied.png",
+      "sha256": "0e294f35b19a2031681daf8a86e3c7f79194561d0934ec76bcdf79fef50347ba",
+      "size": [
+        2400,
+        1080
+      ]
+    },
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/007-EMULATOR-SMOKE-controls-restored.png",
+      "sha256": "d46cbd8234ecf517702b58853ce96c1aa5591e9122d7d2256bccaa4e95aefaae",
+      "size": [
+        2400,
+        1080
+      ]
+    },
+    {
+      "file": "_workspace/premium-menu-v07-runtime/emulator/menu_emu_4fae78c1a0554aab/008-EMULATOR-SMOKE-controls-back-pause.png",
+      "sha256": "b882094f756ebac45d845567e7862727d43f6726521fedbb89fe9b2bce1b2a8d",
+      "size": [
+        2400,
+        1080
+      ]
+    }
+  ],
+  "physical_device": "not_run"
+}

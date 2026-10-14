@@ -26,6 +26,7 @@
 | 장신구의 효과와 제한은 무엇인가? | [장신구 설정](gameplay/accessories-v01.md) | [전투 규칙](gameplay/combat.md) |
 | 이동·공격·승패는 어떻게 동작하는가? | [전투 규칙](gameplay/combat.md) | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md), [공격 데이터 형식](contracts/attack-system-v01.json) |
 | 자현·묘령·나비는 어떻게 싸우는가? | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md) | [전투 규칙](gameplay/combat.md) |
+| 실제 프리미엄 메뉴는 어떻게 동작하는가? | [프리미엄 메뉴 v07 앱 연결](ui/premium-menu-runtime-v07.md) | 기기 저장·조작 설정·실제 검사 |
 | 로비 하위 메뉴의 최신 설계는 어디에 있는가? | [프리미엄 메뉴 v07](ui/premium-menu-v07.md) | 전용 숲 공간·어두운 메뉴·상태와 개발 전달 |
 | 화면과 터치 조작은 어떻게 구성하는가? | [기능과 사용자 경험](gameplay/features-and-ux.md) | [비전투 화면 데이터](ui/non-combat-ui-v01.json), [Penpot 설계 기준](ui/penpot-setup.md), [숲빛 v06 런타임 연결](ui/forestlight-runtime-v06.md) |
 | 코드를 어떤 책임으로 나누는가? | [코드 구조](engineering/architecture.md) | [공용 데이터 형식](#공용-데이터-형식) |

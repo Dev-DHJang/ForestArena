@@ -1,0 +1,995 @@
+{
+  "design_states": 81,
+  "runtime_menu_families": 13,
+  "device_test": "not_run",
+  "executed_states": 81,
+  "evidence_report": "_workspace/premium-menu-v07-runtime/qa-runtime-r08-report.json",
+  "report_failures": 0,
+  "states": [
+    {
+      "design_screen": "SCR_04_CharacterCollection",
+      "kind": "base",
+      "runtime_menu": "character_collection",
+      "params": {},
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_collection",
+      "params": {
+        "selected_id": "myo-ryung",
+        "tab": "기술",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_04_CharacterCollection / char-2-tab-0-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_collection",
+      "params": {
+        "selected_id": "nabi",
+        "tab": "기술",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_04_CharacterCollection / char-3-tab-0-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_collection",
+      "params": {
+        "selected_id": "yu-ran",
+        "tab": "기술",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_04_CharacterCollection / char-0-tab-0-filter-균형",
+      "kind": "state",
+      "runtime_menu": "character_collection",
+      "params": {
+        "selected_id": "ja-hyun",
+        "tab": "기술",
+        "filter": "균형"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-근접",
+      "kind": "state",
+      "runtime_menu": "character_collection",
+      "params": {
+        "selected_id": "myo-ryung",
+        "tab": "기술",
+        "filter": "근접"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_05_CharacterDetail",
+      "kind": "base",
+      "runtime_menu": "character_detail",
+      "params": {},
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-0-tab-1-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "ja-hyun",
+        "tab": "연계",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-0-tab-2-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "ja-hyun",
+        "tab": "이야기",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-1-tab-0-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "myo-ryung",
+        "tab": "기술",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-1-tab-1-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "myo-ryung",
+        "tab": "연계",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-1-tab-2-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "myo-ryung",
+        "tab": "이야기",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-2-tab-0-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "nabi",
+        "tab": "기술",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-2-tab-1-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "nabi",
+        "tab": "연계",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-2-tab-2-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "nabi",
+        "tab": "이야기",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-3-tab-0-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "yu-ran",
+        "tab": "기술",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-3-tab-1-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "yu-ran",
+        "tab": "연계",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_05_CharacterDetail / char-3-tab-2-filter-전체",
+      "kind": "state",
+      "runtime_menu": "character_detail",
+      "params": {
+        "selected_id": "yu-ran",
+        "tab": "이야기",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_06_AccessoryCollection",
+      "kind": "base",
+      "runtime_menu": "accessory_collection",
+      "params": {},
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_07_AccessoryDetail",
+      "kind": "base",
+      "runtime_menu": "accessory_detail",
+      "params": {},
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-1-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-boxing-gloves",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_07_AccessoryDetail / item-1-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_detail",
+      "params": {
+        "selected_id": "fixture-boxing-gloves",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-2-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-thorns",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_07_AccessoryDetail / item-2-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_detail",
+      "params": {
+        "selected_id": "fixture-thorns",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-3-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-explosive-gloves",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_07_AccessoryDetail / item-3-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_detail",
+      "params": {
+        "selected_id": "fixture-explosive-gloves",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-4-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-ultimate-charm",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_07_AccessoryDetail / item-4-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_detail",
+      "params": {
+        "selected_id": "fixture-ultimate-charm",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-5-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-phoenix-revive",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_07_AccessoryDetail / item-5-filter-전체",
+      "kind": "state",
+      "runtime_menu": "accessory_detail",
+      "params": {
+        "selected_id": "fixture-phoenix-revive",
+        "filter": "전체"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-이동",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-thorns",
+        "filter": "이동"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-방어",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-iron-armor",
+        "filter": "방어"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-기술",
+      "kind": "state",
+      "runtime_menu": "accessory_collection",
+      "params": {
+        "selected_id": "fixture-boxing-gloves",
+        "filter": "기술"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_08_Preset",
+      "kind": "base",
+      "runtime_menu": "preset",
+      "params": {},
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_08_Preset / slot-1",
+      "kind": "state",
+      "runtime_menu": "preset",
+      "params": {
+        "slot": 1
+      },
+      "action": "preset_slot",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_08_Preset / slot-2",
+      "kind": "state",
+      "runtime_menu": "preset",
+      "params": {
+        "slot": 2
+      },
+      "action": "preset_slot",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_08_Preset / slot-3",
+      "kind": "state",
+      "runtime_menu": "preset",
+      "params": {
+        "slot": 3
+      },
+      "action": "preset_slot",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 6개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_19_Shop",
+      "kind": "base",
+      "runtime_menu": "shop",
+      "params": {},
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / category-장신구",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "category": "accessory"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / category-캐릭터",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "category": "character"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_20_Collection",
+      "kind": "base",
+      "runtime_menu": "collection",
+      "params": {
+        "category": "character",
+        "filter": "보유"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 프로필의 보유 목록을 읽기 전용으로 표시한다. 장착·선택 저장은 없다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_20_Collection / accessory",
+      "kind": "state",
+      "runtime_menu": "collection",
+      "params": {
+        "category": "accessory",
+        "filter": "보유"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 프로필의 보유 목록을 읽기 전용으로 표시한다. 장착·선택 저장은 없다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_20_Collection / unowned",
+      "kind": "state",
+      "runtime_menu": "collection",
+      "params": {
+        "category": "character",
+        "filter": "미보유"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 프로필의 보유 목록을 읽기 전용으로 표시한다. 장착·선택 저장은 없다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_21_Mission",
+      "kind": "base",
+      "runtime_menu": "mission",
+      "params": {},
+      "action": "open",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_21_Mission / tab-1",
+      "kind": "state",
+      "runtime_menu": "mission",
+      "params": {
+        "tab": "주간"
+      },
+      "action": "open",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_21_Mission / tab-2",
+      "kind": "state",
+      "runtime_menu": "mission",
+      "params": {
+        "tab": "업적"
+      },
+      "action": "open",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_22_Social",
+      "kind": "base",
+      "runtime_menu": "social",
+      "params": {},
+      "action": "open",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_22_Social / friend-1",
+      "kind": "state",
+      "runtime_menu": "social",
+      "params": {},
+      "action": "empty_state",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다. 데이터가 없으므로 가짜 상세·실패·검색 응답을 생성하지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_22_Social / friend-2",
+      "kind": "state",
+      "runtime_menu": "social",
+      "params": {},
+      "action": "empty_state",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다. 데이터가 없으므로 가짜 상세·실패·검색 응답을 생성하지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_22_Social / recent",
+      "kind": "state",
+      "runtime_menu": "social",
+      "params": {
+        "tab": "최근 플레이어"
+      },
+      "action": "open",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_23_Rank",
+      "kind": "base",
+      "runtime_menu": "rank",
+      "params": {},
+      "action": "open",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "SCR_24_Profile",
+      "kind": "base",
+      "runtime_menu": "profile",
+      "params": {},
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "EXT_06_GeneralSettings",
+      "kind": "base",
+      "runtime_menu": "settings",
+      "params": {
+        "category": "sound"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / EXT_06_GeneralSettings / 소리-off",
+      "kind": "state",
+      "runtime_menu": "settings",
+      "params": {
+        "category": "sound"
+      },
+      "action": "draft_then_cancel_or_apply",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 7개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / EXT_06_GeneralSettings / 화면 효과",
+      "kind": "state",
+      "runtime_menu": "settings",
+      "params": {
+        "category": "effects"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / EXT_06_GeneralSettings / 화면 효과-off",
+      "kind": "state",
+      "runtime_menu": "settings",
+      "params": {
+        "category": "effects"
+      },
+      "action": "draft_then_cancel_or_apply",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 7개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / EXT_06_GeneralSettings / 접근성",
+      "kind": "state",
+      "runtime_menu": "settings",
+      "params": {
+        "category": "accessibility"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / EXT_06_GeneralSettings / 접근성-off",
+      "kind": "state",
+      "runtime_menu": "settings",
+      "params": {
+        "category": "accessibility"
+      },
+      "action": "draft_then_cancel_or_apply",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 7개 실제 상태 확인"
+    },
+    {
+      "design_screen": "CBT_08_Settings",
+      "kind": "base",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "pause"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / CBT_08_Settings / floating",
+      "kind": "state",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "pause"
+      },
+      "action": "draft_floating",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 7개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / detail-0",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "product_id": "fixture-iron-armor"
+      },
+      "action": "open_product_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / detail-1",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "product_id": "fixture-boxing-gloves"
+      },
+      "action": "open_product_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / detail-2",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "product_id": "fixture-thorns"
+      },
+      "action": "open_product_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / detail-3",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "product_id": "fixture-explosive-gloves"
+      },
+      "action": "open_product_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / detail-4",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "product_id": "fixture-ultimate-charm"
+      },
+      "action": "open_product_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_19_Shop / detail-5",
+      "kind": "state",
+      "runtime_menu": "shop",
+      "params": {
+        "product_id": "fixture-phoenix-revive"
+      },
+      "action": "open_product_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_21_Mission / detail-0",
+      "kind": "state",
+      "runtime_menu": "mission",
+      "params": {},
+      "action": "empty_state",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다. 데이터가 없으므로 가짜 상세·실패·검색 응답을 생성하지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_21_Mission / detail-1",
+      "kind": "state",
+      "runtime_menu": "mission",
+      "params": {},
+      "action": "empty_state",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다. 데이터가 없으므로 가짜 상세·실패·검색 응답을 생성하지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_21_Mission / detail-2",
+      "kind": "state",
+      "runtime_menu": "mission",
+      "params": {},
+      "action": "empty_state",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다. 데이터가 없으므로 가짜 상세·실패·검색 응답을 생성하지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SettingsReset",
+      "kind": "state",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "pause"
+      },
+      "action": "settings_reset_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / ControlsParameters",
+      "kind": "state",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "pause"
+      },
+      "action": "native_sliders",
+      "policy": "implemented",
+      "reason": "기기 설정의 버튼 크기·투명도 실제 슬라이더를 검사한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / EmptyList",
+      "kind": "state",
+      "runtime_menu": "collection",
+      "params": {
+        "category": "accessory",
+        "filter": "보유"
+      },
+      "action": "empty_state",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SelectionRequired",
+      "kind": "state",
+      "runtime_menu": "preset",
+      "params": {
+        "entry_context": "pause"
+      },
+      "action": "empty_slot_apply_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_22_Social / connection-error",
+      "kind": "state",
+      "runtime_menu": "social",
+      "params": {},
+      "action": "empty_state",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다. 데이터가 없으므로 가짜 상세·실패·검색 응답을 생성하지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SCR_22_Social / search-empty",
+      "kind": "state",
+      "runtime_menu": "social",
+      "params": {},
+      "action": "empty_state",
+      "policy": "honest_empty",
+      "reason": "사용자 승인 범위: 서비스 준비 중·빈 상태. 설계의 친구·미션·순위 예시는 만들지 않는다. 데이터가 없으므로 가짜 상세·실패·검색 응답을 생성하지 않는다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / ControlsFromLobby",
+      "kind": "state",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "lobby"
+      },
+      "action": "open",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 4개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / ControlsFloatingFromLobby",
+      "kind": "state",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "lobby"
+      },
+      "action": "draft_floating",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 7개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SettingsResetLobbyControls",
+      "kind": "state",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "lobby"
+      },
+      "action": "settings_reset_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / ControlsParametersLobby",
+      "kind": "state",
+      "runtime_menu": "controls",
+      "params": {
+        "entry_context": "lobby"
+      },
+      "action": "native_sliders",
+      "policy": "implemented",
+      "reason": "기기 설정의 버튼 크기·투명도 실제 슬라이더를 검사한다.",
+      "runtime_check": "pass · 5개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / SettingsResetGeneral",
+      "kind": "state",
+      "runtime_menu": "settings",
+      "params": {
+        "category": "sound"
+      },
+      "action": "settings_reset_modal",
+      "policy": "implemented",
+      "reason": "실제 목록·선택·필터·탭과 해당 화면에서 확인한다.",
+      "runtime_check": "pass · 9개 실제 상태 확인"
+    },
+    {
+      "design_screen": "MENU07 / Review",
+      "kind": "state",
+      "runtime_menu": "settings",
+      "params": {},
+      "action": "all_menu_navigation",
+      "policy": "handoff_only",
+      "reason": "설계 검토용 모음 보드이며 제품 화면이 아니다. 하위 메뉴 전체 메뉴에서 13개 화면군으로 이동한다.",
+      "runtime_check": "pass · 21개 실제 상태 확인"
+    }
+  ]
+}
