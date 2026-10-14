@@ -9,47 +9,62 @@ func _initialize() -> void:
 
 func run() -> void:
 	var app := (load("res://scenes/local_ai_app.tscn") as PackedScene).instantiate()
-	var path := "user://test-flow-%d.json" % Time.get_ticks_usec()
+	var path := "user://test-flow-%d/profile.json" % Time.get_ticks_usec()
+	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
+	app.db_session_path = path + ".session"
 	app.save_path = path
 	root.add_child(app)
+	await create_timer(0.24).timeout
 	await process_frame
 	check(not quit_on_go_back, "app owns Android back requests")
 	check(app.screen == "first", "first-time selection screen")
 	var first_button := find_button(app, "나비")
 	check(first_button != null, "first character button exists")
 	if first_button != null: first_button.pressed.emit()
+	await create_timer(0.24).timeout
 	await process_frame
 	check(app.screen == "home" and app.store.owns("nabi"), "first character button grants and opens home")
 	var shop_button := find_button(app, "상점 · 모두 0원")
 	check(shop_button != null, "shop button exists")
 	if shop_button != null: shop_button.pressed.emit()
+	await create_timer(0.24).timeout
 	await process_frame
-	for expected_purchase: int in app.catalog.products.size() - 1:
-		var free_button := find_button(app, "0원 · 무료 구매")
-		check(free_button != null, "free purchase button %d exists" % expected_purchase)
-		if free_button == null: break
-		free_button.pressed.emit()
+	for item: Dictionary in app.catalog.products:
+		if app.store.owns(item.id): continue
+		var product_button := find_qa(app, "purchase/" + String(item.id))
+		check(product_button != null, "native product " + String(item.id))
+		if product_button == null: continue
+		product_button.pressed.emit()
+		await create_timer(0.24).timeout
+		await process_frame
+		var confirm := find_qa(app, "menu/shop/purchase_confirm/" + String(item.id))
+		check(confirm != null, "purchase confirmation " + String(item.id))
+		if confirm != null: confirm.pressed.emit()
+		await create_timer(0.24).timeout
 		await process_frame
 	check(app.store.data.characters.size() == 4 and app.store.data.accessories.size() == 6, "shop buttons purchase the full free catalog")
-	check(find_button(app, "0원 · 무료 구매") == null, "owned products cannot be purchased again from UI")
-	var lobby_button := find_button(app, "로비")
-	check(lobby_button != null, "shop lobby button exists")
-	if lobby_button != null: lobby_button.pressed.emit()
+	app.handle_back_request(500)
+	await create_timer(0.24).timeout
 	await process_frame
 	var accessibility_button := find_button(app, "접근성 설정")
 	check(accessibility_button != null, "accessibility settings button exists")
 	if accessibility_button != null: accessibility_button.pressed.emit()
+	await create_timer(0.24).timeout
 	await process_frame
 	check(app.screen == "accessibility", "accessibility settings opens")
-	var accessibility_options := find_options(app)
-	check(accessibility_options.size() == 2, "text scale and minimap marker selectors exist")
-	if not accessibility_options.is_empty():
-		select_option(accessibility_options[0], "매우 크게")
-		await process_frame
-	check(is_equal_approx(float(app.store.data.accessibility.text_scale), 1.3), "text scale saves from UI")
+	var scale_button := find_qa(app, "menu/settings/draft/text_scale/1.3")
+	check(scale_button != null, "native large text choice exists")
+	if scale_button != null: scale_button.pressed.emit()
+	check(is_equal_approx(float(app.store.data.accessibility.text_scale), 1.0), "draft does not save before apply")
+	var apply := find_qa(app, "menu/settings/settings_apply")
+	if apply != null: apply.pressed.emit()
+	await create_timer(0.24).timeout
+	await process_frame
+	check(is_equal_approx(float(app.store.data.accessibility.text_scale), 1.3), "text scale applies from UI")
 	app.handle_back_request(800)
 	check(app.screen == "home", "back from accessibility returns home")
 	app._show_shop()
+	await create_timer(0.24).timeout
 	app.handle_back_request(1000)
 	check(app.screen == "home", "back from shop returns home")
 	app.handle_back_request(1001)
@@ -60,18 +75,22 @@ func run() -> void:
 	var prepare_button := find_button(app, "오프라인 대전")
 	check(prepare_button != null, "prepare button exists")
 	if prepare_button != null: prepare_button.pressed.emit()
+	await create_timer(0.24).timeout
 	await process_frame
 	var character_button := find_button(app, "유란")
 	check(character_button != null, "owned character selection button exists")
 	if character_button != null: character_button.pressed.emit()
+	await create_timer(0.24).timeout
 	await process_frame
 	var choices := find_options(app)
 	check(choices.size() == 3, "mode, accessory and AI selectors exist")
 	if choices.size() == 3:
 		select_option(choices[1], "철갑옷")
+		await create_timer(0.24).timeout
 		await process_frame
 		choices = find_options(app)
 		select_option(choices[2], "나비")
+		await create_timer(0.24).timeout
 		await process_frame
 	var start_button := find_button(app, "대전 시작")
 	check(start_button != null, "start match button exists")
@@ -110,6 +129,7 @@ func run() -> void:
 	app.match_controller.player.global_position = Vector2(640, 520)
 	app.match_controller.training_dummy.global_position = Vector2(1900, 520)
 	camera.call("_process", 0.016)
+	await create_timer(0.24).timeout
 	await process_frame
 	var opponent_presentation = app.match_controller.training_dummy.get_node("Presentation")
 	opponent_presentation.sync_visual(0.016)
@@ -119,6 +139,7 @@ func run() -> void:
 	check(indicator.visible and indicator.arrow_direction.x > 0.0, "real offscreen opponent shows right arrow")
 	check(app.match_controller.snapshot_hash() == camera_snapshot, "shipping camera and arrow preserve combat snapshot")
 	app.match_controller.training_dummy.global_position = app.match_controller.player.global_position + Vector2(camera.get_viewport_rect().size.x / camera.zoom.x / 2.0 - 7.0, 0)
+	await create_timer(0.24).timeout
 	await process_frame
 	indicator.update_indicator()
 	check(not indicator.visible, "partly visible approved sprite hides arrow")
@@ -143,6 +164,7 @@ func run() -> void:
 	check(app.match_controller.tick == 0 and app.match_controller.player.stocks == 3, "rematch reset")
 	app.match_controller.match_ended.emit(&"opponent")
 	app.start_match()
+	await create_timer(0.24).timeout
 	await process_frame
 	check(app.screen == "match" and not app.match_controller.paused, "old deferred result must not pause a new match")
 	app.match_controller.is_draw = true
@@ -165,6 +187,7 @@ func run() -> void:
 	app._show_home()
 	check(app.screen == "home", "return home")
 	app.queue_free()
+	await create_timer(0.24).timeout
 	await process_frame
 	for suffix: String in ["", ".bak", ".tmp"]:
 		if FileAccess.file_exists(path + suffix): DirAccess.remove_absolute(path + suffix)
@@ -194,3 +217,8 @@ func select_option(option: OptionButton, text: String) -> void:
 			option.item_selected.emit(index)
 			return
 	check(false, "option exists: " + text)
+
+func find_qa(app: Node, id: String) -> Button:
+	for item: Node in app.page.find_children("*", "Button", true, false):
+		if String(item.get_meta("qa_id", "")) == id: return item as Button
+	return null

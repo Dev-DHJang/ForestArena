@@ -1,0 +1,453 @@
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.342s
+
+OK
+........................................................................................................................
+----------------------------------------------------------------------
+Ran 120 tests in 0.363s
+
+OK
+Android fleet: blocked
+증거: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpfb8prk_f/c404a1c24ce84e1692f628b8777a8a26/summary.md
+Android fleet: fail
+증거: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp4kb55xof/319a9f17ec3a4343acfa5fb52484cb3a/summary.md
+Android fleet: pass
+증거: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmph5thf4p7/runs/e0c63d10d52449f8b1e82999a40e9c88/summary.md
+Android fleet: blocked
+증거: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp4hdh0kee/b3fe7bdeb14643778a0b8c2687e6fc4a/summary.md
+..........
+----------------------------------------------------------------------
+Ran 10 tests in 1.489s
+
+OK
+........
+----------------------------------------------------------------------
+Ran 8 tests in 0.990s
+
+OK
+FOREST_LEDGE_ART: PASS (3 quality variants, 5 collision-aligned surfaces)
+verify-job-id-independence: PASS (1 authored job IDs, no shared-code literals)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 프로젝트 초기화 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 파일 구조 스캔 중...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 전역 클래스 이름을 불러오는 중...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | GDExtensions 검증 중...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 오토로드 스크립트를 만드는 중...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 플러그인을 초기화 중...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 파일 스캔 시작 중...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 전역 클래스를 등록하는 중... (7 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | PremiumMenuRouter[39m[0m
+[  12% ] [90m[1mupdate_scripts_classes[22m | PremiumMenuView[39m[0m
+[  25% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  37% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  62% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  75% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 편집기를 불러오는 중 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 편집기 레이아웃을 불러오는 중...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 독을 불러오는 중...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_TOUCH action=jump edge=press pointer=10
+FOREST_ARENA_TOUCH action=jump edge=press pointer=11
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=12
+FOREST_ARENA_TOUCH action=jump edge=release pointer=10
+FOREST_ARENA_TOUCH action=jump edge=release pointer=11
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=12
+PHASE0_SMOKE: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_COMBAT_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_COMBAT_BEHAVIOR: PASS
+WARNING: 23 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 9 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_MATCH_RULES: PASS
+WARNING: 10 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 4 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE1_DETERMINISM: PASS 56159d1ddf0b6f7dfbfd610b052d4ef6b29c2521c02bbf8f7472cc7f80610b52
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMBAT_FEEL_STAGE_V2: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+MATCH_PLAYTEST_CANCEL_RESTART: guard actionable_ticks=[7, 10, 10, 10, 10, 10, 10]
+MATCH_PLAYTEST_CANCEL_RESTART: evade actionable_ticks=[7, 10, 10, 10, 10, 10, 10]
+MATCH_PLAYTEST_COMBAT: PASS (784 profile pairs, minimum 7 actionable ticks)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ANDROID_DEVICE_COMBO: ja-hyun repeat=1 stages=3 damage=15.000 expected=15.000 hash=78468c8d85635545f907fc315cd343e77b547257e6e1d66a436493dfc7c3dc14
+ANDROID_DEVICE_COMBO: ja-hyun repeat=2 stages=3 damage=15.000 expected=15.000 hash=78468c8d85635545f907fc315cd343e77b547257e6e1d66a436493dfc7c3dc14
+ANDROID_DEVICE_COMBO: myo-ryung repeat=1 stages=4 damage=19.000 expected=19.000 hash=7b07e28efcadb1152a814b80c04cb175222293833afaa8c75c19f31b4ab86120
+ANDROID_DEVICE_COMBO: myo-ryung repeat=2 stages=4 damage=19.000 expected=19.000 hash=7b07e28efcadb1152a814b80c04cb175222293833afaa8c75c19f31b4ab86120
+ANDROID_DEVICE_COMBO: nabi repeat=1 stages=2 damage=11.000 expected=11.000 hash=3af7fd6d5982bcbc5cb0f5a7cbaddf7858deb7092adad49e13d117e84e351af8
+ANDROID_DEVICE_COMBO: nabi repeat=2 stages=2 damage=11.000 expected=11.000 hash=3af7fd6d5982bcbc5cb0f5a7cbaddf7858deb7092adad49e13d117e84e351af8
+ANDROID_DEVICE_COMBO: yu-ran repeat=1 stages=3 damage=15.000 expected=15.000 hash=cc737dd432faa45712e2a8b28ef2908f9547ba516119f2873a5437e6b3f33811
+ANDROID_DEVICE_COMBO: yu-ran repeat=2 stages=3 damage=15.000 expected=15.000 hash=cc737dd432faa45712e2a8b28ef2908f9547ba516119f2873a5437e6b3f33811
+ANDROID_DEVICE_COMBAT_REGRESSION: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_TOUCH action=move_up edge=press pointer=21
+FOREST_ARENA_TOUCH action=dash edge=press pointer=22
+FOREST_ARENA_TOUCH action=move_up edge=release pointer=21
+FOREST_ARENA_TOUCH action=dash edge=release pointer=22
+FOREST_ARENA_TOUCH action=move_left edge=press pointer=20
+FOREST_ARENA_TOUCH action=move_left edge=release pointer=20
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=20
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=20
+PHASE1_INPUT_UI: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+Phase 2 loadout contract passed.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+Phase 2 runtime wiring passed.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE3_STYLE_COMPARISON: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE3_STYLE_PLAYTEST_ENTRY: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE4_ACCESSORY_VALIDATION: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ACCESSORY_POLICY: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE5_JOB_INHERITANCE: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE6_LOCAL_MODE_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE6_MULTIFIGHTER_MATCH: PASS
+lobby: 80.00s stereo, peak=0.707 RMS=0.143, seam=0.01410
+battle: 90.00s stereo, peak=0.660 RMS=0.113, seam=0.01886
+PASS: 47 audio assets; names, hashes, masters, preview, formats, durations, silence, clipping, DC, SFX fades and BGM decoded loop boundaries.
+Not measured: perceived timbre/mix, human listening, Android output/lifecycle.
+PASS: nine approved versions; four raw-source PCM replacements; 47 stable audio IDs; v01 masters/runtime preserved; BGM 80/90-second loops and other 38 unchanged paths.
+Not established: physical Android output, output routing/lifecycle on device, or eight-player listening mix.
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+PHASE6_AUDIO_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_UI_BUTTON {"screen":"result","text":"같은 조건으로 재대전","x":0.5,"y":0.4140625}
+FOREST_ARENA_UI_BUTTON {"screen":"result","text":"대전 준비","x":0.5,"y":0.470312505960464}
+FOREST_ARENA_UI_BUTTON {"screen":"result","text":"로비","x":0.5,"y":0.526562511920929}
+AUDIO_APP_FLOW: PASS
+verify-audio: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ANDROID_AUDIO_STORE: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMBAT_OVERHAUL_CONTRACT: PASS
+WARNING: 7 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 3 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/ja-hyun/concept/ja-hyun-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+     at: load_from_file (core/io/image.cpp:2780)
+     GDScript backtrace (most recent call first):
+         [0] _validate_concept (res://tests/character_data_contract.gd:45)
+         [1] _initialize (res://tests/character_data_contract.gd:13)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/myo-ryung/concept/myo-ryung-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+     at: load_from_file (core/io/image.cpp:2780)
+     GDScript backtrace (most recent call first):
+         [0] _validate_concept (res://tests/character_data_contract.gd:45)
+         [1] _initialize (res://tests/character_data_contract.gd:13)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/nabi/concept/nabi-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+     at: load_from_file (core/io/image.cpp:2780)
+     GDScript backtrace (most recent call first):
+         [0] _validate_concept (res://tests/character_data_contract.gd:45)
+         [1] _initialize (res://tests/character_data_contract.gd:13)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/yu-ran/concept/yu-ran-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+     at: load_from_file (core/io/image.cpp:2780)
+     GDScript backtrace (most recent call first):
+         [0] _validate_concept (res://tests/character_data_contract.gd:45)
+         [1] _initialize (res://tests/character_data_contract.gd:13)
+CHARACTER_DATA_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CHARACTER_APPEARANCE_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CHARACTER_MOTION_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+CHARACTER_ATTACK_MOTION_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+COMBAT_CONCEPT_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+UI_DESIGN_CONTRACT: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+BATTLE_MINIMAP: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"자현","x":0.178906247019768,"y":0.32421875}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"묘령","x":0.392968744039536,"y":0.32421875}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"나비","x":0.607031226158142,"y":0.32421875}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"유란","x":0.821093738079071,"y":0.32421875}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"저장 모드 · 기기 저장","x":0.5,"y":0.389843761920929}
+ERROR: Can't use get_node() with absolute paths from outside the active scene tree.
+   at: get_node_or_null (scene/main/node.cpp:1910)
+   GDScript backtrace (most recent call first):
+       [0] configure (res://scripts/battle_minimap.gd:52)
+       [1] _minimap_preview (res://scripts/premium_menu/premium_menu_view.gd:593)
+       [2] _settings (res://scripts/premium_menu/premium_menu_view.gd:536)
+       [3] build (res://scripts/premium_menu/premium_menu_view.gd:64)
+       [4] _rebuild (res://scripts/premium_menu/premium_menu_router.gd:64)
+       [5] open (res://scripts/premium_menu/premium_menu_router.gd:50)
+       [6] _show_premium_menu (res://scripts/local_ai_app.gd:727)
+       [7] run (res://tests/battle_minimap_app_flow.gd:34)
+ERROR: Node not found: "/root/ForestArenaResources" (absolute path attempted from "MinimapPreview").
+   at: get_node (scene/main/node.cpp:1973)
+   GDScript backtrace (most recent call first):
+       [0] configure (res://scripts/battle_minimap.gd:52)
+       [1] _minimap_preview (res://scripts/premium_menu/premium_menu_view.gd:593)
+       [2] _settings (res://scripts/premium_menu/premium_menu_view.gd:536)
+       [3] build (res://scripts/premium_menu/premium_menu_view.gd:64)
+       [4] _rebuild (res://scripts/premium_menu/premium_menu_router.gd:64)
+       [5] open (res://scripts/premium_menu/premium_menu_router.gd:50)
+       [6] _show_premium_menu (res://scripts/local_ai_app.gd:727)
+       [7] run (res://tests/battle_minimap_app_flow.gd:34)
+SCRIPT ERROR: Attempt to call function 'load_texture' in base 'null instance' on a null instance.
+          at: BattleMinimap.configure (res://scripts/battle_minimap.gd:52)
+          GDScript backtrace (most recent call first):
+              [0] configure (res://scripts/battle_minimap.gd:52)
+              [1] _minimap_preview (res://scripts/premium_menu/premium_menu_view.gd:593)
+              [2] _settings (res://scripts/premium_menu/premium_menu_view.gd:536)
+              [3] build (res://scripts/premium_menu/premium_menu_view.gd:64)
+              [4] _rebuild (res://scripts/premium_menu/premium_menu_router.gd:64)
+              [5] open (res://scripts/premium_menu/premium_menu_router.gd:50)
+              [6] _show_premium_menu (res://scripts/local_ai_app.gd:727)
+              [7] run (res://tests/battle_minimap_app_flow.gd:34)
+ERROR: Can't use get_node() with absolute paths from outside the active scene tree.
+   at: get_node_or_null (scene/main/node.cpp:1910)
+   GDScript backtrace (most recent call first):
+       [0] configure (res://scripts/battle_minimap.gd:52)
+       [1] _minimap_preview (res://scripts/premium_menu/premium_menu_view.gd:593)
+       [2] _settings (res://scripts/premium_menu/premium_menu_view.gd:536)
+       [3] build (res://scripts/premium_menu/premium_menu_view.gd:64)
+       [4] _rebuild (res://scripts/premium_menu/premium_menu_router.gd:64)
+       [5] _apply_settings (res://scripts/premium_menu/premium_menu_router.gd:255)
+       [6] _on_action (res://scripts/premium_menu/premium_menu_router.gd:139)
+       [7] <anonymous lambda> (res://scripts/premium_menu/premium_menu_view.gd:163)
+       [8] run (res://tests/battle_minimap_app_flow.gd:49)
+ERROR: Node not found: "/root/ForestArenaResources" (absolute path attempted from "MinimapPreview").
+   at: get_node (scene/main/node.cpp:1973)
+   GDScript backtrace (most recent call first):
+       [0] configure (res://scripts/battle_minimap.gd:52)
+       [1] _minimap_preview (res://scripts/premium_menu/premium_menu_view.gd:593)
+       [2] _settings (res://scripts/premium_menu/premium_menu_view.gd:536)
+       [3] build (res://scripts/premium_menu/premium_menu_view.gd:64)
+       [4] _rebuild (res://scripts/premium_menu/premium_menu_router.gd:64)
+       [5] _apply_settings (res://scripts/premium_menu/premium_menu_router.gd:255)
+       [6] _on_action (res://scripts/premium_menu/premium_menu_router.gd:139)
+       [7] <anonymous lambda> (res://scripts/premium_menu/premium_menu_view.gd:163)
+       [8] run (res://tests/battle_minimap_app_flow.gd:49)
+SCRIPT ERROR: Attempt to call function 'load_texture' in base 'null instance' on a null instance.
+          at: BattleMinimap.configure (res://scripts/battle_minimap.gd:52)
+          GDScript backtrace (most recent call first):
+              [0] configure (res://scripts/battle_minimap.gd:52)
+              [1] _minimap_preview (res://scripts/premium_menu/premium_menu_view.gd:593)
+              [2] _settings (res://scripts/premium_menu/premium_menu_view.gd:536)
+              [3] build (res://scripts/premium_menu/premium_menu_view.gd:64)
+              [4] _rebuild (res://scripts/premium_menu/premium_menu_router.gd:64)
+              [5] _apply_settings (res://scripts/premium_menu/premium_menu_router.gd:255)
+              [6] _on_action (res://scripts/premium_menu/premium_menu_router.gd:139)
+              [7] <anonymous lambda> (res://scripts/premium_menu/premium_menu_view.gd:163)
+              [8] run (res://tests/battle_minimap_app_flow.gd:49)
+BATTLE_MINIMAP_APP_FLOW: PASS
+WARNING: 10 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 5 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LOCAL_PLAYER_STORE: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+MENU_STATE_STORE: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_TOUCH action=evade edge=press pointer=1
+FOREST_ARENA_TOUCH action=evade edge=release pointer=1
+FOREST_ARENA_TOUCH action=jump edge=press pointer=1
+FOREST_ARENA_TOUCH action=jump edge=release pointer=1
+FOREST_ARENA_TOUCH action=attack_light edge=press pointer=1
+FOREST_ARENA_TOUCH action=attack_light edge=release pointer=1
+FOREST_ARENA_TOUCH action=attack_heavy edge=press pointer=1
+FOREST_ARENA_TOUCH action=attack_heavy edge=release pointer=1
+FOREST_ARENA_TOUCH action=attack_special edge=press pointer=1
+FOREST_ARENA_TOUCH action=attack_special edge=release pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=press pointer=1
+FOREST_ARENA_TOUCH action=ultimate edge=release pointer=1
+FOREST_ARENA_TOUCH action=attack_light edge=press pointer=2
+FOREST_ARENA_TOUCH action=attack_light edge=release pointer=2
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=10
+FOREST_ARENA_TOUCH action=attack_light edge=press pointer=11
+FOREST_ARENA_TOUCH action=attack_light edge=press pointer=12
+FOREST_ARENA_TOUCH action=attack_light edge=release pointer=11
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=10
+FOREST_ARENA_TOUCH action=attack_light edge=release pointer=12
+FOREST_ARENA_TOUCH action=attack_light edge=press pointer=22
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=20
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=20
+FOREST_ARENA_TOUCH action=move_left edge=press pointer=20
+FOREST_ARENA_TOUCH action=move_left edge=release pointer=20
+FOREST_ARENA_TOUCH action=attack_light edge=release pointer=22
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=24
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=24
+FOREST_ARENA_TOUCH action=move_right edge=press pointer=25
+FOREST_ARENA_TOUCH action=move_right edge=release pointer=25
+MENU_TOUCH_CONTROLS: PASS
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"자현","x":0.178906247019768,"y":0.576388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"묘령","x":0.392968744039536,"y":0.576388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"나비","x":0.607031226158142,"y":0.576388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"유란","x":0.821093738079071,"y":0.576388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"first","text":"저장 모드 · 기기 저장","x":0.5,"y":0.69305557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"자현","x":0.168359369039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"묘령","x":0.359765619039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"나비","x":0.168359369039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"유란","x":0.359765619039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"로비","x":0.28515625,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"대전 시작","x":0.71484375,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"자현","x":0.168359369039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"묘령","x":0.359765619039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"나비","x":0.168359369039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"유란","x":0.359765619039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"로비","x":0.28515625,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"대전 시작","x":0.71484375,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"자현","x":0.168359369039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"묘령","x":0.359765619039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"나비","x":0.168359369039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"유란","x":0.359765619039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"로비","x":0.28515625,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"대전 시작","x":0.71484375,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"자현","x":0.168359369039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"묘령","x":0.359765619039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"나비","x":0.168359369039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"유란","x":0.359765619039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"로비","x":0.28515625,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"대전 시작","x":0.71484375,"y":0.81805557012558}
+FOREST_ARENA_BACK_REQUEST {"msec":32367,"previous_msec":-200,"screen":"controls"}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"접근성 설정","x":0.869531273841858,"y":0.0791666656732559}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"오프라인 대전","x":0.840624988079071,"y":0.727777779102325}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"LAN 1:1 · 같은 Wi-Fi","x":0.840624988079071,"y":0.591666638851166}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"캐릭터","x":0.122265622019768,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"장신구","x":0.273046880960464,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"프리셋","x":0.423828125,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"미션","x":0.574999988079071,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"친구","x":0.726171851158142,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"상점 · 모두 0원","x":0.877343773841858,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"저장 모드 · 기기 저장","x":0.160937502980232,"y":0.581944465637207}
+FOREST_ARENA_BACK_REQUEST {"msec":34132,"previous_msec":32367,"screen":"controls"}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"자현","x":0.168359369039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"묘령","x":0.359765619039536,"y":0.412499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"나비","x":0.168359369039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"유란","x":0.359765619039536,"y":0.701388895511627}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"로비","x":0.28515625,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"prepare","text":"대전 시작","x":0.71484375,"y":0.81805557012558}
+FOREST_ARENA_UI_BUTTON {"screen":"match","text":"일시정지","x":0.893750011920929,"y":0.287499994039536}
+FOREST_ARENA_UI_BUTTON {"screen":"pause","text":"계속하기","x":0.5,"y":0.347222208976746}
+FOREST_ARENA_UI_BUTTON {"screen":"pause","text":"조작 설정","x":0.5,"y":0.447222232818604}
+FOREST_ARENA_UI_BUTTON {"screen":"pause","text":"대전 종료 · 준비 화면","x":0.5,"y":0.547222197055817}
+FOREST_ARENA_BACK_REQUEST {"msec":36843,"previous_msec":34132,"screen":"controls"}
+FOREST_ARENA_UI_BUTTON {"screen":"pause","text":"계속하기","x":0.5,"y":0.347222208976746}
+FOREST_ARENA_UI_BUTTON {"screen":"pause","text":"조작 설정","x":0.5,"y":0.447222232818604}
+FOREST_ARENA_UI_BUTTON {"screen":"pause","text":"대전 종료 · 준비 화면","x":0.5,"y":0.547222197055817}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"접근성 설정","x":0.869531273841858,"y":0.0791666656732559}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"오프라인 대전","x":0.840624988079071,"y":0.727777779102325}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"LAN 1:1 · 같은 Wi-Fi","x":0.840624988079071,"y":0.591666638851166}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"캐릭터","x":0.122265622019768,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"장신구","x":0.273046880960464,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"프리셋","x":0.423828125,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"미션","x":0.574999988079071,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"친구","x":0.726171851158142,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"상점 · 모두 0원","x":0.877343773841858,"y":0.88611114025116}
+FOREST_ARENA_UI_BUTTON {"screen":"home","text":"저장 모드 · 기기 저장","x":0.160937502980232,"y":0.581944465637207}
+ERROR: owned accessory selection applies real profile
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: native control exists: menu/accessory_collection/accessory/iron_armor
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 0 stores chosen native draft
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 0 applies chosen real loadout
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: native control exists: menu/accessory_collection/accessory/boxing_gloves
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 1 stores chosen native draft
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 1 applies chosen real loadout
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: native control exists: menu/accessory_collection/accessory/thorns
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 2 stores chosen native draft
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 2 applies chosen real loadout
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: native control exists: menu/accessory_collection/accessory/explosive_gloves
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 3 stores chosen native draft
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+ERROR: slot 3 applies chosen real loadout
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://tests/premium_menu_runtime.gd:149)
+PREMIUM_MENU_RUNTIME: FAIL (1199 checks)
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

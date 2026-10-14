@@ -1,0 +1,651 @@
+{
+  "autocontrol": false,
+  "boot_id": "4266-537c7ecec3cb00fb",
+  "case_id": "DEV-01",
+  "combat_events": [
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 1,
+      "state": "FALL",
+      "tick": 8,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 2,
+      "state": "FALL",
+      "tick": 8,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 1,
+        "fighter_id": "player",
+        "tick": 16
+      },
+      "seq": 3,
+      "tick": 15
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 2,
+        "fighter_id": "ai_1",
+        "tick": 16
+      },
+      "seq": 4,
+      "tick": 15
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 5,
+      "state": "IDLE",
+      "tick": 16,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 6,
+      "state": "RUN",
+      "tick": 16,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    }
+  ],
+  "command_error": "",
+  "command_seq": 0,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "emulator",
+  "foreground": true,
+  "input_reset_count": 0,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 1,
+  "msec": 15455,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": false,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-iron-armor"
+    ],
+    "characters": [
+      "ja-hyun"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/menu_emu_4fae78c1a0554aab",
+  "reconnecting": false,
+  "reset_snapshot": {
+    "fighters": [
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "player",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -180.0,
+          "y": 534.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "FALL",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 186.667007446289
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": -1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_1",
+        "input_direction": 1,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1142.0,
+          "y": 534.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "FALL",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": -240.0,
+          "y": 186.667007446289
+        }
+      }
+    ],
+    "guard_max": 100.0,
+    "is_draw": false,
+    "mode": 3,
+    "paused": false,
+    "tick": 8,
+    "ultimate_gauge_max": 100.0,
+    "winner_id": "",
+    "winner_team_id": ""
+  },
+  "run_id": "menu_emu_4fae78c1a0554aab",
+  "schema_version": 1,
+  "screen": "pause",
+  "snapshot": {
+    "fighters": [
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "player",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": true,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -180.0,
+          "y": 571.989990234375
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 14,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/ja-hyun/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 704.0,
+            "y": 194.999969482422
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": -1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_1",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": true,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1019.833984375,
+          "y": 571.924987792969
+        },
+        "presentation": {
+          "animation": "run",
+          "available": true,
+          "frame": 9,
+          "missing_motion": "",
+          "requested_motion": "run",
+          "resource_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+          "screen_bounds": {
+            "height": 209.454528808594,
+            "width": 209.45458984375,
+            "x": 2495.02319335938,
+            "y": 177.994201660156
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "RUN",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": -300.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "guard_max": 100.0,
+    "is_draw": false,
+    "mode": 3,
+    "paused": true,
+    "tick": 33,
+    "ultimate_gauge_max": 100.0,
+    "winner_id": "",
+    "winner_team_id": ""
+  },
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": [
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 1,
+        "state": "FALL",
+        "tick": 8,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 2,
+        "state": "FALL",
+        "tick": 8,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 1,
+          "fighter_id": "player",
+          "tick": 16
+        },
+        "seq": 3,
+        "tick": 15
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 2,
+          "fighter_id": "ai_1",
+          "tick": 16
+        },
+        "seq": 4,
+        "tick": 15
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 5,
+        "state": "IDLE",
+        "tick": 16,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 6,
+        "state": "RUN",
+        "tick": 16,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      }
+    ]
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.0805555555555556,
+      "id": "pause/button/계속하기/0",
+      "kind": "button",
+      "node_name": "@Button@340",
+      "text": "계속하기",
+      "visible": true,
+      "width": 0.4325,
+      "x": 0.5,
+      "y": 0.351388888888889
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "pause/button/조작 설정/0",
+      "kind": "button",
+      "node_name": "@Button@341",
+      "text": "조작 설정",
+      "visible": true,
+      "width": 0.4325,
+      "x": 0.5,
+      "y": 0.451388888888889
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "pause/button/대전 종료 · 준비 화면/0",
+      "kind": "button",
+      "node_name": "@Button@342",
+      "text": "대전 종료 · 준비 화면",
+      "visible": true,
+      "width": 0.4325,
+      "x": 0.5,
+      "y": 0.551388888888889
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1600.0
+  }
+}

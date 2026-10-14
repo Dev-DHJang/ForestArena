@@ -33,6 +33,7 @@ func wait_idle() -> void:
 	while app.storage_busy and Time.get_ticks_msec() < deadline:
 		await create_timer(0.02).timeout
 	check(not app.storage_busy, "request finishes before timeout")
+	await create_timer(0.24).timeout
 	await process_frame
 
 func button(text: String) -> Button:
@@ -53,8 +54,9 @@ func run() -> void:
 		quit(1)
 		return
 	if "--restore" in OS.get_cmdline_user_args(): phase = "restore"
-	source_path = "user://db-test-%s-local.json" % run_id
-	session_path = "user://db-test-%s-session.json" % run_id
+	source_path = "user://db-test-%s/profile.json" % run_id
+	DirAccess.make_dir_recursive_absolute(source_path.get_base_dir())
+	session_path = source_path.get_base_dir() + "/db-session.json"
 	if phase == "write":
 		var source := LocalPlayerStore.new(LocalPlayCatalog.new(), source_path)
 		check(source.grant_first("nabi"), "create existing local source")
@@ -79,9 +81,11 @@ func run() -> void:
 		# Choose specific shop rows so the test is independent of catalog ordering.
 		for item: Dictionary in app.catalog.products:
 			if not app.store.owns(item.id):
-				await press("0원 · 무료 구매")
+				await press_qa("purchase/" + String(item.id))
+				await press_qa("menu/shop/purchase_confirm/" + String(item.id))
 		check(app.store.data.characters.size() == 4 and app.store.data.accessories.size() == 6, "shop UI persists full catalog")
-		await press("로비")
+		app.handle_back_request()
+		await wait_idle()
 		await press("오프라인 대전")
 		await press("유란")
 		check(app.store.data.selected_character == "yu-ran", "character UI saves selection")
@@ -151,8 +155,9 @@ func run() -> void:
 func test_first_grant_conflict() -> void:
 	var previous := app
 	app = (load("res://scenes/local_ai_app.tscn") as PackedScene).instantiate()
-	app.save_path = "user://db-test-%s-fresh.json" % run_id
-	app.db_session_path = "user://db-test-%s-fresh-session.json" % run_id
+	app.save_path = "user://db-test-%s-fresh/profile.json" % run_id
+	DirAccess.make_dir_recursive_absolute(app.save_path.get_base_dir())
+	app.db_session_path = app.save_path.get_base_dir() + "/db-session.json"
 	root.add_child(app)
 	await process_frame
 	await app._connect_db(false)
@@ -170,3 +175,12 @@ func finish() -> void:
 	app.queue_free()
 	await process_frame
 	quit(0 if failures.is_empty() else 1)
+
+func press_qa(id: String) -> void:
+	for item: Node in app.page.find_children("*", "Button", true, false):
+		if item.get_meta("qa_id", "") == id:
+			item.pressed.emit()
+			await wait_idle()
+			await process_frame
+			return
+	check(false, "button exists: " + id)

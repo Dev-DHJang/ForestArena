@@ -39,6 +39,9 @@ godot --headless --path . --script res://tests/ui_design_contract.gd
 godot --headless --path . --script res://tests/battle_minimap.gd
 godot --headless --path . --script res://tests/battle_minimap_app_flow.gd
 godot --headless --path . --script res://tests/local_player_store.gd
+godot --headless --path . --script res://tests/menu_state_store.gd
+godot --headless --path . --script res://tests/menu_touch_controls.gd
+godot --headless --path . --script res://tests/premium_menu_runtime.gd
 godot --headless --path . --script res://tests/demo_guest_client.gd
 godot --headless --path . --script res://tools/forest_arena/profile_catalog.gd
 godot --headless --path . --script res://tests/local_ai_behavior.gd

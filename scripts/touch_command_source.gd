@@ -3,6 +3,7 @@ signal diagnostic_event(action: StringName, edge: String)
 
 ## A single cardinal pad occupies the lower-left 42% inside the 6.5% safe edge.
 const SAFE_EDGE_RATIO := 0.065
+const MENU_STORE := preload("res://scripts/premium_menu/local_menu_state_store.gd")
 const GEOMETRY := preload("res://scripts/combat_ui_geometry.gd")
 var local_fighter_id: StringName = &"player"
 var safe_area_override := Rect2()
@@ -29,6 +30,7 @@ var extended_actions := false
 const NO_MOVEMENT_POINTER := -2147483648
 const FORESTLIGHT_ACTIONS := {&"attack_light": "light", &"attack_heavy": "heavy", &"attack_special": "special", &"jump": "jump", &"dash": "dash", &"evade": "dash", &"ultimate": "special"}
 var _movement_pointer := NO_MOVEMENT_POINTER
+var _movement_origin := Vector2.ZERO
 var _joystick_touch_rect := Rect2()
 var _touch_positions: Dictionary[int, Vector2] = {}
 var _joystick_knob: TextureRect
@@ -41,6 +43,9 @@ var _last_dpad_action: StringName = &""
 var _missing_resource_ids: PackedStringArray = []
 var _missing_label: Label
 var text_scale := 1.0
+var menu_controls: Dictionary = MENU_STORE.default_controls()
+var _floating_activation_rect := Rect2()
+var _fixed_joystick_rect := Rect2()
 
 
 func _ready() -> void:
@@ -144,10 +149,11 @@ func _layout_visuals() -> void:
 	if forestlight_controls:
 		var safe := safe_area_override if safe_area_override.has_area() else GEOMETRY.safe_rect(get_viewport())
 		var factor := viewport_size.y / 720.0
-		_joystick_touch_rect = Rect2(Vector2(safe.position.x + 48 * factor, safe.end.y - 264 * factor), Vector2.ONE * 224 * factor)
-		_dpad_visual.position = _joystick_touch_rect.position + Vector2.ONE * 5.333 * factor
-		_dpad_visual.size = Vector2.ONE * 213.333 * factor
-		_joystick_knob.size = Vector2.ONE * 74.667 * factor
+		var button_scale := float(menu_controls.button_scale)
+		var original_pad := Rect2(Vector2(safe.position.x + 48 * factor, safe.end.y - 264 * factor), Vector2.ONE * 224 * factor)
+		_floating_activation_rect = Rect2(Vector2(safe.position.x, maxf(safe.position.y, viewport_size.y * 0.58)), Vector2(safe.size.x * 0.42, safe.end.y - maxf(safe.position.y, viewport_size.y * 0.58)))
+		_fixed_joystick_rect = _bounded_rect(original_pad.get_center(), original_pad.size * button_scale, safe)
+		_position_joystick(_fixed_joystick_rect)
 		# Centers and diameters are the single source for the pictures and hit regions.
 		var centers := {
 			&"attack_light": Vector2(200, 160), &"attack_heavy": Vector2(90, 236),
@@ -157,9 +163,10 @@ func _layout_visuals() -> void:
 		}
 		for action: StringName in ACTIONS:
 			var diameter := 96.0 if action == &"attack_light" else (64.0 if action == &"ultimate" else 80.0)
-			var extent := Vector2.ONE * diameter * factor
-			_action_visuals[action].position = safe.end - centers[action] * factor - extent * 0.5
-			_action_visuals[action].size = extent
+			var extent := Vector2.ONE * diameter * factor * button_scale
+			var rect := _bounded_rect(safe.end - centers[action] * factor, extent, safe)
+			_action_visuals[action].position = rect.position
+			_action_visuals[action].size = rect.size
 		for action: StringName in _status_labels:
 			var visual: TextureRect = _action_visuals[action]
 			_status_labels[action].position = visual.position + Vector2(-12 * factor, visual.size.y + 2 * factor)
@@ -170,6 +177,7 @@ func _layout_visuals() -> void:
 		_guard_label.size = Vector2(116, 26) * factor
 		_missing_label.position = Vector2(viewport_size.x * 0.48, 280 * factor)
 		_missing_label.size = Vector2(viewport_size.x * 0.50, 32 * factor)
+		_apply_control_opacity()
 		_refresh_visuals()
 		return
 	var pad := Rect2(viewport_size.x * SAFE_EDGE_RATIO, viewport_size.y * 0.58, viewport_size.x * 0.42, viewport_size.y * 0.355)
@@ -231,15 +239,48 @@ func apply_accessibility(settings: Dictionary) -> void:
 		label.add_theme_font_size_override("font_size", roundi(base_size * text_scale))
 
 
+## Applying a draft is explicit; invalid drafts never change the live controls.
+func apply_menu_controls(settings: Dictionary) -> void:
+	if not MENU_STORE.valid_controls(settings): return
+	release_all_touches()
+	menu_controls = settings.duplicate(true)
+	if _dpad_visual != null: _layout_visuals()
+
+
+func _apply_control_opacity() -> void:
+	var alpha := 1.0 - float(menu_controls.button_transparency) / 100.0
+	_dpad_visual.modulate.a = alpha
+	_joystick_knob.modulate.a = alpha
+	for visual: TextureRect in _action_visuals.values(): visual.modulate.a = alpha
+
+
+func _bounded_rect(center: Vector2, extent: Vector2, bounds: Rect2) -> Rect2:
+	var actual := Vector2(minf(extent.x, bounds.size.x), minf(extent.y, bounds.size.y))
+	var half := actual * 0.5
+	var position := Vector2(clampf(center.x - half.x, bounds.position.x, bounds.end.x - actual.x), clampf(center.y - half.y, bounds.position.y, bounds.end.y - actual.y))
+	return Rect2(position, actual)
+
+
+func _position_joystick(rect: Rect2) -> void:
+	_joystick_touch_rect = rect
+	_dpad_visual.position = rect.position + rect.size * (5.333 / 224.0)
+	_dpad_visual.size = rect.size * (213.333 / 224.0)
+	_joystick_knob.size = rect.size * (74.667 / 224.0)
+
+
 func _assign(index: int, position: Vector2) -> void:
 	if forestlight_controls:
 		if _touch_actions.has(index): return
-		if _joystick_touch_rect.has_point(position):
+		var floating: bool = menu_controls.joystick_mode == "floating"
+		var movement_contact := _floating_activation_rect.has_point(position) if floating else _joystick_touch_rect.has_point(position)
+		if movement_contact:
 			if _movement_pointer != NO_MOVEMENT_POINTER: return
+			if floating: _position_joystick(_bounded_rect(position, _fixed_joystick_rect.size, _floating_activation_rect))
 			_movement_pointer = index
+			_movement_origin = position if floating else _joystick_touch_rect.get_center()
 			_touch_actions[index] = &""
 		_touch_positions[index] = position
-	var action := _action_for(position)
+	var action := _joystick_action(position) if forestlight_controls and index == _movement_pointer else _action_for(position)
 	if not action.is_empty(): _press(index, action)
 	elif forestlight_controls: _refresh_visuals()
 
@@ -250,7 +291,7 @@ func _drag_owned(index: int, position: Vector2) -> void:
 	if index != _movement_pointer: return # Action ownership survives leaving its button.
 	var next := _joystick_action(position)
 	if _touch_actions[index] != next:
-		_release(index)
+		_release(index, false)
 		_movement_pointer = index
 		_touch_actions[index] = &""
 		_touch_positions[index] = position
@@ -270,12 +311,15 @@ func _press(index: int, action: StringName) -> void:
 	diagnostic_event.emit(action, "press")
 
 
-func _release(index: int) -> void:
+func _release(index: int, reset_joystick: bool = true) -> void:
+	_touch_positions.erase(index)
 	if not _touch_actions.has(index): return
 	var action: StringName = _touch_actions[index]
 	_touch_actions.erase(index)
 	_touch_positions.erase(index)
-	if _movement_pointer == index: _movement_pointer = NO_MOVEMENT_POINTER
+	if _movement_pointer == index:
+		_movement_pointer = NO_MOVEMENT_POINTER
+		if reset_joystick and forestlight_controls and menu_controls.joystick_mode == "floating": _position_joystick(_fixed_joystick_rect)
 	if action.is_empty():
 		_refresh_visuals()
 		return
@@ -302,8 +346,9 @@ func _refresh_visuals() -> void:
 	if forestlight_controls:
 		_dpad_visual.texture = _textures.get("fa.ui.forestlight.joystick.neutral" if _last_dpad_action.is_empty() else "fa.ui.forestlight.joystick.active")
 		if _joystick_knob != null:
-			var offset: Vector2 = _touch_positions.get(_movement_pointer, _joystick_touch_rect.get_center()) - _joystick_touch_rect.get_center()
-			offset = offset.limit_length(29.333 * get_viewport_rect().size.y / 720.0)
+			var origin := _movement_origin if _movement_pointer != NO_MOVEMENT_POINTER else _joystick_touch_rect.get_center()
+			var offset: Vector2 = _touch_positions.get(_movement_pointer, origin) - origin
+			offset = offset.limit_length(_joystick_touch_rect.size.x * (29.333 / 224.0))
 			_joystick_knob.position = _joystick_touch_rect.get_center() + offset - _joystick_knob.size * 0.5
 		for action: StringName in ACTIONS:
 			_action_visuals[action].texture = _textures.get(_forestlight_action_id(action, "pressed" if int(_action_touch_counts.get(action, 0)) > 0 else ("disabled" if _is_action_unready(action) else "default")))
@@ -337,7 +382,7 @@ func _action_for(position: Vector2) -> StringName:
 		if not safe.has_point(position): return &""
 		for action: StringName in ACTIONS:
 			if Rect2(_action_visuals[action].position, _action_visuals[action].size).has_point(position): return action
-		return _joystick_action(position) if _joystick_touch_rect.has_point(position) else &""
+		return _joystick_action(position) if _joystick_touch_rect.has_point(position) and menu_controls.joystick_mode == "fixed" else &""
 	var size := get_viewport_rect().size
 	var normalized := position / size
 	if normalized.x < SAFE_EDGE_RATIO or normalized.x > 1.0 - SAFE_EDGE_RATIO or normalized.y < 0.58: return &""
@@ -362,7 +407,8 @@ func _action_for(position: Vector2) -> StringName:
 
 
 func _joystick_action(position: Vector2) -> StringName:
-	var offset := position - _joystick_touch_rect.get_center()
+	var origin := _movement_origin if menu_controls.joystick_mode == "floating" and _movement_pointer != NO_MOVEMENT_POINTER else _joystick_touch_rect.get_center()
+	var offset := position - origin
 	if offset.length() < _joystick_touch_rect.size.x * 0.20: return &""
 	if absf(offset.x) >= absf(offset.y): return &"move_right" if offset.x > 0 else &"move_left"
 	return &"move_down" if offset.y > 0 else &"move_up"

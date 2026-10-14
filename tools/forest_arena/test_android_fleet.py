@@ -307,17 +307,151 @@ class RunnerTests(unittest.TestCase):
         self.assertIsNone(artifact['after'])
         self.assertIsNone(artifact['unchanged'])
         self.assertEqual(d.results[-1]['status'],'blocked')
-    def test_shop_scroll_avoids_right_purchase_button_column(self):
-        hidden = {'id':'purchase/ultimate','x':.75,'y':1.03,'visible':False}
+    def premium_initial_ui(self, *, failed_purchase=None, failed_settings=False, corrupt_relaunch=False):
+        """Drive real node lookup/tap/wait code against a tiny native-menu model."""
+        d = self.device([])
+        profile = {'characters': [], 'accessories': [], 'accessibility': {'reduce_visual_effects': False}}
+        model = {'screen': 'first_selection', 'category': 'character', 'modal': None,
+                 'settings_category': 'accessibility', 'draft': False, 'boot_id': 'first-boot'}
+        touched, launches = [], []
+
+        def render():
+            nodes = []
+            def button(id, text, disabled=False):
+                nodes.append({'id': id, 'text': text, 'kind': 'button', 'x': .3,
+                              'y': .2 + len(nodes)*.075, 'visible': True, 'disabled': disabled})
+            if model['screen'] == 'first_selection':
+                button('grant/ja-hyun', '자현')
+            elif model['screen'] == 'home':
+                button('home/shop', '상점 · 모두 0원')
+                button('home/accessibility', '접근성 설정')
+            elif model['screen'] == 'shop':
+                if model['modal']:
+                    button('menu/shop/purchase_confirm/' + model['modal'], '0원 · 구매 확인')
+                else:
+                    button('menu/shop/category/character', '캐릭터')
+                    button('menu/shop/category/accessory', '장신구')
+                    field = 'characters' if model['category'] == 'character' else 'accessories'
+                    products = fleet.CHARACTERS if field == 'characters' else fleet.ACCESSORIES[1:]
+                    for product_id in products:
+                        button('purchase/' + product_id, '보유 중' if product_id in profile[field] else '0원 · 무료 구매',
+                               product_id in profile[field])
+            elif model['screen'] == 'accessibility':
+                button('menu/settings/category/effects', '화면 효과')
+                if model['settings_category'] == 'effects':
+                    button('menu/settings/draft/reduce_visual_effects', '피격 번쩍임 줄이기')
+                    button('menu/settings/settings_apply', '적용')
+            self.adb.last = {'screen': model['screen'], 'boot_id': model['boot_id'],
+                             'profile': json.loads(json.dumps(profile)), 'ui': nodes}
+
+        def touch(x, y, hold_ms=0):
+            node = next(item for item in self.adb.last['ui'] if d.center(item) == (x, y))
+            id = node['id']
+            touched.append(id)
+            self.adb.commands.append([x, y, hold_ms])
+            if id == 'grant/ja-hyun':
+                profile['characters'].append('ja-hyun')
+                model['screen'] = 'home'
+            elif id == 'home/shop': model['screen'] = 'shop'
+            elif id.startswith('menu/shop/category/'):
+                model['category'] = id.rsplit('/', 1)[1]
+            elif id.startswith('purchase/'):
+                model['modal'] = id.split('/', 1)[1]
+            elif id.startswith('menu/shop/purchase_confirm/'):
+                product_id = id.rsplit('/', 1)[1]
+                self.assertEqual(model['modal'], product_id)
+                field = 'characters' if product_id in fleet.CHARACTERS else 'accessories'
+                if product_id != failed_purchase: profile[field].append(product_id)
+                model['modal'] = None
+            elif id == 'home/accessibility': model['screen'] = 'accessibility'
+            elif id == 'menu/settings/category/effects': model['settings_category'] = 'effects'
+            elif id == 'menu/settings/draft/reduce_visual_effects':
+                model['draft'] = True
+                self.assertFalse(profile['accessibility']['reduce_visual_effects'])
+            elif id == 'menu/settings/settings_apply':
+                if not failed_settings: profile['accessibility']['reduce_visual_effects'] = model['draft']
+            render()
+
+        def shell(*args, **kwargs):
+            self.adb.commands.append(list(args))
+            if args == ('input', 'keyevent', '4'):
+                model['screen'] = 'home'
+                render()
+            return ''
+
+        def launch(activity, run_id, alias):
+            launches.append((activity, run_id, alias))
+            model.update(screen='home', boot_id='second-boot')
+            if corrupt_relaunch: profile['accessories'].pop()
+            render()
+
+        self.adb.touch, self.adb.shell, self.adb.launch = touch, shell, launch
+        render()
+        return d, touched, launches
+
+    def test_initial_ui_native_shop_modal_settings_apply_and_cold_launch(self):
+        d, touched, launches = self.premium_initial_ui()
+        original = {'files/local_player.json': 'unchanged-original-hash'}
+        d.original_hashes = original.copy()
+        result = d.initial_ui()
+        expected = ['grant/ja-hyun', 'home/shop', 'menu/shop/category/character']
+        for product_id in fleet.CHARACTERS[1:]:
+            expected += ['purchase/' + product_id, 'menu/shop/purchase_confirm/' + product_id]
+        expected += ['menu/shop/category/accessory']
+        for product_id in fleet.ACCESSORIES[1:]:
+            expected += ['purchase/' + product_id, 'menu/shop/purchase_confirm/' + product_id]
+        expected += ['home/accessibility', 'menu/settings/category/effects',
+                     'menu/settings/draft/reduce_visual_effects', 'menu/settings/settings_apply']
+        self.assertEqual(touched, expected)
+        self.assertEqual(set(result['profile']['characters']), set(fleet.CHARACTERS))
+        self.assertEqual(set(result['profile']['accessories']), set(fleet.ACCESSORIES[1:]))
+        self.assertTrue(result['profile']['accessibility']['reduce_visual_effects'])
+        self.assertTrue(result['relaunched'])
+        self.assertEqual(launches, [('Game', 'test-run', 'device-1')])
+        self.assertEqual(d.original_hashes, original)
+        self.assertFalse(any(isinstance(command, dict) for command in self.adb.commands))
+        records = [json.loads(line) for line in (self.output/'adb-touch.jsonl').read_text().splitlines()]
+        self.assertEqual([record['id'] for record in records], expected)
+
+    def test_initial_ui_does_not_count_modal_open_as_purchase(self):
+        d, touched, launches = self.premium_initial_ui(failed_purchase='myo-ryung')
+        with self.assertRaisesRegex(fleet.Failure, '상점 구매 저장 myo-ryung'):
+            d.initial_ui()
+        self.assertIn('menu/shop/purchase_confirm/myo-ryung', touched)
+        self.assertNotIn('purchase/nabi', touched)
+        self.assertEqual(launches, [])
+
+    def test_initial_ui_requires_settings_apply_success(self):
+        d, touched, launches = self.premium_initial_ui(failed_settings=True)
+        with self.assertRaisesRegex(fleet.Failure, '화면 효과 설정 적용'):
+            d.initial_ui()
+        self.assertEqual(touched[-1], 'menu/settings/settings_apply')
+        self.assertEqual(launches, [])
+
+    def test_initial_ui_cold_launch_restoration_failure_is_reported(self):
+        d, _, launches = self.premium_initial_ui(corrupt_relaunch=True)
+        with self.assertRaisesRegex(fleet.Failure, '재실행 뒤 보유·선택·설정'):
+            d.initial_ui()
+        self.assertEqual(launches, [('Game', 'test-run', 'device-1')])
+
+    def test_shop_scroll_uses_product_body_avoids_left_category_rail(self):
+        hidden = {'id':'purchase/fixture-ultimate-charm','x':.75,'y':1.03,'visible':False}
         shown = {**hidden,'y':.70,'visible':True}
-        d = self.device([{'ui':[hidden]},{'ui':[shown]}])
+        d = self.device([{'screen':'shop','ui':[hidden]},{'screen':'shop','ui':[shown]}])
         d.physical_size = (3088,1440)
-        self.assertEqual(d.node(id='purchase/ultimate'),shown)
+        self.assertEqual(d.node(id='purchase/fixture-ultimate-charm'),shown)
         swipe = self.adb.commands[0]
         self.assertEqual(swipe[:2],['input','swipe'])
-        self.assertEqual(swipe[2],str(round(3088*.19)))
+        self.assertEqual(swipe[2],str(round(3088*.40)))
         self.assertEqual(swipe[2],swipe[4])
-        self.assertLess(int(swipe[2]),3088*.4)
+        self.assertGreater(int(swipe[2]),3088*.25)
+
+    def test_nonshop_scroll_keeps_existing_position(self):
+        hidden = {'id':'legacy/choice','x':.75,'y':1.03,'visible':False}
+        shown = {**hidden,'y':.70,'visible':True}
+        d = self.device([{'screen':'prepare','ui':[hidden]},{'screen':'prepare','ui':[shown]}])
+        self.assertEqual(d.node(id='legacy/choice'), shown)
+        self.assertEqual(self.adb.commands[0][2], str(round(1280*.19)))
     def test_websocket_handshake_eof_fails_immediately(self):
         sock = Mock()
         sock.recv.return_value = b''

@@ -1,0 +1,53 @@
+{
+  "kind": "emulator_only",
+  "physical_device_status": "미확인",
+  "run_id": "menu_emu_36e2b635d6564cad",
+  "serial": "emulator-5554",
+  "apk": "/Users/jdh/.codex/worktrees/premium-menu-v07/ForestArena/build/android/ForestArena-debug.apk",
+  "apk_sha256": "14f0a5d9bbf77c997f4da6bf1b56e3e73d4b57a415ea761810ade815fd9e053b",
+  "checks": [
+    {
+      "name": "cold-start",
+      "status": "pass",
+      "boot_id": "4525-be16827538c0d25f"
+    },
+    {
+      "name": "first-grant",
+      "status": "pass",
+      "character": "ja-hyun"
+    },
+    {
+      "name": "character-back-lobby",
+      "status": "pass"
+    },
+    {
+      "name": "zero-price-modal-purchase",
+      "status": "pass",
+      "id": "fixture-iron-armor"
+    },
+    {
+      "name": "controls-apply-relaunch-restore",
+      "status": "pass",
+      "controls": {
+        "button_scale": 1.0,
+        "button_transparency": 0,
+        "joystick_mode": "floating"
+      }
+    },
+    {
+      "name": "pause-controls-back-resume",
+      "status": "pass"
+    }
+  ],
+  "original_hashes_before": {},
+  "physical_landscape_size": [
+    2400,
+    1080
+  ],
+  "status": "pass",
+  "original_hashes_after": {},
+  "original_hashes_unchanged": true,
+  "elapsed_seconds": 73.2,
+  "version_label": "before_final_copy_fix",
+  "production_source_sha256": "24093d67098649de9e2f1c72f6e3822fe7a585b8b272a96cbf613337f9c22973"
+}

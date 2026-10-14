@@ -6,6 +6,10 @@ const PRESENTATION = preload("res://scripts/local_fighter_presentation.gd")
 const BOT = preload("res://scripts/local_ai_command_source.gd")
 const EXTRA_FIGHTER_SCENE := preload("res://scenes/fighters/ja_hyun_fighter.tscn")
 const FORESTLIGHT := preload("res://scripts/forestlight_ui.gd")
+const MENU_ROUTER = preload("res://scripts/premium_menu/premium_menu_router.gd")
+const MENU_STORE = preload("res://scripts/premium_menu/local_menu_state_store.gd")
+var menu_router
+var menu_store
 const BACK_REQUEST_DEBOUNCE_MSEC := 200
 var catalog := LocalPlayCatalog.new()
 var store: LocalPlayerStore
@@ -72,6 +76,9 @@ func _ready() -> void:
 	demo_guest.session_path = demo_guest_session_path
 	add_child(demo_guest)
 	store = LocalPlayerStore.new(catalog, save_path)
+	menu_store = MENU_STORE.new(save_path.get_base_dir(), catalog)
+	menu_store.load_controls()
+	menu_router = MENU_ROUTER.new(self)
 	db_client = DbProfileClient.new()
 	db_client.session_path = db_session_path
 	add_child(db_client)
@@ -94,6 +101,7 @@ func _attach_qa_session() -> void:
 	if qa_session != null: add_child(qa_session)
 
 func _new_page(title: String, background := true) -> void:
+	if menu_router != null: menu_router.reset()
 	_qa_button_counts.clear()
 	ForestArenaAudio.set_context(screen)
 	if page != null:
@@ -174,10 +182,12 @@ func _button(text: String, callback: Callable, parent: Node = null, disabled := 
 		ForestArenaAudio.play_event(&"ui_back" if text in ["로비", "취소", "계속하기", "대전 준비", "LAN 메뉴"] else &"ui_click", {})
 		callback.call())
 	(parent if parent != null else body).add_child(button)
-	if OS.is_debug_build(): _log_button.call_deferred(button)
+	if OS.is_debug_build(): _log_button.call_deferred(weakref(button))
 	return button
 
-func _log_button(button: Button) -> void:
+func _log_button(button_ref: WeakRef) -> void:
+	var button := button_ref.get_ref() as Button
+	if not is_instance_valid(button): return
 	await get_tree().process_frame
 	await get_tree().process_frame
 	if not is_instance_valid(button) or not button.is_inside_tree() or button.disabled: return
@@ -297,7 +307,8 @@ func _show_home() -> void:
 	var menus := ["캐릭터", "장신구", "프리셋", "미션", "친구", "상점 · 모두 0원"]
 	var icons := ["character", "accessory", "job", "mission", "social", "shop"]
 	for index: int in menus.size():
-		var menu := _button(menus[index], _show_prepare if index < 2 else (_show_shop if index == 5 else _show_unavailable.bind(menus[index])), navigation)
+		var menu_ids := ["character_collection", "accessory_collection", "preset", "mission", "social", "shop"]
+		var menu := _button(menus[index], _show_premium_menu.bind(menu_ids[index]), navigation)
 		menu.custom_minimum_size = Vector2(180, 72)
 		menu.add_theme_font_size_override("font_size", roundi(18 * _text_scale()))
 		FORESTLIGHT.skin_button(menu, "nav")
@@ -523,6 +534,7 @@ func _start_lan_match() -> void:
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
 	add_child(match_scene)
+	_apply_menu_control_settings()
 	match_controller = match_scene.get_node("MatchController") as MatchController
 	match_controller.set_physics_process(false)
 	match_controller.pause_match(true)
@@ -713,54 +725,33 @@ func _leave_lan_to_home() -> void:
 	_close_match()
 	_show_home()
 
-func _show_shop() -> void:
-	screen = "shop"
-	_new_page("상점 · 0원 무료 구매")
-	for item: Dictionary in catalog.products:
-		var row := HBoxContainer.new()
-		body.add_child(row)
-		var image := TextureRect.new()
-		image.texture = catalog.combat.character_by_id(StringName(item.id)).concept_image if item.kind == "character" else ForestArenaResources.load_texture(item.asset_id)
-		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		image.custom_minimum_size = Vector2(64, 64)
-		row.add_child(image)
-		var text := Label.new()
-		text.text = "%s · %s" % [item.name, item.description]
-		text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		row.add_child(text)
-		var owned := store.owns(item.id)
-		var purchase_button := _button("보유 중" if owned else "0원 · 무료 구매", func() -> void:
-			if not await _change_profile("purchase", {"id": item.id}): message = store.error
-			_show_shop(), row, owned)
-		purchase_button.set_meta("qa_id", "purchase/" + String(item.id))
-	_button("로비", _show_home)
+func _show_premium_menu(menu_id: String, params: Dictionary = {}) -> void:
+	menu_router.open(menu_id, params)
 
+func _display_premium_view(next_view: Control, menu_id: String) -> void:
+	_qa_button_counts.clear()
+	if is_instance_valid(page):
+		layer.remove_child(page)
+		page.queue_free()
+	page = next_view
+	body = null
+	screen = "accessibility" if menu_id == "settings" else menu_id
+	ForestArenaAudio.set_context("pause" if menu_router.state.get("entry_context", "lobby") == "pause" else "home")
+	layer.add_child(page)
+	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+
+func _menu_owner_key() -> String:
+	return "db:" + (db_client.api_url + ":" + db_client.player_id).sha256_text() if db_mode else "device"
+
+func _apply_menu_control_settings() -> void:
+	if is_instance_valid(match_scene):
+		match_scene.get_node("Interface/TouchCommandSource").apply_menu_controls(menu_store.controls)
+
+func _show_shop() -> void:
+	_show_premium_menu("shop")
 
 func _show_accessibility() -> void:
-	screen = "accessibility"
-	_new_page("접근성 설정")
-	_label("설정은 로컬 DB에 저장됩니다." if db_mode else "설정은 이 기기에 저장됩니다.", 18)
-	var settings: Dictionary = store.data.accessibility
-	var scales := [1.0, 1.15, 1.3]
-	_choice_labels("텍스트 크기", ["기본", "크게", "매우 크게"], scales.find(float(settings.text_scale)), func(index: int) -> void:
-		await _change_profile("accessibility", {"text_scale": scales[index], "reduce_visual_effects": bool(settings.reduce_visual_effects), "haptics_enabled": bool(settings.haptics_enabled)})
-		_show_accessibility())
-	_toggle("피격 번쩍임 줄이기", bool(settings.reduce_visual_effects), func(value: bool) -> void:
-		await _change_profile("accessibility", {"text_scale": float(settings.text_scale), "reduce_visual_effects": value, "haptics_enabled": bool(settings.haptics_enabled)})
-		_show_accessibility())
-	_toggle("진동 피드백", bool(settings.haptics_enabled), func(value: bool) -> void:
-		await _change_profile("accessibility", {"text_scale": float(settings.text_scale), "reduce_visual_effects": bool(settings.reduce_visual_effects), "haptics_enabled": value})
-		_show_accessibility())
-	_add_minimap_settings()
-	_label("소리 설정은 이 기기에 저장됩니다.", 18)
-	_toggle("전체 음소거", ForestArenaAudio.muted, func(value: bool) -> void:
-		_save_audio_levels(ForestArenaAudio.music_level, ForestArenaAudio.effects_level, value))
-	_audio_slider("음악 음량", ForestArenaAudio.music_level, true)
-	_audio_slider("효과음 음량", ForestArenaAudio.effects_level, false)
-	_label("소리·진동이 없어도 HP, stock, 가드와 상태 표시는 텍스트로 확인할 수 있습니다.", 18)
-	_button("로비", _show_home)
+	_show_premium_menu("settings", {"category": "accessibility"})
 
 func _add_minimap_settings() -> void:
 	_label("닉네임과 미니맵", 26)
@@ -957,6 +948,7 @@ func start_match() -> void:
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
 	add_child(match_scene)
+	_apply_menu_control_settings()
 	match_scene.apply_accessibility(store.data.accessibility)
 	if OS.is_debug_build(): match_scene.add_child(load("res://scripts/local_performance_probe.gd").new())
 	match_scene.get_node("Interface/Restart").hide()
@@ -1099,6 +1091,7 @@ func pause_match() -> void:
 	screen = "pause"
 	_new_page("일시정지", false)
 	_button("계속하기", resume_match)
+	_button("조작 설정", _show_premium_menu.bind("controls", {"entry_context": "pause"}))
 	_button("대전 종료 · 준비 화면", func() -> void:
 		_close_match()
 		_show_prepare())
@@ -1118,6 +1111,8 @@ func handle_back_request(request_msec: int = -1) -> void:
 	if now_msec >= last_back_request_msec and now_msec - last_back_request_msec < BACK_REQUEST_DEBOUNCE_MSEC:
 		return
 	last_back_request_msec = now_msec
+	if menu_router != null and is_instance_valid(menu_router.view) and menu_router.view == page:
+		if menu_router.handle_back(): return
 	match screen:
 		"shop", "prepare", "accessibility", "unavailable":
 			_show_home()
@@ -1275,11 +1270,16 @@ func _change_profile(action: String, payload: Dictionary) -> bool:
 func _retry_db() -> void:
 	if storage_busy: return
 	var previous_screen := screen
+	var previous_menu: Dictionary = menu_router.state.duplicate(true) if menu_router != null else {}
 	var overlay := _busy_overlay()
 	var ok := await db_client.retry(store)
 	overlay.queue_free()
 	storage_busy = false
 	message = "DB 저장 확인 완료" if ok else _db_error(db_client.error)
+	if not previous_menu.is_empty():
+		previous_menu["message"] = message
+		menu_router.open(previous_menu.id, previous_menu)
+		return
 	match previous_screen:
 		"shop": _show_shop()
 		"prepare": _show_prepare()

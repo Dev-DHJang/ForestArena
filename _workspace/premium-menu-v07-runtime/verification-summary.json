@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "commands": [
+    {
+      "command": "./scripts/verify.sh",
+      "status": "pass",
+      "log": "verify-final.log"
+    },
+    {
+      "command": "./scripts/verify-docs.sh",
+      "status": "pass",
+      "log": "docs-final.log"
+    },
+    {
+      "command": "python3 tools/forest_arena/verify_godot_resources.py --project-root .",
+      "status": "pass",
+      "logical_assets": 518,
+      "log": "resources-final.log"
+    },
+    {
+      "command": "./scripts/export-debug-android.sh",
+      "status": "pass",
+      "log": "android-export-delivery.log"
+    },
+    {
+      "command": "./scripts/verify-db-profile-runtime.sh",
+      "status": "pass",
+      "log": "db-runtime-r03-isolated.log"
+    },
+    {
+      "command": "godot --headless --path . --script res://tests/local_ai_app_flow.gd",
+      "status": "pass",
+      "log": "legacy-flow-deferred-fix.log",
+      "reason": "Last diagnostic-only WeakRef fix; no deferred button errors after fix"
+    }
+  ],
+  "native_checks": 2915,
+  "native_failures": 0,
+  "native_png_count": 62,
+  "emulator": {
+    "status": "pass",
+    "checks": 6,
+    "evidence": "emulator/menu_emu_4fae78c1a0554aab/summary.json"
+  },
+  "physical_android": {
+    "status": "not_run",
+    "reason": "No connected physical Android device"
+  },
+  "apk_sha256": "59c79c99f3f244f1c8ebe2423b021d716bbefc75d05f1be87c8419a4ab27af45",
+  "production_source_sha256": "a315794980e5992d1c768dce42f640aa3b50dc6514c5420ba0c5b99536fd4bbe",
+  "notes": [
+    "Full verify passed; its earlier deferred Button logging errors were subsequently fixed with WeakRef and the affected app-flow test passed with zero deferred errors. The pre-fix log is retained.",
+    "Some headless tests still emit resource-in-use warnings at shutdown; assertions and exit status pass. Native rendering and Android smoke do not show script or parse failures."
+  ],
+  "native_suite_png_count": 60,
+  "native_diagnostic_png_count": 2
+}
