@@ -1,0 +1,1225 @@
+{
+  "status": "PASS",
+  "browser": "Chrome actual Penpot viewer",
+  "viewport": [
+    1470,
+    746
+  ],
+  "tests": [
+    {
+      "name": "V07-CHAR-01 로비 → 캐릭터",
+      "from": "SCR_03_Lobby",
+      "click": [
+        252,
+        641
+      ],
+      "expected": "SCR_04_CharacterCollection",
+      "observed": "SCR_04_CharacterCollection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=119&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-02 균형 필터",
+      "from": "SCR_04_CharacterCollection",
+      "click": [
+        301,
+        204
+      ],
+      "expected": "MENU07 / SCR_04_CharacterCollection / char-0-tab-0-filter-균형",
+      "observed": "MENU07 / SCR_04_CharacterCollection / char-0-tab-0-filter-균형",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=64&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-03 전체 필터",
+      "from": "MENU07 / SCR_04_CharacterCollection / char-0-tab-0-filter-균형",
+      "click": [
+        217,
+        204
+      ],
+      "expected": "SCR_04_CharacterCollection",
+      "observed": "SCR_04_CharacterCollection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=119&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-04 묘령 목록 선택",
+      "from": "SCR_04_CharacterCollection",
+      "click": [
+        301,
+        389
+      ],
+      "expected": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-전체",
+      "observed": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=67&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-05 선택 캐릭터 상세",
+      "from": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-전체",
+      "click": [
+        990,
+        688
+      ],
+      "expected": "MENU07 / SCR_05_CharacterDetail / char-1-tab-0-filter-전체",
+      "observed": "MENU07 / SCR_05_CharacterDetail / char-1-tab-0-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=60&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-06 연계 탭",
+      "from": "MENU07 / SCR_05_CharacterDetail / char-1-tab-0-filter-전체",
+      "click": [
+        1096,
+        328
+      ],
+      "expected": "MENU07 / SCR_05_CharacterDetail / char-1-tab-1-filter-전체",
+      "observed": "MENU07 / SCR_05_CharacterDetail / char-1-tab-1-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=59&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-07 이야기 탭",
+      "from": "MENU07 / SCR_05_CharacterDetail / char-1-tab-1-filter-전체",
+      "click": [
+        1211,
+        328
+      ],
+      "expected": "MENU07 / SCR_05_CharacterDetail / char-1-tab-2-filter-전체",
+      "observed": "MENU07 / SCR_05_CharacterDetail / char-1-tab-2-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=58&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-08 상세 뒤로 선택 목록 복귀",
+      "from": "MENU07 / SCR_05_CharacterDetail / char-1-tab-2-filter-전체",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-전체",
+      "observed": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=67&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-09 목록 뒤로 로비",
+      "from": "MENU07 / SCR_04_CharacterCollection / char-1-tab-0-filter-전체",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-01 로비 → 장신구",
+      "from": "SCR_03_Lobby",
+      "click": [
+        371,
+        641
+      ],
+      "expected": "SCR_06_AccessoryCollection",
+      "observed": "SCR_06_AccessoryCollection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=117&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-02 기본 상세 열기",
+      "from": "SCR_06_AccessoryCollection",
+      "click": [
+        990,
+        688
+      ],
+      "expected": "SCR_07_AccessoryDetail",
+      "observed": "SCR_07_AccessoryDetail",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=116&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-03 상세 뒤로",
+      "from": "SCR_07_AccessoryDetail",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_06_AccessoryCollection",
+      "observed": "SCR_06_AccessoryCollection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=117&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-04 이동 필터",
+      "from": "SCR_06_AccessoryCollection",
+      "click": [
+        440,
+        204
+      ],
+      "expected": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-이동",
+      "observed": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-이동",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=41&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-05 기술 필터",
+      "from": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-이동",
+      "click": [
+        793,
+        204
+      ],
+      "expected": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-기술",
+      "observed": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-기술",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=39&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-06 전체 필터",
+      "from": "MENU07 / SCR_06_AccessoryCollection / item-0-filter-기술",
+      "click": [
+        263,
+        204
+      ],
+      "expected": "SCR_06_AccessoryCollection",
+      "observed": "SCR_06_AccessoryCollection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=117&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-07 도약 장갑 선택",
+      "from": "SCR_06_AccessoryCollection",
+      "click": [
+        784,
+        338
+      ],
+      "expected": "MENU07 / SCR_06_AccessoryCollection / item-3-filter-전체",
+      "observed": "MENU07 / SCR_06_AccessoryCollection / item-3-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=47&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-08 선택 상세 열기",
+      "from": "MENU07 / SCR_06_AccessoryCollection / item-3-filter-전체",
+      "click": [
+        990,
+        688
+      ],
+      "expected": "MENU07 / SCR_07_AccessoryDetail / item-3-filter-전체",
+      "observed": "MENU07 / SCR_07_AccessoryDetail / item-3-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=46&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-09 선택 상세 뒤로",
+      "from": "MENU07 / SCR_07_AccessoryDetail / item-3-filter-전체",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "MENU07 / SCR_06_AccessoryCollection / item-3-filter-전체",
+      "observed": "MENU07 / SCR_06_AccessoryCollection / item-3-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=47&zoom=fit"
+    },
+    {
+      "name": "V07-ACC-10 로비 복귀",
+      "from": "MENU07 / SCR_06_AccessoryCollection / item-3-filter-전체",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-PRESET-01 로비 → 프리셋",
+      "from": "SCR_03_Lobby",
+      "click": [
+        490,
+        641
+      ],
+      "expected": "SCR_08_Preset",
+      "observed": "SCR_08_Preset",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=115&zoom=fit"
+    },
+    {
+      "name": "V07-PRESET-02 편성 슬롯 2 선택",
+      "from": "SCR_08_Preset",
+      "click": [
+        595,
+        204
+      ],
+      "expected": "MENU07 / SCR_08_Preset / slot-1",
+      "observed": "MENU07 / SCR_08_Preset / slot-1",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=38&zoom=fit"
+    },
+    {
+      "name": "V07-PRESET-03 편성 슬롯 4 선택",
+      "from": "MENU07 / SCR_08_Preset / slot-1",
+      "click": [
+        1155,
+        204
+      ],
+      "expected": "MENU07 / SCR_08_Preset / slot-3",
+      "observed": "MENU07 / SCR_08_Preset / slot-3",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=36&zoom=fit"
+    },
+    {
+      "name": "V07-PRESET-04 로비 복귀",
+      "from": "MENU07 / SCR_08_Preset / slot-3",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-MISSION-01 로비 → 미션",
+      "from": "SCR_03_Lobby",
+      "click": [
+        608,
+        641
+      ],
+      "expected": "SCR_21_Mission",
+      "observed": "SCR_21_Mission",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=112&zoom=fit"
+    },
+    {
+      "name": "V07-MISSION-02 주간 분류",
+      "from": "SCR_21_Mission",
+      "click": [
+        513,
+        204
+      ],
+      "expected": "MENU07 / SCR_21_Mission / tab-1",
+      "observed": "MENU07 / SCR_21_Mission / tab-1",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=31&zoom=fit"
+    },
+    {
+      "name": "V07-MISSION-03 목표 상세",
+      "from": "MENU07 / SCR_21_Mission / tab-1",
+      "click": [
+        513,
+        417
+      ],
+      "expected": "MENU07 / SCR_21_Mission / detail-1",
+      "observed": "MENU07 / SCR_21_Mission / detail-1",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=13&zoom=fit"
+    },
+    {
+      "name": "V07-MISSION-04 상세 닫기",
+      "from": "MENU07 / SCR_21_Mission / detail-1",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "SCR_21_Mission",
+      "observed": "SCR_21_Mission",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=112&zoom=fit"
+    },
+    {
+      "name": "V07-MISSION-05 업적 분류",
+      "from": "SCR_21_Mission",
+      "click": [
+        738,
+        204
+      ],
+      "expected": "MENU07 / SCR_21_Mission / tab-2",
+      "observed": "MENU07 / SCR_21_Mission / tab-2",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=30&zoom=fit"
+    },
+    {
+      "name": "V07-MISSION-06 로비 복귀",
+      "from": "MENU07 / SCR_21_Mission / tab-2",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-FRIEND-01 로비 → 친구",
+      "from": "SCR_03_Lobby",
+      "click": [
+        727,
+        641
+      ],
+      "expected": "SCR_22_Social",
+      "observed": "SCR_22_Social",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=111&zoom=fit"
+    },
+    {
+      "name": "V07-FRIEND-02 최근 플레이어 탭",
+      "from": "SCR_22_Social",
+      "click": [
+        666,
+        204
+      ],
+      "expected": "MENU07 / SCR_22_Social / recent",
+      "observed": "MENU07 / SCR_22_Social / recent",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=27&zoom=fit"
+    },
+    {
+      "name": "V07-FRIEND-03 친구 선택",
+      "from": "MENU07 / SCR_22_Social / recent",
+      "click": [
+        502,
+        413
+      ],
+      "expected": "MENU07 / SCR_22_Social / friend-1",
+      "observed": "MENU07 / SCR_22_Social / friend-1",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=29&zoom=fit"
+    },
+    {
+      "name": "V07-FRIEND-04 친구 찾기 빈 결과",
+      "from": "MENU07 / SCR_22_Social / friend-1",
+      "click": [
+        265,
+        688
+      ],
+      "expected": "MENU07 / SCR_22_Social / search-empty",
+      "observed": "MENU07 / SCR_22_Social / search-empty",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=6&zoom=fit"
+    },
+    {
+      "name": "V07-FRIEND-05 빈 결과 닫기",
+      "from": "MENU07 / SCR_22_Social / search-empty",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "SCR_22_Social",
+      "observed": "SCR_22_Social",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=111&zoom=fit"
+    },
+    {
+      "name": "V07-FRIEND-06 로비 복귀",
+      "from": "SCR_22_Social",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-SHOP-01 로비 → 상점",
+      "from": "SCR_03_Lobby",
+      "click": [
+        847,
+        641
+      ],
+      "expected": "SCR_19_Shop",
+      "observed": "SCR_19_Shop",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=114&zoom=fit"
+    },
+    {
+      "name": "V07-SHOP-02 장신구 카테고리",
+      "from": "SCR_19_Shop",
+      "click": [
+        265,
+        287
+      ],
+      "expected": "MENU07 / SCR_19_Shop / category-장신구",
+      "observed": "MENU07 / SCR_19_Shop / category-장신구",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=35&zoom=fit"
+    },
+    {
+      "name": "V07-SHOP-03 상품 상세",
+      "from": "MENU07 / SCR_19_Shop / category-장신구",
+      "click": [
+        719,
+        324
+      ],
+      "expected": "MENU07 / SCR_19_Shop / detail-1",
+      "observed": "MENU07 / SCR_19_Shop / detail-1",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=19&zoom=fit"
+    },
+    {
+      "name": "V07-SHOP-04 상세 취소",
+      "from": "MENU07 / SCR_19_Shop / detail-1",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "SCR_19_Shop",
+      "observed": "SCR_19_Shop",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=114&zoom=fit"
+    },
+    {
+      "name": "V07-SHOP-05 캐릭터 카테고리",
+      "from": "SCR_19_Shop",
+      "click": [
+        265,
+        359
+      ],
+      "expected": "MENU07 / SCR_19_Shop / category-캐릭터",
+      "observed": "MENU07 / SCR_19_Shop / category-캐릭터",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=34&zoom=fit"
+    },
+    {
+      "name": "V07-SHOP-06 로비 복귀",
+      "from": "MENU07 / SCR_19_Shop / category-캐릭터",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-PROFILE-01 로비 → 프로필",
+      "from": "SCR_03_Lobby",
+      "click": [
+        252,
+        107
+      ],
+      "expected": "SCR_24_Profile",
+      "observed": "SCR_24_Profile",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=109&zoom=fit"
+    },
+    {
+      "name": "V07-PROFILE-02 편성 연결",
+      "from": "SCR_24_Profile",
+      "click": [
+        804,
+        593
+      ],
+      "expected": "SCR_08_Preset",
+      "observed": "SCR_08_Preset",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=115&zoom=fit"
+    },
+    {
+      "name": "V07-PROFILE-03 편성 뒤로 로비",
+      "from": "SCR_08_Preset",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-SET-01 로비 → 일반 설정",
+      "from": "SCR_03_Lobby",
+      "click": [
+        1218,
+        107
+      ],
+      "expected": "EXT_06_GeneralSettings",
+      "observed": "EXT_06_GeneralSettings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=108&zoom=fit"
+    },
+    {
+      "name": "V07-SET-02 화면 효과 분류",
+      "from": "EXT_06_GeneralSettings",
+      "click": [
+        278,
+        287
+      ],
+      "expected": "MENU07 / EXT_06_GeneralSettings / 화면 효과",
+      "observed": "MENU07 / EXT_06_GeneralSettings / 화면 효과",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=25&zoom=fit"
+    },
+    {
+      "name": "V07-SET-03 효과 끄기",
+      "from": "MENU07 / EXT_06_GeneralSettings / 화면 효과",
+      "click": [
+        1189,
+        316
+      ],
+      "expected": "MENU07 / EXT_06_GeneralSettings / 화면 효과-off",
+      "observed": "MENU07 / EXT_06_GeneralSettings / 화면 효과-off",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=24&zoom=fit"
+    },
+    {
+      "name": "V07-SET-04 접근성 분류",
+      "from": "MENU07 / EXT_06_GeneralSettings / 화면 효과-off",
+      "click": [
+        278,
+        359
+      ],
+      "expected": "MENU07 / EXT_06_GeneralSettings / 접근성",
+      "observed": "MENU07 / EXT_06_GeneralSettings / 접근성",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=23&zoom=fit"
+    },
+    {
+      "name": "V07-SET-05 일반 설정 복원 확인",
+      "from": "MENU07 / EXT_06_GeneralSettings / 접근성",
+      "click": [
+        278,
+        688
+      ],
+      "expected": "MENU07 / SettingsResetGeneral",
+      "observed": "MENU07 / SettingsResetGeneral",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=1&zoom=fit"
+    },
+    {
+      "name": "V07-SET-06 복원 취소",
+      "from": "MENU07 / SettingsResetGeneral",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "EXT_06_GeneralSettings",
+      "observed": "EXT_06_GeneralSettings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=108&zoom=fit"
+    },
+    {
+      "name": "V07-SET-07 다시 복원 확인",
+      "from": "EXT_06_GeneralSettings",
+      "click": [
+        278,
+        688
+      ],
+      "expected": "MENU07 / SettingsResetGeneral",
+      "observed": "MENU07 / SettingsResetGeneral",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=1&zoom=fit"
+    },
+    {
+      "name": "V07-SET-08 복원 실행",
+      "from": "MENU07 / SettingsResetGeneral",
+      "click": [
+        877,
+        522
+      ],
+      "expected": "EXT_06_GeneralSettings",
+      "observed": "EXT_06_GeneralSettings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=108&zoom=fit"
+    },
+    {
+      "name": "V07-SET-09 적용 후 로비",
+      "from": "EXT_06_GeneralSettings",
+      "click": [
+        1210,
+        688
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-SET-10 설정 재진입",
+      "from": "SCR_03_Lobby",
+      "click": [
+        1218,
+        107
+      ],
+      "expected": "EXT_06_GeneralSettings",
+      "observed": "EXT_06_GeneralSettings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=108&zoom=fit"
+    },
+    {
+      "name": "V07-SET-11 취소 후 로비",
+      "from": "EXT_06_GeneralSettings",
+      "click": [
+        1039,
+        688
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-01 설정 진입",
+      "from": "SCR_03_Lobby",
+      "click": [
+        1218,
+        107
+      ],
+      "expected": "EXT_06_GeneralSettings",
+      "observed": "EXT_06_GeneralSettings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=108&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-02 로비 조작 설정",
+      "from": "EXT_06_GeneralSettings",
+      "click": [
+        278,
+        431
+      ],
+      "expected": "MENU07 / ControlsFromLobby",
+      "observed": "MENU07 / ControlsFromLobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=5&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-03 플로팅 선택",
+      "from": "MENU07 / ControlsFromLobby",
+      "click": [
+        1194,
+        283
+      ],
+      "expected": "MENU07 / ControlsFloatingFromLobby",
+      "observed": "MENU07 / ControlsFloatingFromLobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=4&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-04 기본값 복원 팝업",
+      "from": "MENU07 / ControlsFloatingFromLobby",
+      "click": [
+        278,
+        688
+      ],
+      "expected": "MENU07 / SettingsResetLobbyControls",
+      "observed": "MENU07 / SettingsResetLobbyControls",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=3&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-05 복원 취소",
+      "from": "MENU07 / SettingsResetLobbyControls",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "MENU07 / ControlsFromLobby",
+      "observed": "MENU07 / ControlsFromLobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=5&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-06 복원 다시 열기",
+      "from": "MENU07 / ControlsFromLobby",
+      "click": [
+        278,
+        688
+      ],
+      "expected": "MENU07 / SettingsResetLobbyControls",
+      "observed": "MENU07 / SettingsResetLobbyControls",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=3&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-07 복원 실행",
+      "from": "MENU07 / SettingsResetLobbyControls",
+      "click": [
+        877,
+        522
+      ],
+      "expected": "MENU07 / ControlsFromLobby",
+      "observed": "MENU07 / ControlsFromLobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=5&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-08 적용 후 일반 설정",
+      "from": "MENU07 / ControlsFromLobby",
+      "click": [
+        1210,
+        688
+      ],
+      "expected": "EXT_06_GeneralSettings",
+      "observed": "EXT_06_GeneralSettings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=108&zoom=fit"
+    },
+    {
+      "name": "V07-CONTROL-09 일반 설정 뒤로 로비",
+      "from": "EXT_06_GeneralSettings",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-10 캐릭터 기본 진입",
+      "from": "SCR_03_Lobby",
+      "click": [
+        252,
+        641
+      ],
+      "expected": "SCR_04_CharacterCollection",
+      "observed": "SCR_04_CharacterCollection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=119&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-11 기본 상세 원본 ID 확인",
+      "from": "SCR_04_CharacterCollection",
+      "click": [
+        990,
+        688
+      ],
+      "expected": "SCR_05_CharacterDetail",
+      "observed": "SCR_05_CharacterDetail",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=118&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-12 기본 상세 뒤로",
+      "from": "SCR_05_CharacterDetail",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_04_CharacterCollection",
+      "observed": "SCR_04_CharacterCollection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=119&zoom=fit"
+    },
+    {
+      "name": "V07-CHAR-13 기본 목록 로비 복귀",
+      "from": "SCR_04_CharacterCollection",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-REVIEW-01 기존 검토 목록 진입",
+      "from": "SCR_03_Lobby",
+      "click": [
+        735,
+        62
+      ],
+      "expected": "REVIEW INDEX",
+      "observed": "REVIEW INDEX",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=72&zoom=fit"
+    },
+    {
+      "name": "V07-CODEX-01 기존 검토 목록 → 도감",
+      "from": "REVIEW INDEX",
+      "click": [
+        1195,
+        271
+      ],
+      "expected": "SCR_20_Collection",
+      "observed": "SCR_20_Collection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=113&zoom=fit"
+    },
+    {
+      "name": "V07-CODEX-02 미보유 필터",
+      "from": "SCR_20_Collection",
+      "click": [
+        1212,
+        204
+      ],
+      "expected": "MENU07 / SCR_20_Collection / unowned",
+      "observed": "MENU07 / SCR_20_Collection / unowned",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=32&zoom=fit"
+    },
+    {
+      "name": "V07-CODEX-03 장신구 분류",
+      "from": "MENU07 / SCR_20_Collection / unowned",
+      "click": [
+        430,
+        204
+      ],
+      "expected": "MENU07 / SCR_20_Collection / accessory",
+      "observed": "MENU07 / SCR_20_Collection / accessory",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=33&zoom=fit"
+    },
+    {
+      "name": "V07-CODEX-04 항목 상세",
+      "from": "MENU07 / SCR_20_Collection / accessory",
+      "click": [
+        634,
+        335
+      ],
+      "expected": "MENU07 / SCR_07_AccessoryDetail / item-2-filter-전체",
+      "observed": "MENU07 / SCR_07_AccessoryDetail / item-2-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=48&zoom=fit"
+    },
+    {
+      "name": "V07-CODEX-05 상세 뒤로 선택 목록",
+      "from": "MENU07 / SCR_07_AccessoryDetail / item-2-filter-전체",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "MENU07 / SCR_06_AccessoryCollection / item-2-filter-전체",
+      "observed": "MENU07 / SCR_06_AccessoryCollection / item-2-filter-전체",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=49&zoom=fit"
+    },
+    {
+      "name": "V07-CODEX-06 로비 복귀",
+      "from": "MENU07 / SCR_06_AccessoryCollection / item-2-filter-전체",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-REVIEW-02 기존 검토 목록 다시 진입",
+      "from": "SCR_03_Lobby",
+      "click": [
+        735,
+        62
+      ],
+      "expected": "REVIEW INDEX",
+      "observed": "REVIEW INDEX",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=72&zoom=fit"
+    },
+    {
+      "name": "V07-RANK-01 검토 목록 → 랭크",
+      "from": "REVIEW INDEX",
+      "click": [
+        730,
+        321
+      ],
+      "expected": "SCR_23_Rank",
+      "observed": "SCR_23_Rank",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=110&zoom=fit"
+    },
+    {
+      "name": "V07-RANK-02 사용 불가 랭크 행동 유지",
+      "from": "SCR_23_Rank",
+      "click": [
+        1200,
+        688
+      ],
+      "expected": "SCR_23_Rank",
+      "observed": "SCR_23_Rank",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=110&zoom=fit"
+    },
+    {
+      "name": "V07-RANK-03 랭크 로비 복귀",
+      "from": "SCR_23_Rank",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-REVIEW-03 기존 검토 목록 재진입",
+      "from": "SCR_03_Lobby",
+      "click": [
+        735,
+        62
+      ],
+      "expected": "REVIEW INDEX",
+      "observed": "REVIEW INDEX",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=72&zoom=fit"
+    },
+    {
+      "name": "V07-CBT-01 검토 목록 → 기존 조작 설정",
+      "from": "REVIEW INDEX",
+      "click": [
+        962,
+        516
+      ],
+      "expected": "CBT_08_Settings",
+      "observed": "CBT_08_Settings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=89&zoom=fit"
+    },
+    {
+      "name": "V07-CBT-02 기존 조작 설정 취소",
+      "from": "CBT_08_Settings",
+      "click": [
+        1039,
+        688
+      ],
+      "expected": "CBT_05_Pause",
+      "observed": "CBT_05_Pause",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=92&zoom=fit"
+    },
+    {
+      "name": "V07-CBT-03 기존 검토 목록 복귀",
+      "from": "CBT_05_Pause",
+      "click": [
+        735,
+        62
+      ],
+      "expected": "REVIEW INDEX",
+      "observed": "REVIEW INDEX",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=72&zoom=fit"
+    },
+    {
+      "name": "V07-CBT-04 기존 조작 설정 재진입",
+      "from": "REVIEW INDEX",
+      "click": [
+        962,
+        516
+      ],
+      "expected": "CBT_08_Settings",
+      "observed": "CBT_08_Settings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=89&zoom=fit"
+    },
+    {
+      "name": "V07-CBT-05 적용 후 원래 일시정지 화면",
+      "from": "CBT_08_Settings",
+      "click": [
+        1210,
+        688
+      ],
+      "expected": "CBT_05_Pause",
+      "observed": "CBT_05_Pause",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=92&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-01 뷰어 보드 선택 → 메뉴 상태 검토",
+      "from": "CBT_05_Pause",
+      "click": 56,
+      "expected": "MENU07 / Review",
+      "observed": "MENU07 / Review",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=0&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-01R 보드 선택 재진입",
+      "from": "MENU07 / ControlsParametersLobby",
+      "click": 546,
+      "expected": "MENU07 / Review",
+      "observed": "MENU07 / Review",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=0&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-02R 빈 목록 실제 화면 버튼 재검사",
+      "from": "MENU07 / Review",
+      "click": [
+        451,
+        280
+      ],
+      "expected": "MENU07 / EmptyList",
+      "observed": "MENU07 / EmptyList",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=9&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-03 빈 목록 닫기",
+      "from": "MENU07 / EmptyList",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "SCR_20_Collection",
+      "observed": "SCR_20_Collection",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=113&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-04 메뉴 상태 검토 재진입",
+      "from": "SCR_20_Collection",
+      "click": 54,
+      "expected": "MENU07 / Review",
+      "observed": "MENU07 / Review",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=0&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-05 선택 누락 예시",
+      "from": "MENU07 / Review",
+      "click": [
+        1019,
+        280
+      ],
+      "expected": "MENU07 / SelectionRequired",
+      "observed": "MENU07 / SelectionRequired",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=8&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-06 선택 누락 취소",
+      "from": "MENU07 / SelectionRequired",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "SCR_08_Preset",
+      "observed": "SCR_08_Preset",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=115&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-07 메뉴 상태 검토 다시 진입",
+      "from": "SCR_08_Preset",
+      "click": 54,
+      "expected": "MENU07 / Review",
+      "observed": "MENU07 / Review",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=0&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-08 친구 연결 실패",
+      "from": "MENU07 / Review",
+      "click": [
+        451,
+        435
+      ],
+      "expected": "MENU07 / SCR_22_Social / connection-error",
+      "observed": "MENU07 / SCR_22_Social / connection-error",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=7&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-09 연결 실패 닫기",
+      "from": "MENU07 / SCR_22_Social / connection-error",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "SCR_22_Social",
+      "observed": "SCR_22_Social",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=111&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-10 메뉴 상태 검토 진입",
+      "from": "SCR_22_Social",
+      "click": 54,
+      "expected": "MENU07 / Review",
+      "observed": "MENU07 / Review",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=0&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-11 조작 설정 복원 예시",
+      "from": "MENU07 / Review",
+      "click": [
+        1019,
+        435
+      ],
+      "expected": "MENU07 / SettingsReset",
+      "observed": "MENU07 / SettingsReset",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=11&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-12 복원 취소 원래 조작 설정",
+      "from": "MENU07 / SettingsReset",
+      "click": [
+        593,
+        522
+      ],
+      "expected": "CBT_08_Settings",
+      "observed": "CBT_08_Settings",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=89&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-13 메뉴 상태 검토 마지막 진입",
+      "from": "CBT_08_Settings",
+      "click": 54,
+      "expected": "MENU07 / Review",
+      "observed": "MENU07 / Review",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=0&zoom=fit"
+    },
+    {
+      "name": "V07-STATE-14 메뉴 상태 검토 뒤로 로비",
+      "from": "MENU07 / Review",
+      "click": [
+        221,
+        105
+      ],
+      "expected": "SCR_03_Lobby",
+      "observed": "SCR_03_Lobby",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=120&zoom=fit"
+    },
+    {
+      "name": "V07-FINAL-01 최종 상점 화면 전달",
+      "from": "SCR_03_Lobby",
+      "click": [
+        847,
+        641
+      ],
+      "expected": "SCR_19_Shop",
+      "observed": "SCR_19_Shop",
+      "result": "PASS",
+      "url": "https://design.penpot.app/#/view?file-id=d8ac01df-6646-81d2-8008-a3696fea940e&page-id=fa154361-0c45-804b-8008-a716ae2e1448&section=interactions&frame-id=5eab23a0-5a25-8021-8008-a985b5fa760f&index=114&zoom=fit"
+    }
+  ],
+  "android_device": "not-run",
+  "complete": true,
+  "finished_at": "2026-10-14T09:15:24.884Z",
+  "indexMeaning": "viewer index = 122 - nativeRootIndex for current 123-board prototype. The frame-id URL remains initial entry; use current AX frame name plus index for click destination.",
+  "manualAttempts": [
+    {
+      "name": "V07-STATE-02 빈 목록 예시",
+      "from": "MENU07 / Review",
+      "click": [
+        451,
+        280
+      ],
+      "expected": "MENU07 / EmptyList",
+      "observed": "MENU07 / Review",
+      "result": "FIX",
+      "viewer_index": 2,
+      "cause": "보드 선택창이 열린 상태에서 본화면 대신 썸네일을 클릭한 검사 조작 실수. 패널을 닫고 동일 버튼을 재검사함.",
+      "resolvedBy": "V07-STATE-02R 빈 목록 실제 화면 버튼 재검사",
+      "resolution": "PASS; native prototype change not required"
+    }
+  ]
+}
