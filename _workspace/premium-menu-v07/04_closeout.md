@@ -1,6 +1,6 @@
 # 메뉴 UI v07 마무리 기록
 
-2026-10-14. Penpot 설계·프로토타입·출력 이미지와 실제 클릭 검토를 완료했다. 저장소 전달은 아래 버전 관리 항목에서 확인한다.
+2026-10-14. Penpot 설계·프로토타입·출력 이미지와 실제 클릭 검토를 완료했고, 관련 산출물을 develop에 병합했다.
 
 ## 요청과 결과
 
@@ -35,6 +35,14 @@ Android 실기기 검사는 실행하지 않았다. 따라서 실제 기기의 �
 
 ## 버전 관리와 복구
 
-격리 작업 폴더 `/Users/jdh/.codex/worktrees/premium-menu-v07/ForestArena`, 작업 브랜치 `codex/premium-menu-v07`를 사용했다. 최초 기준1b7ec98 이후 최신develop403b0b61758ca5e619ec923063b0bf9d2faea7cb를 병합해 검증했다. 사용자 주 작업 폴더의 다른 변경은 이번 커밋에 넣지 않는다. 최종 관련 산출물의commit·push·PR·독립QA·develop 병합을 진행 중이며 완료 뒤 실제 PR와 병합 SHA를 후속 기록한다.
+격리 작업 폴더 `/Users/jdh/.codex/worktrees/premium-menu-v07/ForestArena`, 작업 브랜치 `codex/premium-menu-v07`를 사용했다. 최초 기준1b7ec98 이후 최신develop403b0b61758ca5e619ec923063b0bf9d2faea7cb를 병합해 검증했다. 사용자 주 작업 폴더의 다른 변경은 이번 커밋에 넣지 않는다. 최종 관련 산출물을 커밋·원격 전달·PR·독립 QA 후 develop에 병합했다.
 
-변경 전 Penpot 영구 버전은 `Before premium menu v07 · 2026-10-14`다. Penpot을 되돌리려면 해당 버전을 복원한다. 저장소에서는 이번 디자인 산출물을 담은 병합 커밋만 되돌린다. 기존 숨긴 도형을 수동으로 함께 켜면 새 메뉴와 겹칠 수 있으므로 버전 복원을 우선한다. 현재 실제 결과와 미확인 범위는 위 항목으로 한정한다.
+- 최종 제작 커밋: `6855424bc0a7d382bf6ec096aec2776778bc46ba`.
+- 제작 PR: [#94](https://github.com/Dev-DHJang/ForestArena/pull/94), 병합 완료.
+- develop 병합 SHA: `392dda32cb28330f0a903e16d3d8e19c88df5ccf`.
+- 변경 경로229개는 이번 작업 폴더·버전 자산·UI 문서3개로 한정됐다. 사용자 주 작업 폴더의 다른 변경을 커밋하지 않았다.
+- Code Review의 PR 검사 조회에서 해당 제작 커밋의 원격 CI 항목은 없었다. 로컬 검사와 독립 QA 결과를 근거로 전달했으며, 실행되지 않은 원격 CI를 통과로 기록하지 않는다.
+- 실제 병합 SHA를 남기는 후속 문서 브랜치: `codex/premium-menu-v07-closeout`.
+
+
+변경 전 Penpot 영구 버전은 `Before premium menu v07 · 2026-10-14`다. Penpot을 되돌리려면 해당 버전을 복원한다. 저장소에서는 제작 병합 커밋 `392dda32cb28330f0a903e16d3d8e19c88df5ccf`를 기준으로 이번 디자인 산출물만 되돌린다. 기존 숨긴 도형을 수동으로 함께 켜면 새 메뉴와 겹칠 수 있으므로 버전 복원을 우선한다. 현재 실제 결과와 미확인 범위는 위 항목으로 한정한다.
