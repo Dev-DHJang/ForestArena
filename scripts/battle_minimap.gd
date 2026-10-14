@@ -36,13 +36,7 @@ func _process(_delta: float) -> void:
 
 func _layout_in_safe_area() -> void:
 	if embedded: return
-	var safe := Rect2(Vector2.ZERO, get_viewport_rect().size)
-	if OS.has_feature("mobile"):
-		var physical := Vector2(DisplayServer.window_get_size())
-		var device_safe := Rect2(DisplayServer.get_display_safe_area())
-		if physical.x > 0 and physical.y > 0 and device_safe.has_area():
-			var ratio := safe.size / physical
-			safe = Rect2(device_safe.position * ratio, device_safe.size * ratio)
+	var safe := CombatUiGeometry.safe_rect(get_viewport())
 	position = Vector2(safe.end.x - MAP_SIZE.x - 16, safe.position.y + 16)
 	size = MAP_SIZE
 

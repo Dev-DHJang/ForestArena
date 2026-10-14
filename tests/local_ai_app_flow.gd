@@ -118,7 +118,7 @@ func run() -> void:
 	indicator.update_indicator()
 	check(indicator.visible and indicator.arrow_direction.x > 0.0, "real offscreen opponent shows right arrow")
 	check(app.match_controller.snapshot_hash() == camera_snapshot, "shipping camera and arrow preserve combat snapshot")
-	app.match_controller.training_dummy.global_position = Vector2(1145, 520)
+	app.match_controller.training_dummy.global_position = app.match_controller.player.global_position + Vector2(camera.get_viewport_rect().size.x / camera.zoom.x / 2.0 - 7.0, 0)
 	await process_frame
 	indicator.update_indicator()
 	check(not indicator.visible, "partly visible approved sprite hides arrow")

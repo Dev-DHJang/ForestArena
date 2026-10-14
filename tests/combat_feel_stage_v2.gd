@@ -65,8 +65,8 @@ func _initialize() -> void:
 
 	for attack: AttackData in player.runtime_profile.move_set.attacks():
 		if attack.action_id == &"attack_light" and String(attack.visual_state_id).begins_with("attack_light_combo_") and not attack.is_finisher:
-			_check(attack.startup_ticks + attack.active_ticks + attack.recovery_ticks == 22, "non-finisher combo attack is not 22 ticks")
-			_check(CombatMath.hitstun_ticks(attack, 1.05, controller.rules) >= 19, "combo hitstun is still too short")
+			_check(attack.startup_ticks + attack.active_ticks + attack.recovery_ticks == 30, "non-finisher combo attack is not 30 ticks")
+			_check(attack.fixed_hitstun_ticks == 16, "combo hitstun must leave a defensive action window")
 	for link: ComboLinkData in player.runtime_profile.move_set.combo_links:
 		_check(link.schema_version == 2 and link.window_start_tick == -2 and link.window_end_tick == 10, "combo buffer window was not migrated")
 

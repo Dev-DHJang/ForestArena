@@ -12,7 +12,7 @@ var player := LoadoutSelection.new()
 var opponent := LoadoutSelection.new()
 var stage_id := STAGE_ID
 var seed := 3001
-var reaction_interval_ticks := 12
+var reaction_interval_ticks := 18
 
 
 func is_valid_definition() -> bool:

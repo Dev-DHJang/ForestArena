@@ -26,7 +26,7 @@ func _initialize() -> void:
 	var expected_speed := 120.0 / dummy.character_data.base_stats.weight
 	if not is_equal_approx(dummy.current_hp, dummy.character_data.base_stats.max_hp - 4.0): failures.append("HP damage was not applied")
 	if not is_equal_approx(dummy.velocity.length(), expected_speed): failures.append("knockback formula mismatch")
-	if dummy.hitstun_ticks != clampi(roundi(20.0 / dummy.character_data.base_stats.weight), 10, 36): failures.append("fixed hitstun formula mismatch")
+	if dummy.hitstun_ticks != clampi(roundi(16.0 / dummy.character_data.base_stats.weight), 10, 36): failures.append("fixed hitstun formula mismatch")
 	if player.current_hp != player.character_data.base_stats.max_hp: failures.append("fighter hit itself")
 	controller.call("_resolve_hits")
 	if dummy.current_hp != dummy.character_data.base_stats.max_hp - 4.0: failures.append("single-hit attack hit the same target twice")

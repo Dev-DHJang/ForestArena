@@ -27,12 +27,12 @@ var forestlight_hud: Control
 
 func _ready() -> void:
 	_apply_resource_ui()
-	if app_shell_mode:
-		forestlight_hud = ForestlightHudScript.new()
-		forestlight_hud.name = "ForestlightMatchHud"
-		$Interface.add_child(forestlight_hud)
-		readout.hide()
-		hud_panel.hide()
+	forestlight_hud = ForestlightHudScript.new()
+	forestlight_hud.name = "ForestlightMatchHud"
+	$Interface.add_child(forestlight_hud)
+	readout.hide()
+	hud_panel.hide()
+	$Interface/PhaseLabel.hide()
 	match_controller.snapshot_changed.connect(_render_snapshot)
 	match_controller.presentation_event.connect(arena_visual.play_combat_event)
 	combat_audio = CombatAudioScript.new()
@@ -47,9 +47,10 @@ func _ready() -> void:
 	var participants := {}
 	for fighter: FighterController in match_controller.call("_fighters"):
 		participants[fighter.fighter_id] = {"nickname": String(fighter.fighter_id), "character_id": fighter.character_data.character_id, "team_id": ""}
-	minimap.configure(match_controller.stage_data, participants, match_controller.player.fighter_id, false)
+	configure_minimap(participants, match_controller.player.fighter_id, false, minimap.settings)
 	_render_snapshot(match_controller.snapshot())
-	debug_readout.visible = OS.is_debug_build()
+	debug_readout.visible = OS.is_debug_build() and not app_shell_mode
+	debug_readout.position = Vector2(24, 180)
 
 
 func _apply_resource_ui() -> void:
@@ -74,7 +75,7 @@ func apply_accessibility(settings: Dictionary) -> void:
 	combat_audio.apply_accessibility(settings)
 	touch.apply_accessibility(settings)
 	readout.add_theme_font_size_override("font_size", roundi(22 * _text_scale))
-	if forestlight_hud != null: forestlight_hud.configure(forestlight_hud.identities, _text_scale)
+	if forestlight_hud != null: forestlight_hud.configure(forestlight_hud.identities, _text_scale, minimap.local_id, minimap.team_mode)
 	debug_readout.add_theme_font_size_override("font_size", roundi(16 * _text_scale))
 	restart.add_theme_font_size_override("font_size", roundi(18 * _text_scale))
 
@@ -86,8 +87,10 @@ func configure_minimap(participants: Dictionary, local_id: StringName, team_mode
 		for id: Variant in identities:
 			var fighter := match_controller.call("_fighter_by_id", StringName(id)) as FighterController
 			if fighter != null and fighter.character_data != null: identities[id]["character_name"] = fighter.character_data.display_name
-		forestlight_hud.configure(identities, _text_scale)
+		forestlight_hud.configure(identities, _text_scale, local_id, team_mode)
+		touch.local_fighter_id = local_id
 		forestlight_hud.update_snapshot(match_controller.snapshot())
+	touch.update_snapshot(match_controller.snapshot())
 	minimap.apply_settings(settings, _text_scale)
 	minimap.update_snapshot(match_controller.snapshot())
 
@@ -136,27 +139,14 @@ func _release_semantic_actions() -> void:
 
 func _render_snapshot(snapshot: Dictionary) -> void:
 	minimap.update_snapshot(snapshot)
+	touch.update_snapshot(snapshot)
 	if forestlight_hud != null: forestlight_hud.update_snapshot(snapshot)
 	var fighters: Array = snapshot.get("fighters", [])
 	if fighters.size() < 2:
 		return
 	var first: Dictionary = fighters[0]
 	var second: Dictionary = fighters[1]
-	var suffix := ""
-	if bool(snapshot.get("is_draw", false)):
-		suffix = " · 무승부"
-	elif not String(snapshot.get("winner_id", "")).is_empty():
-		suffix = " · 승자: %s" % snapshot.winner_id
-	readout.text = "자현 %d/%d HP · %d STOCK · G %d/%d · S %dt · U %d/%d    묘령 %d/%d HP · %d STOCK · G %d/%d · S %dt · U %d/%d%s" % [roundi(first.current_hp), roundi(first.max_hp), first.stocks, roundi(first.guard_durability), roundi(snapshot.guard_max), int(first.special_cooldown_ticks), roundi(first.ultimate_gauge), roundi(snapshot.ultimate_gauge_max), roundi(second.current_hp), roundi(second.max_hp), second.stocks, roundi(second.guard_durability), roundi(snapshot.guard_max), int(second.special_cooldown_ticks), roundi(second.ultimate_gauge), roundi(snapshot.ultimate_gauge_max), suffix]
 	debug_readout.text = "tick %d  %s:%s  %s:%s" % [snapshot.tick, first.state, first.attack_id, second.state, second.attack_id]
-	if app_shell_mode:
-		var lines: Array[String] = []
-		for fighter: Dictionary in fighters:
-			var controller_fighter := match_controller.call("_fighter_by_id", StringName(fighter.id)) as FighterController
-			var name := controller_fighter.character_data.display_name if controller_fighter != null and controller_fighter.character_data != null else String(fighter.id)
-			var team := String(fighter.get("team_id", ""))
-			lines.append("%s%s  HP %d/%d · 기회 %d · 가드 %d · 특수 %dt · 궁극 %d" % [("[%s] " % team) if not team.is_empty() else "", name, fighter.current_hp, fighter.max_hp, fighter.stocks, fighter.guard_durability, fighter.special_cooldown_ticks, fighter.ultimate_gauge])
-		readout.text = "\n".join(lines)
 
 
 func _exit_tree() -> void:

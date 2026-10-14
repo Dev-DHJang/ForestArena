@@ -5,6 +5,7 @@ var failures: PackedStringArray = []
 
 
 func _initialize() -> void:
+	test_tactics_and_targets()
 	var bot := Bot.new(&"opponent", 45)
 	var actor := {"id": "opponent", "position": Vector2(850, 550), "velocity": Vector2.ZERO, "state": "IDLE", "on_floor": true, "air_jumps": 1, "up_special": true, "special_cooldown_ticks": 0}
 	var player := {"id": "player", "position": Vector2(430, 550), "state": "IDLE"}
@@ -98,12 +99,104 @@ func _initialize() -> void:
 				break
 		check(reached_upper, "AI must reach stage surface %s using normal jump physics (trace=%s)" % [surface.surface_id, trace])
 	scene.queue_free()
+	await process_frame
 	if failures.is_empty():
 		print("LOCAL_AI_BEHAVIOR: PASS")
 		quit(0)
 	else:
 		for failure: String in failures: push_error(failure)
 		quit(1)
+
+
+func test_tactics_and_targets() -> void:
+	var actor := {"id": "bot", "position": Vector2(500, 572), "velocity": Vector2.ZERO, "state": "IDLE", "on_floor": true, "stocks": 3, "air_jumps": 1, "special_cooldown_ticks": 0}
+	var target := {"id": "a", "position": Vector2(560, 572), "state": "IDLE", "stocks": 3}
+	var challenger := {"id": "b", "position": Vector2(700, 572), "state": "IDLE", "stocks": 3}
+	var bot := Bot.new(&"bot", 810)
+	check(bot.reaction_interval_ticks == 18 and LocalMatchConfig.new().reaction_interval_ticks == 18, "bot and live match config must both use 18-tick reactions")
+	var view := {"fighters": [actor, target, challenger]}
+	bot.commands_for_tick(1, view)
+	check(bot._target_id == &"a", "AI must pick nearest valid enemy")
+	challenger.position = Vector2(510, 572)
+	bot.commands_for_tick(90, view)
+	check(bot._target_id == &"a", "closer enemy must not replace target within 90 ticks")
+	bot.commands_for_tick(91, view)
+	check(bot._target_id == &"b", "AI must reconsider target after 90 ticks")
+	challenger.state = "DEAD"
+	bot.commands_for_tick(92, view)
+	check(bot._target_id == &"a", "dead target must be replaced immediately between reactions")
+	target.stocks = 0
+	bot.commands_for_tick(93, view)
+	check(bot._target_id.is_empty(), "zero-stock target must never be selected")
+	target.stocks = 3
+	target.team_id = "A"
+	challenger.state = "IDLE"
+	challenger.team_id = "B"
+	var team_bot := Bot.new(&"bot", 810, {"team_id": &"A"})
+	team_bot.commands_for_tick(1, view)
+	check(team_bot._target_id == &"b", "team AI must exclude teammates")
+	# A held heavy always emits its release, even if the only enemy disappears.
+	team_bot._heavy_release_tick = 2
+	challenger.stocks = 0
+	var released := team_bot.commands_for_tick(2, view)
+	check(released.size() == 1 and released[0].action_id == &"attack_heavy" and released[0].edge == CombatIntent.Edge.RELEASE, "target removal must not leave heavy held")
+	actor.position = Vector2(-430, 630)
+	actor.on_floor = false
+	team_bot.reset()
+	var recovery := team_bot.commands_for_tick(1, view)
+	check(has_command(recovery, &"move", CombatIntent.Direction.RIGHT) and has_command(recovery, &"jump"), "ledge recovery must continue while all opponents are unavailable")
+	actor.position = Vector2(500, 572)
+	actor.on_floor = true
+	view.fighters = [actor, target]
+	target.position = Vector2(540, 572)
+	bot.reset()
+	var observed: Dictionary = {}
+	var actions: Dictionary = {}
+	for tick: int in range(1, 3601):
+		var commands := bot.commands_for_tick(tick, view)
+		if not commands.is_empty():
+			observed[bot._tactic] = true
+			for command: CombatIntent in commands:
+				if command.edge == CombatIntent.Edge.PRESS: actions[command.action_id] = true
+	for tactic: int in Bot.Tactic.values(): check(observed.has(tactic), "normal AI must exercise tactic %s" % Bot.Tactic.keys()[tactic])
+	for action: StringName in [&"jump", &"attack_light", &"attack_heavy", &"attack_special"]:
+		check(actions.has(action), "normal AI must exercise %s" % action)
+	var saw_guard := false
+	var saw_evade := false
+	target.state = "ATTACK_STARTUP"
+	for seed_value: int in range(1, 25):
+		var defender := Bot.new(&"bot", seed_value)
+		var commands := defender.commands_for_tick(1, view)
+		saw_guard = saw_guard or has_command(commands, &"move", CombatIntent.Direction.DOWN)
+		saw_evade = saw_evade or has_command(commands, &"evade")
+	check(saw_guard and saw_evade, "visible startup must elicit both guard and evade across seeds")
+	target.state = "ATTACK_RECOVERY"
+	bot.reset()
+	check(has_command(bot.commands_for_tick(1, view), &"attack_light") or bot._heavy_release_tick > 0, "recovery opening must trigger a counterattack")
+	# Retreat stays inside the actual supporting upper platform, not just the main floor.
+	check(not bot._safe_retreat(Vector2(140, 366), CombatIntent.Direction.LEFT), "retreat cannot walk off upper-platform left edge")
+	check(not bot._safe_retreat(Vector2(520, 366), CombatIntent.Direction.RIGHT), "retreat cannot walk off upper-platform right edge")
+	check(bot._safe_retreat(Vector2(330, 366), CombatIntent.Direction.LEFT), "retreat may use safe platform interior")
+	target.state = "IDLE"
+	target.position = Vector2(530, 572)
+	bot.reset()
+	bot._target_id = &"a"
+	bot._target_until_tick = 90
+	bot._tactic = Bot.Tactic.KEEP_DISTANCE
+	bot._tactic_until_tick = 72
+	var spacing := bot.commands_for_tick(1, view)
+	check(has_command(spacing, &"move", CombatIntent.Direction.LEFT) and not has_command(spacing, &"attack_light"), "distance tactic must back away when too close instead of attack overriding movement")
+	# An interrupted climb cannot redirect a later unrelated jump after landing.
+	bot._climb_surface = bot.stage_data.surfaces[1]
+	bot._next_reaction_tick = 2
+	bot.commands_for_tick(2, view)
+	check(bot._climb_surface == null, "landing on any floor must clear an old climb destination")
+	# Resets restore the entire decision/RNG state, including target and pending charge.
+	target.state = "IDLE"
+	bot.reset()
+	var clone := Bot.new(&"bot", 810)
+	for tick: int in range(1, 301):
+		check(signature(bot.commands_for_tick(tick, view)) == signature(clone.commands_for_tick(tick, view)), "reset must reproduce tactics and target decisions")
 
 
 func has_command(commands: Array[CombatIntent], action: StringName, direction: int = -1) -> bool:

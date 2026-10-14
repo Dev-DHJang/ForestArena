@@ -3,6 +3,16 @@ signal diagnostic_event(action: StringName, edge: String)
 
 ## A single cardinal pad occupies the lower-left 42% inside the 6.5% safe edge.
 const SAFE_EDGE_RATIO := 0.065
+const GEOMETRY := preload("res://scripts/combat_ui_geometry.gd")
+var local_fighter_id: StringName = &"player"
+var safe_area_override := Rect2()
+var _status_labels: Dictionary = {}
+var _guard_bar: ProgressBar
+var _guard_label: Label
+var _local_snapshot: Dictionary = {}
+var _ultimate_max := 100.0
+var _guard_max := 100.0
+var _tick_rate := 60.0
 const DPAD_IDS := {
 	&"": "fa.ui.combat.dpad.default",
 	&"move_up": "fa.ui.combat.dpad.up",
@@ -17,7 +27,7 @@ var ACTION_LABELS := ["DASH", "JUMP", "LIGHT", "HEAVY", "SPECIAL"]
 var extended_actions := false
 @export var forestlight_controls := false
 const NO_MOVEMENT_POINTER := -2147483648
-const FORESTLIGHT_ACTIONS := {&"attack_light": "light", &"attack_heavy": "heavy", &"attack_special": "special", &"jump": "jump", &"dash": "dash", &"evade": "dash", &"ultimate": "primary"}
+const FORESTLIGHT_ACTIONS := {&"attack_light": "light", &"attack_heavy": "heavy", &"attack_special": "special", &"jump": "jump", &"dash": "dash", &"evade": "dash", &"ultimate": "special"}
 var _movement_pointer := NO_MOVEMENT_POINTER
 var _joystick_touch_rect := Rect2()
 var _touch_positions: Dictionary[int, Vector2] = {}
@@ -96,6 +106,8 @@ func _build_visuals() -> void:
 	_missing_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	add_child(_missing_label)
 	_update_missing_label()
+	if forestlight_controls:
+		_build_status_visuals()
 
 
 func _add_dpad_label(text: String, anchors: Vector4) -> void:
@@ -130,25 +142,32 @@ func _add_centered_label(parent: Control, text: String, font_size: int) -> void:
 func _layout_visuals() -> void:
 	var viewport_size := get_viewport_rect().size
 	if forestlight_controls:
+		var safe := safe_area_override if safe_area_override.has_area() else GEOMETRY.safe_rect(get_viewport())
 		var factor := viewport_size.y / 720.0
-		var right_offset := viewport_size.x / factor - 1280.0
-		_joystick_touch_rect = Rect2(Vector2(96, 454.667) * factor, Vector2.ONE * 224 * factor)
-		_dpad_visual.position = Vector2(101.333, 460) * factor
+		_joystick_touch_rect = Rect2(Vector2(safe.position.x + 48 * factor, safe.end.y - 264 * factor), Vector2.ONE * 224 * factor)
+		_dpad_visual.position = _joystick_touch_rect.position + Vector2.ONE * 5.333 * factor
 		_dpad_visual.size = Vector2.ONE * 213.333 * factor
 		_joystick_knob.size = Vector2.ONE * 74.667 * factor
-		var rectangles := {
-			&"attack_light": Rect2(1056, 536, 117.333, 117.333),
-			&"attack_heavy": Rect2(938.667, 432, 96, 96),
-			&"attack_special": Rect2(1077.333, 410.667, 96, 96),
-			&"jump": Rect2(922.667, 581.333, 85.333, 85.333),
-			&"dash": Rect2(800, 565.333, 80, 80),
-			&"evade": Rect2(800, 565.333, 80, 80),
-			&"ultimate": Rect2(1030, 318, 120, 68),
+		# Centers and diameters are the single source for the pictures and hit regions.
+		var centers := {
+			&"attack_light": Vector2(200, 160), &"attack_heavy": Vector2(90, 236),
+			&"attack_special": Vector2(306, 208), &"jump": Vector2(104, 60),
+			&"dash": Vector2(294, 60), &"evade": Vector2(294, 60),
+			&"ultimate": Vector2(218, 310),
 		}
 		for action: StringName in ACTIONS:
-			var rectangle: Rect2 = rectangles[action]
-			_action_visuals[action].position = (rectangle.position + Vector2(right_offset, 0)) * factor
-			_action_visuals[action].size = rectangle.size * factor
+			var diameter := 96.0 if action == &"attack_light" else (64.0 if action == &"ultimate" else 80.0)
+			var extent := Vector2.ONE * diameter * factor
+			_action_visuals[action].position = safe.end - centers[action] * factor - extent * 0.5
+			_action_visuals[action].size = extent
+		for action: StringName in _status_labels:
+			var visual: TextureRect = _action_visuals[action]
+			_status_labels[action].position = visual.position + Vector2(-12 * factor, visual.size.y + 2 * factor)
+			_status_labels[action].size = Vector2(visual.size.x + 24 * factor, 28 * factor)
+		_guard_bar.position = Vector2(_joystick_touch_rect.end.x + 18 * factor, safe.end.y - 144 * factor)
+		_guard_bar.size = Vector2(116, 8) * factor
+		_guard_label.position = _guard_bar.position - Vector2(0, 28 * factor)
+		_guard_label.size = Vector2(116, 26) * factor
 		_missing_label.position = Vector2(viewport_size.x * 0.48, 280 * factor)
 		_missing_label.size = Vector2(viewport_size.x * 0.50, 32 * factor)
 		_refresh_visuals()
@@ -287,7 +306,7 @@ func _refresh_visuals() -> void:
 			offset = offset.limit_length(29.333 * get_viewport_rect().size.y / 720.0)
 			_joystick_knob.position = _joystick_touch_rect.get_center() + offset - _joystick_knob.size * 0.5
 		for action: StringName in ACTIONS:
-			_action_visuals[action].texture = _textures.get(_forestlight_action_id(action, "pressed" if int(_action_touch_counts.get(action, 0)) > 0 else "default"))
+			_action_visuals[action].texture = _textures.get(_forestlight_action_id(action, "pressed" if int(_action_touch_counts.get(action, 0)) > 0 else ("disabled" if _is_action_unready(action) else "default")))
 		return
 	_dpad_visual.texture = _textures.get(DPAD_IDS.get(_last_dpad_action, DPAD_IDS[&""]))
 	for action: StringName in ACTIONS:
@@ -314,6 +333,8 @@ func _update_missing_label() -> void:
 
 func _action_for(position: Vector2) -> StringName:
 	if forestlight_controls:
+		var safe := safe_area_override if safe_area_override.has_area() else GEOMETRY.safe_rect(get_viewport())
+		if not safe.has_point(position): return &""
 		for action: StringName in ACTIONS:
 			if Rect2(_action_visuals[action].position, _action_visuals[action].size).has_point(position): return action
 		return _joystick_action(position) if _joystick_touch_rect.has_point(position) else &""
@@ -366,5 +387,76 @@ func diagnostic_regions() -> Dictionary:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED: release_all_touches()
-	elif what == NOTIFICATION_RESIZED and _dpad_visual != null:
+	elif what in [NOTIFICATION_RESIZED, NOTIFICATION_APPLICATION_FOCUS_IN, NOTIFICATION_APPLICATION_RESUMED] and _dpad_visual != null:
+		if what == NOTIFICATION_RESIZED: release_all_touches()
 		_layout_visuals()
+
+
+func _build_status_visuals() -> void:
+	for action: StringName in [&"attack_special", &"ultimate"]:
+		if not _action_visuals.has(action): continue
+		var label := Label.new()
+		label.name = "SpecialReadiness" if action == &"attack_special" else "UltimateReadiness"
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.add_theme_color_override("font_color", Color("f4f9ee"))
+		label.add_theme_color_override("font_outline_color", Color("122d38"))
+		label.add_theme_constant_override("outline_size", 3)
+		add_child(label)
+		_status_labels[action] = label
+	_guard_bar = ProgressBar.new()
+	_guard_bar.name = "LocalGuardBar"
+	_guard_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_guard_bar.show_percentage = false
+	var fill := StyleBoxFlat.new()
+	fill.bg_color = Color("9ad8e3")
+	var track := StyleBoxFlat.new()
+	track.bg_color = Color("163d35")
+	_guard_bar.add_theme_stylebox_override("fill", fill)
+	_guard_bar.add_theme_stylebox_override("background", track)
+	add_child(_guard_bar)
+	_guard_label = Label.new()
+	_guard_label.name = "LocalGuardLabel"
+	_guard_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_guard_label.add_theme_color_override("font_color", Color("f4f9ee"))
+	_guard_label.add_theme_color_override("font_outline_color", Color("122d38"))
+	_guard_label.add_theme_constant_override("outline_size", 3)
+	add_child(_guard_label)
+	apply_accessibility({"text_scale": text_scale})
+
+
+## Read-only readiness cues never block or synthesize a combat command.
+func update_snapshot(snapshot: Dictionary) -> void:
+	if not forestlight_controls: return
+	_local_snapshot = {}
+	for fighter: Dictionary in snapshot.get("fighters", []):
+		if StringName(fighter.get("id", "")) == local_fighter_id:
+			_local_snapshot = fighter.duplicate(true)
+			break
+	_guard_max = maxf(1, float(snapshot.get("guard_max", 100)))
+	_ultimate_max = maxf(1, float(snapshot.get("ultimate_gauge_max", 100)))
+	_tick_rate = maxf(1, float(snapshot.get("physics_ticks_per_second", 60)))
+	_guard_bar.visible = not _local_snapshot.is_empty()
+	_guard_label.visible = _guard_bar.visible
+	if _local_snapshot.is_empty():
+		for label: Label in _status_labels.values(): label.text = ""
+		_refresh_visuals()
+		return
+	_guard_bar.max_value = _guard_max
+	_guard_bar.value = float(_local_snapshot.get("guard_durability", 0))
+	_guard_label.text = "가드 %d%%" % roundi(_guard_bar.value / _guard_max * 100)
+	if _status_labels.has(&"attack_special"):
+		var cooldown := int(_local_snapshot.get("special_cooldown_ticks", 0))
+		_status_labels[&"attack_special"].text = "준비" if cooldown <= 0 else "%.1f초" % (float(cooldown) / _tick_rate)
+	if _status_labels.has(&"ultimate"):
+		var used := bool(_local_snapshot.get("ultimate_used_this_stock", false))
+		var gauge := float(_local_snapshot.get("ultimate_gauge", 0))
+		_status_labels[&"ultimate"].text = "사용함" if used else ("준비" if gauge >= _ultimate_max else "%d%%" % roundi(gauge / _ultimate_max * 100))
+	_refresh_visuals()
+
+
+func _is_action_unready(action: StringName) -> bool:
+	if _local_snapshot.is_empty(): return false
+	if action == &"attack_special": return int(_local_snapshot.get("special_cooldown_ticks", 0)) > 0
+	if action == &"ultimate": return bool(_local_snapshot.get("ultimate_used_this_stock", false)) or float(_local_snapshot.get("ultimate_gauge", 0)) < _ultimate_max
+	return false

@@ -50,6 +50,8 @@ var attack_landed := false
 var combo_index := 0
 var buffered_intent: CombatIntent
 var activation_serial := 0
+## Defensive attack cancels allow movement immediately, but keep the original recovery before another attack.
+var attack_restart_lock_ticks := 0
 var diagnostic := ""
 var locked_facing := 1
 var locked_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
@@ -83,6 +85,7 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 	combo_count = profile.move_set.combo_count
 	air_jumps_remaining = _stats().air_jump_count
 	runtime_state.reset(_stats().max_hp, 3, 100.0)
+	attack_restart_lock_ticks = 0
 	state = State.IDLE
 	set_physics_process(true)
 	return true
@@ -93,6 +96,7 @@ func reset_for_match(rules: CombatRules) -> void:
 	if runtime_profile == null:
 		return
 	runtime_state.reset(_stats().max_hp, rules.stocks_per_fighter, rules.guard_max_durability)
+	attack_restart_lock_ticks = 0
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 	active_attack = null
@@ -127,6 +131,8 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	# ultimate or platform drop) may bypass an effective hit's action lock.
 	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]: return
 	if active_attack != null and intent.edge == CombatIntent.Edge.PRESS and _try_cancel(intent, rules):
+		return
+	if attack_restart_lock_ticks > 0 and intent.action_id in [&"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]:
 		return
 	if intent.action_id == &"guard":
 		if is_on_floor() and state in [State.IDLE, State.RUN]:
@@ -179,6 +185,7 @@ func step_tick(rules: CombatRules) -> void:
 		_finish_tick()
 		return
 	diagnostic = ""
+	if attack_restart_lock_ticks > 0: attack_restart_lock_ticks -= 1
 	if invulnerability_ticks > 0:
 		invulnerability_ticks -= 1
 	if runtime_state.special_cooldown_ticks > 0: runtime_state.special_cooldown_ticks -= 1
@@ -310,6 +317,7 @@ func ring_out(rules: CombatRules) -> bool:
 func lose_stock(rules: CombatRules) -> bool:
 	if state in [State.RING_OUT, State.DEAD, State.MATCH_ENDED] or stocks <= 0: return false
 	stocks -= 1
+	attack_restart_lock_ticks = 0
 	current_hp = 0.0
 	runtime_state.pending_respawn_hp = 0.0
 	velocity = Vector2.ZERO
@@ -349,6 +357,7 @@ func snapshot() -> Dictionary:
 		"stocks": stocks, "position": Vector2(snappedf(global_position.x, 0.001), snappedf(global_position.y, 0.001)),
 		"velocity": Vector2(snappedf(velocity.x, 0.001), snappedf(velocity.y, 0.001)), "facing": facing,
 		"attack_id": &"" if active_attack == null else active_attack.attack_id, "attack_phase_tick": attack_phase_tick,
+		"attack_restart_lock_ticks": attack_restart_lock_ticks,
 		"invulnerability_ticks": invulnerability_ticks, "respawn_ticks": respawn_ticks,
 		"pending_respawn_hp": snappedf(runtime_state.pending_respawn_hp, 0.001), "revive_used": runtime_state.revive_used,
 		"air_jumps": air_jumps_remaining, "air_attacks": aerial_attacks_remaining, "up_special": up_special_available,
@@ -380,6 +389,7 @@ func apply_network_snapshot(value: Dictionary) -> void:
 	runtime_state.ultimate_gauge = float(value.get("ultimate_gauge", runtime_state.ultimate_gauge))
 	runtime_state.ultimate_used_this_stock = bool(value.get("ultimate_used_this_stock", runtime_state.ultimate_used_this_stock))
 	attack_phase_tick = int(value.get("attack_phase_tick", attack_phase_tick))
+	attack_restart_lock_ticks = maxi(0, int(value.get("attack_restart_lock_ticks", 0)))
 	var network_attack_id := StringName(value.get("attack_id", ""))
 	var previous_attack_id := &"" if active_attack == null else active_attack.attack_id
 	if network_attack_id.is_empty():
@@ -567,6 +577,7 @@ func _apply_gravity(rules: CombatRules) -> void:
 
 
 func _respawn(rules: CombatRules) -> void:
+	attack_restart_lock_ticks = 0
 	global_position = spawn_position
 	velocity = Vector2.ZERO
 	current_hp = runtime_state.pending_respawn_hp if runtime_state.pending_respawn_hp > 0.0 else _stats().max_hp
@@ -596,6 +607,8 @@ func _try_evade(rules: CombatRules) -> void:
 
 
 func _try_cancel(intent: CombatIntent, rules: CombatRules) -> bool:
+	# Cancel windows count from recovery start; startup/active cannot skip the attack.
+	if state != State.ATTACK_RECOVERY: return false
 	var kind: CancelRuleData.Kind
 	match intent.action_id:
 		&"jump": kind = CancelRuleData.Kind.JUMP
@@ -606,19 +619,37 @@ func _try_cancel(intent: CombatIntent, rules: CombatRules) -> bool:
 		_: return false
 	if not ComboControllerScript.can_cancel(runtime_profile.move_set, active_attack, kind, attack_phase_tick, attack_landed):
 		return false
+	var next: AttackData
+	# Reject impossible actions before ending the current move or clearing its buffer.
+	match kind:
+		CancelRuleData.Kind.JUMP:
+			if not is_on_floor() and air_jumps_remaining <= 0 and not launcher_jump_available: return false
+		CancelRuleData.Kind.GUARD:
+			if not is_on_floor(): return false
+		CancelRuleData.Kind.EVADE:
+			if not is_on_floor() or _horizontal_input() == 0: return false
+		CancelRuleData.Kind.SPECIAL:
+			next = _select_attack(intent)
+			if next == null or runtime_state.special_cooldown_ticks > 0: return false
+		CancelRuleData.Kind.ULTIMATE:
+			if runtime_state.ultimate_gauge < rules.ultimate_gauge_max or runtime_state.ultimate_used_this_stock: return false
+			var context := AttackData.ActivationContext.GROUND if is_on_floor() else AttackData.ActivationContext.AIR
+			next = ComboControllerScript.opening_attack(runtime_profile.move_set, intent, context, facing, false)
+			if next == null: return false
+	if kind in [CancelRuleData.Kind.JUMP, CancelRuleData.Kind.GUARD, CancelRuleData.Kind.EVADE]:
+		attack_restart_lock_ticks = maxi(attack_restart_lock_ticks, active_attack.recovery_ticks - attack_phase_tick)
 	active_attack = null
 	buffered_intent = null
+	state = State.IDLE if is_on_floor() else State.FALL
 	if kind == CancelRuleData.Kind.JUMP:
 		_try_jump(rules)
 	elif kind == CancelRuleData.Kind.GUARD:
-		if is_on_floor():
-			runtime_state.guarding = true
-			state = State.GUARD
+		runtime_state.guarding = true
+		state = State.GUARD
 	elif kind == CancelRuleData.Kind.EVADE:
 		_try_evade(rules)
 	elif kind == CancelRuleData.Kind.SPECIAL:
-		var next := _select_attack(intent)
-		if next != null and runtime_state.special_cooldown_ticks <= 0: _start_attack(next, intent.direction, rules)
+		_start_attack(next, intent.direction, rules)
 	elif kind == CancelRuleData.Kind.ULTIMATE:
 		_try_ultimate(intent, rules)
 	return true
