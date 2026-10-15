@@ -1,0 +1,8 @@
+
+> forest-arena-local-api@0.1.0 build
+> tsc -p tsconfig.json && cp src/profile_catalog.json dist/src/profile_catalog.json
+
+{"test":"MENU_API_RUNTIME","status":"PASS","checks":97,"service_id":"213ae9a0-ff92-4f39-8a35-07e2079048b2","database":"isolated verification database"}
+PROFILE_API_RUNTIME: PASS (actual PostgreSQL, auth isolation, import, concurrency, replay, token refresh)
+DEMO_GUEST_API_RUNTIME: PASS (PostgreSQL uniqueness race, NFC, persisted guest, internal auth and refresh)
+MENU_API_RESTART: PASS (persistent service UUID)

@@ -85,6 +85,8 @@ func step_fixed_tick(poll_local_input := true) -> void:
 
 
 func reset_match() -> void:
+	if has_meta("menu_forfeit"): remove_meta("menu_forfeit")
+	if has_meta("menu_offline_event_id"): remove_meta("menu_offline_event_id")
 	presentation_epoch += 1
 	presentation_sequence = 0
 	for fighter: FighterController in _fighters():
@@ -172,6 +174,7 @@ func finish_forfeit(loser_id: StringName) -> void:
 	if not winner_id.is_empty() or is_draw: return
 	var loser := _fighter_by_id(loser_id)
 	if loser == null: return
+	set_meta("menu_forfeit", true)
 	winner_id = training_dummy.fighter_id if loser == player else player.fighter_id
 	player.state = FighterController.State.MATCH_ENDED
 	training_dummy.state = FighterController.State.MATCH_ENDED

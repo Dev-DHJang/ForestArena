@@ -6,7 +6,7 @@ var failures: Array[String] = []
 var app: Node
 var guest: LanMatchClient
 var guest_app: Node
-var save_path := "user://test-lan-app-%d.json" % Time.get_ticks_usec()
+var save_path := "user://qa/lan-app-%d/profile.json" % Time.get_ticks_usec()
 
 
 func _ready() -> void:
@@ -15,7 +15,10 @@ func _ready() -> void:
 
 func _run() -> void:
 	app = load("res://scripts/local_ai_app.gd").new()
+	DirAccess.make_dir_recursive_absolute(save_path.get_base_dir())
 	app.save_path = save_path
+	app.db_session_path = save_path + ".session"
+	app.demo_guest_session_path = save_path + ".demo-session"
 	add_child(app)
 	app.lan_client.failed.connect(func(code: String) -> void: print("LAN_APP_FLOW_CLIENT_ERROR " + code))
 	await get_tree().process_frame
@@ -33,6 +36,7 @@ func _run() -> void:
 	guest_app = load("res://scenes/local_ai_app.tscn").instantiate()
 	guest_app.save_path = save_path + ".guest"
 	guest_app.db_session_path = save_path + ".guest-session"
+	guest_app.demo_guest_session_path = save_path + ".guest-demo-session"
 	add_child(guest_app)
 	_check(guest_app.store.grant_first("yu-ran"), "guest profile")
 	guest = guest_app.lan_client

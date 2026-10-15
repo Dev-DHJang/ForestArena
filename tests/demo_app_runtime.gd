@@ -51,7 +51,8 @@ func _labels_contain(target: LocalAiApp, text: String) -> bool:
 func _create_app(suffix: String, character: String) -> LocalAiApp:
 	var target := LocalAiApp.new()
 	target.demo_mode = true
-	target.save_path = "user://demo-runtime-%s-%s.json" % [run_id, suffix]
+	target.save_path = "user://qa/demo-runtime-%s-%s/profile.json" % [run_id, suffix]
+	DirAccess.make_dir_recursive_absolute(target.save_path.get_base_dir())
 	target.db_session_path = target.save_path + ".db"
 	target.demo_guest_session_path = target.save_path + ".guest"
 	files.append_array([target.save_path, target.save_path + ".bak", target.demo_guest_session_path, target.demo_guest_session_path + ".tmp"])

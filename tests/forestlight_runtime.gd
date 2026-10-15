@@ -29,6 +29,7 @@ func run() -> void:
 	app.save_path = "user://forestlight-test-%d/profile.json" % Time.get_ticks_usec()
 	DirAccess.make_dir_recursive_absolute(app.save_path.get_base_dir())
 	app.db_session_path = app.save_path + ".session"
+	app.demo_guest_session_path = app.save_path + ".demo-session"
 	root.add_child(app)
 	await frame("first")
 	check(app.screen == "first", "first selection is real native page")

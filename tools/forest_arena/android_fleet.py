@@ -1236,7 +1236,8 @@ class LanServer:
                 env.pop(name, None)
         env.update(FOREST_ARENA_ALLOWED_CIDR=self.cidr, FOREST_ARENA_LAN_BIND_HOST=self.bind,
                    FOREST_ARENA_LAN_ADVERTISED_WS_URL=f'ws://{self.bind}:{self.port}',
-                   FOREST_ARENA_LAN_PORT=str(self.port), FOREST_ARENA_QA_RUN=self.run_id)
+                   FOREST_ARENA_LAN_PORT=str(self.port), FOREST_ARENA_QA_RUN=self.run_id,
+                   FOREST_ARENA_LAN_OUTBOX_PATH=str((self.output / "result_outbox.json").resolve()))
         self.stream = (self.output / 'server.raw').open('wb')
         try:
             self.process = subprocess.Popen([self.godot, '--headless', '--path', str(self.project_root), 'res://server/game/lan_game_server.tscn'], stdout=self.stream, stderr=subprocess.STDOUT, env=env)

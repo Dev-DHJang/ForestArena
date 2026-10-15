@@ -1,0 +1,21 @@
+{
+  "run_id": "0658dcc41765",
+  "database": "forest_menu_qa_0658dcc41765",
+  "kind": "isolated_desktop_qa",
+  "physical_android": "not_run",
+  "checks": [
+    {
+      "name": "independent-blackbox-api",
+      "exit_code": 0
+    },
+    {
+      "name": "api-process-restart-service-id",
+      "pass": true
+    },
+    {
+      "name": "actual-godot-client-api",
+      "exit_code": 0
+    }
+  ],
+  "status": "pass"
+}

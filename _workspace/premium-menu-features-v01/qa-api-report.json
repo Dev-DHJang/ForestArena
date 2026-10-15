@@ -1,0 +1,2275 @@
+{
+  "run_id": "08fd40b8-d096-4095-8099-b316f274a79c",
+  "started_at": "2026-10-15T07:43:00.347Z",
+  "database": "forest_menu_qa_b113730f4231",
+  "base_url": "http://127.0.0.1:53902",
+  "physical_device": "not_run",
+  "cases": [
+    {
+      "name": "AUTH-SERVICE-01",
+      "status": "pass",
+      "checks": 12
+    },
+    {
+      "name": "OFFLINE-ATOMIC-DEDUP-TIME-02",
+      "status": "pass",
+      "checks": 33
+    },
+    {
+      "name": "MISSION-KST-BOUNDARIES-03",
+      "status": "pass",
+      "checks": 20
+    },
+    {
+      "name": "LAN-SERVICE-REPLAY-EXCLUSIONS-04",
+      "status": "pass",
+      "checks": 36
+    },
+    {
+      "name": "IDENTITY-MERGE-REPLAY-STALE-TOKEN-05",
+      "status": "pass",
+      "checks": 32
+    },
+    {
+      "name": "CANONICAL-SELF-HISTORIC-LAN-06",
+      "status": "pass",
+      "checks": 18
+    },
+    {
+      "name": "SOCIAL-OWNERSHIP-REPLAY-INVITE-07",
+      "status": "pass",
+      "checks": 39
+    },
+    {
+      "name": "RANK-TIES-MONTH-FRIENDS-PAGE-08",
+      "status": "pass",
+      "checks": 50
+    },
+    {
+      "name": "SOCIAL-ALIAS-EXPIRY-RESTORE-09",
+      "status": "pass",
+      "checks": 47
+    },
+    {
+      "name": "RANK-ACTUAL-PAGINATION-10",
+      "status": "pass",
+      "checks": 266
+    }
+  ],
+  "checks": [
+    {
+      "name": "Service discovery is public",
+      "pass": true
+    },
+    {
+      "name": "Service ID is a UUID",
+      "pass": true
+    },
+    {
+      "name": "Service protocol is v1",
+      "pass": true
+    },
+    {
+      "name": "Public service ID matches persistent DB singleton",
+      "pass": true
+    },
+    {
+      "name": "Missing bearer rejected: /v1/identity",
+      "pass": true
+    },
+    {
+      "name": "Missing bearer rejected: /v1/progress",
+      "pass": true
+    },
+    {
+      "name": "Missing bearer rejected: /v1/social",
+      "pass": true
+    },
+    {
+      "name": "Missing bearer rejected: /v1/leaderboard",
+      "pass": true
+    },
+    {
+      "name": "Unauthenticated mutation rejected: /v1/identity/merge",
+      "pass": true
+    },
+    {
+      "name": "Unauthenticated mutation rejected: /v1/progress/offline",
+      "pass": true
+    },
+    {
+      "name": "Unauthenticated mutation rejected: /v1/social/action",
+      "pass": true
+    },
+    {
+      "name": "Unauthenticated mutation rejected: /v1/presence",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Offline event accepted",
+      "pass": true
+    },
+    {
+      "name": "Exact offline replay accepted",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Exact replay counts once",
+      "pass": true
+    },
+    {
+      "name": "Same event ID with different payload conflicts",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Offline event never increments LAN counters",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Offline event never creates rank",
+      "pass": true
+    },
+    {
+      "name": "Invalid offline source/catalog/time rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid offline source/catalog/time rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid offline source/catalog/time rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid offline source/catalog/time rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid offline source/catalog/time rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid offline source/catalog/time rejected",
+      "pass": true
+    },
+    {
+      "name": "Invalid offline source/catalog/time rejected",
+      "pass": true
+    },
+    {
+      "name": "Future clock allowance below five minutes accepted",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Mixed invalid offline batch rejected",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Invalid batch applies no partial events",
+      "pass": true
+    },
+    {
+      "name": "Offline batch over fifty rejected",
+      "pass": true
+    },
+    {
+      "name": "Fifty offline events accepted",
+      "pass": true
+    },
+    {
+      "name": "Later offline event accepted",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "History is latest fifty entries",
+      "pass": true
+    },
+    {
+      "name": "Offline history source is explicit",
+      "pass": true
+    },
+    {
+      "name": "History is newest first",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Events on both sides of KST midnight accepted",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Two daily missions defined",
+      "pass": true
+    },
+    {
+      "name": "Daily missions count only current KST day",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Weekly targets are three wins/five completions",
+      "pass": true
+    },
+    {
+      "name": "Weekly missions count only since KST Monday",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Achievement targets are first/ten/four characters",
+      "pass": true
+    },
+    {
+      "name": "Four actual characters complete distinct-character mission",
+      "pass": true
+    },
+    {
+      "name": "Progress contains no reward/economy fields",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Player bearer cannot submit internal LAN result",
+      "pass": true
+    },
+    {
+      "name": "Result before registration rejected",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Exact LAN registration replay accepted",
+      "pass": true
+    },
+    {
+      "name": "Exact LAN result replay accepted",
+      "pass": true
+    },
+    {
+      "name": "Conflicting result replay rejected",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "LAN winner counted once",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "LAN loser counted once",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "LAN does not enter offline stats",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Disconnect and abandonment are excluded from normal stats",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Only normal LAN results appear in rank",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Zero-match user has no rank",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Repeated opponent appears once in recent list",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Two proved owners can merge",
+      "pass": true
+    },
+    {
+      "name": "Merge unions server and device characters",
+      "pass": true
+    },
+    {
+      "name": "Merge unions accessories",
+      "pass": true
+    },
+    {
+      "name": "Merge preserves active device character",
+      "pass": true
+    },
+    {
+      "name": "Merge preserves active accessory",
+      "pass": true
+    },
+    {
+      "name": "Merge preserves accessibility",
+      "pass": true
+    },
+    {
+      "name": "Merge preserves minimap",
+      "pass": true
+    },
+    {
+      "name": "Merge uses final chosen nickname",
+      "pass": true
+    },
+    {
+      "name": "Lost merge response can replay exact intent",
+      "pass": true
+    },
+    {
+      "name": "Merge replay does not increment profile revision",
+      "pass": true
+    },
+    {
+      "name": "Changed merge intent cannot reuse request ID",
+      "pass": true
+    },
+    {
+      "name": "Authenticated identity succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated identity succeeds",
+      "pass": true
+    },
+    {
+      "name": "Target remains canonical",
+      "pass": true
+    },
+    {
+      "name": "Old source access token resolves canonical",
+      "pass": true
+    },
+    {
+      "name": "Unified identity stays in same service",
+      "pass": true
+    },
+    {
+      "name": "Old source refresh survives merge",
+      "pass": true
+    },
+    {
+      "name": "Refresh preserves original token owner ID",
+      "pass": true
+    },
+    {
+      "name": "Authenticated identity succeeds",
+      "pass": true
+    },
+    {
+      "name": "Refreshed old owner still resolves canonical",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Canonical progress combines distinct original events",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Old-owner offline replay after merge does not duplicate",
+      "pass": true
+    },
+    {
+      "name": "Merge preserves both original profile rows",
+      "pass": true
+    },
+    {
+      "name": "Forged source ownership proof rejected",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Pre-merge distinct participants count normally",
+      "pass": true
+    },
+    {
+      "name": "Historical opponents can unify ownership",
+      "pass": true
+    },
+    {
+      "name": "Authenticated progress succeeds",
+      "pass": true
+    },
+    {
+      "name": "Historical canonical-self match is excluded after merge",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Historical canonical-self match has no rank",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Historical self is suppressed from recent opponents",
+      "pass": true
+    },
+    {
+      "name": "Raw participants remain preserved despite exclusion",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Friend request with operation ID accepted",
+      "pass": true
+    },
+    {
+      "name": "Friend operation exact replay succeeds",
+      "pass": true
+    },
+    {
+      "name": "Social operation payload conflict rejected",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Request replay does not duplicate pending request",
+      "pass": true
+    },
+    {
+      "name": "Pending request exists",
+      "pass": true
+    },
+    {
+      "name": "Third party cannot accept another user request",
+      "pass": true
+    },
+    {
+      "name": "Reverse request does not silently auto-accept",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Reverse request has not created friendship",
+      "pass": true
+    },
+    {
+      "name": "Actual recipient accepts",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Mutual friend displayed once",
+      "pass": true
+    },
+    {
+      "name": "Self friend request rejected",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Recent explicit heartbeat shows online",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Presence expires after ninety seconds",
+      "pass": true
+    },
+    {
+      "name": "Service registers genuine waiting room",
+      "pass": true
+    },
+    {
+      "name": "Non-host cannot invite using another host room",
+      "pass": true
+    },
+    {
+      "name": "Waiting room owner invites mutual friend",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Recipient sees real room invitation",
+      "pass": true
+    },
+    {
+      "name": "Third party cannot accept another player invitation",
+      "pass": true
+    },
+    {
+      "name": "Service closes waiting room",
+      "pass": true
+    },
+    {
+      "name": "Closed room invitation cannot be accepted",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Exact nickname search returns actual player",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Search string is not executable SQL",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Rank fixture users appear",
+      "pass": true
+    },
+    {
+      "name": "Equal wins and win rate share rank",
+      "pass": true
+    },
+    {
+      "name": "Competition rank skips tied positions",
+      "pass": true
+    },
+    {
+      "name": "Friend request succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Recipient sees authentic pending request",
+      "pass": true
+    },
+    {
+      "name": "Recipient accepts friend request",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Friends scope contains current mutual friends plus self only",
+      "pass": true
+    },
+    {
+      "name": "Own entry remains available in selected scope",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "All-time scope retains both month-edge wins",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Monthly scope begins at KST first-day midnight",
+      "pass": true
+    },
+    {
+      "name": "Rank page never exceeds fifty",
+      "pass": true
+    },
+    {
+      "name": "Negative rank page rejected",
+      "pass": true
+    },
+    {
+      "name": "Unknown rank scope rejected",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Friend request succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Recipient sees authentic pending request",
+      "pass": true
+    },
+    {
+      "name": "Recipient accepts friend request",
+      "pass": true
+    },
+    {
+      "name": "Friend request succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Recipient sees authentic pending request",
+      "pass": true
+    },
+    {
+      "name": "Recipient accepts friend request",
+      "pass": true
+    },
+    {
+      "name": "Friend request succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Recipient sees authentic pending request",
+      "pass": true
+    },
+    {
+      "name": "Recipient accepts friend request",
+      "pass": true
+    },
+    {
+      "name": "Friends with overlapping relations merge",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Common friend sees one canonical relation",
+      "pass": true
+    },
+    {
+      "name": "Merged source ID disappears from friend display",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Friendship between merged identities is suppressed",
+      "pass": true
+    },
+    {
+      "name": "No canonical self friend displayed",
+      "pass": true
+    },
+    {
+      "name": "Empty pre-grant local profile can merge existing server inventory",
+      "pass": true
+    },
+    {
+      "name": "Server fallback selection remains owned and nonempty",
+      "pass": true
+    },
+    {
+      "name": "Current waiting heartbeat accepted",
+      "pass": true
+    },
+    {
+      "name": "Canonical owner can invite mutual friend",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Live invitation present",
+      "pass": true
+    },
+    {
+      "name": "Invitation expires at exact database now boundary",
+      "pass": true
+    },
+    {
+      "name": "Stale room heartbeat cannot create fresh invitation",
+      "pass": true
+    },
+    {
+      "name": "Fresh closed state recorded",
+      "pass": true
+    },
+    {
+      "name": "Delayed old waiting replay cannot resurrect closed room",
+      "pass": true
+    },
+    {
+      "name": "Mutual friend removal succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Removal visible to other side",
+      "pass": true
+    },
+    {
+      "name": "Friend request succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Recipient sees authentic pending request",
+      "pass": true
+    },
+    {
+      "name": "Recipient accepts friend request",
+      "pass": true
+    },
+    {
+      "name": "Authenticated social succeeds",
+      "pass": true
+    },
+    {
+      "name": "Removed relation can be requested and accepted again",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "QA guest has valid credentials",
+      "pass": true
+    },
+    {
+      "name": "QA profile import succeeds",
+      "pass": true
+    },
+    {
+      "name": "QA actor registers unique service nickname",
+      "pass": true
+    },
+    {
+      "name": "Service registers real LAN participants",
+      "pass": true
+    },
+    {
+      "name": "Service persists LAN result",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "Authenticated leaderboard succeeds",
+      "pass": true
+    },
+    {
+      "name": "More than fifty actual ranked players produces full first page",
+      "pass": true
+    },
+    {
+      "name": "Actual second page is available",
+      "pass": true
+    },
+    {
+      "name": "Rank pages contain no duplicate canonical identity",
+      "pass": true
+    },
+    {
+      "name": "Own rank is independent of requested page",
+      "pass": true
+    },
+    {
+      "name": "All fifty-one fixture winners occur across real pages",
+      "pass": true
+    },
+    {
+      "name": "Actual pages preserve descending wins",
+      "pass": true
+    }
+  ],
+  "finished_at": "2026-10-15T07:43:09.814Z",
+  "status": "pass"
+}

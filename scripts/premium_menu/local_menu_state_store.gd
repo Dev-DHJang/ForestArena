@@ -181,3 +181,17 @@ func _invalid(message: String) -> bool:
 
 func _save_failed() -> bool:
 	return _invalid("메뉴 저장에 실패했습니다. 변경은 적용되지 않았습니다. 저장 공간을 확인하고 다시 시도하세요.")
+
+func import_owner_snapshot(owner: String, source_slots: Array, active: int) -> bool:
+	error = ""
+	if owner.is_empty() or source_slots.size() != 4 or active < 0 or active >= 4: return _invalid("편성 이전 정보가 올바르지 않습니다.")
+	for slot: Variant in source_slots:
+		if not _valid_slot(slot): return _invalid("편성 이전 정보가 올바르지 않습니다.")
+	var document := _load_document(_path(PRESET_FILE), true)
+	if not error.is_empty(): return false
+	var next: Dictionary = document.get("owners", {}).duplicate(true)
+	next[owner] = {"slots": source_slots.duplicate(true), "selected_slot": active}
+	if not _write_document(_path(PRESET_FILE), {"schema_version": SCHEMA_VERSION, "owners": next}, true): return false
+	_owners = next
+	# Keep the previous active owner until the app accepts the identity.
+	return true

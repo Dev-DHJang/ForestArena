@@ -1,7 +1,11 @@
 """Test-only internal auth fixture. Production always uses API + PostgreSQL."""
 import json
+import os
+import re
+import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+receipt_lock = threading.Lock()
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *_args): pass
     def do_POST(self):
@@ -17,6 +21,12 @@ class Handler(BaseHTTPRequestHandler):
                 status = 200
                 result = {"player_id": token, "nickname": {"host": "호스트숲", "guest": "손님숲", "third": "셋째숲"}[token]}
             elif token == "unnamed": status, result = 409, {"error": "nickname_required"}
+        if self.headers.get("x-forest-arena-service-token") == "lan-runtime-test-service" and (self.path == "/internal/v1/lan/rooms" or re.fullmatch(r"/internal/v1/lan/matches/[0-9a-f-]+/(register|result)", self.path)):
+            status, result = 200, {"status": "stored"}
+            path = os.environ.get('FOREST_ARENA_LAN_TEST_RECEIPTS')
+            if path:
+                with receipt_lock, open(path, 'a') as receipt:
+                    receipt.write(json.dumps({'route': self.path, 'payload': data}) + '\n')
         body = json.dumps(result).encode()
         self.send_response(status)
         self.send_header("Content-Type", "application/json")

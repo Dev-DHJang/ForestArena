@@ -1,0 +1,10 @@
+{"test":"MENU_API_RUNTIME","status":"PASS","checks":97,"service_id":"ddf6a8b1-8bbf-41bd-bd79-6c8d944ffe47","database":"isolated verification database"}
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+LAN_MENU_API_PAUSE_API
+LAN_MENU_API_RESTART_SERVER
+LAN_MENU_API_RUNTIME: PASS checks=2779 (normal inputs, two actual combat outcomes, PostgreSQL, process restart replay; no physical-device claim)
+LAN_MENU_API_ELAPSED seconds=27.9
+PROFILE_API_RUNTIME: PASS (actual PostgreSQL, auth isolation, import, concurrency, replay, token refresh)
+DEMO_GUEST_API_RUNTIME: PASS (PostgreSQL uniqueness race, NFC, persisted guest, internal auth and refresh)
+MENU_API_RESTART: PASS (persistent service UUID)

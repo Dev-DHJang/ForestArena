@@ -14,6 +14,7 @@ func run() -> void:
 	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
 	app.save_path = path
 	app.db_session_path = path + ".session"
+	app.demo_guest_session_path = app.save_path + ".demo-session"
 	root.add_child(app)
 	await create_timer(0.24).timeout
 	await process_frame

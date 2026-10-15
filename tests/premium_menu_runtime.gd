@@ -2,7 +2,7 @@ extends SceneTree
 
 # Independent contract checks exercise the native controls that ship in the app.
 # --ui-capture writes the real rendered viewport; never run it with --headless.
-const OUTPUT := "res://_workspace/premium-menu-v07-runtime/qa-captures"
+const OUTPUT := "res://_workspace/premium-menu-features-v01/qa-captures"
 const MENUS := {
 	"character_collection": "SCR_04_CharacterCollection", "character_detail": "SCR_05_CharacterDetail",
 	"accessory_collection": "SCR_06_AccessoryCollection", "accessory_detail": "SCR_07_AccessoryDetail",
@@ -130,6 +130,7 @@ func run() -> void:
 	app = load("res://scenes/local_ai_app.tscn").instantiate()
 	app.save_path = qa_dir + "/profile.json"
 	app.db_session_path = qa_dir + "/db-session.json"
+	app.demo_guest_session_path = qa_dir + "/demo-session.json"
 	root.add_child(app)
 	audio.settings_path = qa_dir + "/audio.cfg"
 	await settle()
@@ -176,7 +177,7 @@ func run_interactions() -> void:
 	for menu: String in ["mission", "social", "rank"]:
 		await open_menu(menu)
 		var before: Dictionary = app.store.data.duplicate(true)
-		check("준비" in labels(), "future service clearly unavailable: " + menu)
+		check(app.menu_service.snapshot(menu).status == ("local" if menu == "mission" else "unlinked"), "real local or unlinked service state: " + menu)
 		check(not "숲길친구" in labels() and not "푸른바람" in labels() and not "나뭇잎" in labels(), "future service contains no fake friends: " + menu)
 		check(app.store.data == before, "future service leaves profile unchanged: " + menu)
 	for target: String in MENUS:
@@ -260,7 +261,7 @@ func run_safe_area_checks() -> void:
 	if capture: DisplayServer.window_set_size(root.size)
 
 func run_state_coverage() -> void:
-	var specification: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://_workspace/premium-menu-v07-runtime/state-runtime-coverage.json"))
+	var specification: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://_workspace/premium-menu-features-v01/state-runtime-coverage.json"))
 	for row: Dictionary in specification.states:
 		var start := checks.size()
 		var menu: String = row.runtime_menu
@@ -271,9 +272,21 @@ func run_state_coverage() -> void:
 		if menu in ["mission", "social"] and params.has("tab"):
 			params.category = params.tab
 		if row.action == "empty_state" and menu == "collection": params.filter = "미보유"
+		if row.action == "mission_detail": params.category = "weekly" if String(params.mission_id).begins_with("weekly") else "daily"
+		if row.action in ["social_member", "service_error", "service_empty"]:
+			await run_native_service_state(String(row.action), String(row.design_screen))
+			var fixture_passed := true
+			for index: int in range(start, checks.size()):
+				if not checks[index].pass: fixture_passed = false
+			state_coverage.append({"design_screen": row.design_screen, "runtime_menu": menu, "checks": checks.size() - start, "pass": fixture_passed, "policy": row.policy, "validation_scope": "native service response fixture; actual PostgreSQL checked separately"})
+			continue
 		app.menu_router.reset()
 		await open_menu(menu, params)
 		match String(row.action):
+			"mission_detail":
+				await press("menu/mission/mission/" + String(params.mission_id))
+				check(is_instance_valid(app.menu_router.view.modal) and "보상은 없습니다" in labels(), "actual mission detail contains live count and no reward: " + String(params.mission_id))
+				await press("menu/mission/modal_confirm")
 			"preset_slot": await press("menu/preset/slot/%d" % int(params.slot))
 			"open_product_modal":
 				await press("purchase/" + String(params.product_id))
@@ -301,7 +314,7 @@ func run_state_coverage() -> void:
 				check(toggle != null, "state off toggle exists: " + key)
 				if toggle != null: toggle.button_pressed = not toggle.button_pressed
 				await press("menu/settings/settings_cancel")
-		if row.policy == "honest_empty": check("준비 중" in labels(), "approved future state is honest empty: " + String(row.design_screen))
+		if row.policy in ["honest_empty", "unlinked_service", "local_progress"]: check(app.menu_service.snapshot(menu).status in ["local", "unlinked"], "real local or unlinked state: " + String(row.design_screen))
 		if menu == "character_detail": check(app.menu_router.state.tab == params.get("tab", app.menu_router.state.tab), "character detail uses requested native tab")
 		if params.has("selected_id"): check(app.menu_router.state.selected_id == params.selected_id, "state visible item matches requested real catalog ID: " + String(row.design_screen))
 		var passed := true
@@ -312,6 +325,54 @@ func run_state_coverage() -> void:
 	app.menu_router.reset()
 	app._show_home()
 	await settle()
+
+func run_native_service_state(kind: String, design_screen: String) -> void:
+	# The payloads below are deterministic transport test fixtures. They never
+	# seed the app's production defaults or claim to be a live backend check.
+	const TEST_SERVICE := "11111111-1111-4111-8111-111111111111"
+	const TEST_PLAYER := "22222222-2222-4222-8222-222222222222"
+	const TEST_FRIEND := "33333333-3333-4333-8333-333333333333"
+	var service: MenuServiceClient = app.menu_service
+	var old_identity: Dictionary = service.identity.duplicate(true)
+	var old_params: Dictionary = service._params.duplicate(true)
+	var old_adapter: Callable = service.request_adapter
+	var old_mode: bool = app.db_mode
+	var old_raw: String = app.db_client.player_id
+	var old_url: String = app.db_client.api_url
+	var old_token: String = app.db_client.access_token
+	service.identity = {"schema_version": 1, "binding": {"service_id": TEST_SERVICE, "canonical_player_id": TEST_PLAYER, "player_id": TEST_PLAYER, "api_url": "http://native-menu-fixture.invalid", "owner_key": "unified:" + TEST_SERVICE + ":" + TEST_PLAYER, "nickname": "검사계정", "local_owners": []}, "intent": {}, "operations": []}
+	service._params = {"scope": "all", "page": 0, "search": ""}
+	app.db_mode = true
+	app.db_client.player_id = TEST_PLAYER
+	app.db_client.api_url = "http://native-menu-fixture.invalid"
+	app.db_client.access_token = "test-fixture-not-a-secret"
+	service.request_adapter = func(_url: String, _method: HTTPClient.Method, route: String, _payload: Dictionary, _token: String) -> Dictionary:
+		if route == "/v1/service": return {"service_id": TEST_SERVICE, "protocol_version": 1, "status": 200}
+		if kind == "service_error": return {"error": "connection_failed", "status": 0}
+		var friends: Array = [{"player_id": TEST_FRIEND, "nickname": "검사동료", "online": true, "last_seen": "2026-10-15T00:00:00Z"}] if kind == "social_member" else []
+		return {"status": 200, "friends": friends, "incoming": [], "outgoing": [], "recent": [], "invites": [], "search": []}
+	app.menu_router.reset()
+	await open_menu("social", {"category": "search" if kind == "service_empty" else "friends"})
+	match kind:
+		"social_member":
+			check(service.snapshot("social").status == "ready" and "검사동료" in labels(), "native service member fixture rendered: " + design_screen)
+			check("접속 중" in labels(), "actual online flag has text beyond color")
+			await press("menu/social/remove/" + TEST_FRIEND)
+			check(is_instance_valid(app.menu_router.view.modal), "member removal requires native confirmation")
+			await press("menu/social/modal_cancel")
+		"service_error":
+			check(service.snapshot("social").status == "error" and "연결하지 못" in labels(), "transport failure differs from successful empty: " + design_screen)
+		"service_empty":
+			check(service.snapshot("social").status == "ready" and "검색 결과가 없습니다" in labels(), "successful empty search differs from connection error: " + design_screen)
+	await frame("social-" + kind + "-native-fixture")
+	service.identity = old_identity
+	service._params = old_params
+	service.request_adapter = old_adapter
+	app.db_mode = old_mode
+	app.db_client.player_id = old_raw
+	app.db_client.api_url = old_url
+	app.db_client.access_token = old_token
+	app.menu_router.reset()
 
 func run_ownership_checks() -> void:
 	app.menu_router.reset()

@@ -6,6 +6,8 @@ PORT=${FOREST_ARENA_LAN_TEST_PORT:-17777}
 LOG_FILE=$(mktemp /tmp/forest-arena-lan-server-XXXXXX)
 RUNTIME_LOG=$(mktemp /tmp/forest-arena-lan-runtime-XXXXXX)
 APP_LOG=$(mktemp /tmp/forest-arena-lan-app-XXXXXX)
+QUEUE_DIR=$(mktemp -d /tmp/forest-arena-lan-queue-XXXXXX)
+export FOREST_ARENA_LAN_TEST_RECEIPTS="$QUEUE_DIR/receipts.jsonl"
 server_pid=""
 api_pid=""
 
@@ -20,6 +22,7 @@ api_pid=$!
 sleep 0.2
 kill -0 "$api_pid"
 
+FOREST_ARENA_LAN_OUTBOX_PATH="$QUEUE_DIR/outbox.json" \
 FOREST_ARENA_LAN_API_URL=http://127.0.0.1:18081 \
 FOREST_ARENA_SERVICE_TOKEN=lan-runtime-test-service \
 FOREST_ARENA_ALLOWED_CIDR=127.0.0.0/8 \
@@ -58,4 +61,21 @@ if rg -n 'SCRIPT ERROR|ERROR:' "$LOG_FILE" >/dev/null; then
   tail -100 "$LOG_FILE"
   exit 1
 fi
+python3 - <<'PY_RECEIPT'
+import json, os, uuid
+from pathlib import Path
+rows = [json.loads(line) for line in Path(os.environ['FOREST_ARENA_LAN_TEST_RECEIPTS']).read_text().splitlines()]
+registered = [r for r in rows if r['route'].endswith('/register')]
+results = [r for r in rows if r['route'].endswith('/result')]
+assert len(registered) >= 2 and len(results) >= 2, 'actual match registrations/results missing'
+ids = [r['route'].split('/')[-2] for r in registered]
+assert len(ids) == len(set(ids)), 'rematches must have unique UUIDs'
+for value in ids: uuid.UUID(value)
+first = registered[0]['payload']['participants']
+assert [(r['player_id'],r['character_id'],r['accessory_id']) for r in first] == [('host','nabi','fixture-iron-armor'),('guest','yu-ran','fixture-boxing-gloves')]
+for result in results:
+    assert result['route'].split('/')[-2] in ids
+    assert result['payload']['reason'] in ('combat','draw','disconnect')
+print('LAN server registration/result/rematch delivery: PASS (test fixture; database checked separately)')
+PY_RECEIPT
 printf 'verify-lan-runtime: PASS\n'

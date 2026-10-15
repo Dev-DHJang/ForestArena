@@ -15,6 +15,7 @@ class GuestFixture:
     def __init__(self, host, port, service_token):
         self.service_token = service_token
         self.players, self.access, self.refresh, self.replayed = {}, {}, {}, {}
+        self.lan_records = []
         self.lock = threading.Lock()
         fixture = self
 
@@ -77,6 +78,12 @@ class GuestFixture:
             result = self.issue(player, successor)
             self.replayed[key] = result
             return 200, result
+        if method == 'POST' and (path == '/internal/v1/lan/rooms' or re.fullmatch(r'/internal/v1/lan/matches/[0-9a-f-]+/(register|result)', path)):
+            if headers.get('x-forest-arena-service-token') != self.service_token:
+                return 401, {'error': 'invalid_service_token'}
+            # Transport fixture only. Real DB/stat accounting has separate tests.
+            self.lan_records.append({'path': path, 'payload': data})
+            return 200, {'status': 'stored'}
         if path == '/internal/v1/lan/auth':
             if headers.get('x-forest-arena-service-token') != self.service_token:
                 return 401, {'error': 'invalid_service_token'}

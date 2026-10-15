@@ -1,6 +1,8 @@
 import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import type pg from "pg";
+import {canonicalId,locked} from "./identities.js";
+import {normalizeNickname as serviceNickname} from "./demo_guests.js";
 
 const catalog = JSON.parse(readFileSync(new URL("./profile_catalog.json", import.meta.url), "utf8")) as { characters: string[]; accessories: string[] };
 export type Profile = {
@@ -88,20 +90,27 @@ function canonical(value: unknown): string {
 export class Profiles {
   constructor(readonly pool: pg.Pool) {}
   async get(playerId: string): Promise<SavedProfile | undefined> {
-    const saved = (await this.pool.query<SavedProfile>("SELECT profile, revision FROM app.player_profiles WHERE player_id = $1", [playerId])).rows[0];
-    if (!saved) return undefined;
-    const migrated = migrateProfile(saved.profile);
-    if ((saved.profile as {schema_version: number}).schema_version !== 3) {
-      // Compare revision and schema so a simultaneous user change is never overwritten.
-      await this.pool.query("UPDATE app.player_profiles SET profile = $2, updated_at = now() WHERE player_id = $1 AND revision = $3 AND profile->>'schema_version' = '2'", [playerId, migrated, saved.revision]);
-      return this.get(playerId);
-    }
-    return {profile: migrated, revision: saved.revision};
+    return locked(this.pool,async db=>{
+      playerId=await canonicalId(db,playerId);
+      const saved=(await db.query<SavedProfile>("SELECT profile,revision FROM app.player_profiles WHERE player_id=$1",[playerId])).rows[0];
+      if(!saved)return undefined;
+      const migrated=migrateProfile(saved.profile);
+      if((saved.profile as {schema_version:number}).schema_version!==3) {
+        await db.query("UPDATE app.player_profiles SET profile=$2,updated_at=now() WHERE player_id=$1 AND revision=$3 AND profile->>'schema_version'='2'",[playerId,migrated,saved.revision]);
+        const latest=(await db.query<SavedProfile>("SELECT profile,revision FROM app.player_profiles WHERE player_id=$1",[playerId])).rows[0]!;
+        return {...latest,profile:migrateProfile(latest.profile)};
+      }
+      return {profile:migrated,revision:saved.revision};
+    });
   }
   async import(playerId: string, profile: unknown): Promise<SavedProfile> {
     profile = migrateProfile(profile);
-    await this.pool.query("INSERT INTO app.player_profiles (player_id, profile) VALUES ($1, $2) ON CONFLICT DO NOTHING", [playerId, profile]);
-    return (await this.get(playerId))!;
+    return locked(this.pool,async db=>{
+      playerId=await canonicalId(db,playerId);
+      await db.query("INSERT INTO app.player_profiles (player_id, profile) VALUES ($1, $2) ON CONFLICT DO NOTHING", [playerId, profile]);
+      const saved=(await db.query<SavedProfile>("SELECT profile,revision FROM app.player_profiles WHERE player_id=$1",[playerId])).rows[0]!;
+      return {...saved,profile:migrateProfile(saved.profile)};
+    });
   }
   async action(playerId: string, input: Record<string, unknown>): Promise<SavedProfile> {
     if (typeof input.request_id !== "string" || !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(input.request_id) || !Number.isSafeInteger(input.expected_revision) || (input.expected_revision as number) < 1) throw new ProfileError("invalid_request");
@@ -109,6 +118,8 @@ export class Profiles {
     const client = await this.pool.connect();
     try {
       await client.query("BEGIN");
+      await client.query("SELECT pg_advisory_xact_lock(hashtext('forest_menu_identity'))");
+      playerId=await canonicalId(client,playerId);
       const current = (await client.query<SavedProfile>("SELECT profile, revision FROM app.player_profiles WHERE player_id = $1 FOR UPDATE", [playerId])).rows[0];
       if (!current) throw new ProfileError("profile_missing", 404);
       const previous = (await client.query<{request_hash: string; response: SavedProfile}>("SELECT request_hash, response FROM app.profile_requests WHERE player_id = $1 AND request_id = $2", [playerId, input.request_id])).rows[0];
@@ -118,6 +129,14 @@ export class Profiles {
       }
       if (current.revision !== input.expected_revision) throw new ProfileError("revision_conflict", 409);
       const response = { profile: applyAction(migrateProfile(current.profile), input.action, input.payload), revision: current.revision + 1 };
+      if(input.action==="identity") {
+        const registered=(await client.query("SELECT nickname FROM app.players WHERE player_id=$1",[playerId])).rows[0]?.nickname;
+        if(registered!==null&&registered!==undefined) {
+          const nickname=serviceNickname(response.profile.nickname);
+          try {await client.query("UPDATE app.players SET nickname=$2 WHERE player_id=$1",[playerId,nickname]);}
+          catch(error) {if((error as {code?:string}).code==="23505")throw new ProfileError("nickname_taken",409);throw error;}
+        }
+      }
       await client.query("UPDATE app.player_profiles SET profile = $2, revision = $3, updated_at = now() WHERE player_id = $1", [playerId, response.profile, response.revision]);
       await client.query("INSERT INTO app.profile_requests (player_id, request_id, request_hash, response) VALUES ($1, $2, $3, $4)", [playerId, input.request_id, hash, response]);
       await client.query("COMMIT"); return response;
