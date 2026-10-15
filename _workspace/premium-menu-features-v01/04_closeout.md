@@ -46,6 +46,11 @@
 
 ## 원격 통합과 되돌리기
 
-최신 develop `5fe62756ea7d6a1c570e5eff77f4e16ffc7486fe`에서 `codex/premium-menu-features-v01`로 작업했다. 독립 QA와 실제 산출물 확인 뒤 PR을 거쳐 develop에 병합한다. PR·병합 SHA는 실제 병합 완료 뒤 이 절에 기록한다.
+최신 develop `5fe62756ea7d6a1c570e5eff77f4e16ffc7486fe`에서 `codex/premium-menu-features-v01`로 작업했다. 독립 QA와 실제 산출물 확인 뒤 [구현 PR #98](https://github.com/Dev-DHJang/ForestArena/pull/98)을 develop에 병합했다.
+
+- 구현 소스 커밋: `fa6e67692422e97e46c1f3595ffac73116b34a10`.
+- 실제 구현 병합 SHA: `3207bbef1add9f987dd68bd96da147a8b1e1eb82`.
+- PR의 검사 조회는 위 소스 커밋을 확인했으며 GitHub CI checks/statuses가 비어 있었다. 이를 CI 통과라고 쓰지 않고 위 로컬·실제 연결 검사와 독립 QA를 근거로 병합했다.
+- 이 마무리 문서 갱신은 별도 문서 PR로 반영한다. 구현 소스·APK·이미지·검사 결과는 바꾸지 않는다.
 
 되돌릴 때 관련 앱·서버 커밋을 되돌리고 추가 저장 파일과 DB 테이블·원본 사용자·기록은 보존한다. 통합 원본이나 소유 데이터를 자동 삭제하지 않는다.
