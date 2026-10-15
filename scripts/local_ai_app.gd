@@ -10,6 +10,10 @@ const MENU_ROUTER = preload("res://scripts/premium_menu/premium_menu_router.gd")
 const MENU_STORE = preload("res://scripts/premium_menu/local_menu_state_store.gd")
 var menu_router
 var menu_store
+const MENU_SERVICE = preload("res://scripts/network/menu_service_client.gd")
+var menu_service
+var last_lan_result_id := ""
+var lan_result_sync_label: Label
 const BACK_REQUEST_DEBOUNCE_MSEC := 200
 var catalog := LocalPlayCatalog.new()
 var store: LocalPlayerStore
@@ -70,6 +74,7 @@ func _ready() -> void:
 	lan_client.presentation_event_received.connect(_on_lan_presentation_event)
 	lan_client.peer_status_changed.connect(_on_lan_peer_status)
 	lan_client.match_finished.connect(_on_lan_match_finished)
+	lan_client.result_sync_changed.connect(_on_lan_result_sync)
 	lan_client.rematch_changed.connect(_on_lan_rematch_changed)
 	lan_client.failed.connect(_on_lan_failed)
 	demo_guest = DemoGuestClient.new()
@@ -94,6 +99,9 @@ func _ready() -> void:
 	else:
 		message = "이전 저장 백업을 복구했습니다." if store.recovered else ""
 		_show_home() if store.data.first_granted else _show_first()
+	menu_service = MENU_SERVICE.new()
+	add_child(menu_service)
+	menu_service.configure(self)
 	if auto_db:
 		_connect_db.call_deferred(false)
 
@@ -410,6 +418,9 @@ func _begin_lan_join() -> void:
 
 
 func _demo_login(intent: String, new_guest := false) -> void:
+	if menu_service != null and menu_service.has_pending_merge():
+		_show_premium_menu("profile", {"message": "프로필 통합 결과를 먼저 확인하세요. 기존 게스트를 대체하지 않았습니다."})
+		return
 	if qa_session != null: qa_session.last_lan_error = ""
 	if demo_guest.busy: return
 	var parsed := LanInvite.parse_host_code(lan_host_code) if intent == "host" else LanInvite.parse_invite_code(lan_invite_code)
@@ -424,18 +435,29 @@ func _demo_login(intent: String, new_guest := false) -> void:
 	_new_page("게스트 접속 중")
 	_label("처음 연결할 때 게스트를 만들고, 이후에는 같은 게스트로 접속합니다.", 18)
 	_button("취소", _cancel_demo_login)
-	var ok := await demo_guest.login(demo_api_url, new_guest)
+	var unified: bool = menu_service != null and not menu_service.identity.get("binding", {}).is_empty()
+	var ok := false
+	if unified:
+		var session: Dictionary = await menu_service.lan_session(demo_api_url)
+		ok = not session.has("error")
+		if ok:
+			demo_guest.access_token = String(session.get("access_token", ""))
+			demo_guest.nickname = String(session.get("nickname", ""))
+		else: demo_guest.error = String(session.get("error", "connection_failed"))
+	else:
+		ok = await demo_guest.login(demo_api_url, new_guest)
 	if generation != demo_generation or not is_inside_tree(): return
 	if not ok:
 		screen = "demo_guest_error"
 		_new_page("게스트 연결 확인")
 		_label(_demo_error(demo_guest.error), 18)
 		_button("다시 시도", func() -> void: await _demo_login(intent))
-		if demo_guest.session_invalid or demo_guest.error == "session_endpoint_mismatch":
+		if not unified and (demo_guest.session_invalid or demo_guest.error == "session_endpoint_mismatch"):
 			_button("새 게스트 시작 안내", _confirm_new_demo_guest)
 		_button("취소", _cancel_demo_login)
 		return
-	_show_demo_nickname()
+	if unified: _continue_demo_lan()
+	else: _show_demo_nickname()
 
 
 func _show_demo_nickname() -> void:
@@ -472,6 +494,9 @@ func _cancel_demo_login() -> void:
 
 
 func _refresh_demo_lan_token() -> String:
+	if menu_service != null and not menu_service.identity.get("binding", {}).is_empty():
+		var session: Dictionary = await menu_service.lan_session(demo_api_url)
+		return String(session.get("access_token", "")) if not session.has("error") else ""
 	var ok := await demo_guest.login(demo_api_url)
 	return demo_guest.access_token if ok else ""
 
@@ -508,8 +533,14 @@ func _on_lan_room_created(invite_code: String) -> void:
 	code.editable = false
 	lan_status_label = _label("참가자를 기다리는 중", 18)
 	_button("초대 코드 복사", _copy_lan_invite)
+	_button("친구 초대", func() -> void: _show_premium_menu("social", {"category": "friends", "entry_context": "lan_room"}))
 	_button("방 닫기", _leave_lan_to_menu)
 
+
+func return_menu_lan_room() -> void:
+	if lan_client.active and not lan_client.running and lan_client.local_slot == 1 and not lan_current_invite.is_empty():
+		_on_lan_room_created(lan_current_invite)
+	else: _show_lan_menu()
 
 func _copy_lan_invite() -> void:
 	if lan_current_invite.is_empty(): return
@@ -643,6 +674,7 @@ func _on_lan_presentation_event(event_id: StringName, payload: Dictionary) -> vo
 
 
 func _on_lan_match_finished(result: Dictionary) -> void:
+	last_lan_result_id = String(result.get("match_id", ""))
 	if match_scene != null:
 		match_scene.get_node("Interface").visible = false
 		match_scene.get_node("Interface/TouchCommandSource").release_all_touches()
@@ -655,10 +687,19 @@ func _on_lan_match_finished(result: Dictionary) -> void:
 	_new_page(title, false)
 	_label("참가자: " + String(lan_client.participant_names.get("1", "참가자 1")) + " · " + String(lan_client.participant_names.get("2", "참가자 2")), 18)
 	_label("종료 사유: " + _lan_reason_text(String(result.get("reason", "combat"))), 18)
+	if not last_lan_result_id.is_empty():
+		lan_result_sync_label = _label(_lan_sync_text(String(result.get("result_sync", "pending"))), 18)
 	_button("같은 조건으로 재대전 요청", _request_lan_rematch)
 	_button("LAN 메뉴", _leave_lan_to_menu)
 	_button("로비", _leave_lan_to_home)
 
+
+func _lan_sync_text(value: String) -> String:
+	return {"stored": "LAN 경기 기록 저장 완료", "pending": "LAN 경기 기록 전송 대기 · 서버가 자동 재시도합니다.", "failed": "LAN 경기 기록 전송 실패 · 서버 확인이 필요합니다.", "save_failed": "LAN 경기 기록 저장 실패 · 서버 저장 공간 확인이 필요합니다."}.get(value, "LAN 경기 기록 확인 중")
+
+func _on_lan_result_sync(match_id: String, value: String) -> void:
+	if match_id != last_lan_result_id: return
+	if screen == "lan_result" and is_instance_valid(lan_result_sync_label): lan_result_sync_label.text = _lan_sync_text(value)
 
 func _request_lan_rematch() -> void:
 	lan_client.request_rematch(true)
@@ -741,7 +782,77 @@ func _display_premium_view(next_view: Control, menu_id: String) -> void:
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
 func _menu_owner_key() -> String:
+	if menu_service != null:
+		var binding: Dictionary = menu_service.identity.get("binding", {})
+		if not String(binding.get("owner_key", "")).is_empty(): return String(binding.owner_key)
 	return "db:" + (db_client.api_url + ":" + db_client.player_id).sha256_text() if db_mode else "device"
+
+func apply_unified_identity(response: Dictionary) -> bool:
+	if not response.get("session") is Dictionary or not response.get("profile") is Dictionary or not store.valid(response.profile): return false
+	var session: Dictionary = response.session.duplicate(true)
+	# A recovered server receipt can predate a successful token rotation on
+	# restart. Never replace that current credential with the receipt's old one.
+	var current_session: Dictionary = db_client.saved_connection()
+	if current_session.get("player_id", "") == session.get("player_id", "") and current_session.get("api_url", "") == session.get("api_url", "") and current_session.get("pending_auth", {}).is_empty() and not String(current_session.get("refresh_token", "")).is_empty():
+		session.refresh_token = current_session.refresh_token
+		if db_client.player_id == session.get("player_id", "") and db_client.refresh_token == session.refresh_token and not db_client.access_token.is_empty(): session.access_token = db_client.access_token
+	for field: String in ["api_url", "player_id", "refresh_token", "access_token"]:
+		if not session.get(field) is String or String(session[field]).is_empty(): return false
+	if int(response.get("revision", 0)) < 1: return false
+	if not db_client.pending.is_empty() or not db_client.pending_auth.is_empty(): return false
+	var db_document := {"api_url": session.api_url, "player_id": session.player_id, "refresh_token": session.refresh_token, "pending": {}, "pending_auth": {}, "use_db": true}
+	var lan_document := {"api_url": session.api_url, "player_id": session.player_id, "refresh_token": session.refresh_token, "pending_auth": {}}
+	# MenuService keeps the intent until every file succeeds, making partial
+	# writes recoverable by replay without replacing either old identity.
+	if not _write_unified_document(db_session_path, db_document): return false
+	if not _write_unified_document(demo_guest_session_path, lan_document): return false
+	if not store._commit(response.profile.duplicate(true)): return false
+	db_client.api_url = session.api_url
+	db_client.player_id = session.player_id
+	db_client.refresh_token = session.refresh_token
+	db_client.access_token = session.access_token
+	db_client.pending = {}
+	db_client.pending_auth = {}
+	db_client.profile = response.profile.duplicate(true)
+	db_client.revision = int(response.revision)
+	db_client.use_db = true
+	db_client.connected = true
+	db_client.session_invalid = false
+	response.session = session.duplicate(true)
+	db_mode = true
+	db_address = session.api_url
+	demo_guest.api_url = session.api_url
+	demo_guest.player_id = session.player_id
+	demo_guest.refresh_token = session.refresh_token
+	demo_guest.access_token = session.access_token
+	demo_guest.pending_auth = {}
+	demo_guest.nickname = String(response.get("nickname", response.profile.nickname))
+	demo_api_url = session.api_url
+	return true
+
+func _write_unified_document(path: String, document: Dictionary) -> bool:
+	var directory := path.get_base_dir()
+	if not DirAccess.dir_exists_absolute(directory) and DirAccess.make_dir_recursive_absolute(directory) != OK: return false
+	var file := FileAccess.open(path + ".tmp", FileAccess.WRITE)
+	if file == null: return false
+	file.store_string(JSON.stringify(document))
+	file.flush()
+	var success := file.get_error() == OK
+	file.close()
+	if not success: return false
+	if FileAccess.file_exists(path) and DirAccess.copy_absolute(path, path + ".bak") != OK: return false
+	return DirAccess.rename_absolute(path + ".tmp", path) == OK
+
+func join_menu_invite(code: String) -> bool:
+	# Invitations are deliberate actions from a menu; never displace a match.
+	if is_instance_valid(match_scene) or lan_client.active: return false
+	var parsed := LanInvite.parse_invite_code(code)
+	if parsed.has("error"): return false
+	lan_invite_code = code
+	demo_api_url = String(parsed.get("api_url", ""))
+	demo_intent = "join"
+	_demo_login.call_deferred("join")
+	return true
 
 func _apply_menu_control_settings() -> void:
 	if is_instance_valid(match_scene):
@@ -1149,6 +1260,7 @@ func _show_result_for_match(winner: StringName, source: MatchController) -> void
 
 func _show_result(winner: StringName) -> void:
 	if match_controller == null: return
+	if menu_service != null: menu_service.record_offline(active_config, match_controller)
 	match_scene.get_node("Interface").visible = false
 	screen = "result"
 	match_controller.pause_match(true)
@@ -1193,6 +1305,12 @@ func _close_match() -> void:
 func _show_db_connection() -> void:
 	screen = "db_connection"
 	_new_page("저장 모드")
+	if menu_service != null and (not menu_service.identity.get("binding", {}).is_empty() or not menu_service.identity.get("intent", {}).is_empty()):
+		_label("통합 프로필을 사용하고 있습니다. 연결 실패 시 기존 계정을 유지하고 같은 서버로 다시 연결하세요.", 18)
+		_button("같은 계정 다시 연결", func() -> void: await _connect_db(false))
+		_button("프로필 통합 확인", func() -> void: _show_premium_menu("profile"))
+		_button("로비", _show_home if store.data.first_granted else _show_first)
+		return
 	_label("기기 저장 또는 개발용 로컬 DB를 선택하세요. DB가 비어 있으면 기기 저장을 한 번 이전합니다.", 18)
 	_line_input("http://127.0.0.1:3000", db_address, func(value: String) -> void: db_address = value)
 	_button("로컬 DB 연결", func() -> void: await _connect_db(false))
@@ -1229,6 +1347,10 @@ func _busy_overlay() -> Control:
 
 func _connect_db(new_guest: bool) -> void:
 	if storage_busy: return
+	if new_guest and menu_service != null and (not menu_service.identity.get("binding", {}).is_empty() or not menu_service.identity.get("intent", {}).is_empty()):
+		message = "통합 프로필을 먼저 확인하세요. 기존 계정을 대체하지 않았습니다."
+		_show_db_connection()
+		return
 	var overlay := _busy_overlay()
 	var local := LocalPlayerStore.new(catalog, save_path)
 	if not local.load_profile_read_only(): local.data = {}
@@ -1246,6 +1368,9 @@ func _connect_db(new_guest: bool) -> void:
 
 func _change_profile(action: String, payload: Dictionary) -> bool:
 	if storage_busy: return false
+	if menu_service != null and not menu_service.identity.get("intent", {}).is_empty():
+		store.error = "프로필 통합 결과를 먼저 확인하세요. 프로필 메뉴에서 같은 요청을 다시 시도할 수 있습니다."
+		return false
 	if not db_mode:
 		var local_ok := false
 		match action:
@@ -1319,6 +1444,9 @@ func _show_storage_error() -> void:
 		_button("취소", _show_storage_error))
 
 func _notification(what: int) -> void:
+	if menu_service != null:
+		if what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED]: menu_service.foreground(false)
+		elif what in [NOTIFICATION_APPLICATION_FOCUS_IN, NOTIFICATION_APPLICATION_RESUMED]: menu_service.foreground(true)
 	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
 		handle_back_request()
 	elif what in [NOTIFICATION_APPLICATION_FOCUS_OUT, NOTIFICATION_APPLICATION_PAUSED] and screen == "match":
@@ -1356,5 +1484,6 @@ func _audio_slider(title: String, value: float, is_music: bool) -> void:
 
 
 func _exit_tree() -> void:
+	if is_instance_valid(menu_service) and menu_service.is_inside_tree(): menu_service.foreground(false)
 	if demo_guest != null: demo_guest.cancel()
 	ForestArenaAudio.shutdown()

@@ -1,0 +1,270 @@
+{
+  "status": "pass",
+  "reviewer": "independent_qa",
+  "method": "native frame_post_draw canonical PNG; original files and four contact sheets visually inspected",
+  "test_report": "qa-connected-runtime-report.json",
+  "actual_api": true,
+  "physical_android": "not_run",
+  "fake_runtime_data": false,
+  "observations": [
+    "실제 임시 API 계정으로 만든 친구 이름·공동 순위·미션 진행·프로필 기록이 표시된다.",
+    "1280/1920,20:9,글자1.3에서 버튼과 본문을 읽을 수 있다.",
+    "화면 아래의 프로필·미션·순위 기록은 ScrollContainer로 이어지며 스크롤한 기록 화면을 별도로 확인했다.",
+    "실제 연결 실패가 빨간 안내와 마지막 조회 자료로 나타나며 친구 없음·검색 없음과 구분되고 재조회 후 복구된다.",
+    "social/rank1280 원본의 새로고침 글자와 rank 다음 글자는 재확인 시 정상 표시된다."
+  ],
+  "captures": [
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-mission-1280.png",
+      "menu": "mission",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "43c3198822a63bbd8d1b3dcf1599721b8bf8e3def9f8e25a48f5eefc94d1bf10",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-social-1280.png",
+      "menu": "social",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "e21b5b1c225b519db99528eff82895913aae76b311c838ebc759400cc6aef367",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-rank-1280.png",
+      "menu": "rank",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "0ed412573ff5013d563a5bce14cfa9f50bb328b276a0ac98b46d93add38cc4e6",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-profile-1280.png",
+      "menu": "profile",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "2c40ee12009fc58ee9cf9b6453184b12d5e9dafa357d18bd6adcbb02f02e3c7b",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-mission-1920.png",
+      "menu": "mission",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "ae759137a25968c45c57f3388ae641e1e94335c50b55a8939167cb5dde98431f",
+      "size": [
+        1920,
+        1080
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-social-1920.png",
+      "menu": "social",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "ea53f75457e1c0b583fc5b403569cc032b522e359fa9c0773b224a03c7909867",
+      "size": [
+        1920,
+        1080
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-rank-1920.png",
+      "menu": "rank",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "08ca52eb46f1a34d14b19f6ee25afe3a5b96a5774515c9523079101433062099",
+      "size": [
+        1920,
+        1080
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-profile-1920.png",
+      "menu": "profile",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "0c800e233a694e4e8a5db49eaeeb4fc13f5427ad3b288ede72c3e9f5a6496e54",
+      "size": [
+        1920,
+        1080
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-social-20x9.png",
+      "menu": "social",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "bd22eaa5455919a2c2b4070a16169c7f73262cf80e74eadc2ce9a624d9086931",
+      "size": [
+        1600,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-mission-large-text.png",
+      "menu": "mission",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "a4a3a1d0c5e6bcaabc71916d5ef9af98217615db18bcdea793e53e425eaaa3d3",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-social-large-text.png",
+      "menu": "social",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "9b8b8368a9736e7aaf2f18ce3f381b85ed3dcafb3695f1069dd48a41bddfd70f",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-rank-large-text.png",
+      "menu": "rank",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "22084da58e2bc8c46bb285977a7b3625e232e8ade4d663df8d4c93506b1dd5cc",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-profile-large-text.png",
+      "menu": "profile",
+      "semantic": "actual API-created QA players; no injected runtime data",
+      "sha256": "d2e57603263d66c8158eabea06f0535d67574f61494487a69c47da677de5816b",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-mission-daily.png",
+      "menu": "mission",
+      "semantic": "actual current-period API mission values",
+      "sha256": "43c3198822a63bbd8d1b3dcf1599721b8bf8e3def9f8e25a48f5eefc94d1bf10",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-mission-weekly.png",
+      "menu": "mission",
+      "semantic": "actual current-period API mission values",
+      "sha256": "b0775587cc662f09fb8ff30490105d41c675fc24ffa6f65724a26474bb5bbe7e",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-mission-achievements.png",
+      "menu": "mission",
+      "semantic": "actual current-period API mission values",
+      "sha256": "5ebb1a35eb2ff11737a6a522ac0ff7fd44ae7d359f29299957771469353e5287",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-mission-detail.png",
+      "menu": "mission",
+      "semantic": "native mission detail from actual API values",
+      "sha256": "60cad9e8c3eb3740cc022da7df5172cdd8d8f41ffe80e391c09f63e2c28ee0d6",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-profile-records.png",
+      "menu": "profile",
+      "semantic": "scroll to actual API mode stats and both source histories",
+      "sha256": "19a00347971b19f18ecd8d5f351eabc72ffd83443369b005cfe20548c09cea21",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-social-search-empty.png",
+      "menu": "social",
+      "semantic": "actual API empty search, not fabricated success",
+      "sha256": "af33a01d4e9749be026fe85586a19645e8fa96c3d7d1d4f853ab221a7d7661c5",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-social-connection-error.png",
+      "menu": "social",
+      "semantic": "real unavailable loopback endpoint with retained prior social cache",
+      "sha256": "b87a23b8e4394f0d2cd44fad53939ee2245689b6ffc1dc5953d2947e251a4570",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "error",
+      "visual_review": "pass"
+    },
+    {
+      "file": "_workspace/premium-menu-features-v01/qa-connected-captures/connected-social-retry.png",
+      "menu": "social",
+      "semantic": "actual HTTP recovery restores ready friend list",
+      "sha256": "e21b5b1c225b519db99528eff82895913aae76b311c838ebc759400cc6aef367",
+      "size": [
+        1280,
+        720
+      ],
+      "status": "ready",
+      "visual_review": "pass"
+    }
+  ]
+}

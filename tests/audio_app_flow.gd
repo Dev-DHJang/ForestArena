@@ -22,9 +22,11 @@ func run() -> void:
 	var temporary_root := OS.get_environment("TMPDIR")
 	if temporary_root.is_empty(): temporary_root = OS.get_environment("TEMP")
 	if temporary_root.is_empty(): temporary_root = "/tmp"
-	var path := temporary_root.path_join("audio-app-%d.json" % Time.get_ticks_usec())
+	var path := temporary_root.path_join("forest-arena-qa/audio-app-%d/profile.json" % Time.get_ticks_usec())
+	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
 	app.save_path = path
-	app.db_session_path = "user://audio-app-no-db.json"
+	app.db_session_path = path + ".session"
+	app.demo_guest_session_path = path + ".demo-session"
 	root.add_child(app)
 	await process_frame
 	check(audio.context == "lobby", "first screen starts lobby music")

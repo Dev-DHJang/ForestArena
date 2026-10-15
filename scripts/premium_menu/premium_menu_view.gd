@@ -33,6 +33,9 @@ var preview: Control
 var _controls_preview: Control
 var _draft_labels: Dictionary = {}
 var _fit_scale := 1.0
+var service_snapshot: Dictionary = {}
+var _identity_url: LineEdit
+var _social_search: LineEdit
 var _nickname: LineEdit
 
 func build(owner: Node, current: Dictionary, next_settings: Dictionary, next_preset: Dictionary, slot: int) -> void:
@@ -50,6 +53,7 @@ func build(owner: Node, current: Dictionary, next_settings: Dictionary, next_pre
 	set_meta("menu_screen_id", SCREENS[state.id][0])
 	set_meta("menu_id", state.id)
 	set_meta("entry_context", state.get("entry_context", "lobby"))
+	if app.get("menu_service") != null: service_snapshot = app.menu_service.snapshot(String(state.id))
 	_layout_shell()
 	resized.connect(_resize_canvas)
 	_resize_canvas.call_deferred()
@@ -59,7 +63,9 @@ func build(owner: Node, current: Dictionary, next_settings: Dictionary, next_pre
 		"preset": _presets()
 		"shop": _shop()
 		"collection": _collection()
-		"mission", "social", "rank": _future()
+		"mission": _missions()
+		"social": _social()
+		"rank": _rank()
 		"profile": _profile()
 		"settings", "controls": _settings()
 	if app.db_mode and not app.db_client.pending.is_empty():
@@ -146,7 +152,10 @@ func _footer_hint() -> String:
 		"shop": return "모든 상품 0원 · 무료 구매"
 		"collection": return "보유 기록과 기존 설명 · 읽기 전용"
 		"settings", "controls": return "변경 후 적용을 누르세요"
-		"mission", "social", "rank": return "준비 중 · 서비스 기록 없음"
+		"mission": return "실제 완료 기록 · 보상 없음"
+		"social": return "친구 · 요청 · 실제 LAN 초대"
+		"rank": return "정상 종료한 LAN 대전만 순위 반영"
+		"profile": return "오프라인과 LAN 기록을 따로 표시합니다"
 	return "캐릭터와 장신구를 살펴보세요"
 
 func _place(node: Control, area: Rect2) -> void:
@@ -534,28 +543,167 @@ func _codex_detail(item: Dictionary) -> void:
 		body += "\n\n" + character.background_setting + "\n\n" + _passive_text(character.passive_description)
 	confirm(String(item.name), body + "\n\n도감은 읽기 전용입니다.", "확인", func() -> void: pass)
 
-func _future() -> void:
+func _service_button(text: String, action_id: String, payload: Dictionary, parent: Node, qa_action := "", next_state: Dictionary = {}, primary := false) -> Button:
+	var envelope := {"action": action_id, "payload": payload}
+	if not next_state.is_empty(): envelope.state = next_state
+	var button := _button(text, "service", envelope, parent, false, primary)
+	button.set_meta("qa_id", "menu/%s/%s" % [state.id, qa_action if not qa_action.is_empty() else action_id])
+	return button
+
+func _service_status(parent: Node, allow_connect := true) -> void:
+	var status: String = String(service_snapshot.get("status", "unlinked"))
+	var message: String = String(service_snapshot.get("error", ""))
+	match status:
+		"local": _label("기기에 저장한 기록 · 서버에 연결하면 함께 확인할 수 있습니다.", parent, 18, STYLE.MUTED)
+		"loading": _label("서버 기록을 확인하고 있습니다…", parent, 20, STYLE.GOLD)
+		"error": _label(message if not message.is_empty() else "서버 조회에 실패했습니다. 다시 시도하세요.", parent, 20, STYLE.DANGER)
+		"idle": _label("서버 기록을 조회하려면 새로고침하세요.", parent, 20, STYLE.MUTED)
+		"unlinked": _label("계정을 연결한 뒤 사용할 수 있습니다.
+기기·DB·LAN 프로필과 현재 편성을 함께 유지합니다.", parent, 22, STYLE.MUTED)
+	if not message.is_empty() and status != "error": _label(message, parent, 18, STYLE.DANGER)
+	if status in ["local", "unlinked"] and allow_connect:
+		_button("프로필에서 계정 연결", "open", {"id": "profile"}, parent).set_meta("qa_id", "menu/%s/connect_profile" % state.id)
+	var data: Dictionary = service_snapshot.get("data", {})
+	if data.has("fetched_at") and status != "ready": _label("마지막 조회 · " + _display_time(data.fetched_at), parent, 16, STYLE.MUTED)
+	if data.get("stale_period", false): _label("기간이 바뀌었습니다. 현재 기간의 서버 기록은 다시 연결해 확인하세요.", parent, 18, STYLE.GOLD)
+	if int(service_snapshot.get("pending", 0)) > 0: _label("기기 기록 %d개 전송 대기" % int(service_snapshot.pending), parent, 18, STYLE.GOLD)
+
+func _refresh_button() -> void:
+	_service_button("새로고침", "refresh", {"menu_id": state.id}, footer, "refresh")
+
+func _missions() -> void:
+	var category: String = String(state.get("category", "daily"))
+	category = String({"전체": "daily", "일일": "daily", "주간": "weekly", "업적": "achievements"}.get(category, category))
+	var tabs := VBoxContainer.new()
+	main.add_child(tabs)
+	_place(tabs, Rect2(0, 0, 1152, 72))
+	_tabs([["일일", "daily"], ["주간", "weekly"], ["누적", "achievements"]], "category", tabs, category)
+	var rows := _panel_column(main, Rect2(0, 84, 748, 372))
+	_service_status(rows, false)
+	var count := 0
+	for mission: Dictionary in service_snapshot.get("data", {}).get("missions", []):
+		if mission.get("category", "") != category: continue
+		count += 1
+		var card := PanelContainer.new()
+		rows.add_child(card)
+		card.add_theme_stylebox_override("panel", STYLE.surface(bool(mission.get("completed", false))))
+		var column := VBoxContainer.new()
+		card.add_child(column)
+		_label(String(mission.title) + (" ✓ 완료" if mission.get("completed", false) else ""), column, 22, STYLE.GOLD if mission.get("completed", false) else STYLE.TEXT)
+		_label("%d / %d · 보상 없음" % [int(mission.current), int(mission.target)], column, 20, STYLE.MUTED)
+		var bar := ProgressBar.new()
+		bar.max_value = maxi(1, int(mission.target))
+		bar.value = int(mission.current)
+		bar.show_percentage = false
+		bar.custom_minimum_size.y = 14
+		column.add_child(bar)
+		var detail := _button("기록 보기", "mission_detail", {}, column)
+		detail.set_meta("qa_id", "menu/mission/mission/" + String(mission.id))
+		detail.pressed.connect(func() -> void: confirm(String(mission.title), "%d / %d\n%s\n연습·Story·포기는 제외합니다. 보상은 없습니다." % [int(mission.current), int(mission.target), "완료했습니다." if mission.get("completed", false) else "완료한 경기 기록으로 진행됩니다."], "확인", func() -> void: pass))
+	if count == 0 and service_snapshot.get("status") not in ["loading", "error"]: _label("이 분류에 표시할 미션 기록이 없습니다.", rows, 22, STYLE.MUTED)
+	var side := _panel_column(main, Rect2(772, 84, 380, 372))
+	_label("나의 경기 기록", side, 26, STYLE.GOLD)
+	_label("일일은 한국 시간 자정, 주간은 월요일에 새로 시작합니다.", side, 20)
+	_label("오프라인 AI·Solo·Team 완료 기록과 정상 종료한 LAN 대전 기록으로 진행합니다.", side, 19, STYLE.MUTED)
+	_label("연습·Story·포기는 포함하지 않습니다. 미션 보상은 없습니다.", side, 19, STYLE.MUTED)
+	if service_snapshot.get("status") in ["local", "unlinked"]: _button("계정 연결", "open", {"id": "profile"}, side).set_meta("qa_id", "menu/mission/connect_profile")
+	_refresh_button()
+
+func _social() -> void:
+	var category: String = String(state.get("category", "friends"))
+	category = String({"전체": "friends", "친구": "friends", "최근 플레이어": "recent", "찾기": "search"}.get(category, category))
 	var top := VBoxContainer.new()
 	main.add_child(top)
 	_place(top, Rect2(0, 0, 1152, 72))
-	var labels: Array = ["일일", "주간", "업적"] if state.id == "mission" else (["친구", "최근 플레이어", "찾기"] if state.id == "social" else ["개인", "팀", "시즌"])
-	var selected: String = String(state.get("category", labels[0]))
-	if selected == "전체": selected = String(labels[0])
-	_tabs(labels, "category", top, selected)
-	var body := _panel_column(main, Rect2(192, 108, 768, 320))
-	_label("준비 중", body, 38, STYLE.GOLD)
-	_label("%s · 아직 표시할 기록이 없습니다" % selected, body, 23)
-	var explanation := "미션과 보상 기능은 아직 준비 중입니다."
-	if state.id == "social": explanation = "친구 서비스와 검색은 아직 준비 중입니다.\n같은 Wi-Fi 대전은 로비의 LAN 대전을 이용하세요."
-	elif state.id == "rank": explanation = "랭크와 시즌 기록은 아직 준비 중입니다."
-	_label(explanation, body, 22, STYLE.MUTED)
-	if state.id == "social" and selected == "찾기":
-		var search := LineEdit.new()
-		search.placeholder_text = "친구 검색 · 준비 중"
-		search.editable = false
-		search.custom_minimum_size.y = 72
-		body.add_child(search)
-	_label("실제 서비스 데이터가 연결되면 이곳에 표시됩니다.", body, 18, STYLE.MUTED)
+	_tabs([["친구", "friends"], ["받은 요청", "incoming"], ["보낸 요청", "outgoing"], ["찾기", "search"], ["최근 플레이어", "recent"], ["초대", "invites"]], "category", top, category)
+	var body := _panel_column(main, Rect2(0, 84, 1152, 372))
+	_service_status(body)
+	if category == "search":
+		_label("정확한 닉네임으로 검색합니다.", body, 20)
+		var row := HBoxContainer.new()
+		body.add_child(row)
+		_social_search = LineEdit.new()
+		_social_search.placeholder_text = "닉네임"
+		_social_search.text = String(state.get("search", ""))
+		_social_search.max_length = 12
+		_social_search.custom_minimum_size.y = 72 / maxf(_fit_scale, 0.5)
+		_social_search.size_flags_horizontal = SIZE_EXPAND_FILL
+		_social_search.set_meta("qa_id", "menu/social/search_input")
+		row.add_child(_social_search)
+		_social_search.text_changed.connect(func(value: String) -> void: state.search = value)
+		var search := _button("검색", "social_search", {}, row)
+		search.set_meta("qa_id", "menu/social/search_submit")
+		search.pressed.connect(func() -> void: action.emit("service", {"action": "search", "payload": {"nickname": _social_search.text}, "state": {"search": _social_search.text}}))
+	var data: Dictionary = service_snapshot.get("data", {})
+	if data.has(category):
+		var items: Array = data[category]
+		if items.is_empty(): _label({"friends": "등록한 친구가 없습니다.", "incoming": "받은 친구 요청이 없습니다.", "outgoing": "보낸 친구 요청이 없습니다.", "recent": "아직 최근 LAN 상대가 없습니다.", "search": "검색 결과가 없습니다.", "invites": "받은 대전 초대가 없습니다."}.get(category, "표시할 항목이 없습니다."), body, 24, STYLE.MUTED)
+		for item: Dictionary in items: _social_row(item, category, body)
+	if app.get("menu_service") != null and not app.menu_service.identity.get("operations", []).is_empty(): _service_button("이전 요청 다시 확인", "retry_social", {}, footer, "retry_social")
+	_refresh_button()
+
+func _social_row(item: Dictionary, category: String, parent: Node) -> void:
+	var panel := PanelContainer.new()
+	parent.add_child(panel)
+	var column := VBoxContainer.new()
+	panel.add_child(column)
+	_label(String(item.get("nickname", "")), column, 25)
+	if category == "friends": _label("● 접속 중" if item.get("online", false) else "오프라인 · " + _display_time(item.get("last_seen", "")), column, 18, STYLE.MINT if item.get("online", false) else STYLE.MUTED)
+	if category == "recent": _label("최근 대전 · " + _display_time(item.get("ended_at", item.get("last_played", ""))), column, 18, STYLE.MUTED)
+	if category == "invites": _label("초대 만료 · " + _display_time(item.get("expires_at", "")), column, 18, STYLE.GOLD)
+	var actions := HBoxContainer.new()
+	column.add_child(actions)
+	var id: String = String(item.get("player_id", ""))
+	match category:
+		"friends":
+			var available: bool = not String(app.lan_current_invite).is_empty() and app.lan_client.active and not app.lan_client.running and app.lan_client.local_slot == 1
+			var invite := _service_button("현재 LAN 방으로 초대", "invite", {"player_id": id, "invite_code": app.lan_current_invite}, actions, "invite/" + id)
+			invite.disabled = not available
+			if not available: invite.tooltip_text = "LAN 대기방을 만든 뒤 친구 초대로 들어오세요."
+			var remove := _button("친구 삭제", "confirm_remove", {}, actions)
+			remove.set_meta("qa_id", "menu/social/remove/" + id)
+			remove.pressed.connect(func() -> void: confirm("친구를 삭제할까요?", String(item.get("nickname", "")), "삭제", func() -> void: action.emit("service", {"action": "remove", "payload": {"player_id": id}})))
+		"incoming":
+			_service_button("수락", "accept", {"request_id": item.request_id}, actions, "accept/" + String(item.request_id), {}, true)
+			_service_button("거절", "reject", {"request_id": item.request_id}, actions, "reject/" + String(item.request_id))
+		"outgoing": _service_button("요청 취소", "cancel", {"request_id": item.request_id}, actions, "cancel/" + String(item.request_id))
+		"search", "recent": _service_button("친구 요청", "request", {"player_id": id}, actions, "request/" + id)
+		"invites":
+			var accept := _service_button("대전 참가", "accept_invite", {"invite_id": item.invite_id}, actions, "accept_invite/" + String(item.invite_id), {}, true)
+			accept.disabled = app.lan_client.active or is_instance_valid(app.match_scene)
+			if accept.disabled: accept.tooltip_text = "현재 대전을 끝내거나 LAN 방을 닫은 뒤 참가하세요."
+			_service_button("거절", "reject_invite", {"invite_id": item.invite_id}, actions, "reject_invite/" + String(item.invite_id))
+
+func _rank() -> void:
+	var scope: String = String(state.get("scope", "all"))
+	var top := HBoxContainer.new()
+	main.add_child(top)
+	_place(top, Rect2(0, 0, 1152, 72))
+	for entry: Array in [["전체", "all"], ["이번 달", "month"], ["친구", "friends"]]:
+		var button := _service_button(entry[0] + (" ✓" if scope == entry[1] else ""), "rank_scope", {"scope": entry[1], "page": 0}, top, "scope/" + entry[1], {"scope": entry[1], "rank_page": 0})
+		button.size_flags_horizontal = SIZE_EXPAND_FILL
+	var rows := _panel_column(main, Rect2(0, 84, 1152, 372))
+	_service_status(rows)
+	var data: Dictionary = service_snapshot.get("data", {})
+	if data.has("entries"):
+		if data.entries.is_empty(): _label("집계된 LAN 대전 기록이 없습니다.\n0경기는 순위에 표시하지 않습니다.", rows, 25, STYLE.MUTED)
+		else:
+			_label("순위 · 닉네임 · 승 / 패 / 무 · 승률", rows, 18, STYLE.MUTED)
+			for entry: Dictionary in data.entries: _rank_row(entry, rows)
+		_label("내 순위", rows, 24, STYLE.GOLD)
+		if data.get("own") is Dictionary: _rank_row(data.own, rows)
+		else: _label("아직 순위가 없습니다. 정상 종료한 LAN 경기를 완료하세요.", rows, 20, STYLE.MUTED)
+		var page: int = int(data.get("page", 0))
+		if page > 0: _service_button("이전", "rank_scope", {"scope": scope, "page": page - 1}, footer, "page_previous", {"scope": scope, "rank_page": page - 1})
+		if data.get("has_more", false): _service_button("다음", "rank_scope", {"scope": scope, "page": page + 1}, footer, "page_next", {"scope": scope, "rank_page": page + 1})
+	_refresh_button()
+
+func _rank_row(entry: Dictionary, parent: Node) -> void:
+	_label("%d위 · %s · %d승 %d패 %d무 · %.1f%%" % [int(entry.rank), String(entry.nickname), int(entry.wins), int(entry.losses), int(entry.draws), float(entry.win_rate) * 100.0], parent, 23)
+
+func _display_time(value: Variant) -> String:
+	if not value is String or value.is_empty(): return "기록 없음"
+	return String(value).replace("T", " ").trim_suffix("Z") + " UTC"
 
 func _profile() -> void:
 	var selected: String = String(app.store.data.selected_character)
@@ -565,20 +713,63 @@ func _profile() -> void:
 	_label("현재 캐릭터 · " + _product_name(selected), right, 23, STYLE.GOLD)
 	_label("장신구 · " + _product_name(String(app.store.data.selected_accessory), "장착 없음"), right, 20)
 	_label("보유 캐릭터 %d / %d · 장신구 %d / %d" % [app.store.data.characters.size(), app.catalog.combat.characters.size(), app.store.data.accessories.size(), app.catalog.combat.accessories.size()], right, 20, STYLE.MUTED)
-	_label("닉네임 · 공백 제외 1~12자", right, 20)
+	_label("닉네임 · 한글·영문·숫자·밑줄 2~12자" if not service_snapshot.get("binding", {}).is_empty() else "닉네임 · 공백 제외 1~12자", right, 20)
 	_nickname = LineEdit.new()
 	_nickname.name = "NicknameInput"
-	_nickname.text = String(app.store.data.nickname)
+	_nickname.text = String(state.get("nickname_draft", app.store.data.nickname))
 	_nickname.max_length = 12
 	_nickname.custom_minimum_size.y = 72 / maxf(_fit_scale, 0.5)
 	_nickname.set_meta("qa_id", "menu/profile/nickname_input")
 	right.add_child(_nickname)
+	_nickname.text_changed.connect(func(value: String) -> void: state.nickname_draft = value)
 	_nickname.text_submitted.connect(func(value: String) -> void: action.emit("nickname", {"value": value}))
 	var save := _button("닉네임 저장", "nickname_save", {}, right)
 	save.set_meta("qa_id", "menu/profile/nickname_save")
 	save.pressed.connect(func() -> void: action.emit("nickname", {"value": _nickname.text}))
-	_label("오프라인 표시용 닉네임입니다.\n온라인 LAN 게스트 이름은 서버에서 정합니다.", right, 18, STYLE.MUTED)
-	_label("대전 기록 · 성장 기능 준비 중", right, 18, STYLE.MUTED)
+	_label("연결한 닉네임은 프로필과 LAN에 함께 적용합니다." if not service_snapshot.get("binding", {}).is_empty() else "오프라인 표시용 닉네임입니다. 계정 연결 시 최종 닉네임을 정하세요.", right, 18, STYLE.MUTED)
+	_identity_panel(right)
+	_profile_records(right)
+
+func _identity_panel(parent: Node) -> void:
+	_label("기기·DB·LAN 계정 연결", parent, 25, STYLE.GOLD)
+	var binding: Dictionary = service_snapshot.get("binding", {})
+	if not binding.is_empty():
+		_label("연결한 닉네임 · " + String(binding.get("nickname", "")), parent, 20, STYLE.MINT)
+		_label("같은 서버의 프로필을 함께 사용합니다.", parent, 18, STYLE.MUTED)
+	else: _label("DB 계정을 먼저 사용하고, 없으면 LAN 게스트를 연결합니다. 둘 다 없으면 새 게스트를 만듭니다. 보유는 합치고 현재 편성·설정은 유지합니다.", parent, 19, STYLE.MUTED)
+	_identity_url = LineEdit.new()
+	_identity_url.text = String(state.get("identity_url_draft", binding.get("api_url", app.db_address)))
+	_identity_url.placeholder_text = "서버 주소"
+	_identity_url.custom_minimum_size.y = 72 / maxf(_fit_scale, 0.5)
+	_identity_url.set_meta("qa_id", "menu/profile/identity_url")
+	parent.add_child(_identity_url)
+	_identity_url.text_changed.connect(func(value: String) -> void: state.identity_url_draft = value)
+	var unify := _button("프로필 통합 다시 확인" if service_snapshot.get("intent", false) else "이 닉네임으로 계정 연결", "identity_confirm", {}, parent)
+	unify.set_meta("qa_id", "menu/profile/identity_connect")
+	unify.pressed.connect(func() -> void:
+		var nickname := _nickname.text.strip_edges()
+		var url := _identity_url.text.strip_edges()
+		confirm("프로필을 연결할까요?", "최종 닉네임: %s\n보유한 캐릭터·장신구는 합치고 현재 편성·설정·기기 프리셋·조작은 유지합니다. 원본 계정과 기록은 보존합니다." % nickname, "연결", func() -> void: action.emit("service", {"action": "retry_identity" if service_snapshot.get("intent", false) else "unify", "payload": {"nickname": nickname, "api_url": url}})))
+	_service_status(parent, false)
+
+func _profile_records(parent: Node) -> void:
+	_label("모드별 대전 기록", parent, 26, STYLE.GOLD)
+	var data: Dictionary = service_snapshot.get("data", {})
+	var stats: Dictionary = data.get("stats", {})
+	if stats.has("offline"): _stats_line("오프라인 전체", stats.offline, parent)
+	for pair: Array in [["AI", "ai"], ["Solo", "solo"], ["Team", "team"]]:
+		if stats.get("modes", {}).has(pair[1]): _stats_line(pair[0], stats.modes[pair[1]], parent)
+	if service_snapshot.get("status") in ["ready", "loading", "error"] and not service_snapshot.get("local_only", false) and stats.has("lan"): _stats_line("LAN", stats.lan, parent)
+	else: _label("LAN 전적은 계정 연결 후 서버에서 조회합니다.", parent, 18, STYLE.MUTED)
+	_label("최근 완료 기록", parent, 24)
+	for entry: Dictionary in data.get("history", []):
+		var mode: String = String(entry.get("mode", ""))
+		var outcome: String = String({"win": "승리", "loss": "패배", "draw": "무승부"}.get(String(entry.get("outcome", "")), entry.get("outcome", "")))
+		_label("%s · %s · %s\n%s" % ["LAN" if entry.get("source") == "lan" else "오프라인 " + mode.to_upper(), outcome, _product_name(String(entry.get("character_id", ""))), _display_time(entry.get("ended_at", ""))], parent, 18, STYLE.MUTED)
+	_refresh_button()
+
+func _stats_line(title: String, stats: Dictionary, parent: Node) -> void:
+	_label("%s · %d경기 / %d승 %d패 %d무" % [title, int(stats.get("played", 0)), int(stats.get("wins", 0)), int(stats.get("losses", 0)), int(stats.get("draws", 0))], parent, 20)
 
 func _settings() -> void:
 	var left := _scroll(main, Rect2(0, 0, 246, 456), "category_scroll")

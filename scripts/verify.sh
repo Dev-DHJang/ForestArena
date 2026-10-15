@@ -40,6 +40,8 @@ godot --headless --path . --script res://tests/battle_minimap.gd
 godot --headless --path . --script res://tests/battle_minimap_app_flow.gd
 godot --headless --path . --script res://tests/local_player_store.gd
 godot --headless --path . --script res://tests/menu_state_store.gd
+godot --headless --path . --script res://tests/menu_feature_store_unit.gd
+godot --headless --path . --script res://tests/menu_service_client_unit.gd
 godot --headless --path . --script res://tests/menu_touch_controls.gd
 godot --headless --path . --script res://tests/premium_menu_runtime.gd
 godot --headless --path . --script res://tests/demo_guest_client.gd
@@ -54,6 +56,8 @@ godot --headless --path . --script res://tests/local_touch_controls.gd
 godot --headless --path . --script res://tests/forestlight_touch_input.gd
 godot --headless --path . --script res://tests/match_playtest_ui.gd
 godot --headless --path . --script res://tests/android_qa_session.gd
+godot --headless --path . --script res://tests/menu_unified_callback.gd
+godot --headless --path . --script res://tests/lan_result_outbox.gd
 godot --headless --path . --script res://tests/lan_contract.gd
 godot --headless --path . --script res://tests/lan_resume_pending.gd
 ./scripts/verify-lan-runtime.sh

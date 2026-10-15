@@ -1,0 +1,206 @@
+{
+  "autocontrol": false,
+  "boot_id": "5094-c50de34188a80c7f",
+  "case_id": "DEV-01",
+  "combat_events": [],
+  "command_error": "",
+  "command_seq": 0,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "emulator",
+  "foreground": true,
+  "input_reset_count": 0,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 0,
+  "msec": 20581,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": false,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-iron-armor"
+    ],
+    "characters": [
+      "ja-hyun"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/menu_emu_8259ffd613b94ea1",
+  "reconnecting": false,
+  "reset_snapshot": {},
+  "run_id": "menu_emu_8259ffd613b94ea1",
+  "schema_version": 1,
+  "screen": "social",
+  "snapshot": {},
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": []
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.1,
+      "id": "menu/social/back",
+      "kind": "button",
+      "node_name": "@Button@470",
+      "text": "뒤로",
+      "visible": true,
+      "width": 0.0625,
+      "x": 0.197916641235352,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/all_menu",
+      "kind": "button",
+      "node_name": "@Button@473",
+      "text": "전체 메뉴",
+      "visible": true,
+      "width": 0.1125,
+      "x": 0.830416641235352,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/category/friends",
+      "kind": "button",
+      "node_name": "@Button@480",
+      "text": "친구",
+      "visible": true,
+      "width": 0.11375,
+      "x": 0.223541641235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/category/incoming",
+      "kind": "button",
+      "node_name": "@Button@481",
+      "text": "받은 요청",
+      "visible": true,
+      "width": 0.11375,
+      "x": 0.344791641235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/category/outgoing",
+      "kind": "button",
+      "node_name": "@Button@482",
+      "text": "보낸 요청",
+      "visible": true,
+      "width": 0.11375,
+      "x": 0.466041641235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/category/search",
+      "kind": "button",
+      "node_name": "@Button@483",
+      "text": "찾기 ✓",
+      "visible": true,
+      "width": 0.11375,
+      "x": 0.587291641235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/category/recent",
+      "kind": "button",
+      "node_name": "@Button@484",
+      "text": "최근 플레이어",
+      "visible": true,
+      "width": 0.11375,
+      "x": 0.708541641235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/category/invites",
+      "kind": "button",
+      "node_name": "@Button@485",
+      "text": "초대",
+      "visible": true,
+      "width": 0.11375,
+      "x": 0.829791641235352,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/connect_profile",
+      "kind": "button",
+      "node_name": "@Button@493",
+      "text": "프로필에서 계정 연결",
+      "visible": true,
+      "width": 0.68,
+      "x": 0.526666641235352,
+      "y": 0.506944444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/search_input",
+      "kind": "input",
+      "node_name": "@LineEdit@496",
+      "text": "",
+      "visible": true,
+      "width": 0.6275,
+      "x": 0.500416641235352,
+      "y": 0.681944444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/search_submit",
+      "kind": "button",
+      "node_name": "@Button@497",
+      "text": "검색",
+      "visible": true,
+      "width": 0.045,
+      "x": 0.844166641235352,
+      "y": 0.681944444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/social/refresh",
+      "kind": "button",
+      "node_name": "@Button@498",
+      "text": "새로고침",
+      "visible": true,
+      "width": 0.06625,
+      "x": 0.853541641235352,
+      "y": 0.905555555555556
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1600.0
+  }
+}

@@ -12,6 +12,7 @@ func run() -> void:
 	var path := "user://test-flow-%d/profile.json" % Time.get_ticks_usec()
 	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
 	app.db_session_path = path + ".session"
+	app.demo_guest_session_path = app.save_path + ".demo-session"
 	app.save_path = path
 	root.add_child(app)
 	await create_timer(0.24).timeout

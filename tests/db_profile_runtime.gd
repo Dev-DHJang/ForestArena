@@ -63,6 +63,7 @@ func run() -> void:
 	app = (load("res://scenes/local_ai_app.tscn") as PackedScene).instantiate()
 	app.save_path = source_path
 	app.db_session_path = session_path
+	app.demo_guest_session_path = source_path + ".demo-session"
 	root.add_child(app)
 	await process_frame
 	await process_frame
@@ -158,6 +159,7 @@ func test_first_grant_conflict() -> void:
 	app.save_path = "user://db-test-%s-fresh/profile.json" % run_id
 	DirAccess.make_dir_recursive_absolute(app.save_path.get_base_dir())
 	app.db_session_path = app.save_path.get_base_dir() + "/db-session.json"
+	app.demo_guest_session_path = app.save_path + ".demo-session"
 	root.add_child(app)
 	await process_frame
 	await app._connect_db(false)

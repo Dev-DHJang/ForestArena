@@ -30,6 +30,10 @@ var auth_api_url := ""
 var service_token := ""
 var allowed_cidr := ""
 var pending_auth: Dictionary = {}
+const RESULT_OUTBOX = preload("res://server/game/lan_result_outbox.gd")
+var result_outbox: LanResultOutbox
+var current_match_id := ""
+var last_room_heartbeat_msec := 0
 
 
 func _ready() -> void:
@@ -53,6 +57,17 @@ func _ready() -> void:
 		push_error("LAN requires explicit private bind IP, API URL, service token and matching CIDR")
 		get_tree().quit(2)
 		return
+	result_outbox = RESULT_OUTBOX.new()
+	add_child(result_outbox)
+	var outbox_path := OS.get_environment("FOREST_ARENA_LAN_OUTBOX_PATH")
+	# Test runs must never touch the regular server queue.
+	var qa_run := OS.get_environment("FOREST_ARENA_QA_RUN")
+	if outbox_path.is_empty() and not qa_run.is_empty(): outbox_path = "user://qa/".path_join(qa_run.validate_filename()).path_join("lan_result_outbox_v01.json")
+	if not result_outbox.configure(auth_api_url, service_token, outbox_path):
+		push_error("LAN result queue needs recovery: " + result_outbox.error)
+		get_tree().quit(4)
+		return
+	result_outbox.sync_changed.connect(_on_result_sync)
 	var error := peer.create_server(port, bind_host)
 	if error != OK:
 		push_error("LAN server could not bind %s:%d error=%s" % [bind_host, port, error])
@@ -86,6 +101,8 @@ func _process(delta: float) -> void:
 			controller.step_fixed_tick(false)
 			if controller.tick % SNAPSHOT_INTERVAL_TICKS == 0: _broadcast_snapshot()
 	_check_deadlines()
+	if not room_code.is_empty() and clients.size() == 1 and not running and not ended and Time.get_ticks_msec() - last_room_heartbeat_msec >= 30_000:
+		_register_room("waiting")
 
 
 func _handle_packet(peer_id: int, raw: String) -> void:
@@ -123,7 +140,7 @@ func _authenticate(peer_id: int, message: Dictionary) -> void:
 	add_child(request)
 	pending_auth[peer_id] = request
 	request.request_completed.connect(_auth_completed.bind(peer_id, message, request), CONNECT_ONE_SHOT)
-	var error := request.request(auth_api_url + "/internal/v1/lan/auth", ["Content-Type: application/json", "x-forest-arena-service-token: " + service_token], HTTPClient.METHOD_POST, JSON.stringify({"access_token": token}))
+	var error := request.request(auth_api_url + "/internal/v1/lan/auth", ["Content-Type: application/json", "x-forest-arena-service-token: " + service_token], HTTPClient.METHOD_POST, JSON.stringify({"access_token": token, "existing_player_ids": clients.values().map(func(value: Dictionary) -> String: return String(value.player_id))}))
 	if error != OK:
 		pending_auth.erase(peer_id)
 		request.queue_free()
@@ -153,7 +170,7 @@ func _auth_completed(result: int, status: int, _headers: PackedStringArray, body
 		_resume(peer_id, String(message.get("reconnect_token", "")), player_id)
 		return
 	for client: Dictionary in clients.values():
-		if client.player_id == player_id:
+		if String(profile.get("canonical_players", {}).get(String(client.player_id), client.player_id)) == player_id:
 			_reject(peer_id, "duplicate_guest")
 			return
 	if kind == "create_room": _create_room(peer_id, message.get("selection", {}), nickname, player_id)
@@ -174,6 +191,7 @@ func _create_room(peer_id: int, value: Variant, nickname_value: Variant, player_
 		return
 	room_code = _new_room_code()
 	_register_client(peer_id, 1, selection, nickname, player_id)
+	_register_room("waiting")
 	_send(peer_id, {"type": "room_created", "room_code": room_code, "invite_code": LanInvite.invite_code(advertised_url, room_code, api_url), "slot": 1, "reconnect_token": clients[1].reconnect_token, "names": _participant_names()})
 	_send(peer_id, {"type": "room_waiting", "room_code": room_code})
 
@@ -221,6 +239,13 @@ func _start_match() -> void:
 		_broadcast({"type": "error", "code": "profile_configuration_failed"})
 		_reset_room()
 		return
+	current_match_id = DbProfileClient._uuid()
+	_register_room("closed")
+	var participants: Array[Dictionary] = []
+	for slot: int in [1, 2]:
+		var selection: LoadoutSelection = clients[slot].selection
+		participants.append({"player_id": clients[slot].player_id, "slot": slot, "character_id": String(selection.character_id), "accessory_id": String(selection.accessory_id)})
+	result_outbox.enqueue("/internal/v1/lan/matches/" + current_match_id + "/register", {"participants": participants, "room_code": room_code}, current_match_id)
 	match_seed = int(Time.get_ticks_usec() & 0x7fffffff)
 	for slot: int in [1, 2]:
 		var client: Dictionary = clients[slot]
@@ -235,7 +260,7 @@ func _start_match() -> void:
 	controller.reset_match()
 	_broadcast({"type": "room_ready", "stage_id": "forest-ledge", "seed": match_seed, "names": _participant_names(), "loadouts": {"1": _selection_dict(host_selection), "2": _selection_dict(guest_selection)}})
 	for slot: int in [1, 2]:
-		_send(int(clients[slot].peer_id), {"type": "match_start", "slot": slot, "seed": match_seed, "reconnect_token": clients[slot].reconnect_token})
+		_send(int(clients[slot].peer_id), {"type": "match_start", "match_id": current_match_id, "slot": slot, "seed": match_seed, "reconnect_token": clients[slot].reconnect_token})
 
 
 func _selection_from(value: Variant) -> LoadoutSelection:
@@ -336,8 +361,12 @@ func _on_match_ended(winner_id: StringName) -> void:
 	var winner_slot := 0
 	if winner_id == &"lan_host": winner_slot = 1
 	elif winner_id == &"lan_guest": winner_slot = 2
-	var reason := "draw" if winner_id == &"DRAW" else ending_reason
+	var reason := "draw" if controller.is_draw else ending_reason
 	var result := {"type": "match_end", "reason": reason, "winner_slot": winner_slot, "final_tick": controller.tick, "snapshot_hash": controller.snapshot_hash()}
+	var winner_player: Variant = clients[winner_slot].player_id if winner_slot in [1, 2] else null
+	var saved := result_outbox.enqueue("/internal/v1/lan/matches/" + current_match_id + "/result", {"reason": reason, "winner_player_id": winner_player, "final_tick": controller.tick, "snapshot_hash": controller.snapshot_hash()}, current_match_id)
+	result.match_id = current_match_id
+	result.result_sync = result_outbox.state_for(current_match_id) if saved else "save_failed"
 	if OS.is_debug_build() and not OS.get_environment("FOREST_ARENA_QA_RUN").is_empty():
 		print("FOREST_ARENA_QA_LAN_RESULT " + JSON.stringify(result))
 	_broadcast(result)
@@ -400,6 +429,7 @@ func _check_deadlines() -> void:
 
 
 func _reset_room() -> void:
+	if not room_code.is_empty(): _register_room("closed")
 	for value: Dictionary in clients.values():
 		var peer_id := int(value.get("peer_id", 0))
 		if peer_id > 0 and known_peers.has(peer_id): pending_disconnects[peer_id] = Time.get_ticks_msec() + 100
@@ -410,6 +440,17 @@ func _reset_room() -> void:
 	ended = false
 	rematch_deadline_msec = 0
 	controller.pause_match(true)
+
+
+func _register_room(state: String) -> void:
+	if result_outbox == null or not clients.has(1): return
+	last_room_heartbeat_msec = Time.get_ticks_msec()
+	result_outbox.enqueue("/internal/v1/lan/rooms", {"room_code": room_code, "host_player_id": clients[1].player_id, "invite_code": LanInvite.invite_code(advertised_url, room_code, api_url), "state": state, "updated_at": Time.get_datetime_string_from_system(true) + "Z"})
+
+
+func _on_result_sync(match_id: String, state: String) -> void:
+	if match_id.is_empty() or match_id != current_match_id or not ended: return
+	_broadcast({"type": "result_sync", "match_id": match_id, "result_sync": state})
 
 
 func _send(peer_id: int, message: Dictionary) -> void:

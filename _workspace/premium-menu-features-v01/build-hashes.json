@@ -1,0 +1,94 @@
+{
+  "algorithm": "SHA-256 over sorted compact JSON records of changed runtime/server/migration/script paths, keys sorted",
+  "base_commit": "5fe62756ea7d6a1c570e5eff77f4e16ffc7486fe",
+  "changed_source_sha256": "f044ab999f21d147af9f30cfd53ee5cc8c46df92f10a0cefa4999196cee7467f",
+  "files": [
+    {
+      "path": "database/migrations/0007_menu_services.sql",
+      "sha256": "51f07b7b7f53df74e891b7bc5e552631db1228b67ab43bb5a4f94e40ebf7b76b"
+    },
+    {
+      "path": "scripts/local_ai_app.gd",
+      "sha256": "8f2f43545cf102b4272f16ae0a2dba043caef18ca50ab756b22ddcd2c25c74e1"
+    },
+    {
+      "path": "scripts/match_controller.gd",
+      "sha256": "8f49ab772fd154978f09158bc4a1088dcaa8325b1275fe472dffc75340ba21aa"
+    },
+    {
+      "path": "scripts/network/lan_match_client.gd",
+      "sha256": "a7398e86b036d4a577a9691c7061145da9405053473fba9ff30a9f23b99b13e7"
+    },
+    {
+      "path": "scripts/network/menu_service_client.gd",
+      "sha256": "2bda0136ffae1200eab3b329e0b334c34eba53694ec8f34eaa0a7e9aaf5a05ae"
+    },
+    {
+      "path": "scripts/network/menu_service_client.gd.uid",
+      "sha256": "8b9eef4b167accff21f736a2ab98ed6e3dc65625a23a199aeea65080b10dd424"
+    },
+    {
+      "path": "scripts/premium_menu/local_menu_state_store.gd",
+      "sha256": "e09108c752ecacbafdb644e0b782efdb597953e4339a495f9a56fcf9557c0e71"
+    },
+    {
+      "path": "scripts/premium_menu/menu_feature_store.gd",
+      "sha256": "3f9413031ed50256eebd66a1400d9ae23d44955ea00e55cbd6a406ebd7d28a1a"
+    },
+    {
+      "path": "scripts/premium_menu/menu_feature_store.gd.uid",
+      "sha256": "1f35fbf86aa505d3ef99777c69a8c0daf06610347234a130ce2330e805ba096d"
+    },
+    {
+      "path": "scripts/premium_menu/premium_menu_router.gd",
+      "sha256": "ea6d20ebdc7915f991f058029ca5f20aa7c3a682f3ed97a066fd1a1695083dfd"
+    },
+    {
+      "path": "scripts/premium_menu/premium_menu_view.gd",
+      "sha256": "c638a6009f175aeb4d5a0f4a29b6bafe0d5db4db4c962b51cea677a65a4be49b"
+    },
+    {
+      "path": "scripts/verify-lan-runtime.sh",
+      "sha256": "539636c822583230e5986800f137ade5582609781d5b48a6a02072bc9724378e"
+    },
+    {
+      "path": "scripts/verify.sh",
+      "sha256": "129a967a5963f5380dce120fe4892f668c370d6fb42ad9305e8a714e299fbbeb"
+    },
+    {
+      "path": "server/api/src/demo_guests.ts",
+      "sha256": "4d0678d0693279168be9ce8ce94f683874a9285032edf8392e13500b7897839d"
+    },
+    {
+      "path": "server/api/src/identities.ts",
+      "sha256": "3ca913fa222e425d49ea93b399cf7b6dbda98d810a2ef37a91b6d8e931696805"
+    },
+    {
+      "path": "server/api/src/menu_services.ts",
+      "sha256": "46856ee1e504abf833029985f53977a73449454f846d85720881df8116935f06"
+    },
+    {
+      "path": "server/api/src/profiles.ts",
+      "sha256": "c069c50d6e17bf88d030e26afb62013a81ba45fe860c6c2f9144f0d2c959ef6a"
+    },
+    {
+      "path": "server/api/src/server.ts",
+      "sha256": "dffddb963a416cbe54861f6bc8c45e15d62c1eca697f26767a20f3af6091d643"
+    },
+    {
+      "path": "server/game/lan_game_server.gd",
+      "sha256": "c477895c468667b8e5731500d092302eafb9f17dfd2e4141859fc1a13b70cb76"
+    },
+    {
+      "path": "server/game/lan_result_outbox.gd",
+      "sha256": "e82fab4050b9f8775c40153a2a8bd56890f087d0b34c316ebd460364bf098a94"
+    },
+    {
+      "path": "server/game/lan_result_outbox.gd.uid",
+      "sha256": "7f73c4bc1deb3a40b31682bc44756e1512d119b626a69b067a1f48609cdd29b2"
+    }
+  ],
+  "apk_path": "build/android/ForestArena-debug.apk",
+  "apk_sha256": "2b911fbb6a7285362794e122ca97b782520fb1134459c01f011f73aa6da927d4",
+  "physical_android": "not_run"
+}

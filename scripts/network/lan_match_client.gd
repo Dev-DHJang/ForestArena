@@ -10,6 +10,7 @@ signal snapshot_received(snapshot: Dictionary)
 signal presentation_event_received(event_id: StringName, payload: Dictionary)
 signal peer_status_changed(slot: int, connected: bool)
 signal match_finished(result: Dictionary)
+signal result_sync_changed(match_id: String, state: String)
 signal rematch_changed(ready_slots: Array, closed: bool)
 signal failed(code: String)
 
@@ -177,6 +178,7 @@ func _handle_message(raw: String) -> void:
 			running = false
 			_release_inputs()
 			match_finished.emit(message)
+		"result_sync": result_sync_changed.emit(String(message.get("match_id", "")), String(message.get("result_sync", "pending")))
 		"rematch_state": rematch_changed.emit(message.get("ready_slots", []), bool(message.get("closed", false)))
 		"error":
 			var code := String(message.get("code", "server_error"))

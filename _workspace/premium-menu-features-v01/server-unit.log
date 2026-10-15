@@ -1,0 +1,102 @@
+
+> forest-arena-local-api@0.1.0 test
+> npm run build && node --test dist/tests/*.test.js
+
+
+> forest-arena-local-api@0.1.0 build
+> tsc -p tsconfig.json && cp src/profile_catalog.json dist/src/profile_catalog.json
+
+TAP version 13
+# Subtest: Java and TypeScript share accepted and rejected administrator profile examples
+ok 1 - Java and TypeScript share accepted and rejected administrator profile examples
+  ---
+  duration_ms: 1.861917
+  type: 'test'
+  ...
+# Subtest: access token checks kind, signature and expiry
+ok 2 - access token checks kind, signature and expiry
+  ---
+  duration_ms: 2.386708
+  type: 'test'
+  ...
+# Subtest: match ticket carries fixed slot and expires after 60 seconds
+ok 3 - match ticket carries fixed slot and expires after 60 seconds
+  ---
+  duration_ms: 0.648084
+  type: 'test'
+  ...
+# Subtest: matchmaker pairs fixed loadouts, prevents a second active room and releases after completion
+ok 4 - matchmaker pairs fixed loadouts, prevents a second active room and releases after completion
+  ---
+  duration_ms: 0.679667
+  type: 'test'
+  ...
+# Subtest: only a waiting player can cancel its own entry
+ok 5 - only a waiting player can cancel its own entry
+  ---
+  duration_ms: 0.166542
+  type: 'test'
+  ...
+# Subtest: nickname uses NFC without trim and accepts only 2 to 12 permitted characters
+ok 6 - nickname uses NFC without trim and accepts only 2 to 12 permitted characters
+  ---
+  duration_ms: 1.30275
+  type: 'test'
+  ...
+# Subtest: CIDR admits socket LAN and loopback, rejects public and outside addresses
+ok 7 - CIDR admits socket LAN and loopback, rejects public and outside addresses
+  ---
+  duration_ms: 6.250625
+  type: 'test'
+  ...
+# Subtest: KST day Monday week and month boundaries
+ok 8 - KST day Monday week and month boundaries
+  ---
+  duration_ms: 2.607
+  type: 'test'
+  ...
+# Subtest: mission totals use all history while display is capped and sources stay separate
+ok 9 - mission totals use all history while display is capped and sources stay separate
+  ---
+  duration_ms: 14.961333
+  type: 'test'
+  ...
+# Subtest: request fingerprint ignores object key order but preserves values
+ok 10 - request fingerprint ignores object key order but preserves values
+  ---
+  duration_ms: 1.159833
+  type: 'test'
+  ...
+# Subtest: profile grants, free purchases, selection and accessibility preserve source
+ok 11 - profile grants, free purchases, selection and accessibility preserve source
+  ---
+  duration_ms: 1.761792
+  type: 'test'
+  ...
+# Subtest: invalid, duplicate and unowned actions are rejected
+ok 12 - invalid, duplicate and unowned actions are rejected
+  ---
+  duration_ms: 2.237083
+  type: 'test'
+  ...
+# Subtest: nickname and minimap actions preserve other fields and validate limits
+ok 13 - nickname and minimap actions preserve other fields and validate limits
+  ---
+  duration_ms: 1.574541
+  type: 'test'
+  ...
+# Subtest: v2 migration preserves selection ownership and accessibility
+ok 14 - v2 migration preserves selection ownership and accessibility
+  ---
+  duration_ms: 0.720667
+  type: 'test'
+  ...
+1..14
+# tests 14
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 110.527291

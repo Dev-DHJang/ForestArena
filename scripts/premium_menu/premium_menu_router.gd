@@ -14,6 +14,8 @@ var _baseline: Dictionary = {}
 var _preset_draft: Dictionary = {}
 var _preset_index := 0
 var _loaded_owner := ""
+var _network_busy := false
+var _service_connected := false
 
 func _init(owner: Node) -> void:
 	app = owner
@@ -47,10 +49,15 @@ func open(menu_id: String, params: Dictionary = {}) -> void:
 	state = next
 	_load_local()
 	if menu_id in ["settings", "controls"]: _begin_settings()
+	_connect_service()
 	_rebuild()
+	if app.get("menu_service") != null: app.menu_service.refresh_menu(menu_id)
 
 func _load_local() -> void:
 	var owner: String = app._menu_owner_key()
+	if state.get("owner_context", owner) != owner:
+		for key: String in ["nickname_draft", "identity_url_draft", "search"]: state.erase(key)
+	state.owner_context = owner
 	if owner != _loaded_owner:
 		var errors: Array[String] = []
 		if not app.menu_store.load_presets(owner, {"character": app.store.data.selected_character, "accessory": app.store.data.selected_accessory}): errors.append(app.menu_store.error)
@@ -98,12 +105,13 @@ func _go_back() -> void:
 		return
 	state = {}
 	view = null
-	if context == "pause": app.pause_match()
+	if context == "lan_room": app.return_menu_lan_room()
+	elif context == "pause": app.pause_match()
 	elif context == "prepare": app._show_prepare()
 	else: app._show_home()
 
 func _on_action(action_id: String, payload: Dictionary = {}) -> void:
-	if busy or app.storage_busy: return
+	if busy or _network_busy or app.storage_busy: return
 	if state.get("local_load_error", false) and (action_id.begins_with("preset_") or (action_id == "select" and state.get("preset_edit", false))):
 		view.confirm("편성을 불러오지 못했습니다", "메뉴 저장을 다시 읽은 뒤 편성을 변경하거나 적용할 수 있습니다.", "다시 읽기", _retry_local)
 		return
@@ -118,6 +126,7 @@ func _on_action(action_id: String, payload: Dictionary = {}) -> void:
 		"update":
 			state.merge(payload, true)
 			_rebuild()
+		"service": await _service_action(payload)
 		"select": await _select(String(payload.id))
 		"purchase": await _purchase(String(payload.id))
 		"nickname": await _nickname(String(payload.value))
@@ -194,6 +203,9 @@ func _purchase(id: String) -> void:
 	_rebuild()
 
 func _nickname(value: String) -> void:
+	if app.get("menu_service") != null and not app.menu_service.identity.get("binding", {}).is_empty():
+		await _service_action({"action": "nickname", "payload": {"nickname": value.strip_edges()}})
+		return
 	busy = true
 	var ok: bool = await app._change_profile("identity", {"nickname": value.strip_edges()})
 	busy = false
@@ -272,3 +284,46 @@ func _apply_settings() -> void:
 	state.message = "설정을 적용했습니다." if ok else "설정을 저장하지 못했습니다. 다시 시도하세요."
 	if ok: _baseline = _draft.duplicate(true)
 	_rebuild()
+
+func _connect_service() -> void:
+	if _service_connected or app.get("menu_service") == null: return
+	app.menu_service.changed.connect(_service_changed)
+	_service_connected = true
+
+func _service_changed(menu_id: String) -> void:
+	if _network_busy or state.is_empty() or state.id != menu_id or not is_instance_valid(view) or app.page != view: return
+	if is_instance_valid(view.modal): return
+	var focused: Control = app.get_viewport().gui_get_focus_owner()
+	var input_id := ""
+	var caret := 0
+	if focused is LineEdit and view.is_ancestor_of(focused):
+		input_id = String(focused.get_meta("qa_id", ""))
+		caret = (focused as LineEdit).caret_column
+	_rebuild()
+	if not input_id.is_empty():
+		for field: Node in view.find_children("*", "LineEdit", true, false):
+			if String(field.get_meta("qa_id", "")) == input_id:
+				(field as LineEdit).grab_focus()
+				(field as LineEdit).caret_column = mini(caret, (field as LineEdit).text.length())
+
+func _service_action(payload: Dictionary) -> void:
+	if app.get("menu_service") == null:
+		state.message = "메뉴 서비스를 아직 읽지 못했습니다. 다시 시도하세요."
+		_rebuild()
+		return
+	_network_busy = true
+	state.message = "서버 요청을 확인하고 있습니다."
+	_rebuild()
+	var current: Control = view
+	var result: Dictionary = await app.menu_service.perform(String(payload.action), payload.get("payload", {}))
+	_network_busy = false
+	if app.page != current: return
+	state.message = String(result.get("message", "요청을 처리했습니다." if not result.has("error") else "요청에 실패했습니다. 다시 시도하세요."))
+	if result.has("error"):
+		_rebuild()
+		return
+	if payload.has("state"): state.merge(payload.state, true)
+	_loaded_owner = ""
+	_load_local()
+	_rebuild()
+	app.menu_service.refresh_menu(state.id)

@@ -53,8 +53,11 @@ func strike(source: FighterController) -> AttackData:
 
 func run() -> void:
 	app = (load("res://scenes/local_ai_app.tscn") as PackedScene).instantiate()
-	var path := "user://test-accessory-play-%d.json" % Time.get_ticks_usec()
+	var path := "user://qa/accessory-play-%d/profile.json" % Time.get_ticks_usec()
+	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
 	app.save_path = path
+	app.db_session_path = path + ".session"
+	app.demo_guest_session_path = path + ".demo-session"
 	root.add_child(app)
 	await process_frame
 	check(app.store.grant_first("nabi"), "first grant")
