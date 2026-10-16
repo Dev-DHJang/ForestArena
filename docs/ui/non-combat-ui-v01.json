@@ -54,13 +54,15 @@
     "character_direction": "approved three-head-proportion character concepts remain authoritative",
     "third_party_copying": false
   },
+  "screen_transitions": {"loading_delay_msec": 150, "placement": "center", "skip_when_fast": true, "applies_to": "navigation only, not same-page controls or pause/resume"},
   "screens": [
     {
       "id": "SCR_01_Splash",
       "group": "Launch",
       "title": "Splash",
-      "runtime_gate": "future-ui-implementation",
-      "requirements": ["character-free forest", "logo", "loading progress"],
+      "runtime_gate": "phase-6-title-loading-implemented",
+      "requirements": ["character-free forest", "logo", "loading progress", "bottom startup progress", "fresh touch anywhere after ready", "native version and copyright"],
+      "runtime": {"scene": "res://scenes/startup_title.tscn", "background_asset_id": "fa.background.title.forest", "start_text": "게임 시작", "version_setting": "application/config/version", "copyright": "© 2026 Forest Arena. All rights reserved."},
       "asset_slots": ["IMG/bg/splash", "IMG/logo/main"]
     },
     {

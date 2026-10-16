@@ -1,0 +1,188 @@
+{
+  "status": "review-pending",
+  "samples": [
+    {
+      "character_id": "myo-ryung",
+      "state": "idle",
+      "status": "current-review-pending",
+      "prior_recorded_approval": "2026-10-15; hash-bound to copied records only; no new approval inferred",
+      "files": [
+        {
+          "path": "_workspace/title-loading-proportions/character-review/myo-ryung/idle-review-4x4.png",
+          "sha256": "11c9cb76fd51cf6d8562c5e1978e62029c3042ab3919a39d946655c40a8c2a84"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/myo-ryung/idle-review.gif",
+          "sha256": "703471d7a89c171d28146af6a655fb0c016dd6bdab2aa6d9122401df5185d64a"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/myo-ryung/idle-source-alpha.png",
+          "sha256": "da4a77ca20e0059974f3931740a8dc642a5e458c5c53aa9148b93e263e7d864e"
+        }
+      ],
+      "original_source_path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/06_myo_ryung-style-locked/03_alpha/idle-r01-alpha.png",
+      "review_sha256": "11c9cb76fd51cf6d8562c5e1978e62029c3042ab3919a39d946655c40a8c2a84",
+      "frames": 16,
+      "unique_frames": 16,
+      "gif_duration_ms": 2000,
+      "source_bytes_preserved": true,
+      "packing_note": "Existing review sheet and GIF copied byte-for-byte; no new scaling or image edit.",
+      "current_review_sheet": "_workspace/title-loading-proportions/character-review/myo-ryung/idle-review-4x4.png",
+      "head_width_measurement": {
+        "head_left_x": 60,
+        "head_right_x": 88,
+        "head_width": 28,
+        "relative_head_width_difference": 0.03703703703703698,
+        "head_height": 25.5,
+        "body_height": 72
+      }
+    },
+    {
+      "character_id": "nabi",
+      "state": "idle",
+      "status": "new-head-width-edit-user-review-pending",
+      "prior_recorded_approval": "Prior sheet approval retained in provenance; this edited file has no approval.",
+      "files": [
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/nabi/idle-head-width-source.png",
+          "sha256": "940d69946c87f41d12230f5441a1bfc4172846199a624f757e293b2f3b63fc30"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/nabi/idle-head-width-review-4x4.png",
+          "sha256": "8d8916574594ec754c4db3508c87b3aa3a4586a627473c41d8f26b5dae113bd7"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/nabi/idle-head-width-review.gif",
+          "sha256": "8e5df95cbc61d69cc6e6d6ad746486a9b779964cecdfbfa636333017548ea72e"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/nabi/request.json",
+          "sha256": "7e549aaa0e6595f85109846ad4e296ec3c844870afd4ed05bb005f6bca3344b1"
+        }
+      ],
+      "original_source_path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/02_samples/nabi/idle-r07-alpha.png",
+      "review_sha256": "8d8916574594ec754c4db3508c87b3aa3a4586a627473c41d8f26b5dae113bd7",
+      "frames": 16,
+      "unique_frames": 16,
+      "gif_duration_ms": 2000,
+      "source_bytes_preserved": false,
+      "packing_note": "Built-in targeted head-width edit; structural splitting and fixed body-height packing only.",
+      "previous_review_sha256": "b4ecbe6b85d732fad2465f4d9cfb42a27921a8118f057dff40817312e131d656",
+      "current_review_sheet": "_workspace/title-loading-proportions/character-review/edits-r02/nabi/idle-head-width-review-4x4.png",
+      "head_measurement": {
+        "character_id": "nabi",
+        "status": "new-edit-user-review-pending",
+        "source_sha256": "940d69946c87f41d12230f5441a1bfc4172846199a624f757e293b2f3b63fc30",
+        "review_sha256": "8d8916574594ec754c4db3508c87b3aa3a4586a627473c41d8f26b5dae113bd7",
+        "gif_sha256": "8e5df95cbc61d69cc6e6d6ad746486a9b779964cecdfbfa636333017548ea72e",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_range": [
+          0,
+          255
+        ],
+        "first_extracted_pose_dimensions": [
+          198,
+          220
+        ],
+        "fixed_motion_scale": 0.3769633507853403,
+        "manual_landmarks": {
+          "crown_y": 29,
+          "chin_y": 100,
+          "sole_y": 220,
+          "head_left_x": 101,
+          "head_right_x": 176
+        },
+        "scaled_body_height": 72,
+        "scaled_head_height": 26.764397905759164,
+        "scaled_head_width": 28.272251308900525,
+        "head_height_difference": 0.029399919452275602,
+        "head_width_difference": 0.04712041884816753,
+        "frame_count": 16,
+        "unique_frames": 16,
+        "all_joint_compliance_proven": false,
+        "measurement_note": "Approximate visible cranial hair cap excluding ears and loose ponytail; first neutral pose. Manual judgment, not 3D skeleton."
+      },
+      "source_original_preserved_separately": true,
+      "current_review_gif": "_workspace/title-loading-proportions/character-review/edits-r02/nabi/idle-head-width-review.gif"
+    },
+    {
+      "character_id": "yu-ran",
+      "state": "idle",
+      "status": "new-head-width-edit-user-review-pending",
+      "prior_recorded_approval": "Prior sheet approval retained in provenance; this edited file has no approval.",
+      "files": [
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/yu-ran/idle-head-width-source.png",
+          "sha256": "4341325cdc63752c201a779e5354dd5f4f6e362bb30ba34c057f540ce44050ca"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/yu-ran/idle-head-width-review-4x4.png",
+          "sha256": "70a8698061930928f4c3e199117caa8401f70016f6037cacb5b11616bd9b50fb"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/yu-ran/idle-head-width-review.gif",
+          "sha256": "2539264c64a2c4fcd5113a709ac2f01c20f9f3445b0472686f99097d72bade1f"
+        },
+        {
+          "path": "_workspace/title-loading-proportions/character-review/edits-r02/yu-ran/request.json",
+          "sha256": "f2eb1fb609006765734b1efdb657c74ff0ef064f64b5d4323320bc79648d6ff3"
+        }
+      ],
+      "original_source_path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/02_samples/yu-ran/idle-r05-alpha.png",
+      "review_sha256": "70a8698061930928f4c3e199117caa8401f70016f6037cacb5b11616bd9b50fb",
+      "frames": 16,
+      "unique_frames": 16,
+      "gif_duration_ms": 2000,
+      "source_bytes_preserved": false,
+      "packing_note": "Built-in targeted head-width edit; structural splitting and fixed body-height packing only.",
+      "previous_review_sha256": "2421e3341ac5815e3766515e94c168da872e71fce34ee5de6511b4184808c90a",
+      "current_review_sheet": "_workspace/title-loading-proportions/character-review/edits-r02/yu-ran/idle-head-width-review-4x4.png",
+      "head_measurement": {
+        "character_id": "yu-ran",
+        "status": "new-edit-user-review-pending",
+        "source_sha256": "4341325cdc63752c201a779e5354dd5f4f6e362bb30ba34c057f540ce44050ca",
+        "review_sha256": "70a8698061930928f4c3e199117caa8401f70016f6037cacb5b11616bd9b50fb",
+        "gif_sha256": "2539264c64a2c4fcd5113a709ac2f01c20f9f3445b0472686f99097d72bade1f",
+        "source_dimensions": [
+          1254,
+          1254
+        ],
+        "alpha_range": [
+          0,
+          255
+        ],
+        "first_extracted_pose_dimensions": [
+          205,
+          221
+        ],
+        "fixed_motion_scale": 0.37894736842105264,
+        "manual_landmarks": {
+          "crown_y": 31,
+          "chin_y": 98,
+          "sole_y": 221,
+          "head_left_x": 111,
+          "head_right_x": 181
+        },
+        "scaled_body_height": 72,
+        "scaled_head_height": 25.38947368421053,
+        "scaled_head_width": 26.526315789473685,
+        "head_height_difference": 0.02348178137651813,
+        "head_width_difference": 0.01754385964912275,
+        "frame_count": 16,
+        "unique_frames": 16,
+        "all_joint_compliance_proven": false,
+        "measurement_note": "Approximate visible cranial hair cap excluding ears and loose ponytail; first neutral pose. Manual judgment, not 3D skeleton."
+      },
+      "source_original_preserved_separately": true,
+      "current_review_gif": "_workspace/title-loading-proportions/character-review/edits-r02/yu-ran/idle-head-width-review.gif"
+    }
+  ],
+  "runtime_changed": false,
+  "new_generation": true,
+  "reference_idle_sha256": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d",
+  "full_joint_10_percent_compliance_proven": false,
+  "version": "r02-head-width-correction"
+}

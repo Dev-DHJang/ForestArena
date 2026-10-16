@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-if grep -F 'run/main_scene="res://scenes/local_ai_app.tscn"' project.godot >/dev/null; then
+if grep -E 'run/main_scene="res://scenes/(local_ai_app|startup_title)\.tscn"' project.godot >/dev/null; then
 	exec sh ./scripts/verify-android-local-ai.sh "$@"
 fi
 

@@ -294,6 +294,14 @@ class ADB:
 
     def read_state(self, run_id):
         raw = self.run('exec-out', 'run-as', self.package, 'cat', f'files/qa/{run_id}/state.json', check=False)
+        startup = self.run('exec-out', 'run-as', self.package, 'cat', f'files/qa/{run_id}/startup.json', check=False)
+        try:
+            title = json.loads(startup) if startup.strip() else {}
+            game = json.loads(raw) if raw.strip() else {}
+            if title.get('run_id') == run_id and (title.get('boot_id', '').split('-')[1:2] != game.get('boot_id', '').split('-')[:1] or title.get('msec', -1) > game.get('msec', -1)):
+                raw = startup
+        except (ValueError, UnicodeDecodeError):
+            pass
         if not raw.strip():
             status = self.run('get-state').strip()
             if status != b'device':
@@ -592,6 +600,14 @@ class DeviceRun:
         self.state = {}
         self.adb.launch(self.activity, self.run_id, self.alias)
         state = self.wait(lambda s: s.get('boot_id') and s.get('boot_id') != prior_boot, label='새 앱 프로세스 시작')
+        if state.get('screen') == 'title':
+            self.wait(lambda s: s.get('screen') == 'title' and s.get('ready'), label='타이틀 자산 준비 완료')
+            import struct
+            png = self.adb.run('exec-out', 'screencap', '-p')
+            require(png.startswith(b'\x89PNG') and len(png) > 24, '타이틀 터치 전 화면 크기를 읽지 못했습니다.')
+            width, height = struct.unpack('!II', png[16:24])
+            self.adb.touch(width // 2, round(height * .78), hold_ms=200)
+            state = self.wait(lambda s: s.get('boot_id') and s.get('screen') != 'title', label='시작 터치 뒤 메뉴 진입')
         self.seq = max(self.seq, int(state.get('command_seq', 0)))
         if self.log_mode == 'pid':
             self._start_pid_logcat()

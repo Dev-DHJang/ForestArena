@@ -49,6 +49,7 @@ godot --headless --path . --script res://tools/forest_arena/profile_catalog.gd
 godot --headless --path . --script res://tests/local_ai_behavior.gd
 godot --headless --path . --script res://tests/local_ai_soak.gd
 godot --headless --path . --script res://tests/local_fighter_presentation.gd
+godot --headless --path . --script res://tests/title_loading_flow.gd
 godot --headless --path . --script res://tests/local_ai_app_flow.gd
 godot --headless --path . --script res://tests/forestlight_runtime.gd
 godot --headless --path . --script res://tests/local_accessory_play.gd

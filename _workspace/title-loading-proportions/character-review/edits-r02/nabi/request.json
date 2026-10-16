@@ -1,0 +1,12 @@
+{
+  "tool": "OpenAI built-in image_gen image editing",
+  "transparent_background": true,
+  "prompt": "Use case: precise-object-edit. Asset: Forest Arena Nabi idle 16-frame sprite review sheet. Image 1 is the EDIT TARGET: the purple cat woman 4x4 idle sheet. Image 2 is a SIZE REFERENCE ONLY: Ja-Hyun idle sheet, do not copy his appearance. Make a targeted anatomical proportion correction: narrow Nabi's cranial head, face and close-fitting hair mass horizontally by about 20% around each face center, keeping head height and chin/neck attachment unchanged. Current first-pose hair skull width is about34 per72 body-height versus reference27 per72; target27-29. Do this consistently in all16 poses. Keep loose trailing ponytail, ears and accessory identities, adapting only attachment points naturally. Preserve her exact adult female identity, deep violet hair, 2 cat ears, pink inner fur, gold bell, purple ribbon, long full dark-violet tail, lavender claw guards, human hands/feet, black-purple-white outfit and pose-by-pose idle sequence. Absolutely preserve torso, arms, legs, shoes, body height, foot positions, overall sprite placement, all16 separate poses and row-major4x4 layout; do not shrink the whole character, enlarge body, redraw to another style or change poses. Keep original polished semi-dimensional rendering, colors, shading and line quality. Output a clean RGBA PNG with a genuinely transparent background, no checkerboard, no text/grid/labels/watermark. Make head perceptibly smaller/narrower relative to unchanged shoulders and body, not merely different hair.",
+  "input_paths": [
+    "character-review/nabi/idle-review-4x4.png",
+    "character-review/ja-hyun/idle-reference-4x4.png"
+  ],
+  "output": "character-review/edits-r02/nabi/idle-head-width-source.png",
+  "generated_path": "/Users/jdh/.codex/generated_images/01a144d8-285e-7ab1-8e8a-b8d6101bb0ba/exec-030de4e2-cd3a-480b-8247-7a9ffedd4277.png",
+  "status": "new-edit-review-pending"
+}
