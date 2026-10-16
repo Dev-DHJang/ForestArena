@@ -30,6 +30,23 @@ require_badging() {
 	fi
 }
 
+title_version=$(python3 - <<'PYVERSION'
+from pathlib import Path
+import configparser, os, re
+project = dict(re.findall(r'^config/(version(?:\.demo)?)="([^"\n]+)"$', Path("project.godot").read_text(), re.M))
+presets = configparser.ConfigParser(interpolation=None)
+presets.read("export_presets.cfg")
+name = os.environ.get("FOREST_ARENA_ANDROID_PRESET", "Android Debug")
+section = next(section for section in presets.sections() if presets[section].get("name", "").strip('"') == name)
+features = presets[section].get("custom_features", "").strip('"').split(",")
+key = "version.demo" if "demo" in features else "version"
+expected = project[key]
+assert expected == presets[section + ".options"]["version/name"].strip('"'), "Title and export preset versions differ"
+print(expected)
+PYVERSION
+)
+require_badging "versionName='$title_version'" "title and APK version agreement"
+
 require_badging "package: name='com.forestarena.welllbeing'" "package ID"
 require_badging "sdkVersion:'29'" "minimum Android 10 / API 29"
 require_badging "targetSdkVersion:'36'" "target API 36"
@@ -56,6 +73,11 @@ import hashlib, json, sys, zipfile
 with zipfile.ZipFile(sys.argv[1]) as apk:
     names = set(apk.namelist())
     registry = json.loads(apk.read("assets/forest_arena/data/resource_registry.json"))
+    title = next(asset for asset in registry["assets"] if asset["id"] == "fa.background.title.forest")
+    assert set(title["variants"]) == {"high", "medium", "low"}, "타이틀 품질별 파일 등록 누락"
+    for source in title["variants"].values():
+        path = "assets/" + source.removeprefix("res://")
+        assert path in names or path + ".import" in names, "타이틀 배경 파일 누락: " + path
     menu = [asset for asset in registry["assets"] if ".menu.v07." in asset["id"]]
     assert len(menu) == 27, "프리미엄 메뉴 자산27개 등록 누락"
     for asset in menu:

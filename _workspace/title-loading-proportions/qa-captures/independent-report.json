@@ -1,0 +1,144 @@
+{
+	"checks": [
+		{
+			"label": "native renderer required for images",
+			"pass": true
+		},
+		{
+			"label": "loading touch cannot enter",
+			"pass": true
+		},
+		{
+			"label": "native capture startup-loading-16x9",
+			"pass": true
+		},
+		{
+			"label": "startup completes",
+			"pass": true
+		},
+		{
+			"label": "startup progress never decreases (0)",
+			"pass": true
+		},
+		{
+			"label": "held touch does not enter after ready",
+			"pass": true
+		},
+		{
+			"label": "game detached before deliberate start",
+			"pass": true
+		},
+		{
+			"label": "native capture title-ready-1280x720",
+			"pass": true
+		},
+		{
+			"label": "label fits TitleLogo 1280",
+			"pass": true
+		},
+		{
+			"label": "text fits TitleLogo 1280",
+			"pass": true
+		},
+		{
+			"label": "label fits StartPrompt 1280",
+			"pass": true
+		},
+		{
+			"label": "text fits StartPrompt 1280",
+			"pass": true
+		},
+		{
+			"label": "label fits VersionCopyright 1280",
+			"pass": true
+		},
+		{
+			"label": "text fits VersionCopyright 1280",
+			"pass": true
+		},
+		{
+			"label": "native capture title-ready-1600x720",
+			"pass": true
+		},
+		{
+			"label": "label fits TitleLogo 1600",
+			"pass": true
+		},
+		{
+			"label": "text fits TitleLogo 1600",
+			"pass": true
+		},
+		{
+			"label": "label fits StartPrompt 1600",
+			"pass": true
+		},
+		{
+			"label": "text fits StartPrompt 1600",
+			"pass": true
+		},
+		{
+			"label": "label fits VersionCopyright 1600",
+			"pass": true
+		},
+		{
+			"label": "text fits VersionCopyright 1600",
+			"pass": true
+		},
+		{
+			"label": "touch release does not enter",
+			"pass": true
+		},
+		{
+			"label": "fresh touch enters once",
+			"pass": true
+		},
+		{
+			"label": "new profile routes to first selection",
+			"pass": true
+		},
+		{
+			"label": "new local profile preserves storage path",
+			"pass": true
+		},
+		{
+			"label": "production app enables transitions",
+			"pass": true
+		},
+		{
+			"label": "slow transition starts with hidden bar",
+			"pass": true
+		},
+		{
+			"label": "slow transition shows after 150ms",
+			"pass": true
+		},
+		{
+			"label": "native capture transition-loading-20x9",
+			"pass": true
+		},
+		{
+			"label": "duplicate transition rejected",
+			"pass": true
+		},
+		{
+			"label": "transition completes once and hides",
+			"pass": true
+		},
+		{
+			"label": "failure retains retry and back",
+			"pass": true
+		},
+		{
+			"label": "native capture transition-error-20x9",
+			"pass": true
+		},
+		{
+			"label": "cancel clears error blocker",
+			"pass": true
+		}
+	],
+	"display_server": "macOS",
+	"failures": [],
+	"physical_android": "not_run",
+	"rendered": true
+}

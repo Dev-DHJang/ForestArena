@@ -32,6 +32,7 @@ func reset() -> void:
 	busy = false
 
 func open(menu_id: String, params: Dictionary = {}) -> void:
+	if app._queue_navigation("accessibility" if menu_id == "settings" else menu_id, open.bind(menu_id, params)): return
 	if busy or menu_id not in IDS: return
 	if not is_instance_valid(view) or app.page != view:
 		state = {}
@@ -96,6 +97,7 @@ func handle_back() -> bool:
 	return true
 
 func _go_back() -> void:
+	if not _history.is_empty() and app._queue_navigation(String(_history.back().id), _go_back): return
 	var context: String = String(state.get("entry_context", "lobby"))
 	if not _history.is_empty():
 		state = _history.pop_back()
@@ -111,7 +113,7 @@ func _go_back() -> void:
 	else: app._show_home()
 
 func _on_action(action_id: String, payload: Dictionary = {}) -> void:
-	if busy or _network_busy or app.storage_busy: return
+	if busy or _network_busy or app.storage_busy or (app.transitions != null and app.transitions.busy): return
 	if state.get("local_load_error", false) and (action_id.begins_with("preset_") or (action_id == "select" and state.get("preset_edit", false))):
 		view.confirm("편성을 불러오지 못했습니다", "메뉴 저장을 다시 읽은 뒤 편성을 변경하거나 적용할 수 있습니다.", "다시 읽기", _retry_local)
 		return

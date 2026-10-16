@@ -45,7 +45,15 @@ if result: print(round(result["x"]*int(sys.argv[2])),round(result["y"]*int(sys.a
   echo "Button not found: $label" >&2
   return 1
 }
-sleep 3
+# Wait for the real preparation result, then perform the same new press as a player.
+attempt=0
+until device logcat -d -s godot:I '*:S' | grep -F 'FOREST_ARENA_TITLE_READY' >/dev/null; do
+  attempt=$((attempt + 1))
+  if [ "$attempt" -ge 60 ]; then echo 'Title did not become ready.' >&2; exit 1; fi
+  sleep 1
+done
+device shell input swipe $((width / 2)) $((height * 78 / 100)) $((width / 2)) $((height * 78 / 100)) 200
+sleep 2
 if device logcat -d -s godot:I '*:S' | grep -F '"screen":"first"' >/dev/null; then tap_button '자현'; fi
 tap_button '오프라인 대전'
 tap_button '대전 시작'

@@ -153,6 +153,19 @@ class RunnerTests(unittest.TestCase):
         d.launch()
         self.assertEqual(d.state['boot_id'], 'new')
         self.assertGreater(self.clock.now, 0)
+    def test_title_readiness_requires_real_touch_before_app_boot(self):
+        import struct
+        old = {'screen': 'home', 'boot_id': 'old'}
+        loading = {'screen': 'title', 'boot_id': 'title-new', 'ready': False}
+        ready = {**loading, 'ready': True}
+        game = {'screen': 'first', 'boot_id': 'new'}
+        d = self.device([old, loading, ready, game])
+        d.adb.run = Mock(return_value=b'\x89PNG' + b'\0' * 12 + struct.pack('!II', 2400, 1080) + b'\0')
+        d.adb.touch = Mock()
+        d.launch()
+        d.adb.touch.assert_called_once_with(1200, 842, hold_ms=200)
+        self.assertEqual(d.state['screen'], 'first')
+
     def test_rematch_checks_reset_snapshot_not_later_damage(self):
         d = self.device([{'snapshot':{'fighters':[{'current_hp':80,'max_hp':100,'stocks':3}]},
                          'touch':{'active':[]}, 'reset_snapshot':{'fighters':[{'id':'player','current_hp':100,'max_hp':100,'stocks':3,'input_direction':0,'buffered_action':''}]}}])

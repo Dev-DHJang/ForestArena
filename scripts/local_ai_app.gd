@@ -8,6 +8,11 @@ const EXTRA_FIGHTER_SCENE := preload("res://scenes/fighters/ja_hyun_fighter.tscn
 const FORESTLIGHT := preload("res://scripts/forestlight_ui.gd")
 const MENU_ROUTER = preload("res://scripts/premium_menu/premium_menu_router.gd")
 const MENU_STORE = preload("res://scripts/premium_menu/local_menu_state_store.gd")
+const TRANSITION = preload("res://scripts/screen_transition.gd")
+var async_navigation := false
+var resource_retainer: Node
+var transitions: ScreenTransition
+var _pending_system_navigation: Callable
 var menu_router
 var menu_store
 const MENU_SERVICE = preload("res://scripts/network/menu_service_client.gd")
@@ -64,6 +69,13 @@ func _ready() -> void:
 	layer = CanvasLayer.new()
 	layer.layer = 10
 	add_child(layer)
+	if async_navigation:
+		transitions = TRANSITION.new()
+		add_child(transitions)
+		if resource_retainer != null: transitions.preparer.retained = resource_retainer.retained.duplicate()
+		transitions.settled.connect(_on_transition_settled)
+		transitions.failed.connect(_on_transition_failed)
+
 	lan_client = LanMatchClient.new()
 	lan_client.access_token_provider = Callable(self, "_refresh_demo_lan_token")
 	add_child(lan_client)
@@ -188,7 +200,7 @@ func _button(text: String, callback: Callable, parent: Node = null, disabled := 
 	button.set_meta("qa_id", qa_key + "/" + str(qa_occurrence))
 	button.pressed.connect(func() -> void:
 		ForestArenaAudio.play_event(&"ui_back" if text in ["로비", "취소", "계속하기", "대전 준비", "LAN 메뉴"] else &"ui_click", {})
-		callback.call())
+		if transitions == null or not transitions.busy: callback.call())
 	(parent if parent != null else body).add_child(button)
 	if OS.is_debug_build(): _log_button.call_deferred(weakref(button))
 	return button
@@ -204,6 +216,7 @@ func _log_button(button_ref: WeakRef) -> void:
 	print("FOREST_ARENA_UI_BUTTON " + JSON.stringify({"screen": screen, "text": button.text, "x": center.x, "y": center.y}))
 
 func _show_first() -> void:
+	if _queue_navigation("first", _show_first): return
 	screen = "first"
 	_new_page("Forest Arena · 첫 캐릭터 선택")
 	_label("함께 시작할 캐릭터 한 명을 받으세요. 다른 캐릭터도 상점에서 0원으로 구매할 수 있습니다.")
@@ -240,6 +253,7 @@ func _character_cards(owned_only: bool, callback: Callable, compact := false) ->
 		_button(character.display_name, callback.bind(String(character.character_id)), card)
 
 func _show_home() -> void:
+	if _queue_navigation("home", _show_home): return
 	screen = "home"
 	var home_message := message
 	_new_page("Forest Arena · 대전 로비")
@@ -329,6 +343,7 @@ func _show_home() -> void:
 		storage.size = Vector2(284, 58)
 
 func _show_unavailable(feature: String) -> void:
+	if _queue_navigation("unavailable", _show_unavailable.bind(feature)): return
 	screen = "unavailable"
 	_new_page(feature)
 	_label("현재 개발 단계에서는 제공하지 않습니다. 현재는 오프라인 대전과 같은 Wi-Fi 1대1을 이용할 수 있습니다.")
@@ -336,6 +351,7 @@ func _show_unavailable(feature: String) -> void:
 
 
 func _show_lan_menu() -> void:
+	if _queue_navigation("lan_menu", _show_lan_menu): return
 	screen = "lan_menu"
 	_new_page("LAN 1:1 · 같은 Wi-Fi")
 	_label("Mac에서 ./scripts/demo-server.sh start를 실행한 뒤 표시되는 한 줄 연결 코드를 사용합니다.", 18)
@@ -347,6 +363,7 @@ func _show_lan_menu() -> void:
 
 
 func _show_lan_host() -> void:
+	if _queue_navigation("lan_host", _show_lan_host): return
 	screen = "lan_host"
 	_new_page("LAN 방 만들기")
 	_label("Mac 호스트 연결 코드", 18)
@@ -358,6 +375,7 @@ func _show_lan_host() -> void:
 
 
 func _show_lan_join() -> void:
+	if _queue_navigation("lan_join", _show_lan_join): return
 	screen = "lan_join"
 	_new_page("LAN 방 참가")
 	_label("방장이 전달한 한 줄 초대 코드", 18)
@@ -461,6 +479,7 @@ func _demo_login(intent: String, new_guest := false) -> void:
 
 
 func _show_demo_nickname() -> void:
+	if _queue_navigation("demo_nickname", _show_demo_nickname): return
 	screen = "demo_nickname"
 	_new_page("온라인 닉네임")
 	_label("한글·영문·숫자·밑줄 2~12자. 다른 게스트와 같은 이름은 사용할 수 없습니다.", 18)
@@ -524,6 +543,10 @@ func _demo_error(code: String) -> String:
 
 
 func _on_lan_room_created(invite_code: String) -> void:
+	_run_system_navigation(_show_lan_waiting.bind(invite_code))
+
+func _show_lan_waiting(invite_code: String) -> void:
+	if _queue_navigation("lan_waiting", _show_lan_waiting.bind(invite_code)): return
 	lan_current_invite = invite_code
 	screen = "lan_waiting"
 	_new_page("LAN 방 · 참가자 대기", false)
@@ -552,15 +575,17 @@ func _copy_lan_invite() -> void:
 func _on_lan_room_ready(loadouts: Dictionary, local_slot_value: int) -> void:
 	lan_loadouts = loadouts.duplicate(true)
 	lan_local_slot = local_slot_value
-	_start_lan_match()
+	_run_system_navigation(_start_lan_match)
 
 
 func _start_lan_match() -> void:
+	if _queue_navigation("lan_match", _start_lan_match, _lan_motion_paths()): return
 	if lan_loadouts.size() != 2 or lan_local_slot not in [1, 2]:
 		_on_lan_failed("invalid_match_configuration")
 		return
 	_close_match()
 	match_scene = MATCH_SCENE.instantiate()
+	if transitions != null and transitions.busy: match_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	match_scene.app_shell_mode = true
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
@@ -674,6 +699,10 @@ func _on_lan_presentation_event(event_id: StringName, payload: Dictionary) -> vo
 
 
 func _on_lan_match_finished(result: Dictionary) -> void:
+	_run_system_navigation(_show_lan_result.bind(result))
+
+func _show_lan_result(result: Dictionary) -> void:
+	if _queue_navigation("lan_result", _show_lan_result.bind(result)): return
 	last_lan_result_id = String(result.get("match_id", ""))
 	if match_scene != null:
 		match_scene.get_node("Interface").visible = false
@@ -733,7 +762,7 @@ func _on_lan_failed(code: String) -> void:
 	ForestArenaAudio.play_event(&"ui_error", {})
 	_close_match()
 	message = "LAN 연결 실패: " + _lan_reason_text(code)
-	_show_lan_menu()
+	_run_system_navigation(_show_lan_menu)
 
 
 func _lan_reason_text(code: String) -> String:
@@ -925,6 +954,7 @@ func _save_minimap_settings(settings: Dictionary) -> void:
 
 
 func _show_prepare() -> void:
+	if _queue_navigation("prepare", _show_prepare): return
 	screen = "prepare"
 	_new_page("대전 준비 · " + _mode_name(selected_mode))
 	var outer := body
@@ -1030,6 +1060,7 @@ func _toggle(title: String, enabled: bool, callback: Callable) -> void:
 	row.add_child(toggle)
 
 func start_match() -> void:
+	if _queue_navigation("match", start_match, _local_motion_paths()): return
 	var config := _build_match_config()
 	if config == null or not config.is_valid_definition():
 		message = "대전 설정을 만들지 못했습니다. 보유 캐릭터와 선택을 확인해 주세요."
@@ -1038,6 +1069,7 @@ func start_match() -> void:
 	active_config = config
 	_close_match()
 	match_scene = MATCH_SCENE.instantiate()
+	if transitions != null and transitions.busy: match_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	match_scene.app_shell_mode = true
 	match_controller = match_scene.get_node("MatchController")
 	match_controller.loadout_catalog = catalog.combat
@@ -1215,7 +1247,7 @@ func resume_match() -> void:
 	_show_match_controls()
 
 func handle_back_request(request_msec: int = -1) -> void:
-	if storage_busy: return
+	if storage_busy or (transitions != null and transitions.busy): return
 	var now_msec: int = Time.get_ticks_msec() if request_msec < 0 else request_msec
 	if OS.is_debug_build():
 		print("FOREST_ARENA_BACK_REQUEST " + JSON.stringify({"screen": screen, "msec": now_msec, "previous_msec": last_back_request_msec}))
@@ -1256,9 +1288,13 @@ func _on_match_ended(winner: StringName, source: MatchController) -> void:
 
 func _show_result_for_match(winner: StringName, source: MatchController) -> void:
 	if not is_instance_valid(source) or source != match_controller: return
-	_show_result(winner)
+	_run_system_navigation(_show_result_for_source.bind(winner, source))
+
+func _show_result_for_source(winner: StringName, source: MatchController) -> void:
+	if is_instance_valid(source) and source == match_controller: _show_result(winner)
 
 func _show_result(winner: StringName) -> void:
+	if _queue_navigation("result", _show_result.bind(winner)): return
 	if match_controller == null: return
 	if menu_service != null: menu_service.record_offline(active_config, match_controller)
 	match_scene.get_node("Interface").visible = false
@@ -1303,6 +1339,7 @@ func _close_match() -> void:
 	match_controller = null
 
 func _show_db_connection() -> void:
+	if _queue_navigation("db_connection", _show_db_connection): return
 	screen = "db_connection"
 	_new_page("저장 모드")
 	if menu_service != null and (not menu_service.identity.get("binding", {}).is_empty() or not menu_service.identity.get("intent", {}).is_empty()):
@@ -1357,14 +1394,17 @@ func _connect_db(new_guest: bool) -> void:
 	var ok := await db_client.connect_profile(db_address, local, new_guest)
 	overlay.queue_free()
 	storage_busy = false
+	_finish_db_connection(ok, local)
+
+func _finish_db_connection(ok: bool, local: LocalPlayerStore) -> void:
 	if ok:
 		db_mode = true
 		store.data = local.data.duplicate(true)
 		message = "로컬 DB 연결 완료 · 게스트 " + db_client.player_id.left(8)
-		_show_home() if store.data.first_granted else _show_first()
+		_run_system_navigation(_show_home if store.data.first_granted else _show_first)
 	else:
 		message = _db_error(db_client.error)
-		_show_db_connection()
+		_run_system_navigation(_show_db_connection)
 
 func _change_profile(action: String, payload: Dictionary) -> bool:
 	if storage_busy: return false
@@ -1424,6 +1464,7 @@ func _db_error(code: String) -> String:
 		_: return "DB 연결 또는 저장에 실패했습니다. 서버와 주소를 확인하고 다시 시도하세요. (%s)" % code
 
 func _show_storage_error() -> void:
+	if _queue_navigation("storage_error", _show_storage_error): return
 	if db_mode:
 		_show_db_connection()
 		return
@@ -1487,3 +1528,53 @@ func _exit_tree() -> void:
 	if is_instance_valid(menu_service) and menu_service.is_inside_tree(): menu_service.foreground(false)
 	if demo_guest != null: demo_guest.cancel()
 	ForestArenaAudio.shutdown()
+
+
+func _queue_navigation(target: String, build: Callable, extra_paths: Array[String] = []) -> bool:
+	if transitions == null or transitions.committing: return false
+	if transitions.busy: return true
+	if target == screen and target not in ["match", "lan_match"]: return false
+	var prefixes: Array[String] = ["fa.ui.forestlight."]
+	if target in MENU_ROUTER.IDS: prefixes.append("fa.ui.menu.v07.")
+	var paths := UiResourcePreparer.ui_paths(prefixes)
+	paths.append_array(extra_paths)
+	transitions.navigate(build, paths, (func() -> void: pass) if is_instance_valid(page) else Callable())
+	return true
+
+func _local_motion_paths() -> Array[String]:
+	var config := _build_match_config()
+	var result: Array[String] = []
+	if config != null:
+		for participant: LocalMatchParticipant in config.participants:
+			for path: String in PRESENTATION.approved_motion_paths(participant.selection.character_id).values():
+				if path not in result: result.append(path)
+	return result
+
+func _lan_motion_paths() -> Array[String]:
+	var result: Array[String] = []
+	for value: Variant in lan_loadouts.values():
+		var selection := _lan_selection_from(value)
+		if selection == null: continue
+		for path: String in PRESENTATION.approved_motion_paths(selection.character_id).values():
+			if path not in result: result.append(path)
+	return result
+
+
+func _run_system_navigation(callback: Callable) -> void:
+	# Server completions are different from duplicate player presses: keep the
+	# latest completion until the current page has finished displaying.
+	if transitions != null and transitions.busy:
+		_pending_system_navigation = callback
+		if transitions.actions.visible: _on_transition_failed()
+	else: callback.call()
+
+func _on_transition_settled() -> void:
+	if is_instance_valid(match_scene): match_scene.process_mode = Node.PROCESS_MODE_INHERIT
+	var pending := _pending_system_navigation
+	_pending_system_navigation = Callable()
+	if pending.is_valid(): pending.call()
+
+func _on_transition_failed() -> void:
+	if not _pending_system_navigation.is_valid(): return
+	transitions.cancel()
+	_on_transition_settled()

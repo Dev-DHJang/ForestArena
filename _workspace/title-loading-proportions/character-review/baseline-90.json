@@ -1,0 +1,1935 @@
+{
+  "git_head": "57c7143372e4c0ef20a2aed291755523ceb7bd77",
+  "manifest": {
+    "path": "assets/character/manifest.json",
+    "sha256": "6cc23ef75ccb3ee47526aeec77f57ba36ba74d1d0e19019c4536e373fd5b169c"
+  },
+  "appearance_contract": {
+    "path": "docs/contracts/character-appearance-v01.json",
+    "sha256": "3c9c0250e05a0db63bb2fedffdb625b69ad20ab7fd1795d88062a79d1422d186"
+  },
+  "motions": [
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "idle",
+      "asset_id": "myo-ryung-idle-16f-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/idle_16f.png",
+        "sha256": "d92da66be1a4ead486654a4a3ecccce694bae29680e18542891d5d450ffe4c54"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/idle.tres",
+        "sha256": "ce170dc0d6c74a6e59381c968945ba4602feb0e2b0ab0915218f39a673744854"
+      },
+      "fps": 8,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "run",
+      "asset_id": "myo-ryung-run-16f-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/run_16f.png",
+        "sha256": "656f17f8a3725f170534379cf42f6bd5ebed3e6bd075c6dcb32caaa249cf5282"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/run.tres",
+        "sha256": "70fa08656788a16822d5a1e1e91623d2929e59b572c8cc4f0972d16bc0a2ee22"
+      },
+      "fps": 12,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "jump",
+      "asset_id": "myo-ryung-jump-16f-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/jump_16f.png",
+        "sha256": "2aad6786cd3244569244da34c07d01dcc17f2a0cbe6db5f7c4267f503f322527"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/jump.tres",
+        "sha256": "de162a39b778663f08add0a722ebb81ad1d2ca746583a01053834e28095450fb"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "idle",
+      "asset_id": "nabi-idle-16f-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/idle_16f.png",
+        "sha256": "a7a69ae6c46a476eede5f7a28bf4106037e4871128aeed1b2d87a462c7662bd7"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/idle.tres",
+        "sha256": "ae13e2fef33008f6436388049fc620daec09929911c4acfbc868ed7325c136b2"
+      },
+      "fps": 8,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "run",
+      "asset_id": "nabi-run-16f-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/run_16f.png",
+        "sha256": "fdfbd5fcbf4b990e81c28a4cb4391d09b0acc67bda8e3690e6e7f0871cc5a917"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/run.tres",
+        "sha256": "e73638537ca89ed90ea5c434b6c7f184b0dfb2ee8dc465b264fe04ea6fcf4c88"
+      },
+      "fps": 12,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "jump",
+      "asset_id": "nabi-jump-16f-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/jump_16f.png",
+        "sha256": "ca5eea2f0d880ae4309b125991557b9b10234cdc7ed219300c0b7edc6f33c8cc"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/jump.tres",
+        "sha256": "da14c3449857b4484773bb01748cc5001139c5a6a54c967f2f79878110aa2de8"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_light_combo_01",
+      "asset_id": "myo-ryung-attack-light-combo-01-16f-r01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_01_16f.png",
+        "sha256": "302fec8d66c52af5c83b8ec9dba1d810ebe271295b7c7842f7be2a8200bb45e5"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_01.tres",
+        "sha256": "559873625c17cfa6585e0990cb6938a72f3e1250f64a3887760dd18fc8dbc033"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_light_combo_02",
+      "asset_id": "myo-ryung-attack-light-combo-02-16f-r01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_02_16f.png",
+        "sha256": "1a15c110f8994535a0b5f1ff641c680fad85f735934747afb92c0bed05fe9e72"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_02.tres",
+        "sha256": "7b5a2779d6749dcafc4ab464ada4c3a640b482fa630311690b27df279cc0bd81"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_light_combo_03",
+      "asset_id": "myo-ryung-attack-light-combo-03-16f-r01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_03_16f.png",
+        "sha256": "14cfcaf3d73c1c65c68eb14b796a8b794c569ad68d543b0e34a3a001adce70d0"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_03.tres",
+        "sha256": "659fda221a5eefdd7a7d44e6f0e2a161f87b75c3ebd6a841993d394207ecec3d"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_light_combo_04",
+      "asset_id": "myo-ryung-attack-light-combo-04-16f-r01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_04_16f.png",
+        "sha256": "37cea20bcaf22c6e2dd34c53ac928f1cb1dd1a055256dfe9fb0a32f296900da2"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_04.tres",
+        "sha256": "c228189a7d7d2dbf3679ff1edd9466f8a6fc7bd8d3e9c74f7feb7461ff9b8644"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "idle",
+      "asset_id": "yu-ran-idle-16f-r01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/idle_16f.png",
+        "sha256": "b806aa1573b7f914550de100c0356bdf75cda642a8f46359ce9686ef4d1d269b"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/idle.tres",
+        "sha256": "9988370ff971584794e8cdd8e10e4b7b45df866eaaf80b227dc231c619137f28"
+      },
+      "fps": 8,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "run",
+      "asset_id": "yu-ran-run-16f-r01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/run_16f.png",
+        "sha256": "b2995c966425a533fdbba9f02d678edd802606eba5b0ad35f6468d62dc3a86b7"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/run.tres",
+        "sha256": "4ddc976ce5af2d34322478bd02996ebc1daaf35a53d2f3b0b68ba4bcf3958b36"
+      },
+      "fps": 12,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "jump",
+      "asset_id": "yu-ran-jump-16f-r01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/jump_16f.png",
+        "sha256": "0f4e2ee3ddc5df067166ab262262051f127c87829030d4a5133f0eef3d6cb865"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/jump.tres",
+        "sha256": "3ab0c9e220eebe74ecaca7680f908ae857d2a6b12887493a3177299302f03178"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_combo_01",
+      "asset_id": "nabi-attack-light-combo-01-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+        "sha256": "4fb046e48ceffd7dfbfbe24cfacb1944c65e4d64d30ad82cd3443160d864ea73"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+        "sha256": "3b670d1ee3f129bb201977f7c9298035abac7da709d8ffb69ed31d0c43a6d162"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_combo_02",
+      "asset_id": "nabi-attack-light-combo-02-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+        "sha256": "36017b7527d12e085f44a9a110e2ec56dd68f3a09a5eb6e63bfe1cc71835a915"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+        "sha256": "ab875b7685963eabadccbc4d8547afcb29b86d8dba4f739157f516aa999c2ca6"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_light_combo_01",
+      "asset_id": "yu-ran-attack-light-combo-01-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+        "sha256": "9e7bdf5fcd7aa2d776dbf6d8507a6a4ebc9c9ac665a1c57f0900095dc57a5aba"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+        "sha256": "c34200717be4a0ad0b862feef303725b7aabdc66d838507215293134d10a9b85"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_light_combo_02",
+      "asset_id": "yu-ran-attack-light-combo-02-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+        "sha256": "bb6932db1171ed12f27bc81e659fa3433b9ecbeb34f95b2edcbb67a3e081233f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+        "sha256": "8318fc7754df437ec94ee17153d9b202fc15536ba568be7dbcf205fbf8eff8a6"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_light_combo_03",
+      "asset_id": "yu-ran-attack-light-combo-03-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03_16f.png",
+        "sha256": "663584f89da3c9a045b2d4c9bb71f7e5e807b81e537fbb56728538e7bfca8639"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03.tres",
+        "sha256": "bc58cea62460e4e5e54c7dbb3aede8285034d17089db6d6dc2e8f8f15588c0f7"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "guard",
+      "asset_id": "yu-ran-guard-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/guard_16f.png",
+        "sha256": "1624cf1ab972bb6b9288ea2cf5e38940246a2acc377446f259a18d736add98fd"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/guard.tres",
+        "sha256": "30c16ba821efc96d1d7979d512caef5bd7837e9de3bd4f274982c6b0c560d584"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "evade",
+      "asset_id": "yu-ran-evade-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/evade_16f.png",
+        "sha256": "a0812cd4a85982c99ef911095f90634e44c23585c144be4bc29d4803d62675d2"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/evade.tres",
+        "sha256": "9c01bfef08d17749eb96bee6652d93e1abc7919ef07de3cdc9588ea3a0bf8cc4"
+      },
+      "fps": 80,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_air_heavy",
+      "asset_id": "yu-ran-attack-air-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+        "sha256": "d138175241a41cd919ef81a0d6571e00b6363b527c7335569db2714464b1a9fe"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+        "sha256": "ac9a84f75860185363f515b199d3f6fe2ddea8ac77e5e2e6e4fb26715daa70c9"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_air_light",
+      "asset_id": "yu-ran-attack-air-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+        "sha256": "130dd6e7e4418edc4a260a39dad0b81ff023367a900d62d3c11d89fd354ae1fb"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_light.tres",
+        "sha256": "9e979558f14a19b19d3b827262226046216241e93305117e354190ef34b0570b"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_dash_heavy",
+      "asset_id": "yu-ran-attack-dash-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+        "sha256": "830730357f870a2ec747a52beb769a53ef2341d2b4eb87d3b30523b81a103cdf"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+        "sha256": "5ad2d60a68ba4bb8427ecbd530ad4c409036033d11046a37450cd318cea017a0"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_dash_light",
+      "asset_id": "yu-ran-attack-dash-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+        "sha256": "2819bbeb33f2602f55883b4009a2b9bb87a66fded4aad6da2a390476fcd41562"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_light.tres",
+        "sha256": "b866d4b5c0bb689ec49dafd495ede20862c994d3be67718844dbd6c5cb5f95a0"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_heavy_charge",
+      "asset_id": "yu-ran-attack-heavy-charge-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+        "sha256": "fca4638b144e527ba0430be4f911e83dd5bafb7b24d8cd2b91b1cef326a57956"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+        "sha256": "789f883848c28588eaac5697cc6025db552235a407e55adf9891b1582a0c32eb"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_heavy_down",
+      "asset_id": "yu-ran-attack-heavy-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+        "sha256": "efd3b72fec8b4097838a0d0532ad261b620a6e46e24c2d460ab16e4ac326819d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+        "sha256": "123b5b256797a93f3374b50205c92ccda9f9eeaa2f2bcae4bc2c4cd6e1e3aabf"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_heavy_side",
+      "asset_id": "yu-ran-attack-heavy-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+        "sha256": "6343cfe414394ce783e4ec4169b0096e9064d6d48d8749a34d5e027f706a6d3b"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+        "sha256": "8a0ae5ebd94adb1127aee3f8c3ef4af755c352f0b40d6ee68e51340410b3bb28"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_heavy_up",
+      "asset_id": "yu-ran-attack-heavy-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+        "sha256": "fb9430bfa75fd9e0acdb8ce3381d3a88d49733d01a6bd9ee7538f5128b0fc04f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+        "sha256": "5242cd035a901d1b46dd64a483da54becba158b1d255a1ec70e4781404eb2bf8"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_light_down",
+      "asset_id": "yu-ran-attack-light-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+        "sha256": "1e7178a651e44800b00e309134341c21e579ca32f7f2c5f0726edbb69e466a24"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_down.tres",
+        "sha256": "28cc94957254c4482120c4f5005f7c8dbb19ba1dd94632f304ad3f65374b2848"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "attack_light_up",
+      "asset_id": "yu-ran-attack-light-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+        "sha256": "a02f838cc561f31ce1a007d302532d704bcc0732c43073aec83fb4e78550bb4b"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_up.tres",
+        "sha256": "3085c125f1e69c481caca60981c5f4ec74bb0ad52bcf1b5c68999b1871d3b9a8"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "death",
+      "asset_id": "yu-ran-death-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/death_16f.png",
+        "sha256": "1a4f62a0ad8de7710cda4b27299a25227ad8803dfd818365d38c98e954c2bbb9"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/death.tres",
+        "sha256": "02e7e185510127c708a35e61028183f65170f8911aa960afae5d3805b2bc7d26"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "hitstun",
+      "asset_id": "yu-ran-hitstun-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/hitstun_16f.png",
+        "sha256": "3ce15b919199964a9d93c23f4345622b7cbc08414682aa3bece23b7d42c2c966"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/hitstun.tres",
+        "sha256": "6959cd01deaa30d5b4a59f2096d1e037147a17dc455e1acc1e2aaf0733e2e191"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "knock_down",
+      "asset_id": "yu-ran-knock-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/knock_down_16f.png",
+        "sha256": "fbd89df337c6069fe94742eddcd3a5ffa07aeec122780e30b7d023a8af475860"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/knock_down.tres",
+        "sha256": "4026e0cef79355e87a9d87f013b1767fddf4158e38d28e66d567c068f05d5b93"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "launch",
+      "asset_id": "yu-ran-launch-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/launch_16f.png",
+        "sha256": "6e781ad6ab1ae99e1cc11ab0202d8fb253031048f3b3c615da91faf2c25b5296"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/launch.tres",
+        "sha256": "a284ccaf787411e68c75add45163a82c8b3ef703d6d1aeef5a2bee20f418a112"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "ring_out",
+      "asset_id": "yu-ran-ring-out-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ring_out_16f.png",
+        "sha256": "669d5c7bffc6e503bab9deaa6a855ae156d9470c0f6db1402df7704c3904fc5f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ring_out.tres",
+        "sha256": "772c5ed71efac39f4262bed0f9061170cbd841d1d39bd478249d305806c579bd"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "spawn",
+      "asset_id": "yu-ran-spawn-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/spawn_16f.png",
+        "sha256": "742a42d1f9caec559417aedc3fd91f689536717a0069ae9f2e338cd48eb12c3d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/spawn.tres",
+        "sha256": "11d0f78113196de75495b62ea827e4c9d8830dbd0c1730e9873ff687800b5158"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "special_down",
+      "asset_id": "yu-ran-special-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_down_16f.png",
+        "sha256": "cb96199712319b70cb3a5c6a5e267f98ddb55f12729ca79a4b904d4adc596a17"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_down.tres",
+        "sha256": "5ef1673901911cd146896bab05cd08697fa3aaa1bc4f57030aad6d6be8070723"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "special_neutral",
+      "asset_id": "yu-ran-special-neutral-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_neutral_16f.png",
+        "sha256": "107c6ce1f9b4c106de69386fe1e5d5f557701dc431a74fbf96e0c6d5095121b9"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_neutral.tres",
+        "sha256": "bb6cd58294fa0e99503fc430e042b88bfec5cc621bbb63ff78a33c10e36687f4"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "special_side",
+      "asset_id": "yu-ran-special-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_side_16f.png",
+        "sha256": "ed24a5611a38ac360768a8551af052127a5b597fdeb12587a08f0aead6e14d6d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_side.tres",
+        "sha256": "9e14bdb78ef3a2a57cf650cb3b25542f9db89d63eb1bb63277f67f677a9e75d2"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "special_up",
+      "asset_id": "yu-ran-special-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_up_16f.png",
+        "sha256": "43333be7ada639068a1948ebd414be7826d6cebf731a2e438dad3b23e638a497"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_up.tres",
+        "sha256": "3fa17e15a9822d07af4b868e651a08bfb7ee65f738a9b6cbdedd447dc23acb67"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "ultimate",
+      "asset_id": "yu-ran-ultimate-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ultimate_16f.png",
+        "sha256": "9acb6c02ab6d7c5feab789c1fee8ce40d5ea77034abbd7b39d1886c30dd5a2be"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ultimate.tres",
+        "sha256": "9ab4348cdd430383f75eff688d4ce16174519ac583494320029434716b67ca36"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "wake_up",
+      "asset_id": "yu-ran-wake-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/wake_up_16f.png",
+        "sha256": "24a32f0ee442b60b5d6b300ff28775f5407d5c77f661b187d481b213c418cd6e"
+      },
+      "sprite_frames": {
+        "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/wake_up.tres",
+        "sha256": "1de8df1f9757e079cf4fcdeb3ec6f23bef2b76adaf5d012037655149bf1a6e65"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "evade",
+      "asset_id": "myo-ryung-evade-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/evade_16f.png",
+        "sha256": "9893b97ee76ea4dd6480eaf5ded24818948578411c6e41ca223d668cf97af3b2"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/evade.tres",
+        "sha256": "69848e07d0802f77a1c7a9171e9f026476c8981cf0927c864a9580ec53e57ef9"
+      },
+      "fps": 80,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "guard",
+      "asset_id": "myo-ryung-guard-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/guard_16f.png",
+        "sha256": "50718ebf44f1ca13fdfe5418665371f9a487d73a15563dddb547bf62e6f2a69a"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/guard.tres",
+        "sha256": "0612128673a6f2c22a639f866570beaca9ab6858c18036af577d16728fc94c58"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "hitstun",
+      "asset_id": "myo-ryung-hitstun-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/hitstun_16f.png",
+        "sha256": "d4dc71f7f1cf59dfc7d29f097b9168a16c6a62e46ef865f335f197f0b64a6432"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/hitstun.tres",
+        "sha256": "9e95ec785aa27bb4f4184d523fc6b5e78a4d944ac6f65dce1e9f88a06b61c927"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "launch",
+      "asset_id": "myo-ryung-launch-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/launch_16f.png",
+        "sha256": "5523725db8c48be0b9464278c4809904bacd3ea445f13eb8595558dfb713dc4a"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/launch.tres",
+        "sha256": "97be15b97c6dc2dbb795cbd01cd7535f573f1fc91d0d65985fa55f48cc386718"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_heavy_charge",
+      "asset_id": "myo-ryung-attack-heavy-charge-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+        "sha256": "eacbd4efe753c27d66b081dd332bb8a0d67d6376575319f8a965f0615f8123cc"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+        "sha256": "3bdf467de22d991d005ced823568be1ee3a0db082129f7676b10951a1a612f23"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "death",
+      "asset_id": "myo-ryung-death-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/death_16f.png",
+        "sha256": "175dcb9e6fa5a433cde35d81be6e4e6708b7ceaa1ac55325ddcd9e26863269c6"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/death.tres",
+        "sha256": "23994f8ec10ef2662e6914b60fc28447ed8ec75914fb7f7a9622cef50ae332ed"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "knock_down",
+      "asset_id": "myo-ryung-knock-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down_16f.png",
+        "sha256": "c951e45f9ef22e5369129eea78b868a201fef6c1cbae13e0c27d88017868286f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down.tres",
+        "sha256": "a118667b32524c980812e57195f61643a056f4477344e835d0fa374b04c5b9b5"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "ring_out",
+      "asset_id": "myo-ryung-ring-out-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out_16f.png",
+        "sha256": "c5309bdb83d42a9ad4a924570737f1f72465a2ada6eb371eb370f0c5f014f8bc"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out.tres",
+        "sha256": "7922eedb92e4d2b4208debcbc3cb2422871e4486971f94022027502836ff788f"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "spawn",
+      "asset_id": "myo-ryung-spawn-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn_16f.png",
+        "sha256": "1b6fd9e0e5bbc23ad9641fdba72ac95c1b094369a5bda4a7a07170359641ecc7"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn.tres",
+        "sha256": "c92933183e56465ae617500c1db7e1e673f5d45853cdc9ebd04c23d5a20c56d9"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "wake_up",
+      "asset_id": "myo-ryung-wake-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up_16f.png",
+        "sha256": "f4b4a209e65b417a646edccc5e5ad9dfb25410a85c2d52c291bd462cfc427122"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up.tres",
+        "sha256": "71f1cdd60be0410833f1362507c6efb7ff4cee06b8adac3b637973d03e58a3e2"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_air_heavy",
+      "asset_id": "myo-ryung-attack-air-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+        "sha256": "1cfc61cfa43385a461654e919badc51c32f1bcafe992df889f34c67eb3f9080d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+        "sha256": "725eddcfabf4040b1c8039e38f45e784a6c7738f60f90e087b6d84b4bc370c10"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_air_light",
+      "asset_id": "myo-ryung-attack-air-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+        "sha256": "b4e9565f1fd4bb907ce833298282adad6956e6b86e85f567f71cf44386fc8988"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light.tres",
+        "sha256": "ab460952f8bffd065e8ba1dbe487ababc10076a02b56d10d25734200567741e4"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_dash_heavy",
+      "asset_id": "myo-ryung-attack-dash-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+        "sha256": "5f3ebbb08cc4f02ee537146284efcac411b7c482ff29e828e4dc44e82d17233f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+        "sha256": "c3c089d110a8551f2d3905ba22596520409ddcd54a0ca34dc22a126506813543"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_dash_light",
+      "asset_id": "myo-ryung-attack-dash-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+        "sha256": "d34ddedfb2e95fe86d5bdc63eeb52e008a7afac385fd05b87bcc2c67e7547e2d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light.tres",
+        "sha256": "2a96185c869acd7d5291a2e5992fbdfdcde78436a9b484a11ad6cd0f62db1478"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_heavy_down",
+      "asset_id": "myo-ryung-attack-heavy-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+        "sha256": "372182201a92ea2c0ba2e3b430f2d89599ddf4e41ec2c8ba372deab3ee6751bf"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+        "sha256": "30c7f42902fc83326893759b42509805f40e39a229a7304b6c3f8d9fea568b20"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_heavy_side",
+      "asset_id": "myo-ryung-attack-heavy-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+        "sha256": "468642f71393c3b4ee33dbb3371dcb525f60c7330d72aca6516019adf5e71d88"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+        "sha256": "3bf313fb669944a32c2474f60e7e21191e706883976375dc0402b7f6770c8387"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_heavy_up",
+      "asset_id": "myo-ryung-attack-heavy-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+        "sha256": "89285af125213ae5672b1600a1720f1ad3c96838391de290f97c2a60900196a1"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+        "sha256": "d053e154f916dd63eb5801d668ec4ccc0ec90af7661b4951a647153d4f3ca78b"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_light_down",
+      "asset_id": "myo-ryung-attack-light-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+        "sha256": "687bb6b411b6c613a5d126552c249100efdaa378fcec48b2ceea22d4a01fd936"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down.tres",
+        "sha256": "50eac4909627511ff0155d735556cb6fc144e757ea016c200f755e60d4b6ff08"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "attack_light_up",
+      "asset_id": "myo-ryung-attack-light-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+        "sha256": "d2a8f5cc602e65caf827aa18a4abdd848943e3f94818151e48ffa05267a4ebf3"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up.tres",
+        "sha256": "70aa4996e916943de56997e38b6e8e78ab1eb1d40a543ea8216a71c71fc41c2d"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "special_down",
+      "asset_id": "myo-ryung-special-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down_16f.png",
+        "sha256": "e5c585888c0741b60f78e5a2a0fe024f636fc7b94ae466ae3288d9f06d6cad7a"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down.tres",
+        "sha256": "66a1e917d47922e6f456334d60313f42e07386f4534e2e250ff252e1ee16572d"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "special_neutral",
+      "asset_id": "myo-ryung-special-neutral-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral_16f.png",
+        "sha256": "f4995ef6dcc983105bc8faee3a653830af5f018cfb7d903af80f8934c6ff6bac"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral.tres",
+        "sha256": "9d05f63ff19958e07a485ac15872a6efe844c4b0fd34ff31351fedefee6306ad"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "special_side",
+      "asset_id": "myo-ryung-special-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side_16f.png",
+        "sha256": "561d31680b3ffc5f88a880bdcabddc20c102ea9370a8bcd42188380a3a69720b"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side.tres",
+        "sha256": "026ecb268db27879a7e0fe97005c3123abe1f8740fe15d3da31e9f18a4388892"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "special_up",
+      "asset_id": "myo-ryung-special-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up_16f.png",
+        "sha256": "bfee6426ae6eb25417edff16cb818f03e65d62e70ebfa7e733abee3ae89cc131"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up.tres",
+        "sha256": "7d9d0b78f2d9b9d6c38fd3a93f71ad66c06eef32775f52ada9ea10a913d9069c"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "ultimate",
+      "asset_id": "myo-ryung-ultimate-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate_16f.png",
+        "sha256": "c470b3788f9e276ccebd2bc4add7ee77acd4c68e6a827639823c077c0670ee22"
+      },
+      "sprite_frames": {
+        "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate.tres",
+        "sha256": "450127b53a481ebabb2768cf8b9be8f1a8dbaffea17388c82fe270f7f815e595"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_air_heavy",
+      "asset_id": "nabi-attack-air-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+        "sha256": "2c33dd4db9d4df78d0747a4704db4f61180665eea9017e3b8bc6943f9f51ee44"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+        "sha256": "a6a06b2b886c953d91ed9748d494bfbda677d956d16bad6bde1e55e9292f6c27"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_air_light",
+      "asset_id": "nabi-attack-air-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+        "sha256": "1fd8446736ef055497d5e4c557d364a01241cbbe562a5049fa073c386707f658"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres",
+        "sha256": "1ce0fd217593d8030dbd770ded5aeea58a4e932a2dec0b18af00c7325697db48"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_dash_heavy",
+      "asset_id": "nabi-attack-dash-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+        "sha256": "afa3794d5635ef23a2205ba1cc09e353fb2de13fc706e33ca4c5c7518fe3d118"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+        "sha256": "9f021a09688ef3e7f860420271c4ad1a9a6bdca439f4fc1e8ba03aee217831ca"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_dash_light",
+      "asset_id": "nabi-attack-dash-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+        "sha256": "69c19cea8bfa08146566d94e48265727d4879707520fce70669995bd45631838"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_dash_light.tres",
+        "sha256": "b9cacda39c8fe4d708ed99f8ad909ca1285357d79dc1e6638f76214c8e7d74b9"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_heavy_charge",
+      "asset_id": "nabi-attack-heavy-charge-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+        "sha256": "607e754f9eae56afd14fb3cd37b5d569fff5d1fda8de411b6da3ec410ca7f84e"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+        "sha256": "2031d1978242cab589a044815b2bfa5de5f71561cb4239895e7e378acf2d51c5"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_heavy_down",
+      "asset_id": "nabi-attack-heavy-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+        "sha256": "fe6e98aedaad0d2d646b668e5772ef9267d553a4fc2bfdb66cc618cf3fb7d120"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+        "sha256": "e034881d7bc354727fa78dc8b016e172c41172e90e0403ff34d1d1cc67b52663"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_heavy_side",
+      "asset_id": "nabi-attack-heavy-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+        "sha256": "12a8add83b2ce9fd4e5b89f0b1fbdf72687ec690a7026d82915bbd711fa1902f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+        "sha256": "0f0bb8b83fff8ba10f812fb903005d24436c7fec1a0635687d9c3036e97e8285"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_heavy_up",
+      "asset_id": "nabi-attack-heavy-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+        "sha256": "f3ca060ab6fcf7796cd76cb6f0a260cefdcfa33526e4b2ab4b885ac8d8820b75"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+        "sha256": "e00d5f43c968d7cb237fd8b8d6a3b1867bf5ca53fade373c08412a5885131f5b"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_down",
+      "asset_id": "nabi-attack-light-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+        "sha256": "d4564b64d83a1000eea5a99c610167068f934a4c85f5e555cba1f3fba2e4ba5d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_down.tres",
+        "sha256": "15717d74a8d8fc7422edd7dc85f5902c57f797c9f5b0e61217e2448415638db5"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_up",
+      "asset_id": "nabi-attack-light-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+        "sha256": "a03070977b5b30d8638120d7e2d744955333ee281c6dae0bd81b6e1cc5a6bbe3"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+        "sha256": "0857daa957b933de69c355b07f5184daa79c83b2c2d4bbc8372ca051f092acbd"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "death",
+      "asset_id": "nabi-death-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/death_16f.png",
+        "sha256": "426bf83de741044b617b0b5c960ebb59e6941da6b8e3336fcd6ab6591dcc7d34"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/death.tres",
+        "sha256": "d3f82d6f3722e0481bdb2bd44f6a96f93a635afe2a82bcab444d2130249c6a62"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "evade",
+      "asset_id": "nabi-evade-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/evade_16f.png",
+        "sha256": "b5cff1698c9f215b5c05b293608da06f28b53fdbf2a1b0e38a032c0e5d094884"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/evade.tres",
+        "sha256": "9f514856aedac2c29ed5813e7239f0446d85c0c0dfe9efbc4132a350f10f7058"
+      },
+      "fps": 80,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "guard",
+      "asset_id": "nabi-guard-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/guard_16f.png",
+        "sha256": "3128a6432c52aaf943c1a69a560704d1ccb950dcdd83a962fe868d33931478ba"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/guard.tres",
+        "sha256": "0603eb7af38233cb1a8402d2a9d20b9a8ab8e1448e11b416d595ef9b637265ce"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "hitstun",
+      "asset_id": "nabi-hitstun-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/hitstun_16f.png",
+        "sha256": "e4568e161ffd19cfeaa34dd9e9f0a9c8d092e8a7dba16ca06f6798831b4d58e7"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres",
+        "sha256": "ce69464559ba9d827ed5a61b041e25962d1c2cfa7f39f4727c37f353081e76cf"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "knock_down",
+      "asset_id": "nabi-knock-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/knock_down_16f.png",
+        "sha256": "c983b60b4666b72ac850ea3d899db9b2f40fc1595e29d1758973bc5280bbc736"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres",
+        "sha256": "1407422a8738bdbdc86a7c7462fdbecf1a95e63c1d5a1c19518cf51223f905db"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "launch",
+      "asset_id": "nabi-launch-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/launch_16f.png",
+        "sha256": "82db280a446cfe7e942e19459e019f5591c56034db51e130a827d7eb24ffb8be"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/launch.tres",
+        "sha256": "c9fef77fef17c056633f083347ad64dd3a09e8672dc4a2e8ef2bfe421eb8ada5"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "ring_out",
+      "asset_id": "nabi-ring-out-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/ring_out_16f.png",
+        "sha256": "b4fa1a4feb7c28c8c0ea00e28efba68ce386b0c3d08977014c7775cce6532de0"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres",
+        "sha256": "d745b23f2b2e82216438570ac758f3520b9c2072874d9dbc609054398a043328"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "spawn",
+      "asset_id": "nabi-spawn-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/spawn_16f.png",
+        "sha256": "9134157bba9995c5896dcf3620e392fc608d065c438329a036b6ac33c980d818"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres",
+        "sha256": "2a73576a8b08a082fd6ecead2976afefe6d8a1a7ee1a55d4458986d344c4f0f0"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "special_down",
+      "asset_id": "nabi-special-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_down_16f.png",
+        "sha256": "632946836f0cb17321e674ef3802cd27bce35791c015f882ed0c69228bd228c8"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_down.tres",
+        "sha256": "79b8c6dd10cf593ac5f23a81dea08e5f23f720221516ff67fbad53fbaaf6af1f"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "special_neutral",
+      "asset_id": "nabi-special-neutral-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_neutral_16f.png",
+        "sha256": "d64fbf1ebf214a49fa3442030866d6660c1e1d0767292756538e89b0e1271b79"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_neutral.tres",
+        "sha256": "1edb9da8bc8d28edb62b14d143304b3ff40c61666be62217ce86c7d6eeea11df"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "special_side",
+      "asset_id": "nabi-special-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_side_16f.png",
+        "sha256": "f4e8024ad538201e5e03e10bfa7f8fa7a2e1181adc5e38c4243674ecf10f0186"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres",
+        "sha256": "785ea871ed54246fdf17790b5fe85afbdb2f4db7b500a8890f827cde004dfac2"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "special_up",
+      "asset_id": "nabi-special-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_up_16f.png",
+        "sha256": "9edb17d287fe9a74e995204181a2cdef0b0074db3e73220b0282bbc7bf206e70"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_up.tres",
+        "sha256": "007e984e5dde41f7170fa20120be038498ff61466f7e3f44b111f130eac9735c"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "ultimate",
+      "asset_id": "nabi-ultimate-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/ultimate_16f.png",
+        "sha256": "932232c78b500750fe6e427f4e43adc1b101ba315a6a18c8e801e7406a16db24"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/ultimate.tres",
+        "sha256": "dfb6390d2c6ba334e141303c47fa48788f5ead9c23e640db84372949a90b0f44"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "wake_up",
+      "asset_id": "nabi-wake-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/wake_up_16f.png",
+        "sha256": "c34da6daf9ef91aa08370acda67b2a5d28b678516421f7b9ace5b9a4f4e04900"
+      },
+      "sprite_frames": {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres",
+        "sha256": "fdc5e54cc1d2c056f87877f2df4189a51e0cd39326688b6e8833dc20785c3562"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    }
+  ],
+  "reference_motions": [
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "idle",
+      "asset_id": "ja-hyun-idle-16f-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/idle_16f.png",
+        "sha256": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/idle.tres",
+        "sha256": "c416cb8b33b9b932ac24e9c689eaf41a3f90e8714e48d8cbfa65bd10ef25bc74"
+      },
+      "fps": 8,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "run",
+      "asset_id": "ja-hyun-run-16f-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/run_16f.png",
+        "sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/run.tres",
+        "sha256": "2bbe7085c4b838deeee77d42de73d50cb1cceb578e0ea1828221a0e4b1f62057"
+      },
+      "fps": 12,
+      "loop": true,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "jump",
+      "asset_id": "ja-hyun-jump-16f-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/jump_16f.png",
+        "sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/jump.tres",
+        "sha256": "84d0a70be2bad274308cdbeaae2b5f21842517976e2aaa09ffa19cefc3f0f053"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_01",
+      "asset_id": "ja-hyun-attack-light-combo-01-16f-r02",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png",
+        "sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+        "sha256": "cbb10adcaa71d9bb86ad179cc832505980b673a7376b4cfaeacd5de4e5fb4f7a"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_02",
+      "asset_id": "ja-hyun-attack-light-combo-02-16f-r02",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png",
+        "sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+        "sha256": "f515c7a1973444dcb089efd459d4bab62fe12bf8d453c5b0e7b12d0a2a524bc9"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_03",
+      "asset_id": "ja-hyun-attack-light-combo-03-16f-r02",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_03_16f.png",
+        "sha256": "584897a891216b42c2ff321ff8f4a4ff87485de8031349d6b325217994a3945b"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_03.tres",
+        "sha256": "835536d3e73439f03eb5525c408248d2fab8e2cd937f24fbf4f692c2f0c4a8fc"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_air_light",
+      "asset_id": "ja-hyun-attack-air-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+        "sha256": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres",
+        "sha256": "f96b06083cf197f7d1962bb858c5c8463bda0d69c792b688058d5676db39e844"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_dash_light",
+      "asset_id": "ja-hyun-attack-dash-light-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+        "sha256": "4755f65719e84fca6e7235437b9bdf49cf0905d9953ef70772c17321c984e71d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_light.tres",
+        "sha256": "1b63ae32a22ab7b6217a718322de4995aaf8dce39ad3a7aebbae5ca9d018aa95"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_heavy_charge",
+      "asset_id": "ja-hyun-attack-heavy-charge-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+        "sha256": "ace7c74679e9923ac81b80c5eecf148d218f26670ce635976fe86dc0a0bac6e2"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+        "sha256": "9cff84f8afff68452aef6e00509a84bff0dc330c96b501c52d68ae2a9b406d1a"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_down",
+      "asset_id": "ja-hyun-attack-light-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+        "sha256": "962bf4074bc79b3052858eb2ff0a0f37e5b8f890f55e961808f672aa7495bab1"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_down.tres",
+        "sha256": "e5c3089ed5002b9ba9fba7dc6518e7b9bd57a1d705668d1080cad3f9b3119846"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_up",
+      "asset_id": "ja-hyun-attack-light-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+        "sha256": "7a05081a88ea9951b592421467cdf52eb75cd485e22d0c4cacf3578b96a0f6d6"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_up.tres",
+        "sha256": "2b3adf013d2441d57f113797b0c6ff8fb56aad14fc5fea966d812e97bd4aa8ac"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "death",
+      "asset_id": "ja-hyun-death-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death_16f.png",
+        "sha256": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres",
+        "sha256": "7167a50e35fc610e8e5d397578f0c44a69872684455e53d81c3aa064084142d8"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "evade",
+      "asset_id": "ja-hyun-evade-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/evade_16f.png",
+        "sha256": "e8cff000e56939f3025a31ba07f6c831770789b56f456b2fb7d181510a260571"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/evade.tres",
+        "sha256": "27d6d06527fa2e7c36f7ce10f72456a4ce4e91c9180b3cdd3dc94effa3524c40"
+      },
+      "fps": 80,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "guard",
+      "asset_id": "ja-hyun-guard-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard_16f.png",
+        "sha256": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres",
+        "sha256": "21184f6f6b2d69246b2d49366e09ea7fd11ae421ab82a1ab0ff4b6aff2e7b905"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "hitstun",
+      "asset_id": "ja-hyun-hitstun-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun_16f.png",
+        "sha256": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres",
+        "sha256": "ce5ea6686de3fac67e3f5ae4072b42b1a60581f5d1d0f4cb78a93798663c9f52"
+      },
+      "fps": 24,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "knock_down",
+      "asset_id": "ja-hyun-knock-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down_16f.png",
+        "sha256": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres",
+        "sha256": "71b17d1252477ce322e85ef6c07e4e2a513f0172f4c07b3a0f890e5e3af2d50c"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "launch",
+      "asset_id": "ja-hyun-launch-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch_16f.png",
+        "sha256": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres",
+        "sha256": "cde9f4a264ef920705963ddb817edb059b48468128df0f0a65170e1d8041f276"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "ring_out",
+      "asset_id": "ja-hyun-ring-out-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out_16f.png",
+        "sha256": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres",
+        "sha256": "481cee65f6885fbb8d9661875f46f2c83516ba241465eb0cbde4147c1aad1dd0"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "spawn",
+      "asset_id": "ja-hyun-spawn-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn_16f.png",
+        "sha256": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres",
+        "sha256": "c29b090258ca06cbdc82f376559d58d32f7c22172a592a802b988fb728814e4a"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "wake_up",
+      "asset_id": "ja-hyun-wake-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up_16f.png",
+        "sha256": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres",
+        "sha256": "42e964de90d5d5e99e28f4ae58ed760de8f3e0553abd94fc0f5a251c751b727e"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_air_heavy",
+      "asset_id": "ja-hyun-attack-air-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+        "sha256": "e0917da078f586a1019e9478dafede67df0127569054842fecf46f088c521ae3"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+        "sha256": "69c408d7b181db9fe06c2621570716495d41769dc34c046342c01ec9d936ba1b"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_dash_heavy",
+      "asset_id": "ja-hyun-attack-dash-heavy-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+        "sha256": "d1409261995c9d163ba3d63c6682c7abe0efe799a343687f4032bccc36664208"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+        "sha256": "2c1a6b070cd0cbeb39c696e390c4e834de983a19f638a50440b0b6daaaba2be8"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_heavy_down",
+      "asset_id": "ja-hyun-attack-heavy-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+        "sha256": "e164066b9fabded4241d36a44e73540545ccfeaad8d8f131088f36751efe65ed"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+        "sha256": "a49b73d7e597b27317b7e6090c3cd10631fb2bffc17bd6463edf04c6903aa356"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_heavy_side",
+      "asset_id": "ja-hyun-attack-heavy-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+        "sha256": "c0c2ccb5f5b4350884028a1b8f98acd731b09078bf3d945a0c91d018022687e1"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+        "sha256": "5728f1190744a3d629ad700275cd9520042e25c442e35ae3cef54dc19406143b"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_heavy_up",
+      "asset_id": "ja-hyun-attack-heavy-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+        "sha256": "bf59be198db2cef364a3e00d93077350d826bede5e66b26f2923ecdf4929109f"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+        "sha256": "ea872717a671a7081bb1acf5ec097f9c4195556595d788f050526d664fc0bacb"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_down",
+      "asset_id": "ja-hyun-special-down-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_down_16f.png",
+        "sha256": "d59f7e567248f4f8e601b6f7a7872b53f48e5db70f226bea2539e00409c42cd8"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_down.tres",
+        "sha256": "23fd685cae104e30fd053f35f53dd1d8983ccd74c63fd92504d5697aafef8118"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_neutral",
+      "asset_id": "ja-hyun-special-neutral-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral_16f.png",
+        "sha256": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres",
+        "sha256": "197b5f74bad0724bc2c18069a8423d29d04511ee593b6fd49092c4b5c6774ceb"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_side",
+      "asset_id": "ja-hyun-special-side-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_side_16f.png",
+        "sha256": "396ba33cc5cb8f016845482c01419f62eeff6a9b8e6fc737c121f80292e40f5a"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_side.tres",
+        "sha256": "851e3f2b4e7cde511bdb7069ac1155d4ae79a42d3190b725051d0427a009fa65"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_up",
+      "asset_id": "ja-hyun-special-up-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_up_16f.png",
+        "sha256": "8a1790bcde658ef60187a4d7592b1ee832a9add952a388ef497a9141ebc64ba8"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_up.tres",
+        "sha256": "7fbb1d7e1093257a165d494750b2bb7a0c6d27549d535dbf7c61179e82eea467"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "visual_state_id": "ultimate",
+      "asset_id": "ja-hyun-ultimate-16f-local-v01",
+      "runtime": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ultimate_16f.png",
+        "sha256": "53459a9979ada30921db43a5090ae61fa25226e1968cc90863cf40fa1aa22b27"
+      },
+      "sprite_frames": {
+        "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ultimate.tres",
+        "sha256": "17968c847d247dab5d951f14cbc04483c51adf2b8277b2fad5b1659735ea8144"
+      },
+      "fps": 12,
+      "loop": false,
+      "frame_count": 16
+    }
+  ]
+}

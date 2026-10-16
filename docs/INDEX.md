@@ -29,6 +29,7 @@
 | 메뉴의 기록·친구·순위는 어떻게 동작하는가? | [실제 메뉴 기능](ui/menu-features-v01.md) | 통합 프로필·미션·사회 기능·승패 순위 |
 | 실제 프리미엄 메뉴는 어떻게 동작하는가? | [프리미엄 메뉴 v07 앱 연결](ui/premium-menu-runtime-v07.md) | 기기 저장·조작 설정·실제 검사 |
 | 로비 하위 메뉴의 최신 설계는 어디에 있는가? | [프리미엄 메뉴 v07](ui/premium-menu-v07.md) | 전용 숲 공간·어두운 메뉴·상태와 개발 전달 |
+| 타이틀과 화면 이동 로딩은 어떻게 동작하는가? | [타이틀·화면 로딩](ui/title-loading.md) | 시작 준비·진입·오류·검증 |
 | 화면과 터치 조작은 어떻게 구성하는가? | [기능과 사용자 경험](gameplay/features-and-ux.md) | [비전투 화면 데이터](ui/non-combat-ui-v01.json), [Penpot 설계 기준](ui/penpot-setup.md), [숲빛 v06 런타임 연결](ui/forestlight-runtime-v06.md) |
 | 코드를 어떤 책임으로 나누는가? | [코드 구조](engineering/architecture.md) | [공용 데이터 형식](#공용-데이터-형식) |
 | 관리자 웹을 어떻게 실행·복구하는가? | [로컬 관리자 웹](engineering/admin-web.md) | [개발계 데이터베이스](engineering/database.md) |
@@ -87,7 +88,8 @@ docs/
 
 | 바꾸거나 확인할 기능 | 주요 위치 |
 | --- | --- |
-| 게임 시작 장면과 전체 흐름 | `scenes/local_ai_app.tscn`, `scripts/local_ai_app.gd` |
+| 타이틀과 시작 준비 | `scenes/startup_title.tscn`, `scripts/startup_title.gd` |
+| 시작 뒤 게임 메뉴와 전체 흐름 | `scenes/local_ai_app.tscn`, `scripts/local_ai_app.gd` |
 | LAN 1대1 서버·클라이언트 | `server/game/lan_game_server.gd`, `scripts/network/lan_match_client.gd` |
 | 한 판의 전투 장면 | `scenes/main.tscn`, `scripts/main.gd` |
 | 캐릭터 이동·점프·대시 | `scripts/fighter_controller.gd` |

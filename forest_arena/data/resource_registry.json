@@ -2,8 +2,8 @@
   "schema_version": "2.0.0",
   "game": "Forest Arena",
   "engine": "Godot 4",
-  "logical_asset_count": 518,
-  "quality_dependent_count": 24,
+  "logical_asset_count": 519,
+  "quality_dependent_count": 25,
   "assets": [
     {
       "id": "fa.branding.logo.forest.arena",
@@ -6496,6 +6496,21 @@
       "quality_dependent": false,
       "path": "res://forest_arena/assets/ui/premium-menu-v07/fonts/NotoSansKR[wght].ttf",
       "format": "ttf"
+    },
+    {
+      "id": "fa.background.title.forest",
+      "category": "background",
+      "purpose": "Character-free title forest v01, native logo and start copy overlaid",
+      "priority": "high",
+      "quality_dependent": true,
+      "variants": {
+        "high": "res://forest_arena/assets/quality/high/background/title_forest_v01.png",
+        "medium": "res://forest_arena/assets/quality/medium/background/title_forest_v01.png",
+        "low": "res://forest_arena/assets/quality/low/background/title_forest_v01.png"
+      },
+      "format": "png",
+      "width": 1920,
+      "height": 1080
     }
   ]
 }

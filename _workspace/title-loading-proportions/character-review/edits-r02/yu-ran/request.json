@@ -1,0 +1,12 @@
+{
+  "tool": "OpenAI built-in image_gen image editing",
+  "transparent_background": true,
+  "prompt": "Use case: precise-object-edit. Asset: Forest Arena Yu-Ran idle 16-frame sprite review sheet. Image 1 is the EDIT TARGET: silver-haired brown weasel woman 4x4 idle sheet. Image 2 is a SIZE REFERENCE ONLY: Ja-Hyun idle sheet, do not copy his appearance. Correct only her broad head proportion: narrow Yu-Ran's cranial head, face and close-fitting hair mass horizontally by about13% around the face center; keep head height and chin/neck attachment unchanged. Current first-pose hair skull width is about31 per72 body height vs reference27 per72; target27-29. Apply consistently across all16 poses. Preserve silver hair identity, 2 round brown weasel ears with white inner tufts, one oversized long brown-white ringed tail, human face/hands/feet, brown-white-black fur-collar streetwear, cropped black inner top, white fitted shorts and black straps, black gloves, high-top shoes, large black bow, teal ribbons and teal diamond gems. Keep ear size and loose rear ponytail; adapt only attachment points naturally. Preserve exact torso, arms, legs, shoes, body height, stance and foot placement, all16 distinct poses and row-major4x4 layout. Do not shrink the whole character or enlarge the body. Keep original polished semi-dimensional rendering, subtle linework, soft blended shading, outfit details and neutral fighting expression. Output genuinely transparent RGBA PNG; no checkerboard, text, labels, watermark or grid. The head must read narrower against the unchanged shoulders/body.",
+  "input_paths": [
+    "character-review/yu-ran/idle-review-4x4.png",
+    "character-review/ja-hyun/idle-reference-4x4.png"
+  ],
+  "output": "character-review/edits-r02/yu-ran/idle-head-width-source.png",
+  "generated_path": "/Users/jdh/.codex/generated_images/01a144d8-285e-7ab1-8e8a-b8d6101bb0ba/exec-8979a304-a8f1-4eed-900b-00644a142a6f.png",
+  "status": "new-edit-review-pending"
+}
