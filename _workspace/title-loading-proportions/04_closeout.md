@@ -45,7 +45,11 @@
 - 기준: origin/develop `57c7143372e4c0ef20a2aed291755523ceb7bd77`.
 - 작업 브랜치: `codex/title-loading-proportions`.
 - 원래 ForestTales/ForestArena 작업 폴더의 미커밋 변경을 보존하고 별도 관리 작업 폴더에서 구현했다.
-- PR·최종 병합 정보는 원격 작업 완료 뒤 덧붙인다.
+- 구현 커밋: `92f4f4e63b455e5e6f22b9d7a7213781e0270171`.
+- 구현 PR: [#100](https://github.com/Dev-DHJang/ForestArena/pull/100), develop 병합 완료.
+- 실제 병합 SHA: `f2e7e914588f8c2c6bced474e73773e171b37453`.
+- 원격 상태 검사는 등록된 실패·진행 중 검사가 없음을 확인했다. 저장소 보호 규칙을 우회하지 않았다.
+- 이 마무리 보완은 구현 PR의 실제 병합 결과만 기록한다.
 - 되돌리기는 해당 PR 병합 변경을 되돌리는 새 커밋으로 한다. 기존 사용자 작업은 복원 대상으로 삼지 않는다.
 
 ## 최종 Android 산출물
