@@ -56,8 +56,8 @@ require_badging "uses-permission: name='android.permission.INTERNET'" "LAN WebSo
 require_badging "uses-permission: name='android.permission.VIBRATE'" "combat haptic feedback permission"
 require_badging "native-code: 'arm64-v8a' 'x86_64'" "arm64 device and x86_64 emulator ABIs"
 
-if $aapt_path list "$apk_path" | grep -E '(^|/)(_workspace|docs|tests|\.agents)/' >/dev/null; then
-	echo "APK contains development-only documentation, tests, or workspace evidence" >&2
+if $aapt_path list "$apk_path" | grep -E '(^|/)(_workspace|docs|tests|\.agents)/|^assets/server/api/(node_modules|dist)/' >/dev/null; then
+	echo "APK contains development-only documentation, tests, workspace evidence, or API build dependencies" >&2
 	exit 1
 fi
 
