@@ -1,0 +1,853 @@
+{
+  "status": "sample-proportions-approved",
+  "reference": {
+    "character_id": "ja-hyun",
+    "crown_y": 52,
+    "chin_y": 78,
+    "pelvis_y": 101,
+    "sole_y": 124,
+    "body_height": 72
+  },
+  "reference_segment_fractions": [
+    0.3611111111111111,
+    0.3194444444444444,
+    0.3194444444444444
+  ],
+  "samples": [
+    {
+      "character_id": "myo-ryung",
+      "visual_state_id": "idle",
+      "user_approved": true,
+      "source_path": "_workspace/character-motion-proportion-unification/02_samples/myo-ryung/idle-r05-alpha.png",
+      "source_sha256": "5d5fbb1173f28ee6eb6dbc4b1ca36614706171aca59fa055ffb3a03ed585715e",
+      "source_dimensions": [
+        1312,
+        1199
+      ],
+      "source_alpha": [
+        0,
+        255
+      ],
+      "review_path": "_workspace/character-motion-proportion-unification/03_sample_review/myo-ryung/idle-proportion-r01-clean.png",
+      "review_sha256": "d895ba04a9449606ca56f1b0d54f8c45f6f24f91603255e635f8fa9f5a44819b",
+      "review_dimensions": [
+        512,
+        512
+      ],
+      "frame_count": 16,
+      "unique_frames": 16,
+      "body_height_after_scale": 72.0,
+      "fixed_character_scale": 0.31718061674008813,
+      "segment_fractions": [
+        0.3744493392070485,
+        0.30837004405286345,
+        0.31718061674008813
+      ],
+      "relative_segment_differences": [
+        0.036936631650288154,
+        0.03466768818234045,
+        0.00708676498755012
+      ],
+      "quantitative_scope": "first pose head/torso/bent-leg vertical fractions; not 3D joint lengths or a proof of identity",
+      "frames": [
+        {
+          "index": 0,
+          "extracted_size": [
+            211,
+            280
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            35,
+            102,
+            124
+          ],
+          "rgba_sha256": "02cccf661023f5ebd6f393aded5c7f554b7fe5754bd6df8e29d66bdc4e05a74a"
+        },
+        {
+          "index": 1,
+          "extracted_size": [
+            202,
+            278
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            36,
+            36,
+            100,
+            124
+          ],
+          "rgba_sha256": "7a4a2e564e88bacc8ed9ca2803407a929fa0cfeb8ec57efee96ee21b8e7ff4f0"
+        },
+        {
+          "index": 2,
+          "extracted_size": [
+            216,
+            277
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            34,
+            36,
+            103,
+            124
+          ],
+          "rgba_sha256": "ec9b02f8100bdaca4910022be5d7e629d4543d25f463b3444622adfe73c08cfe"
+        },
+        {
+          "index": 3,
+          "extracted_size": [
+            204,
+            275
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            37,
+            100,
+            124
+          ],
+          "rgba_sha256": "202448411c83b220fe22ed27a8d714f7a3f9d74c7c4bb80c686bc84d82275e51"
+        },
+        {
+          "index": 4,
+          "extracted_size": [
+            210,
+            283
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            34,
+            34,
+            101,
+            124
+          ],
+          "rgba_sha256": "8d6a03071717832abecd351c684568d482480996bea24ed8f284f252719bcdbf"
+        },
+        {
+          "index": 5,
+          "extracted_size": [
+            214,
+            278
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            36,
+            36,
+            104,
+            124
+          ],
+          "rgba_sha256": "9af5cf3e84ac0f9e603cdfa0daaaa596b33d337e656b0c652ae67f6de87ec4af"
+        },
+        {
+          "index": 6,
+          "extracted_size": [
+            217,
+            277
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            36,
+            104,
+            124
+          ],
+          "rgba_sha256": "c15406e074cbfdd6eb25cbdcbf4146294478ceafacc629c534879ed5c7cebefc"
+        },
+        {
+          "index": 7,
+          "extracted_size": [
+            211,
+            274
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            37,
+            102,
+            124
+          ],
+          "rgba_sha256": "ca17431ba641ecc6f2bbb345c8e535f17287daf21c9cb785be9bea3ed0f1dbea"
+        },
+        {
+          "index": 8,
+          "extracted_size": [
+            216,
+            278
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            36,
+            36,
+            105,
+            124
+          ],
+          "rgba_sha256": "1f3fa2e995edc9c3feee070d9d0629e2b52cc772d35f431c46b7a64cb5b0500f"
+        },
+        {
+          "index": 9,
+          "extracted_size": [
+            207,
+            280
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            36,
+            35,
+            102,
+            124
+          ],
+          "rgba_sha256": "234b3efc1b8dac15d71dfc1808b91e30bca57be591e8e682126420189fc97093"
+        },
+        {
+          "index": 10,
+          "extracted_size": [
+            214,
+            282
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            35,
+            103,
+            124
+          ],
+          "rgba_sha256": "0e2762dccfff9178acf4219e699e9bd5c2af08f90fc96cd79fc671ee6efe7304"
+        },
+        {
+          "index": 11,
+          "extracted_size": [
+            217,
+            275
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            34,
+            37,
+            103,
+            124
+          ],
+          "rgba_sha256": "bc53d73d1a428954cfab508918a2c0953e60e55ba0007b51f108a21c5572f90d"
+        },
+        {
+          "index": 12,
+          "extracted_size": [
+            218,
+            282
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            35,
+            104,
+            124
+          ],
+          "rgba_sha256": "0a0f1cbcaefd561b84a9219742c40c21a7f916996ab327c8c91d86e7af25b74b"
+        },
+        {
+          "index": 13,
+          "extracted_size": [
+            209,
+            282
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            35,
+            101,
+            124
+          ],
+          "rgba_sha256": "87f4804a05197530988e567db726119cb0199c86d8a82f3abec755338401144d"
+        },
+        {
+          "index": 14,
+          "extracted_size": [
+            215,
+            277
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            36,
+            103,
+            124
+          ],
+          "rgba_sha256": "6ebf69a0cf20708d1c3053132a3cda965ba14ae4331be698046b12e05c817127"
+        },
+        {
+          "index": 15,
+          "extracted_size": [
+            212,
+            283
+          ],
+          "scale": 0.31718061674008813,
+          "normalized_bbox": [
+            35,
+            34,
+            102,
+            124
+          ],
+          "rgba_sha256": "5934964fe0954e1b8c81ea7d88b8ae97b57f384bdd3c1c53e57e3ad9220c1020"
+        }
+      ]
+    },
+    {
+      "character_id": "nabi",
+      "visual_state_id": "idle",
+      "user_approved": true,
+      "source_path": "_workspace/character-motion-proportion-unification/02_samples/nabi/idle-r07-alpha.png",
+      "source_sha256": "818ca0ff794c5311b99a658044ff286a666f9bdc7a29d40b1378304d26a2270b",
+      "source_dimensions": [
+        1479,
+        1064
+      ],
+      "source_alpha": [
+        0,
+        255
+      ],
+      "review_path": "_workspace/character-motion-proportion-unification/03_sample_review/nabi/idle-proportion-r01-clean.png",
+      "review_sha256": "b4ecbe6b85d732fad2465f4d9cfb42a27921a8118f057dff40817312e131d656",
+      "review_dimensions": [
+        512,
+        512
+      ],
+      "frame_count": 16,
+      "unique_frames": 16,
+      "body_height_after_scale": 72.0,
+      "fixed_character_scale": 0.3769633507853403,
+      "segment_fractions": [
+        0.3403141361256545,
+        0.3298429319371728,
+        0.3298429319371728
+      ],
+      "relative_segment_differences": [
+        0.05759162303664911,
+        0.032551786933758375,
+        0.032551786933758375
+      ],
+      "quantitative_scope": "first pose head/torso/bent-leg vertical fractions; not 3D joint lengths or a proof of identity",
+      "frames": [
+        {
+          "index": 0,
+          "extracted_size": [
+            216,
+            233
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            13,
+            36,
+            94,
+            124
+          ],
+          "rgba_sha256": "c6c280a3adeb11a47f2b0cb71f533b93cdf150c5ad10d97af96a352ed1af841c"
+        },
+        {
+          "index": 1,
+          "extracted_size": [
+            227,
+            237
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            11,
+            35,
+            97,
+            124
+          ],
+          "rgba_sha256": "c2d4a289029495a78f0bb29fe1d3ab99aa5e5e6e2feb0a34905285649bc4b867"
+        },
+        {
+          "index": 2,
+          "extracted_size": [
+            219,
+            236
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            14,
+            35,
+            97,
+            124
+          ],
+          "rgba_sha256": "e5141a3a1287a757107b73bf40015ea69b03c329502ecffae0a82616192e33b6"
+        },
+        {
+          "index": 3,
+          "extracted_size": [
+            228,
+            237
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            12,
+            35,
+            98,
+            124
+          ],
+          "rgba_sha256": "cfc2c28a9ab4b9f5a4957cbbec4ab3d2f83fce70c7fc8c4b6dd29eeda54863be"
+        },
+        {
+          "index": 4,
+          "extracted_size": [
+            234,
+            238
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            10,
+            34,
+            98,
+            124
+          ],
+          "rgba_sha256": "99e2cd1c6a1936d376ccb67818fa47b0f71a69c6333b994301a02a0ee1168a1c"
+        },
+        {
+          "index": 5,
+          "extracted_size": [
+            222,
+            237
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            11,
+            35,
+            95,
+            124
+          ],
+          "rgba_sha256": "067e05203c02936db143a06d7d36fc01ddd9a87950ff984b808ee1cf1fcc1221"
+        },
+        {
+          "index": 6,
+          "extracted_size": [
+            232,
+            238
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            11,
+            34,
+            98,
+            124
+          ],
+          "rgba_sha256": "521ce0de298becf8e989a18fd73b47e491673fd6a3994db09bb9fc5032c34982"
+        },
+        {
+          "index": 7,
+          "extracted_size": [
+            233,
+            237
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            10,
+            35,
+            98,
+            124
+          ],
+          "rgba_sha256": "a1884638a74f79e3278f55b4a3db17fa9aa295eafd680d063f34bd2c1c79ee0d"
+        },
+        {
+          "index": 8,
+          "extracted_size": [
+            237,
+            237
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            10,
+            35,
+            99,
+            124
+          ],
+          "rgba_sha256": "f71a37dea17792c09fea428657a39c3e670140ad4affe12cee3937c95078098d"
+        },
+        {
+          "index": 9,
+          "extracted_size": [
+            236,
+            236
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            10,
+            35,
+            99,
+            124
+          ],
+          "rgba_sha256": "53a85523cb043aa5dfb3a9cfcc7f0feb236d756f794e91319a51480bde3674a3"
+        },
+        {
+          "index": 10,
+          "extracted_size": [
+            225,
+            236
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            10,
+            35,
+            95,
+            124
+          ],
+          "rgba_sha256": "f1fb4adddc337a2624dc83b795b2d6cf2ab74d6edc409db54417f572938e9224"
+        },
+        {
+          "index": 11,
+          "extracted_size": [
+            247,
+            236
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            6,
+            35,
+            99,
+            124
+          ],
+          "rgba_sha256": "90f9ff48c5ec9fc309a25329b9cc6f437675ce6bb37960739b8fa6e56aa663e0"
+        },
+        {
+          "index": 12,
+          "extracted_size": [
+            236,
+            236
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            12,
+            35,
+            101,
+            124
+          ],
+          "rgba_sha256": "eebf5a6476a362f2a36c3e7d75a8339a86879a7bd5b66c55bded001f98940a44"
+        },
+        {
+          "index": 13,
+          "extracted_size": [
+            235,
+            237
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            10,
+            35,
+            99,
+            124
+          ],
+          "rgba_sha256": "2b59a44693d97f064f313b2d5702f1a929a18a8f4b9159f4e8117d8e2850b48d"
+        },
+        {
+          "index": 14,
+          "extracted_size": [
+            230,
+            235
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            10,
+            35,
+            97,
+            124
+          ],
+          "rgba_sha256": "6779ab6b90bb62d59d19958399c6eacaf71ef4f5633156d1cb2956fb050187f9"
+        },
+        {
+          "index": 15,
+          "extracted_size": [
+            229,
+            235
+          ],
+          "scale": 0.3769633507853403,
+          "normalized_bbox": [
+            12,
+            35,
+            98,
+            124
+          ],
+          "rgba_sha256": "7ed0363765b80b0b4e77cd95eec4a2e5034d140441addd411fc165abb4fdf5b7"
+        }
+      ]
+    },
+    {
+      "character_id": "yu-ran",
+      "visual_state_id": "idle",
+      "user_approved": true,
+      "source_path": "_workspace/character-motion-proportion-unification/02_samples/yu-ran/idle-r05-alpha.png",
+      "source_sha256": "65393a180150876c2e4c94109deb372ac353645164995787a8d6106efa331569",
+      "source_dimensions": [
+        1536,
+        1024
+      ],
+      "source_alpha": [
+        0,
+        254
+      ],
+      "review_path": "_workspace/character-motion-proportion-unification/03_sample_review/yu-ran/idle-proportion-r01-clean.png",
+      "review_sha256": "2421e3341ac5815e3766515e94c168da872e71fce34ee5de6511b4184808c90a",
+      "review_dimensions": [
+        512,
+        512
+      ],
+      "frame_count": 16,
+      "unique_frames": 16,
+      "body_height_after_scale": 72.0,
+      "fixed_character_scale": 0.35294117647058826,
+      "segment_fractions": [
+        0.3431372549019608,
+        0.3284313725490196,
+        0.3284313725490196
+      ],
+      "relative_segment_differences": [
+        0.04977375565610853,
+        0.02813299232736588,
+        0.02813299232736588
+      ],
+      "quantitative_scope": "first pose head/torso/bent-leg vertical fractions; not 3D joint lengths or a proof of identity",
+      "frames": [
+        {
+          "index": 0,
+          "extracted_size": [
+            230,
+            248
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            19,
+            36,
+            100,
+            124
+          ],
+          "rgba_sha256": "6debacd55cc257dd58cde46e4b7568c8363e5a43be0f7c25ec318e583a587465"
+        },
+        {
+          "index": 1,
+          "extracted_size": [
+            240,
+            247
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            17,
+            37,
+            102,
+            124
+          ],
+          "rgba_sha256": "8647aae75a467dc9217071774c17a3a17f29ad31d8cdcd489e558eda248a1a6c"
+        },
+        {
+          "index": 2,
+          "extracted_size": [
+            242,
+            245
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            18,
+            38,
+            103,
+            124
+          ],
+          "rgba_sha256": "9d5f10c73110895266866251f141597228b415fe78927e02dd01845365819ae5"
+        },
+        {
+          "index": 3,
+          "extracted_size": [
+            241,
+            243
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            19,
+            38,
+            104,
+            124
+          ],
+          "rgba_sha256": "4e01da274bf8a0c49aaefacce9b42d0dcf719ffa2433a4be7f8abebd5b8e6034"
+        },
+        {
+          "index": 4,
+          "extracted_size": [
+            247,
+            245
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            15,
+            38,
+            102,
+            124
+          ],
+          "rgba_sha256": "161f84d599bf321f4251a2eb33ca3e522682b46552bafb8839c6abd25f2de719"
+        },
+        {
+          "index": 5,
+          "extracted_size": [
+            245,
+            245
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            15,
+            38,
+            101,
+            124
+          ],
+          "rgba_sha256": "1b5e4e78dbd862eee539dece1e86a13e921029b8f18851de2424471cb413038d"
+        },
+        {
+          "index": 6,
+          "extracted_size": [
+            246,
+            244
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            15,
+            38,
+            102,
+            124
+          ],
+          "rgba_sha256": "831a0664dd195b9c2998b3ac981382fbf76d637ef75088d31648590d4328eec1"
+        },
+        {
+          "index": 7,
+          "extracted_size": [
+            244,
+            244
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            16,
+            38,
+            102,
+            124
+          ],
+          "rgba_sha256": "638e0c5095e31a7d0df2fb387eec0e53d3425aaa0be03b11780af1b70af821bf"
+        },
+        {
+          "index": 8,
+          "extracted_size": [
+            245,
+            244
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            17,
+            38,
+            103,
+            124
+          ],
+          "rgba_sha256": "71d259b5264e3347a7eb4f001e9adc602b0b5d300fc39324c7e0dd59b8c80ab0"
+        },
+        {
+          "index": 9,
+          "extracted_size": [
+            254,
+            244
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            13,
+            38,
+            103,
+            124
+          ],
+          "rgba_sha256": "73b5e7f251ba36ad36adf1d0dc37b19c619cfd51dc269582f685eda71fc1c282"
+        },
+        {
+          "index": 10,
+          "extracted_size": [
+            250,
+            243
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            15,
+            38,
+            103,
+            124
+          ],
+          "rgba_sha256": "e70795d6b6f9face33b5e1ae23f615984d53f6ec78df80740fe24aa7c0ecd9f0"
+        },
+        {
+          "index": 11,
+          "extracted_size": [
+            254,
+            243
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            13,
+            38,
+            103,
+            124
+          ],
+          "rgba_sha256": "5883b72afe7daaf6762c1912aa09ebcb657b3ce5af2bfd5e7a37ea082312883d"
+        },
+        {
+          "index": 12,
+          "extracted_size": [
+            241,
+            246
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            17,
+            37,
+            102,
+            124
+          ],
+          "rgba_sha256": "5020d4d863fc2a3e2b09ce0516dd63d3db6cf28c395ac514e64980a981ac2325"
+        },
+        {
+          "index": 13,
+          "extracted_size": [
+            241,
+            244
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            17,
+            38,
+            102,
+            124
+          ],
+          "rgba_sha256": "207e39ce5e84289e055ce7479f766390fdfa9eccd8beedc53dc203214b6e08ae"
+        },
+        {
+          "index": 14,
+          "extracted_size": [
+            244,
+            244
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            18,
+            38,
+            104,
+            124
+          ],
+          "rgba_sha256": "2aacc3695babe0636593ac10db74a9e3930290645ff8a54952265ce0744c7bab"
+        },
+        {
+          "index": 15,
+          "extracted_size": [
+            241,
+            244
+          ],
+          "scale": 0.35294117647058826,
+          "normalized_bbox": [
+            16,
+            38,
+            101,
+            124
+          ],
+          "rgba_sha256": "e027f475dfc7114ef57158baaa5101a15915d3f81a34ae1acf97219ed829e18a"
+        }
+      ]
+    }
+  ],
+  "approval_record": "_workspace/character-motion-proportion-unification/03_sample_approval.json"
+}

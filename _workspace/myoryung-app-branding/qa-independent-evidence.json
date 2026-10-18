@@ -1,0 +1,180 @@
+{
+  "review_date": "2026-10-16",
+  "assets": [
+    {
+      "path": "assets/branding/myo-ryung-v01/adaptive-background-432.png",
+      "sha256_matches_manifest": true,
+      "size": [
+        432,
+        432
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "nonzero_alpha_bbox": [
+        0,
+        0,
+        432,
+        432
+      ]
+    },
+    {
+      "path": "assets/branding/myo-ryung-v01/adaptive-foreground-432.png",
+      "sha256_matches_manifest": true,
+      "size": [
+        432,
+        432
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_alpha_bbox": [
+        92,
+        106,
+        340,
+        338
+      ]
+    },
+    {
+      "path": "assets/branding/myo-ryung-v01/app-icon-1024.png",
+      "sha256_matches_manifest": true,
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "nonzero_alpha_bbox": [
+        0,
+        0,
+        1024,
+        1024
+      ]
+    },
+    {
+      "path": "assets/branding/myo-ryung-v01/main-192.png",
+      "sha256_matches_manifest": true,
+      "size": [
+        192,
+        192
+      ],
+      "alpha_extrema": [
+        255,
+        255
+      ],
+      "nonzero_alpha_bbox": [
+        0,
+        0,
+        192,
+        192
+      ]
+    }
+  ],
+  "approved_source_and_copy_match": true,
+  "apk_sha256": "7ded8750da3c70cdb6353270231e1c843dd1b1b465b2120443bd9c9cae797c64",
+  "apk_images": [
+    {
+      "entry": "res/mipmap-xxxhdpi-v4/icon.webp",
+      "size": [
+        192,
+        192
+      ],
+      "rgba_bytes_identical_to_source": true,
+      "alpha_identical": true,
+      "opaque_rgb_identical": true,
+      "rgb_alpha_ge32_identical": true,
+      "changed_rgba_pixels": 0,
+      "changed_pixels_alpha0": 0,
+      "changed_pixels_alpha1to31": 0,
+      "premultiplied_rgb_mean_delta_0to255": 0.0,
+      "premultiplied_rgb_max_delta_0to255": 0.0
+    },
+    {
+      "entry": "res/mipmap-xxxhdpi-v4/icon_foreground.webp",
+      "size": [
+        432,
+        432
+      ],
+      "rgba_bytes_identical_to_source": false,
+      "alpha_identical": true,
+      "opaque_rgb_identical": true,
+      "rgb_alpha_ge32_identical": true,
+      "changed_rgba_pixels": 6457,
+      "changed_pixels_alpha0": 4577,
+      "changed_pixels_alpha1to31": 1880,
+      "premultiplied_rgb_mean_delta_0to255": 0.00781642946959305,
+      "premultiplied_rgb_max_delta_0to255": 10.305882352941177
+    },
+    {
+      "entry": "res/mipmap-xxxhdpi-v4/icon_background.webp",
+      "size": [
+        432,
+        432
+      ],
+      "rgba_bytes_identical_to_source": true,
+      "alpha_identical": true,
+      "opaque_rgb_identical": true,
+      "rgb_alpha_ge32_identical": true,
+      "changed_rgba_pixels": 0,
+      "changed_pixels_alpha0": 0,
+      "changed_pixels_alpha1to31": 0,
+      "premultiplied_rgb_mean_delta_0to255": 0.0,
+      "premultiplied_rgb_max_delta_0to255": 0.0
+    },
+    {
+      "entry": "res/drawable/splash_icon.webp",
+      "size": [
+        432,
+        432
+      ],
+      "rgba_bytes_identical_to_source": false,
+      "alpha_identical": true,
+      "opaque_rgb_identical": true,
+      "rgb_alpha_ge32_identical": true,
+      "changed_rgba_pixels": 6457,
+      "changed_pixels_alpha0": 4577,
+      "changed_pixels_alpha1to31": 1880,
+      "premultiplied_rgb_mean_delta_0to255": 0.00781642946959305,
+      "premultiplied_rgb_max_delta_0to255": 10.305882352941177
+    }
+  ],
+  "AndroidManifest.xml": "N: android=http://schemas.android.com/apk/res/android (line=2)\n  E: manifest (line=2)\n    A: http://schemas.android.com/apk/res/android:versionCode(0x0101021b)=1\n    A: http://schemas.android.com/apk/res/android:versionName(0x0101021c)=\"0.0.1\" (Raw: \"0.0.1\")\n    A: http://schemas.android.com/apk/res/android:installLocation(0x010102b7)=0\n    A: http://schemas.android.com/apk/res/android:compileSdkVersion(0x01010572)=36\n    A: http://schemas.android.com/apk/res/android:compileSdkVersionCodename(0x01010573)=\"16\" (Raw: \"16\")\n    A: package=\"com.forestarena.welllbeing\" (Raw: \"com.forestarena.welllbeing\")\n    A: platformBuildVersionCode=36\n    A: platformBuildVersionName=16\n      E: uses-sdk (line=8)\n        A: http://schemas.android.com/apk/res/android:minSdkVersion(0x0101020c)=29\n        A: http://schemas.android.com/apk/res/android:targetSdkVersion(0x01010270)=36\n      E: supports-screens (line=12)\n        A: http://schemas.android.com/apk/res/android:smallScreens(0x01010284)=true\n        A: http://schemas.android.com/apk/res/android:normalScreens(0x01010285)=true\n        A: http://schemas.android.com/apk/res/android:largeScreens(0x01010286)=true\n        A: http://schemas.android.com/apk/res/android:xlargeScreens(0x010102bf)=true\n      E: uses-feature (line=18)\n        A: http://schemas.android.com/apk/res/android:glEsVersion(0x01010281)=0x00030000\n        A: http://schemas.android.com/apk/res/android:required(0x0101028e)=true\n      E: uses-permission (line=22)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.INTERNET\" (Raw: \"android.permission.INTERNET\")\n      E: uses-permission (line=23)\n        A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.permission.VIBRATE\" (Raw: \"android.permission.VIBRATE\")\n      E: application (line=25)\n        A: http://schemas.android.com/apk/res/android:label(0x01010001)=@0x7f0b0008\n        A: http://schemas.android.com/apk/res/android:icon(0x01010002)=@0x7f0a0000\n        A: http://schemas.android.com/apk/res/android:debuggable(0x0101000f)=true\n        A: http://schemas.android.com/apk/res/android:allowBackup(0x01010280)=false\n        A: http://schemas.android.com/apk/res/android:isGame(0x010103f4)=true\n        A: http://schemas.android.com/apk/res/android:extractNativeLibs(0x010104ea)=false\n        A: http://schemas.android.com/apk/res/android:appCategory(0x01010545)=0\n        A: http://schemas.android.com/apk/res/android:appComponentFactory(0x0101057a)=\"androidx.core.app.CoreComponentFactory\" (Raw: \"androidx.core.app.CoreComponentFactory\")\n        A: http://schemas.android.com/apk/res/android:hasFragileUserData(0x0101059a)=false\n        A: http://schemas.android.com/apk/res/android:requestLegacyExternalStorage(0x01010603)=false\n          E: meta-data (line=36)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"org.godotengine.rendering.method\" (Raw: \"org.godotengine.rendering.method\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"gl_compatibility\" (Raw: \"gl_compatibility\")\n          E: meta-data (line=39)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"org.godotengine.editor.version\" (Raw: \"org.godotengine.editor.version\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"4.7.1.stable\" (Raw: \"4.7.1.stable\")\n          E: activity (line=43)\n            A: http://schemas.android.com/apk/res/android:theme(0x01010000)=@0x7f0c0008\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"com.godot.game.GodotApp\" (Raw: \"com.godot.game.GodotApp\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:excludeFromRecents(0x01010017)=false\n            A: http://schemas.android.com/apk/res/android:launchMode(0x0101001d)=4\n            A: http://schemas.android.com/apk/res/android:screenOrientation(0x0101001e)=0\n            A: http://schemas.android.com/apk/res/android:configChanges(0x0101001f)=0x00003ff4\n            A: http://schemas.android.com/apk/res/android:windowSoftInputMode(0x0101022b)=0x00000010\n            A: http://schemas.android.com/apk/res/android:resizeableActivity(0x010104f6)=true\n            A: http://schemas.android.com/apk/res/android:supportsPictureInPicture(0x010104f7)=true\n          E: activity-alias (line=56)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"com.godot.game.GodotAppLauncher\" (Raw: \"com.godot.game.GodotAppLauncher\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true\n            A: http://schemas.android.com/apk/res/android:targetActivity(0x01010202)=\"com.godot.game.GodotApp\" (Raw: \"com.godot.game.GodotApp\")\n              E: intent-filter (line=60)\n                  E: action (line=61)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.action.MAIN\" (Raw: \"android.intent.action.MAIN\")\n                  E: category (line=63)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.category.DEFAULT\" (Raw: \"android.intent.category.DEFAULT\")\n                  E: category (line=64)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.intent.category.LAUNCHER\" (Raw: \"android.intent.category.LAUNCHER\")\n          E: profileable (line=68)\n            A: http://schemas.android.com/apk/res/android:enabled(0x0101000e)=true\n            A: http://schemas.android.com/apk/res/android:shell(0x01010594)=true\n          E: meta-data (line=72)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"org.forest_arena.qa_launch_adapter\" (Raw: \"org.forest_arena.qa_launch_adapter\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=1\n          E: meta-data (line=75)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"org.godotengine.library.version\" (Raw: \"org.godotengine.library.version\")\n            A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"4.7.1.stable\" (Raw: \"4.7.1.stable\")\n          E: activity (line=79)\n            A: http://schemas.android.com/apk/res/android:theme(0x01010000)=@0x01030010\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"org.godotengine.godot.utils.ProcessPhoenix\" (Raw: \"org.godotengine.godot.utils.ProcessPhoenix\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:process(0x01010011)=\":phoenix\" (Raw: \":phoenix\")\n          E: provider (line=85)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.core.content.FileProvider\" (Raw: \"androidx.core.content.FileProvider\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:authorities(0x01010018)=\"com.forestarena.welllbeing.fileprovider\" (Raw: \"com.forestarena.welllbeing.fileprovider\")\n            A: http://schemas.android.com/apk/res/android:grantUriPermissions(0x0101001b)=true\n              E: meta-data (line=90)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"android.support.FILE_PROVIDER_PATHS\" (Raw: \"android.support.FILE_PROVIDER_PATHS\")\n                A: http://schemas.android.com/apk/res/android:resource(0x01010025)=@0x7f0e0000\n          E: provider (line=94)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.startup.InitializationProvider\" (Raw: \"androidx.startup.InitializationProvider\")\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=false\n            A: http://schemas.android.com/apk/res/android:authorities(0x01010018)=\"com.forestarena.welllbeing.androidx-startup\" (Raw: \"com.forestarena.welllbeing.androidx-startup\")\n              E: meta-data (line=98)\n                A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.ProfileInstallerInitializer\" (Raw: \"androidx.profileinstaller.ProfileInstallerInitializer\")\n                A: http://schemas.android.com/apk/res/android:value(0x01010024)=\"androidx.startup\" (Raw: \"androidx.startup\")\n          E: receiver (line=103)\n            A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.ProfileInstallReceiver\" (Raw: \"androidx.profileinstaller.ProfileInstallReceiver\")\n            A: http://schemas.android.com/apk/res/android:permission(0x01010006)=\"android.permission.DUMP\" (Raw: \"android.permission.DUMP\")\n            A: http://schemas.android.com/apk/res/android:enabled(0x0101000e)=true\n            A: http://schemas.android.com/apk/res/android:exported(0x01010010)=true\n            A: http://schemas.android.com/apk/res/android:directBootAware(0x01010505)=false\n              E: intent-filter (line=109)\n                  E: action (line=110)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.INSTALL_PROFILE\" (Raw: \"androidx.profileinstaller.action.INSTALL_PROFILE\")\n              E: intent-filter (line=112)\n                  E: action (line=113)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.SKIP_FILE\" (Raw: \"androidx.profileinstaller.action.SKIP_FILE\")\n              E: intent-filter (line=115)\n                  E: action (line=116)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.SAVE_PROFILE\" (Raw: \"androidx.profileinstaller.action.SAVE_PROFILE\")\n              E: intent-filter (line=118)\n                  E: action (line=119)\n                    A: http://schemas.android.com/apk/res/android:name(0x01010003)=\"androidx.profileinstaller.action.BENCHMARK_OPERATION\" (Raw: \"androidx.profileinstaller.action.BENCHMARK_OPERATION\")\n",
+  "res/mipmap-anydpi-v26/icon.xml": "N: android=http://schemas.android.com/apk/res/android (line=2)\n  E: adaptive-icon (line=2)\n      E: background (line=3)\n        A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f0a0001\n      E: foreground (line=4)\n        A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f0a0002\n",
+  "res/mipmap-anydpi-v26/themed_icon.xml": "N: android=http://schemas.android.com/apk/res/android (line=7)\n  E: adaptive-icon (line=7)\n      E: background (line=8)\n        A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f0a0001\n      E: foreground (line=9)\n        A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f0a0002\n      E: monochrome (line=10)\n        A: http://schemas.android.com/apk/res/android:drawable(0x01010199)=@0x7f0a0003\n",
+  "adb_devices": "List of devices attached\n\n",
+  "adb_mdns": "List of discovered mdns services\n\n",
+  "comparison_correction": "ImageChops RGBA getbbox masked RGB-only differences when alpha was unchanged. All image comparisons below use raw RGBA bytes and explicit per-channel arrays.",
+  "visual_recheck": {
+    "preview": "previews/qa-apk-comparison.png",
+    "rows": [
+      "source foreground",
+      "APK foreground",
+      "source foreground + APK forest",
+      "APK foreground + APK forest"
+    ],
+    "columns_px": [
+      48,
+      72,
+      128,
+      192
+    ],
+    "result": "PASS; no visible additional fringe or face/ear/ribbon change at reviewed sizes",
+    "physical_device": "not-run; still blocked"
+  },
+  "final_checks": {
+    "verify_final_pass": true,
+    "verify_exit_code_reported_in_checks_json": 0,
+    "script_errors": 0,
+    "error_lines": 12,
+    "all_errors_resources_still_in_use_at_exit": true,
+    "warning_lines": 16,
+    "docs_final": "PASS",
+    "resources": "PASS; 518 logical assets / 24 quality variants",
+    "packaged_boot": "PASS; checked branding-checks.json actual APK settings",
+    "physical_device": "blocked; 0 connected devices"
+  }
+}

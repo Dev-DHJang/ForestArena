@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "apk_sha256": "7ded8750da3c70cdb6353270231e1c843dd1b1b465b2120443bd9c9cae797c64",
+  "native_icon_checks": [
+    {
+      "source": "main-192.png",
+      "apk_path": "res/mipmap-xxxhdpi-v4/icon.webp",
+      "valid": true,
+      "rgba_bytes_equal": true,
+      "alpha_equal": true,
+      "opaque_rgb_equal": true,
+      "changed_pixels": 0,
+      "changed_visible_pixels": 0,
+      "changed_alpha_range": null,
+      "premultiplied_mean_channel_delta_255": 0.0,
+      "premultiplied_max_channel_delta_255": 0.0
+    },
+    {
+      "source": "adaptive-foreground-432.png",
+      "apk_path": "res/mipmap-xxxhdpi-v4/icon_foreground.webp",
+      "valid": true,
+      "rgba_bytes_equal": false,
+      "alpha_equal": true,
+      "opaque_rgb_equal": true,
+      "changed_pixels": 6457,
+      "changed_visible_pixels": 1880,
+      "changed_alpha_range": [
+        0,
+        19
+      ],
+      "premultiplied_mean_channel_delta_255": 0.00781642946959305,
+      "premultiplied_max_channel_delta_255": 10.305882352941177
+    },
+    {
+      "source": "adaptive-background-432.png",
+      "apk_path": "res/mipmap-xxxhdpi-v4/icon_background.webp",
+      "valid": true,
+      "rgba_bytes_equal": true,
+      "alpha_equal": true,
+      "opaque_rgb_equal": true,
+      "changed_pixels": 0,
+      "changed_visible_pixels": 0,
+      "changed_alpha_range": null,
+      "premultiplied_mean_channel_delta_255": 0.0,
+      "premultiplied_max_channel_delta_255": 0.0
+    }
+  ],
+  "system_splash": "Myo-ryung foreground; branding image fully transparent",
+  "system_splash_pixel_comparison": {
+    "valid": true,
+    "rgba_bytes_equal": false,
+    "alpha_equal": true,
+    "opaque_rgb_equal": true,
+    "changed_pixels": 6457,
+    "changed_visible_pixels": 1880,
+    "changed_alpha_range": [
+      0,
+      19
+    ],
+    "premultiplied_mean_channel_delta_255": 0.00781642946959305,
+    "premultiplied_max_channel_delta_255": 10.305882352941177
+  },
+  "packed_boot_settings": {
+    "icon": "res://assets/branding/myo-ryung-v01/app-icon-1024.png",
+    "main_scene": "res://scenes/local_ai_app.tscn",
+    "minimum_display_time": 0,
+    "show_image": false
+  },
+  "physical_device": "not-run; requires connected physical Android",
+  "issues": []
+}

@@ -1,0 +1,11 @@
+{
+  "method": "Manually read visible 2D crown/chin/sole on extracted frame 1; crown excludes ears, bow and loose rear hair. Not a 3D joint measurement or an automated style score.",
+  "reference": {"character_id": "ja-hyun", "body_height": 72, "head_height": 26},
+  "selected_style": {"crown_y": 36, "chin_y": 109, "sole_y": 242, "scale_method": "body-height"},
+  "states": {
+    "idle": {"crown_y": 36, "chin_y": 104, "sole_y": 228, "scale_method": "body-height", "alignment": "ground-foot"},
+    "run": {"crown_y": 50, "chin_y": 128, "sole_y": 260, "scale_method": "head-height", "alignment": "ground-foot"},
+    "attack_air_heavy": {"crown_y": 37, "chin_y": 115, "scale_method": "head-height", "alignment": "air-center"}
+  },
+  "scope_note": "Quantitative checks here cover neutral body height and comparable head height only. Shoulder width, torso/arm/leg construction and style remain visual review items; all-joint 10% compliance is not asserted."
+}
