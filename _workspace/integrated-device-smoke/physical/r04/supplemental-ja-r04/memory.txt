@@ -1,0 +1,58 @@
+측정 시각(실행 초): 24218.582884583
+Applications Memory Usage (in Kilobytes):
+Uptime: 949630166 Realtime: 1771944080
+
+** MEMINFO in pid 22226 [com.forestarena.welllbeing] **
+                   Pss  Private  Private  SwapPss      Rss     Heap     Heap     Heap
+                 Total    Dirty    Clean    Dirty    Total     Size    Alloc     Free
+                ------   ------   ------   ------   ------   ------   ------   ------
+  Native Heap   168440   168420        8       15   169972   192640   186881     5758
+  Dalvik Heap     6558     3648     2016       11    10140    27279     2703    24576
+ Dalvik Other    10112     2052        0        0    18552
+        Stack     1184     1184        0        0     1192
+       Ashmem       16        0        0        0      552
+    Other dev       16        0       16        0      508
+     .so mmap     2269      188      656        6    34856
+    .jar mmap     2125        0      328        0    42596
+    .apk mmap    49833     1796    47780        0    51812
+    .ttf mmap       31        0        0        0      224
+    .dex mmap        2        0        0        0      848
+    .oat mmap       11        0        0        0     1244
+    .art mmap    12167     9408     2112       31    29356
+   Other mmap    22208    22204        0        0    22964
+   EGL mtrack   124868   124868        0        0   124868
+    GL mtrack   385348   385348        0        0   385348
+      Unknown     2635     2596       28        3     3488
+        TOTAL   787889   721712    52944       66   898520   219919   189584    30334
+
+ App Summary
+                       Pss(KB)                        Rss(KB)
+                        ------                         ------
+           Java Heap:    15168                          39496
+         Native Heap:   168420                         169972
+                Code:    51016                         147952
+               Stack:     1184                           1192
+            Graphics:   510216                         510216
+       Private Other:    28652
+              System:    13233
+             Unknown:                                   29692
+
+           TOTAL PSS:   787889            TOTAL RSS:   898520       TOTAL SWAP PSS:       66
+
+ Objects
+               Views:        8         ViewRootImpl:        1
+         AppContexts:        5           Activities:        1
+              Assets:       34        AssetManagers:        0
+       Local Binders:       17        Proxy Binders:       77
+       Parcel memory:        9         Parcel count:       32
+    Death Recipients:        0             WebViews:        0
+
+ Native Allocations
+                         Count                       Total(kB)
+                        ------                         ------
+    Other (malloced):      353                             32
+ Other (nonmalloced):       97                             72
+
+ SQL
+         MEMORY_USED:        0
+  PAGECACHE_OVERFLOW:        0          MALLOC_SIZE:        0

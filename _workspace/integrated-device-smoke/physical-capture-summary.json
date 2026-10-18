@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "smoke": {
+    "status": "pass",
+    "counts": {
+      "pass": 7,
+      "fail": 0,
+      "blocked": 0,
+      "미실행": 5
+    }
+  },
+  "cold_starts": 3,
+  "menu_views_and_back": 13,
+  "card_body_swipes": [
+    {
+      "menu": "shop",
+      "target": "purchase/fixture-phoenix-revive",
+      "before_y": 2.36944444444444,
+      "after_y": 2.25416666666667,
+      "input_source": "adb_swipe",
+      "status": "pass"
+    },
+    {
+      "menu": "accessory_collection",
+      "target": "menu/accessory_collection/accessory/fixture-ultimate-charm",
+      "before_y": 1.21666666666667,
+      "after_y": 0.977777777777778,
+      "input_source": "adb_swipe",
+      "status": "pass"
+    },
+    {
+      "menu": "collection",
+      "target": "menu/collection/read/ja-hyun",
+      "before_y": 0.802777777777778,
+      "after_y": 0.766666666666667,
+      "input_source": "adb_swipe",
+      "status": "pass"
+    }
+  ],
+  "character_views": [
+    {
+      "character": "ja-hyun",
+      "status": "pass",
+      "captures": [
+        {
+          "state": "physical/r04/supplemental-ja-r04/001-DEV-01-ja-hyun-battle.json",
+          "screenshot": "physical/r04/supplemental-ja-r04/001-DEV-01-ja-hyun-battle.png",
+          "msec": 521662,
+          "character_state": "IDLE",
+          "animation": "idle"
+        },
+        {
+          "state": "physical/r04/supplemental-ja-r04/002-DEV-01-ja-hyun-jump.json",
+          "screenshot": "physical/r04/supplemental-ja-r04/002-DEV-01-ja-hyun-jump.png",
+          "msec": 531253,
+          "character_state": "JUMP",
+          "animation": "jump"
+        }
+      ]
+    },
+    {
+      "character": "myo-ryung",
+      "status": "pass",
+      "captures": [
+        {
+          "state": "physical/r04/supplemental-r03/003-DEV-01-myo-ryung-battle.json",
+          "screenshot": "physical/r04/supplemental-r03/003-DEV-01-myo-ryung-battle.png",
+          "msec": 339177,
+          "character_state": "IDLE",
+          "animation": "idle"
+        },
+        {
+          "state": "physical/r04/supplemental-r03/004-DEV-01-myo-ryung-jump.json",
+          "screenshot": "physical/r04/supplemental-r03/004-DEV-01-myo-ryung-jump.png",
+          "msec": 349845,
+          "character_state": "JUMP",
+          "animation": "jump"
+        }
+      ]
+    },
+    {
+      "character": "nabi",
+      "status": "pass",
+      "captures": [
+        {
+          "state": "physical/r04/supplemental-r03/005-DEV-01-nabi-battle.json",
+          "screenshot": "physical/r04/supplemental-r03/005-DEV-01-nabi-battle.png",
+          "msec": 360743,
+          "character_state": "IDLE",
+          "animation": "jump"
+        },
+        {
+          "state": "physical/r04/supplemental-r03/006-DEV-01-nabi-jump.json",
+          "screenshot": "physical/r04/supplemental-r03/006-DEV-01-nabi-jump.png",
+          "msec": 366788,
+          "character_state": "JUMP",
+          "animation": "jump"
+        }
+      ]
+    },
+    {
+      "character": "yu-ran",
+      "status": "pass",
+      "captures": [
+        {
+          "state": "physical/r04/supplemental-r03/007-DEV-01-yu-ran-battle.json",
+          "screenshot": "physical/r04/supplemental-r03/007-DEV-01-yu-ran-battle.png",
+          "msec": 378808,
+          "character_state": "IDLE",
+          "animation": "jump"
+        },
+        {
+          "state": "physical/r04/supplemental-r03/008-DEV-01-yu-ran-jump.json",
+          "screenshot": "physical/r04/supplemental-r03/008-DEV-01-yu-ran-jump.png",
+          "msec": 384130,
+          "character_state": "JUMP",
+          "animation": "jump"
+        }
+      ]
+    }
+  ],
+  "installed_icon": {
+    "status": "pass",
+    "resumed_activity": [
+      "topResumedActivity=ActivityRecord{31198221 u0 com.android.settings/.applications.InstalledAppDetails t99791}"
+    ],
+    "screenshot": "android-installed-app-icon.png"
+  },
+  "installed_icon_scope": "Android app information screen and native cold-start icon; launcher placement/masks not tested",
+  "videos": [
+    {
+      "file": "physical/r04/supplemental/cold-start-1.mp4",
+      "bytes": 3772226,
+      "sha256": "d3eed8a13d204e0be76ca32fd71394b0d938293820ca94d10a19a820974f3a6c",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1544,
+          "height": 720
+        }
+      ],
+      "format": {
+        "duration": "12.004167"
+      }
+    },
+    {
+      "file": "physical/r04/supplemental/cold-start-2.mp4",
+      "bytes": 3720497,
+      "sha256": "5fcb72bc789831b85c7622538ff6d5cde6d42af89fdacb57a185734aa31ea429",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1544,
+          "height": 720
+        }
+      ],
+      "format": {
+        "duration": "11.995833"
+      }
+    },
+    {
+      "file": "physical/r04/supplemental/cold-start-3.mp4",
+      "bytes": 3822121,
+      "sha256": "053a06ed7ea41cc2c9816955ad2133a7ce8d41da30ba34e81e2bcc8da214153a",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "codec_name": "h264",
+          "width": 1544,
+          "height": 720
+        }
+      ],
+      "format": {
+        "duration": "11.979678"
+      }
+    }
+  ],
+  "original_store_checks": {
+    "before": {},
+    "after": {},
+    "unchanged": true,
+    "meaning": "All13 normal-store paths absent before/after; QA-created profile restoration tested separately."
+  },
+  "prior_attempts_retained": true,
+  "limitations": [
+    "two-device LAN",
+    "long soak/performance acceptance",
+    "human audio/haptics",
+    "all90 motions individually reviewed",
+    "online social/rank service verification"
+  ]
+}

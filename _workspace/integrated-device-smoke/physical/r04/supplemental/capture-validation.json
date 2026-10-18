@@ -1,0 +1,15 @@
+{
+  "status": "partial",
+  "invalid_installed_icon_capture": {
+    "file": "android-app-info-early-lobby.png",
+    "sha256": "cce7b8d7ed37335d83aa3ab0373e29dbd32b92e8d89a8958629652409426c61a",
+    "actual_screen": "game lobby",
+    "reason": "fixed one-second delay did not establish resumed Android Settings activity"
+  },
+  "completed": {
+    "cold_starts": 3,
+    "menus": 13,
+    "body_swipes": 3
+  },
+  "failed_observation": "myo-ryung jump state sampled after generic menu settle delay; fresh input/state capture rerun separately"
+}

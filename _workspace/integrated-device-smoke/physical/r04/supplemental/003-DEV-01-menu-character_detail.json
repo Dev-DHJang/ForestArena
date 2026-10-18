@@ -1,0 +1,236 @@
+{
+  "autocontrol": false,
+  "boot_id": "22226-932ca7369d3f5b8d",
+  "case_id": "DEV-01",
+  "combat_events": [],
+  "command_error": "",
+  "command_seq": 27,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "device-1",
+  "foreground": true,
+  "input_reset_count": 2,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 19,
+  "msec": 37629,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": true,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-boxing-gloves",
+      "fixture-thorns",
+      "fixture-iron-armor",
+      "fixture-phoenix-revive",
+      "fixture-ultimate-charm",
+      "fixture-explosive-gloves"
+    ],
+    "characters": [
+      "ja-hyun",
+      "myo-ryung",
+      "nabi",
+      "yu-ran"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/83a9f997f4954df3889d2b1d3b9ff793",
+  "reconnecting": false,
+  "reset_snapshot": {},
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "schema_version": 1,
+  "screen": "character_detail",
+  "snapshot": {},
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": []
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/back",
+      "kind": "button",
+      "node_name": "@Button@221",
+      "text": "뒤로",
+      "visible": true,
+      "width": 0.0647668393782383,
+      "x": 0.179566062176166,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/all_menu",
+      "kind": "button",
+      "node_name": "@Button@224",
+      "text": "전체 메뉴",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/filter/전체",
+      "kind": "button",
+      "node_name": "@Button@231",
+      "text": "전체 ✓",
+      "visible": true,
+      "width": 0.0563471502590674,
+      "x": 0.17535621761658,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/filter/균형",
+      "kind": "button",
+      "node_name": "@Button@232",
+      "text": "균형",
+      "visible": true,
+      "width": 0.0563471502590674,
+      "x": 0.239475388601036,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/filter/근접",
+      "kind": "button",
+      "node_name": "@Button@233",
+      "text": "근접",
+      "visible": true,
+      "width": 0.0569948186528497,
+      "x": 0.303918393782383,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_detail/character/ja-hyun",
+      "kind": "button",
+      "node_name": "@Button@238",
+      "text": "자현\n✓ 장착 중 ✓",
+      "visible": true,
+      "width": 0.180051813471503,
+      "x": 0.237208549222798,
+      "y": 0.370833333333333
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_detail/character/myo-ryung",
+      "kind": "button",
+      "node_name": "@Button@239",
+      "text": "묘령\n보유",
+      "visible": true,
+      "width": 0.180051813471503,
+      "x": 0.237208549222798,
+      "y": 0.506944444444444
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_detail/character/nabi",
+      "kind": "button",
+      "node_name": "@Button@240",
+      "text": "나비\n보유",
+      "visible": true,
+      "width": 0.180051813471503,
+      "x": 0.237208549222798,
+      "y": 0.643055555555556
+    },
+    {
+      "height": 0.119444444444444,
+      "id": "menu/character_detail/character/yu-ran",
+      "kind": "button",
+      "node_name": "@Button@241",
+      "text": "유란\n보유",
+      "visible": true,
+      "width": 0.180051813471503,
+      "x": 0.237208549222798,
+      "y": 0.779166666666667
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/tab/기술",
+      "kind": "button",
+      "node_name": "@Button@253",
+      "text": "기술 ✓",
+      "visible": true,
+      "width": 0.0667098445595855,
+      "x": 0.684423575129534,
+      "y": 0.470833333333333
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/tab/연계",
+      "kind": "button",
+      "node_name": "@Button@254",
+      "text": "연계",
+      "visible": true,
+      "width": 0.0667098445595855,
+      "x": 0.758905440414508,
+      "y": 0.470833333333333
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/tab/이야기",
+      "kind": "button",
+      "node_name": "@Button@255",
+      "text": "이야기",
+      "visible": true,
+      "width": 0.0673575129533679,
+      "x": 0.833711139896373,
+      "y": 0.470833333333333
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/practice",
+      "kind": "button",
+      "node_name": "@Button@274",
+      "text": "연습 준비",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.71065414507772,
+      "y": 0.905555555555556
+    },
+    {
+      "height": 0.1,
+      "id": "menu/character_detail/select",
+      "kind": "button",
+      "node_name": "@Button@275",
+      "text": "이 캐릭터 선택",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.905555555555556
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1544.0
+  }
+}

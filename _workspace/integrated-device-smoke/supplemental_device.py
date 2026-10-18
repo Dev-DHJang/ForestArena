@@ -15,6 +15,61 @@ MENUS = ('character_collection', 'character_detail', 'accessory_collection', 'ac
          'preset', 'shop', 'collection', 'mission', 'social', 'rank', 'profile', 'controls')
 
 
+def capture_installed_icon(adb, out):
+    adb.shell('am', 'start', '-W', '-a', 'android.settings.APPLICATION_DETAILS_SETTINGS',
+              '-d', 'package:'+adb.package)
+    deadline = time.monotonic() + 15
+    while time.monotonic() < deadline:
+        activities = adb.shell('dumpsys', 'activity', 'activities')
+        resumed = [line.strip() for line in activities.splitlines()
+                   if 'topResumedActivity=' in line or 'mResumedActivity:' in line]
+        if any('com.android.settings/' in line for line in resumed):
+            time.sleep(1)
+            adb.screenshot(out / 'android-installed-app-icon.png')
+            adb.shell('input', 'keyevent', '4')
+            return {'status': 'pass', 'resumed_activity': resumed,
+                    'screenshot': 'android-installed-app-icon.png'}
+        time.sleep(.25)
+    raise Blocked('Android 앱 정보 화면의 실제 전환을 확인하지 못했습니다.')
+
+
+def capture_character_views(device, report, character_labels=CHARACTER_LABELS):
+    device.prepare()
+    device.command('select_config', mode=4, accessory='')
+    report['character_views'] = []
+    for character, label in character_labels.items():
+        device.tap(label)
+        device.wait(lambda state: state.get('profile', {}).get('selected_character') == character,
+                    label=label+' 실제 선택')
+        device.start_match()
+        ready = device.wait(lambda state: device.player(state).get('character_id') == character and
+                            device.player(state).get('state') == 'IDLE', label=label+' 실제 파이터 입력 준비')
+        battle = device.evidence(character+'-battle')
+        require(battle['screenshot'], label+' 전투 화면 저장 실패')
+        before_jump = ready['msec']
+        node = device.node(id='touch/jump')
+        x, y = device.center(node)
+        # Menu taps intentionally settle for 300ms; a short jump can finish
+        # during that delay. Sample immediately after a real tap instead.
+        device.adb.touch(x, y)
+        with (device.output / 'adb-touch.jsonl').open('a') as stream:
+            stream.write(json.dumps({'input_source': 'adb_touch', 'id': 'touch/jump',
+                                     'x': x, 'y': y, 'hold_ms': 0,
+                                     'settle_delay_ms': 0})+'\n')
+        jumped = device.wait(lambda state: state.get('msec', -1) > before_jump and
+                             device.player(state).get('character_id') == character and
+                             device.player(state).get('state') in ('JUMP', 'FALL'), label=label+' 실제 점프 상태', poll=.03)
+        jump = device.evidence(character+'-jump')
+        require(jump['screenshot'], label+' 점프 화면 저장 실패')
+        actor = device.player(jumped)
+        report['character_views'].append({'character': character, 'presentation': actor.get('presentation', {}),
+                                           'battle_evidence': battle, 'jump_evidence': jump,
+                                           'input_source': 'adb_touch', 'status': 'pass'})
+        device.prepare()
+    device.tap('로비')
+    device.screen('home')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--run-directory', type=Path, required=True)
@@ -77,10 +132,7 @@ def main():
                 adb.shell('rm', remote)
         # The Android app information page renders the installed icon without
         # recording unrelated launcher icons or personal home-screen content.
-        adb.shell('am', 'start', '-a', 'android.settings.APPLICATION_DETAILS_SETTINGS', '-d', 'package:'+adb.package)
-        time.sleep(1)
-        adb.screenshot(out / 'android-installed-app-icon.png')
-        adb.shell('input', 'keyevent', '4')
+        report['installed_icon'] = capture_installed_icon(adb, out)
         device.wait(lambda s: s.get('screen') == 'home' and s.get('foreground'), label='앱 정보 뒤 복귀')
         device.tap('접근성 설정')
         device.screen('accessibility')
@@ -131,29 +183,7 @@ def main():
             print('Body swipe '+menu+': PASS', flush=True)
         adb.shell('input', 'keyevent', '4')
         device.screen('home')
-        device.prepare()
-        device.command('select_config', mode=4, accessory='')
-        report['character_views'] = []
-        for character, label in CHARACTER_LABELS.items():
-            device.tap(label)
-            device.wait(lambda state: state.get('profile', {}).get('selected_character') == character,
-                        label=label+' 실제 선택')
-            device.start_match()
-            ready = device.wait(lambda state: device.player(state).get('character_id') == character and
-                                device.player(state).get('state') == 'IDLE', label=label+' 실제 파이터 입력 준비')
-            device.evidence(character+'-battle')
-            before_jump = ready['msec']
-            device.tap(id='touch/jump', hold_ms=160)
-            jumped = device.wait(lambda state: state.get('msec', -1) > before_jump and
-                                 device.player(state).get('character_id') == character and
-                                 device.player(state).get('state') in ('JUMP', 'FALL'), label=label+' 실제 점프 상태')
-            device.evidence(character+'-jump')
-            actor = device.player(jumped)
-            report['character_views'].append({'character': character, 'presentation': actor.get('presentation', {}),
-                                               'input_source': 'adb_touch', 'status': 'pass'})
-            device.prepare()
-        device.tap('로비')
-        device.screen('home')
+        capture_character_views(device, report)
         report['status'] = 'pass'
     except Exception as error:
         report.update(status='blocked' if isinstance(error, Blocked) else 'fail', error=str(error))
