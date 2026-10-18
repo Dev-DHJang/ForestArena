@@ -8,7 +8,7 @@ import subprocess
 import sys
 import time
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'tools/forest_arena'))
-from android_fleet import ADB, DeviceRun, require, CHARACTER_LABELS
+from android_fleet import ADB, Blocked, DeviceRun, require, CHARACTER_LABELS
 
 ROOT = Path(__file__).resolve().parents[2]
 MENUS = ('character_collection', 'character_detail', 'accessory_collection', 'accessory_detail',
@@ -156,14 +156,23 @@ def main():
         device.screen('home')
         report['status'] = 'pass'
     except Exception as error:
-        report.update(status='fail', error=str(error))
-        adb.screenshot(out / 'failure.png')
+        report.update(status='blocked' if isinstance(error, Blocked) else 'fail', error=str(error))
+        try:
+            adb.screenshot(out / 'failure.png')
+        except Exception:
+            pass  # A lost transport must not hide the original failure.
         raise
     finally:
-        after = adb.original_store_hashes()
-        report.update(original_stores_after=after, original_stores_unchanged=after == original)
-        if after != original:
-            report.update(status='fail', error='기존 저장 파일 해시 변경')
+        try:
+            after = adb.original_store_hashes()
+            report.update(original_stores_after=after, original_stores_unchanged=after == original)
+            if after != original:
+                report.update(status='fail', error='기존 저장 파일 해시 변경')
+        except Exception as error:
+            report.update(original_stores_after=None, original_stores_unchanged=None,
+                          store_check_error=str(error))
+            if report['status'] in ('running', 'pass'):
+                report.update(status='blocked', error='연결 중단으로 기존 저장 확인 불가')
         (out / 'results.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n')
     require(report['status'] == 'pass', report.get('error', '추가 검사 실패'))
 
