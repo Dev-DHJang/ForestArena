@@ -55,4 +55,4 @@ Android 앱 정보의 실제 InstalledAppDetails 화면과 새 묘령 아이콘�
 - [PR104](https://github.com/Dev-DHJang/ForestArena/pull/104)는 최종 증거·독립 QA r02 PASS와 예상 head122a2412387fc6c8d8049fb3041f0df87e6bb31f를 확인해 표준 merge 방식으로 develop에 병합했다. 실제 병합 SHA는 e621d883b8c9fe55b879a5b8519c5c21fdd2e14e다. 원격 등록 상태 검사·워크플로 실행은 비어 있었으며 이를 원격 CI 통과라고 말하지 않는다. 되돌리기는 `git revert -m 1 e621d883b8c9fe55b879a5b8519c5c21fdd2e14e`를 적용하는 새 커밋·PR로 진행한다. 현재 브랜치를 강제로 되돌리거나 이력을 재작성하지 않는다.
 - 기존 제작 자료5975파일·2009473912bytes 재비교 결과 변경0이다. original-preservation.json을 본다. 원본 작업 폴더·기존 APK·백업·중간 파일은 보존했다. main·기기 저장·DB 초기화·강제 push·원격 브랜치 삭제는 수행하지 않았다.
 
-이번 마무리 문서는 최신 develop의 실제 병합 결과를 codex/integrated-device-closeout 브랜치에서 보완한다. 앱 런타임·승인 자산·APK는 변경하지 않는다.
+이번 마무리 문서는 최신 develop의 실제 병합 결과를 codex/integrated-device-closeout 브랜치의 [기록 PR105](https://github.com/Dev-DHJang/ForestArena/pull/105)에서 보완한다. 앱 런타임·승인 자산·APK는 변경하지 않는다.
