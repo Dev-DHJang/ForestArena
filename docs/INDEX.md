@@ -18,6 +18,8 @@
 | --- | --- | --- |
 | 이 게임은 무엇인가? | [제품 방향](product/vision.md) | [세계관과 중심 이야기](product/world-and-story.md) |
 | 지금 어디까지 만들었는가? | [개발 순서](product/roadmap.md) | [현재 작업 상태](operations/harness/operating-index.md) |
+| 서비스 출시 부족 항목을 과거에 어떻게 점검했는가? | [2026-10-09 서비스 점검](product/service-readiness-audit.md) | 당시 상태와 이후 구현 안내 |
+| APK 데모 출시 부족 항목을 과거에 어떻게 점검했는가? | [2026-10-09~10 데모 점검](product/demo-readiness-audit.md) | [현재 데모 설치 안내](gameplay/demo-install.md) |
 | 로컬 AI 버전은 어떻게 플레이하는가? | [로컬 AI 플레이](gameplay/local-ai-play.md) | [전투 규칙](gameplay/combat.md) |
 | 무료 APK 데모는 어떻게 설치하는가? | [데모 설치와 서버 실행](gameplay/demo-install.md) | [승인 결정 ADR-032](product/decisions.md#adr-032-무료-apk-게스트-lan-데모) |
 | 같은 Wi-Fi에서 두 명이 어떻게 대전하는가? | [LAN 1대1 플레이](gameplay/lan-1v1-play.md) | [코드 구조](engineering/architecture.md) |
@@ -35,12 +37,14 @@
 | 관리자 웹을 어떻게 실행·복구하는가? | [로컬 관리자 웹](engineering/admin-web.md) | [개발계 데이터베이스](engineering/database.md) |
 | 개발계 DB를 어떻게 실행하는가? | [개발계 데이터베이스](engineering/database.md) | [코드 구조](engineering/architecture.md) |
 | 이미지·애니메이션·소리는 어떻게 만드는가? | [콘텐츠 제작 원칙](content/art-and-audio.md) | [캐릭터 외형 데이터](contracts/character-appearance-v01.json), [음악과 효과음](content/audio-v01.md) |
+| 최신 숲빛 UI 자산·Penpot 화면·조이스틱은 어떻게 전달되는가? | [숲빛 UI v06 전달](ui/forestlight-video-reference-v06.md) | 화면 PNG·버튼 좌표·이미지 매핑 |
 | Godot 자산은 어떻게 찾고 교체하는가? | [Godot 설정](engineering/godot/setup.md) | [Godot 자산 규칙](engineering/godot/resource-rules.md) |
 | Android 기기를 어떻게 연결하는가? | [Android 무선 연결](engineering/godot/android-wireless-debugging.md) | [README 실행 명령](../README.md#실행과-검증) |
 | 여러 Android 실기기를 자동 플레이로 검사하는가? | [실기기 자동 플레이](engineering/godot/android-device-autoplay.md) | [Android 무선 연결](engineering/godot/android-wireless-debugging.md) |
 | Codex 대화가 로딩 시간 초과로 열리지 않는가? | [세션 복구](operations/codex-session-recovery.md) | `tools/forest_arena/recover_codex_session.py` |
 | AI 작업은 어떤 절차로 진행하는가? | [AI 개발 절차](operations/ai-development.md) | [AI 역할과 작업 배정](operations/harness/team-spec.md) |
 | 다른 게임 프로젝트의 개발 준비를 어떻게 구성하는가? | [새 게임 사전 구성 지침서](operations/new-game-bootstrap.md) | 독립 입력 양식·핵심 템플릿·실행 절차·검사 규칙 |
+| 새 게임의 기본 뼈대를 압축 파일로 받으려면? | [기본 뼈대 ZIP 사용법](operations/new-game-starter-package.md) | 문서·스킬·최초 설정 도구 |
 
 ## 폴더별 역할
 
