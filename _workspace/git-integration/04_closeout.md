@@ -36,6 +36,8 @@
 - 기준: `origin/develop`의 `5afa4af5f674cdf93febf3676252613027da9a8d`.
 - 작업 브랜치: `codex/integrate-current-development`.
 - 자산/설정: `f002e0b`, 전달 문서/도구: `6b0437b`, 승인 증거/원본 목록: `7ee5458`.
-- 구현 PR: [#102](https://github.com/Dev-DHJang/ForestArena/pull/102). 필수 검사·QA 결과를 반영한 뒤 develop에 병합하고 실제 병합 SHA를 후속 기록한다.
-- 되돌리기는 해당 PR 병합 커밋을 `git revert -m 1 <병합-SHA>`로 되돌리는 새 커밋·PR로 진행한다. 기기 저장·DB·기존 로컬 자료를 삭제하지 않는다.
+- 구현 PR: [#102](https://github.com/Dev-DHJang/ForestArena/pull/102), develop 병합 완료. 실제 병합 SHA: `a2fad2dee7a7c608afd6ae8103c3ad67f62b07b1`.
+- 최종 검증 기록 커밋: `9949251`, 원본 공백 보존 기록: `aefcc81`. 독립 QA r02 PASS 후 예상 head SHA를 지정해 표준 merge 방식으로 병합했다. 등록된 원격 상태 검사·워크플로 실행·PR 리뷰는 비어 있었으며 CI 통과로 바꾸어 말하지 않는다.
+- 이번 마무리 보완은 `codex/integration-closeout` 브랜치에서 실제 구현 병합 결과만 기록한다. 기능·자산·APK 내용은 바꾸지 않는다.
+- 되돌리기는 해당 PR 병합 커밋을 `git revert -m 1 a2fad2dee7a7c608afd6ae8103c3ad67f62b07b1`로 되돌리는 새 커밋·PR로 진행한다. 기기 저장·DB·기존 로컬 자료를 삭제하지 않는다.
 - main 변경·강제 push·이력 재작성·원격 브랜치 삭제는 수행하지 않는다.
