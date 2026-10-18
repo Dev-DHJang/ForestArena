@@ -1,0 +1,214 @@
+{
+  "autocontrol": false,
+  "boot_id": "22226-932ca7369d3f5b8d",
+  "case_id": "DEV-01",
+  "combat_events": [],
+  "command_error": "",
+  "command_seq": 27,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "device-1",
+  "foreground": true,
+  "input_reset_count": 2,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 19,
+  "msec": 96315,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": true,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-boxing-gloves",
+      "fixture-thorns",
+      "fixture-iron-armor",
+      "fixture-phoenix-revive",
+      "fixture-ultimate-charm",
+      "fixture-explosive-gloves"
+    ],
+    "characters": [
+      "ja-hyun",
+      "myo-ryung",
+      "nabi",
+      "yu-ran"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/83a9f997f4954df3889d2b1d3b9ff793",
+  "reconnecting": false,
+  "reset_snapshot": {},
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "schema_version": 1,
+  "screen": "controls",
+  "snapshot": {},
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": []
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.1,
+      "id": "menu/controls/back",
+      "kind": "button",
+      "node_name": "@Button@1481",
+      "text": "뒤로",
+      "visible": true,
+      "width": 0.0647668393782383,
+      "x": 0.179566062176166,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/all_menu",
+      "kind": "button",
+      "node_name": "@Button@1484",
+      "text": "전체 메뉴",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/category/sound",
+      "kind": "button",
+      "node_name": "@Button@1493",
+      "text": "소리",
+      "visible": true,
+      "width": 0.159326424870466,
+      "x": 0.22684585492228,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/category/effects",
+      "kind": "button",
+      "node_name": "@Button@1494",
+      "text": "화면 효과",
+      "visible": true,
+      "width": 0.159326424870466,
+      "x": 0.22684585492228,
+      "y": 0.361111111111111
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/category/accessibility",
+      "kind": "button",
+      "node_name": "@Button@1495",
+      "text": "접근성",
+      "visible": true,
+      "width": 0.159326424870466,
+      "x": 0.22684585492228,
+      "y": 0.477777777777778
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/category/minimap",
+      "kind": "button",
+      "node_name": "@Button@1496",
+      "text": "미니맵",
+      "visible": true,
+      "width": 0.159326424870466,
+      "x": 0.22684585492228,
+      "y": 0.594444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/category/controls",
+      "kind": "button",
+      "node_name": "@Button@1497",
+      "text": "조작 ✓",
+      "visible": true,
+      "width": 0.159326424870466,
+      "x": 0.22684585492228,
+      "y": 0.711111111111111
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/draft/joystick_mode/fixed",
+      "kind": "button",
+      "node_name": "@Button@1516",
+      "text": "고정 ✓",
+      "visible": true,
+      "width": 0.258419689119171,
+      "x": 0.471988341968912,
+      "y": 0.681944444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/draft/joystick_mode/floating",
+      "kind": "button",
+      "node_name": "@Button@1517",
+      "text": "플로팅",
+      "visible": true,
+      "width": 0.258419689119171,
+      "x": 0.738180051813471,
+      "y": 0.681944444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/settings_reset",
+      "kind": "button",
+      "node_name": "@Button@1523",
+      "text": "기본값",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.586301813471503,
+      "y": 0.905555555555556
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/settings_cancel",
+      "kind": "button",
+      "node_name": "@Button@1524",
+      "text": "취소",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.71065414507772,
+      "y": 0.905555555555556
+    },
+    {
+      "height": 0.1,
+      "id": "menu/controls/settings_apply",
+      "kind": "button",
+      "node_name": "@Button@1525",
+      "text": "적용",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.905555555555556
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1544.0
+  }
+}

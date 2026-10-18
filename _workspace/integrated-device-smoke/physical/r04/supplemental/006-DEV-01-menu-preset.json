@@ -1,0 +1,203 @@
+{
+  "autocontrol": false,
+  "boot_id": "22226-932ca7369d3f5b8d",
+  "case_id": "DEV-01",
+  "combat_events": [],
+  "command_error": "",
+  "command_seq": 27,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "device-1",
+  "foreground": true,
+  "input_reset_count": 2,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 19,
+  "msec": 53925,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": true,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-boxing-gloves",
+      "fixture-thorns",
+      "fixture-iron-armor",
+      "fixture-phoenix-revive",
+      "fixture-ultimate-charm",
+      "fixture-explosive-gloves"
+    ],
+    "characters": [
+      "ja-hyun",
+      "myo-ryung",
+      "nabi",
+      "yu-ran"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/83a9f997f4954df3889d2b1d3b9ff793",
+  "reconnecting": false,
+  "reset_snapshot": {},
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "schema_version": 1,
+  "screen": "preset",
+  "snapshot": {},
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": []
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.1,
+      "id": "menu/preset/back",
+      "kind": "button",
+      "node_name": "@Button@563",
+      "text": "뒤로",
+      "visible": true,
+      "width": 0.0647668393782383,
+      "x": 0.179566062176166,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/all_menu",
+      "kind": "button",
+      "node_name": "@Button@566",
+      "text": "전체 메뉴",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/slot/0",
+      "kind": "button",
+      "node_name": "@Button@572",
+      "text": "프리셋 1 ✓ ✓",
+      "visible": true,
+      "width": 0.180699481865285,
+      "x": 0.237532383419689,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/slot/1",
+      "kind": "button",
+      "node_name": "@Button@573",
+      "text": "프리셋 2",
+      "visible": true,
+      "width": 0.180699481865285,
+      "x": 0.426003886010363,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/slot/2",
+      "kind": "button",
+      "node_name": "@Button@574",
+      "text": "프리셋 3",
+      "visible": true,
+      "width": 0.180699481865285,
+      "x": 0.614475388601036,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/slot/3",
+      "kind": "button",
+      "node_name": "@Button@575",
+      "text": "프리셋 4",
+      "visible": true,
+      "width": 0.180699481865285,
+      "x": 0.80294689119171,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/edit/character",
+      "kind": "button",
+      "node_name": "@Button@585",
+      "text": "캐릭터 바꾸기",
+      "visible": true,
+      "width": 0.379533678756477,
+      "x": 0.677623056994819,
+      "y": 0.534722222222222
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/edit/accessory",
+      "kind": "button",
+      "node_name": "@Button@588",
+      "text": "장신구 바꾸기",
+      "visible": true,
+      "width": 0.379533678756477,
+      "x": 0.677623056994819,
+      "y": 0.769444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/clear/accessory",
+      "kind": "button",
+      "node_name": "@Button@589",
+      "text": "장신구 해제",
+      "visible": false,
+      "width": 0.379533678756477,
+      "x": 0.677623056994819,
+      "y": 0.886111111111111
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/preset_save",
+      "kind": "button",
+      "node_name": "@Button@590",
+      "text": "편성 저장",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.71065414507772,
+      "y": 0.905555555555556
+    },
+    {
+      "height": 0.1,
+      "id": "menu/preset/preset_apply",
+      "kind": "button",
+      "node_name": "@Button@591",
+      "text": "이 편성으로 준비",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.905555555555556
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1544.0
+  }
+}

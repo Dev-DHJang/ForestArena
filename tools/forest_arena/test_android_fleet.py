@@ -38,6 +38,52 @@ class FakeADB:
     def launch(self, *_args): self.commands.append('launch')
 
 
+class AdbStartupStateTests(unittest.TestCase):
+    def setUp(self):
+        self.adb = fleet.ADB('adb', 'phone', 'com.example')
+        self.title = {'run_id': 'run', 'schema_version': 1, 'screen': 'title',
+                      'boot_id': 'title-101-1', 'msec': 3000, 'ready': True}
+        self.game = {'run_id': 'run', 'schema_version': 1, 'screen': 'first',
+                     'boot_id': '101-random', 'msec': 4000}
+
+    def read(self, game, title, connection=b'device'):
+        def encoded(value):
+            return value if isinstance(value, bytes) else json.dumps(value).encode()
+        with patch.object(self.adb, 'run', side_effect=[encoded(game), encoded(title), connection]):
+            return self.adb.read_state('run')
+
+    def test_missing_game_file_message_does_not_hide_ready_title(self):
+        self.assertEqual(self.read(b'cat: state.json: No such file or directory\n', self.title), self.title)
+
+    def test_partial_game_file_does_not_hide_loading_title(self):
+        title = {**self.title, 'ready': False}
+        self.assertEqual(self.read(b'{"run_id":', title), title)
+
+    def test_missing_or_partial_title_does_not_hide_valid_game(self):
+        for title in (b'cat: startup.json: No such file or directory\n', b'{', b'[]', b'\xff'):
+            with self.subTest(title=title):
+                self.assertEqual(self.read(self.game, title), self.game)
+
+    def test_game_replaces_title_after_start_touch_in_same_process(self):
+        self.assertEqual(self.read(self.game, self.title), self.game)
+
+    def test_new_title_replaces_older_game_process(self):
+        old = {**self.game, 'boot_id': '99-old', 'msec': 999999}
+        self.assertEqual(self.read(old, self.title), self.title)
+
+    def test_no_valid_files_waits_or_reports_disconnect(self):
+        self.assertIsNone(self.read(b'cat: missing', b'{'))
+        with self.assertRaises(fleet.Blocked):
+            self.read(b'cat: missing', b'{', connection=b'offline')
+
+    def test_selected_state_still_checks_run_and_schema(self):
+        for changes in ({'run_id': 'other'}, {'schema_version': 2}):
+            with self.subTest(changes=changes), self.assertRaises(fleet.Failure):
+                self.read({**self.game, **changes}, b'')
+        with self.assertRaises(fleet.Failure):
+            self.read(b'', {**self.title, 'schema_version': 2})
+
+
 class RunnerTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -286,6 +332,17 @@ class RunnerTests(unittest.TestCase):
         checksum_args = command.call_args_list[1].args
         self.assertTrue(any('files/forest_arena_audio.cfg' in arg for arg in checksum_args))
         self.assertNotIn('cat',checksum_args)
+    def test_original_menu_files_and_backups_are_checked_without_values(self):
+        adb = fleet.ADB('adb', 'phone', 'com.example')
+        paths = [f'files/{name}.json{suffix}' for name in ('menu_presets_v01', 'menu_controls_v01', 'menu_identity_v01', 'menu_progress_v01') for suffix in ('', '.bak')]
+        expected = {path: 'c'*64 for path in paths}
+        output = '\n'.join(digest+'  '+path for path, digest in expected.items())+'\nFOREST_ARENA_STORE_HASHES_DONE'
+        with patch.object(adb, 'shell', side_effect=['package:/data/app/game.apk', '/data/user/0/game']), patch.object(adb, 'run', side_effect=[b'device', output.encode(), b'device']) as command:
+            self.assertEqual(adb.original_store_hashes(), expected)
+        checksum_args = command.call_args_list[1].args
+        for path in paths:
+            self.assertTrue(any(path in arg for arg in checksum_args))
+        self.assertNotIn('cat', checksum_args)
     def test_empty_transient_checksum_output_is_blocked_not_deleted(self):
         adb = fleet.ADB('adb','phone','com.example')
         with patch.object(adb,'shell',side_effect=['package:/data/app/game.apk','/data/user/0/game']), patch.object(adb,'run',side_effect=[b'device',b'',b'device']):

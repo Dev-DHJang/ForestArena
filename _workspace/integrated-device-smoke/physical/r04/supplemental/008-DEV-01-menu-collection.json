@@ -1,0 +1,203 @@
+{
+  "autocontrol": false,
+  "boot_id": "22226-932ca7369d3f5b8d",
+  "case_id": "DEV-01",
+  "combat_events": [],
+  "command_error": "",
+  "command_seq": 27,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "device-1",
+  "foreground": true,
+  "input_reset_count": 2,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 19,
+  "msec": 65956,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": true,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-boxing-gloves",
+      "fixture-thorns",
+      "fixture-iron-armor",
+      "fixture-phoenix-revive",
+      "fixture-ultimate-charm",
+      "fixture-explosive-gloves"
+    ],
+    "characters": [
+      "ja-hyun",
+      "myo-ryung",
+      "nabi",
+      "yu-ran"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/83a9f997f4954df3889d2b1d3b9ff793",
+  "reconnecting": false,
+  "reset_snapshot": {},
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "schema_version": 1,
+  "screen": "collection",
+  "snapshot": {},
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": []
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.1,
+      "id": "menu/collection/back",
+      "kind": "button",
+      "node_name": "@Button@825",
+      "text": "뒤로",
+      "visible": true,
+      "width": 0.0647668393782383,
+      "x": 0.179566062176166,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/all_menu",
+      "kind": "button",
+      "node_name": "@Button@828",
+      "text": "전체 메뉴",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/category/character",
+      "kind": "button",
+      "node_name": "@Button@835",
+      "text": "캐릭터 ✓",
+      "visible": true,
+      "width": 0.369170984455959,
+      "x": 0.331768134715026,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/category/accessory",
+      "kind": "button",
+      "node_name": "@Button@836",
+      "text": "장신구",
+      "visible": true,
+      "width": 0.369170984455959,
+      "x": 0.708711139896373,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/filter/전체",
+      "kind": "button",
+      "node_name": "@Button@838",
+      "text": "전체 ✓",
+      "visible": true,
+      "width": 0.243523316062176,
+      "x": 0.268944300518135,
+      "y": 0.361111111111111
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/filter/보유",
+      "kind": "button",
+      "node_name": "@Button@839",
+      "text": "보유",
+      "visible": true,
+      "width": 0.243523316062176,
+      "x": 0.520239637305699,
+      "y": 0.361111111111111
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/filter/미보유",
+      "kind": "button",
+      "node_name": "@Button@840",
+      "text": "미보유",
+      "visible": true,
+      "width": 0.243523316062176,
+      "x": 0.771534974093264,
+      "y": 0.361111111111111
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/read/ja-hyun",
+      "kind": "button",
+      "node_name": "@Button@852",
+      "text": "기록 읽기",
+      "visible": true,
+      "width": 0.158678756476684,
+      "x": 0.236884715025907,
+      "y": 0.802777777777778
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/read/myo-ryung",
+      "kind": "button",
+      "node_name": "@Button@859",
+      "text": "기록 읽기",
+      "visible": true,
+      "width": 0.158678756476684,
+      "x": 0.424060880829016,
+      "y": 0.802777777777778
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/read/nabi",
+      "kind": "button",
+      "node_name": "@Button@866",
+      "text": "기록 읽기",
+      "visible": true,
+      "width": 0.158678756476684,
+      "x": 0.611237046632124,
+      "y": 0.802777777777778
+    },
+    {
+      "height": 0.1,
+      "id": "menu/collection/read/yu-ran",
+      "kind": "button",
+      "node_name": "@Button@873",
+      "text": "기록 읽기",
+      "visible": true,
+      "width": 0.158678756476684,
+      "x": 0.798413212435233,
+      "y": 0.802777777777778
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1544.0
+  }
+}

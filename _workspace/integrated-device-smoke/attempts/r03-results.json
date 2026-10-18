@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": "DEV-01",
+    "status": "pass",
+    "message": "기대 동작과 관측값이 일치합니다."
+  },
+  {
+    "case_id": "UI-01",
+    "status": "fail",
+    "message": "터치할 UI를 찾지 못했습니다: purchase/yu-ran"
+  },
+  {
+    "case_id": "OFF-01",
+    "status": "blocked",
+    "message": "UI-01 문제로 후속 검사 불가"
+  },
+  {
+    "case_id": "INPUT-01",
+    "status": "blocked",
+    "message": "UI-01 문제로 후속 검사 불가"
+  },
+  {
+    "case_id": "LIFE-01",
+    "status": "blocked",
+    "message": "UI-01 문제로 후속 검사 불가"
+  },
+  {
+    "case_id": "OFF-02",
+    "status": "blocked",
+    "message": "UI-01 문제로 후속 검사 불가"
+  },
+  {
+    "case_id": "MODE-01",
+    "status": "blocked",
+    "message": "UI-01 문제로 후속 검사 불가"
+  },
+  {
+    "case_id": "SOAK-01",
+    "status": "blocked",
+    "message": "UI-01 문제로 반복 검사 불가"
+  },
+  {
+    "case_id": "LAN-01",
+    "status": "미실행",
+    "message": "마지막 기기는 짝이 없어 오프라인만 실행합니다."
+  },
+  {
+    "case_id": "LAN-02",
+    "status": "미실행",
+    "message": "마지막 기기는 짝이 없어 오프라인만 실행합니다."
+  },
+  {
+    "case_id": "LAN-03",
+    "status": "미실행",
+    "message": "마지막 기기는 짝이 없어 오프라인만 실행합니다."
+  },
+  {
+    "case_id": "MANUAL-01",
+    "status": "미실행",
+    "message": "실제 Wi-Fi 단절·동시 터치·소리·진동은 사용자 수동 재검사 필요"
+  }
+]

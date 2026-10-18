@@ -43,6 +43,7 @@ godot --headless --path . --script res://tests/menu_state_store.gd
 godot --headless --path . --script res://tests/menu_feature_store_unit.gd
 godot --headless --path . --script res://tests/menu_service_client_unit.gd
 godot --headless --path . --script res://tests/menu_touch_controls.gd
+godot --headless --path . --script res://tests/premium_menu_touch_scroll.gd
 godot --headless --path . --script res://tests/premium_menu_runtime.gd
 godot --headless --path . --script res://tests/demo_guest_client.gd
 godot --headless --path . --script res://tools/forest_arena/profile_catalog.gd

@@ -1,0 +1,258 @@
+{
+  "autocontrol": false,
+  "boot_id": "22226-932ca7369d3f5b8d",
+  "case_id": "DEV-01",
+  "combat_events": [],
+  "command_error": "",
+  "command_seq": 27,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 3,
+    "opponent": "ja-hyun",
+    "solo_count": 4,
+    "team_size": 2
+  },
+  "connected": false,
+  "device": "device-1",
+  "foreground": true,
+  "input_reset_count": 2,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 19,
+  "msec": 59291,
+  "peer_connected": true,
+  "performance": {},
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": true,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-boxing-gloves",
+      "fixture-thorns",
+      "fixture-iron-armor",
+      "fixture-phoenix-revive",
+      "fixture-ultimate-charm",
+      "fixture-explosive-gloves"
+    ],
+    "characters": [
+      "ja-hyun",
+      "myo-ryung",
+      "nabi",
+      "yu-ran"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/83a9f997f4954df3889d2b1d3b9ff793",
+  "reconnecting": false,
+  "reset_snapshot": {},
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "schema_version": 1,
+  "screen": "shop",
+  "snapshot": {},
+  "step": "ready",
+  "touch": {
+    "active": [],
+    "count": 0,
+    "events": [],
+    "observations": []
+  },
+  "touch_events": [],
+  "ui": [
+    {
+      "height": 0.1,
+      "id": "menu/shop/back",
+      "kind": "button",
+      "node_name": "@Button@659",
+      "text": "뒤로",
+      "visible": true,
+      "width": 0.0647668393782383,
+      "x": 0.179566062176166,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/shop/all_menu",
+      "kind": "button",
+      "node_name": "@Button@662",
+      "text": "전체 메뉴",
+      "visible": true,
+      "width": 0.116580310880829,
+      "x": 0.835006476683938,
+      "y": 0.0944444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/shop/category/전체",
+      "kind": "button",
+      "node_name": "@Button@671",
+      "text": "추천 ✓",
+      "visible": true,
+      "width": 0.130829015544041,
+      "x": 0.212597150259067,
+      "y": 0.244444444444444
+    },
+    {
+      "height": 0.1,
+      "id": "menu/shop/category/accessory",
+      "kind": "button",
+      "node_name": "@Button@672",
+      "text": "장신구",
+      "visible": true,
+      "width": 0.130829015544041,
+      "x": 0.212597150259067,
+      "y": 0.361111111111111
+    },
+    {
+      "height": 0.1,
+      "id": "menu/shop/category/character",
+      "kind": "button",
+      "node_name": "@Button@673",
+      "text": "캐릭터",
+      "visible": true,
+      "width": 0.130829015544041,
+      "x": 0.212597150259067,
+      "y": 0.477777777777778
+    },
+    {
+      "height": 0.1,
+      "id": "menu/shop/character_collection",
+      "kind": "button",
+      "node_name": "@Button@686",
+      "text": "캐릭터 살펴보기",
+      "visible": true,
+      "width": 0.454663212435233,
+      "x": 0.650420984455959,
+      "y": 0.455555555555556
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/ja-hyun",
+      "kind": "button",
+      "node_name": "@Button@694",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.39005829015544,
+      "y": 0.933333333333333
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/myo-ryung",
+      "kind": "button",
+      "node_name": "@Button@701",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.590835492227979,
+      "y": 0.933333333333333
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/nabi",
+      "kind": "button",
+      "node_name": "@Button@708",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.791612694300518,
+      "y": 0.933333333333333
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/yu-ran",
+      "kind": "button",
+      "node_name": "@Button@715",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.39005829015544,
+      "y": 1.38611111111111
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/fixture-iron-armor",
+      "kind": "button",
+      "node_name": "@Button@722",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.590835492227979,
+      "y": 1.38611111111111
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/fixture-boxing-gloves",
+      "kind": "button",
+      "node_name": "@Button@729",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.791612694300518,
+      "y": 1.425
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/fixture-thorns",
+      "kind": "button",
+      "node_name": "@Button@736",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.39005829015544,
+      "y": 1.87777777777778
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/fixture-explosive-gloves",
+      "kind": "button",
+      "node_name": "@Button@743",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.590835492227979,
+      "y": 1.91666666666667
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/fixture-ultimate-charm",
+      "kind": "button",
+      "node_name": "@Button@750",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.791612694300518,
+      "y": 1.91666666666667
+    },
+    {
+      "height": 0.1,
+      "id": "purchase/fixture-phoenix-revive",
+      "kind": "button",
+      "node_name": "@Button@757",
+      "text": "보유 중",
+      "visible": false,
+      "width": 0.172279792746114,
+      "x": 0.39005829015544,
+      "y": 2.36944444444444
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1544.0
+  }
+}

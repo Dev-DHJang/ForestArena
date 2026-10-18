@@ -1,0 +1,345 @@
+{
+  "status": "fail",
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "cold_starts": [
+    {
+      "index": 1,
+      "status": "pass",
+      "title": {
+        "boot_id": "title-21458-613110",
+        "msec": 2727,
+        "ready": true,
+        "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+        "schema_version": 1,
+        "screen": "title",
+        "viewport": {
+          "height": 720.0,
+          "width": 1544.0
+        }
+      },
+      "game_boot_id": "21458-0713ec249800f58c",
+      "game_screen": "home",
+      "input_source": "adb_touch",
+      "video": "cold-start-1.mp4"
+    },
+    {
+      "index": 2,
+      "status": "pass",
+      "title": {
+        "boot_id": "title-21797-576503",
+        "msec": 2738,
+        "ready": true,
+        "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+        "schema_version": 1,
+        "screen": "title",
+        "viewport": {
+          "height": 720.0,
+          "width": 1544.0
+        }
+      },
+      "game_boot_id": "21797-694b4d9e0b9b4aa6",
+      "game_screen": "home",
+      "input_source": "adb_touch",
+      "video": "cold-start-2.mp4"
+    },
+    {
+      "index": 3,
+      "status": "pass",
+      "title": {
+        "boot_id": "title-22226-778075",
+        "msec": 2561,
+        "ready": true,
+        "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+        "schema_version": 1,
+        "screen": "title",
+        "viewport": {
+          "height": 720.0,
+          "width": 1544.0
+        }
+      },
+      "game_boot_id": "22226-932ca7369d3f5b8d",
+      "game_screen": "home",
+      "input_source": "adb_touch",
+      "video": "cold-start-3.mp4"
+    }
+  ],
+  "menus": [
+    {
+      "menu": "settings",
+      "screen": "accessibility",
+      "status": "pass"
+    },
+    {
+      "menu": "character_collection",
+      "screen": "character_collection",
+      "msec": 30664,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "전체 ✓",
+        "균형",
+        "근접",
+        "자현\n✓ 장착 중 ✓",
+        "묘령\n보유",
+        "나비\n보유",
+        "유란\n보유",
+        "기술 살펴보기",
+        "상세 보기",
+        "이 캐릭터 선택"
+      ]
+    },
+    {
+      "menu": "character_detail",
+      "screen": "character_detail",
+      "msec": 37629,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "전체 ✓",
+        "균형",
+        "근접",
+        "자현\n✓ 장착 중 ✓",
+        "묘령\n보유",
+        "나비\n보유",
+        "유란\n보유",
+        "기술 ✓",
+        "연계",
+        "이야기",
+        "연습 준비",
+        "이 캐릭터 선택"
+      ]
+    },
+    {
+      "menu": "accessory_collection",
+      "screen": "accessory_collection",
+      "msec": 44044,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "전체 ✓",
+        "방어",
+        "이동",
+        "기술",
+        "보유",
+        "장착",
+        "✓ 선택 ✓",
+        "살펴보기",
+        "살펴보기",
+        "살펴보기",
+        "상세 보기",
+        "장신구 장착"
+      ]
+    },
+    {
+      "menu": "accessory_detail",
+      "screen": "accessory_detail",
+      "msec": 49107,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "장신구 장착"
+      ]
+    },
+    {
+      "menu": "preset",
+      "screen": "preset",
+      "msec": 53925,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "프리셋 1 ✓ ✓",
+        "프리셋 2",
+        "프리셋 3",
+        "프리셋 4",
+        "캐릭터 바꾸기",
+        "장신구 바꾸기",
+        "편성 저장",
+        "이 편성으로 준비"
+      ]
+    },
+    {
+      "menu": "shop",
+      "screen": "shop",
+      "msec": 59291,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "추천 ✓",
+        "장신구",
+        "캐릭터",
+        "캐릭터 살펴보기"
+      ]
+    },
+    {
+      "menu": "collection",
+      "screen": "collection",
+      "msec": 65956,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "캐릭터 ✓",
+        "장신구",
+        "전체 ✓",
+        "보유",
+        "미보유",
+        "기록 읽기",
+        "기록 읽기",
+        "기록 읽기",
+        "기록 읽기"
+      ]
+    },
+    {
+      "menu": "mission",
+      "screen": "mission",
+      "msec": 71053,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "일일 ✓",
+        "주간",
+        "누적",
+        "기록 보기",
+        "새로고침"
+      ]
+    },
+    {
+      "menu": "social",
+      "screen": "social",
+      "msec": 75852,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "친구 ✓",
+        "받은 요청",
+        "보낸 요청",
+        "찾기",
+        "최근 플레이어",
+        "초대",
+        "프로필에서 계정 연결",
+        "새로고침"
+      ]
+    },
+    {
+      "menu": "rank",
+      "screen": "rank",
+      "msec": 81450,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "전체 ✓",
+        "이번 달",
+        "친구",
+        "프로필에서 계정 연결",
+        "새로고침"
+      ]
+    },
+    {
+      "menu": "profile",
+      "screen": "profile",
+      "msec": 88681,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "플레이어",
+        "닉네임 저장",
+        "새로고침"
+      ]
+    },
+    {
+      "menu": "controls",
+      "screen": "controls",
+      "msec": 96315,
+      "returned_screen": "accessibility",
+      "status": "pass",
+      "visible_text": [
+        "뒤로",
+        "전체 메뉴",
+        "소리",
+        "화면 효과",
+        "접근성",
+        "미니맵",
+        "조작 ✓",
+        "고정 ✓",
+        "플로팅",
+        "기본값",
+        "취소",
+        "적용"
+      ]
+    }
+  ],
+  "device_model": "SM-S918N",
+  "original_stores_before": {},
+  "body_swipes": [
+    {
+      "menu": "shop",
+      "target": "purchase/fixture-phoenix-revive",
+      "before_y": 2.36944444444444,
+      "after_y": 2.25416666666667,
+      "input_source": "adb_swipe",
+      "status": "pass"
+    },
+    {
+      "menu": "accessory_collection",
+      "target": "menu/accessory_collection/accessory/fixture-ultimate-charm",
+      "before_y": 1.21666666666667,
+      "after_y": 0.977777777777778,
+      "input_source": "adb_swipe",
+      "status": "pass"
+    },
+    {
+      "menu": "collection",
+      "target": "menu/collection/read/ja-hyun",
+      "before_y": 0.802777777777778,
+      "after_y": 0.766666666666667,
+      "input_source": "adb_swipe",
+      "status": "pass"
+    }
+  ],
+  "character_views": [
+    {
+      "character": "ja-hyun",
+      "presentation": {
+        "animation": "jump",
+        "available": true,
+        "frame": 12,
+        "missing_motion": "",
+        "requested_motion": "jump",
+        "resource_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+        "screen_bounds": {
+          "height": 209.454528808594,
+          "width": 209.454467773438,
+          "x": 667.272766113281,
+          "y": 187.257537841797
+        },
+        "visible": true
+      },
+      "input_source": "adb_touch",
+      "status": "pass"
+    }
+  ],
+  "error": "묘령 실제 점프 상태 시간 초과 (30초)",
+  "original_stores_after": {},
+  "original_stores_unchanged": true
+}

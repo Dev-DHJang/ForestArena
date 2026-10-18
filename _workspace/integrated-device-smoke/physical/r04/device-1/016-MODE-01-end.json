@@ -1,0 +1,3856 @@
+{
+  "autocontrol": false,
+  "boot_id": "30682-45201b781ffeb39a",
+  "case_id": "MODE-01",
+  "combat_events": [
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-01",
+        "character_id": "yu-ran",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1663,
+        "fighter_id": "ai_4",
+        "tick": 6406
+      },
+      "seq": 14215,
+      "tick": 6405
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14216,
+      "state": "ATTACK_STARTUP",
+      "tick": 6406,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-01",
+        "attacker_id": "ai_4",
+        "character_id": "yu-ran",
+        "defender_id": "player",
+        "epoch": 2,
+        "event_seq": 1664,
+        "reaction": "",
+        "result": "BLOCK",
+        "tick": 6413
+      },
+      "seq": 14217,
+      "tick": 6412
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14218,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6413,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14219,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6417,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-light-01",
+        "character_id": "ja-hyun",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1665,
+        "fighter_id": "player",
+        "tick": 6418
+      },
+      "seq": 14220,
+      "tick": 6417
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14221,
+      "state": "ATTACK_STARTUP",
+      "tick": 6418,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran.base-special-side",
+        "character_id": "yu-ran",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 1666,
+        "fighter_id": "ai_4",
+        "tick": 6424
+      },
+      "seq": 14222,
+      "tick": 6423
+    },
+    {
+      "attack_id": "yu-ran.base-special-side",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14223,
+      "state": "ATTACK_STARTUP",
+      "tick": 6424,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-light-01",
+        "attacker_id": "player",
+        "character_id": "ja-hyun",
+        "defender_id": "ai_4",
+        "epoch": 2,
+        "event_seq": 1667,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 6425
+      },
+      "seq": 14224,
+      "tick": 6424
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14225,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6425,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14226,
+      "state": "HITSTUN",
+      "tick": 6425,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "yu-ran",
+        "epoch": 2,
+        "event_seq": 1668,
+        "fighter_id": "ai_4",
+        "tick": 6428
+      },
+      "seq": 14227,
+      "tick": 6427
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14228,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6429,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14229,
+      "state": "IDLE",
+      "tick": 6441,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-01",
+        "character_id": "yu-ran",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1669,
+        "fighter_id": "ai_4",
+        "tick": 6442
+      },
+      "seq": 14230,
+      "tick": 6441
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14231,
+      "state": "ATTACK_STARTUP",
+      "tick": 6442,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-light-02",
+        "character_id": "ja-hyun",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1670,
+        "fighter_id": "player",
+        "tick": 6447
+      },
+      "seq": 14232,
+      "tick": 6446
+    },
+    {
+      "attack_id": "ja-hyun-light-02",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14233,
+      "state": "ATTACK_STARTUP",
+      "tick": 6447,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-01",
+        "attacker_id": "ai_4",
+        "character_id": "yu-ran",
+        "defender_id": "player",
+        "epoch": 2,
+        "event_seq": 1671,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 6449
+      },
+      "seq": 14234,
+      "tick": 6448
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14235,
+      "state": "HITSTUN",
+      "tick": 6449,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14236,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6449,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 1672,
+        "fighter_id": "player",
+        "tick": 6452
+      },
+      "seq": 14237,
+      "tick": 6451
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14238,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6453,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14239,
+      "state": "IDLE",
+      "tick": 6464,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14240,
+      "state": "RUN",
+      "tick": 6465,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-02",
+        "character_id": "yu-ran",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1673,
+        "fighter_id": "ai_4",
+        "tick": 6471
+      },
+      "seq": 14241,
+      "tick": 6470
+    },
+    {
+      "attack_id": "yu-ran-light-02",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14242,
+      "state": "ATTACK_STARTUP",
+      "tick": 6471,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14243,
+      "state": "GUARD",
+      "tick": 6472,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_3",
+      "id": "fighter_state",
+      "seq": 14244,
+      "state": "GUARD",
+      "tick": 6472,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-02",
+        "attacker_id": "ai_4",
+        "character_id": "yu-ran",
+        "defender_id": "player",
+        "epoch": 2,
+        "event_seq": 1674,
+        "reaction": "",
+        "result": "BLOCK",
+        "tick": 6479
+      },
+      "seq": 14245,
+      "tick": 6478
+    },
+    {
+      "attack_id": "yu-ran-light-02",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14246,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6479,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "yu-ran-light-02",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14247,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6483,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-light-01",
+        "character_id": "ja-hyun",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1675,
+        "fighter_id": "player",
+        "tick": 6490
+      },
+      "seq": 14248,
+      "tick": 6489
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14249,
+      "state": "ATTACK_STARTUP",
+      "tick": 6490,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-light-01",
+        "attacker_id": "player",
+        "character_id": "ja-hyun",
+        "defender_id": "ai_4",
+        "epoch": 2,
+        "event_seq": 1676,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 6497
+      },
+      "seq": 14250,
+      "tick": 6496
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14251,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6497,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14252,
+      "state": "HITSTUN",
+      "tick": 6497,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "yu-ran",
+        "epoch": 2,
+        "event_seq": 1677,
+        "fighter_id": "ai_4",
+        "tick": 6500
+      },
+      "seq": 14253,
+      "tick": 6499
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14254,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6501,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14255,
+      "state": "IDLE",
+      "tick": 6513,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-01",
+        "character_id": "yu-ran",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1678,
+        "fighter_id": "ai_4",
+        "tick": 6514
+      },
+      "seq": 14256,
+      "tick": 6513
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14257,
+      "state": "ATTACK_STARTUP",
+      "tick": 6514,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-heavy-side",
+        "character_id": "ja-hyun",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 1679,
+        "fighter_id": "player",
+        "tick": 6519
+      },
+      "seq": 14258,
+      "tick": 6518
+    },
+    {
+      "attack_id": "ja-hyun-heavy-side",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14259,
+      "state": "ATTACK_STARTUP",
+      "tick": 6519,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-light-01",
+        "attacker_id": "ai_4",
+        "character_id": "yu-ran",
+        "defender_id": "player",
+        "epoch": 2,
+        "event_seq": 1680,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 6521
+      },
+      "seq": 14260,
+      "tick": 6520
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14261,
+      "state": "HITSTUN",
+      "tick": 6521,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14262,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6521,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 1681,
+        "fighter_id": "player",
+        "tick": 6524
+      },
+      "seq": 14263,
+      "tick": 6523
+    },
+    {
+      "attack_id": "yu-ran-light-01",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14264,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6525,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran.base-special-side",
+        "character_id": "yu-ran",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 1682,
+        "fighter_id": "ai_4",
+        "tick": 6532
+      },
+      "seq": 14265,
+      "tick": 6531
+    },
+    {
+      "attack_id": "yu-ran.base-special-side",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14266,
+      "state": "ATTACK_STARTUP",
+      "tick": 6532,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14267,
+      "state": "IDLE",
+      "tick": 6536,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14268,
+      "state": "RUN",
+      "tick": 6537,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran.base-special-side",
+        "attacker_id": "ai_4",
+        "character_id": "yu-ran",
+        "defender_id": "player",
+        "epoch": 2,
+        "event_seq": 1683,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 6541
+      },
+      "seq": 14269,
+      "tick": 6540
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14270,
+      "state": "HITSTUN",
+      "tick": 6541,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "yu-ran.base-special-side",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14271,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6541,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_3",
+      "id": "fighter_state",
+      "seq": 14272,
+      "state": "IDLE",
+      "tick": 6544,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 1684,
+        "fighter_id": "player",
+        "tick": 6546
+      },
+      "seq": 14273,
+      "tick": 6545
+    },
+    {
+      "attack_id": "yu-ran.base-special-side",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14274,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6547,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14275,
+      "state": "IDLE",
+      "tick": 6558,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14276,
+      "state": "RUN",
+      "tick": 6559,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-light-01",
+        "character_id": "ja-hyun",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 1685,
+        "fighter_id": "player",
+        "tick": 6562
+      },
+      "seq": 14277,
+      "tick": 6561
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14278,
+      "state": "ATTACK_STARTUP",
+      "tick": 6562,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_3",
+      "id": "fighter_state",
+      "seq": 14279,
+      "state": "RUN",
+      "tick": 6562,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14280,
+      "state": "IDLE",
+      "tick": 6565,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14281,
+      "state": "RUN",
+      "tick": 6566,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-light-01",
+        "attacker_id": "player",
+        "character_id": "ja-hyun",
+        "defender_id": "ai_4",
+        "epoch": 2,
+        "event_seq": 1686,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 6569
+      },
+      "seq": 14282,
+      "tick": 6568
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14283,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6569,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14284,
+      "state": "HITSTUN",
+      "tick": 6569,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "yu-ran",
+        "epoch": 2,
+        "event_seq": 1687,
+        "fighter_id": "ai_4",
+        "tick": 6572
+      },
+      "seq": 14285,
+      "tick": 6571
+    },
+    {
+      "attack_id": "ja-hyun-light-01",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14286,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6573,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_2",
+      "id": "fighter_state",
+      "seq": 14287,
+      "state": "IDLE",
+      "tick": 6580,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14288,
+      "state": "FALL",
+      "tick": 6585,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-special-up",
+        "character_id": "yu-ran",
+        "direction": "up",
+        "epoch": 2,
+        "event_seq": 1688,
+        "fighter_id": "ai_4",
+        "tick": 6586
+      },
+      "seq": 14289,
+      "tick": 6585
+    },
+    {
+      "attack_id": "yu-ran-special-up",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14290,
+      "state": "ATTACK_STARTUP",
+      "tick": 6586,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14291,
+      "state": "IDLE",
+      "tick": 6591,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14292,
+      "state": "RUN",
+      "tick": 6592,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "yu-ran-special-up",
+        "attacker_id": "ai_4",
+        "character_id": "yu-ran",
+        "defender_id": "player",
+        "epoch": 2,
+        "event_seq": 1689,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 6595
+      },
+      "seq": 14293,
+      "tick": 6594
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14294,
+      "state": "HITSTUN",
+      "tick": 6595,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "yu-ran-special-up",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14295,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6595,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_3",
+      "id": "fighter_state",
+      "seq": 14296,
+      "state": "GUARD",
+      "tick": 6598,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "yu-ran-special-up",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14297,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6601,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14298,
+      "state": "FALL",
+      "tick": 6612,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-special-up",
+        "character_id": "ja-hyun",
+        "direction": "up",
+        "epoch": 2,
+        "event_seq": 1690,
+        "fighter_id": "player",
+        "tick": 6616
+      },
+      "seq": 14299,
+      "tick": 6615
+    },
+    {
+      "attack_id": "ja-hyun-special-up",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14300,
+      "state": "ATTACK_STARTUP",
+      "tick": 6616,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_2",
+      "id": "fighter_state",
+      "seq": 14301,
+      "state": "RUN",
+      "tick": 6616,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14302,
+      "state": "FALL",
+      "tick": 6619,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "ja-hyun-special-up",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14303,
+      "state": "ATTACK_ACTIVE",
+      "tick": 6625,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "ja-hyun-special-up",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14304,
+      "state": "ATTACK_RECOVERY",
+      "tick": 6631,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "ring_out",
+      "payload": {
+        "epoch": 2,
+        "event_seq": 1691,
+        "fighter_id": "ai_4",
+        "tick": 6636
+      },
+      "seq": 14305,
+      "tick": 6635
+    },
+    {
+      "id": "match_end",
+      "payload": {
+        "epoch": 2,
+        "event_seq": 1692,
+        "tick": 6636,
+        "winner_id": "player",
+        "winner_team_id": "alpha"
+      },
+      "seq": 14306,
+      "tick": 6635
+    },
+    {
+      "attack_id": "ja-hyun-special-up",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14307,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14308,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_2",
+      "id": "fighter_state",
+      "seq": 14309,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_3",
+      "id": "fighter_state",
+      "seq": 14310,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 14311,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_5",
+      "id": "fighter_state",
+      "seq": 14312,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 14313,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 14314,
+      "state": "MATCH_ENDED",
+      "tick": 6636,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14315,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14316,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14317,
+      "state": "FALL",
+      "tick": 1,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14318,
+      "state": "FALL",
+      "tick": 1,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 1,
+        "fighter_id": "player",
+        "tick": 16
+      },
+      "seq": 14319,
+      "tick": 15
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 2,
+        "fighter_id": "ai_1",
+        "tick": 16
+      },
+      "seq": 14320,
+      "tick": 15
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14321,
+      "state": "IDLE",
+      "tick": 16,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14322,
+      "state": "RUN",
+      "tick": 16,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "charge_start",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 3,
+        "fighter_id": "ai_1",
+        "tick": 253
+      },
+      "seq": 14323,
+      "tick": 252
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14324,
+      "state": "CHARGE",
+      "tick": 253,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-heavy-side",
+        "character_id": "ja-hyun",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 4,
+        "fighter_id": "ai_1",
+        "tick": 271
+      },
+      "seq": 14325,
+      "tick": 270
+    },
+    {
+      "attack_id": "ja-hyun-heavy-side",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14326,
+      "state": "ATTACK_STARTUP",
+      "tick": 271,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "ja-hyun-heavy-side",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14327,
+      "state": "ATTACK_ACTIVE",
+      "tick": 282,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "ja-hyun-heavy-side",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14328,
+      "state": "ATTACK_RECOVERY",
+      "tick": 287,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14329,
+      "state": "IDLE",
+      "tick": 308,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14330,
+      "state": "RUN",
+      "tick": 309,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "charge_start",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 5,
+        "fighter_id": "ai_1",
+        "tick": 325
+      },
+      "seq": 14331,
+      "tick": 324
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14332,
+      "state": "CHARGE",
+      "tick": 325,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-heavy-side",
+        "character_id": "ja-hyun",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 6,
+        "fighter_id": "ai_1",
+        "tick": 343
+      },
+      "seq": 14333,
+      "tick": 342
+    },
+    {
+      "attack_id": "ja-hyun-heavy-side",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14334,
+      "state": "ATTACK_STARTUP",
+      "tick": 343,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "ja-hyun-heavy-side",
+        "attacker_id": "ai_1",
+        "character_id": "ja-hyun",
+        "defender_id": "player",
+        "epoch": 2,
+        "event_seq": 7,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 354
+      },
+      "seq": 14335,
+      "tick": 353
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14336,
+      "state": "HITSTUN",
+      "tick": 354,
+      "ultimate_gauge": 7.5,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "ja-hyun-heavy-side",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14337,
+      "state": "ATTACK_ACTIVE",
+      "tick": 354,
+      "ultimate_gauge": 15.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "ja-hyun-heavy-side",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14338,
+      "state": "ATTACK_RECOVERY",
+      "tick": 359,
+      "ultimate_gauge": 15.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "ja-hyun",
+        "epoch": 2,
+        "event_seq": 8,
+        "fighter_id": "player",
+        "tick": 361
+      },
+      "seq": 14339,
+      "tick": 360
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 14340,
+      "state": "IDLE",
+      "tick": 375,
+      "ultimate_gauge": 7.5,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14341,
+      "state": "IDLE",
+      "tick": 380,
+      "ultimate_gauge": 15.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 14342,
+      "state": "RUN",
+      "tick": 381,
+      "ultimate_gauge": 15.0,
+      "ultimate_used_this_stock": false
+    }
+  ],
+  "command_error": "",
+  "command_seq": 25,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 0,
+    "opponent": "ja-hyun",
+    "solo_count": 8,
+    "team_size": 4
+  },
+  "connected": false,
+  "device": "device-1",
+  "foreground": true,
+  "input_reset_count": 2,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 19,
+  "msec": 637422,
+  "peer_connected": true,
+  "performance": {
+    "draw_calls": 86.0,
+    "fps": 57.8159114398996,
+    "frame_p95_ms": 16.6666666666667,
+    "frames": 300,
+    "generation": 19,
+    "msec": 634723,
+    "texture_bytes": 320171808.0
+  },
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": true,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-boxing-gloves",
+      "fixture-thorns",
+      "fixture-iron-armor",
+      "fixture-phoenix-revive",
+      "fixture-ultimate-charm",
+      "fixture-explosive-gloves"
+    ],
+    "characters": [
+      "ja-hyun",
+      "myo-ryung",
+      "nabi",
+      "yu-ran"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/83a9f997f4954df3889d2b1d3b9ff793",
+  "reconnecting": false,
+  "reset_snapshot": {
+    "fighters": [
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "player",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -180.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_1",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1160.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "guard_max": 100.0,
+    "is_draw": false,
+    "mode": 0,
+    "paused": false,
+    "tick": 0,
+    "ultimate_gauge_max": 100.0,
+    "winner_id": "",
+    "winner_team_id": ""
+  },
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "schema_version": 1,
+  "screen": "prepare",
+  "snapshot": {
+    "fighters": [
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 90.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "player",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": true,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -230.397003173828,
+          "y": 571.924987792969
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 5,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/ja-hyun/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 676.0,
+            "y": 194.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 7.5,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 21,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": -1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_1",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": true,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -134.667007446289,
+          "y": 571.924987792969
+        },
+        "presentation": {
+          "animation": "run",
+          "available": true,
+          "frame": 7,
+          "missing_motion": "",
+          "requested_motion": "run",
+          "resource_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+          "screen_bounds": {
+            "height": 209.454528808594,
+            "width": 209.454467773438,
+            "x": 810.868347167969,
+            "y": 178.090789794922
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "RUN",
+        "stocks": 3,
+        "team_id": "",
+        "ultimate_gauge": 15.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": -50.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "guard_max": 100.0,
+    "is_draw": false,
+    "mode": 0,
+    "paused": true,
+    "tick": 381,
+    "ultimate_gauge_max": 100.0,
+    "winner_id": "",
+    "winner_team_id": ""
+  },
+  "step": "autoplay",
+  "touch": {
+    "active": [],
+    "count": 22,
+    "events": [
+      {
+        "action": "move_right",
+        "edge": "press",
+        "seq": 97
+      },
+      {
+        "action": "move_right",
+        "edge": "release",
+        "seq": 99
+      },
+      {
+        "action": "move_left",
+        "edge": "press",
+        "seq": 101
+      },
+      {
+        "action": "move_left",
+        "edge": "release",
+        "seq": 103
+      },
+      {
+        "action": "jump",
+        "edge": "press",
+        "seq": 105
+      },
+      {
+        "action": "jump",
+        "edge": "release",
+        "seq": 108
+      },
+      {
+        "action": "attack_light",
+        "edge": "press",
+        "seq": 112
+      },
+      {
+        "action": "attack_light",
+        "edge": "release",
+        "seq": 116
+      },
+      {
+        "action": "attack_heavy",
+        "edge": "press",
+        "seq": 119
+      },
+      {
+        "action": "attack_heavy",
+        "edge": "release",
+        "seq": 122
+      },
+      {
+        "action": "attack_special",
+        "edge": "press",
+        "seq": 128
+      },
+      {
+        "action": "attack_special",
+        "edge": "release",
+        "seq": 132
+      },
+      {
+        "action": "evade",
+        "edge": "press",
+        "seq": 135
+      },
+      {
+        "action": "evade",
+        "edge": "release",
+        "seq": 136
+      },
+      {
+        "action": "move_right",
+        "edge": "press",
+        "seq": 137
+      },
+      {
+        "action": "evade",
+        "edge": "press",
+        "seq": 139
+      },
+      {
+        "action": "evade",
+        "edge": "release",
+        "seq": 142
+      },
+      {
+        "action": "move_right",
+        "edge": "release",
+        "seq": 143
+      },
+      {
+        "action": "ultimate",
+        "edge": "press",
+        "seq": 145
+      },
+      {
+        "action": "ultimate",
+        "edge": "release",
+        "seq": 146
+      },
+      {
+        "action": "ultimate",
+        "edge": "press",
+        "seq": 302
+      },
+      {
+        "action": "ultimate",
+        "edge": "release",
+        "seq": 305
+      }
+    ],
+    "observations": [
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-01",
+          "character_id": "yu-ran",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1663,
+          "fighter_id": "ai_4",
+          "tick": 6406
+        },
+        "seq": 14215,
+        "tick": 6405
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14216,
+        "state": "ATTACK_STARTUP",
+        "tick": 6406,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-01",
+          "attacker_id": "ai_4",
+          "character_id": "yu-ran",
+          "defender_id": "player",
+          "epoch": 2,
+          "event_seq": 1664,
+          "reaction": "",
+          "result": "BLOCK",
+          "tick": 6413
+        },
+        "seq": 14217,
+        "tick": 6412
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14218,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6413,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14219,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6417,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-light-01",
+          "character_id": "ja-hyun",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1665,
+          "fighter_id": "player",
+          "tick": 6418
+        },
+        "seq": 14220,
+        "tick": 6417
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14221,
+        "state": "ATTACK_STARTUP",
+        "tick": 6418,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran.base-special-side",
+          "character_id": "yu-ran",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 1666,
+          "fighter_id": "ai_4",
+          "tick": 6424
+        },
+        "seq": 14222,
+        "tick": 6423
+      },
+      {
+        "attack_id": "yu-ran.base-special-side",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14223,
+        "state": "ATTACK_STARTUP",
+        "tick": 6424,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-light-01",
+          "attacker_id": "player",
+          "character_id": "ja-hyun",
+          "defender_id": "ai_4",
+          "epoch": 2,
+          "event_seq": 1667,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 6425
+        },
+        "seq": 14224,
+        "tick": 6424
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14225,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6425,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14226,
+        "state": "HITSTUN",
+        "tick": 6425,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "yu-ran",
+          "epoch": 2,
+          "event_seq": 1668,
+          "fighter_id": "ai_4",
+          "tick": 6428
+        },
+        "seq": 14227,
+        "tick": 6427
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14228,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6429,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14229,
+        "state": "IDLE",
+        "tick": 6441,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-01",
+          "character_id": "yu-ran",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1669,
+          "fighter_id": "ai_4",
+          "tick": 6442
+        },
+        "seq": 14230,
+        "tick": 6441
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14231,
+        "state": "ATTACK_STARTUP",
+        "tick": 6442,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-light-02",
+          "character_id": "ja-hyun",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1670,
+          "fighter_id": "player",
+          "tick": 6447
+        },
+        "seq": 14232,
+        "tick": 6446
+      },
+      {
+        "attack_id": "ja-hyun-light-02",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14233,
+        "state": "ATTACK_STARTUP",
+        "tick": 6447,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-01",
+          "attacker_id": "ai_4",
+          "character_id": "yu-ran",
+          "defender_id": "player",
+          "epoch": 2,
+          "event_seq": 1671,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 6449
+        },
+        "seq": 14234,
+        "tick": 6448
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14235,
+        "state": "HITSTUN",
+        "tick": 6449,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14236,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6449,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 1672,
+          "fighter_id": "player",
+          "tick": 6452
+        },
+        "seq": 14237,
+        "tick": 6451
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14238,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6453,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14239,
+        "state": "IDLE",
+        "tick": 6464,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14240,
+        "state": "RUN",
+        "tick": 6465,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-02",
+          "character_id": "yu-ran",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1673,
+          "fighter_id": "ai_4",
+          "tick": 6471
+        },
+        "seq": 14241,
+        "tick": 6470
+      },
+      {
+        "attack_id": "yu-ran-light-02",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14242,
+        "state": "ATTACK_STARTUP",
+        "tick": 6471,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14243,
+        "state": "GUARD",
+        "tick": 6472,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_3",
+        "id": "fighter_state",
+        "seq": 14244,
+        "state": "GUARD",
+        "tick": 6472,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-02",
+          "attacker_id": "ai_4",
+          "character_id": "yu-ran",
+          "defender_id": "player",
+          "epoch": 2,
+          "event_seq": 1674,
+          "reaction": "",
+          "result": "BLOCK",
+          "tick": 6479
+        },
+        "seq": 14245,
+        "tick": 6478
+      },
+      {
+        "attack_id": "yu-ran-light-02",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14246,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6479,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "yu-ran-light-02",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14247,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6483,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-light-01",
+          "character_id": "ja-hyun",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1675,
+          "fighter_id": "player",
+          "tick": 6490
+        },
+        "seq": 14248,
+        "tick": 6489
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14249,
+        "state": "ATTACK_STARTUP",
+        "tick": 6490,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-light-01",
+          "attacker_id": "player",
+          "character_id": "ja-hyun",
+          "defender_id": "ai_4",
+          "epoch": 2,
+          "event_seq": 1676,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 6497
+        },
+        "seq": 14250,
+        "tick": 6496
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14251,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6497,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14252,
+        "state": "HITSTUN",
+        "tick": 6497,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "yu-ran",
+          "epoch": 2,
+          "event_seq": 1677,
+          "fighter_id": "ai_4",
+          "tick": 6500
+        },
+        "seq": 14253,
+        "tick": 6499
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14254,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6501,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14255,
+        "state": "IDLE",
+        "tick": 6513,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-01",
+          "character_id": "yu-ran",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1678,
+          "fighter_id": "ai_4",
+          "tick": 6514
+        },
+        "seq": 14256,
+        "tick": 6513
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14257,
+        "state": "ATTACK_STARTUP",
+        "tick": 6514,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-heavy-side",
+          "character_id": "ja-hyun",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 1679,
+          "fighter_id": "player",
+          "tick": 6519
+        },
+        "seq": 14258,
+        "tick": 6518
+      },
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14259,
+        "state": "ATTACK_STARTUP",
+        "tick": 6519,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-light-01",
+          "attacker_id": "ai_4",
+          "character_id": "yu-ran",
+          "defender_id": "player",
+          "epoch": 2,
+          "event_seq": 1680,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 6521
+        },
+        "seq": 14260,
+        "tick": 6520
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14261,
+        "state": "HITSTUN",
+        "tick": 6521,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14262,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6521,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 1681,
+          "fighter_id": "player",
+          "tick": 6524
+        },
+        "seq": 14263,
+        "tick": 6523
+      },
+      {
+        "attack_id": "yu-ran-light-01",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14264,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6525,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran.base-special-side",
+          "character_id": "yu-ran",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 1682,
+          "fighter_id": "ai_4",
+          "tick": 6532
+        },
+        "seq": 14265,
+        "tick": 6531
+      },
+      {
+        "attack_id": "yu-ran.base-special-side",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14266,
+        "state": "ATTACK_STARTUP",
+        "tick": 6532,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14267,
+        "state": "IDLE",
+        "tick": 6536,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14268,
+        "state": "RUN",
+        "tick": 6537,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran.base-special-side",
+          "attacker_id": "ai_4",
+          "character_id": "yu-ran",
+          "defender_id": "player",
+          "epoch": 2,
+          "event_seq": 1683,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 6541
+        },
+        "seq": 14269,
+        "tick": 6540
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14270,
+        "state": "HITSTUN",
+        "tick": 6541,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "yu-ran.base-special-side",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14271,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6541,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_3",
+        "id": "fighter_state",
+        "seq": 14272,
+        "state": "IDLE",
+        "tick": 6544,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 1684,
+          "fighter_id": "player",
+          "tick": 6546
+        },
+        "seq": 14273,
+        "tick": 6545
+      },
+      {
+        "attack_id": "yu-ran.base-special-side",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14274,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6547,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14275,
+        "state": "IDLE",
+        "tick": 6558,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14276,
+        "state": "RUN",
+        "tick": 6559,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-light-01",
+          "character_id": "ja-hyun",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 1685,
+          "fighter_id": "player",
+          "tick": 6562
+        },
+        "seq": 14277,
+        "tick": 6561
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14278,
+        "state": "ATTACK_STARTUP",
+        "tick": 6562,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_3",
+        "id": "fighter_state",
+        "seq": 14279,
+        "state": "RUN",
+        "tick": 6562,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14280,
+        "state": "IDLE",
+        "tick": 6565,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14281,
+        "state": "RUN",
+        "tick": 6566,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-light-01",
+          "attacker_id": "player",
+          "character_id": "ja-hyun",
+          "defender_id": "ai_4",
+          "epoch": 2,
+          "event_seq": 1686,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 6569
+        },
+        "seq": 14282,
+        "tick": 6568
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14283,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6569,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14284,
+        "state": "HITSTUN",
+        "tick": 6569,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "yu-ran",
+          "epoch": 2,
+          "event_seq": 1687,
+          "fighter_id": "ai_4",
+          "tick": 6572
+        },
+        "seq": 14285,
+        "tick": 6571
+      },
+      {
+        "attack_id": "ja-hyun-light-01",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14286,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6573,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_2",
+        "id": "fighter_state",
+        "seq": 14287,
+        "state": "IDLE",
+        "tick": 6580,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14288,
+        "state": "FALL",
+        "tick": 6585,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-special-up",
+          "character_id": "yu-ran",
+          "direction": "up",
+          "epoch": 2,
+          "event_seq": 1688,
+          "fighter_id": "ai_4",
+          "tick": 6586
+        },
+        "seq": 14289,
+        "tick": 6585
+      },
+      {
+        "attack_id": "yu-ran-special-up",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14290,
+        "state": "ATTACK_STARTUP",
+        "tick": 6586,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14291,
+        "state": "IDLE",
+        "tick": 6591,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14292,
+        "state": "RUN",
+        "tick": 6592,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "yu-ran-special-up",
+          "attacker_id": "ai_4",
+          "character_id": "yu-ran",
+          "defender_id": "player",
+          "epoch": 2,
+          "event_seq": 1689,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 6595
+        },
+        "seq": 14293,
+        "tick": 6594
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14294,
+        "state": "HITSTUN",
+        "tick": 6595,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "yu-ran-special-up",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14295,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6595,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_3",
+        "id": "fighter_state",
+        "seq": 14296,
+        "state": "GUARD",
+        "tick": 6598,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "yu-ran-special-up",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14297,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6601,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14298,
+        "state": "FALL",
+        "tick": 6612,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-special-up",
+          "character_id": "ja-hyun",
+          "direction": "up",
+          "epoch": 2,
+          "event_seq": 1690,
+          "fighter_id": "player",
+          "tick": 6616
+        },
+        "seq": 14299,
+        "tick": 6615
+      },
+      {
+        "attack_id": "ja-hyun-special-up",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14300,
+        "state": "ATTACK_STARTUP",
+        "tick": 6616,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_2",
+        "id": "fighter_state",
+        "seq": 14301,
+        "state": "RUN",
+        "tick": 6616,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14302,
+        "state": "FALL",
+        "tick": 6619,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "ja-hyun-special-up",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14303,
+        "state": "ATTACK_ACTIVE",
+        "tick": 6625,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "ja-hyun-special-up",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14304,
+        "state": "ATTACK_RECOVERY",
+        "tick": 6631,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "ring_out",
+        "payload": {
+          "epoch": 2,
+          "event_seq": 1691,
+          "fighter_id": "ai_4",
+          "tick": 6636
+        },
+        "seq": 14305,
+        "tick": 6635
+      },
+      {
+        "id": "match_end",
+        "payload": {
+          "epoch": 2,
+          "event_seq": 1692,
+          "tick": 6636,
+          "winner_id": "player",
+          "winner_team_id": "alpha"
+        },
+        "seq": 14306,
+        "tick": 6635
+      },
+      {
+        "attack_id": "ja-hyun-special-up",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14307,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14308,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_2",
+        "id": "fighter_state",
+        "seq": 14309,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_3",
+        "id": "fighter_state",
+        "seq": 14310,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 14311,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_5",
+        "id": "fighter_state",
+        "seq": 14312,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 14313,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 14314,
+        "state": "MATCH_ENDED",
+        "tick": 6636,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14315,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14316,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14317,
+        "state": "FALL",
+        "tick": 1,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14318,
+        "state": "FALL",
+        "tick": 1,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 1,
+          "fighter_id": "player",
+          "tick": 16
+        },
+        "seq": 14319,
+        "tick": 15
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 2,
+          "fighter_id": "ai_1",
+          "tick": 16
+        },
+        "seq": 14320,
+        "tick": 15
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14321,
+        "state": "IDLE",
+        "tick": 16,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14322,
+        "state": "RUN",
+        "tick": 16,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "charge_start",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 3,
+          "fighter_id": "ai_1",
+          "tick": 253
+        },
+        "seq": 14323,
+        "tick": 252
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14324,
+        "state": "CHARGE",
+        "tick": 253,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-heavy-side",
+          "character_id": "ja-hyun",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 4,
+          "fighter_id": "ai_1",
+          "tick": 271
+        },
+        "seq": 14325,
+        "tick": 270
+      },
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14326,
+        "state": "ATTACK_STARTUP",
+        "tick": 271,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14327,
+        "state": "ATTACK_ACTIVE",
+        "tick": 282,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14328,
+        "state": "ATTACK_RECOVERY",
+        "tick": 287,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14329,
+        "state": "IDLE",
+        "tick": 308,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14330,
+        "state": "RUN",
+        "tick": 309,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "charge_start",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 5,
+          "fighter_id": "ai_1",
+          "tick": 325
+        },
+        "seq": 14331,
+        "tick": 324
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14332,
+        "state": "CHARGE",
+        "tick": 325,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-heavy-side",
+          "character_id": "ja-hyun",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 6,
+          "fighter_id": "ai_1",
+          "tick": 343
+        },
+        "seq": 14333,
+        "tick": 342
+      },
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14334,
+        "state": "ATTACK_STARTUP",
+        "tick": 343,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "ja-hyun-heavy-side",
+          "attacker_id": "ai_1",
+          "character_id": "ja-hyun",
+          "defender_id": "player",
+          "epoch": 2,
+          "event_seq": 7,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 354
+        },
+        "seq": 14335,
+        "tick": 353
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14336,
+        "state": "HITSTUN",
+        "tick": 354,
+        "ultimate_gauge": 7.5,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14337,
+        "state": "ATTACK_ACTIVE",
+        "tick": 354,
+        "ultimate_gauge": 15.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14338,
+        "state": "ATTACK_RECOVERY",
+        "tick": 359,
+        "ultimate_gauge": 15.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "ja-hyun",
+          "epoch": 2,
+          "event_seq": 8,
+          "fighter_id": "player",
+          "tick": 361
+        },
+        "seq": 14339,
+        "tick": 360
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 14340,
+        "state": "IDLE",
+        "tick": 375,
+        "ultimate_gauge": 7.5,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14341,
+        "state": "IDLE",
+        "tick": 380,
+        "ultimate_gauge": 15.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 14342,
+        "state": "RUN",
+        "tick": 381,
+        "ultimate_gauge": 15.0,
+        "ultimate_used_this_stock": false
+      }
+    ]
+  },
+  "touch_events": [
+    {
+      "action": "move_right",
+      "edge": "press",
+      "seq": 97
+    },
+    {
+      "action": "move_right",
+      "edge": "release",
+      "seq": 99
+    },
+    {
+      "action": "move_left",
+      "edge": "press",
+      "seq": 101
+    },
+    {
+      "action": "move_left",
+      "edge": "release",
+      "seq": 103
+    },
+    {
+      "action": "jump",
+      "edge": "press",
+      "seq": 105
+    },
+    {
+      "action": "jump",
+      "edge": "release",
+      "seq": 108
+    },
+    {
+      "action": "attack_light",
+      "edge": "press",
+      "seq": 112
+    },
+    {
+      "action": "attack_light",
+      "edge": "release",
+      "seq": 116
+    },
+    {
+      "action": "attack_heavy",
+      "edge": "press",
+      "seq": 119
+    },
+    {
+      "action": "attack_heavy",
+      "edge": "release",
+      "seq": 122
+    },
+    {
+      "action": "attack_special",
+      "edge": "press",
+      "seq": 128
+    },
+    {
+      "action": "attack_special",
+      "edge": "release",
+      "seq": 132
+    },
+    {
+      "action": "evade",
+      "edge": "press",
+      "seq": 135
+    },
+    {
+      "action": "evade",
+      "edge": "release",
+      "seq": 136
+    },
+    {
+      "action": "move_right",
+      "edge": "press",
+      "seq": 137
+    },
+    {
+      "action": "evade",
+      "edge": "press",
+      "seq": 139
+    },
+    {
+      "action": "evade",
+      "edge": "release",
+      "seq": 142
+    },
+    {
+      "action": "move_right",
+      "edge": "release",
+      "seq": 143
+    },
+    {
+      "action": "ultimate",
+      "edge": "press",
+      "seq": 145
+    },
+    {
+      "action": "ultimate",
+      "edge": "release",
+      "seq": 146
+    },
+    {
+      "action": "ultimate",
+      "edge": "press",
+      "seq": 302
+    },
+    {
+      "action": "ultimate",
+      "edge": "release",
+      "seq": 305
+    }
+  ],
+  "ui": [
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/button/자현/0",
+      "kind": "button",
+      "node_name": "@Button@8243",
+      "text": "자현",
+      "visible": true,
+      "width": 0.136658031088083,
+      "x": 0.139572538860104,
+      "y": 0.4125
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/button/묘령/0",
+      "kind": "button",
+      "node_name": "@Button@8247",
+      "text": "묘령",
+      "visible": true,
+      "width": 0.136658031088083,
+      "x": 0.298251295336788,
+      "y": 0.4125
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/button/나비/0",
+      "kind": "button",
+      "node_name": "@Button@8251",
+      "text": "나비",
+      "visible": true,
+      "width": 0.136658031088083,
+      "x": 0.139572538860104,
+      "y": 0.701388888888889
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/button/유란/0",
+      "kind": "button",
+      "node_name": "@Button@8255",
+      "text": "유란",
+      "visible": true,
+      "width": 0.136658031088083,
+      "x": 0.298251295336788,
+      "y": 0.701388888888889
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/choice/모드",
+      "kind": "choice",
+      "node_name": "@OptionButton@8268",
+      "options": [
+        {
+          "id": "0",
+          "text": "스토리 프롤로그 · 첫 기록인장"
+        },
+        {
+          "id": "1",
+          "text": "Solo · 각자전"
+        },
+        {
+          "id": "2",
+          "text": "Team · 팀전"
+        },
+        {
+          "id": "3",
+          "text": "AI · 1대1"
+        },
+        {
+          "id": "4",
+          "text": "연습"
+        }
+      ],
+      "popup_focused": -1,
+      "popup_visible": false,
+      "selected": 0,
+      "text": "스토리 프롤로그 · 첫 기록인장",
+      "visible": true,
+      "width": 0.207253886010363,
+      "x": 0.593264248704663,
+      "y": 0.186111111111111
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/choice/장신구",
+      "kind": "choice",
+      "node_name": "@OptionButton@8281",
+      "options": [
+        {
+          "id": "",
+          "text": "미장착"
+        },
+        {
+          "id": "fixture-boxing-gloves",
+          "text": "복싱 글러브"
+        },
+        {
+          "id": "fixture-thorns",
+          "text": "균형 장신구"
+        },
+        {
+          "id": "fixture-iron-armor",
+          "text": "철갑옷"
+        },
+        {
+          "id": "fixture-phoenix-revive",
+          "text": "활공 장신구"
+        },
+        {
+          "id": "fixture-ultimate-charm",
+          "text": "집중 장신구"
+        },
+        {
+          "id": "fixture-explosive-gloves",
+          "text": "도약 장갑"
+        }
+      ],
+      "popup_focused": -1,
+      "popup_visible": false,
+      "selected": 0,
+      "text": "미장착",
+      "visible": true,
+      "width": 0.207253886010363,
+      "x": 0.593264248704663,
+      "y": 0.286111111111111
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/choice/AI 캐릭터",
+      "kind": "choice",
+      "node_name": "@OptionButton@8294",
+      "options": [
+        {
+          "id": "ja-hyun",
+          "text": "자현"
+        },
+        {
+          "id": "myo-ryung",
+          "text": "묘령"
+        },
+        {
+          "id": "nabi",
+          "text": "나비"
+        },
+        {
+          "id": "yu-ran",
+          "text": "유란"
+        }
+      ],
+      "popup_focused": -1,
+      "popup_visible": false,
+      "selected": 0,
+      "text": "자현",
+      "visible": true,
+      "width": 0.207253886010363,
+      "x": 0.593264248704663,
+      "y": 0.386111111111111
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/button/로비/0",
+      "kind": "button",
+      "node_name": "@Button@8297",
+      "text": "로비",
+      "visible": true,
+      "width": 0.431347150259067,
+      "x": 0.279145077720207,
+      "y": 0.818055555555556
+    },
+    {
+      "height": 0.0805555555555556,
+      "id": "prepare/button/대전 시작/0",
+      "kind": "button",
+      "node_name": "@Button@8298",
+      "text": "대전 시작",
+      "visible": true,
+      "width": 0.431347150259067,
+      "x": 0.720854922279793,
+      "y": 0.818055555555556
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1544.0
+  }
+}

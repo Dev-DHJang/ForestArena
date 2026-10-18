@@ -1,0 +1,4957 @@
+{
+  "autocontrol": false,
+  "boot_id": "30682-45201b781ffeb39a",
+  "case_id": "MODE-01",
+  "combat_events": [
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9016,
+      "state": "FALL",
+      "tick": 9766,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2200,
+        "fighter_id": "ai_7",
+        "tick": 9777
+      },
+      "seq": 9017,
+      "tick": 9776
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9018,
+      "state": "IDLE",
+      "tick": 9777,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9019,
+      "state": "FALL",
+      "tick": 9778,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9020,
+      "state": "RUN",
+      "tick": 9791,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9021,
+      "state": "GUARD",
+      "tick": 9809,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "myo-ryung",
+        "epoch": 2,
+        "event_seq": 2201,
+        "fighter_id": "ai_6",
+        "tick": 9811
+      },
+      "seq": 9022,
+      "tick": 9810
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9023,
+      "state": "IDLE",
+      "tick": 9811,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9024,
+      "state": "RUN",
+      "tick": 9814,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9025,
+      "state": "IDLE",
+      "tick": 9827,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9026,
+      "state": "RUN",
+      "tick": 9845,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "charge_start",
+      "payload": {
+        "character_id": "myo-ryung",
+        "epoch": 2,
+        "event_seq": 2202,
+        "fighter_id": "ai_6",
+        "tick": 9850
+      },
+      "seq": 9027,
+      "tick": 9849
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9028,
+      "state": "CHARGE",
+      "tick": 9850,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "character_id": "nabi",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2203,
+        "fighter_id": "ai_7",
+        "tick": 9863
+      },
+      "seq": 9029,
+      "tick": 9862
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9030,
+      "state": "ATTACK_STARTUP",
+      "tick": 9863,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung-heavy-side",
+        "character_id": "myo-ryung",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 2204,
+        "fighter_id": "ai_6",
+        "tick": 9868
+      },
+      "seq": 9031,
+      "tick": 9867
+    },
+    {
+      "attack_id": "myo-ryung-heavy-side",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9032,
+      "state": "ATTACK_STARTUP",
+      "tick": 9868,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "attacker_id": "ai_7",
+        "character_id": "nabi",
+        "defender_id": "ai_6",
+        "epoch": 2,
+        "event_seq": 2205,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 9870
+      },
+      "seq": 9033,
+      "tick": 9869
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9034,
+      "state": "HITSTUN",
+      "tick": 9870,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9035,
+      "state": "ATTACK_ACTIVE",
+      "tick": 9870,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "myo-ryung",
+        "epoch": 2,
+        "event_seq": 2206,
+        "fighter_id": "ai_6",
+        "tick": 9874
+      },
+      "seq": 9036,
+      "tick": 9873
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9037,
+      "state": "ATTACK_RECOVERY",
+      "tick": 9874,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9038,
+      "state": "IDLE",
+      "tick": 9889,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9039,
+      "state": "RUN",
+      "tick": 9890,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9040,
+      "state": "IDLE",
+      "tick": 9892,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9041,
+      "state": "RUN",
+      "tick": 9893,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "character_id": "nabi",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2207,
+        "fighter_id": "ai_7",
+        "tick": 9899
+      },
+      "seq": 9042,
+      "tick": 9898
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9043,
+      "state": "ATTACK_STARTUP",
+      "tick": 9899,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "attacker_id": "ai_7",
+        "character_id": "nabi",
+        "defender_id": "ai_6",
+        "epoch": 2,
+        "event_seq": 2208,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 9906
+      },
+      "seq": 9044,
+      "tick": 9905
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9045,
+      "state": "HITSTUN",
+      "tick": 9906,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9046,
+      "state": "ATTACK_ACTIVE",
+      "tick": 9906,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "myo-ryung",
+        "epoch": 2,
+        "event_seq": 2209,
+        "fighter_id": "ai_6",
+        "tick": 9910
+      },
+      "seq": 9047,
+      "tick": 9909
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9048,
+      "state": "ATTACK_RECOVERY",
+      "tick": 9910,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "jump",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2210,
+        "fighter_id": "ai_7",
+        "tick": 9917
+      },
+      "seq": 9049,
+      "tick": 9916
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9050,
+      "state": "JUMP",
+      "tick": 9917,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9051,
+      "state": "IDLE",
+      "tick": 9925,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9052,
+      "state": "RUN",
+      "tick": 9926,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9053,
+      "state": "FALL",
+      "tick": 9941,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2211,
+        "fighter_id": "ai_7",
+        "tick": 9965
+      },
+      "seq": 9054,
+      "tick": 9964
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9055,
+      "state": "RUN",
+      "tick": 9965,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung-light-01",
+        "character_id": "myo-ryung",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2212,
+        "fighter_id": "ai_6",
+        "tick": 9994
+      },
+      "seq": 9056,
+      "tick": 9993
+    },
+    {
+      "attack_id": "myo-ryung-light-01",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9057,
+      "state": "ATTACK_STARTUP",
+      "tick": 9994,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung-light-01",
+        "attacker_id": "ai_6",
+        "character_id": "myo-ryung",
+        "defender_id": "ai_7",
+        "epoch": 2,
+        "event_seq": 2213,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10001
+      },
+      "seq": 9058,
+      "tick": 10000
+    },
+    {
+      "attack_id": "myo-ryung-light-01",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9059,
+      "state": "ATTACK_ACTIVE",
+      "tick": 10001,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9060,
+      "state": "HITSTUN",
+      "tick": 10001,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2214,
+        "fighter_id": "ai_7",
+        "tick": 10005
+      },
+      "seq": 9061,
+      "tick": 10004
+    },
+    {
+      "attack_id": "myo-ryung-light-01",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9062,
+      "state": "ATTACK_RECOVERY",
+      "tick": 10005,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung.base-special-side",
+        "character_id": "myo-ryung",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 2215,
+        "fighter_id": "ai_6",
+        "tick": 10012
+      },
+      "seq": 9063,
+      "tick": 10011
+    },
+    {
+      "attack_id": "myo-ryung.base-special-side",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9064,
+      "state": "ATTACK_STARTUP",
+      "tick": 10012,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9065,
+      "state": "IDLE",
+      "tick": 10018,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9066,
+      "state": "RUN",
+      "tick": 10019,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung.base-special-side",
+        "attacker_id": "ai_6",
+        "character_id": "myo-ryung",
+        "defender_id": "ai_7",
+        "epoch": 2,
+        "event_seq": 2216,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10021
+      },
+      "seq": 9067,
+      "tick": 10020
+    },
+    {
+      "attack_id": "myo-ryung.base-special-side",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9068,
+      "state": "ATTACK_ACTIVE",
+      "tick": 10021,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9069,
+      "state": "HITSTUN",
+      "tick": 10021,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2217,
+        "fighter_id": "ai_7",
+        "tick": 10024
+      },
+      "seq": 9070,
+      "tick": 10023
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung.base-special-side",
+        "attacker_id": "ai_6",
+        "character_id": "myo-ryung",
+        "defender_id": "ai_7",
+        "epoch": 2,
+        "event_seq": 2218,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10024
+      },
+      "seq": 9071,
+      "tick": 10023
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2219,
+        "fighter_id": "ai_7",
+        "tick": 10027
+      },
+      "seq": 9072,
+      "tick": 10026
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_special",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung.base-special-side",
+        "attacker_id": "ai_6",
+        "character_id": "myo-ryung",
+        "defender_id": "ai_7",
+        "epoch": 2,
+        "event_seq": 2220,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10027
+      },
+      "seq": 9073,
+      "tick": 10026
+    },
+    {
+      "attack_id": "myo-ryung.base-special-side",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9074,
+      "state": "ATTACK_RECOVERY",
+      "tick": 10029,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2221,
+        "fighter_id": "ai_7",
+        "tick": 10030
+      },
+      "seq": 9075,
+      "tick": 10029
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9076,
+      "state": "IDLE",
+      "tick": 10047,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9077,
+      "state": "IDLE",
+      "tick": 10047,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9078,
+      "state": "RUN",
+      "tick": 10048,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9079,
+      "state": "RUN",
+      "tick": 10048,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "character_id": "nabi",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2222,
+        "fighter_id": "ai_7",
+        "tick": 10061
+      },
+      "seq": 9080,
+      "tick": 10060
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9081,
+      "state": "ATTACK_STARTUP",
+      "tick": 10061,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9082,
+      "state": "GUARD",
+      "tick": 10066,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "attacker_id": "ai_7",
+        "character_id": "nabi",
+        "defender_id": "ai_6",
+        "epoch": 2,
+        "event_seq": 2223,
+        "reaction": "",
+        "result": "BLOCK",
+        "tick": 10068
+      },
+      "seq": 9083,
+      "tick": 10067
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9084,
+      "state": "ATTACK_ACTIVE",
+      "tick": 10068,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9085,
+      "state": "ATTACK_RECOVERY",
+      "tick": 10072,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung-light-01",
+        "character_id": "myo-ryung",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2224,
+        "fighter_id": "ai_6",
+        "tick": 10084
+      },
+      "seq": 9086,
+      "tick": 10083
+    },
+    {
+      "attack_id": "myo-ryung-light-01",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9087,
+      "state": "ATTACK_STARTUP",
+      "tick": 10084,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-02",
+        "character_id": "nabi",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2225,
+        "fighter_id": "ai_7",
+        "tick": 10090
+      },
+      "seq": 9088,
+      "tick": 10089
+    },
+    {
+      "attack_id": "nabi-light-02",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9089,
+      "state": "ATTACK_STARTUP",
+      "tick": 10090,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung-light-01",
+        "attacker_id": "ai_6",
+        "character_id": "myo-ryung",
+        "defender_id": "ai_7",
+        "epoch": 2,
+        "event_seq": 2226,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10091
+      },
+      "seq": 9090,
+      "tick": 10090
+    },
+    {
+      "attack_id": "myo-ryung-light-01",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9091,
+      "state": "ATTACK_ACTIVE",
+      "tick": 10091,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9092,
+      "state": "HITSTUN",
+      "tick": 10091,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2227,
+        "fighter_id": "ai_7",
+        "tick": 10095
+      },
+      "seq": 9093,
+      "tick": 10094
+    },
+    {
+      "attack_id": "myo-ryung-light-01",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9094,
+      "state": "ATTACK_RECOVERY",
+      "tick": 10095,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9095,
+      "state": "IDLE",
+      "tick": 10108,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9096,
+      "state": "RUN",
+      "tick": 10109,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9097,
+      "state": "IDLE",
+      "tick": 10113,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "character_id": "nabi",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2228,
+        "fighter_id": "ai_7",
+        "tick": 10115
+      },
+      "seq": 9098,
+      "tick": 10114
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9099,
+      "state": "ATTACK_STARTUP",
+      "tick": 10115,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-01",
+        "attacker_id": "ai_7",
+        "character_id": "nabi",
+        "defender_id": "ai_6",
+        "epoch": 2,
+        "event_seq": 2229,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10122
+      },
+      "seq": 9100,
+      "tick": 10121
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9101,
+      "state": "HITSTUN",
+      "tick": 10122,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9102,
+      "state": "ATTACK_ACTIVE",
+      "tick": 10122,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "myo-ryung",
+        "epoch": 2,
+        "event_seq": 2230,
+        "fighter_id": "ai_6",
+        "tick": 10126
+      },
+      "seq": 9103,
+      "tick": 10125
+    },
+    {
+      "attack_id": "nabi-light-01",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9104,
+      "state": "ATTACK_RECOVERY",
+      "tick": 10126,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9105,
+      "state": "IDLE",
+      "tick": 10141,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9106,
+      "state": "RUN",
+      "tick": 10142,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-02",
+        "character_id": "nabi",
+        "direction": "neutral",
+        "epoch": 2,
+        "event_seq": 2231,
+        "fighter_id": "ai_7",
+        "tick": 10144
+      },
+      "seq": 9107,
+      "tick": 10143
+    },
+    {
+      "attack_id": "nabi-light-02",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9108,
+      "state": "ATTACK_STARTUP",
+      "tick": 10144,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_light",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-light-02",
+        "attacker_id": "ai_7",
+        "character_id": "nabi",
+        "defender_id": "ai_6",
+        "epoch": 2,
+        "event_seq": 2232,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10154
+      },
+      "seq": 9109,
+      "tick": 10153
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9110,
+      "state": "HITSTUN",
+      "tick": 10154,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "nabi-light-02",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9111,
+      "state": "ATTACK_ACTIVE",
+      "tick": 10154,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "nabi-light-02",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9112,
+      "state": "ATTACK_RECOVERY",
+      "tick": 10158,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "land",
+      "payload": {
+        "character_id": "myo-ryung",
+        "epoch": 2,
+        "event_seq": 2233,
+        "fighter_id": "ai_6",
+        "tick": 10159
+      },
+      "seq": 9113,
+      "tick": 10158
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9114,
+      "state": "IDLE",
+      "tick": 10175,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9115,
+      "state": "RUN",
+      "tick": 10176,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9116,
+      "state": "IDLE",
+      "tick": 10180,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9117,
+      "state": "RUN",
+      "tick": 10181,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "charge_start",
+      "payload": {
+        "character_id": "nabi",
+        "epoch": 2,
+        "event_seq": 2234,
+        "fighter_id": "ai_7",
+        "tick": 10187
+      },
+      "seq": 9118,
+      "tick": 10186
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9119,
+      "state": "CHARGE",
+      "tick": 10187,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "charge_start",
+      "payload": {
+        "character_id": "myo-ryung",
+        "epoch": 2,
+        "event_seq": 2235,
+        "fighter_id": "ai_6",
+        "tick": 10192
+      },
+      "seq": 9120,
+      "tick": 10191
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9121,
+      "state": "CHARGE",
+      "tick": 10192,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-heavy-side",
+        "character_id": "nabi",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 2236,
+        "fighter_id": "ai_7",
+        "tick": 10205
+      },
+      "seq": 9122,
+      "tick": 10204
+    },
+    {
+      "attack_id": "nabi-heavy-side",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9123,
+      "state": "ATTACK_STARTUP",
+      "tick": 10205,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "attack_started",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "myo-ryung-heavy-side",
+        "character_id": "myo-ryung",
+        "direction": "side",
+        "epoch": 2,
+        "event_seq": 2237,
+        "fighter_id": "ai_6",
+        "tick": 10210
+      },
+      "seq": 9124,
+      "tick": 10209
+    },
+    {
+      "attack_id": "myo-ryung-heavy-side",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9125,
+      "state": "ATTACK_STARTUP",
+      "tick": 10210,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "id": "hit_resolved",
+      "payload": {
+        "action_id": "attack_heavy",
+        "activation_serial": "[device-private]",
+        "attack_id": "nabi-heavy-side",
+        "attacker_id": "ai_7",
+        "character_id": "nabi",
+        "defender_id": "ai_6",
+        "epoch": 2,
+        "event_seq": 2238,
+        "reaction": "NORMAL_HIT",
+        "result": "HIT",
+        "tick": 10216
+      },
+      "seq": 9126,
+      "tick": 10215
+    },
+    {
+      "id": "match_end",
+      "payload": {
+        "epoch": 2,
+        "event_seq": 2239,
+        "tick": 10216,
+        "winner_id": "ai_7"
+      },
+      "seq": 9127,
+      "tick": 10215
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 9128,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 9129,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_2",
+      "id": "fighter_state",
+      "seq": 9130,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_3",
+      "id": "fighter_state",
+      "seq": 9131,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 9132,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_5",
+      "id": "fighter_state",
+      "seq": 9133,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9134,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "nabi-heavy-side",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9135,
+      "state": "MATCH_ENDED",
+      "tick": 10216,
+      "ultimate_gauge": 100.0,
+      "ultimate_used_this_stock": true
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "player",
+      "id": "fighter_state",
+      "seq": 9136,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_1",
+      "id": "fighter_state",
+      "seq": 9137,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_2",
+      "id": "fighter_state",
+      "seq": 9138,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_3",
+      "id": "fighter_state",
+      "seq": 9139,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_4",
+      "id": "fighter_state",
+      "seq": 9140,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_5",
+      "id": "fighter_state",
+      "seq": 9141,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_6",
+      "id": "fighter_state",
+      "seq": 9142,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    },
+    {
+      "attack_id": "",
+      "fighter_id": "ai_7",
+      "id": "fighter_state",
+      "seq": 9143,
+      "state": "IDLE",
+      "tick": 0,
+      "ultimate_gauge": 0.0,
+      "ultimate_used_this_stock": false
+    }
+  ],
+  "command_error": "",
+  "command_seq": 21,
+  "config": {
+    "accessory": "",
+    "character": "ja-hyun",
+    "mode": 2,
+    "opponent": "ja-hyun",
+    "solo_count": 8,
+    "team_size": 4
+  },
+  "connected": false,
+  "device": "device-1",
+  "foreground": true,
+  "input_reset_count": 2,
+  "interrupt_active": false,
+  "lan_invite": "",
+  "lan_slot": 0,
+  "last_lan_error": "",
+  "latest_result": {},
+  "match_generation": 18,
+  "msec": 509630,
+  "peer_connected": true,
+  "performance": {
+    "draw_calls": 151.0,
+    "fps": 60.0024000960041,
+    "frame_p95_ms": 16.666,
+    "frames": 300,
+    "generation": 17,
+    "msec": 501643,
+    "texture_bytes": 320171808.0
+  },
+  "profile": {
+    "accessibility": {
+      "haptics_enabled": true,
+      "reduce_visual_effects": true,
+      "text_scale": 1.0
+    },
+    "accessories": [
+      "fixture-boxing-gloves",
+      "fixture-thorns",
+      "fixture-iron-armor",
+      "fixture-phoenix-revive",
+      "fixture-ultimate-charm",
+      "fixture-explosive-gloves"
+    ],
+    "characters": [
+      "ja-hyun",
+      "myo-ryung",
+      "nabi",
+      "yu-ran"
+    ],
+    "first_granted": true,
+    "minimap": {
+      "marker_style": "face",
+      "show_names": true,
+      "transparency": 30
+    },
+    "nickname": "플레이어",
+    "opponent_character": "ja-hyun",
+    "schema_version": 3.0,
+    "selected_accessory": "",
+    "selected_character": "ja-hyun"
+  },
+  "qa_storage_path": "/data/data/com.forestarena.welllbeing/files/qa/83a9f997f4954df3889d2b1d3b9ff793",
+  "reconnecting": false,
+  "reset_snapshot": {
+    "fighters": [
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "player",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -180.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_1",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1160.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "myo-ryung",
+        "current_hp": 95.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_2",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 95.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 360.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/myo-ryung/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 256.0,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "myo-ryung-light-01",
+            "myo-ryung-light-02",
+            "myo-ryung-light-03",
+            "myo-ryung-light-04",
+            "myo-ryung-light-up",
+            "myo-ryung-light-down",
+            "myo-ryung-heavy-side",
+            "myo-ryung-heavy-up",
+            "myo-ryung-heavy-down",
+            "myo-ryung-dash-light",
+            "myo-ryung-dash-heavy",
+            "myo-ryung-air-light",
+            "myo-ryung-air-heavy",
+            "myo-ryung-special-neutral",
+            "myo-ryung-special-up",
+            "myo-ryung.base-special-side",
+            "myo-ryung.base-special-down",
+            "myo-ryung.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          },
+          "combat_effects": [],
+          "move_set_id": "myo-ryung.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "nabi",
+        "current_hp": 100.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_3",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 100.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 900.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 1065.99987792969,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "nabi-light-01",
+            "nabi-light-02",
+            "nabi-light-up",
+            "nabi-light-down",
+            "nabi-heavy-side",
+            "nabi-heavy-up",
+            "nabi-heavy-down",
+            "nabi-dash-light",
+            "nabi-dash-heavy",
+            "nabi-air-light",
+            "nabi-air-heavy",
+            "nabi-special-neutral",
+            "nabi-special-up",
+            "nabi.base-special-side",
+            "nabi.base-special-down",
+            "nabi.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          },
+          "combat_effects": [],
+          "move_set_id": "nabi.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "yu-ran",
+        "current_hp": 100.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_4",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 100.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -20.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/yu-ran/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 191.999969482422,
+            "x": -313.999938964844,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "yu-ran-light-01",
+            "yu-ran-light-02",
+            "yu-ran-light-03",
+            "yu-ran-light-up",
+            "yu-ran-light-down",
+            "yu-ran-heavy-side",
+            "yu-ran-heavy-up",
+            "yu-ran-heavy-down",
+            "yu-ran-dash-light",
+            "yu-ran-dash-heavy",
+            "yu-ran-air-light",
+            "yu-ran-air-heavy",
+            "yu-ran-special-neutral",
+            "yu-ran-special-up",
+            "yu-ran.base-special-side",
+            "yu-ran.base-special-down",
+            "yu-ran.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 300.0,
+            "dash_duration_seconds": 0.16,
+            "dash_speed": 520.0,
+            "gravity": 1385.0,
+            "ground_speed": 320.0,
+            "jump_velocity": 540.0,
+            "max_hp": 100.0,
+            "weight": 1.0
+          },
+          "combat_effects": [],
+          "move_set_id": "yu-ran.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 300.0,
+            "dash_duration_seconds": 0.16,
+            "dash_speed": 520.0,
+            "gravity": 1385.0,
+            "ground_speed": 320.0,
+            "jump_velocity": 540.0,
+            "max_hp": 100.0,
+            "weight": 1.0
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_5",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1380.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/ja-hyun/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 1785.99975585938,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "myo-ryung",
+        "current_hp": 95.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_6",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 95.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 560.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/myo-ryung/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 556.0,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "myo-ryung-light-01",
+            "myo-ryung-light-02",
+            "myo-ryung-light-03",
+            "myo-ryung-light-04",
+            "myo-ryung-light-up",
+            "myo-ryung-light-down",
+            "myo-ryung-heavy-side",
+            "myo-ryung-heavy-up",
+            "myo-ryung-heavy-down",
+            "myo-ryung-dash-light",
+            "myo-ryung-dash-heavy",
+            "myo-ryung-air-light",
+            "myo-ryung-air-heavy",
+            "myo-ryung-special-neutral",
+            "myo-ryung-special-up",
+            "myo-ryung.base-special-side",
+            "myo-ryung.base-special-down",
+            "myo-ryung.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          },
+          "combat_effects": [],
+          "move_set_id": "myo-ryung.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "nabi",
+        "current_hp": 100.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_7",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 100.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1540.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 2025.99975585938,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "nabi-light-01",
+            "nabi-light-02",
+            "nabi-light-up",
+            "nabi-light-down",
+            "nabi-heavy-side",
+            "nabi-heavy-up",
+            "nabi-heavy-down",
+            "nabi-dash-light",
+            "nabi-dash-heavy",
+            "nabi-air-light",
+            "nabi-air-heavy",
+            "nabi-special-neutral",
+            "nabi-special-up",
+            "nabi.base-special-side",
+            "nabi.base-special-down",
+            "nabi.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          },
+          "combat_effects": [],
+          "move_set_id": "nabi.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "guard_max": 100.0,
+    "is_draw": false,
+    "mode": 2,
+    "paused": false,
+    "tick": 0,
+    "ultimate_gauge_max": 100.0,
+    "winner_id": "",
+    "winner_team_id": ""
+  },
+  "run_id": "83a9f997f4954df3889d2b1d3b9ff793",
+  "schema_version": 1,
+  "screen": "match",
+  "snapshot": {
+    "fighters": [
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "player",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -180.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_1",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1160.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "default",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "",
+          "screen_bounds": {
+            "height": 0.0,
+            "width": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "myo-ryung",
+        "current_hp": 95.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_2",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 95.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 360.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/myo-ryung/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 256.0,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "myo-ryung-light-01",
+            "myo-ryung-light-02",
+            "myo-ryung-light-03",
+            "myo-ryung-light-04",
+            "myo-ryung-light-up",
+            "myo-ryung-light-down",
+            "myo-ryung-heavy-side",
+            "myo-ryung-heavy-up",
+            "myo-ryung-heavy-down",
+            "myo-ryung-dash-light",
+            "myo-ryung-dash-heavy",
+            "myo-ryung-air-light",
+            "myo-ryung-air-heavy",
+            "myo-ryung-special-neutral",
+            "myo-ryung-special-up",
+            "myo-ryung.base-special-side",
+            "myo-ryung.base-special-down",
+            "myo-ryung.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          },
+          "combat_effects": [],
+          "move_set_id": "myo-ryung.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "nabi",
+        "current_hp": 100.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_3",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 100.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 900.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 1065.99987792969,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "nabi-light-01",
+            "nabi-light-02",
+            "nabi-light-up",
+            "nabi-light-down",
+            "nabi-heavy-side",
+            "nabi-heavy-up",
+            "nabi-heavy-down",
+            "nabi-dash-light",
+            "nabi-dash-heavy",
+            "nabi-air-light",
+            "nabi-air-heavy",
+            "nabi-special-neutral",
+            "nabi-special-up",
+            "nabi.base-special-side",
+            "nabi.base-special-down",
+            "nabi.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          },
+          "combat_effects": [],
+          "move_set_id": "nabi.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "alpha",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "yu-ran",
+        "current_hp": 100.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_4",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 100.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": -20.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/yu-ran/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 191.999969482422,
+            "x": -313.999938964844,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "yu-ran-light-01",
+            "yu-ran-light-02",
+            "yu-ran-light-03",
+            "yu-ran-light-up",
+            "yu-ran-light-down",
+            "yu-ran-heavy-side",
+            "yu-ran-heavy-up",
+            "yu-ran-heavy-down",
+            "yu-ran-dash-light",
+            "yu-ran-dash-heavy",
+            "yu-ran-air-light",
+            "yu-ran-air-heavy",
+            "yu-ran-special-neutral",
+            "yu-ran-special-up",
+            "yu-ran.base-special-side",
+            "yu-ran.base-special-down",
+            "yu-ran.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 300.0,
+            "dash_duration_seconds": 0.16,
+            "dash_speed": 520.0,
+            "gravity": 1385.0,
+            "ground_speed": 320.0,
+            "jump_velocity": 540.0,
+            "max_hp": 100.0,
+            "weight": 1.0
+          },
+          "combat_effects": [],
+          "move_set_id": "yu-ran.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 300.0,
+            "dash_duration_seconds": 0.16,
+            "dash_speed": 520.0,
+            "gravity": 1385.0,
+            "ground_speed": 320.0,
+            "jump_velocity": 540.0,
+            "max_hp": 100.0,
+            "weight": 1.0
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "ja-hyun",
+        "current_hp": 105.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_5",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 105.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1380.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/ja-hyun/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 1785.99975585938,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "ja-hyun-light-01",
+            "ja-hyun-light-02",
+            "ja-hyun-light-03",
+            "ja-hyun-light-up",
+            "ja-hyun-light-down",
+            "ja-hyun-heavy-side",
+            "ja-hyun-heavy-up",
+            "ja-hyun-heavy-down",
+            "ja-hyun-dash-light",
+            "ja-hyun-dash-heavy",
+            "ja-hyun-air-light",
+            "ja-hyun-air-heavy",
+            "ja-hyun-special-neutral",
+            "ja-hyun-special-up",
+            "ja-hyun.base-special-side",
+            "ja-hyun.base-special-down",
+            "ja-hyun.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          },
+          "combat_effects": [],
+          "move_set_id": "ja-hyun.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 280.0,
+            "dash_duration_seconds": 0.15,
+            "dash_speed": 500.0,
+            "gravity": 1400.0,
+            "ground_speed": 300.0,
+            "jump_velocity": 520.0,
+            "max_hp": 105.0,
+            "weight": 1.05
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "myo-ryung",
+        "current_hp": 95.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_6",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 95.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 560.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/myo-ryung/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 556.0,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "myo-ryung-light-01",
+            "myo-ryung-light-02",
+            "myo-ryung-light-03",
+            "myo-ryung-light-04",
+            "myo-ryung-light-up",
+            "myo-ryung-light-down",
+            "myo-ryung-heavy-side",
+            "myo-ryung-heavy-up",
+            "myo-ryung-heavy-down",
+            "myo-ryung-dash-light",
+            "myo-ryung-dash-heavy",
+            "myo-ryung-air-light",
+            "myo-ryung-air-heavy",
+            "myo-ryung-special-neutral",
+            "myo-ryung-special-up",
+            "myo-ryung.base-special-side",
+            "myo-ryung.base-special-down",
+            "myo-ryung.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          },
+          "combat_effects": [],
+          "move_set_id": "myo-ryung.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 330.0,
+            "dash_duration_seconds": 0.18,
+            "dash_speed": 560.0,
+            "gravity": 1350.0,
+            "ground_speed": 350.0,
+            "jump_velocity": 570.0,
+            "max_hp": 95.0,
+            "weight": 0.85
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      },
+      {
+        "accessory_id": "",
+        "air_attacks": 2,
+        "air_jumps": 1,
+        "attack_id": "",
+        "attack_phase_tick": 0,
+        "attack_restart_lock_ticks": 0,
+        "buffered_action": "",
+        "character_id": "nabi",
+        "current_hp": 100.0,
+        "facing": 1,
+        "guard_durability": 100.0,
+        "guard_max": 100.0,
+        "id": "ai_7",
+        "input_direction": 0,
+        "invulnerability_ticks": 0,
+        "max_hp": 100.0,
+        "on_floor": false,
+        "pending_respawn_hp": 0.0,
+        "position": {
+          "x": 1540.0,
+          "y": 520.0
+        },
+        "presentation": {
+          "animation": "idle",
+          "available": true,
+          "frame": 0,
+          "missing_motion": "",
+          "requested_motion": "idle",
+          "resource_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+          "screen_bounds": {
+            "height": 192.0,
+            "width": 192.0,
+            "x": 2025.99975585938,
+            "y": 434.999938964844
+          },
+          "visible": true
+        },
+        "respawn_ticks": 0,
+        "revive_used": false,
+        "runtime_profile": {
+          "attack_ids": [
+            "nabi-light-01",
+            "nabi-light-02",
+            "nabi-light-up",
+            "nabi-light-down",
+            "nabi-heavy-side",
+            "nabi-heavy-up",
+            "nabi-heavy-down",
+            "nabi-dash-light",
+            "nabi-dash-heavy",
+            "nabi-air-light",
+            "nabi-air-heavy",
+            "nabi-special-neutral",
+            "nabi-special-up",
+            "nabi.base-special-side",
+            "nabi.base-special-down",
+            "nabi.base-ultimate"
+          ],
+          "base_stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          },
+          "combat_effects": [],
+          "move_set_id": "nabi.base",
+          "replacement_move_set": "",
+          "stats": {
+            "air_jump_count": 1,
+            "air_speed": 315.0,
+            "dash_duration_seconds": 0.17,
+            "dash_speed": 545.0,
+            "gravity": 1380.0,
+            "ground_speed": 335.0,
+            "jump_velocity": 550.0,
+            "max_hp": 100.0,
+            "weight": 0.92
+          }
+        },
+        "special_cooldown_ticks": 0,
+        "state": "IDLE",
+        "stocks": 3,
+        "team_id": "beta",
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false,
+        "up_special": true,
+        "velocity": {
+          "x": 0.0,
+          "y": 0.0
+        }
+      }
+    ],
+    "guard_max": 100.0,
+    "is_draw": false,
+    "mode": 2,
+    "paused": false,
+    "tick": 0,
+    "ultimate_gauge_max": 100.0,
+    "winner_id": "",
+    "winner_team_id": ""
+  },
+  "step": "select_config",
+  "touch": {
+    "active": [],
+    "count": 22,
+    "events": [
+      {
+        "action": "move_right",
+        "edge": "press",
+        "seq": 97
+      },
+      {
+        "action": "move_right",
+        "edge": "release",
+        "seq": 99
+      },
+      {
+        "action": "move_left",
+        "edge": "press",
+        "seq": 101
+      },
+      {
+        "action": "move_left",
+        "edge": "release",
+        "seq": 103
+      },
+      {
+        "action": "jump",
+        "edge": "press",
+        "seq": 105
+      },
+      {
+        "action": "jump",
+        "edge": "release",
+        "seq": 108
+      },
+      {
+        "action": "attack_light",
+        "edge": "press",
+        "seq": 112
+      },
+      {
+        "action": "attack_light",
+        "edge": "release",
+        "seq": 116
+      },
+      {
+        "action": "attack_heavy",
+        "edge": "press",
+        "seq": 119
+      },
+      {
+        "action": "attack_heavy",
+        "edge": "release",
+        "seq": 122
+      },
+      {
+        "action": "attack_special",
+        "edge": "press",
+        "seq": 128
+      },
+      {
+        "action": "attack_special",
+        "edge": "release",
+        "seq": 132
+      },
+      {
+        "action": "evade",
+        "edge": "press",
+        "seq": 135
+      },
+      {
+        "action": "evade",
+        "edge": "release",
+        "seq": 136
+      },
+      {
+        "action": "move_right",
+        "edge": "press",
+        "seq": 137
+      },
+      {
+        "action": "evade",
+        "edge": "press",
+        "seq": 139
+      },
+      {
+        "action": "evade",
+        "edge": "release",
+        "seq": 142
+      },
+      {
+        "action": "move_right",
+        "edge": "release",
+        "seq": 143
+      },
+      {
+        "action": "ultimate",
+        "edge": "press",
+        "seq": 145
+      },
+      {
+        "action": "ultimate",
+        "edge": "release",
+        "seq": 146
+      },
+      {
+        "action": "ultimate",
+        "edge": "press",
+        "seq": 302
+      },
+      {
+        "action": "ultimate",
+        "edge": "release",
+        "seq": 305
+      }
+    ],
+    "observations": [
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9016,
+        "state": "FALL",
+        "tick": 9766,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2200,
+          "fighter_id": "ai_7",
+          "tick": 9777
+        },
+        "seq": 9017,
+        "tick": 9776
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9018,
+        "state": "IDLE",
+        "tick": 9777,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9019,
+        "state": "FALL",
+        "tick": 9778,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9020,
+        "state": "RUN",
+        "tick": 9791,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9021,
+        "state": "GUARD",
+        "tick": 9809,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "myo-ryung",
+          "epoch": 2,
+          "event_seq": 2201,
+          "fighter_id": "ai_6",
+          "tick": 9811
+        },
+        "seq": 9022,
+        "tick": 9810
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9023,
+        "state": "IDLE",
+        "tick": 9811,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9024,
+        "state": "RUN",
+        "tick": 9814,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9025,
+        "state": "IDLE",
+        "tick": 9827,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9026,
+        "state": "RUN",
+        "tick": 9845,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "charge_start",
+        "payload": {
+          "character_id": "myo-ryung",
+          "epoch": 2,
+          "event_seq": 2202,
+          "fighter_id": "ai_6",
+          "tick": 9850
+        },
+        "seq": 9027,
+        "tick": 9849
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9028,
+        "state": "CHARGE",
+        "tick": 9850,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "character_id": "nabi",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2203,
+          "fighter_id": "ai_7",
+          "tick": 9863
+        },
+        "seq": 9029,
+        "tick": 9862
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9030,
+        "state": "ATTACK_STARTUP",
+        "tick": 9863,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung-heavy-side",
+          "character_id": "myo-ryung",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 2204,
+          "fighter_id": "ai_6",
+          "tick": 9868
+        },
+        "seq": 9031,
+        "tick": 9867
+      },
+      {
+        "attack_id": "myo-ryung-heavy-side",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9032,
+        "state": "ATTACK_STARTUP",
+        "tick": 9868,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "attacker_id": "ai_7",
+          "character_id": "nabi",
+          "defender_id": "ai_6",
+          "epoch": 2,
+          "event_seq": 2205,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 9870
+        },
+        "seq": 9033,
+        "tick": 9869
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9034,
+        "state": "HITSTUN",
+        "tick": 9870,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9035,
+        "state": "ATTACK_ACTIVE",
+        "tick": 9870,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "myo-ryung",
+          "epoch": 2,
+          "event_seq": 2206,
+          "fighter_id": "ai_6",
+          "tick": 9874
+        },
+        "seq": 9036,
+        "tick": 9873
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9037,
+        "state": "ATTACK_RECOVERY",
+        "tick": 9874,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9038,
+        "state": "IDLE",
+        "tick": 9889,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9039,
+        "state": "RUN",
+        "tick": 9890,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9040,
+        "state": "IDLE",
+        "tick": 9892,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9041,
+        "state": "RUN",
+        "tick": 9893,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "character_id": "nabi",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2207,
+          "fighter_id": "ai_7",
+          "tick": 9899
+        },
+        "seq": 9042,
+        "tick": 9898
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9043,
+        "state": "ATTACK_STARTUP",
+        "tick": 9899,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "attacker_id": "ai_7",
+          "character_id": "nabi",
+          "defender_id": "ai_6",
+          "epoch": 2,
+          "event_seq": 2208,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 9906
+        },
+        "seq": 9044,
+        "tick": 9905
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9045,
+        "state": "HITSTUN",
+        "tick": 9906,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9046,
+        "state": "ATTACK_ACTIVE",
+        "tick": 9906,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "myo-ryung",
+          "epoch": 2,
+          "event_seq": 2209,
+          "fighter_id": "ai_6",
+          "tick": 9910
+        },
+        "seq": 9047,
+        "tick": 9909
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9048,
+        "state": "ATTACK_RECOVERY",
+        "tick": 9910,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "jump",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2210,
+          "fighter_id": "ai_7",
+          "tick": 9917
+        },
+        "seq": 9049,
+        "tick": 9916
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9050,
+        "state": "JUMP",
+        "tick": 9917,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9051,
+        "state": "IDLE",
+        "tick": 9925,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9052,
+        "state": "RUN",
+        "tick": 9926,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9053,
+        "state": "FALL",
+        "tick": 9941,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2211,
+          "fighter_id": "ai_7",
+          "tick": 9965
+        },
+        "seq": 9054,
+        "tick": 9964
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9055,
+        "state": "RUN",
+        "tick": 9965,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung-light-01",
+          "character_id": "myo-ryung",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2212,
+          "fighter_id": "ai_6",
+          "tick": 9994
+        },
+        "seq": 9056,
+        "tick": 9993
+      },
+      {
+        "attack_id": "myo-ryung-light-01",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9057,
+        "state": "ATTACK_STARTUP",
+        "tick": 9994,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung-light-01",
+          "attacker_id": "ai_6",
+          "character_id": "myo-ryung",
+          "defender_id": "ai_7",
+          "epoch": 2,
+          "event_seq": 2213,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10001
+        },
+        "seq": 9058,
+        "tick": 10000
+      },
+      {
+        "attack_id": "myo-ryung-light-01",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9059,
+        "state": "ATTACK_ACTIVE",
+        "tick": 10001,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9060,
+        "state": "HITSTUN",
+        "tick": 10001,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2214,
+          "fighter_id": "ai_7",
+          "tick": 10005
+        },
+        "seq": 9061,
+        "tick": 10004
+      },
+      {
+        "attack_id": "myo-ryung-light-01",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9062,
+        "state": "ATTACK_RECOVERY",
+        "tick": 10005,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung.base-special-side",
+          "character_id": "myo-ryung",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 2215,
+          "fighter_id": "ai_6",
+          "tick": 10012
+        },
+        "seq": 9063,
+        "tick": 10011
+      },
+      {
+        "attack_id": "myo-ryung.base-special-side",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9064,
+        "state": "ATTACK_STARTUP",
+        "tick": 10012,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9065,
+        "state": "IDLE",
+        "tick": 10018,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9066,
+        "state": "RUN",
+        "tick": 10019,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung.base-special-side",
+          "attacker_id": "ai_6",
+          "character_id": "myo-ryung",
+          "defender_id": "ai_7",
+          "epoch": 2,
+          "event_seq": 2216,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10021
+        },
+        "seq": 9067,
+        "tick": 10020
+      },
+      {
+        "attack_id": "myo-ryung.base-special-side",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9068,
+        "state": "ATTACK_ACTIVE",
+        "tick": 10021,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9069,
+        "state": "HITSTUN",
+        "tick": 10021,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2217,
+          "fighter_id": "ai_7",
+          "tick": 10024
+        },
+        "seq": 9070,
+        "tick": 10023
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung.base-special-side",
+          "attacker_id": "ai_6",
+          "character_id": "myo-ryung",
+          "defender_id": "ai_7",
+          "epoch": 2,
+          "event_seq": 2218,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10024
+        },
+        "seq": 9071,
+        "tick": 10023
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2219,
+          "fighter_id": "ai_7",
+          "tick": 10027
+        },
+        "seq": 9072,
+        "tick": 10026
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_special",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung.base-special-side",
+          "attacker_id": "ai_6",
+          "character_id": "myo-ryung",
+          "defender_id": "ai_7",
+          "epoch": 2,
+          "event_seq": 2220,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10027
+        },
+        "seq": 9073,
+        "tick": 10026
+      },
+      {
+        "attack_id": "myo-ryung.base-special-side",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9074,
+        "state": "ATTACK_RECOVERY",
+        "tick": 10029,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2221,
+          "fighter_id": "ai_7",
+          "tick": 10030
+        },
+        "seq": 9075,
+        "tick": 10029
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9076,
+        "state": "IDLE",
+        "tick": 10047,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9077,
+        "state": "IDLE",
+        "tick": 10047,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9078,
+        "state": "RUN",
+        "tick": 10048,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9079,
+        "state": "RUN",
+        "tick": 10048,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "character_id": "nabi",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2222,
+          "fighter_id": "ai_7",
+          "tick": 10061
+        },
+        "seq": 9080,
+        "tick": 10060
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9081,
+        "state": "ATTACK_STARTUP",
+        "tick": 10061,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9082,
+        "state": "GUARD",
+        "tick": 10066,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "attacker_id": "ai_7",
+          "character_id": "nabi",
+          "defender_id": "ai_6",
+          "epoch": 2,
+          "event_seq": 2223,
+          "reaction": "",
+          "result": "BLOCK",
+          "tick": 10068
+        },
+        "seq": 9083,
+        "tick": 10067
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9084,
+        "state": "ATTACK_ACTIVE",
+        "tick": 10068,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9085,
+        "state": "ATTACK_RECOVERY",
+        "tick": 10072,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung-light-01",
+          "character_id": "myo-ryung",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2224,
+          "fighter_id": "ai_6",
+          "tick": 10084
+        },
+        "seq": 9086,
+        "tick": 10083
+      },
+      {
+        "attack_id": "myo-ryung-light-01",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9087,
+        "state": "ATTACK_STARTUP",
+        "tick": 10084,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-02",
+          "character_id": "nabi",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2225,
+          "fighter_id": "ai_7",
+          "tick": 10090
+        },
+        "seq": 9088,
+        "tick": 10089
+      },
+      {
+        "attack_id": "nabi-light-02",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9089,
+        "state": "ATTACK_STARTUP",
+        "tick": 10090,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung-light-01",
+          "attacker_id": "ai_6",
+          "character_id": "myo-ryung",
+          "defender_id": "ai_7",
+          "epoch": 2,
+          "event_seq": 2226,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10091
+        },
+        "seq": 9090,
+        "tick": 10090
+      },
+      {
+        "attack_id": "myo-ryung-light-01",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9091,
+        "state": "ATTACK_ACTIVE",
+        "tick": 10091,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9092,
+        "state": "HITSTUN",
+        "tick": 10091,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2227,
+          "fighter_id": "ai_7",
+          "tick": 10095
+        },
+        "seq": 9093,
+        "tick": 10094
+      },
+      {
+        "attack_id": "myo-ryung-light-01",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9094,
+        "state": "ATTACK_RECOVERY",
+        "tick": 10095,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9095,
+        "state": "IDLE",
+        "tick": 10108,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9096,
+        "state": "RUN",
+        "tick": 10109,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9097,
+        "state": "IDLE",
+        "tick": 10113,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "character_id": "nabi",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2228,
+          "fighter_id": "ai_7",
+          "tick": 10115
+        },
+        "seq": 9098,
+        "tick": 10114
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9099,
+        "state": "ATTACK_STARTUP",
+        "tick": 10115,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-01",
+          "attacker_id": "ai_7",
+          "character_id": "nabi",
+          "defender_id": "ai_6",
+          "epoch": 2,
+          "event_seq": 2229,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10122
+        },
+        "seq": 9100,
+        "tick": 10121
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9101,
+        "state": "HITSTUN",
+        "tick": 10122,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9102,
+        "state": "ATTACK_ACTIVE",
+        "tick": 10122,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "myo-ryung",
+          "epoch": 2,
+          "event_seq": 2230,
+          "fighter_id": "ai_6",
+          "tick": 10126
+        },
+        "seq": 9103,
+        "tick": 10125
+      },
+      {
+        "attack_id": "nabi-light-01",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9104,
+        "state": "ATTACK_RECOVERY",
+        "tick": 10126,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9105,
+        "state": "IDLE",
+        "tick": 10141,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9106,
+        "state": "RUN",
+        "tick": 10142,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-02",
+          "character_id": "nabi",
+          "direction": "neutral",
+          "epoch": 2,
+          "event_seq": 2231,
+          "fighter_id": "ai_7",
+          "tick": 10144
+        },
+        "seq": 9107,
+        "tick": 10143
+      },
+      {
+        "attack_id": "nabi-light-02",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9108,
+        "state": "ATTACK_STARTUP",
+        "tick": 10144,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_light",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-light-02",
+          "attacker_id": "ai_7",
+          "character_id": "nabi",
+          "defender_id": "ai_6",
+          "epoch": 2,
+          "event_seq": 2232,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10154
+        },
+        "seq": 9109,
+        "tick": 10153
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9110,
+        "state": "HITSTUN",
+        "tick": 10154,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "nabi-light-02",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9111,
+        "state": "ATTACK_ACTIVE",
+        "tick": 10154,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "nabi-light-02",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9112,
+        "state": "ATTACK_RECOVERY",
+        "tick": 10158,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "land",
+        "payload": {
+          "character_id": "myo-ryung",
+          "epoch": 2,
+          "event_seq": 2233,
+          "fighter_id": "ai_6",
+          "tick": 10159
+        },
+        "seq": 9113,
+        "tick": 10158
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9114,
+        "state": "IDLE",
+        "tick": 10175,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9115,
+        "state": "RUN",
+        "tick": 10176,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9116,
+        "state": "IDLE",
+        "tick": 10180,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9117,
+        "state": "RUN",
+        "tick": 10181,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "charge_start",
+        "payload": {
+          "character_id": "nabi",
+          "epoch": 2,
+          "event_seq": 2234,
+          "fighter_id": "ai_7",
+          "tick": 10187
+        },
+        "seq": 9118,
+        "tick": 10186
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9119,
+        "state": "CHARGE",
+        "tick": 10187,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "charge_start",
+        "payload": {
+          "character_id": "myo-ryung",
+          "epoch": 2,
+          "event_seq": 2235,
+          "fighter_id": "ai_6",
+          "tick": 10192
+        },
+        "seq": 9120,
+        "tick": 10191
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9121,
+        "state": "CHARGE",
+        "tick": 10192,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-heavy-side",
+          "character_id": "nabi",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 2236,
+          "fighter_id": "ai_7",
+          "tick": 10205
+        },
+        "seq": 9122,
+        "tick": 10204
+      },
+      {
+        "attack_id": "nabi-heavy-side",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9123,
+        "state": "ATTACK_STARTUP",
+        "tick": 10205,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "attack_started",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "myo-ryung-heavy-side",
+          "character_id": "myo-ryung",
+          "direction": "side",
+          "epoch": 2,
+          "event_seq": 2237,
+          "fighter_id": "ai_6",
+          "tick": 10210
+        },
+        "seq": 9124,
+        "tick": 10209
+      },
+      {
+        "attack_id": "myo-ryung-heavy-side",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9125,
+        "state": "ATTACK_STARTUP",
+        "tick": 10210,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "id": "hit_resolved",
+        "payload": {
+          "action_id": "attack_heavy",
+          "activation_serial": "[device-private]",
+          "attack_id": "nabi-heavy-side",
+          "attacker_id": "ai_7",
+          "character_id": "nabi",
+          "defender_id": "ai_6",
+          "epoch": 2,
+          "event_seq": 2238,
+          "reaction": "NORMAL_HIT",
+          "result": "HIT",
+          "tick": 10216
+        },
+        "seq": 9126,
+        "tick": 10215
+      },
+      {
+        "id": "match_end",
+        "payload": {
+          "epoch": 2,
+          "event_seq": 2239,
+          "tick": 10216,
+          "winner_id": "ai_7"
+        },
+        "seq": 9127,
+        "tick": 10215
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 9128,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 9129,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_2",
+        "id": "fighter_state",
+        "seq": 9130,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_3",
+        "id": "fighter_state",
+        "seq": 9131,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 9132,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_5",
+        "id": "fighter_state",
+        "seq": 9133,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9134,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "nabi-heavy-side",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9135,
+        "state": "MATCH_ENDED",
+        "tick": 10216,
+        "ultimate_gauge": 100.0,
+        "ultimate_used_this_stock": true
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "player",
+        "id": "fighter_state",
+        "seq": 9136,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_1",
+        "id": "fighter_state",
+        "seq": 9137,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_2",
+        "id": "fighter_state",
+        "seq": 9138,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_3",
+        "id": "fighter_state",
+        "seq": 9139,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_4",
+        "id": "fighter_state",
+        "seq": 9140,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_5",
+        "id": "fighter_state",
+        "seq": 9141,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_6",
+        "id": "fighter_state",
+        "seq": 9142,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      },
+      {
+        "attack_id": "",
+        "fighter_id": "ai_7",
+        "id": "fighter_state",
+        "seq": 9143,
+        "state": "IDLE",
+        "tick": 0,
+        "ultimate_gauge": 0.0,
+        "ultimate_used_this_stock": false
+      }
+    ]
+  },
+  "touch_events": [
+    {
+      "action": "move_right",
+      "edge": "press",
+      "seq": 97
+    },
+    {
+      "action": "move_right",
+      "edge": "release",
+      "seq": 99
+    },
+    {
+      "action": "move_left",
+      "edge": "press",
+      "seq": 101
+    },
+    {
+      "action": "move_left",
+      "edge": "release",
+      "seq": 103
+    },
+    {
+      "action": "jump",
+      "edge": "press",
+      "seq": 105
+    },
+    {
+      "action": "jump",
+      "edge": "release",
+      "seq": 108
+    },
+    {
+      "action": "attack_light",
+      "edge": "press",
+      "seq": 112
+    },
+    {
+      "action": "attack_light",
+      "edge": "release",
+      "seq": 116
+    },
+    {
+      "action": "attack_heavy",
+      "edge": "press",
+      "seq": 119
+    },
+    {
+      "action": "attack_heavy",
+      "edge": "release",
+      "seq": 122
+    },
+    {
+      "action": "attack_special",
+      "edge": "press",
+      "seq": 128
+    },
+    {
+      "action": "attack_special",
+      "edge": "release",
+      "seq": 132
+    },
+    {
+      "action": "evade",
+      "edge": "press",
+      "seq": 135
+    },
+    {
+      "action": "evade",
+      "edge": "release",
+      "seq": 136
+    },
+    {
+      "action": "move_right",
+      "edge": "press",
+      "seq": 137
+    },
+    {
+      "action": "evade",
+      "edge": "press",
+      "seq": 139
+    },
+    {
+      "action": "evade",
+      "edge": "release",
+      "seq": 142
+    },
+    {
+      "action": "move_right",
+      "edge": "release",
+      "seq": 143
+    },
+    {
+      "action": "ultimate",
+      "edge": "press",
+      "seq": 145
+    },
+    {
+      "action": "ultimate",
+      "edge": "release",
+      "seq": 146
+    },
+    {
+      "action": "ultimate",
+      "edge": "press",
+      "seq": 302
+    },
+    {
+      "action": "ultimate",
+      "edge": "release",
+      "seq": 305
+    }
+  ],
+  "ui": [
+    {
+      "height": 0.0805555555555556,
+      "id": "match/button/일시정지/0",
+      "kind": "button",
+      "node_name": "@Button@6329",
+      "text": "일시정지",
+      "visible": true,
+      "width": 0.155440414507772,
+      "x": 0.911917098445596,
+      "y": 0.2875
+    },
+    {
+      "height": 0.02,
+      "id": "touch/move_left",
+      "kind": "touch",
+      "text": "move_left",
+      "width": 0.02,
+      "x": 0.102655183465987,
+      "y": 0.788888210720486
+    },
+    {
+      "height": 0.02,
+      "id": "touch/move_right",
+      "kind": "touch",
+      "text": "move_right",
+      "width": 0.02,
+      "x": 0.185556619278508,
+      "y": 0.788888210720486
+    },
+    {
+      "height": 0.02,
+      "id": "touch/move_up",
+      "kind": "touch",
+      "text": "move_up",
+      "width": 0.02,
+      "x": 0.144105901372247,
+      "y": 0.699999448988173
+    },
+    {
+      "height": 0.02,
+      "id": "touch/move_down",
+      "kind": "touch",
+      "text": "move_down",
+      "width": 0.02,
+      "x": 0.144105901372247,
+      "y": 0.877776930067274
+    },
+    {
+      "height": 0.111111111111111,
+      "id": "touch/evade",
+      "kind": "touch",
+      "text": "evade",
+      "visible": true,
+      "width": 0.0518134715025907,
+      "x": 0.809585492227979,
+      "y": 0.916666666666667
+    },
+    {
+      "height": 0.111111111111111,
+      "id": "touch/jump",
+      "kind": "touch",
+      "text": "jump",
+      "visible": true,
+      "width": 0.0518134715025907,
+      "x": 0.932642487046632,
+      "y": 0.916666666666667
+    },
+    {
+      "height": 0.133333333333333,
+      "id": "touch/attack_light",
+      "kind": "touch",
+      "text": "attack_light",
+      "visible": true,
+      "width": 0.0621761658031088,
+      "x": 0.870466321243523,
+      "y": 0.777777777777778
+    },
+    {
+      "height": 0.111111111111111,
+      "id": "touch/attack_heavy",
+      "kind": "touch",
+      "text": "attack_heavy",
+      "visible": true,
+      "width": 0.0518134715025907,
+      "x": 0.941709844559586,
+      "y": 0.672222222222222
+    },
+    {
+      "height": 0.111111111111111,
+      "id": "touch/attack_special",
+      "kind": "touch",
+      "text": "attack_special",
+      "visible": true,
+      "width": 0.0518134715025907,
+      "x": 0.801813471502591,
+      "y": 0.711111111111111
+    },
+    {
+      "height": 0.0888888888888889,
+      "id": "touch/ultimate",
+      "kind": "touch",
+      "text": "ultimate",
+      "visible": true,
+      "width": 0.0414507772020725,
+      "x": 0.85880829015544,
+      "y": 0.569444444444444
+    }
+  ],
+  "viewport": {
+    "height": 720.0,
+    "width": 1544.0
+  }
+}
