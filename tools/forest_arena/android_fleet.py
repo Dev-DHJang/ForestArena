@@ -262,7 +262,10 @@ class ADB:
     def original_store_hashes(self):
         paths = ('files/local_player.json', 'files/local_player.json.bak',
                  'files/db_profile_session.json', 'files/demo_guest_session.json',
-                 'files/forest_arena_audio.cfg')
+                 'files/forest_arena_audio.cfg') + tuple(
+                     f'files/{name}.json{suffix}'
+                     for name in ('menu_presets_v01', 'menu_controls_v01', 'menu_identity_v01', 'menu_progress_v01')
+                     for suffix in ('', '.bak'))
         if self.run('get-state').strip() != b'device':
             raise Blocked('기존 저장 파일 확인 중 ADB 연결 상태를 확인하지 못했습니다.')
         installed = self.shell('pm', 'path', self.package)
@@ -295,22 +298,24 @@ class ADB:
     def read_state(self, run_id):
         raw = self.run('exec-out', 'run-as', self.package, 'cat', f'files/qa/{run_id}/state.json', check=False)
         startup = self.run('exec-out', 'run-as', self.package, 'cat', f'files/qa/{run_id}/startup.json', check=False)
-        try:
-            title = json.loads(startup) if startup.strip() else {}
-            game = json.loads(raw) if raw.strip() else {}
-            if title.get('run_id') == run_id and (title.get('boot_id', '').split('-')[1:2] != game.get('boot_id', '').split('-')[:1] or title.get('msec', -1) > game.get('msec', -1)):
-                raw = startup
-        except (ValueError, UnicodeDecodeError):
-            pass
-        if not raw.strip():
+        def state_object(data):
+            # Android exec-out may return cat's missing-file message on stdout.
+            # A not-yet-created game file must not hide a valid title state.
+            try:
+                value = json.loads(data)
+            except (ValueError, UnicodeDecodeError):
+                return {}
+            return value if isinstance(value, dict) else {}
+
+        title, game = state_object(startup), state_object(raw)
+        value = game
+        if title.get('run_id') == run_id and (title.get('boot_id', '').split('-')[1:2] != game.get('boot_id', '').split('-')[:1] or title.get('msec', -1) > game.get('msec', -1)):
+            value = title
+        if not value:
             status = self.run('get-state').strip()
             if status != b'device':
                 raise Blocked('ADB 연결이 끊겼습니다.')
             return None
-        try:
-            value = json.loads(raw)
-        except (ValueError, UnicodeDecodeError):
-            return None  # atomic runtime write may not yet exist
         if value.get('run_id') != run_id or value.get('schema_version') != SCHEMA_VERSION:
             raise Failure('테스트 상태의 실행 ID 또는 형식 버전이 다릅니다.')
         return value
