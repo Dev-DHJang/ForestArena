@@ -1,0 +1,1980 @@
+[
+  {
+    "id": "d8ac01df-6646-81d2-8008-a3696fea940f",
+    "name": "00_Cover",
+    "boards": []
+  },
+  {
+    "id": "35296707-3966-807c-8008-a3bce43a797f",
+    "name": "01_Foundations",
+    "boards": []
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a48871123b4d",
+    "name": "02_Components",
+    "boards": []
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a4888047f467",
+    "name": "03_Launch",
+    "boards": [
+      {
+        "id": "fa154361-0c45-804b-8008-a49196a916a4",
+        "name": "SCR_01_Splash",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491973b71de",
+        "name": "SCR_02_Login",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      }
+    ]
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a4888bb5b373",
+    "name": "04_Lobby_Meta",
+    "boards": [
+      {
+        "id": "fa154361-0c45-804b-8008-a491b4e8ce2a",
+        "name": "SCR_03_Lobby",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a89605696f84",
+        "name": "CMP20 / SCR_03_Lobby",
+        "width": 2400,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491b5ca4785",
+        "name": "SCR_04_CharacterCollection",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491b6b28e5f",
+        "name": "SCR_05_CharacterDetail",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491b7a5ad5a",
+        "name": "SCR_06_AccessoryCollection",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491b8d1bd80",
+        "name": "SCR_07_AccessoryDetail",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491ba0af635",
+        "name": "SCR_08_Preset",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491bb58cc4c",
+        "name": "SCR_19_Shop",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491bcd3fc8b",
+        "name": "SCR_20_Collection",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491be6a1c18",
+        "name": "SCR_21_Mission",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491c01b0faf",
+        "name": "SCR_22_Social",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491c1d3d330",
+        "name": "SCR_23_Rank",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491c37e42ba",
+        "name": "SCR_24_Profile",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a6500d0d310b",
+        "name": "EXT_06_GeneralSettings",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      }
+    ]
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a48892b4d2fc",
+    "name": "05_Match_Flow",
+    "boards": [
+      {
+        "id": "fa154361-0c45-804b-8008-a491e9c03af5",
+        "name": "SCR_09_ModeSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491ea33c21a",
+        "name": "SCR_10_PartyLobby",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491eab06c55",
+        "name": "SCR_11_Matchmaking",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491eb3a3025",
+        "name": "SCR_12_MatchFound",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491ebd2c365",
+        "name": "SCR_13_CharacterSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a8960adb501e",
+        "name": "CMP20 / SCR_13_CharacterSelect",
+        "width": 2400,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491ecd3c15a",
+        "name": "SCR_14_AccessorySelect",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a491edb3b9e0",
+        "name": "SCR_15_Loading",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a6503257510d",
+        "name": "EXT_01_JobSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a6504365380d",
+        "name": "EXT_02_ArenaSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a650553fc325",
+        "name": "EXT_03_StoryChapters",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a6507334bc5c",
+        "name": "EXT_04_AISetup",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a6508566f9ca",
+        "name": "EXT_05_PracticeSetup",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      }
+    ]
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a4889b76b603",
+    "name": "06_Combat",
+    "boards": [
+      {
+        "id": "fa154361-0c45-804b-8008-a49225a96e87",
+        "name": "CBT_02_Match_Solo8",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a4922668aaf5",
+        "name": "CBT_03_Match_Team4v4",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a8960f537e85",
+        "name": "CMP20 / CBT_03_Match_Team4v4",
+        "width": 2400,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a4922751ce3d",
+        "name": "CBT_04_Practice",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a49228553b18",
+        "name": "CBT_05_Pause",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a49228b36474",
+        "name": "CBT_06_Resume",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a49229160a3b",
+        "name": "CBT_07_LeaveConfirm",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a492297a905e",
+        "name": "CBT_08_Settings",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a492acd4167f",
+        "name": "CBT_01_Match_1v1",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a651a77be291",
+        "name": "STATE_Countdown",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a651b6031471",
+        "name": "STATE_Hit",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a651c58268f9",
+        "name": "STATE_Ringout",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a651ddaa5525",
+        "name": "STATE_Respawn",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a651f2f8ac46",
+        "name": "STATE_Eliminated",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a652055729ea",
+        "name": "STATE_Defeat",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a652220cd420",
+        "name": "STATE_SelectionRequired",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a6523ce09ab3",
+        "name": "STATE_EmptyList",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a65258400e3d",
+        "name": "STATE_ConnectionError",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a6527c0769fd",
+        "name": "STATE_SettingsReset",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a65298954d43",
+        "name": "STATE_OnlineMenu",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a652b64babb6",
+        "name": "STATE_CancelMatch",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      }
+    ]
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a488a3fa238a",
+    "name": "07_Result",
+    "boards": [
+      {
+        "id": "fa154361-0c45-804b-8008-a49202351ba9",
+        "name": "SCR_16_Victory",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a49202a8bf0b",
+        "name": "SCR_17_ResultSummary",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      },
+      {
+        "id": "fa154361-0c45-804b-8008-a49203172548",
+        "name": "SCR_18_MVP",
+        "width": 1920,
+        "height": 1080,
+        "links": []
+      }
+    ]
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a488ac8dc14b",
+    "name": "08_Assets_Mapping",
+    "boards": []
+  },
+  {
+    "id": "fbd33e5f-ce05-80fc-8008-a488b3c86f2e",
+    "name": "09_Dev_Handoff",
+    "boards": []
+  },
+  {
+    "id": "fa154361-0c45-804b-8008-a716ae2e1448",
+    "name": "10_Prototype",
+    "boards": [
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b5cd761b",
+        "name": "PROTO / SCR_01_Splash",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985b5cd761b",
+            "trigger": "after-delay",
+            "target": "5eab23a0-5a25-8021-8008-a985b5e1b086"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c5ccfd36",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+        "name": "PROTO / SCR_02_Login",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c644eb5c",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c654ddc8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985babfde32"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c69d7d13",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+        "name": "PROTO / SCR_03_Lobby",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c8276cda",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a416c856",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a446f55e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b64500bb"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a47167e8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a4a1bd7f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6c9bdd4"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a4d3f4ab",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a5006a1e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b69864c9"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a52d25ca",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b71ad274"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a557c787",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7415755"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a58606f6",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a5b08ddc",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a5e08b59",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+          },
+          {
+            "shape": "2a56dcea-1b2f-800a-8008-c159a60f8a25",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+        "name": "PROTO / SCR_04_CharacterCollection",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c87cc9d3",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c8904156",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b62e63bf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c8a3df99",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b62e63bf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c8e1285d",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+        "name": "PROTO / SCR_05_CharacterDetail",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c94af8f1",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c9650aab",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c97c97a1",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985c9d65ded",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b64500bb",
+        "name": "PROTO / SCR_06_AccessoryCollection",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ca405b31",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ca5b3aa1",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ca72ed51",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b65bf152"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cac62283",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b65bf152",
+        "name": "PROTO / SCR_07_AccessoryDetail",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cb3e062b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b64500bb"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cb57634a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cb6d48f1",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cbb172c7",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b672da75",
+        "name": "PROTO / SCR_08_Preset",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cc5decae",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cc7575d8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cc8c9606",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b82ec298"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cc9ecba8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b64500bb"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ccb4a683",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cd2279c7",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b69864c9",
+        "name": "PROTO / SCR_19_Shop",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cdce2c4f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cde9622e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ce1a478f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ce409338",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ce6a3c50",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cee757db",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b6ad2069",
+        "name": "PROTO / SCR_20_Collection",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cf8f42c8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cfac696b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985cffd82e3",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+        "name": "PROTO / SCR_21_Mission",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d07fec3b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d09726f1",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d10fc833",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+        "name": "PROTO / SCR_22_Social",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d19da962",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d1c1537b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985ba9dc346"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d1ea9264",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d2100efd",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d232532e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d2911957",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b700f860",
+        "name": "PROTO / SCR_23_Rank",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d354511f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d37f78a0",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d42e1744",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b71ad274",
+        "name": "PROTO / SCR_24_Profile",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d5223bea",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d55019de",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d58004ae",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d6336505",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b7415755",
+        "name": "PROTO / EXT_06_GeneralSettings",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d70e93f6",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d73a43d3",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d7747b2f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985baeda876"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d823d04d",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+        "name": "PROTO / SCR_09_ModeSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d9105269",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d93b452b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d9731b12",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d9a58513",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985d9daac39",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b88ac355"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985da128adc",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dacee8b2",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+        "name": "PROTO / SCR_10_PartyLobby",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985db9b52e8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dbd18902",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dbf637af",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7a501a0"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dc1d630a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7a501a0"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dcc4f998",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+        "name": "PROTO / SCR_11_Matchmaking",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ddb6b07d",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ddde63f7",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb306d34"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985de1b090e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7c2d317"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dec2f62a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b7c2d317",
+        "name": "PROTO / SCR_12_MatchFound",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985df933a5b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dfbad5f5",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985dfe0f28a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e194c36f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+        "name": "PROTO / SCR_13_CharacterSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e2640f28",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e2a00d5a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b62e63bf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e2cc2696",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b82ec298"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e386180b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+        "name": "PROTO / SCR_14_AccessorySelect",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e449103a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b82ec298"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e48b3730",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e4bdeaa5",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b84e2660"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e55a888f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b81481fd",
+        "name": "PROTO / SCR_15_Loading",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985b81481fd",
+            "trigger": "after-delay",
+            "target": "5eab23a0-5a25-8021-8008-a985b9baf2cf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e63ce0dc",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b84e2660"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e717606f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b82ec298",
+        "name": "PROTO / EXT_01_JobSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e80135c4",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e8255be2",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7fb1602"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e8adeaf5",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b84e2660",
+        "name": "PROTO / EXT_02_ArenaSelect",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e94ed75a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7fb1602"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e975ab6f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b81481fd"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985e9f378fd",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+        "name": "PROTO / EXT_03_StoryChapters",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ea9f8f48",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985eac4090c",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985eb457215",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b88ac355",
+        "name": "PROTO / EXT_04_AISetup",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ebdd368e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ec012ee2",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ec9a1f5a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+        "name": "PROTO / EXT_05_PracticeSetup",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ed48e591",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ed6f484b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985edf99d3b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b8c86fbc",
+        "name": "PROTO / CBT_02_Match_Solo8",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985eeaf83b2",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985ef42c8ed",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985efb4bd38",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f0322c62",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f0beda3d",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b94021fd"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b8e694b1",
+        "name": "PROTO / CBT_03_Match_Team4v4",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f17f30da",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f21e8910",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f2b04d27",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f3466e7f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f3dd3eae",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b94021fd"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+        "name": "PROTO / CBT_04_Practice",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f49de7c3",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f4c49af9",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f55b22c3",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f5f0b1ce",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f6933f8c",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f73861c2",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b94021fd"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b923ec52",
+        "name": "PROTO / CBT_05_Pause",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f80b69eb",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b95da5a2"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f8380a31",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b99c921f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f8d27762",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b94021fd",
+        "name": "PROTO / CBT_06_Resume",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f9a73a9d",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b95da5a2"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985f9d8449e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b9baf2cf"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985fa82a41f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+        "name": "PROTO / CBT_07_LeaveConfirm",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986021feb0c",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b99c921f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98602436eff",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98602b93a69",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+        "name": "PROTO / CBT_08_Settings",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98603432ea6",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7415755"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986036923b9",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985baeda876"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986038b1d59",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7415755"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986043e3af5",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b99c921f",
+        "name": "PROTO / CBT_01_Match_1v1",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986051b79f5",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98605de692e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860686fe95",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98607396a68",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98607ba27b3",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b94021fd"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+        "name": "PROTO / STATE_Countdown",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+            "trigger": "after-delay",
+            "target": "5eab23a0-5a25-8021-8008-a985b99c921f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986085fa5ea",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98608eb56cd",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b9d90ee8",
+        "name": "PROTO / STATE_Hit",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98609ca7888",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b99c921f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860a17f432",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860a93b11a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985b9fb4a22",
+        "name": "PROTO / STATE_Ringout",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860b111a93",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985ba1a8705"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860b3a7ca7",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860bfee125",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985ba1a8705",
+        "name": "PROTO / STATE_Respawn",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860cf03ed6",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b99c921f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860d2565ca",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860ddf7bfb",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985ba3ad14d",
+        "name": "PROTO / STATE_Eliminated",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860ec67325",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb7ba1a4"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860f025242",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9860fcd9eda",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+        "name": "PROTO / STATE_Defeat",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986109ef304",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb7ba1a4"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98610d82aa8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b923ec52"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98611a73ed0",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985ba80210a",
+        "name": "PROTO / STATE_SelectionRequired",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98612a52513",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98612e422e0",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98613983a84",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985ba9dc346",
+        "name": "PROTO / STATE_EmptyList",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98614697727",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986148dd10e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986154a6125",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985babfde32",
+        "name": "PROTO / STATE_ConnectionError",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861654ee80",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5e1b086"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98616929407",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986176093ce",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985baeda876",
+        "name": "PROTO / STATE_SettingsReset",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986184bb77b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98618834e23",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861961c003",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985bb1115ca",
+        "name": "PROTO / STATE_OnlineMenu",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861a6e4a07",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b8e694b1"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861aaffaa7",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b95da5a2"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861b89db9f",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985bb306d34",
+        "name": "PROTO / STATE_CancelMatch",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861c981d68",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861cd83c8e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7a501a0"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9861d91c8bd",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+        "name": "PROTO / SCR_16_Victory",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986228508c9",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98622aeb015",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98622df2913",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb7ba1a4"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98623b1afc6",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+        "name": "PROTO / SCR_17_ResultSummary",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98624a38b74",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98624e58be5",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a9862528e59d",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985bb9f151b"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98626181e17",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "5eab23a0-5a25-8021-8008-a985bb9f151b",
+        "name": "PROTO / SCR_18_MVP",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986273a246e",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a986277a5598",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b71ad274"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98627ae4815",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98627e618c2",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          },
+          {
+            "shape": "5eab23a0-5a25-8021-8008-a98628abbe78",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          }
+        ]
+      },
+      {
+        "id": "8626232c-968c-808f-8008-c1a6cb15babf",
+        "name": "MOTION / SCR_03_Lobby / rest",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15babf",
+            "trigger": "after-delay",
+            "target": "8626232c-968c-808f-8008-c1a6cbbc8f02"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bac3",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bac4",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bac5",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b64500bb"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bac6",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bac7",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6c9bdd4"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bac8",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bac9",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b69864c9"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15baca",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b71ad274"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bacb",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7415755"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bacc",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bacd",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bace",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cb15bacf",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          }
+        ]
+      },
+      {
+        "id": "8626232c-968c-808f-8008-c1a6cbbc8f02",
+        "name": "MOTION / SCR_03_Lobby / inhale",
+        "width": 1920,
+        "height": 1080,
+        "links": [
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbc8f02",
+            "trigger": "after-delay",
+            "target": "8626232c-968c-808f-8008-c1a6cb15babf"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf241",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985c54ba777"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf242",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf243",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b64500bb"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf244",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf245",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6c9bdd4"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf246",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf247",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b69864c9"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf248",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b71ad274"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf249",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7415755"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf24a",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b672da75"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf24b",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf24c",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+          },
+          {
+            "shape": "8626232c-968c-808f-8008-c1a6cbbcf24d",
+            "trigger": "click",
+            "target": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+          }
+        ]
+      }
+    ]
+  }
+]

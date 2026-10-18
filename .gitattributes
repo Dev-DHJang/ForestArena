@@ -1,0 +1,4 @@
+# CSV writers use CRLF; preserve evidence bytes and allow carriage returns at line ends.
+*.csv whitespace=cr-at-eol
+# Keep hash-bound historical SVG exports byte-for-byte, including generated blank padding lines.
+assets/ui/forestlight-polish-v04/*.svg whitespace=-blank-at-eol

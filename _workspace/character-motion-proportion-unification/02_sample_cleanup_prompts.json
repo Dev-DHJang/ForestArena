@@ -1,0 +1,29 @@
+[
+  {
+    "cid": "myo-ryung",
+    "task": "background-extraction",
+    "prompt": "Use case: background-extraction. Edit the supplied exact myo-ryung idle contact sheet. Remove ONLY the flat gray background and replace it with genuine transparent alpha. Preserve all 16 original character poses, their precise anatomy, head/body proportions, image size, 4x4 layout, positions, scale, colors, clothing, faces, ears, tails and accessories. Do NOT redraw or change anything inside the character artwork. Remove gray from enclosed gaps between arms/legs/tails too. Clean antialiased edges without speckles, colored fringe or opaque shadow. Transparent RGBA PNG, no checkerboard pixels.",
+    "referenced_image_paths": [
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/02_samples/myo-ryung/idle-r05-gray.png"
+    ],
+    "transparent_background": true
+  },
+  {
+    "cid": "yu-ran",
+    "task": "background-extraction",
+    "prompt": "Use case: background-extraction. Edit the supplied exact yu-ran idle contact sheet. Remove ONLY the flat gray background and replace it with genuine transparent alpha. Preserve all 16 original character poses, their precise anatomy, head/body proportions, image size, 4x4 layout, positions, scale, colors, clothing, faces, ears, tails and accessories. Do NOT redraw or change anything inside the character artwork. Remove gray from enclosed gaps between arms/legs/tails too. Clean antialiased edges without speckles, colored fringe or opaque shadow. Transparent RGBA PNG, no checkerboard pixels.",
+    "referenced_image_paths": [
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/02_samples/yu-ran/idle-r05-gray.png"
+    ],
+    "transparent_background": true
+  },
+  {
+    "cid": "nabi",
+    "task": "bottom-margin-fix",
+    "prompt": "Use case: precise-object-edit. Keep this exact Nabi 16-pose idle sheet unchanged in identity, body proportions, colors and poses. Fix ONLY the canvas framing: add sufficient gray canvas margin BELOW the fourth row, and finish any tiny missing bottom edge of those four sneakers so all sixteen shoes are complete and separated from the canvas edge. Preserve the other twelve figures and their positions. All sixteen figures retain the same scale; no stretching, no row shrinking, no new poses. Keep the same flat gray background. Deliver all sixteen complete figures in their original 4x4 order with clear outer padding, no cropping, no text or VFX.",
+    "referenced_image_paths": [
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/02_samples/nabi/idle-r05-gray.png"
+    ],
+    "transparent_background": false
+  }
+]

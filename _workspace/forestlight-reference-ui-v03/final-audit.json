@@ -1,0 +1,6116 @@
+{
+  "boards": [
+    {
+      "page": "03_Launch",
+      "id": "fa154361-0c45-804b-8008-a49196a916a4",
+      "name": "SCR_01_Splash",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / splash",
+          "id": "c514c1fb-1cda-8125-8008-a5efeb995922"
+        }
+      ],
+      "controls": [],
+      "buttons": []
+    },
+    {
+      "page": "03_Launch",
+      "id": "fa154361-0c45-804b-8008-a491973b71de",
+      "name": "SCR_02_Login",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / splash",
+          "id": "c514c1fb-1cda-8125-8008-a5efeb995922"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f116563758",
+          "name": "BUTTON / 게스트로 시작",
+          "label": "게스트로 시작",
+          "x": 800,
+          "y": 790,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f116f02703",
+          "name": "BUTTON / 계정 로그인",
+          "label": "계정 로그인",
+          "x": 800,
+          "y": 902,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491b4e8ce2a",
+      "name": "SCR_03_Lobby",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0dad50f18",
+          "name": "BUTTON / 프로필",
+          "label": "프로필",
+          "x": 96,
+          "y": 48,
+          "w": 232,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0dbce871e",
+          "name": "BUTTON / 설정",
+          "label": "설정",
+          "x": 1592,
+          "y": 48,
+          "w": 232,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0de2ad67a",
+          "name": "BUTTON / 편성 바꾸기",
+          "label": "편성 바꾸기",
+          "x": 128,
+          "y": 592,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e0962201",
+          "name": "LINK / 연습부터 시작",
+          "label": "",
+          "x": 1280,
+          "y": 250,
+          "w": 512,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e264c5c3",
+          "name": "LINK / 숲의 이야기",
+          "label": "",
+          "x": 1280,
+          "y": 434,
+          "w": 512,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f0e28e2933",
+          "name": "BUTTON / 플레이",
+          "label": "플레이",
+          "x": 1328,
+          "y": 888,
+          "w": 464,
+          "h": 120
+        },
+        {
+          "id": "2a56dcea-1b2f-800a-8008-c159058cd22a",
+          "name": "MENU / 캐릭터",
+          "label": "캐릭터",
+          "x": 128,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "2a56dcea-1b2f-800a-8008-c159127a9535",
+          "name": "MENU / 장신구",
+          "label": "장신구",
+          "x": 312,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "2a56dcea-1b2f-800a-8008-c15912ded8cb",
+          "name": "MENU / 프리셋",
+          "label": "프리셋",
+          "x": 496,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "2a56dcea-1b2f-800a-8008-c1591331c48a",
+          "name": "MENU / 미션",
+          "label": "미션",
+          "x": 680,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "2a56dcea-1b2f-800a-8008-c159138a0ff2",
+          "name": "MENU / 친구",
+          "label": "친구",
+          "x": 864,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "2a56dcea-1b2f-800a-8008-c15913df3cad",
+          "name": "MENU / 상점",
+          "label": "상점",
+          "x": 1048,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "5eab23a0-5a25-8021-8008-a89605696f84",
+      "name": "CMP20 / SCR_03_Lobby",
+      "width": 2400,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36170e22dd2",
+          "name": "BUTTON / 프로필",
+          "label": "프로필",
+          "x": 336,
+          "y": 48,
+          "w": 232,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c361710c581f",
+          "name": "BUTTON / 설정",
+          "label": "설정",
+          "x": 1832,
+          "y": 48,
+          "w": 232,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36171dcc34b",
+          "name": "BUTTON / 편성 바꾸기",
+          "label": "편성 바꾸기",
+          "x": 368,
+          "y": 592,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3617378bdf9",
+          "name": "LINK / 연습부터 시작",
+          "label": "",
+          "x": 1520,
+          "y": 250,
+          "w": 512,
+          "h": 152
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36174a86aaa",
+          "name": "LINK / 숲의 이야기",
+          "label": "",
+          "x": 1520,
+          "y": 434,
+          "w": 512,
+          "h": 152
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36174d08c1f",
+          "name": "BUTTON / 플레이",
+          "label": "플레이",
+          "x": 1568,
+          "y": 888,
+          "w": 464,
+          "h": 120
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36174f8f9fa",
+          "name": "MENU / 캐릭터",
+          "label": "캐릭터",
+          "x": 368,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c361751f2db1",
+          "name": "MENU / 장신구",
+          "label": "장신구",
+          "x": 552,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3617549f472",
+          "name": "MENU / 프리셋",
+          "label": "프리셋",
+          "x": 736,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36175721993",
+          "name": "MENU / 미션",
+          "label": "미션",
+          "x": 920,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c361759d2239",
+          "name": "MENU / 친구",
+          "label": "친구",
+          "x": 1104,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36175c509e6",
+          "name": "MENU / 상점",
+          "label": "상점",
+          "x": 1288,
+          "y": 864,
+          "w": 168,
+          "h": 144
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491b5ca4785",
+      "name": "SCR_04_CharacterCollection",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f11da58d20",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f11efdd52b",
+          "name": "BUTTON / 전체",
+          "label": "전체",
+          "x": 96,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f11ff135c9",
+          "name": "BUTTON / 균형",
+          "label": "균형",
+          "x": 248,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f120e626be",
+          "name": "BUTTON / 거리",
+          "label": "거리",
+          "x": 400,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f125ea5200",
+          "name": "BUTTON / 기술 살펴보기",
+          "label": "기술 살펴보기",
+          "x": 1360,
+          "y": 620,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f12702ec05",
+          "name": "BUTTON / 이 캐릭터 선택",
+          "label": "이 캐릭터 선택",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491b6b28e5f",
+      "name": "SCR_05_CharacterDetail",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f14023c609",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f142cfc85b",
+          "name": "BUTTON / 기술",
+          "label": "기술",
+          "x": 720,
+          "y": 384,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f1437c0cea",
+          "name": "BUTTON / 연계",
+          "label": "연계",
+          "x": 904,
+          "y": 384,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f14421e978",
+          "name": "BUTTON / 이야기",
+          "label": "이야기",
+          "x": 1088,
+          "y": 384,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f1488947f8",
+          "name": "BUTTON / 연습하기",
+          "label": "연습하기",
+          "x": 1116,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f1493e0081",
+          "name": "BUTTON / 편성에 넣기",
+          "label": "편성에 넣기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491b7a5ad5a",
+      "name": "SCR_06_AccessoryCollection",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f15087089a",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f152908230",
+          "name": "BUTTON / 전체",
+          "label": "전체",
+          "x": 96,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f153c0329e",
+          "name": "BUTTON / 이동",
+          "label": "이동",
+          "x": 216,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f1546cc50a",
+          "name": "BUTTON / 공격",
+          "label": "공격",
+          "x": 336,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f155271d1f",
+          "name": "BUTTON / 방어",
+          "label": "방어",
+          "x": 456,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f15cbc0ee3",
+          "name": "BUTTON / 연습해 보기",
+          "label": "연습해 보기",
+          "x": 1360,
+          "y": 620,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f15e7e7891",
+          "name": "BUTTON / 장착하기",
+          "label": "장착하기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491b8d1bd80",
+      "name": "SCR_07_AccessoryDetail",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a5f16662d337",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f16b6c0179",
+          "name": "BUTTON / 연습하기",
+          "label": "연습하기",
+          "x": 1116,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a5f16c260bd9",
+          "name": "BUTTON / 장착하기",
+          "label": "장착하기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491ba0af635",
+      "name": "SCR_08_Preset",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ec9497578",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ecb34d74d",
+          "name": "BUTTON / 프리셋 1",
+          "label": "프리셋 1",
+          "x": 128,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ecc3bf9df",
+          "name": "BUTTON / 프리셋 2",
+          "label": "프리셋 2",
+          "x": 312,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ecd504ec4",
+          "name": "BUTTON / 프리셋 3",
+          "label": "프리셋 3",
+          "x": 496,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ecec220c7",
+          "name": "BUTTON / 프리셋 4",
+          "label": "프리셋 4",
+          "x": 680,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed106b9fd",
+          "name": "LINK / 캐릭터",
+          "label": "",
+          "x": 680,
+          "y": 354,
+          "w": 1112,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed303a88b",
+          "name": "LINK / 직업",
+          "label": "",
+          "x": 680,
+          "y": 530,
+          "w": 1112,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed48efeb0",
+          "name": "LINK / 장신구",
+          "label": "",
+          "x": 680,
+          "y": 706,
+          "w": 1112,
+          "h": 152
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ed4bb9dd7",
+          "name": "BUTTON / 편성으로 플레이",
+          "label": "편성으로 플레이",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491bb58cc4c",
+      "name": "SCR_19_Shop",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f87c6625c",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f8949045b",
+          "name": "BUTTON / 추천",
+          "label": "추천",
+          "x": 128,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f89e871dc",
+          "name": "BUTTON / 장신구",
+          "label": "장신구",
+          "x": 312,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f8aa916f8",
+          "name": "BUTTON / 캐릭터",
+          "label": "캐릭터",
+          "x": 496,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f8caf1aec",
+          "name": "BUTTON / 연습하기",
+          "label": "연습하기",
+          "x": 236,
+          "y": 668,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f8f4f2816",
+          "name": "BUTTON / 연습하기",
+          "label": "연습하기",
+          "x": 804,
+          "y": 668,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f9120c35f",
+          "name": "BUTTON / 연습하기",
+          "label": "연습하기",
+          "x": 1372,
+          "y": 668,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f91cdc946",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491bcd3fc8b",
+      "name": "SCR_20_Collection",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fa08cdf60",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fa32cc4e9",
+          "name": "BUTTON / 캐릭터",
+          "label": "캐릭터",
+          "x": 128,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fa40315b2",
+          "name": "BUTTON / 장신구",
+          "label": "장신구",
+          "x": 312,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fa4c3d144",
+          "name": "BUTTON / 전체",
+          "label": "전체",
+          "x": 496,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fa8b84246",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491be6a1c18",
+      "name": "SCR_21_Mission",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fb34f1753",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fb4f3b7a7",
+          "name": "BUTTON / 일일",
+          "label": "일일",
+          "x": 128,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fb5bf368e",
+          "name": "BUTTON / 주간",
+          "label": "주간",
+          "x": 312,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fb696c933",
+          "name": "BUTTON / 업적",
+          "label": "업적",
+          "x": 496,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fbe46dce8",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491c01b0faf",
+      "name": "SCR_22_Social",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fc94117fe",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fcaccb1aa",
+          "name": "BUTTON / 친구",
+          "label": "친구",
+          "x": 128,
+          "y": 230,
+          "w": 168,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fcb8adeb7",
+          "name": "BUTTON / 최근 플레이어",
+          "label": "최근 플레이어",
+          "x": 312,
+          "y": 230,
+          "w": 264,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fcd645f5d",
+          "name": "BUTTON / 초대",
+          "label": "초대",
+          "x": 1330,
+          "y": 374,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fd03f6a8d",
+          "name": "BUTTON / 초대",
+          "label": "초대",
+          "x": 1330,
+          "y": 544,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fd2f41808",
+          "name": "BUTTON / 접속 대기",
+          "label": "접속 대기",
+          "x": 1330,
+          "y": 714,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fd3b2743c",
+          "name": "BUTTON / 친구 찾기",
+          "label": "친구 찾기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fd4966612",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491c1d3d330",
+      "name": "SCR_23_Rank",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64fe7ac0183",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fecce8b6d",
+          "name": "BUTTON / 랭크 대전 준비 중",
+          "label": "랭크 대전 준비 중",
+          "x": 1272,
+          "y": 626,
+          "w": 520,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64fedb93f41",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a491c37e42ba",
+      "name": "SCR_24_Profile",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ffa18c2c1",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ffe700149",
+          "name": "LINK / 즐겨 쓰는 편성",
+          "label": "",
+          "x": 700,
+          "y": 460,
+          "w": 1092,
+          "h": 190
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a65000db6546",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "04_Lobby_Meta",
+      "id": "fa154361-0c45-804b-8008-a6500d0d310b",
+      "name": "EXT_06_GeneralSettings",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a6501024829e",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a650192ef851",
+          "name": "BUTTON / 조작 설정",
+          "label": "조작 설정",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6501a38c463",
+          "name": "BUTTON / 조작 기본값 복원",
+          "label": "조작 기본값 복원",
+          "x": 128,
+          "y": 914,
+          "w": 400,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a491e9c03af5",
+      "name": "SCR_09_ModeSelect",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee6ed63ab",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64ee8bf814e",
+          "name": "BUTTON / 선택",
+          "label": "선택",
+          "x": 156,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64eea65721a",
+          "name": "BUTTON / 선택",
+          "label": "선택",
+          "x": 492,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64eebb65216",
+          "name": "BUTTON / 선택",
+          "label": "선택",
+          "x": 828,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64eee23c905",
+          "name": "BUTTON / 선택",
+          "label": "선택",
+          "x": 1164,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64eef99af62",
+          "name": "BUTTON / 선택",
+          "label": "선택",
+          "x": 1500,
+          "y": 682,
+          "w": 256,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a491ea33c21a",
+      "name": "SCR_10_PartyLobby",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ef7dbb9f9",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f01529205",
+          "name": "BUTTON / 친구 초대",
+          "label": "친구 초대",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f01cd9004",
+          "name": "BUTTON / 준비 완료",
+          "label": "준비 완료",
+          "x": 1116,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f024c3da9",
+          "name": "BUTTON / 매치 찾기",
+          "label": "매치 찾기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a491eab06c55",
+      "name": "SCR_11_Matchmaking",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f12db1884",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f1530972f",
+          "name": "BUTTON / 찾기 취소",
+          "label": "찾기 취소",
+          "x": 604,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f15ab5e1a",
+          "name": "BUTTON / 발견 상태 보기",
+          "label": "발견 상태 보기",
+          "x": 1000,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a491eb3a3025",
+      "name": "SCR_12_MatchFound",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f1f4e49bd",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f219b1f42",
+          "name": "BUTTON / 거절",
+          "label": "거절",
+          "x": 604,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f225fe0c6",
+          "name": "BUTTON / 수락",
+          "label": "수락",
+          "x": 1000,
+          "y": 866,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a491ebd2c365",
+      "name": "SCR_13_CharacterSelect",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f2af4ff17",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f2ca45166",
+          "name": "BUTTON / 전체",
+          "label": "전체",
+          "x": 96,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f2d22171e",
+          "name": "BUTTON / 균형",
+          "label": "균형",
+          "x": 248,
+          "y": 230,
+          "w": 143.99999999999994,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f2db6256c",
+          "name": "BUTTON / 거리",
+          "label": "거리",
+          "x": 400,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f31fbc93e",
+          "name": "BUTTON / 기술 살펴보기",
+          "label": "기술 살펴보기",
+          "x": 1360,
+          "y": 620,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f33c6a1bc",
+          "name": "BUTTON / 이 캐릭터 선택",
+          "label": "이 캐릭터 선택",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "5eab23a0-5a25-8021-8008-a8960adb501e",
+      "name": "CMP20 / SCR_13_CharacterSelect",
+      "width": 2400,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3617c98d1a7",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1840,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3617d054c0e",
+          "name": "BUTTON / 전체",
+          "label": "전체",
+          "x": 336,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3617d2e2c8e",
+          "name": "BUTTON / 균형",
+          "label": "균형",
+          "x": 488,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3617d52adef",
+          "name": "BUTTON / 거리",
+          "label": "거리",
+          "x": 640,
+          "y": 230,
+          "w": 144,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3618081ef2c",
+          "name": "BUTTON / 기술 살펴보기",
+          "label": "기술 살펴보기",
+          "x": 1600,
+          "y": 620,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c361812ec797",
+          "name": "BUTTON / 이 캐릭터 선택",
+          "label": "이 캐릭터 선택",
+          "x": 1712,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a491ecd3c15a",
+      "name": "SCR_14_AccessorySelect",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f420ad2d3",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f430d5ffe",
+          "name": "BUTTON / 전체",
+          "label": "전체",
+          "x": 96,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f439c65d7",
+          "name": "BUTTON / 이동",
+          "label": "이동",
+          "x": 216,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f44174700",
+          "name": "BUTTON / 공격",
+          "label": "공격",
+          "x": 336,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f4495250d",
+          "name": "BUTTON / 방어",
+          "label": "방어",
+          "x": 456,
+          "y": 230,
+          "w": 112,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f4bee175d",
+          "name": "BUTTON / 연습해 보기",
+          "label": "연습해 보기",
+          "x": 1360,
+          "y": 620,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f4da8c47d",
+          "name": "BUTTON / 장착하기",
+          "label": "장착하기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a491edb3b9e0",
+      "name": "SCR_15_Loading",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f5761f980",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a6503257510d",
+      "name": "EXT_01_JobSelect",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a6503475e53f",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a65039aac8e2",
+          "name": "BUTTON / 선택 확인",
+          "label": "선택 확인",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a6504365380d",
+      "name": "EXT_02_ArenaSelect",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a650452695f5",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6504b6acafc",
+          "name": "BUTTON / 선택 확인",
+          "label": "선택 확인",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a650553fc325",
+      "name": "EXT_03_StoryChapters",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a6505808926f",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6505d9a459e",
+          "name": "BUTTON / 선택 확인",
+          "label": "선택 확인",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a6507334bc5c",
+      "name": "EXT_04_AISetup",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a6507548259f",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6507b0241de",
+          "name": "BUTTON / 선택 확인",
+          "label": "선택 확인",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "05_Match_Flow",
+      "id": "fa154361-0c45-804b-8008-a6508566f9ca",
+      "name": "EXT_05_PracticeSetup",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a65087818043",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6508d44a104",
+          "name": "BUTTON / 선택 확인",
+          "label": "선택 확인",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a49225a96e87",
+      "name": "CBT_02_Match_Solo8",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a650aa5b85f8",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a4922668aaf5",
+      "name": "CBT_03_Match_Team4v4",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a650e27076c9",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "5eab23a0-5a25-8021-8008-a8960f537e85",
+      "name": "CMP20 / CBT_03_Match_Team4v4",
+      "width": 2400,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        },
+        {
+          "shape": "ART / nabi",
+          "id": "d8ac01df-6646-81d2-8008-a5f00793eb82"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 392,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1824,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1648,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1856,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1624,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1440,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c36188d1bff4",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1808,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a4922751ce3d",
+      "name": "CBT_04_Practice",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a65118f29e61",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a651242ebf34",
+          "name": "BUTTON / 연습 다시 시작",
+          "label": "연습 다시 시작",
+          "x": 728,
+          "y": 278,
+          "w": 400,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a49228553b18",
+      "name": "CBT_05_Pause",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3573dacc038",
+          "name": "BUTTON / 취소",
+          "label": "경기 나가기",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3573dad3004",
+          "name": "BUTTON / 확인",
+          "label": "계속하기",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a49228b36474",
+      "name": "CBT_06_Resume",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c35745125f4f",
+          "name": "BUTTON / 취소",
+          "label": "나가기",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3574512aa28",
+          "name": "BUTTON / 확인",
+          "label": "전투 재개",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a49229160a3b",
+      "name": "CBT_07_LeaveConfirm",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3574c8de535",
+          "name": "BUTTON / 취소",
+          "label": "계속하기",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c3574c8de541",
+          "name": "BUTTON / 확인",
+          "label": "나가기",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a492297a905e",
+      "name": "CBT_08_Settings",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a65177fe9fe8",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6517f722dd4",
+          "name": "BUTTON / 기본값 복원",
+          "label": "기본값 복원",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a6518087a146",
+          "name": "BUTTON / 적용",
+          "label": "적용",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a492acd4167f",
+      "name": "CBT_01_Match_1v1",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64ea4d9dea8",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a651a77be291",
+      "name": "STATE_Countdown",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a651a77be2a8",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a651b6031471",
+      "name": "STATE_Hit",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a651b6034232",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a651b897e74f",
+          "name": "BUTTON / 계속",
+          "label": "계속",
+          "x": 800,
+          "y": 502,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a651c58268f9",
+      "name": "STATE_Ringout",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a651c5826910",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a651c781dc3a",
+          "name": "BUTTON / 복귀 보기",
+          "label": "복귀 보기",
+          "x": 800,
+          "y": 502,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a651ddaa5525",
+      "name": "STATE_Respawn",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a651ddaa553c",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a651e082b16d",
+          "name": "BUTTON / 재개",
+          "label": "재개",
+          "x": 800,
+          "y": 502,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a651f2f8ac46",
+      "name": "STATE_Eliminated",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a651f2f8ac5d",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a651f6eb8509",
+          "name": "BUTTON / 결과 보기",
+          "label": "결과 보기",
+          "x": 800,
+          "y": 502,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a652055729ea",
+      "name": "STATE_Defeat",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        },
+        {
+          "shape": "ART / myo-ryung",
+          "id": "c514c1fb-1cda-8125-8008-a5effded1ce1"
+        }
+      ],
+      "controls": [
+        {
+          "name": "CONTROL / move_4way",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        },
+        {
+          "name": "CONTROL / light",
+          "x": 1584,
+          "y": 804,
+          "w": 176,
+          "h": 176
+        },
+        {
+          "name": "CONTROL / heavy",
+          "x": 1408,
+          "y": 648,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / special",
+          "x": 1616,
+          "y": 616,
+          "w": 144,
+          "h": 144
+        },
+        {
+          "name": "CONTROL / jump",
+          "x": 1384,
+          "y": 872,
+          "w": 128,
+          "h": 128
+        },
+        {
+          "name": "CONTROL / dash",
+          "x": 1200,
+          "y": 848,
+          "w": 120,
+          "h": 120
+        }
+      ],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a652055772fe",
+          "name": "BUTTON / 메뉴",
+          "label": "메뉴",
+          "x": 1568,
+          "y": 278,
+          "w": 224,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a65209a2a7f1",
+          "name": "BUTTON / 결과 보기",
+          "label": "결과 보기",
+          "x": 800,
+          "y": 502,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a652220cd420",
+      "name": "STATE_SelectionRequired",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357ba18ae2e",
+          "name": "BUTTON / 취소",
+          "label": "로비로",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357ba18ae3a",
+          "name": "BUTTON / 확인",
+          "label": "선택으로",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a6523ce09ab3",
+      "name": "STATE_EmptyList",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357c25c6f57",
+          "name": "BUTTON / 취소",
+          "label": "로비로",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357c25ce47a",
+          "name": "BUTTON / 확인",
+          "label": "돌아가기",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a65258400e3d",
+      "name": "STATE_ConnectionError",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357ca500cf2",
+          "name": "BUTTON / 취소",
+          "label": "로비로",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357ca500cfe",
+          "name": "BUTTON / 확인",
+          "label": "다시 시도",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a6527c0769fd",
+      "name": "STATE_SettingsReset",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357d15570a4",
+          "name": "BUTTON / 취소",
+          "label": "취소",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357d155973d",
+          "name": "BUTTON / 확인",
+          "label": "복원",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a65298954d43",
+      "name": "STATE_OnlineMenu",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357d9c10f3a",
+          "name": "BUTTON / 취소",
+          "label": "나가기 확인",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357d9c14e03",
+          "name": "BUTTON / 확인",
+          "label": "경기로",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "06_Combat",
+      "id": "fa154361-0c45-804b-8008-a652b64babb6",
+      "name": "STATE_CancelMatch",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "c514c1fb-1cda-8125-8008-a5efe39b2b61"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357e30c9b2c",
+          "name": "BUTTON / 취소",
+          "label": "계속 찾기",
+          "x": 580,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "34f32ed4-02c1-80cb-8008-c357e30cebf6",
+          "name": "BUTTON / 확인",
+          "label": "찾기 취소",
+          "x": 1012,
+          "y": 666,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "07_Result",
+      "id": "fa154361-0c45-804b-8008-a49202351ba9",
+      "name": "SCR_16_Victory",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f628d45ce",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f638e298c",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f63d1afb0",
+          "name": "BUTTON / 결과 보기",
+          "label": "결과 보기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "07_Result",
+      "id": "fa154361-0c45-804b-8008-a49202a8bf0b",
+      "name": "SCR_17_ResultSummary",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f726c6dd0",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f75284d9f",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f757a7b09",
+          "name": "BUTTON / MVP 보기",
+          "label": "MVP 보기",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    },
+    {
+      "page": "07_Result",
+      "id": "fa154361-0c45-804b-8008-a49203172548",
+      "name": "SCR_18_MVP",
+      "width": 1920,
+      "height": 1080,
+      "updated": "complete",
+      "legacy": [],
+      "images": [
+        {
+          "shape": "ART / lobby",
+          "id": "52a5041f-08a1-80f1-8008-c3525c814cf9"
+        },
+        {
+          "shape": "ART / ja-hyun",
+          "id": "91396aad-60c8-808b-8008-c1a663044893"
+        }
+      ],
+      "controls": [],
+      "buttons": [
+        {
+          "id": "fa154361-0c45-804b-8008-a64f7d7c29d7",
+          "name": "BUTTON / 뒤로",
+          "label": "뒤로",
+          "x": 1600,
+          "y": 30,
+          "w": 240,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f7e6c9c8c",
+          "name": "BUTTON / 좋아요",
+          "label": "좋아요",
+          "x": 1092,
+          "y": 648,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f7eb6c957",
+          "name": "BUTTON / 로비로",
+          "label": "로비로",
+          "x": 128,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        },
+        {
+          "id": "fa154361-0c45-804b-8008-a64f7efa5678",
+          "name": "BUTTON / 다시 플레이",
+          "label": "다시 플레이",
+          "x": 1472,
+          "y": 914,
+          "w": 320,
+          "h": 88
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318e1dd774c",
+      "name": "tab-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319caa18894",
+      "name": "action-special-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3527834bdd6",
+      "name": "dpad-preview-240",
+      "path": "Forestlight Reference v03 / Composed"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318dc408536",
+      "name": "danger-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3190dfbc4fc",
+      "name": "card-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319fe05ca92",
+      "name": "dpad-right",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3527b939d7c",
+      "name": "disabled",
+      "path": "Forestlight Reference v03 / LobbyNav"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318d989c552",
+      "name": "secondary-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319cd495e2b",
+      "name": "action-special-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31916104f1a",
+      "name": "nav-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3195cf6420c",
+      "name": "icon-shop",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319298f0ed0",
+      "name": "icon-special",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319cc1d7f90",
+      "name": "action-special-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3527aac3a36",
+      "name": "pressed",
+      "path": "Forestlight Reference v03 / LobbyNav"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3198a3d3be0",
+      "name": "icon-filter",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319ffa1f49d",
+      "name": "dpad-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318fb76372a",
+      "name": "panel-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318c298fbd3",
+      "name": "primary-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3193e6b1a88",
+      "name": "icon-settings",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318c99a3f32",
+      "name": "secondary-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31928550665",
+      "name": "icon-heavy",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3192be38740",
+      "name": "icon-dash",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319abfc00bf",
+      "name": "action-light-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3198b820a68",
+      "name": "icon-sound",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319d032ff7e",
+      "name": "action-jump-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3195b41054e",
+      "name": "icon-accessory",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319730c0f80",
+      "name": "icon-profile",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31a04b96a2d",
+      "name": "loading",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319757e694f",
+      "name": "icon-pause",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319b57c5b10",
+      "name": "action-special-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31978f66804",
+      "name": "icon-respawn",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319ec3c3726",
+      "name": "dpad-down",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c35283b9aaa5",
+      "name": "ParticipantWide",
+      "path": "Forestlight Reference v03 / Composed"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3527feb2d38",
+      "name": "Damage",
+      "path": "Forestlight Reference v03 / Composed"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31a009f5381",
+      "name": "slider",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318f8d00821",
+      "name": "panel-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31925aa3210",
+      "name": "icon-leaf",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3528231c2aa",
+      "name": "Chances",
+      "path": "Forestlight Reference v03 / Composed"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31977d65392",
+      "name": "icon-ringout",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319b24345ae",
+      "name": "action-heavy-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3196095faaf",
+      "name": "icon-mission",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3195a10bdd7",
+      "name": "icon-character",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3192d48168f",
+      "name": "icon-back",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c35279b824b9",
+      "name": "selected",
+      "path": "Forestlight Reference v03 / LobbyNav"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318f6af10ff",
+      "name": "tab-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319e6ab32a1",
+      "name": "action-dash-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3193d4fff2f",
+      "name": "icon-close",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318fca1dbe7",
+      "name": "panel-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319e95af1b8",
+      "name": "dpad-up",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31976b015d4",
+      "name": "icon-seed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319940cdfaa",
+      "name": "action-light-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318ddb0d7af",
+      "name": "danger-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c352770aca55",
+      "name": "Dialog",
+      "path": "Forestlight Reference v03 / Composed"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3198cd3e211",
+      "name": "icon-arena",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319e8096600",
+      "name": "dpad-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319fcda0640",
+      "name": "dpad-left",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318c51e9306",
+      "name": "primary-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319ceacdb57",
+      "name": "action-jump-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319e2ce691a",
+      "name": "action-dash-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318db005ce2",
+      "name": "danger-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3527f3f37b7",
+      "name": "ParticipantSlot",
+      "path": "Forestlight Reference v03 / Composed"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318fa11816f",
+      "name": "panel-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318c3b68866",
+      "name": "primary-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3194261948c",
+      "name": "icon-story",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319ad2ab4c3",
+      "name": "action-light-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318e08ca48f",
+      "name": "tab-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319b05a93ca",
+      "name": "action-heavy-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31911d04b1e",
+      "name": "nav-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3198e38f719",
+      "name": "icon-job",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31974466b48",
+      "name": "icon-play",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318c67977ec",
+      "name": "primary-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3192acd22e8",
+      "name": "icon-jump",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31958729319",
+      "name": "icon-practice",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318df1a2d72",
+      "name": "danger-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31914d07dfe",
+      "name": "nav-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319d2a3b9c3",
+      "name": "action-jump-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3195e9fe085",
+      "name": "icon-social",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31926c423c9",
+      "name": "icon-light",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319e4103080",
+      "name": "action-dash-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31912e88869",
+      "name": "nav-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319e55208ad",
+      "name": "action-dash-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c35285394101",
+      "name": "default",
+      "path": "Forestlight Reference v03 / LobbyNav"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319910e2f12",
+      "name": "action-light-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31a01a5d089",
+      "name": "toggle-on",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3527ddec670",
+      "name": "ParticipantCompact",
+      "path": "Forestlight Reference v03 / Composed"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318fdd75bb2",
+      "name": "card-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319ae946ebe",
+      "name": "action-heavy-default",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3190f660e82",
+      "name": "card-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31a02e7852d",
+      "name": "toggle-off",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3197a151682",
+      "name": "icon-eliminated",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3193fd1daae",
+      "name": "icon-check",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319b3dd2d55",
+      "name": "action-heavy-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319d1421256",
+      "name": "action-jump-selected",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319436d2ee2",
+      "name": "icon-solo",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3198f6ce5cf",
+      "name": "icon-trophy",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318c88e14a4",
+      "name": "secondary-pressed",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31956d3334a",
+      "name": "icon-ai",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c319108012d1",
+      "name": "card-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c31944a63392",
+      "name": "icon-team",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c3194137b84f",
+      "name": "icon-lock",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318f7c1c6e5",
+      "name": "tab-disabled",
+      "path": "Forestlight Reference v03"
+    },
+    {
+      "id": "34f32ed4-02c1-80cb-8008-c318c772a6dd",
+      "name": "secondary-default",
+      "path": "Forestlight Reference v03"
+    }
+  ],
+  "prototype": [
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b5cd761b",
+      "name": "PROTO / SCR_01_Splash",
+      "updated": "17193a1f-939a-80b5-8008-c362d14cc171",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+      "name": "PROTO / SCR_02_Login",
+      "updated": "17193a1f-939a-80b5-8008-c36317c1bfbf",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "name": "PROTO / SCR_03_Lobby",
+      "updated": "17193a1f-939a-80b5-8008-c36332b69b10",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "name": "PROTO / SCR_04_CharacterCollection",
+      "updated": "52a5041f-08a1-80f1-8008-c35a9110fa7f",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "name": "PROTO / SCR_05_CharacterDetail",
+      "updated": "52a5041f-08a1-80f1-8008-c35e8cf73211",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "name": "PROTO / SCR_06_AccessoryCollection",
+      "updated": "17193a1f-939a-80b5-8008-c363521918f7",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b65bf152",
+      "name": "PROTO / SCR_07_AccessoryDetail",
+      "updated": "17193a1f-939a-80b5-8008-c36367c7ad0c",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "name": "PROTO / SCR_08_Preset",
+      "updated": "52a5041f-08a1-80f1-8008-c35eae54aed6",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "name": "PROTO / SCR_19_Shop",
+      "updated": "17193a1f-939a-80b5-8008-c36385e6e8c4",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b6ad2069",
+      "name": "PROTO / SCR_20_Collection",
+      "updated": "52a5041f-08a1-80f1-8008-c35ebb5e4ab8",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "name": "PROTO / SCR_21_Mission",
+      "updated": "52a5041f-08a1-80f1-8008-c35b2c6baaf0",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "name": "PROTO / SCR_22_Social",
+      "updated": "52a5041f-08a1-80f1-8008-c35b4c0c0f9c",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b700f860",
+      "name": "PROTO / SCR_23_Rank",
+      "updated": "17193a1f-939a-80b5-8008-c363a7bf7d6a",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "name": "PROTO / SCR_24_Profile",
+      "updated": "17193a1f-939a-80b5-8008-c35ed58bf087",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "name": "PROTO / EXT_06_GeneralSettings",
+      "updated": "52a5041f-08a1-80f1-8008-c35b90a30922",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "name": "PROTO / SCR_09_ModeSelect",
+      "updated": "17193a1f-939a-80b5-8008-c363c09251b1",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "name": "PROTO / SCR_10_PartyLobby",
+      "updated": "17193a1f-939a-80b5-8008-c35bc6f4cae3",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "name": "PROTO / SCR_11_Matchmaking",
+      "updated": "52a5041f-08a1-80f1-8008-c363d549dbc8",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b7c2d317",
+      "name": "PROTO / SCR_12_MatchFound",
+      "updated": "52a5041f-08a1-80f1-8008-c363e378b1f1",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "name": "PROTO / SCR_13_CharacterSelect",
+      "updated": "17193a1f-939a-80b5-8008-c35ef142af7e",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+      "name": "PROTO / SCR_14_AccessorySelect",
+      "updated": "17193a1f-939a-80b5-8008-c3640daaf1db",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b81481fd",
+      "name": "PROTO / SCR_15_Loading",
+      "updated": "52a5041f-08a1-80f1-8008-c36422d1f9d1",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "name": "PROTO / EXT_01_JobSelect",
+      "updated": "52a5041f-08a1-80f1-8008-c36a682917a0",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b84e2660",
+      "name": "PROTO / EXT_02_ArenaSelect",
+      "updated": "17193a1f-939a-80b5-8008-c36ab1d9d217",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "name": "PROTO / EXT_03_StoryChapters",
+      "updated": "52a5041f-08a1-80f1-8008-c36ac987f2a3",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b88ac355",
+      "name": "PROTO / EXT_04_AISetup",
+      "updated": "52a5041f-08a1-80f1-8008-c36ae2822719",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "name": "PROTO / EXT_05_PracticeSetup",
+      "updated": "17193a1f-939a-80b5-8008-c36af2c71511",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b8c86fbc",
+      "name": "PROTO / CBT_02_Match_Solo8",
+      "updated": "17193a1f-939a-80b5-8008-c35fc52e15b8",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b8e694b1",
+      "name": "PROTO / CBT_03_Match_Team4v4",
+      "updated": "17193a1f-939a-80b5-8008-c367c2731a83",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "name": "PROTO / CBT_04_Practice",
+      "updated": "17193a1f-939a-80b5-8008-c35fff53b9ab",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "name": "PROTO / CBT_05_Pause",
+      "updated": "17193a1f-939a-80b5-8008-c367f57c8ae3",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "name": "PROTO / CBT_06_Resume",
+      "updated": "17193a1f-939a-80b5-8008-c36808cf1ce7",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "name": "PROTO / CBT_07_LeaveConfirm",
+      "updated": "17193a1f-939a-80b5-8008-c3681b316a21",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "name": "PROTO / CBT_08_Settings",
+      "updated": "52a5041f-08a1-80f1-8008-c35d767cc6f3",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "name": "PROTO / CBT_01_Match_1v1",
+      "updated": "52a5041f-08a1-80f1-8008-c35d97e29c27",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "name": "PROTO / STATE_Countdown",
+      "updated": "52a5041f-08a1-80f1-8008-c3682d177996",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b9d90ee8",
+      "name": "PROTO / STATE_Hit",
+      "updated": "17193a1f-939a-80b5-8008-c36847e95751",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b9fb4a22",
+      "name": "PROTO / STATE_Ringout",
+      "updated": "52a5041f-08a1-80f1-8008-c3685bd1b1b0",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ba1a8705",
+      "name": "PROTO / STATE_Respawn",
+      "updated": "52a5041f-08a1-80f1-8008-c3686d33232a",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ba3ad14d",
+      "name": "PROTO / STATE_Eliminated",
+      "updated": "52a5041f-08a1-80f1-8008-c3687bc225e4",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "name": "PROTO / STATE_Defeat",
+      "updated": "17193a1f-939a-80b5-8008-c3688cd1d1ee",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ba80210a",
+      "name": "PROTO / STATE_SelectionRequired",
+      "updated": "52a5041f-08a1-80f1-8008-c36501519428",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ba9dc346",
+      "name": "PROTO / STATE_EmptyList",
+      "updated": "52a5041f-08a1-80f1-8008-c36517907083",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985babfde32",
+      "name": "PROTO / STATE_ConnectionError",
+      "updated": "52a5041f-08a1-80f1-8008-c36534bf61b4",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985baeda876",
+      "name": "PROTO / STATE_SettingsReset",
+      "updated": "52a5041f-08a1-80f1-8008-c365429f96f6",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985bb1115ca",
+      "name": "PROTO / STATE_OnlineMenu",
+      "updated": "52a5041f-08a1-80f1-8008-c3689cfdfc01",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985bb306d34",
+      "name": "PROTO / STATE_CancelMatch",
+      "updated": "52a5041f-08a1-80f1-8008-c365786848a8",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "name": "PROTO / SCR_16_Victory",
+      "updated": "52a5041f-08a1-80f1-8008-c36589ad0fe5",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "name": "PROTO / SCR_17_ResultSummary",
+      "updated": "52a5041f-08a1-80f1-8008-c3659ed231a7",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985bb9f151b",
+      "name": "PROTO / SCR_18_MVP",
+      "updated": "17193a1f-939a-80b5-8008-c365b3ed1a59",
+      "motion": null
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "name": "REVIEW INDEX",
+      "updated": null,
+      "motion": null
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15babf",
+      "name": "MOTION / SCR_03_Lobby / rest",
+      "updated": null,
+      "motion": "17193a1f-939a-80b5-8008-c3692d753d52"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbc8f02",
+      "name": "MOTION / SCR_03_Lobby / inhale",
+      "updated": null,
+      "motion": "17193a1f-939a-80b5-8008-c3692d753d52"
+    }
+  ],
+  "links": [
+    {
+      "board": "PROTO / SCR_01_Splash",
+      "shape": "5eab23a0-5a25-8021-8008-a985b5cd761b",
+      "trigger": "after-delay",
+      "target": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+      "delay": 1800
+    },
+    {
+      "board": "PROTO / SCR_01_Splash",
+      "shape": "5eab23a0-5a25-8021-8008-a985c5ccfd36",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_02_Login",
+      "shape": "5eab23a0-5a25-8021-8008-a985c644eb5c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_02_Login",
+      "shape": "5eab23a0-5a25-8021-8008-a985c654ddc8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985babfde32",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_02_Login",
+      "shape": "5eab23a0-5a25-8021-8008-a985c69d7d13",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "5eab23a0-5a25-8021-8008-a985c8276cda",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a416c856",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a446f55e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a47167e8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a4a1bd7f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a4d3f4ab",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a5006a1e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a52d25ca",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a557c787",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a58606f6",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a5b08ddc",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a5e08b59",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_03_Lobby",
+      "shape": "2a56dcea-1b2f-800a-8008-c159a60f8a25",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_04_CharacterCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985c87cc9d3",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_04_CharacterCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985c8904156",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_04_CharacterCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985c8a3df99",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_04_CharacterCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985c8e1285d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_05_CharacterDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985c94af8f1",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_05_CharacterDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985c9650aab",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_05_CharacterDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985c97c97a1",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_05_CharacterDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985c9d65ded",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_06_AccessoryCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985ca405b31",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_06_AccessoryCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985ca5b3aa1",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_06_AccessoryCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985ca72ed51",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b65bf152",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_06_AccessoryCollection",
+      "shape": "5eab23a0-5a25-8021-8008-a985cac62283",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_07_AccessoryDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985cb3e062b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_07_AccessoryDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985cb57634a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_07_AccessoryDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985cb6d48f1",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_07_AccessoryDetail",
+      "shape": "5eab23a0-5a25-8021-8008-a985cbb172c7",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_08_Preset",
+      "shape": "5eab23a0-5a25-8021-8008-a985cc5decae",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_08_Preset",
+      "shape": "5eab23a0-5a25-8021-8008-a985cc7575d8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_08_Preset",
+      "shape": "5eab23a0-5a25-8021-8008-a985cc8c9606",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_08_Preset",
+      "shape": "5eab23a0-5a25-8021-8008-a985cc9ecba8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_08_Preset",
+      "shape": "5eab23a0-5a25-8021-8008-a985ccb4a683",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_08_Preset",
+      "shape": "5eab23a0-5a25-8021-8008-a985cd2279c7",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_19_Shop",
+      "shape": "5eab23a0-5a25-8021-8008-a985cdce2c4f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_19_Shop",
+      "shape": "5eab23a0-5a25-8021-8008-a985cde9622e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_19_Shop",
+      "shape": "5eab23a0-5a25-8021-8008-a985ce1a478f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_19_Shop",
+      "shape": "5eab23a0-5a25-8021-8008-a985ce409338",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_19_Shop",
+      "shape": "5eab23a0-5a25-8021-8008-a985ce6a3c50",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_19_Shop",
+      "shape": "5eab23a0-5a25-8021-8008-a985cee757db",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_20_Collection",
+      "shape": "5eab23a0-5a25-8021-8008-a985cf8f42c8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_20_Collection",
+      "shape": "5eab23a0-5a25-8021-8008-a985cfac696b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_20_Collection",
+      "shape": "5eab23a0-5a25-8021-8008-a985cffd82e3",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_21_Mission",
+      "shape": "5eab23a0-5a25-8021-8008-a985d07fec3b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_21_Mission",
+      "shape": "5eab23a0-5a25-8021-8008-a985d09726f1",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_21_Mission",
+      "shape": "5eab23a0-5a25-8021-8008-a985d10fc833",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_22_Social",
+      "shape": "5eab23a0-5a25-8021-8008-a985d19da962",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_22_Social",
+      "shape": "5eab23a0-5a25-8021-8008-a985d1c1537b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba9dc346",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_22_Social",
+      "shape": "5eab23a0-5a25-8021-8008-a985d1ea9264",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_22_Social",
+      "shape": "5eab23a0-5a25-8021-8008-a985d2100efd",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_22_Social",
+      "shape": "5eab23a0-5a25-8021-8008-a985d232532e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_22_Social",
+      "shape": "5eab23a0-5a25-8021-8008-a985d2911957",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_23_Rank",
+      "shape": "5eab23a0-5a25-8021-8008-a985d354511f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_23_Rank",
+      "shape": "5eab23a0-5a25-8021-8008-a985d37f78a0",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_23_Rank",
+      "shape": "5eab23a0-5a25-8021-8008-a985d42e1744",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_24_Profile",
+      "shape": "5eab23a0-5a25-8021-8008-a985d5223bea",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_24_Profile",
+      "shape": "5eab23a0-5a25-8021-8008-a985d55019de",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_24_Profile",
+      "shape": "5eab23a0-5a25-8021-8008-a985d58004ae",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_24_Profile",
+      "shape": "5eab23a0-5a25-8021-8008-a985d6336505",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_06_GeneralSettings",
+      "shape": "5eab23a0-5a25-8021-8008-a985d70e93f6",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_06_GeneralSettings",
+      "shape": "5eab23a0-5a25-8021-8008-a985d73a43d3",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_06_GeneralSettings",
+      "shape": "5eab23a0-5a25-8021-8008-a985d7747b2f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985baeda876",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_06_GeneralSettings",
+      "shape": "5eab23a0-5a25-8021-8008-a985d823d04d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_09_ModeSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985d9105269",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_09_ModeSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985d93b452b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_09_ModeSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985d9731b12",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_09_ModeSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985d9a58513",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_09_ModeSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985d9daac39",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b88ac355",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_09_ModeSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985da128adc",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_09_ModeSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985dacee8b2",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_10_PartyLobby",
+      "shape": "5eab23a0-5a25-8021-8008-a985db9b52e8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_10_PartyLobby",
+      "shape": "5eab23a0-5a25-8021-8008-a985dbd18902",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_10_PartyLobby",
+      "shape": "5eab23a0-5a25-8021-8008-a985dbf637af",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_10_PartyLobby",
+      "shape": "5eab23a0-5a25-8021-8008-a985dc1d630a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_10_PartyLobby",
+      "shape": "5eab23a0-5a25-8021-8008-a985dcc4f998",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_11_Matchmaking",
+      "shape": "5eab23a0-5a25-8021-8008-a985ddb6b07d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_11_Matchmaking",
+      "shape": "5eab23a0-5a25-8021-8008-a985ddde63f7",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb306d34",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_11_Matchmaking",
+      "shape": "5eab23a0-5a25-8021-8008-a985de1b090e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7c2d317",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_11_Matchmaking",
+      "shape": "5eab23a0-5a25-8021-8008-a985dec2f62a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_12_MatchFound",
+      "shape": "5eab23a0-5a25-8021-8008-a985df933a5b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_12_MatchFound",
+      "shape": "5eab23a0-5a25-8021-8008-a985dfbad5f5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_12_MatchFound",
+      "shape": "5eab23a0-5a25-8021-8008-a985dfe0f28a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_12_MatchFound",
+      "shape": "5eab23a0-5a25-8021-8008-a985e194c36f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_13_CharacterSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e2640f28",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_13_CharacterSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e2a00d5a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_13_CharacterSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e2cc2696",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_13_CharacterSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e386180b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_14_AccessorySelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e449103a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_14_AccessorySelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e48b3730",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_14_AccessorySelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e4bdeaa5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b84e2660",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_14_AccessorySelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e55a888f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_15_Loading",
+      "shape": "5eab23a0-5a25-8021-8008-a985b81481fd",
+      "trigger": "after-delay",
+      "target": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "delay": 1600
+    },
+    {
+      "board": "PROTO / SCR_15_Loading",
+      "shape": "5eab23a0-5a25-8021-8008-a985e63ce0dc",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b84e2660",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_15_Loading",
+      "shape": "5eab23a0-5a25-8021-8008-a985e717606f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_01_JobSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e80135c4",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_01_JobSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e8255be2",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_01_JobSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e8adeaf5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_02_ArenaSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e94ed75a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_02_ArenaSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e975ab6f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b81481fd",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_02_ArenaSelect",
+      "shape": "5eab23a0-5a25-8021-8008-a985e9f378fd",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_03_StoryChapters",
+      "shape": "5eab23a0-5a25-8021-8008-a985ea9f8f48",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_03_StoryChapters",
+      "shape": "5eab23a0-5a25-8021-8008-a985eac4090c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_03_StoryChapters",
+      "shape": "5eab23a0-5a25-8021-8008-a985eb457215",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_04_AISetup",
+      "shape": "5eab23a0-5a25-8021-8008-a985ebdd368e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_04_AISetup",
+      "shape": "5eab23a0-5a25-8021-8008-a985ec012ee2",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_04_AISetup",
+      "shape": "5eab23a0-5a25-8021-8008-a985ec9a1f5a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_05_PracticeSetup",
+      "shape": "5eab23a0-5a25-8021-8008-a985ed48e591",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_05_PracticeSetup",
+      "shape": "5eab23a0-5a25-8021-8008-a985ed6f484b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / EXT_05_PracticeSetup",
+      "shape": "5eab23a0-5a25-8021-8008-a985edf99d3b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_02_Match_Solo8",
+      "shape": "5eab23a0-5a25-8021-8008-a985eeaf83b2",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_02_Match_Solo8",
+      "shape": "5eab23a0-5a25-8021-8008-a985ef42c8ed",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_02_Match_Solo8",
+      "shape": "5eab23a0-5a25-8021-8008-a985efb4bd38",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_02_Match_Solo8",
+      "shape": "5eab23a0-5a25-8021-8008-a985f0322c62",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_02_Match_Solo8",
+      "shape": "5eab23a0-5a25-8021-8008-a985f0beda3d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_03_Match_Team4v4",
+      "shape": "5eab23a0-5a25-8021-8008-a985f17f30da",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_03_Match_Team4v4",
+      "shape": "5eab23a0-5a25-8021-8008-a985f21e8910",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_03_Match_Team4v4",
+      "shape": "5eab23a0-5a25-8021-8008-a985f2b04d27",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_03_Match_Team4v4",
+      "shape": "5eab23a0-5a25-8021-8008-a985f3466e7f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_03_Match_Team4v4",
+      "shape": "5eab23a0-5a25-8021-8008-a985f3dd3eae",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_04_Practice",
+      "shape": "5eab23a0-5a25-8021-8008-a985f49de7c3",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_04_Practice",
+      "shape": "5eab23a0-5a25-8021-8008-a985f4c49af9",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_04_Practice",
+      "shape": "5eab23a0-5a25-8021-8008-a985f55b22c3",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_04_Practice",
+      "shape": "5eab23a0-5a25-8021-8008-a985f5f0b1ce",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_04_Practice",
+      "shape": "5eab23a0-5a25-8021-8008-a985f6933f8c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_04_Practice",
+      "shape": "5eab23a0-5a25-8021-8008-a985f73861c2",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_05_Pause",
+      "shape": "5eab23a0-5a25-8021-8008-a985f80b69eb",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_05_Pause",
+      "shape": "5eab23a0-5a25-8021-8008-a985f8380a31",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_05_Pause",
+      "shape": "5eab23a0-5a25-8021-8008-a985f8d27762",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_06_Resume",
+      "shape": "5eab23a0-5a25-8021-8008-a985f9a73a9d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_06_Resume",
+      "shape": "5eab23a0-5a25-8021-8008-a985f9d8449e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_06_Resume",
+      "shape": "5eab23a0-5a25-8021-8008-a985fa82a41f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_07_LeaveConfirm",
+      "shape": "5eab23a0-5a25-8021-8008-a986021feb0c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_07_LeaveConfirm",
+      "shape": "5eab23a0-5a25-8021-8008-a98602436eff",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_07_LeaveConfirm",
+      "shape": "5eab23a0-5a25-8021-8008-a98602b93a69",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_08_Settings",
+      "shape": "5eab23a0-5a25-8021-8008-a98603432ea6",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_08_Settings",
+      "shape": "5eab23a0-5a25-8021-8008-a986036923b9",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985baeda876",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_08_Settings",
+      "shape": "5eab23a0-5a25-8021-8008-a986038b1d59",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_08_Settings",
+      "shape": "5eab23a0-5a25-8021-8008-a986043e3af5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_01_Match_1v1",
+      "shape": "5eab23a0-5a25-8021-8008-a986051b79f5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_01_Match_1v1",
+      "shape": "5eab23a0-5a25-8021-8008-a98605de692e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_01_Match_1v1",
+      "shape": "5eab23a0-5a25-8021-8008-a9860686fe95",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_01_Match_1v1",
+      "shape": "5eab23a0-5a25-8021-8008-a98607396a68",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "delay": null
+    },
+    {
+      "board": "PROTO / CBT_01_Match_1v1",
+      "shape": "5eab23a0-5a25-8021-8008-a98607ba27b3",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Countdown",
+      "shape": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "trigger": "after-delay",
+      "target": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "delay": 1200
+    },
+    {
+      "board": "PROTO / STATE_Countdown",
+      "shape": "5eab23a0-5a25-8021-8008-a986085fa5ea",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Countdown",
+      "shape": "5eab23a0-5a25-8021-8008-a98608eb56cd",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Hit",
+      "shape": "5eab23a0-5a25-8021-8008-a98609ca7888",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Hit",
+      "shape": "5eab23a0-5a25-8021-8008-a9860a17f432",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Hit",
+      "shape": "5eab23a0-5a25-8021-8008-a9860a93b11a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Ringout",
+      "shape": "5eab23a0-5a25-8021-8008-a9860b111a93",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba1a8705",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Ringout",
+      "shape": "5eab23a0-5a25-8021-8008-a9860b3a7ca7",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Ringout",
+      "shape": "5eab23a0-5a25-8021-8008-a9860bfee125",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Respawn",
+      "shape": "5eab23a0-5a25-8021-8008-a9860cf03ed6",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Respawn",
+      "shape": "5eab23a0-5a25-8021-8008-a9860d2565ca",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Respawn",
+      "shape": "5eab23a0-5a25-8021-8008-a9860ddf7bfb",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Eliminated",
+      "shape": "5eab23a0-5a25-8021-8008-a9860ec67325",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Eliminated",
+      "shape": "5eab23a0-5a25-8021-8008-a9860f025242",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Eliminated",
+      "shape": "5eab23a0-5a25-8021-8008-a9860fcd9eda",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Defeat",
+      "shape": "5eab23a0-5a25-8021-8008-a986109ef304",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Defeat",
+      "shape": "5eab23a0-5a25-8021-8008-a98610d82aa8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_Defeat",
+      "shape": "5eab23a0-5a25-8021-8008-a98611a73ed0",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_SelectionRequired",
+      "shape": "5eab23a0-5a25-8021-8008-a98612a52513",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_SelectionRequired",
+      "shape": "5eab23a0-5a25-8021-8008-a98612e422e0",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_SelectionRequired",
+      "shape": "5eab23a0-5a25-8021-8008-a98613983a84",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_EmptyList",
+      "shape": "5eab23a0-5a25-8021-8008-a98614697727",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_EmptyList",
+      "shape": "5eab23a0-5a25-8021-8008-a986148dd10e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_EmptyList",
+      "shape": "5eab23a0-5a25-8021-8008-a986154a6125",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_ConnectionError",
+      "shape": "5eab23a0-5a25-8021-8008-a9861654ee80",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_ConnectionError",
+      "shape": "5eab23a0-5a25-8021-8008-a98616929407",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_ConnectionError",
+      "shape": "5eab23a0-5a25-8021-8008-a986176093ce",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_SettingsReset",
+      "shape": "5eab23a0-5a25-8021-8008-a986184bb77b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_SettingsReset",
+      "shape": "5eab23a0-5a25-8021-8008-a98618834e23",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_SettingsReset",
+      "shape": "5eab23a0-5a25-8021-8008-a9861961c003",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_OnlineMenu",
+      "shape": "5eab23a0-5a25-8021-8008-a9861a6e4a07",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8e694b1",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_OnlineMenu",
+      "shape": "5eab23a0-5a25-8021-8008-a9861aaffaa7",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_OnlineMenu",
+      "shape": "5eab23a0-5a25-8021-8008-a9861b89db9f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_CancelMatch",
+      "shape": "5eab23a0-5a25-8021-8008-a9861c981d68",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_CancelMatch",
+      "shape": "5eab23a0-5a25-8021-8008-a9861cd83c8e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "delay": null
+    },
+    {
+      "board": "PROTO / STATE_CancelMatch",
+      "shape": "5eab23a0-5a25-8021-8008-a9861d91c8bd",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_16_Victory",
+      "shape": "5eab23a0-5a25-8021-8008-a986228508c9",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_16_Victory",
+      "shape": "5eab23a0-5a25-8021-8008-a98622aeb015",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_16_Victory",
+      "shape": "5eab23a0-5a25-8021-8008-a98622df2913",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_16_Victory",
+      "shape": "5eab23a0-5a25-8021-8008-a98623b1afc6",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_17_ResultSummary",
+      "shape": "5eab23a0-5a25-8021-8008-a98624a38b74",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_17_ResultSummary",
+      "shape": "5eab23a0-5a25-8021-8008-a98624e58be5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_17_ResultSummary",
+      "shape": "5eab23a0-5a25-8021-8008-a9862528e59d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb9f151b",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_17_ResultSummary",
+      "shape": "5eab23a0-5a25-8021-8008-a98626181e17",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_18_MVP",
+      "shape": "5eab23a0-5a25-8021-8008-a986273a246e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_18_MVP",
+      "shape": "5eab23a0-5a25-8021-8008-a986277a5598",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_18_MVP",
+      "shape": "5eab23a0-5a25-8021-8008-a98627ae4815",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_18_MVP",
+      "shape": "5eab23a0-5a25-8021-8008-a98627e618c2",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "PROTO / SCR_18_MVP",
+      "shape": "5eab23a0-5a25-8021-8008-a98628abbe78",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985c62fae44",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5cd761b",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985c6ce4415",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985c8682557",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985c9301489",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985ca2270e4",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985cb200cfa",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985cc48a3a2",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b65bf152",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985cdb36fd9",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985cf70b119",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985d0581d23",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6ad2069",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985d17d284f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985d323ba6a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985d4bde581",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b700f860",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985d6e4e90f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985d8e10154",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985db6acd12",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985dd795872",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985df58ae7d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985e234f11b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7c2d317",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985e41911bc",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985e6136daa",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985e7c430a1",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b81481fd",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985e925de6f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985ea7a6475",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b84e2660",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985ebb6983e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985ed1a3ad5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b88ac355",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985ee86adfd",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985f1553799",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8c86fbc",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985f4754c9f",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8e694b1",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985f7d78fc7",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a985f976a602",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a98601f27f99",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a986031e5b1c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a98604e8f187",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9860838e7a0",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9860992c774",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9860aea526b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9d90ee8",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9860cbf168b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b9fb4a22",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9860e9b850a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba1a8705",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9861064476e",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba3ad14d",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9861268e9da",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9861426d8ad",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba80210a",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a986161548ec",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985ba9dc346",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a98618191a1c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985babfde32",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9861a30f911",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985baeda876",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9861c582fdb",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb1115ca",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a986223f5720",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb306d34",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a986246e0f8b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a98626f9964c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "delay": null
+    },
+    {
+      "board": "REVIEW INDEX",
+      "shape": "5eab23a0-5a25-8021-8008-a9862977f710",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985bb9f151b",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15babf",
+      "trigger": "after-delay",
+      "target": "8626232c-968c-808f-8008-c1a6cbbc8f02",
+      "delay": 2000
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bac3",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bac4",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bac5",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bac6",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bac7",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bac8",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bac9",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15baca",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bacb",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bacc",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bacd",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bace",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / rest",
+      "shape": "8626232c-968c-808f-8008-c1a6cb15bacf",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbc8f02",
+      "trigger": "after-delay",
+      "target": "8626232c-968c-808f-8008-c1a6cb15babf",
+      "delay": 2000
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf241",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf242",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf243",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf244",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf245",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf246",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf247",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf248",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf249",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf24a",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf24b",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf24c",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "delay": null
+    },
+    {
+      "board": "MOTION / SCR_03_Lobby / inhale",
+      "shape": "8626232c-968c-808f-8008-c1a6cbbcf24d",
+      "trigger": "click",
+      "target": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "delay": null
+    }
+  ],
+  "temporaryBoards": []
+}

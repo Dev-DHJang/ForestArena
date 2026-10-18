@@ -1,0 +1,31 @@
+{
+  "implementation": "PASS",
+  "android_package": "PASS",
+  "packed_boot_and_icons": "PASS",
+  "docs": "PASS",
+  "resources": {
+    "status": "PASS",
+    "logical_assets": 518,
+    "quality_variants": 24
+  },
+  "full": {
+    "status": "PASS",
+    "exit_code": 0,
+    "script_errors": 0,
+    "error_lines": 12,
+    "warning_lines": 16,
+    "error_messages": [
+      "ERROR: 1 resources still in use at exit (run with --verbose for details).",
+      "ERROR: 2 resources still in use at exit (run with --verbose for details).",
+      "ERROR: 3 resources still in use at exit (run with --verbose for details).",
+      "ERROR: 4 resources still in use at exit (run with --verbose for details).",
+      "ERROR: 5 resources still in use at exit (run with --verbose for details).",
+      "ERROR: 9 resources still in use at exit (run with --verbose for details)."
+    ]
+  },
+  "physical_device": {
+    "status": "blocked",
+    "devices": 0,
+    "reason": "No physical Android connected or discovered; user connection requested."
+  }
+}

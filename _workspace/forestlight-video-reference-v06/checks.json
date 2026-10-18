@@ -1,0 +1,27 @@
+{
+  "docs": {
+    "command": "./scripts/verify-docs.sh",
+    "exit_code": 0,
+    "passed": true
+  },
+  "basic": {
+    "command": "./scripts/verify.sh",
+    "exit_code": 0,
+    "passed": true,
+    "error_count": 0,
+    "warnings": 21
+  },
+  "resources": {
+    "command": "python3 tools/forest_arena/verify_godot_resources.py --project-root .",
+    "exit_code": 0,
+    "passed": true,
+    "logical_assets": 346,
+    "quality_dependent_assets": 24
+  },
+  "design": {
+    "command": "python3 _workspace/forestlight-video-reference-v06/audit-delivery.py",
+    "exit_code": 0,
+    "passed": true
+  },
+  "android_tested": false
+}

@@ -1,0 +1,4178 @@
+[
+  {
+    "screen": "PROTO / SCR_01_Splash",
+    "id": "5eab23a0-5a25-8021-8008-a985c5ccfd36",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_02_Login",
+    "id": "5eab23a0-5a25-8021-8008-a985c644eb5c",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 800,
+    "y": 790,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_02_Login",
+    "id": "5eab23a0-5a25-8021-8008-a985c654ddc8",
+    "name": "NAV / STATE_ConnectionError",
+    "x": 800,
+    "y": 902,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_ConnectionError",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985babfde32"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_02_Login",
+    "id": "5eab23a0-5a25-8021-8008-a985c69d7d13",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "5eab23a0-5a25-8021-8008-a985c8276cda",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a416c856",
+    "name": "NAV / SCR_04_CharacterCollection",
+    "x": 128,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_04_CharacterCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a446f55e",
+    "name": "NAV / SCR_06_AccessoryCollection",
+    "x": 312,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_06_AccessoryCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b64500bb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a47167e8",
+    "name": "NAV / SCR_08_Preset",
+    "x": 496,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a4a1bd7f",
+    "name": "NAV / SCR_21_Mission",
+    "x": 680,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_21_Mission",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6c9bdd4"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a4d3f4ab",
+    "name": "NAV / SCR_22_Social",
+    "x": 864,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_22_Social",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a5006a1e",
+    "name": "NAV / SCR_19_Shop",
+    "x": 1048,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_19_Shop",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b69864c9"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a52d25ca",
+    "name": "NAV / SCR_24_Profile",
+    "x": 96,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_24_Profile",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b71ad274"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a557c787",
+    "name": "NAV / EXT_06_GeneralSettings",
+    "x": 1592,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_06_GeneralSettings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7415755"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a58606f6",
+    "name": "NAV / SCR_08_Preset",
+    "x": 120,
+    "y": 528,
+    "w": 344,
+    "h": 48,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a5b08ddc",
+    "name": "NAV / EXT_05_PracticeSetup",
+    "x": 1392,
+    "y": 300,
+    "w": 400,
+    "h": 128,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_05_PracticeSetup",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a5e08b59",
+    "name": "NAV / EXT_03_StoryChapters",
+    "x": 1392,
+    "y": 460,
+    "w": 400,
+    "h": 128,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_03_StoryChapters",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_03_Lobby",
+    "id": "2a56dcea-1b2f-800a-8008-c159a60f8a25",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1328,
+    "y": 888,
+    "w": 464,
+    "h": 120,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_04_CharacterCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985c87cc9d3",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_04_CharacterCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985c8904156",
+    "name": "NAV / SCR_05_CharacterDetail",
+    "x": 1360,
+    "y": 620,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_05_CharacterDetail",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b62e63bf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_04_CharacterCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985c8a3df99",
+    "name": "NAV / SCR_05_CharacterDetail",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_05_CharacterDetail",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b62e63bf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_04_CharacterCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985c8e1285d",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_05_CharacterDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985c94af8f1",
+    "name": "NAV / SCR_04_CharacterCollection",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_04_CharacterCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_05_CharacterDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985c9650aab",
+    "name": "NAV / CBT_04_Practice",
+    "x": 1116,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_05_CharacterDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985c97c97a1",
+    "name": "NAV / SCR_08_Preset",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_05_CharacterDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985c9d65ded",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_06_AccessoryCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985ca405b31",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_06_AccessoryCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985ca5b3aa1",
+    "name": "NAV / CBT_04_Practice",
+    "x": 1360,
+    "y": 620,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_06_AccessoryCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985ca72ed51",
+    "name": "NAV / SCR_07_AccessoryDetail",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_07_AccessoryDetail",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b65bf152"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_06_AccessoryCollection",
+    "id": "5eab23a0-5a25-8021-8008-a985cac62283",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_07_AccessoryDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985cb3e062b",
+    "name": "NAV / SCR_06_AccessoryCollection",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_06_AccessoryCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b64500bb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_07_AccessoryDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985cb57634a",
+    "name": "NAV / CBT_04_Practice",
+    "x": 1116,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_07_AccessoryDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985cb6d48f1",
+    "name": "NAV / SCR_08_Preset",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_07_AccessoryDetail",
+    "id": "5eab23a0-5a25-8021-8008-a985cbb172c7",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_08_Preset",
+    "id": "5eab23a0-5a25-8021-8008-a985cc5decae",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_08_Preset",
+    "id": "5eab23a0-5a25-8021-8008-a985cc7575d8",
+    "name": "NAV / SCR_04_CharacterCollection",
+    "x": 680,
+    "y": 354,
+    "w": 1112,
+    "h": 152,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_04_CharacterCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_08_Preset",
+    "id": "5eab23a0-5a25-8021-8008-a985cc8c9606",
+    "name": "NAV / EXT_01_JobSelect",
+    "x": 680,
+    "y": 530,
+    "w": 1112,
+    "h": 152,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_01_JobSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b82ec298"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_08_Preset",
+    "id": "5eab23a0-5a25-8021-8008-a985cc9ecba8",
+    "name": "NAV / SCR_06_AccessoryCollection",
+    "x": 680,
+    "y": 706,
+    "w": 1112,
+    "h": 152,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_06_AccessoryCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b64500bb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_08_Preset",
+    "id": "5eab23a0-5a25-8021-8008-a985ccb4a683",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_08_Preset",
+    "id": "5eab23a0-5a25-8021-8008-a985cd2279c7",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_19_Shop",
+    "id": "5eab23a0-5a25-8021-8008-a985cdce2c4f",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_19_Shop",
+    "id": "5eab23a0-5a25-8021-8008-a985cde9622e",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_19_Shop",
+    "id": "5eab23a0-5a25-8021-8008-a985ce1a478f",
+    "name": "NAV / CBT_04_Practice",
+    "x": 236,
+    "y": 668,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_19_Shop",
+    "id": "5eab23a0-5a25-8021-8008-a985ce409338",
+    "name": "NAV / CBT_04_Practice",
+    "x": 804,
+    "y": 668,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_19_Shop",
+    "id": "5eab23a0-5a25-8021-8008-a985ce6a3c50",
+    "name": "NAV / CBT_04_Practice",
+    "x": 1372,
+    "y": 668,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_19_Shop",
+    "id": "5eab23a0-5a25-8021-8008-a985cee757db",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_20_Collection",
+    "id": "5eab23a0-5a25-8021-8008-a985cf8f42c8",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_20_Collection",
+    "id": "5eab23a0-5a25-8021-8008-a985cfac696b",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_20_Collection",
+    "id": "5eab23a0-5a25-8021-8008-a985cffd82e3",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_21_Mission",
+    "id": "5eab23a0-5a25-8021-8008-a985d07fec3b",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_21_Mission",
+    "id": "5eab23a0-5a25-8021-8008-a985d09726f1",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1472,
+    "y": 928,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_21_Mission",
+    "id": "5eab23a0-5a25-8021-8008-a985d10fc833",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_22_Social",
+    "id": "5eab23a0-5a25-8021-8008-a985d19da962",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_22_Social",
+    "id": "5eab23a0-5a25-8021-8008-a985d1c1537b",
+    "name": "NAV / STATE_EmptyList",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_EmptyList",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985ba9dc346"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_22_Social",
+    "id": "5eab23a0-5a25-8021-8008-a985d1ea9264",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_22_Social",
+    "id": "5eab23a0-5a25-8021-8008-a985d2100efd",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 1330,
+    "y": 374,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_22_Social",
+    "id": "5eab23a0-5a25-8021-8008-a985d232532e",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 1330,
+    "y": 544,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_22_Social",
+    "id": "5eab23a0-5a25-8021-8008-a985d2911957",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_23_Rank",
+    "id": "5eab23a0-5a25-8021-8008-a985d354511f",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_23_Rank",
+    "id": "5eab23a0-5a25-8021-8008-a985d37f78a0",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_23_Rank",
+    "id": "5eab23a0-5a25-8021-8008-a985d42e1744",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_24_Profile",
+    "id": "5eab23a0-5a25-8021-8008-a985d5223bea",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_24_Profile",
+    "id": "5eab23a0-5a25-8021-8008-a985d55019de",
+    "name": "NAV / SCR_08_Preset",
+    "x": 700,
+    "y": 460,
+    "w": 1092,
+    "h": 190,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_24_Profile",
+    "id": "5eab23a0-5a25-8021-8008-a985d58004ae",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_24_Profile",
+    "id": "5eab23a0-5a25-8021-8008-a985d6336505",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_06_GeneralSettings",
+    "id": "5eab23a0-5a25-8021-8008-a985d70e93f6",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_06_GeneralSettings",
+    "id": "5eab23a0-5a25-8021-8008-a985d73a43d3",
+    "name": "NAV / CBT_08_Settings",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_08_Settings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_06_GeneralSettings",
+    "id": "5eab23a0-5a25-8021-8008-a985d7747b2f",
+    "name": "NAV / STATE_SettingsReset",
+    "x": 128,
+    "y": 914,
+    "w": 400,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_SettingsReset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985baeda876"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_06_GeneralSettings",
+    "id": "5eab23a0-5a25-8021-8008-a985d823d04d",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_09_ModeSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985d9105269",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_09_ModeSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985d93b452b",
+    "name": "NAV / EXT_03_StoryChapters",
+    "x": 156,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_03_StoryChapters",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_09_ModeSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985d9731b12",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 492,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_09_ModeSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985d9a58513",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 828,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_09_ModeSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985d9daac39",
+    "name": "NAV / EXT_04_AISetup",
+    "x": 1164,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_04_AISetup",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b88ac355"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_09_ModeSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985da128adc",
+    "name": "NAV / EXT_05_PracticeSetup",
+    "x": 1500,
+    "y": 682,
+    "w": 256,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_05_PracticeSetup",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_09_ModeSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985dacee8b2",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_10_PartyLobby",
+    "id": "5eab23a0-5a25-8021-8008-a985db9b52e8",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_10_PartyLobby",
+    "id": "5eab23a0-5a25-8021-8008-a985dbd18902",
+    "name": "NAV / SCR_22_Social",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_22_Social",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_10_PartyLobby",
+    "id": "5eab23a0-5a25-8021-8008-a985dbf637af",
+    "name": "NAV / SCR_11_Matchmaking",
+    "x": 1116,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_11_Matchmaking",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7a501a0"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_10_PartyLobby",
+    "id": "5eab23a0-5a25-8021-8008-a985dc1d630a",
+    "name": "NAV / SCR_11_Matchmaking",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_11_Matchmaking",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7a501a0"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_10_PartyLobby",
+    "id": "5eab23a0-5a25-8021-8008-a985dcc4f998",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_11_Matchmaking",
+    "id": "5eab23a0-5a25-8021-8008-a985ddb6b07d",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_11_Matchmaking",
+    "id": "5eab23a0-5a25-8021-8008-a985ddde63f7",
+    "name": "NAV / STATE_CancelMatch",
+    "x": 604,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_CancelMatch",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb306d34"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_11_Matchmaking",
+    "id": "5eab23a0-5a25-8021-8008-a985de1b090e",
+    "name": "NAV / SCR_12_MatchFound",
+    "x": 1000,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_12_MatchFound",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7c2d317"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_11_Matchmaking",
+    "id": "5eab23a0-5a25-8021-8008-a985dec2f62a",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_12_MatchFound",
+    "id": "5eab23a0-5a25-8021-8008-a985df933a5b",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_12_MatchFound",
+    "id": "5eab23a0-5a25-8021-8008-a985dfbad5f5",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 604,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_12_MatchFound",
+    "id": "5eab23a0-5a25-8021-8008-a985dfe0f28a",
+    "name": "NAV / SCR_13_CharacterSelect",
+    "x": 1000,
+    "y": 866,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_13_CharacterSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_12_MatchFound",
+    "id": "5eab23a0-5a25-8021-8008-a985e194c36f",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_13_CharacterSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e2640f28",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_13_CharacterSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e2a00d5a",
+    "name": "NAV / SCR_05_CharacterDetail",
+    "x": 1360,
+    "y": 620,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_05_CharacterDetail",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b62e63bf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_13_CharacterSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e2cc2696",
+    "name": "NAV / EXT_01_JobSelect",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_01_JobSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b82ec298"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_13_CharacterSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e386180b",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_14_AccessorySelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e449103a",
+    "name": "NAV / EXT_01_JobSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_01_JobSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b82ec298"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_14_AccessorySelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e48b3730",
+    "name": "NAV / CBT_04_Practice",
+    "x": 1360,
+    "y": 620,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_14_AccessorySelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e4bdeaa5",
+    "name": "NAV / EXT_02_ArenaSelect",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_02_ArenaSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b84e2660"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_14_AccessorySelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e55a888f",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_15_Loading",
+    "id": "5eab23a0-5a25-8021-8008-a985e63ce0dc",
+    "name": "NAV / EXT_02_ArenaSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_02_ArenaSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b84e2660"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_15_Loading",
+    "id": "5eab23a0-5a25-8021-8008-a985e717606f",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_01_JobSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e80135c4",
+    "name": "NAV / SCR_13_CharacterSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_13_CharacterSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_01_JobSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e8255be2",
+    "name": "NAV / SCR_14_AccessorySelect",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_14_AccessorySelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7fb1602"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_01_JobSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e8adeaf5",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_02_ArenaSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e94ed75a",
+    "name": "NAV / SCR_14_AccessorySelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_14_AccessorySelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7fb1602"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_02_ArenaSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e975ab6f",
+    "name": "NAV / SCR_15_Loading",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_15_Loading",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b81481fd"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_02_ArenaSelect",
+    "id": "5eab23a0-5a25-8021-8008-a985e9f378fd",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_03_StoryChapters",
+    "id": "5eab23a0-5a25-8021-8008-a985ea9f8f48",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_03_StoryChapters",
+    "id": "5eab23a0-5a25-8021-8008-a985eac4090c",
+    "name": "NAV / SCR_13_CharacterSelect",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_13_CharacterSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_03_StoryChapters",
+    "id": "5eab23a0-5a25-8021-8008-a985eb457215",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_04_AISetup",
+    "id": "5eab23a0-5a25-8021-8008-a985ebdd368e",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_04_AISetup",
+    "id": "5eab23a0-5a25-8021-8008-a985ec012ee2",
+    "name": "NAV / SCR_13_CharacterSelect",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_13_CharacterSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_04_AISetup",
+    "id": "5eab23a0-5a25-8021-8008-a985ec9a1f5a",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_05_PracticeSetup",
+    "id": "5eab23a0-5a25-8021-8008-a985ed48e591",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_05_PracticeSetup",
+    "id": "5eab23a0-5a25-8021-8008-a985ed6f484b",
+    "name": "NAV / CBT_04_Practice",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / EXT_05_PracticeSetup",
+    "id": "5eab23a0-5a25-8021-8008-a985edf99d3b",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_02_Match_Solo8",
+    "id": "5eab23a0-5a25-8021-8008-a985eeaf83b2",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_02_Match_Solo8",
+    "id": "5eab23a0-5a25-8021-8008-a985ef42c8ed",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_02_Match_Solo8",
+    "id": "5eab23a0-5a25-8021-8008-a985efb4bd38",
+    "name": "NAV / 검토: 승리 예시",
+    "x": 608,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_16_Victory",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_02_Match_Solo8",
+    "id": "5eab23a0-5a25-8021-8008-a985f0322c62",
+    "name": "NAV / 검토: 패배 예시",
+    "x": 848,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_Defeat",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_02_Match_Solo8",
+    "id": "5eab23a0-5a25-8021-8008-a985f0beda3d",
+    "name": "NAV / 검토: 복귀 확인",
+    "x": 1088,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_06_Resume",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b94021fd"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_03_Match_Team4v4",
+    "id": "5eab23a0-5a25-8021-8008-a985f17f30da",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_03_Match_Team4v4",
+    "id": "5eab23a0-5a25-8021-8008-a985f21e8910",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_03_Match_Team4v4",
+    "id": "5eab23a0-5a25-8021-8008-a985f2b04d27",
+    "name": "NAV / 검토: 승리 예시",
+    "x": 608,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_16_Victory",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_03_Match_Team4v4",
+    "id": "5eab23a0-5a25-8021-8008-a985f3466e7f",
+    "name": "NAV / 검토: 패배 예시",
+    "x": 848,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_Defeat",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_03_Match_Team4v4",
+    "id": "5eab23a0-5a25-8021-8008-a985f3dd3eae",
+    "name": "NAV / 검토: 복귀 확인",
+    "x": 1088,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_06_Resume",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b94021fd"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_04_Practice",
+    "id": "5eab23a0-5a25-8021-8008-a985f49de7c3",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_04_Practice",
+    "id": "5eab23a0-5a25-8021-8008-a985f4c49af9",
+    "name": "NAV / CBT_04_Practice",
+    "x": 728,
+    "y": 278,
+    "w": 400,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_04_Practice",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9077cdf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_04_Practice",
+    "id": "5eab23a0-5a25-8021-8008-a985f55b22c3",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_04_Practice",
+    "id": "5eab23a0-5a25-8021-8008-a985f5f0b1ce",
+    "name": "NAV / 검토: 승리 예시",
+    "x": 608,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_16_Victory",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_04_Practice",
+    "id": "5eab23a0-5a25-8021-8008-a985f6933f8c",
+    "name": "NAV / 검토: 패배 예시",
+    "x": 848,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_Defeat",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_04_Practice",
+    "id": "5eab23a0-5a25-8021-8008-a985f73861c2",
+    "name": "NAV / 검토: 복귀 확인",
+    "x": 1088,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_06_Resume",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b94021fd"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_05_Pause",
+    "id": "5eab23a0-5a25-8021-8008-a985f80b69eb",
+    "name": "NAV / CBT_07_LeaveConfirm",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_07_LeaveConfirm",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b95da5a2"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_05_Pause",
+    "id": "5eab23a0-5a25-8021-8008-a985f8380a31",
+    "name": "NAV / CBT_01_Match_1v1",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_01_Match_1v1",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b99c921f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_05_Pause",
+    "id": "5eab23a0-5a25-8021-8008-a985f8d27762",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_06_Resume",
+    "id": "5eab23a0-5a25-8021-8008-a985f9a73a9d",
+    "name": "NAV / CBT_07_LeaveConfirm",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_07_LeaveConfirm",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b95da5a2"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_06_Resume",
+    "id": "5eab23a0-5a25-8021-8008-a985f9d8449e",
+    "name": "NAV / STATE_Countdown",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_Countdown",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b9baf2cf"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_06_Resume",
+    "id": "5eab23a0-5a25-8021-8008-a985fa82a41f",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_07_LeaveConfirm",
+    "id": "5eab23a0-5a25-8021-8008-a986021feb0c",
+    "name": "NAV / CBT_01_Match_1v1",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_01_Match_1v1",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b99c921f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_07_LeaveConfirm",
+    "id": "5eab23a0-5a25-8021-8008-a98602436eff",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_07_LeaveConfirm",
+    "id": "5eab23a0-5a25-8021-8008-a98602b93a69",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_08_Settings",
+    "id": "5eab23a0-5a25-8021-8008-a98603432ea6",
+    "name": "NAV / EXT_06_GeneralSettings",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_06_GeneralSettings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7415755"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_08_Settings",
+    "id": "5eab23a0-5a25-8021-8008-a986036923b9",
+    "name": "NAV / STATE_SettingsReset",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_SettingsReset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985baeda876"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_08_Settings",
+    "id": "5eab23a0-5a25-8021-8008-a986038b1d59",
+    "name": "NAV / EXT_06_GeneralSettings",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_06_GeneralSettings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7415755"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_08_Settings",
+    "id": "5eab23a0-5a25-8021-8008-a986043e3af5",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_08_Settings",
+    "id": "2ceab880-5161-80e6-8008-c4d326660325",
+    "name": "NAV / Joystick 고정",
+    "x": 1212,
+    "y": 344,
+    "w": 244,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_08_Settings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_08_Settings",
+    "id": "2ceab880-5161-80e6-8008-c4d326702f22",
+    "name": "NAV / Joystick 플로팅",
+    "x": 1476,
+    "y": 344,
+    "w": 244,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_JoystickFloating",
+        "destinationId": "2ceab880-5161-80e6-8008-c4d3265a440d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_01_Match_1v1",
+    "id": "5eab23a0-5a25-8021-8008-a986051b79f5",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_01_Match_1v1",
+    "id": "5eab23a0-5a25-8021-8008-a98605de692e",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_01_Match_1v1",
+    "id": "5eab23a0-5a25-8021-8008-a9860686fe95",
+    "name": "NAV / 검토: 승리 예시",
+    "x": 608,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_16_Victory",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb50f73f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_01_Match_1v1",
+    "id": "5eab23a0-5a25-8021-8008-a98607396a68",
+    "name": "NAV / 검토: 패배 예시",
+    "x": 848,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_Defeat",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985ba5cd2fc"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / CBT_01_Match_1v1",
+    "id": "5eab23a0-5a25-8021-8008-a98607ba27b3",
+    "name": "NAV / 검토: 복귀 확인",
+    "x": 1088,
+    "y": 1034,
+    "w": 224,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_06_Resume",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b94021fd"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Countdown",
+    "id": "5eab23a0-5a25-8021-8008-a986085fa5ea",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Countdown",
+    "id": "5eab23a0-5a25-8021-8008-a98608eb56cd",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Hit",
+    "id": "5eab23a0-5a25-8021-8008-a98609ca7888",
+    "name": "NAV / CBT_01_Match_1v1",
+    "x": 800,
+    "y": 502,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_01_Match_1v1",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b99c921f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Hit",
+    "id": "5eab23a0-5a25-8021-8008-a9860a17f432",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Hit",
+    "id": "5eab23a0-5a25-8021-8008-a9860a93b11a",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Ringout",
+    "id": "5eab23a0-5a25-8021-8008-a9860b111a93",
+    "name": "NAV / STATE_Respawn",
+    "x": 800,
+    "y": 502,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_Respawn",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985ba1a8705"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Ringout",
+    "id": "5eab23a0-5a25-8021-8008-a9860b3a7ca7",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Ringout",
+    "id": "5eab23a0-5a25-8021-8008-a9860bfee125",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Respawn",
+    "id": "5eab23a0-5a25-8021-8008-a9860cf03ed6",
+    "name": "NAV / CBT_01_Match_1v1",
+    "x": 800,
+    "y": 502,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_01_Match_1v1",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b99c921f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Respawn",
+    "id": "5eab23a0-5a25-8021-8008-a9860d2565ca",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Respawn",
+    "id": "5eab23a0-5a25-8021-8008-a9860ddf7bfb",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Eliminated",
+    "id": "5eab23a0-5a25-8021-8008-a9860ec67325",
+    "name": "NAV / SCR_17_ResultSummary",
+    "x": 800,
+    "y": 502,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_17_ResultSummary",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb7ba1a4"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Eliminated",
+    "id": "5eab23a0-5a25-8021-8008-a9860f025242",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Eliminated",
+    "id": "5eab23a0-5a25-8021-8008-a9860fcd9eda",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Defeat",
+    "id": "5eab23a0-5a25-8021-8008-a986109ef304",
+    "name": "NAV / SCR_17_ResultSummary",
+    "x": 800,
+    "y": 502,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_17_ResultSummary",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb7ba1a4"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Defeat",
+    "id": "5eab23a0-5a25-8021-8008-a98610d82aa8",
+    "name": "NAV / CBT_05_Pause",
+    "x": 1568,
+    "y": 278,
+    "w": 224,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_05_Pause",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b923ec52"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_Defeat",
+    "id": "5eab23a0-5a25-8021-8008-a98611a73ed0",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_SelectionRequired",
+    "id": "5eab23a0-5a25-8021-8008-a98612a52513",
+    "name": "NAV / SCR_13_CharacterSelect",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_13_CharacterSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7e12dee"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_SelectionRequired",
+    "id": "5eab23a0-5a25-8021-8008-a98612e422e0",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_SelectionRequired",
+    "id": "5eab23a0-5a25-8021-8008-a98613983a84",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_EmptyList",
+    "id": "5eab23a0-5a25-8021-8008-a98614697727",
+    "name": "NAV / SCR_22_Social",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_22_Social",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_EmptyList",
+    "id": "5eab23a0-5a25-8021-8008-a986148dd10e",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_EmptyList",
+    "id": "5eab23a0-5a25-8021-8008-a986154a6125",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_ConnectionError",
+    "id": "5eab23a0-5a25-8021-8008-a9861654ee80",
+    "name": "NAV / SCR_02_Login",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_02_Login",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5e1b086"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_ConnectionError",
+    "id": "5eab23a0-5a25-8021-8008-a98616929407",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_ConnectionError",
+    "id": "5eab23a0-5a25-8021-8008-a986176093ce",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_SettingsReset",
+    "id": "5eab23a0-5a25-8021-8008-a986184bb77b",
+    "name": "NAV / CBT_08_Settings",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_08_Settings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_SettingsReset",
+    "id": "5eab23a0-5a25-8021-8008-a98618834e23",
+    "name": "NAV / CBT_08_Settings",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_08_Settings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_SettingsReset",
+    "id": "5eab23a0-5a25-8021-8008-a9861961c003",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_OnlineMenu",
+    "id": "5eab23a0-5a25-8021-8008-a9861a6e4a07",
+    "name": "NAV / CBT_03_Match_Team4v4",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_03_Match_Team4v4",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b8e694b1"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_OnlineMenu",
+    "id": "5eab23a0-5a25-8021-8008-a9861aaffaa7",
+    "name": "NAV / CBT_07_LeaveConfirm",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_07_LeaveConfirm",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b95da5a2"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_OnlineMenu",
+    "id": "5eab23a0-5a25-8021-8008-a9861b89db9f",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_CancelMatch",
+    "id": "5eab23a0-5a25-8021-8008-a9861c981d68",
+    "name": "NAV / SCR_10_PartyLobby",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_10_PartyLobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b78a35c6"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_CancelMatch",
+    "id": "5eab23a0-5a25-8021-8008-a9861cd83c8e",
+    "name": "NAV / SCR_11_Matchmaking",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_11_Matchmaking",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7a501a0"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_CancelMatch",
+    "id": "5eab23a0-5a25-8021-8008-a9861d91c8bd",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_16_Victory",
+    "id": "5eab23a0-5a25-8021-8008-a986228508c9",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_16_Victory",
+    "id": "5eab23a0-5a25-8021-8008-a98622aeb015",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_16_Victory",
+    "id": "5eab23a0-5a25-8021-8008-a98622df2913",
+    "name": "NAV / SCR_17_ResultSummary",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_17_ResultSummary",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb7ba1a4"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_16_Victory",
+    "id": "5eab23a0-5a25-8021-8008-a98623b1afc6",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_17_ResultSummary",
+    "id": "5eab23a0-5a25-8021-8008-a98624a38b74",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_17_ResultSummary",
+    "id": "5eab23a0-5a25-8021-8008-a98624e58be5",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_17_ResultSummary",
+    "id": "5eab23a0-5a25-8021-8008-a9862528e59d",
+    "name": "NAV / SCR_18_MVP",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_18_MVP",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985bb9f151b"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_17_ResultSummary",
+    "id": "5eab23a0-5a25-8021-8008-a98626181e17",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_18_MVP",
+    "id": "5eab23a0-5a25-8021-8008-a986273a246e",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_18_MVP",
+    "id": "5eab23a0-5a25-8021-8008-a986277a5598",
+    "name": "NAV / SCR_24_Profile",
+    "x": 1092,
+    "y": 648,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_24_Profile",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b71ad274"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_18_MVP",
+    "id": "5eab23a0-5a25-8021-8008-a98627ae4815",
+    "name": "NAV / SCR_03_Lobby",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_03_Lobby",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b5fa760f"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_18_MVP",
+    "id": "5eab23a0-5a25-8021-8008-a98627e618c2",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / SCR_18_MVP",
+    "id": "5eab23a0-5a25-8021-8008-a98628abbe78",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bac3",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bac4",
+    "name": "NAV / SCR_04_CharacterCollection",
+    "x": 128,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_04_CharacterCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bac5",
+    "name": "NAV / SCR_06_AccessoryCollection",
+    "x": 312,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_06_AccessoryCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b64500bb"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bac6",
+    "name": "NAV / SCR_08_Preset",
+    "x": 496,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bac7",
+    "name": "NAV / SCR_21_Mission",
+    "x": 680,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_21_Mission",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6c9bdd4"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bac8",
+    "name": "NAV / SCR_22_Social",
+    "x": 864,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_22_Social",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bac9",
+    "name": "NAV / SCR_19_Shop",
+    "x": 1048,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_19_Shop",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b69864c9"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15baca",
+    "name": "NAV / SCR_24_Profile",
+    "x": 96,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_24_Profile",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b71ad274"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bacb",
+    "name": "NAV / EXT_06_GeneralSettings",
+    "x": 1592,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_06_GeneralSettings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7415755"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bacc",
+    "name": "NAV / SCR_08_Preset",
+    "x": 120,
+    "y": 528,
+    "w": 344,
+    "h": 48,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bacd",
+    "name": "NAV / EXT_05_PracticeSetup",
+    "x": 1392,
+    "y": 300,
+    "w": 400,
+    "h": 128,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_05_PracticeSetup",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bace",
+    "name": "NAV / EXT_03_StoryChapters",
+    "x": 1392,
+    "y": 460,
+    "w": 400,
+    "h": 128,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_03_StoryChapters",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / rest",
+    "id": "8626232c-968c-808f-8008-c1a6cb15bacf",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1328,
+    "y": 888,
+    "w": 464,
+    "h": 120,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf241",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf242",
+    "name": "NAV / SCR_04_CharacterCollection",
+    "x": 128,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_04_CharacterCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b611bdc8"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf243",
+    "name": "NAV / SCR_06_AccessoryCollection",
+    "x": 312,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_06_AccessoryCollection",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b64500bb"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf244",
+    "name": "NAV / SCR_08_Preset",
+    "x": 496,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf245",
+    "name": "NAV / SCR_21_Mission",
+    "x": 680,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_21_Mission",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6c9bdd4"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf246",
+    "name": "NAV / SCR_22_Social",
+    "x": 864,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_22_Social",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b6e3b4ab"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf247",
+    "name": "NAV / SCR_19_Shop",
+    "x": 1048,
+    "y": 864,
+    "w": 168,
+    "h": 144,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_19_Shop",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b69864c9"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf248",
+    "name": "NAV / SCR_24_Profile",
+    "x": 96,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_24_Profile",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b71ad274"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf249",
+    "name": "NAV / EXT_06_GeneralSettings",
+    "x": 1592,
+    "y": 48,
+    "w": 232,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_06_GeneralSettings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7415755"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf24a",
+    "name": "NAV / SCR_08_Preset",
+    "x": 120,
+    "y": 528,
+    "w": 344,
+    "h": 48,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_08_Preset",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b672da75"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf24b",
+    "name": "NAV / EXT_05_PracticeSetup",
+    "x": 1392,
+    "y": 300,
+    "w": 400,
+    "h": 128,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_05_PracticeSetup",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b8a8879b"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf24c",
+    "name": "NAV / EXT_03_StoryChapters",
+    "x": 1392,
+    "y": 460,
+    "w": 400,
+    "h": 128,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_03_StoryChapters",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b86b3cfc"
+      }
+    ]
+  },
+  {
+    "screen": "MOTION / SCR_03_Lobby / inhale",
+    "id": "8626232c-968c-808f-8008-c1a6cbbcf24d",
+    "name": "NAV / SCR_09_ModeSelect",
+    "x": 1328,
+    "y": 888,
+    "w": 464,
+    "h": 120,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / SCR_09_ModeSelect",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7656a2d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloating",
+    "id": "2ceab880-5161-80e6-8008-c4d3265a440f",
+    "name": "NAV / EXT_06_GeneralSettings",
+    "x": 1600,
+    "y": 30,
+    "w": 240,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_06_GeneralSettings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7415755"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloating",
+    "id": "2ceab880-5161-80e6-8008-c4d3265a4410",
+    "name": "NAV / STATE_SettingsReset",
+    "x": 128,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_JoystickFloatingReset",
+        "destinationId": "2ceab880-5161-80e6-8008-c4d341072914"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloating",
+    "id": "2ceab880-5161-80e6-8008-c4d3265a4411",
+    "name": "NAV / EXT_06_GeneralSettings",
+    "x": 1472,
+    "y": 914,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / EXT_06_GeneralSettings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b7415755"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloating",
+    "id": "2ceab880-5161-80e6-8008-c4d3265a4414",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloating",
+    "id": "2ceab880-5161-80e6-8008-c4d32678d273",
+    "name": "NAV / Joystick 고정",
+    "x": 1212,
+    "y": 344,
+    "w": 244,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_08_Settings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloating",
+    "id": "2ceab880-5161-80e6-8008-c4d32681a4bb",
+    "name": "NAV / Joystick 플로팅",
+    "x": 1476,
+    "y": 344,
+    "w": 244,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_JoystickFloating",
+        "destinationId": "2ceab880-5161-80e6-8008-c4d3265a440d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloatingReset",
+    "id": "2ceab880-5161-80e6-8008-c4d341072916",
+    "name": "NAV / CBT_08_Settings",
+    "x": 1012,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / CBT_08_Settings",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985b97c98eb"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloatingReset",
+    "id": "2ceab880-5161-80e6-8008-c4d341072917",
+    "name": "NAV / CBT_08_Settings",
+    "x": 580,
+    "y": 666,
+    "w": 320,
+    "h": 88,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "PROTO / STATE_JoystickFloating",
+        "destinationId": "2ceab880-5161-80e6-8008-c4d3265a440d"
+      }
+    ]
+  },
+  {
+    "screen": "PROTO / STATE_JoystickFloatingReset",
+    "id": "2ceab880-5161-80e6-8008-c4d34107291a",
+    "name": "REVIEW HIT",
+    "x": 852,
+    "y": 4,
+    "w": 216,
+    "h": 36,
+    "links": [
+      {
+        "trigger": "click",
+        "delay": null,
+        "type": "navigate-to",
+        "destination": "REVIEW INDEX",
+        "destinationId": "5eab23a0-5a25-8021-8008-a985c54ba777"
+      }
+    ]
+  }
+]

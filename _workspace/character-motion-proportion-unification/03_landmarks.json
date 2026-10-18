@@ -1,0 +1,40 @@
+{
+  "regression": "CHARACTER_PROPORTION_UNIFICATION_R01",
+  "measurement_method": "Manual 2D landmarks on first extracted idle pose. Crown excludes animal ears and loose ponytail; pelvis means center of hip joints, not waistband. Approximate visible landmark positions, not a 3D skeleton estimate.",
+  "reference": {
+    "character_id": "ja-hyun",
+    "crown_y": 52,
+    "chin_y": 78,
+    "pelvis_y": 101,
+    "sole_y": 124,
+    "body_height": 72
+  },
+  "samples": {
+    "myo-ryung": {
+      "source": "02_samples/myo-ryung/idle-r05-alpha.png",
+      "crown_y": 50,
+      "chin_y": 135,
+      "pelvis_y": 205,
+      "sole_y": 277
+    },
+    "nabi": {
+      "source": "02_samples/nabi/idle-r07-alpha.png",
+      "crown_y": 40,
+      "chin_y": 105,
+      "pelvis_y": 168,
+      "sole_y": 231
+    },
+    "yu-ran": {
+      "source": "02_samples/yu-ran/idle-r05-alpha.png",
+      "crown_y": 40,
+      "chin_y": 110,
+      "pelvis_y": 177,
+      "sole_y": 244
+    }
+  },
+  "limits": {
+    "segment_ratio_relative_difference": 0.1,
+    "neutral_body_height_relative_difference": 0.05
+  },
+  "status": "sample-review-not-user-approved"
+}

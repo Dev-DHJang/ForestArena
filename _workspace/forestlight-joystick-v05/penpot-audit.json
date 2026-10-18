@@ -1,0 +1,2001 @@
+{
+  "components": {
+    "joystick-neutral": "2ceab880-5161-80e6-8008-c4cfb4a14b30",
+    "joystick-active": "2ceab880-5161-80e6-8008-c4cfb53e8856",
+    "joystick-selected": "2ceab880-5161-80e6-8008-c4cfb5da1448",
+    "joystick-disabled": "2ceab880-5161-80e6-8008-c4cfb67336d9",
+    "joystick-base": "2ceab880-5161-80e6-8008-c4cfb6ff847f",
+    "joystick-knob": "2ceab880-5161-80e6-8008-c4cfb7936bba",
+    "joystick-floating-zone": "2ceab880-5161-80e6-8008-c4cfb82bab2f",
+    "joystick-preview-240": "2ceab880-5161-80e6-8008-c4cfb8c58cf4"
+  },
+  "totalComponents": 433,
+  "prototypeBoards": 52,
+  "links": [
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b5cd761b",
+      "from": "PROTO / SCR_01_Splash",
+      "to": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+      "target": "PROTO / SCR_02_Login"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c5ccfd36",
+      "from": "PROTO / SCR_01_Splash",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c644eb5c",
+      "from": "PROTO / SCR_02_Login",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c654ddc8",
+      "from": "PROTO / SCR_02_Login",
+      "to": "5eab23a0-5a25-8021-8008-a985babfde32",
+      "target": "PROTO / STATE_ConnectionError"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c69d7d13",
+      "from": "PROTO / SCR_02_Login",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c8276cda",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a416c856",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "target": "PROTO / SCR_04_CharacterCollection"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a446f55e",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "target": "PROTO / SCR_06_AccessoryCollection"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a47167e8",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a4a1bd7f",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "target": "PROTO / SCR_21_Mission"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a4d3f4ab",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "target": "PROTO / SCR_22_Social"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a5006a1e",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "target": "PROTO / SCR_19_Shop"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a52d25ca",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "target": "PROTO / SCR_24_Profile"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a557c787",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a58606f6",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a5b08ddc",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "target": "PROTO / EXT_05_PracticeSetup"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a5e08b59",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "target": "PROTO / EXT_03_StoryChapters"
+    },
+    {
+      "id": "2a56dcea-1b2f-800a-8008-c159a60f8a25",
+      "from": "PROTO / SCR_03_Lobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c87cc9d3",
+      "from": "PROTO / SCR_04_CharacterCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c8904156",
+      "from": "PROTO / SCR_04_CharacterCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "target": "PROTO / SCR_05_CharacterDetail"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c8a3df99",
+      "from": "PROTO / SCR_04_CharacterCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "target": "PROTO / SCR_05_CharacterDetail"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c8e1285d",
+      "from": "PROTO / SCR_04_CharacterCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c94af8f1",
+      "from": "PROTO / SCR_05_CharacterDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "target": "PROTO / SCR_04_CharacterCollection"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c9650aab",
+      "from": "PROTO / SCR_05_CharacterDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c97c97a1",
+      "from": "PROTO / SCR_05_CharacterDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c9d65ded",
+      "from": "PROTO / SCR_05_CharacterDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ca405b31",
+      "from": "PROTO / SCR_06_AccessoryCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ca5b3aa1",
+      "from": "PROTO / SCR_06_AccessoryCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ca72ed51",
+      "from": "PROTO / SCR_06_AccessoryCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985b65bf152",
+      "target": "PROTO / SCR_07_AccessoryDetail"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cac62283",
+      "from": "PROTO / SCR_06_AccessoryCollection",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cb3e062b",
+      "from": "PROTO / SCR_07_AccessoryDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "target": "PROTO / SCR_06_AccessoryCollection"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cb57634a",
+      "from": "PROTO / SCR_07_AccessoryDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cb6d48f1",
+      "from": "PROTO / SCR_07_AccessoryDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cbb172c7",
+      "from": "PROTO / SCR_07_AccessoryDetail",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cc5decae",
+      "from": "PROTO / SCR_08_Preset",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cc7575d8",
+      "from": "PROTO / SCR_08_Preset",
+      "to": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "target": "PROTO / SCR_04_CharacterCollection"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cc8c9606",
+      "from": "PROTO / SCR_08_Preset",
+      "to": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "target": "PROTO / EXT_01_JobSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cc9ecba8",
+      "from": "PROTO / SCR_08_Preset",
+      "to": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "target": "PROTO / SCR_06_AccessoryCollection"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ccb4a683",
+      "from": "PROTO / SCR_08_Preset",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cd2279c7",
+      "from": "PROTO / SCR_08_Preset",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cdce2c4f",
+      "from": "PROTO / SCR_19_Shop",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cde9622e",
+      "from": "PROTO / SCR_19_Shop",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ce1a478f",
+      "from": "PROTO / SCR_19_Shop",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ce409338",
+      "from": "PROTO / SCR_19_Shop",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ce6a3c50",
+      "from": "PROTO / SCR_19_Shop",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cee757db",
+      "from": "PROTO / SCR_19_Shop",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cf8f42c8",
+      "from": "PROTO / SCR_20_Collection",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cfac696b",
+      "from": "PROTO / SCR_20_Collection",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cffd82e3",
+      "from": "PROTO / SCR_20_Collection",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d07fec3b",
+      "from": "PROTO / SCR_21_Mission",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d09726f1",
+      "from": "PROTO / SCR_21_Mission",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d10fc833",
+      "from": "PROTO / SCR_21_Mission",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d19da962",
+      "from": "PROTO / SCR_22_Social",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d1c1537b",
+      "from": "PROTO / SCR_22_Social",
+      "to": "5eab23a0-5a25-8021-8008-a985ba9dc346",
+      "target": "PROTO / STATE_EmptyList"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d1ea9264",
+      "from": "PROTO / SCR_22_Social",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d2100efd",
+      "from": "PROTO / SCR_22_Social",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d232532e",
+      "from": "PROTO / SCR_22_Social",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d2911957",
+      "from": "PROTO / SCR_22_Social",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d354511f",
+      "from": "PROTO / SCR_23_Rank",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d37f78a0",
+      "from": "PROTO / SCR_23_Rank",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d42e1744",
+      "from": "PROTO / SCR_23_Rank",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d5223bea",
+      "from": "PROTO / SCR_24_Profile",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d55019de",
+      "from": "PROTO / SCR_24_Profile",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d58004ae",
+      "from": "PROTO / SCR_24_Profile",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d6336505",
+      "from": "PROTO / SCR_24_Profile",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d70e93f6",
+      "from": "PROTO / EXT_06_GeneralSettings",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d73a43d3",
+      "from": "PROTO / EXT_06_GeneralSettings",
+      "to": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "target": "PROTO / CBT_08_Settings"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d7747b2f",
+      "from": "PROTO / EXT_06_GeneralSettings",
+      "to": "5eab23a0-5a25-8021-8008-a985baeda876",
+      "target": "PROTO / STATE_SettingsReset"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d823d04d",
+      "from": "PROTO / EXT_06_GeneralSettings",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d9105269",
+      "from": "PROTO / SCR_09_ModeSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d93b452b",
+      "from": "PROTO / SCR_09_ModeSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "target": "PROTO / EXT_03_StoryChapters"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d9731b12",
+      "from": "PROTO / SCR_09_ModeSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d9a58513",
+      "from": "PROTO / SCR_09_ModeSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d9daac39",
+      "from": "PROTO / SCR_09_ModeSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b88ac355",
+      "target": "PROTO / EXT_04_AISetup"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985da128adc",
+      "from": "PROTO / SCR_09_ModeSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "target": "PROTO / EXT_05_PracticeSetup"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dacee8b2",
+      "from": "PROTO / SCR_09_ModeSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985db9b52e8",
+      "from": "PROTO / SCR_10_PartyLobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dbd18902",
+      "from": "PROTO / SCR_10_PartyLobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "target": "PROTO / SCR_22_Social"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dbf637af",
+      "from": "PROTO / SCR_10_PartyLobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "target": "PROTO / SCR_11_Matchmaking"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dc1d630a",
+      "from": "PROTO / SCR_10_PartyLobby",
+      "to": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "target": "PROTO / SCR_11_Matchmaking"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dcc4f998",
+      "from": "PROTO / SCR_10_PartyLobby",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ddb6b07d",
+      "from": "PROTO / SCR_11_Matchmaking",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ddde63f7",
+      "from": "PROTO / SCR_11_Matchmaking",
+      "to": "5eab23a0-5a25-8021-8008-a985bb306d34",
+      "target": "PROTO / STATE_CancelMatch"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985de1b090e",
+      "from": "PROTO / SCR_11_Matchmaking",
+      "to": "5eab23a0-5a25-8021-8008-a985b7c2d317",
+      "target": "PROTO / SCR_12_MatchFound"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dec2f62a",
+      "from": "PROTO / SCR_11_Matchmaking",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985df933a5b",
+      "from": "PROTO / SCR_12_MatchFound",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dfbad5f5",
+      "from": "PROTO / SCR_12_MatchFound",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dfe0f28a",
+      "from": "PROTO / SCR_12_MatchFound",
+      "to": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "target": "PROTO / SCR_13_CharacterSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e194c36f",
+      "from": "PROTO / SCR_12_MatchFound",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e2640f28",
+      "from": "PROTO / SCR_13_CharacterSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e2a00d5a",
+      "from": "PROTO / SCR_13_CharacterSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "target": "PROTO / SCR_05_CharacterDetail"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e2cc2696",
+      "from": "PROTO / SCR_13_CharacterSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "target": "PROTO / EXT_01_JobSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e386180b",
+      "from": "PROTO / SCR_13_CharacterSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e449103a",
+      "from": "PROTO / SCR_14_AccessorySelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "target": "PROTO / EXT_01_JobSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e48b3730",
+      "from": "PROTO / SCR_14_AccessorySelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e4bdeaa5",
+      "from": "PROTO / SCR_14_AccessorySelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b84e2660",
+      "target": "PROTO / EXT_02_ArenaSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e55a888f",
+      "from": "PROTO / SCR_14_AccessorySelect",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b81481fd",
+      "from": "PROTO / SCR_15_Loading",
+      "to": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "target": "PROTO / STATE_Countdown"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e63ce0dc",
+      "from": "PROTO / SCR_15_Loading",
+      "to": "5eab23a0-5a25-8021-8008-a985b84e2660",
+      "target": "PROTO / EXT_02_ArenaSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e717606f",
+      "from": "PROTO / SCR_15_Loading",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e80135c4",
+      "from": "PROTO / EXT_01_JobSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "target": "PROTO / SCR_13_CharacterSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e8255be2",
+      "from": "PROTO / EXT_01_JobSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+      "target": "PROTO / SCR_14_AccessorySelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e8adeaf5",
+      "from": "PROTO / EXT_01_JobSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e94ed75a",
+      "from": "PROTO / EXT_02_ArenaSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+      "target": "PROTO / SCR_14_AccessorySelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e975ab6f",
+      "from": "PROTO / EXT_02_ArenaSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985b81481fd",
+      "target": "PROTO / SCR_15_Loading"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e9f378fd",
+      "from": "PROTO / EXT_02_ArenaSelect",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ea9f8f48",
+      "from": "PROTO / EXT_03_StoryChapters",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985eac4090c",
+      "from": "PROTO / EXT_03_StoryChapters",
+      "to": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "target": "PROTO / SCR_13_CharacterSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985eb457215",
+      "from": "PROTO / EXT_03_StoryChapters",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ebdd368e",
+      "from": "PROTO / EXT_04_AISetup",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ec012ee2",
+      "from": "PROTO / EXT_04_AISetup",
+      "to": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "target": "PROTO / SCR_13_CharacterSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ec9a1f5a",
+      "from": "PROTO / EXT_04_AISetup",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ed48e591",
+      "from": "PROTO / EXT_05_PracticeSetup",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ed6f484b",
+      "from": "PROTO / EXT_05_PracticeSetup",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985edf99d3b",
+      "from": "PROTO / EXT_05_PracticeSetup",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985eeaf83b2",
+      "from": "PROTO / CBT_02_Match_Solo8",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ef42c8ed",
+      "from": "PROTO / CBT_02_Match_Solo8",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985efb4bd38",
+      "from": "PROTO / CBT_02_Match_Solo8",
+      "to": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "target": "PROTO / SCR_16_Victory"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f0322c62",
+      "from": "PROTO / CBT_02_Match_Solo8",
+      "to": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "target": "PROTO / STATE_Defeat"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f0beda3d",
+      "from": "PROTO / CBT_02_Match_Solo8",
+      "to": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "target": "PROTO / CBT_06_Resume"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f17f30da",
+      "from": "PROTO / CBT_03_Match_Team4v4",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f21e8910",
+      "from": "PROTO / CBT_03_Match_Team4v4",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f2b04d27",
+      "from": "PROTO / CBT_03_Match_Team4v4",
+      "to": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "target": "PROTO / SCR_16_Victory"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f3466e7f",
+      "from": "PROTO / CBT_03_Match_Team4v4",
+      "to": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "target": "PROTO / STATE_Defeat"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f3dd3eae",
+      "from": "PROTO / CBT_03_Match_Team4v4",
+      "to": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "target": "PROTO / CBT_06_Resume"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f49de7c3",
+      "from": "PROTO / CBT_04_Practice",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f4c49af9",
+      "from": "PROTO / CBT_04_Practice",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f55b22c3",
+      "from": "PROTO / CBT_04_Practice",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f5f0b1ce",
+      "from": "PROTO / CBT_04_Practice",
+      "to": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "target": "PROTO / SCR_16_Victory"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f6933f8c",
+      "from": "PROTO / CBT_04_Practice",
+      "to": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "target": "PROTO / STATE_Defeat"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f73861c2",
+      "from": "PROTO / CBT_04_Practice",
+      "to": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "target": "PROTO / CBT_06_Resume"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f80b69eb",
+      "from": "PROTO / CBT_05_Pause",
+      "to": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "target": "PROTO / CBT_07_LeaveConfirm"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f8380a31",
+      "from": "PROTO / CBT_05_Pause",
+      "to": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "target": "PROTO / CBT_01_Match_1v1"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f8d27762",
+      "from": "PROTO / CBT_05_Pause",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f9a73a9d",
+      "from": "PROTO / CBT_06_Resume",
+      "to": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "target": "PROTO / CBT_07_LeaveConfirm"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f9d8449e",
+      "from": "PROTO / CBT_06_Resume",
+      "to": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "target": "PROTO / STATE_Countdown"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985fa82a41f",
+      "from": "PROTO / CBT_06_Resume",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986021feb0c",
+      "from": "PROTO / CBT_07_LeaveConfirm",
+      "to": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "target": "PROTO / CBT_01_Match_1v1"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98602436eff",
+      "from": "PROTO / CBT_07_LeaveConfirm",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98602b93a69",
+      "from": "PROTO / CBT_07_LeaveConfirm",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98603432ea6",
+      "from": "PROTO / CBT_08_Settings",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986036923b9",
+      "from": "PROTO / CBT_08_Settings",
+      "to": "5eab23a0-5a25-8021-8008-a985baeda876",
+      "target": "PROTO / STATE_SettingsReset"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986038b1d59",
+      "from": "PROTO / CBT_08_Settings",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986043e3af5",
+      "from": "PROTO / CBT_08_Settings",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d326660325",
+      "from": "PROTO / CBT_08_Settings",
+      "to": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "target": "PROTO / CBT_08_Settings"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d326702f22",
+      "from": "PROTO / CBT_08_Settings",
+      "to": "2ceab880-5161-80e6-8008-c4d3265a440d",
+      "target": "PROTO / STATE_JoystickFloating"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986051b79f5",
+      "from": "PROTO / CBT_01_Match_1v1",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98605de692e",
+      "from": "PROTO / CBT_01_Match_1v1",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860686fe95",
+      "from": "PROTO / CBT_01_Match_1v1",
+      "to": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "target": "PROTO / SCR_16_Victory"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98607396a68",
+      "from": "PROTO / CBT_01_Match_1v1",
+      "to": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "target": "PROTO / STATE_Defeat"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98607ba27b3",
+      "from": "PROTO / CBT_01_Match_1v1",
+      "to": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "target": "PROTO / CBT_06_Resume"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "from": "PROTO / STATE_Countdown",
+      "to": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "target": "PROTO / CBT_01_Match_1v1"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986085fa5ea",
+      "from": "PROTO / STATE_Countdown",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98608eb56cd",
+      "from": "PROTO / STATE_Countdown",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98609ca7888",
+      "from": "PROTO / STATE_Hit",
+      "to": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "target": "PROTO / CBT_01_Match_1v1"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860a17f432",
+      "from": "PROTO / STATE_Hit",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860a93b11a",
+      "from": "PROTO / STATE_Hit",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860b111a93",
+      "from": "PROTO / STATE_Ringout",
+      "to": "5eab23a0-5a25-8021-8008-a985ba1a8705",
+      "target": "PROTO / STATE_Respawn"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860b3a7ca7",
+      "from": "PROTO / STATE_Ringout",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860bfee125",
+      "from": "PROTO / STATE_Ringout",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860cf03ed6",
+      "from": "PROTO / STATE_Respawn",
+      "to": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "target": "PROTO / CBT_01_Match_1v1"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860d2565ca",
+      "from": "PROTO / STATE_Respawn",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860ddf7bfb",
+      "from": "PROTO / STATE_Respawn",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860ec67325",
+      "from": "PROTO / STATE_Eliminated",
+      "to": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "target": "PROTO / SCR_17_ResultSummary"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860f025242",
+      "from": "PROTO / STATE_Eliminated",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860fcd9eda",
+      "from": "PROTO / STATE_Eliminated",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986109ef304",
+      "from": "PROTO / STATE_Defeat",
+      "to": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "target": "PROTO / SCR_17_ResultSummary"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98610d82aa8",
+      "from": "PROTO / STATE_Defeat",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98611a73ed0",
+      "from": "PROTO / STATE_Defeat",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98612a52513",
+      "from": "PROTO / STATE_SelectionRequired",
+      "to": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "target": "PROTO / SCR_13_CharacterSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98612e422e0",
+      "from": "PROTO / STATE_SelectionRequired",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98613983a84",
+      "from": "PROTO / STATE_SelectionRequired",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98614697727",
+      "from": "PROTO / STATE_EmptyList",
+      "to": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "target": "PROTO / SCR_22_Social"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986148dd10e",
+      "from": "PROTO / STATE_EmptyList",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986154a6125",
+      "from": "PROTO / STATE_EmptyList",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861654ee80",
+      "from": "PROTO / STATE_ConnectionError",
+      "to": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+      "target": "PROTO / SCR_02_Login"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98616929407",
+      "from": "PROTO / STATE_ConnectionError",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986176093ce",
+      "from": "PROTO / STATE_ConnectionError",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986184bb77b",
+      "from": "PROTO / STATE_SettingsReset",
+      "to": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "target": "PROTO / CBT_08_Settings"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98618834e23",
+      "from": "PROTO / STATE_SettingsReset",
+      "to": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "target": "PROTO / CBT_08_Settings"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861961c003",
+      "from": "PROTO / STATE_SettingsReset",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861a6e4a07",
+      "from": "PROTO / STATE_OnlineMenu",
+      "to": "5eab23a0-5a25-8021-8008-a985b8e694b1",
+      "target": "PROTO / CBT_03_Match_Team4v4"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861aaffaa7",
+      "from": "PROTO / STATE_OnlineMenu",
+      "to": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "target": "PROTO / CBT_07_LeaveConfirm"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861b89db9f",
+      "from": "PROTO / STATE_OnlineMenu",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861c981d68",
+      "from": "PROTO / STATE_CancelMatch",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861cd83c8e",
+      "from": "PROTO / STATE_CancelMatch",
+      "to": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "target": "PROTO / SCR_11_Matchmaking"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861d91c8bd",
+      "from": "PROTO / STATE_CancelMatch",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986228508c9",
+      "from": "PROTO / SCR_16_Victory",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98622aeb015",
+      "from": "PROTO / SCR_16_Victory",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98622df2913",
+      "from": "PROTO / SCR_16_Victory",
+      "to": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "target": "PROTO / SCR_17_ResultSummary"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98623b1afc6",
+      "from": "PROTO / SCR_16_Victory",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98624a38b74",
+      "from": "PROTO / SCR_17_ResultSummary",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98624e58be5",
+      "from": "PROTO / SCR_17_ResultSummary",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9862528e59d",
+      "from": "PROTO / SCR_17_ResultSummary",
+      "to": "5eab23a0-5a25-8021-8008-a985bb9f151b",
+      "target": "PROTO / SCR_18_MVP"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98626181e17",
+      "from": "PROTO / SCR_17_ResultSummary",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986273a246e",
+      "from": "PROTO / SCR_18_MVP",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986277a5598",
+      "from": "PROTO / SCR_18_MVP",
+      "to": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "target": "PROTO / SCR_24_Profile"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98627ae4815",
+      "from": "PROTO / SCR_18_MVP",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98627e618c2",
+      "from": "PROTO / SCR_18_MVP",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98628abbe78",
+      "from": "PROTO / SCR_18_MVP",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c62fae44",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b5cd761b",
+      "target": "PROTO / SCR_01_Splash"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c6ce4415",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b5e1b086",
+      "target": "PROTO / SCR_02_Login"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c8682557",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b5fa760f",
+      "target": "PROTO / SCR_03_Lobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985c9301489",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "target": "PROTO / SCR_04_CharacterCollection"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ca2270e4",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b62e63bf",
+      "target": "PROTO / SCR_05_CharacterDetail"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cb200cfa",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "target": "PROTO / SCR_06_AccessoryCollection"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cc48a3a2",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b65bf152",
+      "target": "PROTO / SCR_07_AccessoryDetail"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cdb36fd9",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985cf70b119",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "target": "PROTO / SCR_19_Shop"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d0581d23",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b6ad2069",
+      "target": "PROTO / SCR_20_Collection"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d17d284f",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "target": "PROTO / SCR_21_Mission"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d323ba6a",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "target": "PROTO / SCR_22_Social"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d4bde581",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b700f860",
+      "target": "PROTO / SCR_23_Rank"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d6e4e90f",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "target": "PROTO / SCR_24_Profile"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985d8e10154",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985db6acd12",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985dd795872",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b78a35c6",
+      "target": "PROTO / SCR_10_PartyLobby"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985df58ae7d",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b7a501a0",
+      "target": "PROTO / SCR_11_Matchmaking"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e234f11b",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b7c2d317",
+      "target": "PROTO / SCR_12_MatchFound"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e41911bc",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b7e12dee",
+      "target": "PROTO / SCR_13_CharacterSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e6136daa",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b7fb1602",
+      "target": "PROTO / SCR_14_AccessorySelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e7c430a1",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b81481fd",
+      "target": "PROTO / SCR_15_Loading"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985e925de6f",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b82ec298",
+      "target": "PROTO / EXT_01_JobSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ea7a6475",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b84e2660",
+      "target": "PROTO / EXT_02_ArenaSelect"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ebb6983e",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "target": "PROTO / EXT_03_StoryChapters"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ed1a3ad5",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b88ac355",
+      "target": "PROTO / EXT_04_AISetup"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985ee86adfd",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "target": "PROTO / EXT_05_PracticeSetup"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f1553799",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b8c86fbc",
+      "target": "PROTO / CBT_02_Match_Solo8"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f4754c9f",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b8e694b1",
+      "target": "PROTO / CBT_03_Match_Team4v4"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f7d78fc7",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b9077cdf",
+      "target": "PROTO / CBT_04_Practice"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a985f976a602",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b923ec52",
+      "target": "PROTO / CBT_05_Pause"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98601f27f99",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b94021fd",
+      "target": "PROTO / CBT_06_Resume"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986031e5b1c",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b95da5a2",
+      "target": "PROTO / CBT_07_LeaveConfirm"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98604e8f187",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "target": "PROTO / CBT_08_Settings"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860838e7a0",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b99c921f",
+      "target": "PROTO / CBT_01_Match_1v1"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860992c774",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b9baf2cf",
+      "target": "PROTO / STATE_Countdown"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860aea526b",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b9d90ee8",
+      "target": "PROTO / STATE_Hit"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860cbf168b",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985b9fb4a22",
+      "target": "PROTO / STATE_Ringout"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9860e9b850a",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985ba1a8705",
+      "target": "PROTO / STATE_Respawn"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861064476e",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985ba3ad14d",
+      "target": "PROTO / STATE_Eliminated"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861268e9da",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985ba5cd2fc",
+      "target": "PROTO / STATE_Defeat"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861426d8ad",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985ba80210a",
+      "target": "PROTO / STATE_SelectionRequired"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986161548ec",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985ba9dc346",
+      "target": "PROTO / STATE_EmptyList"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98618191a1c",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985babfde32",
+      "target": "PROTO / STATE_ConnectionError"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861a30f911",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985baeda876",
+      "target": "PROTO / STATE_SettingsReset"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9861c582fdb",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985bb1115ca",
+      "target": "PROTO / STATE_OnlineMenu"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986223f5720",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985bb306d34",
+      "target": "PROTO / STATE_CancelMatch"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a986246e0f8b",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985bb50f73f",
+      "target": "PROTO / SCR_16_Victory"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a98626f9964c",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985bb7ba1a4",
+      "target": "PROTO / SCR_17_ResultSummary"
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a9862977f710",
+      "from": "REVIEW INDEX",
+      "to": "5eab23a0-5a25-8021-8008-a985bb9f151b",
+      "target": "PROTO / SCR_18_MVP"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15babf",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "8626232c-968c-808f-8008-c1a6cbbc8f02",
+      "target": "MOTION / SCR_03_Lobby / inhale"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bac3",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bac4",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "target": "PROTO / SCR_04_CharacterCollection"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bac5",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "target": "PROTO / SCR_06_AccessoryCollection"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bac6",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bac7",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "target": "PROTO / SCR_21_Mission"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bac8",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "target": "PROTO / SCR_22_Social"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bac9",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "target": "PROTO / SCR_19_Shop"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15baca",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "target": "PROTO / SCR_24_Profile"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bacb",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bacc",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bacd",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "target": "PROTO / EXT_05_PracticeSetup"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bace",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "target": "PROTO / EXT_03_StoryChapters"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cb15bacf",
+      "from": "MOTION / SCR_03_Lobby / rest",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbc8f02",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "8626232c-968c-808f-8008-c1a6cb15babf",
+      "target": "MOTION / SCR_03_Lobby / rest"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf241",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf242",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b611bdc8",
+      "target": "PROTO / SCR_04_CharacterCollection"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf243",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b64500bb",
+      "target": "PROTO / SCR_06_AccessoryCollection"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf244",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf245",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b6c9bdd4",
+      "target": "PROTO / SCR_21_Mission"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf246",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b6e3b4ab",
+      "target": "PROTO / SCR_22_Social"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf247",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b69864c9",
+      "target": "PROTO / SCR_19_Shop"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf248",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b71ad274",
+      "target": "PROTO / SCR_24_Profile"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf249",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf24a",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b672da75",
+      "target": "PROTO / SCR_08_Preset"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf24b",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b8a8879b",
+      "target": "PROTO / EXT_05_PracticeSetup"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf24c",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b86b3cfc",
+      "target": "PROTO / EXT_03_StoryChapters"
+    },
+    {
+      "id": "8626232c-968c-808f-8008-c1a6cbbcf24d",
+      "from": "MOTION / SCR_03_Lobby / inhale",
+      "to": "5eab23a0-5a25-8021-8008-a985b7656a2d",
+      "target": "PROTO / SCR_09_ModeSelect"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d3265a440f",
+      "from": "PROTO / STATE_JoystickFloating",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d3265a4410",
+      "from": "PROTO / STATE_JoystickFloating",
+      "to": "2ceab880-5161-80e6-8008-c4d341072914",
+      "target": "PROTO / STATE_JoystickFloatingReset"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d3265a4411",
+      "from": "PROTO / STATE_JoystickFloating",
+      "to": "5eab23a0-5a25-8021-8008-a985b7415755",
+      "target": "PROTO / EXT_06_GeneralSettings"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d3265a4414",
+      "from": "PROTO / STATE_JoystickFloating",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d32678d273",
+      "from": "PROTO / STATE_JoystickFloating",
+      "to": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "target": "PROTO / CBT_08_Settings"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d32681a4bb",
+      "from": "PROTO / STATE_JoystickFloating",
+      "to": "2ceab880-5161-80e6-8008-c4d3265a440d",
+      "target": "PROTO / STATE_JoystickFloating"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d341072916",
+      "from": "PROTO / STATE_JoystickFloatingReset",
+      "to": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+      "target": "PROTO / CBT_08_Settings"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d341072917",
+      "from": "PROTO / STATE_JoystickFloatingReset",
+      "to": "2ceab880-5161-80e6-8008-c4d3265a440d",
+      "target": "PROTO / STATE_JoystickFloating"
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d34107291a",
+      "from": "PROTO / STATE_JoystickFloatingReset",
+      "to": "5eab23a0-5a25-8021-8008-a985c54ba777",
+      "target": "REVIEW INDEX"
+    }
+  ],
+  "boards": [
+    {
+      "id": "fa154361-0c45-804b-8008-a49225a96e87",
+      "name": "CBT_02_Match_Solo8",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d074bfa184",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a4922668aaf5",
+      "name": "CBT_03_Match_Team4v4",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d074f9fefb",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "5eab23a0-5a25-8021-8008-a8960f537e85",
+      "name": "CMP20 / CBT_03_Match_Team4v4",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d075343140",
+          "component": "joystick-neutral",
+          "x": 392,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a4922751ce3d",
+      "name": "CBT_04_Practice",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d0757dcc8a",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a492297a905e",
+      "name": "CBT_08_Settings",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d041a7375e",
+          "component": "joystick-preview-240",
+          "x": 172,
+          "y": 526,
+          "w": 240,
+          "h": 240
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a492acd4167f",
+      "name": "CBT_01_Match_1v1",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d075d88289",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651a77be291",
+      "name": "STATE_Countdown",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d0761d9c6e",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651b6031471",
+      "name": "STATE_Hit",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d07675221b",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651c58268f9",
+      "name": "STATE_Ringout",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d076a657d1",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651ddaa5525",
+      "name": "STATE_Respawn",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d076d4cfda",
+          "component": "joystick-neutral",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a651f2f8ac46",
+      "name": "STATE_Eliminated",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d3e91c179e",
+          "component": "joystick-disabled",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a652055729ea",
+      "name": "STATE_Defeat",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d3d930c787",
+          "component": "joystick-disabled",
+          "x": 152,
+          "y": 690,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    },
+    {
+      "id": "fa154361-0c45-804b-8008-a6527c0769fd",
+      "name": "STATE_SettingsReset",
+      "page": "06_Combat",
+      "joystick": []
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d0430931b3",
+      "name": "STATE_JoystickFloating",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d0430931cd",
+          "component": "joystick-preview-240",
+          "x": 172,
+          "y": 474,
+          "w": 240,
+          "h": 240
+        }
+      ]
+    },
+    {
+      "id": "2ceab880-5161-80e6-8008-c4d0776730e0",
+      "name": "DEMO_JoystickFloating",
+      "page": "06_Combat",
+      "joystick": [
+        {
+          "id": "2ceab880-5161-80e6-8008-c4d077d169a4",
+          "component": "joystick-active",
+          "x": 196,
+          "y": 658,
+          "w": 320,
+          "h": 320
+        }
+      ]
+    }
+  ],
+  "proto": {
+    "fixed": "5eab23a0-5a25-8021-8008-a985b97c98eb",
+    "floating": "2ceab880-5161-80e6-8008-c4d3265a440d",
+    "links": [
+      {
+        "id": "2ceab880-5161-80e6-8008-c4d326660325",
+        "from": "PROTO / CBT_08_Settings",
+        "to": "PROTO / CBT_08_Settings"
+      },
+      {
+        "id": "2ceab880-5161-80e6-8008-c4d326702f22",
+        "from": "PROTO / CBT_08_Settings",
+        "to": "PROTO / STATE_JoystickFloating"
+      },
+      {
+        "id": "2ceab880-5161-80e6-8008-c4d32678d273",
+        "from": "PROTO / STATE_JoystickFloating",
+        "to": "PROTO / CBT_08_Settings"
+      },
+      {
+        "id": "2ceab880-5161-80e6-8008-c4d32681a4bb",
+        "from": "PROTO / STATE_JoystickFloating",
+        "to": "PROTO / STATE_JoystickFloating"
+      }
+    ],
+    "reset": "2ceab880-5161-80e6-8008-c4d341072914"
+  },
+  "handoff": "2ceab880-5161-80e6-8008-c4d377f27810",
+  "exportMedia": [
+    "CBT_08_Settings",
+    "STATE_JoystickFloating",
+    "DEMO_JoystickFloating",
+    "CBT_02_Match_Solo8",
+    "CBT_03_Match_Team4v4",
+    "CMP20 / CBT_03_Match_Team4v4",
+    "CBT_04_Practice",
+    "CBT_01_Match_1v1",
+    "STATE_Countdown",
+    "STATE_Hit",
+    "STATE_Ringout",
+    "STATE_Respawn",
+    "STATE_Eliminated",
+    "STATE_Defeat",
+    "STATE_SettingsReset"
+  ]
+}
