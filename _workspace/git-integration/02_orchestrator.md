@@ -12,3 +12,5 @@ source-inventory.json은 기존4개 작업 폴더의 미커밋 파일5,975개·�
 실기기 설치·실행·ADB 조작은 하지 않는다. 사용자 요청으로 제외된 항목이며 이번 자동 검사 결과와 분리한다.
 
 추가 보존: 다른 premium-menu 작업 폴더의 미커밋 두 JSON은 재검사 checked_at만 다르므로 원본과 기존 커밋을 유지했다. 별도 APK 데모 작업 폴더의7개 과거 실행 로그도 중간물로 로컬에 보존한다. 전체 기본 검사에서 생성한 headless 메뉴 결과는 별도 파일로 보존하고 과거 실제 렌더 보고서를 복원했다. CSV CRLF는 .gitattributes로 허용해 원본 바이트를 바꾸지 않았다.
+
+최종 전체 diff 검사에서 과거 forestlight-polish-v04 SVG의 생성된 빈 줄45곳에 공백이 있음을 확인했다. manifest 해시가 연결된 원본 바이트를 고치지 않고 해당 보관 SVG 경로에만 whitespace=-blank-at-eol을 지정했다. 작업 중 생성한 Git push 로그 복사본의 끝 공백은 정리했다. 전체 PR diff의 whitespace 검사를 다시 통과했다.
