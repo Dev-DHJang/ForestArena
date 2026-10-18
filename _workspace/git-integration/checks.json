@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "verify_full_exit_code": 0,
+  "verify_full_completion": "Forest Arena verification passed.",
+  "script_error_count": 0,
+  "diagnostic_counts": {
+    "WARNING": 14,
+    "ERROR": 10
+  },
+  "diagnostic_kinds": [
+    "ERROR: 1 resources still in use at exit (run with --verbose for details).",
+    "ERROR: 2 resources still in use at exit (run with --verbose for details).",
+    "ERROR: 3 resources still in use at exit (run with --verbose for details).",
+    "ERROR: 4 resources still in use at exit (run with --verbose for details).",
+    "ERROR: 5 resources still in use at exit (run with --verbose for details).",
+    "ERROR: 9 resources still in use at exit (run with --verbose for details).",
+    "WARNING: 10 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 11 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 23 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 3 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 7 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: 8 ObjectDB instances were leaked at exit (run with `--verbose` for details).",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/ja-hyun/concept/ja-hyun-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/myo-ryung/concept/myo-ryung-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/nabi/concept/nabi-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource.",
+    "WARNING: Loaded resource as image file, this will not work on export: 'res://assets/character/yu-ran/concept/yu-ran-concept-v01.png'. Instead, import the image file as an Image resource and load it normally as a resource."
+  ],
+  "checks": {
+    "verify-docs": "PASS",
+    "verify-harness": "PASS",
+    "verify-resources": "PASS: 519 assets / 25 quality variants",
+    "integration": "PASS: 90 approved motions / 1440 cells / 120 runtime+layout hashes",
+    "concept-transparency-tests": "PASS: 3 tests",
+    "motion-visual-tools-tests": "PASS: 12 tests",
+    "session-recovery-tests": "PASS: 6 tests",
+    "starter-tests": "PASS: 12 tests",
+    "android-export": "PASS: exit 0",
+    "android-package": "PASS",
+    "apk-integration": "PASS",
+    "signature": "PASS: same prior-develop certificate",
+    "physical-device": "사용자 요청으로 검증 제외"
+  }
+}
