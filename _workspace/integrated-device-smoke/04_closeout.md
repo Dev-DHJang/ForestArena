@@ -1,6 +1,6 @@
-# 최신 통합본 실기기 검사 진행 기록
+# 최신 통합본 실기기 검사 마무리
 
-2026-10-18. 기존 전체 개발 통합은 PR102(a2fad2dee7a7c608afd6ae8103c3ad67f62b07b1)·마무리PR103을 통해 develop에 반영됐다. 이번에는 사용자의 후속 요청으로 실제 Android 검사를 추가한다. **기본 기기 검사와 추가 화면·영상 재검사를 통과했다. 최종 독립 QA r02 PASS이며 PR104의 develop 병합 결과를 이어 기록한다.**
+2026-10-18. 기존 전체 개발 통합은 PR102(a2fad2dee7a7c608afd6ae8103c3ad67f62b07b1)·마무리PR103을 통해 develop에 반영됐다. 이번에는 사용자의 후속 요청으로 실제 Android 검사를 추가한다. **기본 기기 검사와 추가 화면·영상 재검사를 통과했다. 최종 독립 QA r02 PASS 뒤 PR104를 develop에 병합했다. 실제 병합 SHA는 e621d883b8c9fe55b879a5b8519c5c21fdd2e14e다.**
 
 ## 수정
 
@@ -52,5 +52,7 @@ Android 앱 정보의 실제 InstalledAppDetails 화면과 새 묘령 아이콘�
 - 런타임 소스:1004c981f577621c4bf5f2bdc2091921fa9e7ee1. 이후 변경은 검사 도구·기록이며 앱 런타임은 같다.
 - 앱 ID com.forestarena.welllbeing, 버전0.0.1, 최소API29·대상API36, arm64-v8a/x86_64, 이전 debug 인증서 유지.
 - 작업 브랜치 codex/integrated-device-smoke, 기준 develop2c22ce60a86d418268fbd19bd91f16db57055a2b. 수정 커밋 df17caa·2637ad6·023c451·1004c98, 검사 준비6f498e8.
-- [PR104](https://github.com/Dev-DHJang/ForestArena/pull/104)는 최종 증거·독립 QA를 확인한 뒤 develop으로 병합한다. 현재 기록 작성 시 병합 SHA는 아직 없다. 병합 시 해당 병합 커밋에 `git revert -m 1 <merge-sha>`를 적용하는 새 PR로 되돌린다. 현재 브랜치를 강제로 되돌리거나 이력을 재작성하지 않는다.
+- [PR104](https://github.com/Dev-DHJang/ForestArena/pull/104)는 최종 증거·독립 QA r02 PASS와 예상 head122a2412387fc6c8d8049fb3041f0df87e6bb31f를 확인해 표준 merge 방식으로 develop에 병합했다. 실제 병합 SHA는 e621d883b8c9fe55b879a5b8519c5c21fdd2e14e다. 원격 등록 상태 검사·워크플로 실행은 비어 있었으며 이를 원격 CI 통과라고 말하지 않는다. 되돌리기는 `git revert -m 1 e621d883b8c9fe55b879a5b8519c5c21fdd2e14e`를 적용하는 새 커밋·PR로 진행한다. 현재 브랜치를 강제로 되돌리거나 이력을 재작성하지 않는다.
 - 기존 제작 자료5975파일·2009473912bytes 재비교 결과 변경0이다. original-preservation.json을 본다. 원본 작업 폴더·기존 APK·백업·중간 파일은 보존했다. main·기기 저장·DB 초기화·강제 push·원격 브랜치 삭제는 수행하지 않았다.
+
+이번 마무리 문서는 최신 develop의 실제 병합 결과를 codex/integrated-device-closeout 브랜치의 [기록 PR105](https://github.com/Dev-DHJang/ForestArena/pull/105)에서 보완한다. 앱 런타임·승인 자산·APK는 변경하지 않는다.
