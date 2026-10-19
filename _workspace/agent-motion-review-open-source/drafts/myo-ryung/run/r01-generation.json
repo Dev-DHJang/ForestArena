@@ -1,0 +1,15 @@
+{
+  "character": "myo-ryung",
+  "motion": "run",
+  "revision": 1,
+  "path": "drafts/myo-ryung/run/r01.png",
+  "prompt": "Create a correction DRAFT sprite sheet for Forest Arena's Myo-Ryung, using the supplied approved idle sprite strip as the STRICT character identity/style reference. This is the same red/pink chibi rabbit fighter with long rabbit ears, flowing red hair/ribbons, red-and-white sporty costume, gloves and boots; preserve proportions, colors, costume, line work and game-sprite rendering exactly. Action: RUN LOOP with unmistakable alternating left/right support legs, not a lunge followed by standing. Exactly 16 chronological full-body poses in a regular 4x4 grid (read left-to-right then top-to-bottom), each occupying identical equal square cells with clear transparent gutters. Row1 contact-left, passing, lift, flight. Row2 contact-right, compression, passing, lift. Row3 flight, contact-left, compression, passing. Row4 lift, flight, contact-right, passing and flow directly into frame1 with no rest/idle frames. Both feet and ears fit entirely within each cell, consistent apparent body size and pivot, character facing screen-right. Keep the pelvis low and tilted forward, rear leg pushing then recovering, arms counter-swing with opposite leg. No motion text, no labels, no frame numbers, no grid lines, no ground, no background, no new VFX, no extra limbs. Real transparent RGBA background. Output one 1024x1024 image, evenly divided 4x4, do not copy the input horizontal layout. This is a proposal for review only, not an approved game replacement.",
+  "provider": "built-in image_gen",
+  "status": "review-pending",
+  "reference_hashes": {
+    "assets/character/myo-ryung/animation/runtime/idle_16f.png": "f1f9404a3423415e79b2c6c49d3786a8561248807dfba7acd518619339c8cf29"
+  },
+  "output_sha256": "173bc53be5128163081924cc58d8d6de2bd4c15b9adc01433e0724144a966c92",
+  "approval": "not-approved",
+  "runtime_applied": false
+}

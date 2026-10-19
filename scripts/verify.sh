@@ -2,6 +2,7 @@
 set -eu
 
 python3 tools/forest_arena/test_recover_codex_session.py
+python3 tools/forest_arena/test_motion_action_review.py
 python3 tools/forest_arena/test_android_fleet.py
 python3 tools/forest_arena/test_android_touch.py
 python3 tools/forest_arena/test_prepare_android_qa.py

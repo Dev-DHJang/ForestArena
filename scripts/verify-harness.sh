@@ -39,10 +39,12 @@ do
   [ ! -e ".agents/skills/$removed/SKILL.md" ] || fail "removed skill remains: $removed"
 done
 if rg -n 'forest-arena-(godot-ui|character-motion|version-control)' AGENTS.md README.md docs/operations docs/engineering/godot docs/ui .agents; then fail "removed skill ID in active guidance"; fi
-if rg -n '[1]7개 역할|[1]5개 역할|현재 Phase 0' AGENTS.md README.md docs/product/vision.md docs/gameplay/combat.md docs/gameplay/features-and-ux.md docs/operations/ai-development.md docs/operations docs/ui .agents; then fail "stale active role count or Phase state"; fi
+if rg -n '[1]7개 역할|현재 Phase 0' AGENTS.md README.md docs/product/vision.md docs/gameplay/combat.md docs/gameplay/features-and-ux.md docs/operations/ai-development.md docs/operations docs/ui .agents; then fail "stale active role count or Phase state"; fi
 
 grep -qF 'ForestArenaResources' .agents/skills/forest-arena-ui/SKILL.md || fail "UI resource consumption missing"
 grep -qF 'docs/engineering/godot/setup.md' .agents/skills/forest-arena-ui/SKILL.md || fail "UI setup missing"
+grep -qF 'docs/content/motion-action-review.md' .agents/skills/forest-arena-qa/SKILL.md || fail "motion action review missing"
+grep -qF '라이브러리·오픈소스 활용이 필요한 개발' docs/operations/harness/team-spec.md || fail "open-source routing missing"
 grep -qF '모션별 사용자 명시 승인' .agents/skills/forest-arena-2d-animation/SKILL.md || fail "motion approval missing"
 grep -qF 'develop` 병합' .agents/skills/forest-arena-orchestrator/SKILL.md || fail "merge ownership missing"
 grep -qF '00_request.md' docs/operations/harness/team-spec.md || fail "request evidence missing"

@@ -33,6 +33,7 @@
 ## 검증 명령
 
 - 하네스: `./scripts/verify-harness.sh`
+- 모션 행위 검토 자료·기록 검사: [실행 절차](../../content/motion-action-review.md)
 - 전체 회귀: `./scripts/verify.sh`
 - LAN 실제 연결 자동 검사: `./scripts/verify-lan-runtime.sh`
 - Android 자동 검사 LAN 두 경기 분리: `./scripts/verify-android-qa-lan.sh` (화면 없는 로컬 테스트, 실기기 결과와 구분)

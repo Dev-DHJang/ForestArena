@@ -25,7 +25,8 @@ AI 작업 체계(하네스)는 전문 역할과 별도 검토 역할을 사용�
 | 계약 | forest-arena-contracts | Resource, 저장, 공용 ID와 미래 버전 계약 |
 | 멀티플레이 | forest-arena-multiplayer | Phase 7 이후 온라인 매치 의미 |
 | 네트워크 | forest-arena-network | Phase 7 이후 전송, 연결과 복구 |
-| QA | forest-arena-qa | 독립 검증과 `pass`/`fix`/`redo`/`blocked` 판정 |
+| 오픈소스 활용 | forest-arena-open-source | 외부 라이브러리·Git 오픈소스 조사, 비교, 시험과 담당 역할과의 반영 |
+| QA | forest-arena-qa | 모션 행위 표현을 포함한 독립 검증과 `pass`/`fix`/`redo`/`blocked` 판정 |
 
 ## 요청 라우팅
 
@@ -39,7 +40,8 @@ AI 작업 체계(하네스)는 전문 역할과 별도 검토 역할을 사용�
 | Resource·ID·저장 | contracts, qa | combat, product | `01_contract.md` 선행 |
 | 신규 전투 캐릭터 콘셉트 | character-design, qa | image-design, 2d-animation | 사용자 승인 전 `assets/character/` 등록 금지 |
 | 승인 캐릭터 외형 경계·변경 | character-design, contracts, qa | image-design, 2d-animation | 외형 JSON이 단일 원본 |
-| 캐릭터 idle·jump·run 모션 | 2d-animation, qa | character-design | 승인 콘셉트와 모션별 사용자 명시 승인 필수 |
+| 캐릭터 이동·공격·상태 모션 생성·수정 | 2d-animation, qa | character-design, combat | 행위 표현 독립 검토 뒤 모션별 사용자 명시 승인; [검토 기준](../../content/motion-action-review.md) |
+| 라이브러리·오픈소스 활용이 필요한 개발 | open-source, qa | 해당 개발 역할, contracts, mobile, orchestrator | 조사→비교→격리 시험→버전 고정·반영; 적합한 후보가 없으면 무도입 근거 기록 |
 | 콘셉트·정적 이미지 | image-design, qa | ui, 2d-animation | 원본성과 권리 기록 |
 | BGM·SFX | audio, qa | combat, mobile | 의미 이벤트만 소비 |
 | Android export·기기 | mobile, qa | ui, combat | 실제 기기 결과와 자동 검증을 구분 |
@@ -54,6 +56,8 @@ AI 작업 체계(하네스)는 전문 역할과 별도 검토 역할을 사용�
 - 공용 계약 변경: `01_contract.md`.
 - 실질적 역할 인수인계: `02_<role>.md`.
 - 독립 QA가 필요한 기능 또는 고위험 변경: `03_qa_rNN.md`.
+- 모션 독립 검토: `motion-review.json`과 전체 프레임·재생 자료, `03_qa_rNN.md`.
+- 외부 도구 조사·반영: `02_open-source.md`.
 - 브랜치·PR·병합·롤백 정보는 별도 파일이 아니라 `04_closeout.md`에 기록한다.
 
 `fix`는 구현 생산자에게, `redo`는 product 또는 contracts 소유자에게 돌린다. 같은 원인이 두 회차 반복되면 역할과 접근을 재분류한다. 필수 검증을 실행할 수 없으면 `blocked`이며, 사용자 승인으로 이연한 검증만 범위·이유·재개 조건을 남긴다.
@@ -63,7 +67,8 @@ AI 작업 체계(하네스)는 전문 역할과 별도 검토 역할을 사용�
 - combat는 전투 판정을 소유하며, ui·2d-animation·image-design·audio는 표현만 소유한다. 표현은 피해, 상태, 넉백, 승패를 결정하지 않는다.
 - `docs/contracts/character-appearance-v01.json`은 승인 로스터 외형의 단일 원본이다. character-design, image-design, 2d-animation은 같은 ID와 필수·각도 한정·금지 규칙을 소비한다.
 - 승인 캐릭터 외형 변경은 영향 자산과 계약 필드를 먼저 기록하고, 사용자 변경 승인과 QA `pass` 전에는 PNG·모션·manifest를 변경하지 않는다. 사용자 시안 승인만으로는 계약 변경 승인이 되지 않는다.
-- 2d-animation은 승인 콘셉트의 idle·jump·run 런타임 패키지를 소유한다. 모션별 사용자 명시 승인 전에는 `assets/character/<character-id>/animation/runtime/` 또는 manifest에 쓰지 않는다.
+- 2d-animation은 승인 콘셉트의 이동·공격·상태 모션 런타임 패키지를 소유한다. qa는 사용자 승인 요청 전에 행위 표현을 독립 검토한다. 모션별 사용자 명시 승인 전에는 `assets/character/<character-id>/animation/runtime/` 또는 manifest에 쓰지 않는다.
+- open-source는 필요가 있는 개발 작업의 외부 도구 조사·시험·반영을 맡는다. 실제 전투·UI·리소스·공용 데이터의 소유권과 Phase·자산 승인 경계는 기존 역할에 둔다.
 - `ForestArenaResources`는 `res://forest_arena/` 카탈로그의 논리 ID 경계다. 기존 `assets/ui/generated/`, `assets/character/`의 승인·소유권·출력 경로를 대체하지 않는다.
 - CharacterData·JobData·AccessoryData 조합은 contracts와 combat가 관리한다. 온라인, 영속 성장, 경제와 정식 선택 UI는 해당 Phase와 승인 전 구현하지 않는다.
 - Penpot 1920×1080은 설계 참조이며 Godot 런타임 논리 해상도 1280×720은 별도 승인 없이 바꾸지 않는다. 비전투 화면은 `docs/ui/non-combat-ui-v01.json`, 이미지 요구는 `assets/ui/asset-requirements.csv`를 따른다.

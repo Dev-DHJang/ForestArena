@@ -1,0 +1,188 @@
+[
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_up",
+    "revision": 1,
+    "path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_up/r01.png",
+    "sourcehash": "b23681d06d413a403737c0d7c2e7cdd6e386c8f1d76d8087ff4cb0c85be7aece",
+    "generation_sha256": "308773f49785f48c0463b4900dae85225c9392f50703152597f017ecd9dae408",
+    "viewed_board": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_up/r01-board.jpg",
+    "viewed_board_sha256": "c1e76d0f9737301efbb2539cce9025d964f06fbb8e1d3616673ec007a47c37a7",
+    "checked_frames": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "issues": [],
+    "runtime_replacement_approved": false,
+    "status": "blocked",
+    "static_status": "pass",
+    "observations": "회색 alpha 합성 r01-board.jpg의16프레임을 직접 보았다.1~5 몸을 낮춰 준비하고6 꼬리를 뒤에서 올리기 시작해7 머리 뒤 위쪽으로 올린 뒤8 꼬리 끝이 머리보다 높은 화면 오른쪽으로 뻗는다.9~10 꼬리가 뒤쪽 위로 돌아오고11~16 대기 자세로 회복한다. 손은 얼굴·가슴 앞 방어에 머물며 손이나 무릎을 위로 내미는 기존 공격과 구별된다.7은 위쪽이지만 몸 뒤이고8에서 전방 위 견제가 완성된다. 따라서6~8의 상승 꼬리 호와9 이후 회수는 생성 프롬프트에 대응한다. 회색 머리·귀·청록 장식·복장과 한 개 고리 꼬리가 유지된다. 이는 전체 정적 자세에 대한 판정이며 정상·느린·반전·소형 실제 재생과 게임 단계별 연결 확인 전이라 최종 통과는 보류한다."
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_down",
+    "revision": 1,
+    "path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_down/r01.png",
+    "sourcehash": "1cf3dfcfbd7cef4aec72eb87281447b8ae072831df367de2d0fd4efd8991738f",
+    "generation_sha256": "60a0ec329d1c2086d521927f9ab5a55ab0ed89c8934a6babdee8e626da03644e",
+    "viewed_board": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_down/r01-board.jpg",
+    "viewed_board_sha256": "0c6162fa5eda641379415d346c014e381c65cc6379df4d4346372cd5881b7136",
+    "checked_frames": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "issues": [],
+    "runtime_replacement_approved": false,
+    "status": "blocked",
+    "static_status": "pass",
+    "observations": "회색 alpha 합성 r01-board.jpg의16프레임을 직접 보았다.1~5 무릎을 굽힌 준비에서6 꼬리를 뒤에서 모으고7~8 꼬리가 허벅지 앞을 지나 화면 오른쪽 발목 높이로 낮게 뻗는다. 꼬리 끝은 얼굴보다 오른쪽에 있어 뒤쪽 공격으로 혼동되지 않는다.9부터 꼬리를 즉시 뒤로 거두고10~16 대기 자세로 돌아온다. 손은 전방을 막는 위치에 남아 기존 낮은 손 공격을 꼬리 견제로 바꿨다.7~8의 낮은 전방 꼬리 방향과9 이후 회복은 프롬프트에 맞는다. 승인 외형의 머리·귀·의상·청록 장식·단일 꼬리가 유지된다. 정상·느린·반전·소형 실제 재생과 게임 단계별 연결을 아직 확인하지 않아 최종 통과는 보류한다."
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_combo_02",
+    "revision": 1,
+    "path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_combo_02/r01.png",
+    "sourcehash": "83dd5df3919f0e0d5c6783ab7921f0916b2424c2bce41d3d8c5ef1c6bda0ddcb",
+    "generation_sha256": "e2947aeb3d8787f5f2a3fa5886fcd339b035a6a03d04b0b67969e3864819e3c6",
+    "viewed_board": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_combo_02/r01-board.jpg",
+    "viewed_board_sha256": "ba5b5ed964134cc4d1c753eec9a3886e0bd67d1b1e04aef124e1a2ea5f3b288a",
+    "checked_frames": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "issues": [
+      {
+        "frames": [
+          6,
+          7,
+          8
+        ],
+        "reason": "수평으로 가장 길게 뻗은 꼬리 끝이 오른쪽 목표가 아니라 왼쪽 뒤 공간을 향한다. 손에서 꼬리로 공격 부위를 바꿨지만 짧은 전방 옆 견제 행위는 충족하지 못했다.",
+        "required_change": "수정은 꼬리가 뒤 골반에서 허벅지 앞을 감아 화면 오른쪽으로 나가게 한다. 특히 최대 타격7~8의 꼬리 끝이 코보다 화면 오른쪽에 있어야 한다. 원 QA의5~8 전방 꼬리 견제 요청과 생성 프롬프트의6~8 타격 구간도 정리해 타격 중 준비 자세가 남지 않게 검토한다. 뒤로 뻗은 꼬리를 그림 전체 좌우 반전하여 얼굴까지 뒤집는 방식은 사용하지 않는다."
+      }
+    ],
+    "runtime_replacement_approved": false,
+    "status": "fix",
+    "static_status": "fix",
+    "observations": "회색 alpha 합성 r01-board.jpg의16프레임을 직접 보았다.1~5 준비,6 꼬리를 몸통 높이로 올림,7~8 수평 꼬리 뻗기,9~10 회수,11~16 대기 순서는 구분된다. 손을 내미는 대신 꼬리가 움직이는 개선은 있으나7~8의 꼬리 끝은 화면 왼쪽, 즉 몸 뒤로 길게 뻗고 오른쪽 얼굴 앞을 넘지 않는다. 원 요청과 생성 프롬프트가 요구한 옆 전방 견제와 반대 방향이다. 의상·머리·귀·청록 장식과 단일 꼬리는 유지된다. 실제 재생을 확인한 판정은 아니다."
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_combo_02",
+    "revision": 2,
+    "path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_combo_02/r02.png",
+    "sourcehash": "e7c65391d9704e19f71a8f0ec44d3152e459abfb5e36de853ca6cf035343cb76",
+    "generation_sha256": "36b7fa284b8880198ecf68d7826f385642b7a1239435a40cc5df04aa409c0c24",
+    "viewed_board": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/attack_light_combo_02/r02-board.jpg",
+    "viewed_board_sha256": "cc2f4d61660d520e57d4d16a7163afde117d8c279e017071ee87700bb728082b",
+    "checked_frames": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "issues": [
+      {
+        "frames": [
+          6,
+          7,
+          8
+        ],
+        "reason": "수평으로 가장 길게 뻗은 꼬리 끝이 오른쪽 목표가 아니라 왼쪽 뒤 공간을 향한다. 손에서 꼬리로 공격 부위를 바꿨지만 짧은 전방 옆 견제 행위는 충족하지 못했다.",
+        "required_change": "이번 작업에서는fix와 동일 원인 미해결을 기록하고 r01/r02를 보존한다. 세 번째 재생성은 요청하지 않는다. 후속 제작 접근을 재분류하여 뒤 골반→허벅지 앞→오른쪽 코 앞을 잇는 꼬리의 연속 핵심 자세를 먼저 명확히 고정한 뒤 제작 방법을 결정해야 한다. 승인 원본·게임 자산을 이 시안으로 바꾸지 않는다."
+      }
+    ],
+    "runtime_replacement_approved": false,
+    "status": "fix",
+    "static_status": "fix",
+    "observations": "회색 alpha 합성 r02-board.jpg의16프레임을 직접 보았다.1~5 준비 뒤6 꼬리가 허벅지 앞으로 내려와 몸 가까이 감기지만7~8에서 긴 꼬리 끝이 여전히 화면 왼쪽으로 뻗는다. 코보다 오른쪽으로 내밀라는 r02 프롬프트의 핵심 수정이 이뤄지지 않았다.9부터 회수하고10~16 대기로 돌아가는 순서는 유지되며 두 손도 방어 위치에 남는다. 머리·귀·의상·청록 장식·단일 고리 꼬리는 유지되지만 전방 꼬리 방향 문제는 r01과 같은 원인으로 반복됐다. 실제 재생은 확인하지 않았다.",
+    "round_limit_reached": true,
+    "reclassification_required": true
+  }
+]

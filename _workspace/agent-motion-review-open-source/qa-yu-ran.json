@@ -1,0 +1,3962 @@
+[
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_air_heavy",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+    "sha256": "070ba45cd3b2bcf25bb0c5bc00b83bc6b94e3b59f35781fd1af83806a1815d73",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+    "sprite_frames_sha256": "ac9a84f75860185363f515b199d3f6fe2ddea8ac77e5e2e6e4fb26715daa70c9",
+    "expected_action": "공중에서 큰 강공격; 지상 발 디딤과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_air_heavy.jpg": "3a5363c56b3e1d76570a5dc3ab15b9cd0e2b8cadac4fea018bc25edd19f70123",
+      "sheets/yu-ran__attack_air_heavy.png": "070ba45cd3b2bcf25bb0c5bc00b83bc6b94e3b59f35781fd1af83806a1815d73"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-air-heavy",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_air_heavy",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~5는 두 발을 접고 준비하고 6~10에서 몸을 비틀며 큰 꼬리를 전방으로 내민다. 11~16도 무릎을 든 채 접으므로 지상 발 디딤과 구별된다. 시간표의 준비1~6·활성7~10·회복11~16에 큰 꼬리 공격이 대응한다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_air_light",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+    "sha256": "989ae8f7102aa6efa46a380747b3e56e576fe2a70089c32d69c4886e6b1fb424",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_light.tres",
+    "sprite_frames_sha256": "9e979558f14a19b19d3b827262226046216241e93305117e354190ef34b0570b",
+    "expected_action": "공중에서 빠른 약공격; 지상 발 디딤과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_air_light.jpg": "74c02854c1cafc6b5606110c078eef304b03b02759e948916607542efa7221ed",
+      "sheets/yu-ran__attack_air_light.png": "989ae8f7102aa6efa46a380747b3e56e576fe2a70089c32d69c4886e6b1fb424"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-air-light",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~4 두 발을 모은 공중 자세에서 5~8 한 발을 짧게 전방으로 뻗고 9~16 무릎을 거둔다. 전 구간에 지상 착지 압축은 보이지 않는다. 시간표의 활성6~8에 빠른 전방 발차기가 놓인다. 꼬리는 뒤에서 균형을 잡는 형태이며 구체 공격 부위를 새 계약으로 정하지 않았다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_dash_heavy",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+    "sha256": "00ba0a2ce3095c9d55743dc99209b750d4930342b98cb78d9d5da940490f7af5",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+    "sprite_frames_sha256": "5ad2d60a68ba4bb8427ecbd530ad4c409036033d11046a37450cd318cea017a0",
+    "expected_action": "전진 접근하며 큰 강공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_dash_heavy.jpg": "4f08f3dd215309613e3576d6da80795c2a2ed95e6d60e09233a5e24ab88c69f8",
+      "sheets/yu-ran__attack_dash_heavy.png": "00ba0a2ce3095c9d55743dc99209b750d4930342b98cb78d9d5da940490f7af5"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-dash-heavy",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_dash_heavy",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~4 상체를 낮추고 5~10 몸을 앞으로 길게 뻗으며 돌진한 뒤 11~14 바닥에 낮게 착지해 15~16 대기로 돌아온다. 시간표 활성7~10에 전진 타격 실루엣이 유지되고 회복11~16에 착지한다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_dash_light",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+    "sha256": "8d4c65ae41272876dc38611cdcbcbbe41ae033433e52bcd143ad57804864854a",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_dash_light.tres",
+    "sprite_frames_sha256": "b866d4b5c0bb689ec49dafd495ede20862c994d3be67718844dbd6c5cb5f95a0",
+    "expected_action": "전진 접근하며 빠른 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_dash_light.jpg": "b832cbdbf2a28b95edc5eceb6704885ade50576984033e2a529f17738dbf40f6",
+      "sheets/yu-ran__attack_dash_light.png": "8d4c65ae41272876dc38611cdcbcbbe41ae033433e52bcd143ad57804864854a"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-dash-light",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~4 전방 준비에서 5~8 앞발을 디디며 손을 짧게 내밀고 9~16 거둔다. 이동량 자체는 게임 좌표가 담당하므로 제자리 그림만으로 이동 부재를 판정하지 않았다. 시간표 활성6~8에 전방 손 타격이 맞는다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_heavy_charge",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+    "sha256": "dd1915abf9c701b3662da177e7e29388743233d6cc0762e79396c1acd21ea3fe",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+    "sprite_frames_sha256": "789f883848c28588eaac5697cc6025db552235a407e55adf9891b1582a0c32eb",
+    "expected_action": "강공격 전 힘 모으기; 적중·회복과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_heavy_charge.jpg": "5ed102bc28acf6ef9d6832e2f4da9476f8df32ac152fc2d93b803721398c6b73",
+      "sheets/yu-ran__attack_heavy_charge.png": "dd1915abf9c701b3662da177e7e29388743233d6cc0762e79396c1acd21ea3fe"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            1,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            2,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            100.0000000000002
+          ],
+          [
+            3,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            4,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            5,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            100.0000000000002
+          ],
+          [
+            6,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            7,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            8,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            9,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            10,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            11,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            12,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            13,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            14,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            15,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~8 꼬리를 머리 뒤로 올리고 몸을 낮추지만 9~11에는 꼬리를 앞쪽으로 쓸어 실제 공격을 끝내며 12~16은 대기 자세로 돌아온다. 시간표는16을 약767ms 정지하므로 힘 모으기 유지가 대기로 바뀐다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "reason": "힘 모으기 원화 안에서 이미 꼬리 공격과 회복을 끝내고 끝 정지가 대기 자세다.",
+        "required_change": "9~16을 꼬리를 뒤로 감고 무릎·몸통에 힘을 모으는 준비 자세로 바꾸고16을 유지 가능한 차지 자세로 만든다. 실제 타격과 회복은 강공격 원화에서만 표현한다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_heavy_down",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+    "sha256": "c811593f08e89d1e29e724e8b828df26c716a2bd5e906961d75c0796f0b4eecc",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+    "sprite_frames_sha256": "123b5b256797a93f3374b50205c92ccda9f9eeaa2f2bcae4bc2c4cd6e1e3aabf",
+    "expected_action": "낮은 방향을 향한 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_heavy_down.jpg": "eb3b2f384c437412c7ae8bf5d84d74072d0c3b7c649cf829d671d7e24d05b5a5",
+      "sheets/yu-ran__attack_heavy_down.png": "c811593f08e89d1e29e724e8b828df26c716a2bd5e906961d75c0796f0b4eecc"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-heavy-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_down",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_down",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_down",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_down",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_down",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~6 몸을 깊게 낮추고 7~10 굵은 꼬리를 지면 가까이 전방으로 뻗어 쓸며 11~16 대기로 복귀한다. 계약의 broad low tail sweep과 시간표 활성7~10이 맞는다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_heavy_side",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+    "sha256": "d4748d9a58a9eee689a08e8fbb2e24e21e17802cdb5d2abc2635d6e6884eeffe",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+    "sprite_frames_sha256": "8a0ae5ebd94adb1127aee3f8c3ef4af755c352f0b40d6ee68e51340410b3bb28",
+    "expected_action": "옆 방향의 큰 준비와 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_heavy_side.jpg": "401183dfb2a245d89c80b95e841948246c60cc4f1fa76c38ede72282eefde31f",
+      "sheets/yu-ran__attack_heavy_side.png": "d4748d9a58a9eee689a08e8fbb2e24e21e17802cdb5d2abc2635d6e6884eeffe"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-heavy-side",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_side",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_side",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_side",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_side",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_side",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~5 상체와 손을 모으는 준비 후 6~10 꼬리를 수평 전방으로 크게 뻗는다. 11~13 꼬리를 거둔 뒤 14~16 대기가 된다. 시간표 활성7~10에서 수평 꼬리 타격이 유지된다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_heavy_up",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+    "sha256": "734d6b435a5ab4f44142f3ebbe178d4570dd1e6e08fa1ea894e029146edda18b",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+    "sprite_frames_sha256": "5242cd035a901d1b46dd64a483da54becba158b1d255a1ec70e4781404eb2bf8",
+    "expected_action": "위쪽을 향한 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_heavy_up.jpg": "0368476c201ff3dadcfe6ba26ae459151edb3ed32a46abe3c2f973684e67414c",
+      "sheets/yu-ran__attack_heavy_up.png": "734d6b435a5ab4f44142f3ebbe178d4570dd1e6e08fa1ea894e029146edda18b"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-heavy-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_up",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_up",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_up",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_up",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_up",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~6 낮은 준비 후 7~10 무릎을 끌어올리며 상승한다. 꼬리는 주로 뒤에 말려 있으며9~10에 뒤쪽에서 높아지지만 머리 위의 상대를 위로 쳐올리는 꼬리 궤적은 읽히지 않는다. 계약의 tail launcher와 활성7~10의 무릎 상승 표현이 다르다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "reason": "위 강공격의 주된 동작이 무릎 상승이며 계약의 꼬리 띄우기가 보이지 않는다.",
+        "required_change": "활성7~10에 꼬리 끝이 낮은 전방에서 머리 위 목표를 향해 위로 휘어 오르는 궤적을 만들고 몸·무릎은 꼬리의 위 타격을 보조하게 한다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_combo_01",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+    "sha256": "f16915b97d5dba6ece85096408c90755449d22869be8bc5a7212902a537e0a15",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+    "sprite_frames_sha256": "c34200717be4a0ad0b862feef303725b7aabdc66d838507215293134d10a9b85",
+    "expected_action": "quick hand spacing check",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__attack_light_combo_01.jpg": "87fa4022c9d712ed9fd80f8540065092b866ce74cf72883798aa80b7eb377179",
+      "sheets/yu-ran__attack_light_combo_01.png": "f16915b97d5dba6ece85096408c90755449d22869be8bc5a7212902a537e0a15"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-light-01",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            4,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_01",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~4 준비에서 5~8 전방 주먹을 짧게 내밀고 9~16 손을 거둔다. quick hand spacing check 계약과 활성5~8에 들어가는 손 견제가 대응한다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_combo_02",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+    "sha256": "d2af0ad229b584f87f804317552afc7ae4f341962a36b3108e5b5c16d33da799",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+    "sprite_frames_sha256": "8318fc7754df437ec94ee17153d9b202fc15536ba568be7dbcf205fbf8eff8a6",
+    "expected_action": "short tail side check",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__attack_light_combo_02.jpg": "09bd18bf64df8ddde42850ea17019c262926f151959aee82442797e0e0b63237",
+      "sheets/yu-ran__attack_light_combo_02.png": "d2af0ad229b584f87f804317552afc7ae4f341962a36b3108e5b5c16d33da799"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-light-02",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            4,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_02",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 5~8은 전방 주먹을 내미는 손 공격이며 꼬리는 몸 뒤에 그대로 모여 있다. short tail side check 계약과 활성5~8의 공격 부위가 다르다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "reason": "계약은 짧은 꼬리 옆 견제이나 활성 자세는 손을 뻗고 꼬리가 뒤에 머문다.",
+        "required_change": "5~8에서 고리 꼬리를 짧게 옆 전방으로 내밀고9 이후 거두도록 바꾸어 손 견제인1타와 구분한다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_combo_03",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03_16f.png",
+    "sha256": "50f889d6741e403ce3af8b290c22954a53491333ac7fb881561c08cd0b2f91aa",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_03.tres",
+    "sprite_frames_sha256": "bc58cea62460e4e5e54c7dbb3aede8285034d17089db6d6dc2e8f8f15588c0f7",
+    "expected_action": "wide ringed-tail sweep",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__attack_light_combo_03.jpg": "acf2f731b7715a6debbde9ebcae260ff3f9d4def9e57ba96015b595719b258da",
+      "sheets/yu-ran__attack_light_combo_03.png": "50f889d6741e403ce3af8b290c22954a53491333ac7fb881561c08cd0b2f91aa"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-light-03",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            11,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_03",
+            83.3333333333335
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_03",
+            83.3333333333335
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 3~4 꼬리를 올려 준비하고5~10 큰 고리 꼬리로 수평 쓸기를 한 뒤11은 전방 손이 나가고12는 이미 낮게 회복한다. 시간표 활성은7·9·10·12이므로 마지막 활성12에 쓸기 자세가 사라진다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          11,
+          12
+        ],
+        "reason": "마지막 활성12가 꼬리를 거둔 낮은 회복 자세라 넓은 꼬리 쓸기의 적중 단계와 어긋난다.",
+        "required_change": "원화 교체 전에 표현 코드에서 활성 동안 이미 꼬리를 뻗은7~10을 선택하도록 조정하고 회복에서11~16을 선택하는 방법을 먼저 시험한다. 현재 활성 마지막12의 회복 자세가 다시 나오지 않아야 한다. 전투 시간·판정은 바꾸지 않는다. 기존 프레임만으로 자연스럽게 이어지지 않을 때 원화 수정을 요청한다.",
+        "repair_kind": "presentation_frame_selection"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_down",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+    "sha256": "81c8b610c73e4a3a29285aea4035b1535278ee7141c8360230ca997fd4309005",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_down.tres",
+    "sprite_frames_sha256": "28cc94957254c4482120c4f5005f7c8dbb19ba1dd94632f304ad3f65374b2848",
+    "expected_action": "짧고 빠른 아래쪽 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_light_down.jpg": "083968b8e1909786256f3ed13813d7ff111676b8970725d1a3e969e6309482bb",
+      "sheets/yu-ran__attack_light_down.png": "81c8b610c73e4a3a29285aea4035b1535278ee7141c8360230ca997fd4309005"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-light-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 3~8 몸을 낮추고 앞손을 바닥 가까이 내미는 견제이며 꼬리는 뒤에 머문다. 공통 아래 약의 낮은 방향은 보이지만 유란 계약의 low tail check가 활성6~8에 표현되지 않는다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "reason": "낮은 손 공격이며 계약의 low tail check가 보이지 않는다.",
+        "required_change": "낮은 몸 지지 자세를 유지하면서5~8 꼬리 끝을 앞쪽 바닥 가까이 짧게 내밀어 견제한다. 손은 균형 보조로 두고9부터 꼬리를 거둔다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "attack_light_up",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+    "sha256": "b02763862f73c756327b50191e010793d98ea9cde0b7043cdf5eebaba64ade6a",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_up.tres",
+    "sprite_frames_sha256": "3085c125f1e69c481caca60981c5f4ec74bb0ad52bcf1b5c68999b1871d3b9a8",
+    "expected_action": "짧고 빠른 위쪽 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__attack_light_up.jpg": "25e725b2ef80ee2eca7c8d6694380e07d1aa278542af4fac5f449bb9dfb0d922",
+      "sheets/yu-ran__attack_light_up.png": "b02763862f73c756327b50191e010793d98ea9cde0b7043cdf5eebaba64ade6a"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-light-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 4~8 앞손을 대각선 위로 올리는 타격이며 꼬리는 뒤쪽의 같은 낮은 곡선을 유지한다. 유란 계약의 rising tail check와 활성6~8의 손 공격이 다르다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "reason": "위로 올린 부위가 앞손이고 꼬리가 뒤에 고정되어 rising tail check와 다르다.",
+        "required_change": "4~8 꼬리를 짧은 상승 호로 머리 위 전방에 올려 위 약 견제를 만들고9부터 회수한다. 큰 위 강공격보다 작고 짧은 꼬리 궤적을 사용한다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "death",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/death_16f.png",
+    "sha256": "24eccab38ca8846e84b869106cfce3dc429abc69de5f4a2dd353946a97ec5e21",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/death.tres",
+    "sprite_frames_sha256": "02e7e185510127c708a35e61028183f65170f8911aa960afae5d3805b2bc7d26",
+    "expected_action": "마지막 사망과 끝 자세; 방어·대기와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__death.jpg": "905c5cd963dec0b77365623af6183ae486f898d3d086b5808a0a82ef955f2b05",
+      "sheets/yu-ran__death.png": "24eccab38ca8846e84b869106cfce3dc429abc69de5f4a2dd353946a97ec5e21"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            1,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            2,
+            "death",
+            "death",
+            100.0000000000002
+          ],
+          [
+            3,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            4,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            5,
+            "death",
+            "death",
+            100.0000000000002
+          ],
+          [
+            6,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            7,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            8,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            9,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            10,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            11,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            12,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            13,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            14,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            15,
+            "death",
+            "death",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~5 고개와 어깨가 처지고6~10 주저앉은 뒤11~16 옆으로 누워 눈을 감는다. 끝16 약767ms 고정은 사망 끝 자세와 맞고 방어·대기와 구분된다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "evade",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/evade_16f.png",
+    "sha256": "0f9ad855b0314fa2ab7af853e30d97546c2a7e0a2b053a87c9f62de90891d4a4",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/evade.tres",
+    "sprite_frames_sha256": "9c01bfef08d17749eb96bee6652d93e1abc7919ef07de3cdc9588ea3a0bf8cc4",
+    "expected_action": "몸을 낮추거나 이동하며 피하기; 달리기·공격과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__evade.jpg": "8dc664953a74058894b6c3d8befcbd530ccf7ff81842f64114ff03e0dc26e1e6",
+      "sheets/yu-ran__evade.png": "0f9ad855b0314fa2ab7af853e30d97546c2a7e0a2b053a87c9f62de90891d4a4"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            1,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            2,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            4,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            5,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            6,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            7,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            9,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            10,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            11,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            13,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            14,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            15,
+            "evade",
+            "evade",
+            1816.6666666666733
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 2~4 몸을 낮추고5~8 상체를 전방 낮은 위치로 깊게 숙인 뒤9~12 일어서13~16 대기로 복귀한다. 공격 부위를 뻗는 대신 머리와 몸통 높이를 낮춰 회피가 읽힌다. 시간표의 건너뛰는 프레임과16 끝 정지를 대조했다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "guard",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/guard_16f.png",
+    "sha256": "8e8edd378d625c00ede4811f61cad3bcc856f1dd9c74e188ec4f67c83ba2138e",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/guard.tres",
+    "sprite_frames_sha256": "30c16ba821efc96d1d7979d512caef5bd7837e9de3bd4f274982c6b0c560d584",
+    "expected_action": "앞을 막는 방어 자세를 만들고 실제 정지 프레임에서도 유지",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__guard.jpg": "d9381a3b4255185022c72d26fc9b91f393303e1458abe065b55ec5540912c659",
+      "sheets/yu-ran__guard.png": "8e8edd378d625c00ede4811f61cad3bcc856f1dd9c74e188ec4f67c83ba2138e"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            1,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            2,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            3,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            4,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            5,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            6,
+            "guard",
+            "guard",
+            1750.0000000000064
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 2~8 두 손을 얼굴·가슴 앞에 모아 앞쪽을 막는다. 실제 시간표는1~7까지 진행한 뒤7을 약1750ms 유지하며7에도 두 손이 전방 방어 위치에 남는다. 전체 원화 뒤쪽의 대기 복귀는 게임 가드 유지에서 표시되지 않는다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "hitstun",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/hitstun_16f.png",
+    "sha256": "461142dc244bbb84bcca63e0018b220dfbc9eb485df8bf375d9167001c2e4d55",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/hitstun.tres",
+    "sprite_frames_sha256": "6959cd01deaa30d5b4a59f2096d1e037147a17dc455e1acc1e2aaf0733e2e191",
+    "expected_action": "맞은 순간의 반응과 경직; 자발적 공격·방어와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__hitstun.jpg": "1289a46bf9bdc9ddb0f54b230817f2180532973b706d9f6b82bce3a9d76baeca",
+      "sheets/yu-ran__hitstun.png": "461142dc244bbb84bcca63e0018b220dfbc9eb485df8bf375d9167001c2e4d55"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            1,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            2,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            3,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            4,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            5,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            6,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            7,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            8,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            9,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            10,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            11,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            12,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            13,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            14,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            15,
+            "hitstun",
+            "hitstun",
+            1383.333333333338
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판과 runtime_variants를 대조했다.5~9는 상체가 뒤로 젖혀지고 손이 벌어져 피격이 읽힌다.10~16은 대기로 복귀한다. 시간표의16 장시간 정지는120tick 상태 강제 유지 시험이며 실제 컨트롤러는 hitstun_ticks 종료 시 상태를 바꾸므로 끝16만으로 결함을 확정하지 않았다. 실제10~36tick 범위에서 필요한 피격 반응이 표시되는지 추가 확인이 필요하다. 정상·느린·반전·소형 실제 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "idle",
+    "path": "assets/character/yu-ran/animation/runtime/idle_16f.png",
+    "sha256": "20b9b8c295f46d71f534a8f67068a5fb50ea5361cef00d3f03dee9aef446e9c3",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/idle.tres",
+    "sprite_frames_sha256": "9988370ff971584794e8cdd8e10e4b7b45df866eaaf80b227dc231c619137f28",
+    "expected_action": "대기 호흡; 이동·공격과 구별되고 자연스럽게 반복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__idle.jpg": "3d8c1bd18409322ed2ba6ddf2d05eb8388cb18ea310d91bcc8f5da7dd5b1196b",
+      "sheets/yu-ran__idle.png": "20b9b8c295f46d71f534a8f67068a5fb50ea5361cef00d3f03dee9aef446e9c3"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            1,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            2,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            3,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            4,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            5,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            6,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            7,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            8,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            9,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            10,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            11,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            12,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            13,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            14,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            15,
+            "idle",
+            "idle",
+            133.3333333333336
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 발을 디딘 채 팔·상체와 꼬리 높이가 조금 변하며 큰 이동이나 공격 자세로 바뀌지 않는다. 시간표에서1~16을 순서대로 보여준다. 16→1 연결의 실제 매끄러움은 재생으로 최종 확인해야 한다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "jump",
+    "path": "assets/character/yu-ran/animation/runtime/jump_16f.png",
+    "sha256": "5771377471508bf7d25ac9cdea7b01b8d9920dc2803d1bb942d05010dfc0ce93",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/jump.tres",
+    "sprite_frames_sha256": "3ab0c9e220eebe74ecaca7680f908ae857d2a6b12887493a3177299302f03178",
+    "expected_action": "상승→정점→하강→지상 착지; 공중에 착지 자세를 표시하지 않음",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__jump.jpg": "77b62ac36899a321c14edc481f0b0081fc576642c92f1c5dc192d21604011ee8",
+      "sheets/yu-ran__jump.png": "5771377471508bf7d25ac9cdea7b01b8d9920dc2803d1bb942d05010dfc0ce93"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            3,
+            "ascent",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            4,
+            "ascent",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            5,
+            "ascent",
+            "jump",
+            183.33333333333366
+          ],
+          [
+            6,
+            "apex",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            7,
+            "apex",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            8,
+            "apex",
+            "jump",
+            50.0000000000001
+          ],
+          [
+            10,
+            "descent",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            11,
+            "descent",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            12,
+            "descent",
+            "jump",
+            183.33333333333366
+          ],
+          [
+            13,
+            "landing",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            14,
+            "landing",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            15,
+            "landing",
+            "jump",
+            100.0000000000002
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 3~9 무릎을 든 공중 자세,10~12 발을 아래로 뻗는 하강,13~14 두 발을 벌려 낮게 몸을 받는 자세,15~16 대기 복귀가 보인다. 시간표의 하강은11~13이고13을 약183ms 표시하므로 착지 압축처럼 보이는13이 공중에 노출된다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          13
+        ],
+        "reason": "하강 끝13이 두 발을 벌려 몸을 받는 착지 준비/압축으로 보여 공중 하강과 착지가 구분되지 않는다.",
+        "required_change": "원화 교체 전에 공중 하강 구간을 아직 발이 지면을 받지 않는11~12로 한정하고13 이후 압축은 실제 landing에서만 선택하는 방법을 시험한다. 상승·정점·착지 순서와 실제 공중/지상 상태는 유지한다.",
+        "repair_kind": "presentation_frame_selection"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "knock_down",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/knock_down_16f.png",
+    "sha256": "4cb51ed7278aeb396c6c5126bb711049494e2a258bbd867ac2c03c082986dde3",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/knock_down.tres",
+    "sprite_frames_sha256": "4026e0cef79355e87a9d87f013b1767fddf4158e38d28e66d567c068f05d5b93",
+    "expected_action": "균형을 잃고 바닥에 넘어짐; 일어남과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__knock_down.jpg": "f9c47edcb162346debe9802bccc60c69654fefe4cdb1eb62229a4861184cd4a0",
+      "sheets/yu-ran__knock_down.png": "4cb51ed7278aeb396c6c5126bb711049494e2a258bbd867ac2c03c082986dde3"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            1,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            2,
+            "knock_down",
+            "knock_down",
+            100.0000000000002
+          ],
+          [
+            3,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            4,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            5,
+            "knock_down",
+            "knock_down",
+            100.0000000000002
+          ],
+          [
+            6,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            7,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            8,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            9,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            10,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            11,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            12,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            13,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            14,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            15,
+            "knock_down",
+            "knock_down",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~5 뒤로 균형을 잃으며 두 다리가 들리고6~10 바닥에 주저앉아 옆으로 쓰러진 뒤11~16 누운다.16 끝 고정은 넘어짐 완료 자세와 맞고 일어남과 혼동되지 않는다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "launch",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/launch_16f.png",
+    "sha256": "de7a82ff3e381d5ab7a958ea423fbfae7d75e5b0589bb287ba9aeeab28d556e7",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/launch.tres",
+    "sprite_frames_sha256": "a284ccaf787411e68c75add45163a82c8b3ef703d6d1aeef5a2bee20f418a112",
+    "expected_action": "타격으로 공중에 밀려나는 반응; 점프·착지와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__launch.jpg": "12c967044827485034c135eee68bb9e0df1ffbbc02e51355febcb6d7bc3a23e5",
+      "sheets/yu-ran__launch.png": "de7a82ff3e381d5ab7a958ea423fbfae7d75e5b0589bb287ba9aeeab28d556e7"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            1,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            2,
+            "launch",
+            "launch",
+            100.0000000000002
+          ],
+          [
+            3,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            4,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            5,
+            "launch",
+            "launch",
+            100.0000000000002
+          ],
+          [
+            6,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            7,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            8,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            9,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            10,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            11,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            12,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            13,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            14,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            15,
+            "launch",
+            "launch",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 2~9 몸을 뒤로 젖히며 다리가 들리고10~12 등이 뒤로 더 꺾여 밀려남이 읽힌다.13~16 다리를 모으지만 지상으로 두 발을 디디는 자세는 아니며 끝16 고정도 공중 피격 형태다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "ring_out",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ring_out_16f.png",
+    "sha256": "57448b79a12b30c7cbe1004a0017ab283bee178cddc01108297cc0b1361a979d",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ring_out.tres",
+    "sprite_frames_sha256": "772c5ed71efac39f4262bed0f9061170cbd841d1d39bd478249d305806c579bd",
+    "expected_action": "장외 탈락하며 균형을 잃거나 화면 밖으로 떨어짐",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__ring_out.jpg": "4c7679a5191ef8d83e3e65082276f93a014ae5b3b4e20d5def4c2c7bd36e653a",
+      "sheets/yu-ran__ring_out.png": "57448b79a12b30c7cbe1004a0017ab283bee178cddc01108297cc0b1361a979d"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            1,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            2,
+            "ring_out",
+            "ring_out",
+            100.0000000000002
+          ],
+          [
+            3,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            4,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            5,
+            "ring_out",
+            "ring_out",
+            100.0000000000002
+          ],
+          [
+            6,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            7,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            8,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            9,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            10,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            11,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            12,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            13,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            14,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            15,
+            "ring_out",
+            "ring_out",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 2~5 균형을 잃고6~12 몸이 뒤집혀 회전한 뒤13~16 몸을 둥글게 말아 떨어지는 실루엣이다. 사망의 바닥에 누움과 구분되고16 끝 고정도 서 있는 자세가 아니다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "run",
+    "path": "assets/character/yu-ran/animation/runtime/run_16f.png",
+    "sha256": "41a942ac4a33475a663bce3401bc030640c68995d0025ccf7b828e5bd6159182",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/run.tres",
+    "sprite_frames_sha256": "4ddc976ce5af2d34322478bd02996ebc1daaf35a53d2f3b0b68ba4bcf3958b36",
+    "expected_action": "달리기; 발 교대와 몸의 무게 이동, 자연스러운 반복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__run.jpg": "8c028f5396254549a957dab10c05d14eba252280683f2c580b57c961b209e257",
+      "sheets/yu-ran__run.png": "41a942ac4a33475a663bce3401bc030640c68995d0025ccf7b828e5bd6159182"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            1,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            2,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            3,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            4,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            5,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            6,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            7,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            8,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            9,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            10,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            11,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            12,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            13,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            14,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            15,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            0,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            1,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            2,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            3,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            4,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            5,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            6,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            7,
+            "run",
+            "run",
+            83.3333333333335
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~8 압축→앞발 뻗기와 뒤쪽 다리 접기가 보이나9~16에서도 같은 앞발 뻗기 실루엣이 반복된다. 특히6~8과14~15에서 앞뒤 발 역할이 뒤집히는 두 번째 지지 단계가 읽히지 않아 발 교대가 명확하지 않다. 시간표가16→1로 반복하므로 한쪽 발만 주도하는 달리기로 보일 수 있다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          6,
+          7,
+          8,
+          14,
+          15
+        ],
+        "reason": "양쪽 반주기의 긴 보폭에서 같은 앞발·뒷발 배치가 반복되어 좌우 지지발 교대가 명확하지 않다.",
+        "required_change": "둘째 반주기9~16에 첫 반주기와 반대 발의 접지·밀기·회수를 명확하게 그리고 손과 어깨도 반대로 흔들어16→1 반복을 잇는다. 정상·느린 재생에서 지지발 교대를 다시 확인한다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "spawn",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/spawn_16f.png",
+    "sha256": "c3a73a316cd88fb94107a08a37dba667c0195f35835c201abb30d553b34c9b10",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/spawn.tres",
+    "sprite_frames_sha256": "11d0f78113196de75495b62ea827e4c9d8830dbd0c1730e9873ff687800b5158",
+    "expected_action": "등장해 전투 가능한 자세로 자리 잡음",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__spawn.jpg": "1c16412c7489e79e8b66c55dfd4795d0a64a8776e47f30c9794479db2ced9bd4",
+      "sheets/yu-ran__spawn.png": "c3a73a316cd88fb94107a08a37dba667c0195f35835c201abb30d553b34c9b10"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            1,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            2,
+            "spawn",
+            "spawn",
+            100.0000000000002
+          ],
+          [
+            3,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            4,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            5,
+            "spawn",
+            "spawn",
+            100.0000000000002
+          ],
+          [
+            6,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            7,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            8,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            9,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            10,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            11,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            12,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            13,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            14,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            15,
+            "spawn",
+            "spawn",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~5 무릎을 든 등장에서6~10 한쪽 발을 디디며 몸을 낮춰 착지하고11~16 양발 대기가 된다. 시간표16 끝 정지는 전투 가능한 대기 자세와 맞다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "special_down",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_down_16f.png",
+    "sha256": "9a31a08bc6aae80f52e27ff6441c8c2a728a5a1fa73facb4791cc2096930b4b0",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_down.tres",
+    "sprite_frames_sha256": "5ef1673901911cd146896bab05cd08697fa3aaa1bc4f57030aad6d6be8070723",
+    "expected_action": "low tail brace sweep; no automatic counter or invulnerability",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__special_down.jpg": "451e5af169c8e60a7c43d7640e8623c32f582b26aedbb6ac8ef89af8bb18c3f6",
+      "sheets/yu-ran__special_down.png": "9a31a08bc6aae80f52e27ff6441c8c2a728a5a1fa73facb4791cc2096930b4b0"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran.base-special-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_down",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_down",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_down",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_down",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_down",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 3~4 낮게 버틴 뒤5~8 꼬리가 전방 바닥 가까이 뻗지만9는 꼬리가 뒤로 세워지고10은 손을 얼굴에 모아 대기로 향한다. 계약의 low tail brace sweep은 보이지만 시간표 활성6~10 중9~10에는 낮은 꼬리 쓸기가 끝나 있다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          9,
+          10
+        ],
+        "reason": "활성 끝9~10에 낮은 꼬리 쓸기 대신 꼬리 회수와 손 모으기가 나온다.",
+        "required_change": "원화 교체 전에 표현 코드에서 활성 전체에 낮은 꼬리 쓸기6~8을 대응시키고9 이후 꼬리 회수는 회복에 대응하는 방법을 시험한다. 실제 공격 단계의 시간·판정은 유지한다. 연결이 자연스럽지 않을 때만 쓸기 유지 원화를 보강한다.",
+        "repair_kind": "presentation_frame_selection"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "special_neutral",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_neutral_16f.png",
+    "sha256": "42f114b1daa58ca29de782fb6e0f653347578d809cd0375798a5bb8e326130b2",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_neutral.tres",
+    "sprite_frames_sha256": "bb6cd58294fa0e99503fc430e042b88bfec5cc621bbb63ff78a33c10e36687f4",
+    "expected_action": "wide one-hit tail sweep that controls front space",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__special_neutral.jpg": "e72f2fcf44426d951c8d6fe0b8b4454a17e297f939e1c1aa888db67eaf595de2",
+      "sheets/yu-ran__special_neutral.png": "42f114b1daa58ca29de782fb6e0f653347578d809cd0375798a5bb8e326130b2"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-special-neutral",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_neutral",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_neutral",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_neutral",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_neutral",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_neutral",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 2~4 몸을 낮춰 준비하고5~8 굵은 꼬리로 앞 공간을 수평으로 쓸며9~11 꼬리를 위로 거둔 뒤12~16 대기로 간다. 시간표 활성6~10은 쓸기와 그 끝 동작에 해당하고 계약의 넓은 단발 꼬리 견제가 읽힌다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "special_side",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_side_16f.png",
+    "sha256": "63f909dd9142585c2352886be65e0442266f891ddc93e5385421f67dc2873532",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_side.tres",
+    "sprite_frames_sha256": "9e14bdb78ef3a2a57cf650cb3b25542f9db89d63eb1bb63277f67f677a9e75d2",
+    "expected_action": "mist-path tail rush",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__special_side.jpg": "18662eec1cc70afbca3653ec9a3cbc0a9e3685c4c385328a5a5631e381f7cdfd",
+      "sheets/yu-ran__special_side.png": "63f909dd9142585c2352886be65e0442266f891ddc93e5385421f67dc2873532"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran.base-special-side",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_side",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_side",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_side",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_side",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_side",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "redo",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세를 확인했다.2~6은 보폭과 상체 기울임,7~10은 앞쪽 꼬리 쓸기로 진입처럼 보인다. 그러나 action_source 계약은 mist-path tail rush이고 실제 yu-ran.base-special-side AttackData는 self_impulse 없이 중립과 같은 피해8·넉백220·96×64 영역의 호환 기술이다. combat.md도 옆·아래가 중립 호환 데이터라고 명시한다. runtime_variants 활성6~10은 확인했지만 이 시간표 자체는 위치 이동을 증명하지 않는다. 계약의 돌진을 지금 요구하는지 현재 호환 견제를 표현하는지 설계 정리가 먼저 필요하다. 정상·느린·반전·소형 실제 재생은 별도 확인 대기.",
+    "issues": [
+      {
+        "frames": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "reason": "docs/contracts/attack-system-v01.json은 mist-path tail rush를 요구하지만 현재 moveset의 special_side에는 자기 이동이 없고 combat.md는 중립 호환 기술로 명시한다. 그림만 바꿔 돌진이라고 통과시킬 수 없다.",
+        "required_change": "현재 호환 동작을 기준으로 기대 행위를 정정할지 별도 승인된 돌진 구현으로 갈지 product/combat 담당이 먼저 정한다. 이번 이미지 QA를 이유로 전투 이동·시간을 변경하지 않는다. 결정 뒤 그 행위에 맞춰 원화 또는 표현 프레임을 다시 검토한다.",
+        "repair_kind": "contract_alignment"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "special_up",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_up_16f.png",
+    "sha256": "d94f561effce012b24aa9c90f45a210ee121c3e5661f421940788c03a81e0117",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/special_up.tres",
+    "sprite_frames_sha256": "3fa17e15a9822d07af4b868e651a08bfb7ee65f738a9b6cbdedd447dc23acb67",
+    "expected_action": "spiral tail vault recovery",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__special_up.jpg": "ebdcac6de94e605ef76b80bdf27170206a9ca419dff387404879686a6cf40d37",
+      "sheets/yu-ran__special_up.png": "d94f561effce012b24aa9c90f45a210ee121c3e5661f421940788c03a81e0117"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran-special-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            2,
+            "startup",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            3,
+            "startup",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            4,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_up",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_up",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_up",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~3 웅크림 뒤4~12 앞손을 높이 들고 무릎을 올린 같은 방향 상승 자세가 이어진다. 꼬리는 줄곧 뒤에서 아래로 말리고 몸이나 꼬리가 나선을 이루며 도약하는 순서는 보이지 않는다. 실제 위쪽 self_impulse와 상승은 맞지만 spiral tail vault recovery 계약의 핵심 꼬리 나선이 활성5~10에 없다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "reason": "상승 주먹/무릎 자세가 반복되어 spiral tail vault의 꼬리 나선 도약이 읽히지 않는다.",
+        "required_change": "4~10에서 꼬리가 몸 주위를 아래→앞→위로 감으며 도약을 돕는 순서를 만들고 어깨·골반 방향도 단계적으로 돌려 상승 나선을 표현한다.11 이후 공중 회복으로 연결한다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "ultimate",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ultimate_16f.png",
+    "sha256": "8fd6776d274191578b0854b879e55b83559f35f4de4a88f976f1e9d1885b7c91",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/ultimate.tres",
+    "sprite_frames_sha256": "9ab4348cdd430383f75eff688d4ce16174519ac583494320029434716b67ca36",
+    "expected_action": "ringed-tail vortex into forward finish",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/yu-ran__ultimate.jpg": "15f291dde385600f1c535ec2be258878e8474628f211444d692c460744137e52",
+      "sheets/yu-ran__ultimate.png": "8fd6776d274191578b0854b879e55b83559f35f4de4a88f976f1e9d1885b7c91"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "yu-ran.base-ultimate",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            2,
+            "startup",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            3,
+            "startup",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            4,
+            "startup",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            11,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            13,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            14,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "ultimate",
+            50.0000000000001
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 3~5 꼬리를 머리 뒤로 올리고7에서 뒤로 뻗은 다음9~12 전방으로 한 번 크게 민다. 전방 마무리는 보이지만 고리 꼬리가 주변을 감아 소용돌이를 만든 뒤 마무리로 이어지는 단계가 읽히지 않는다. 시간표 활성6~10 안에 큰 꼬리 회전 연속성이 없고 전방 최대 뻗기는 회복11~12까지 이어진다. 정상·느린·반전·소형 실제 재생은 부모 QA가 별도 확인해야 한다.",
+    "issues": [
+      {
+        "frames": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "reason": "준비 뒤 단일 수평 꼬리 쓸기로 보여 ringed-tail vortex→forward finish의 두 단계가 구별되지 않는다.",
+        "required_change": "활성6~10에 고리 꼬리가 몸 주변 공간을 원형으로 감는 연속 실루엣과 전방 마무리를 구분해서 배치한다.11~12는 이미 전방 타격을 새로 내미는 대신 완료한 타격을 거두는 회복으로 정리한다. 전투 시간·판정은 유지한다.",
+        "repair_kind": "artwork"
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "yu-ran",
+    "motion": "wake_up",
+    "path": "assets/character/yu-ran/animation/runtime/local_ai_v01/wake_up_16f.png",
+    "sha256": "4f855575c457cf8c6d572bd2bab8f28f0e2d9b81cc59c534d3440b75fdbc0904",
+    "sprite_frames_path": "assets/character/yu-ran/animation/runtime/local_ai_v01/wake_up.tres",
+    "sprite_frames_sha256": "1de8df1f9757e079cf4fcdeb3ec6f23bef2b76adaf5d012037655149bf1a6e65",
+    "expected_action": "넘어진 자세에서 몸을 일으켜 대기 자세로 복귀",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/yu-ran__wake_up.jpg": "15091653fbc79989e3ff2b6d8a058b5a8733502fd265fd5aec0a95509de160de",
+      "sheets/yu-ran__wake_up.png": "4f855575c457cf8c6d572bd2bab8f28f0e2d9b81cc59c534d3440b75fdbc0904"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            1,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            2,
+            "wake_up",
+            "wake_up",
+            100.0000000000002
+          ],
+          [
+            3,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            4,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            5,
+            "wake_up",
+            "wake_up",
+            100.0000000000002
+          ],
+          [
+            6,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            7,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            8,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            9,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            10,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            11,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            12,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            13,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            14,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            15,
+            "wake_up",
+            "wake_up",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "독립 QA: 16프레임 비교판을 직접 열어 전체 자세와 순서를 확인하고 runtime_variants의 선택 프레임·단계·정지 시간을 대조했다. 1~2 옆으로 누운 상태에서3~8 손과 무릎으로 몸을 받치고9~12 허리를 들어13~16 서서 대기로 복귀한다. 순서가 넘어짐의 반대이며 시간표16 고정도 일어남 완료 자세와 맞다. 비교판·시간표상 적합. 정상·느린·반전·소형 실제 재생 확인 대기이므로 최종 통과로 기록하지 않는다.",
+    "issues": [],
+    "drafts": []
+  }
+]
