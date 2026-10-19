@@ -1,0 +1,149 @@
+[
+  {
+    "character_id": "nabi",
+    "motion": "hitstun",
+    "revision": 1,
+    "status": "pass",
+    "review_scope": "정적 수정 시안의 행위·외형 검토. 사용자 승인·게임 등록·실제 재생 통과는 포함하지 않음.",
+    "checks": {
+      "all_frames": true,
+      "runtime_phase_comparison": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "input_hashes": {
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/hitstun/r01.png": "4f8d1e01d70a49f87b70974e22d37ca512dd5c692c255f59b6a1045af6549f4d",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/hitstun/r01-board.jpg": "c7a4c47623013c71159bd435a32a25e798e6aea1fb9de8f3e8cc81fbfd43edef",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/hitstun/r01-generation.json": "a40d97f481bdce5bdcec248ce5d3fb02541e615b37014e8495b621489c77eb5b",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/qa-nabi.json": "fa5079b89607dcbc4386d690d9a2a45a304ccc66359e03c3b239d73cd0a3b88a",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/review/motion-review.json": "31826fbd971e9e5459b0b66f96df7d6c4c07f82e06ec99336b03f7f0646f231b",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/07_nabi-style-locked/01_style_reference/approved-idle-source.png": "818ca0ff794c5311b99a658044ff286a666f9bdc7a29d40b1378304d26a2270b"
+    },
+    "observations": "16프레임 전체를 회색 합성 비교판으로 직접 열람하고 승인 idle 원본과 대조했다. 첫 프레임부터 눈을 질끈 감고 머리·몸통이 뒤로 꺾이며 한손은 위로 벌어져 방어가 흐트러진 피격으로 읽힌다. 2~5 반동이 이어지고 6~10에는 몸을 숙이며 아픈 자세를 유지한 뒤 11~16에 걸쳐 천천히 준비 자세로 돌아간다. 따라서 원래 최초1~4프레임 약150ms가 대기처럼 보이던 결함을 제거했다. 보라색 고양이 귀·땋은 머리·금색 장식·흰 소매띠·의상·꼬리 한 개·치비 비율은 원본과 일치한다. 네 줄의 프레임 사이에서 팔다리와 꼬리가 셀 밖에 잘리지 않는다.",
+    "issues": [],
+    "design_pending": false,
+    "runtime_approved": false
+  },
+  {
+    "character_id": "nabi",
+    "motion": "ultimate",
+    "revision": 1,
+    "status": "pass",
+    "review_scope": "정적 수정 시안의 행위·외형 검토. 사용자 승인·게임 등록·실제 재생 통과는 포함하지 않음.",
+    "checks": {
+      "all_frames": true,
+      "runtime_phase_comparison": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "input_hashes": {
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/ultimate/r01.png": "3a62fcf611883a4265d280fb82500fcaf7c072fc4b038ce97bb7393e722914af",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/ultimate/r01-board.jpg": "1578a81cd2d3d87a8a32b9ff7651e8443a08abdfef67f6b72b82cff035ce3c3b",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/ultimate/r01-generation.json": "24cf29f969f8d0c3bedc2a13fb1e716dde1e96c3e0a203847025b9be7463f4a7",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/qa-nabi.json": "fa5079b89607dcbc4386d690d9a2a45a304ccc66359e03c3b239d73cd0a3b88a",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/review/motion-review.json": "31826fbd971e9e5459b0b66f96df7d6c4c07f82e06ec99336b03f7f0646f231b",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/07_nabi-style-locked/01_style_reference/approved-idle-source.png": "818ca0ff794c5311b99a658044ff286a666f9bdc7a29d40b1378304d26a2270b"
+    },
+    "observations": "16프레임 전체를 회색 합성 비교판으로 직접 열람하고 승인 idle 원본과 대조했다. 1~5 양팔을 가슴 앞에 교차해 모으고 6은 아래 대각 긁기, 7~8은 반대쪽 팔을 거쳐 전방 대각 교차 긁기로 이어진다. 9~10은 양팔을 위·앞으로 크게 뻗는 별도 마무리이며 11~16은 회수와 대기 복귀다. 원래의 도약 한 번·평행한 손 뻗기보다 교차 발톱의 왕복과 큰 마무리 순서를 구별할 수 있다. 실제 적중6~10·회복11~16 배치에도 대응한다. 상대 그림은 없으므로 포착 성공 조건의 게임 구현을 이 시안만으로 증명하지 않는다. 고양이 귀·보라색 머리와 꼬리 한 개·금색 장식·흰 소매띠·의상·치비 비율은 승인 외형을 유지한다. 몸과 긴 발톱은 각 셀 안에 들어간다.",
+    "issues": [],
+    "design_pending": false,
+    "runtime_approved": false
+  },
+  {
+    "character_id": "nabi",
+    "motion": "run",
+    "revision": 1,
+    "status": "fix",
+    "visual_status": "fix",
+    "review_scope": "정적 수정 시안의 행위·외형 검토. 사용자 승인·게임 등록·실제 재생 통과는 포함하지 않음.",
+    "checks": {
+      "all_frames": true,
+      "runtime_phase_comparison": false,
+      "normal_playback": false,
+      "slow_playback": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "input_hashes": {
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/run/r01.png": "0c7253125d7974a262b37136705c2c5c14bb9aefb060df25b788b72c4950496a",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/run/r01-generation.json": "5f11d6f1fe6e921dff5adc6ef50458055f7b33c12f9fe4a2724dcace31c07d0c",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/qa-nabi.json": "fa5079b89607dcbc4386d690d9a2a45a304ccc66359e03c3b239d73cd0a3b88a",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/review/motion-review.json": "31826fbd971e9e5459b0b66f96df7d6c4c07f82e06ec99336b03f7f0646f231b",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/07_nabi-style-locked/01_style_reference/approved-idle-source.png": "818ca0ff794c5311b99a658044ff286a666f9bdc7a29d40b1378304d26a2270b",
+      "/tmp/nabi-run-r01-review.jpg": "996185870a79abba19956a98bf1d04d38363720f343caf8e10e1a65c890779b2",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/run/r01-board.jpg": "f585685375896e8e5a03afb87404b604013557fd6022ae3cb77508e748d56539"
+    },
+    "observations": "16프레임 RGBA 원화를 회색 배경에 합성한 비교판으로 직접 확인했다. 1·5·9·13프레임은 각각 잘라 확대해 앞뒤 다리의 의상과 겹침도 대조했다. 팔의 앞뒤 위치는 바뀌지만 허벅지에 두 사각 스트랩이 보이는 동일 다리가 모든 반주기에서 화면 오른쪽 선행발이고 반대 다리는 왼쪽 뒤에 남는다. 2~4·6~8·10~12·14~16에서도 뒤쪽 발이 앞 지지발을 지나 앞으로 오는 순간이 없다. 따라서 원래의 발 교대 미식별 문제가 남았다. 머리·꼬리·의상·치비 비율은 승인 원본과 맞고 셀 밖 잘림은 보이지 않는다. 이후 부모가 생성한 r01-board.jpg도 전체16프레임 직접 열어 동일한 관찰을 확인했다.",
+    "issues": [
+      {
+        "frames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "reason": "동일한 앞다리가 계속 앞에 있고 반대 다리가 지지·선행 역할을 맡는 반주기가 없다.",
+        "required_change": "앞다리·뒷다리를 의상 표식으로 구별한 뒤 두 번째 반주기에 서로의 전후 위치와 지지 역할이 확실히 바뀌게 제작한다. 1~8의 골반과 다리 순서를 먼저 확정하고 9~16 반복으로 연결하며 팔 흔들림만 바꾸지 않는다."
+      }
+    ],
+    "design_pending": false,
+    "runtime_approved": false
+  },
+  {
+    "character_id": "nabi",
+    "motion": "special_down",
+    "revision": 1,
+    "status": "redo",
+    "visual_status": "fix",
+    "review_scope": "정적 수정 시안의 행위·외형 검토. 사용자 승인·게임 등록·실제 재생 통과는 포함하지 않음.",
+    "checks": {
+      "all_frames": true,
+      "runtime_phase_comparison": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "input_hashes": {
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/special_down/r01.png": "6d7428fb6d97a3dca0059c5b37d6e3843f0943af8b08abc11ceb937bbe2b33da",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/special_down/r01-generation.json": "9d11cdf376e0b3d9c40ff678e79954852f106b11ab916b7a686d257d8dc1bfe1",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/qa-nabi.json": "fa5079b89607dcbc4386d690d9a2a45a304ccc66359e03c3b239d73cd0a3b88a",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/review/motion-review.json": "31826fbd971e9e5459b0b66f96df7d6c4c07f82e06ec99336b03f7f0646f231b",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/character-motion-proportion-unification/07_nabi-style-locked/01_style_reference/approved-idle-source.png": "818ca0ff794c5311b99a658044ff286a666f9bdc7a29d40b1378304d26a2270b",
+      "/tmp/nabi-special_down-r01-review.jpg": "60681bb41742ca2c764cb8277ecc647fde7364523678f2a8ba2c649cf34233b9",
+      "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/nabi/special_down/r01-board.jpg": "3296d3be3273ac56370ec56ba32f19ac8b355eda2c282c314219ce4d19d35755"
+    },
+    "observations": "16프레임 RGBA 원화를 회색 배경에 합성한 비교판으로 직접 확인했다. 1~3은 기존 가드와 유사하고 2~4 뒤발이 화면 왼쪽으로 벌어지지만 골반은 뒤로 당겨지지 않고 머리·상체는 오히려 앞으로 낮아져 후퇴 동작으로 명확히 읽히지 않는다. 6~10의 앞쪽 발톱 긁기와 반대 손의 가드는 보이며 11~16 회수·대기 복귀도 명확하다. 자동 반격·무적·마법 방어 표현은 없다. 승인 외형·의상·한 개의 꼬리·치비 비율은 유지한다. 그림 측면은 후퇴의 몸통·골반 무게 이동이 아직 부족한 fix이고, 실제 후퇴 물리와 계약·현재 문서의 불일치 및 사용자 설계 미승인은 별개로 남아 전체 상태 redo를 유지한다. 이후 부모가 생성한 r01-board.jpg도 전체16프레임 직접 열어 동일한 관찰을 확인했다.",
+    "issues": [
+      {
+        "frames": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "reason": "후퇴 준비에서 뒤발만 벌어지고 골반·상체가 뒤로 이동하는 반동이 없어 뒤로 물러선 뒤 앞으로 긁는 순서를 구별하기 어렵다. 실제 후퇴 물리와 계약·문서의 불일치도 미해결이다.",
+        "required_change": "먼저 설계 담당이 실제 후퇴 도입 또는 현재 규칙에서의 후퇴 자세 표현 범위를 승인받는다. 그림은 확정된 범위에서 골반·가슴을 화면 왼쪽으로 빼며 뒤발에 무게를 싣는1~5와 오른쪽 전진 긁기6~10을 분명히 나눠 다시 제작한다. 설계 승인 전 runtime에 등록하지 않는다."
+      }
+    ],
+    "design_pending": true,
+    "runtime_approved": false
+  }
+]

@@ -36,6 +36,8 @@
 | 코드를 어떤 책임으로 나누는가? | [코드 구조](engineering/architecture.md) | [공용 데이터 형식](#공용-데이터-형식) |
 | 관리자 웹을 어떻게 실행·복구하는가? | [로컬 관리자 웹](engineering/admin-web.md) | [개발계 데이터베이스](engineering/database.md) |
 | 개발계 DB를 어떻게 실행하는가? | [개발계 데이터베이스](engineering/database.md) | [코드 구조](engineering/architecture.md) |
+| 모션이 의도한 행동으로 보이는지 어떻게 확인하는가? | [모션 행위 표현 검토](content/motion-action-review.md) | [콘텐츠 제작 원칙](content/art-and-audio.md), [AI 역할](operations/harness/team-spec.md) |
+| 외부 라이브러리·오픈소스는 누가 찾고 반영하는가? | [AI 역할과 작업 배정](operations/harness/team-spec.md) | `.agents/skills/forest-arena-open-source/SKILL.md` |
 | 이미지·애니메이션·소리는 어떻게 만드는가? | [콘텐츠 제작 원칙](content/art-and-audio.md) | [캐릭터 외형 데이터](contracts/character-appearance-v01.json), [음악과 효과음](content/audio-v01.md) |
 | 최신 숲빛 UI 자산·Penpot 화면·조이스틱은 어떻게 전달되는가? | [숲빛 UI v06 전달](ui/forestlight-video-reference-v06.md) | 화면 PNG·버튼 좌표·이미지 매핑 |
 | Godot 자산은 어떻게 찾고 교체하는가? | [Godot 설정](engineering/godot/setup.md) | [Godot 자산 규칙](engineering/godot/resource-rules.md) |

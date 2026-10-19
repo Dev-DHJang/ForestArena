@@ -1,0 +1,3866 @@
+[
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_air_heavy",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+    "sha256": "e0917da078f586a1019e9478dafede67df0127569054842fecf46f088c521ae3",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+    "sprite_frames_sha256": "69c408d7b181db9fe06c2621570716495d41769dc34c046342c01ec9d936ba1b",
+    "expected_action": "공중에서 큰 강공격; 지상 발 디딤과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_air_heavy.jpg": "83db49e5454a557f2c79bef619bebef0aef133db54bebe73b7c4e224517d443f",
+      "sheets/ja-hyun__attack_air_heavy.png": "e0917da078f586a1019e9478dafede67df0127569054842fecf46f088c521ae3"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-air-heavy",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_air_heavy",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~6 웅크린 공중 준비 뒤7~10 두 발을 앞으로 뻗는 큰 타격,11~16 다리를 회수한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_air_light",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+    "sha256": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres",
+    "sprite_frames_sha256": "f96b06083cf197f7d1962bb858c5c8463bda0d69c792b688058d5676db39e844",
+    "expected_action": "공중에서 빠른 약공격; 지상 발 디딤과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_air_light.jpg": "2123d1ee9949b32b0ee4d3621b0aafa90f4415b1349fbba52176fea8f41598f7",
+      "sheets/ja-hyun__attack_air_light.png": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-air-light",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~5 공중 준비 뒤6~8 앞손을 짧게 뻗고9~16 공중 자세로 회수한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_dash_heavy",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+    "sha256": "d1409261995c9d163ba3d63c6682c7abe0efe799a343687f4032bccc36664208",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+    "sprite_frames_sha256": "2c1a6b070cd0cbeb39c696e390c4e834de983a19f638a50440b0b6daaaba2be8",
+    "expected_action": "전진 접근하며 큰 강공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_dash_heavy.jpg": "c43cf42452ea4955a667324accb21ff185594b6eae2a69fa65e3ddbf0a6401da",
+      "sheets/ja-hyun__attack_dash_heavy.png": "d1409261995c9d163ba3d63c6682c7abe0efe799a343687f4032bccc36664208"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-dash-heavy",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_dash_heavy",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~6 몸을 앞으로 기울인 접근,7~10 크게 뻗는 타격,11~16 제동과 회복이 구분된다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_dash_light",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+    "sha256": "4755f65719e84fca6e7235437b9bdf49cf0905d9953ef70772c17321c984e71d",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_dash_light.tres",
+    "sprite_frames_sha256": "1b63ae32a22ab7b6217a718322de4995aaf8dce39ad3a7aebbae5ca9d018aa95",
+    "expected_action": "전진 접근하며 빠른 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_dash_light.jpg": "8b1a450e5938e0b2cc0de3610ac74c0c5a8bf730a59d72cf565f25b1cbf8611f",
+      "sheets/ja-hyun__attack_dash_light.png": "4755f65719e84fca6e7235437b9bdf49cf0905d9953ef70772c17321c984e71d"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-dash-light",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~5 전진 기울임 뒤6~8 빠른 앞손 타격,9~16 자세 회수가 이어진다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_heavy_charge",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+    "sha256": "ace7c74679e9923ac81b80c5eecf148d218f26670ce635976fe86dc0a0bac6e2",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+    "sprite_frames_sha256": "9cff84f8afff68452aef6e00509a84bff0dc330c96b501c52d68ae2a9b406d1a",
+    "expected_action": "강공격 전 힘 모으기; 적중·회복과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_heavy_charge.jpg": "3cc0c1bce9524b2cd82567058abaf1495aeffa68af3b250f99af9c7951255c43",
+      "sheets/ja-hyun__attack_heavy_charge.png": "ace7c74679e9923ac81b80c5eecf148d218f26670ce635976fe86dc0a0bac6e2"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            1,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            2,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            100.0000000000002
+          ],
+          [
+            3,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            4,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            5,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            100.0000000000002
+          ],
+          [
+            6,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            7,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            8,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            9,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            10,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            11,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            12,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            13,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            14,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            15,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "앞쪽 무릎을 굽히고 뒤팔을 당기는 준비가1~16에서 점차 깊어진다. 마지막16도 힘을 모은 자세다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_heavy_down",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+    "sha256": "e164066b9fabded4241d36a44e73540545ccfeaad8d8f131088f36751efe65ed",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+    "sprite_frames_sha256": "a49b73d7e597b27317b7e6090c3cd10631fb2bffc17bd6463edf04c6903aa356",
+    "expected_action": "낮은 방향을 향한 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_heavy_down.jpg": "69791b5c9c5d8ea7ffc379f067de6e4f8a865cf8d7cea5d4e46e8286cba07ff3",
+      "sheets/ja-hyun__attack_heavy_down.png": "e164066b9fabded4241d36a44e73540545ccfeaad8d8f131088f36751efe65ed"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-heavy-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_down",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_down",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_down",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_down",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_down",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~6 몸을 낮춘 준비 뒤7~10 낮은 쓸기·발 뻗기가 나타나고11~16 선 자세로 복귀한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_heavy_side",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+    "sha256": "c0c2ccb5f5b4350884028a1b8f98acd731b09078bf3d945a0c91d018022687e1",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+    "sprite_frames_sha256": "5728f1190744a3d629ad700275cd9520042e25c442e35ae3cef54dc19406143b",
+    "expected_action": "옆 방향의 큰 준비와 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_heavy_side.jpg": "73d09bf1085bf06d5aa66011c58fd1d9f429b45aafd5d7659f77efd3414a9dd5",
+      "sheets/ja-hyun__attack_heavy_side.png": "c0c2ccb5f5b4350884028a1b8f98acd731b09078bf3d945a0c91d018022687e1"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-heavy-side",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_side",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_side",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_side",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_side",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_side",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~6 몸통 회전 준비 뒤7~10 전방 팔을 크게 뻗고11~16 거두어 옆 강공격으로 읽힌다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_heavy_up",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+    "sha256": "bf59be198db2cef364a3e00d93077350d826bede5e66b26f2923ecdf4929109f",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+    "sprite_frames_sha256": "ea872717a671a7081bb1acf5ec097f9c4195556595d788f050526d664fc0bacb",
+    "expected_action": "위쪽을 향한 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_heavy_up.jpg": "ce4fd1d137d4b39a7fcca7010dcef053387bfdae82afe8c0d30c643fa9edcb28",
+      "sheets/ja-hyun__attack_heavy_up.png": "bf59be198db2cef364a3e00d93077350d826bede5e66b26f2923ecdf4929109f"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-heavy-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_up",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_up",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_up",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_up",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_up",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~6 낮춘 몸에서7~9 손을 대각선 위로 밀어 올리고10~16 회수한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_light_combo_01",
+    "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png",
+    "sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+    "sprite_frames_sha256": "cbb10adcaa71d9bb86ad179cc832505980b673a7376b4cfaeacd5de4e5fb4f7a",
+    "expected_action": "low jab",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__attack_light_combo_01.jpg": "797ae0196d2a0cecb643dd99fb5250faed90fa662f316843fe8bf0dc86786dd9",
+      "sheets/ja-hyun__attack_light_combo_01.png": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-light-01",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_01",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~5 낮은 전투 자세 준비,6~9 짧은 잽,10~16 회수. 리본보다 앞손이 타격 중심이다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_light_combo_02",
+    "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png",
+    "sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+    "sprite_frames_sha256": "f515c7a1973444dcb089efd459d4bab62fe12bf8d453c5b0e7b12d0a2a524bc9",
+    "expected_action": "ribbon-drawing side strike",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__attack_light_combo_02.jpg": "c56ab5c8f1e92053fd196b3e901b4d0ac20bcd075b2992a6dfd89ee11675ae95",
+      "sheets/ja-hyun__attack_light_combo_02.png": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-light-02",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_02",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "뒤팔·몸통 비틀기와6~10 리본의 옆 원호가 이어지고 회복11~16에서 원호를 거둔다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_light_combo_03",
+    "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_03_16f.png",
+    "sha256": "584897a891216b42c2ff321ff8f4a4ff87485de8031349d6b325217994a3945b",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_03.tres",
+    "sprite_frames_sha256": "835536d3e73439f03eb5525c408248d2fab8e2cd937f24fbf4f692c2f0c4a8fc",
+    "expected_action": "open-arm ribbon spin sweep",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__attack_light_combo_03.jpg": "9aebdfaec1d8d638be46e821958bbd7d6b1076603fb682d2349a8b7ba204adb3",
+      "sheets/ja-hyun__attack_light_combo_03.png": "584897a891216b42c2ff321ff8f4a4ff87485de8031349d6b325217994a3945b"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-light-03",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "4~10 위·옆으로 이어지는 넓은 리본 회전과 양팔 펼침이 앞선 잽보다 큰 마무리로 보인다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_light_down",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+    "sha256": "962bf4074bc79b3052858eb2ff0a0f37e5b8f890f55e961808f672aa7495bab1",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_down.tres",
+    "sprite_frames_sha256": "e5c3089ed5002b9ba9fba7dc6518e7b9bd57a1d705668d1080cad3f9b3119846",
+    "expected_action": "짧고 빠른 아래쪽 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_light_down.jpg": "ec762c8678f417ea3e98577f49e6253f01cb0031bb98ecfcffca75a1ad5c2938",
+      "sheets/ja-hyun__attack_light_down.png": "962bf4074bc79b3052858eb2ff0a0f37e5b8f890f55e961808f672aa7495bab1"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-light-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3~6 낮게 숙인 뒤7~8 지면 가까이 발을 뻗고9~16 회수한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "attack_light_up",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+    "sha256": "7a05081a88ea9951b592421467cdf52eb75cd485e22d0c4cacf3578b96a0f6d6",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_light_up.tres",
+    "sprite_frames_sha256": "2b3adf013d2441d57f113797b0c6ff8fb56aad14fc5fea966d812e97bd4aa8ac",
+    "expected_action": "짧고 빠른 위쪽 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__attack_light_up.jpg": "094e9bb9633d803ece020c49db4c6a98d17824aa6943c99db84a313d573efa3d",
+      "sheets/ja-hyun__attack_light_up.png": "7a05081a88ea9951b592421467cdf52eb75cd485e22d0c4cacf3578b96a0f6d6"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-light-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3~5 준비와6~8 위로 뻗는 손이 구별되며9~16 회수한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "death",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death_16f.png",
+    "sha256": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres",
+    "sprite_frames_sha256": "7167a50e35fc610e8e5d397578f0c44a69872684455e53d81c3aa064084142d8",
+    "expected_action": "마지막 사망과 끝 자세; 방어·대기와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__death.jpg": "b39a7ccca6cc5d306efab2324fc3e977c2065d872020a414d9af0046abd8998c",
+      "sheets/ja-hyun__death.png": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            1,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            2,
+            "death",
+            "death",
+            100.0000000000002
+          ],
+          [
+            3,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            4,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            5,
+            "death",
+            "death",
+            100.0000000000002
+          ],
+          [
+            6,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            7,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            8,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            9,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            10,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            11,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            12,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            13,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            14,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            15,
+            "death",
+            "death",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3~8 고개·무릎을 낮춰 주저앉고9~16 옆으로 쓰러져 누운 끝 자세를 유지한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "evade",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/evade_16f.png",
+    "sha256": "e8cff000e56939f3025a31ba07f6c831770789b56f456b2fb7d181510a260571",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/evade.tres",
+    "sprite_frames_sha256": "27d6d06527fa2e7c36f7ce10f72456a4ce4e91c9180b3cdd3dc94effa3524c40",
+    "expected_action": "몸을 낮추거나 이동하며 피하기; 달리기·공격과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__evade.jpg": "9c86252c56e0993694d4bd97b4438b1d4861fa48382653bbf73b4c3441cd5071",
+      "sheets/ja-hyun__evade.png": "e8cff000e56939f3025a31ba07f6c831770789b56f456b2fb7d181510a260571"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            1,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            2,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            4,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            5,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            6,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            7,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            9,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            10,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            12,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            13,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            14,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            15,
+            "evade",
+            "evade",
+            1816.6666666666733
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3~10 몸을 낮춰 전방으로 통과하고11~16 자세를 세운다. 공격 팔 뻗기와 구별된다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "guard",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard_16f.png",
+    "sha256": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres",
+    "sprite_frames_sha256": "21184f6f6b2d69246b2d49366e09ea7fd11ae421ab82a1ab0ff4b6aff2e7b905",
+    "expected_action": "앞을 막는 방어 자세를 만들고 실제 정지 프레임에서도 유지",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__guard.jpg": "5332f1cf699ab3b95868fcc2e65488b835caf5f532f780318e3300341e3264e1",
+      "sheets/ja-hyun__guard.png": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            1,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            2,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            3,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            4,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            5,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            6,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            7,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            8,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            9,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            10,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            11,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            12,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            13,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            14,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            15,
+            "guard",
+            "guard",
+            1383.333333333338
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "2~12 앞팔을 얼굴 앞에 모으고 몸을 낮춘다.13~16 완화되지만 앞주먹은 턱 앞에 유지된다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "hitstun",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun_16f.png",
+    "sha256": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres",
+    "sprite_frames_sha256": "ce5ea6686de3fac67e3f5ae4072b42b1a60581f5d1d0f4cb78a93798663c9f52",
+    "expected_action": "맞은 순간의 반응과 경직; 자발적 공격·방어와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__hitstun.jpg": "1c6a62d1c5f87933fa82d93b76b947a6679b50e1e47256cc61ce7d7e8cbd8e37",
+      "sheets/ja-hyun__hitstun.png": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            1,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            2,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            3,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            4,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            5,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            6,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            7,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            8,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            9,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            10,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            11,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            12,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            13,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            14,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            15,
+            "hitstun",
+            "hitstun",
+            1383.333333333338
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "4~8 고개와 상체가 뒤로 밀리고 팔이 벌어져 피격 반응이 보인다.9~16 회복은 실제 경직 수명과 함께 본다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "idle",
+    "path": "assets/character/ja-hyun/animation/runtime/idle_16f.png",
+    "sha256": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/idle.tres",
+    "sprite_frames_sha256": "c416cb8b33b9b932ac24e9c689eaf41a3f90e8714e48d8cbfa65bd10ef25bc74",
+    "expected_action": "대기 호흡; 이동·공격과 구별되고 자연스럽게 반복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__idle.jpg": "3572eaaee529340fbec1258e0abeb864cc40ddd395b36d2e2260c7996c7d0d41",
+      "sheets/ja-hyun__idle.png": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            1,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            2,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            3,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            4,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            5,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            6,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            7,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            8,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            9,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            10,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            11,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            12,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            13,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            14,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            15,
+            "idle",
+            "idle",
+            133.3333333333336
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "발 위치를 유지한 채 상체·리본의 작은 상승 하강이 한 바퀴 돌아 대기로 읽힌다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "jump",
+    "path": "assets/character/ja-hyun/animation/runtime/jump_16f.png",
+    "sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/jump.tres",
+    "sprite_frames_sha256": "84d0a70be2bad274308cdbeaae2b5f21842517976e2aaa09ffa19cefc3f0f053",
+    "expected_action": "상승→정점→하강→지상 착지; 공중에 착지 자세를 표시하지 않음",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__jump.jpg": "98d237202b1bcf7f60e18e2ab5bcd3f4c581d8c465cff43ebd3027c00a79ec38",
+      "sheets/ja-hyun__jump.png": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            3,
+            "ascent",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            4,
+            "ascent",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            5,
+            "ascent",
+            "jump",
+            183.33333333333366
+          ],
+          [
+            6,
+            "apex",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            7,
+            "apex",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            8,
+            "apex",
+            "jump",
+            50.0000000000001
+          ],
+          [
+            10,
+            "descent",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            11,
+            "descent",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            12,
+            "descent",
+            "jump",
+            183.33333333333366
+          ],
+          [
+            13,
+            "landing",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            14,
+            "landing",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            15,
+            "landing",
+            "jump",
+            100.0000000000002
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "4~6 상승,7~9 모은 공중 자세,11~12 하강 자세가 보이나13은 두 발을 바닥에 딛고 낮춘 착지 자세다. 실제 descent에서13을 유지한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [
+      {
+        "frames": [
+          13
+        ],
+        "time_ms": [
+          683,
+          867
+        ],
+        "reason": "하강 중 바닥 착지 자세를 유지한다.",
+        "required_change": "13을 발 접촉 없는 하강 자세로 바꾸고14~16만 착지로 남긴 수정 시안; 또는 별도 승인 후 하강 끝 선택을12로 제한하는 표현 수정 검토."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "knock_down",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down_16f.png",
+    "sha256": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres",
+    "sprite_frames_sha256": "71b17d1252477ce322e85ef6c07e4e2a513f0172f4c07b3a0f890e5e3af2d50c",
+    "expected_action": "균형을 잃고 바닥에 넘어짐; 일어남과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__knock_down.jpg": "810b93255b7739d622cf33ab9a12c386a8c89cb9b6aefa53897b278f59a99835",
+      "sheets/ja-hyun__knock_down.png": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            1,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            2,
+            "knock_down",
+            "knock_down",
+            100.0000000000002
+          ],
+          [
+            3,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            4,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            5,
+            "knock_down",
+            "knock_down",
+            100.0000000000002
+          ],
+          [
+            6,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            7,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            8,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            9,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            10,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            11,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            12,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            13,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            14,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            15,
+            "knock_down",
+            "knock_down",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~4 균형 상실,5~8 무릎·손 접촉,9~16 옆으로 눕는 순서로 넘어짐이 읽힌다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "launch",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch_16f.png",
+    "sha256": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres",
+    "sprite_frames_sha256": "cde9f4a264ef920705963ddb817edb059b48468128df0f0a65170e1d8041f276",
+    "expected_action": "타격으로 공중에 밀려나는 반응; 점프·착지와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__launch.jpg": "53075141757b26acc92bbd68c184fb88516306c7d4fd0255e2722e8ceebcd278",
+      "sheets/ja-hyun__launch.png": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            1,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            2,
+            "launch",
+            "launch",
+            100.0000000000002
+          ],
+          [
+            3,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            4,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            5,
+            "launch",
+            "launch",
+            100.0000000000002
+          ],
+          [
+            6,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            7,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            8,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            9,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            10,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            11,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            12,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            13,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            14,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            15,
+            "launch",
+            "launch",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3~8 뒤로 젖힌 공중 자세와9~15 비틀림이 타격으로 밀려남을 표현한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "ring_out",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out_16f.png",
+    "sha256": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres",
+    "sprite_frames_sha256": "481cee65f6885fbb8d9661875f46f2c83516ba241465eb0cbde4147c1aad1dd0",
+    "expected_action": "장외 탈락하며 균형을 잃거나 화면 밖으로 떨어짐",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__ring_out.jpg": "aa7007317b24e3662604e8f3bacbcbac869eff6c634233178704fef19cda40d5",
+      "sheets/ja-hyun__ring_out.png": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            1,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            2,
+            "ring_out",
+            "ring_out",
+            100.0000000000002
+          ],
+          [
+            3,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            4,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            5,
+            "ring_out",
+            "ring_out",
+            100.0000000000002
+          ],
+          [
+            6,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            7,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            8,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            9,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            10,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            11,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            12,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            13,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            14,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            15,
+            "ring_out",
+            "ring_out",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~8 균형을 잃고 뒤집힌 뒤9~16 회전하며 떨어지는 순서가 사망의 바닥 누움과 구별된다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "run",
+    "path": "assets/character/ja-hyun/animation/runtime/run_16f.png",
+    "sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/run.tres",
+    "sprite_frames_sha256": "2bbe7085c4b838deeee77d42de73d50cb1cceb578e0ea1828221a0e4b1f62057",
+    "expected_action": "달리기; 발 교대와 몸의 무게 이동, 자연스러운 반복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__run.jpg": "86617c9fe2797050087238f94aa4e2ab6e191b4e1336fcdff631e2aa126bd548",
+      "sheets/ja-hyun__run.png": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            1,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            2,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            3,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            4,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            5,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            6,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            7,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            8,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            9,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            10,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            11,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            12,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            13,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            14,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            15,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            0,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            1,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            2,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            3,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            4,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            5,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            6,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            7,
+            "run",
+            "run",
+            83.3333333333335
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~4 기울여 발을 떼고5~10 보폭을 펼친 뒤11~16 발을 거둬 다음 보폭으로 이어진다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "spawn",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn_16f.png",
+    "sha256": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres",
+    "sprite_frames_sha256": "c29b090258ca06cbdc82f376559d58d32f7c22172a592a802b988fb728814e4a",
+    "expected_action": "등장해 전투 가능한 자세로 자리 잡음",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__spawn.jpg": "f9764da170d9dc57aa5a1e19a8953738232eb0af7ff61da6092eadc1625bd3ba",
+      "sheets/ja-hyun__spawn.png": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            1,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            2,
+            "spawn",
+            "spawn",
+            100.0000000000002
+          ],
+          [
+            3,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            4,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            5,
+            "spawn",
+            "spawn",
+            100.0000000000002
+          ],
+          [
+            6,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            7,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            8,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            9,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            10,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            11,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            12,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            13,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            14,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            15,
+            "spawn",
+            "spawn",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~4 떠 있는 자세에서5~8 바닥을 짚고9~16 몸을 세워 전투 준비로 돌아온다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "special_down",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_down_16f.png",
+    "sha256": "d59f7e567248f4f8e601b6f7a7872b53f48e5db70f226bea2539e00409c42cd8",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_down.tres",
+    "sprite_frames_sha256": "23fd685cae104e30fd053f35f53dd1d8983ccd74c63fd92504d5697aafef8118",
+    "expected_action": "low ribbon arc approach check",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__special_down.jpg": "a940ac9a7a0692efdb95e60b01177d555c27f65dc59bdcd79e25de11236ad479",
+      "sheets/ja-hyun__special_down.png": "d59f7e567248f4f8e601b6f7a7872b53f48e5db70f226bea2539e00409c42cd8"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun.base-special-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_down",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_down",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_down",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_down",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_down",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~5 몸과 손을 낮추고6~10 리본을 지면 가까운 원호로 쓸어 접근 견제로 읽힌다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "special_neutral",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral_16f.png",
+    "sha256": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres",
+    "sprite_frames_sha256": "197b5f74bad0724bc2c18069a8423d29d04511ee593b6fd49092c4b5c6774ceb",
+    "expected_action": "mid-range ribbon reel that draws the opponent closer",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__special_neutral.jpg": "17efb9dccfd387c46bcea41c3b67f80f4aaac852f921c8137cc106492aa42f6c",
+      "sheets/ja-hyun__special_neutral.png": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-special-neutral",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_neutral",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_neutral",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_neutral",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_neutral",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_neutral",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3~5 전방으로 리본을 보내고6~10 팔·리본을 안으로 끌어당겨 reel 행위를 표현한다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "special_side",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_side_16f.png",
+    "sha256": "396ba33cc5cb8f016845482c01419f62eeff6a9b8e6fc737c121f80292e40f5a",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_side.tres",
+    "sprite_frames_sha256": "851e3f2b4e7cde511bdb7069ac1155d4ae79a42d3190b725051d0427a009fa65",
+    "expected_action": "short ribbon rush",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__special_side.jpg": "773b6d0854a89e5804278cd00f93469286927987a74885860faa9a68177bfe32",
+      "sheets/ja-hyun__special_side.png": "396ba33cc5cb8f016845482c01419f62eeff6a9b8e6fc737c121f80292e40f5a"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun.base-special-side",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_side",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_side",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_side",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_side",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_side",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~7 전진 기울임과 리본의 뒤쪽 흐름 뒤8~11 앞손·리본을 앞으로 보내 돌진으로 읽힌다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "special_up",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_up_16f.png",
+    "sha256": "8a1790bcde658ef60187a4d7592b1ee832a9add952a388ef497a9141ebc64ba8",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_up.tres",
+    "sprite_frames_sha256": "7fbb1d7e1093257a165d494750b2bb7a0c6d27549d535dbf7c61179e82eea467",
+    "expected_action": "rising spin recovery",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__special_up.jpg": "855bf175671e45f2706526f6ec41b7554f82d6f0a2eb68aea01defabf3fa4ca4",
+      "sheets/ja-hyun__special_up.png": "8a1790bcde658ef60187a4d7592b1ee832a9add952a388ef497a9141ebc64ba8"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun-special-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            2,
+            "startup",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            3,
+            "startup",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            4,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_up",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_up",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_up",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "4~6 상승 뒤7~12 몸과 리본의 회전이 이어지고13~16 공중 회복 자세로 돌아온다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "ultimate",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ultimate_16f.png",
+    "sha256": "53459a9979ada30921db43a5090ae61fa25226e1968cc90863cf40fa1aa22b27",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ultimate.tres",
+    "sprite_frames_sha256": "17968c847d247dab5d951f14cbc04483c51adf2b8277b2fad5b1659735ea8144",
+    "expected_action": "wide ribbon rotation into forward finish",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/ja-hyun__ultimate.jpg": "77bdc0397160db8fbf9f1495de2269e4812ca890055ad6366cdae61034837d76",
+      "sheets/ja-hyun__ultimate.png": "53459a9979ada30921db43a5090ae61fa25226e1968cc90863cf40fa1aa22b27"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "ja-hyun.base-ultimate",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            2,
+            "startup",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            3,
+            "startup",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            4,
+            "startup",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            11,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            13,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            14,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "ultimate",
+            50.0000000000001
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "4~10 큰 리본 원호를 머리 위·몸 옆으로 돌리고9~12 앞쪽으로 팔을 뻗는 마무리가 보인다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "ja-hyun",
+    "motion": "wake_up",
+    "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up_16f.png",
+    "sha256": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67",
+    "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres",
+    "sprite_frames_sha256": "42e964de90d5d5e99e28f4ae58ed760de8f3e0553abd94fc0f5a251c751b727e",
+    "expected_action": "넘어진 자세에서 몸을 일으켜 대기 자세로 복귀",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/ja-hyun__wake_up.jpg": "40104419dc11a03a8e4cca5391f04d8005423d3b97abf0048b0d82b7e9920010",
+      "sheets/ja-hyun__wake_up.png": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            1,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            2,
+            "wake_up",
+            "wake_up",
+            100.0000000000002
+          ],
+          [
+            3,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            4,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            5,
+            "wake_up",
+            "wake_up",
+            100.0000000000002
+          ],
+          [
+            6,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            7,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            8,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            9,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            10,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            11,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            12,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            13,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            14,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            15,
+            "wake_up",
+            "wake_up",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1~3 누움에서4~8 손과 무릎으로 버티고9~16 몸을 일으켜 대기 자세가 된다. 전체 비교판·게임 시간표 확인; 재생 확인 대기.",
+    "issues": [],
+    "drafts": []
+  }
+]

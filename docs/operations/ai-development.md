@@ -16,11 +16,13 @@
 2. 목표, 개발 단계, 할 일, 하지 않을 일, 반드시 지킬 조건, 완료 판단 조건과 검사 방법을 `_workspace/<topic>/00_request.md`에 적는다.
 3. 여러 코드가 함께 쓰는 Godot 데이터, 저장 형식, ID 또는 통신 규칙이 바뀌면 계약 역할이 `01_contract.md`를 먼저 작성한다.
 4. 한 영역의 작업은 해당 전문가 역할이 처리한다. 여러 영역이나 개발 단계에 걸친 작업은 조율 역할(orchestrator)이 꼭 필요한 역할만 고른다.
-5. 구현 역할은 자동 테스트 또는 이름을 붙인 수동 재검사를 수행한다.
-6. 품질 역할(QA)은 원 요청과 데이터를 만드는 쪽·읽어 사용하는 쪽이 같은 규칙을 따르는지 함께 검토한다.
-7. 아직 정하지 않은 장기 규칙은 `proposed` 결정 기록으로 남기고 사용자 승인 전에 `accepted`로 바꾸지 않는다.
-8. 실제 Android 기기에서 수행하지 않은 검증은 에디터 결과와 구분한다.
-9. 비전투 UI 작업은 `docs/ui/non-combat-ui-v01.json`과 `assets/ui/asset-requirements.csv`를 먼저 읽고 product/contracts → ui/image-design → mobile/qa 순서로 인수인계한다.
+5. 외부 도구가 도움이 되는 개발 작업은 open-source가 기존 구현·직접 구현과 후보를 비교하고 격리 시험 뒤 담당 역할과 반영한다. 결과는 `02_open-source.md`에 남긴다.
+6. 모션 생성·수정은 [행위 표현 검토](../content/motion-action-review.md)에 따라 QA 뒤 사용자 승인을 요청한다.
+7. 구현 역할은 자동 테스트 또는 이름을 붙인 수동 재검사를 수행한다.
+8. 품질 역할(QA)은 원 요청과 데이터를 만드는 쪽·읽어 사용하는 쪽이 같은 규칙을 따르는지 함께 검토한다.
+9. 아직 정하지 않은 장기 규칙은 `proposed` 결정 기록으로 남기고 사용자 승인 전에 `accepted`로 바꾸지 않는다.
+10. 실제 Android 기기에서 수행하지 않은 검증은 에디터 결과와 구분한다.
+11. 비전투 UI 작업은 `docs/ui/non-combat-ui-v01.json`과 `assets/ui/asset-requirements.csv`를 먼저 읽고 product/contracts → ui/image-design → mobile/qa 순서로 인수인계한다.
 
 ## 표준 요청 형식
 

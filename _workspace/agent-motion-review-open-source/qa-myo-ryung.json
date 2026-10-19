@@ -1,0 +1,4072 @@
+[
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_air_heavy",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy_16f.png",
+    "sha256": "d041da7089946eaec6d13bbb451e4383040c95a3ba8fbdcf22453275d163bd39",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+    "sprite_frames_sha256": "725eddcfabf4040b1c8039e38f45e784a6c7738f60f90e087b6d84b4bc370c10",
+    "expected_action": "공중에서 큰 강공격; 지상 발 디딤과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_air_heavy.jpg": "9837e2416c0f68d78e635fdff5089cb7e4cf4ae11fa362b8b9be1d4041c8fbab",
+      "sheets/myo-ryung__attack_air_heavy.png": "d041da7089946eaec6d13bbb451e4383040c95a3ba8fbdcf22453275d163bd39"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-air-heavy",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_air_heavy",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_air_heavy",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_air_heavy",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_air_heavy",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–6에서 양다리를 몸 가까이 당겨 체공 준비하고 7–9에서 전방 발차기, 10–16에서 다리를 접어 회수한다. 지상 디딤 없이 큰 공중 킥으로 읽힌다. runtime은 준비1–6, 적중7–10, 회복11–16으로 발 뻗음과 적중이 겹친다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_air_light",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+    "sha256": "8e1848c5040de81316589415460369f14dc6d690ed7d1faf6fa76427ba4af177",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light.tres",
+    "sprite_frames_sha256": "ab460952f8bffd065e8ba1dbe487ababc10076a02b56d10d25734200567741e4",
+    "expected_action": "공중에서 빠른 약공격; 지상 발 디딤과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_air_light.jpg": "368f4acfb17674c3dff58383c7bf91426aca039904d42afaf14f6044816b673f",
+      "sheets/myo-ryung__attack_air_light.png": "8e1848c5040de81316589415460369f14dc6d690ed7d1faf6fa76427ba4af177"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-air-light",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_air_light",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_air_light",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–5에서 다리를 접은 공중 자세, 6–8의 짧은 앞차기, 9–16의 회수가 이어진다. runtime 적중6–8과 킥이 일치한다. 14–16에서 다리가 아래로 풀리지만 뚜렷한 접지·착지 충격은 없으며 실제 공중 표시의 자연스러움은 재생 확인이 필요하다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_dash_heavy",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy_16f.png",
+    "sha256": "c54a679cc4fc98cea185ffcaf8ae40fd379627625a8934b64c470f0e27ea71f2",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_heavy.tres",
+    "sprite_frames_sha256": "c3c089d110a8551f2d3905ba22596520409ddcd54a0ca34dc22a126506813543",
+    "expected_action": "전진 접근하며 큰 강공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_dash_heavy.jpg": "0e60e7e577235b751309bcdde145028619743850308dc11484c20c29b69dc968",
+      "sheets/myo-ryung__attack_dash_heavy.png": "c54a679cc4fc98cea185ffcaf8ae40fd379627625a8934b64c470f0e27ea71f2"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-dash-heavy",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_dash_heavy",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_dash_heavy",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_dash_heavy",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_dash_heavy",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–6에서 몸을 앞쪽으로 기울여 전진하고 7–9에서 큰 킥 후 10–16에서 발을 되둔다. runtime 적중7–10과 전방 킥이 겹치며 일반 강공격보다 접근 자세가 구분된다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_dash_light",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light_16f.png",
+    "sha256": "bcfee70f11e949396c7d4c0f48118d39bc19efe8b0c4e5a585f97f107996eb24",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_dash_light.tres",
+    "sprite_frames_sha256": "2a96185c869acd7d5291a2e5992fbdfdcde78436a9b484a11ad6cd0f62db1478",
+    "expected_action": "전진 접근하며 빠른 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_dash_light.jpg": "526b89d1b51c255069542430a18c12e616160b868c51a73ee8ef4dd02cad9b97",
+      "sheets/myo-ryung__attack_dash_light.png": "bcfee70f11e949396c7d4c0f48118d39bc19efe8b0c4e5a585f97f107996eb24"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-dash-light",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_dash_light",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_dash_light",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–6에서 달려들고 7에서 낮춘 뒤 8–10에서 전방 킥, 11–16에서 대기로 회복한다. runtime 적중6–8 마지막에 발을 뻗으므로 행동은 읽히지만 킥 유지9–10은 회복에 걸친다. 정상 속도에서 적중 초반이 과하게 비어 보이는지 추가 확인이 필요하다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_heavy_charge",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge_16f.png",
+    "sha256": "f2931bb4587a99cdf179876a9b01baa26a43bc317f15061d94506ca45df293b0",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_charge.tres",
+    "sprite_frames_sha256": "3bdf467de22d991d005ced823568be1ee3a0db082129f7676b10951a1a612f23",
+    "expected_action": "강공격 전 힘 모으기; 적중·회복과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_heavy_charge.jpg": "5bd37b4647c44c07079c37c14c34ee894c942e864e7d247e6486af667d75ac78",
+      "sheets/myo-ryung__attack_heavy_charge.png": "f2931bb4587a99cdf179876a9b01baa26a43bc317f15061d94506ca45df293b0"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            1,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            2,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            100.0000000000002
+          ],
+          [
+            3,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            4,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            5,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            100.0000000000002
+          ],
+          [
+            6,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            66.6666666666668
+          ],
+          [
+            7,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            8,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            9,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            10,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            11,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            12,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            13,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            14,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            83.3333333333335
+          ],
+          [
+            15,
+            "attack_heavy_charge",
+            "attack_heavy_charge",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "redo",
+    "observations": "1–4의 자세 낮춤 뒤 6–7에서 무릎을 들어 올리고 8–10에서 전방으로 킥한 뒤 14–16에서 대기로 복귀한다. runtime은 전체를 charge로 표시하고 16을 오래 유지하므로 준비 전용 상태와 그림이 충돌한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 추가 코드 대조: fighter_controller.gd _release_charge는 차지한 해제 공격의 visual_state_id도 attack_heavy_charge로 변경한다. 준비와 실제 차지 해제 타격이 같은 모션을 공유하는 구현이 문서의 준비 전용 기대와 충돌하며, 현재 timeline은 이 동적 해제 변형을 수집하지 않았다.",
+    "issues": [
+      {
+        "frames": [
+          8,
+          9,
+          10,
+          14,
+          15,
+          16
+        ],
+        "reason": "문서는 힘모으기 준비 전용으로 정의하지만 실제 _release_charge는 차지 해제 타격에도 같은 모션을 사용한다. 그림8–10의 킥은 해제 공격에는 부합할 수 있으나 CHARGE 유지에는 맞지 않아 단순 원화 수정만으로 양쪽 의미를 충족하지 못한다.",
+        "required_change": "combat·product·2d-animation이 준비 상태와 차지 해제 타격의 표현 ID/프레임 선택 분리를 먼저 확정한다. timeline에 동적 차지 해제 변형을 추가하고 두 상태를 각각 검토한 뒤 원화를 수정한다. 준비 전용으로 일괄 재그리거나 전투 피해·시간을 그림에 맞춰 변경하지 않는다."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_heavy_down",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down_16f.png",
+    "sha256": "ce6b1ac95a7a2e5ce946e7bea5c67a45afcd95efe15963ed25ffdb6df98be578",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_down.tres",
+    "sprite_frames_sha256": "30c7f42902fc83326893759b42509805f40e39a229a7304b6c3f8d9fea568b20",
+    "expected_action": "낮은 방향을 향한 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_heavy_down.jpg": "1e6a7ab58d805c50c03ecebaea81c4a2358fc42778dde0e36ce000eb145b2fea",
+      "sheets/myo-ryung__attack_heavy_down.png": "ce6b1ac95a7a2e5ce946e7bea5c67a45afcd95efe15963ed25ffdb6df98be578"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-heavy-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_down",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_down",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_down",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_down",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_down",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_down",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_down",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–3에서 낮아지고 4–9에서 한 다리를 낮게 뻗으며 몸을 회전해 10–12에서 무게를 되찾는다. runtime 적중7–10에 낮은 회전 킥이 들어 있어 문서의 low-angle sweep과 부합한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_heavy_side",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side_16f.png",
+    "sha256": "84f7700602a1f6e645351efe7f46edbef90f76734b80a428ad9b0585734abeb1",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side.tres",
+    "sprite_frames_sha256": "3bf313fb669944a32c2474f60e7e21191e706883976375dc0402b7f6770c8387",
+    "expected_action": "옆 방향의 큰 준비와 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_heavy_side.jpg": "4fd8ce3b73e9e7a71f4dbffb32cd9afa9da37b5534d630a33989bee22cfee485",
+      "sheets/myo-ryung__attack_heavy_side.png": "84f7700602a1f6e645351efe7f46edbef90f76734b80a428ad9b0585734abeb1"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-heavy-side",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_side",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_side",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_side",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_side",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_side",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_side",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_side",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3–5에서 무릎을 접어 준비하고 6–8에서 몸 옆으로 발을 크게 뻗은 뒤 9–16에서 회수한다. runtime 적중7–10에 수평 발차기가 겹치며 아래·위 강공격과 방향이 구별된다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_heavy_up",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+    "sha256": "15f74ab16204e4cfc2d46728a4bca49f3ddae93a85583b9a75fff320a1eca8ed",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+    "sprite_frames_sha256": "d053e154f916dd63eb5801d668ec4ccc0ec90af7661b4951a647153d4f3ca78b",
+    "expected_action": "위쪽을 향한 강한 타격·회복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_heavy_up.jpg": "a45358694001656cee968abc0d53e999ff108bf8eba1531bbdfafc6458aa5a75",
+      "sheets/myo-ryung__attack_heavy_up.png": "15f74ab16204e4cfc2d46728a4bca49f3ddae93a85583b9a75fff320a1eca8ed"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-heavy-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            5,
+            "startup",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            6,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "attack_heavy_up",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_heavy_up",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "attack_heavy_up",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "attack_heavy_up",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_heavy_up",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_heavy_up",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "attack_heavy_up",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–3 준비 뒤 4–7에서 몸과 무릎이 올라가고 8–9에서 발을 위로 뻗는다. 10–14에서 하강·무게 회복이 보인다. runtime 적중7–10에 위로 차는 자세가 들어 있어 띄우기 강공격으로 읽힌다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_light_combo_01",
+    "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_01_16f.png",
+    "sha256": "197ced5a2708faa61be194fa6c6bd2cbdf8606e4dc12af9611ada9a199527fdf",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_01.tres",
+    "sprite_frames_sha256": "559873625c17cfa6585e0990cb6938a72f3e1250f64a3887760dd18fc8dbc033",
+    "expected_action": "short hand strike",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__attack_light_combo_01.jpg": "83402bd54c07cabdafa874e478473ae777a21d3ccd3bbb4fc82dab67fa8ea304",
+      "sheets/myo-ryung__attack_light_combo_01.png": "197ced5a2708faa61be194fa6c6bd2cbdf8606e4dc12af9611ada9a199527fdf"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-light-01",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_01",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_01",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_01",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "2–5에서 앞손을 뻗고 6–7에서 이미 팔을 거두며 9–16은 대기에 가깝다. runtime 준비1–5에 완성 타격이 있고 실제 적중6·7·9·10에는 주먹이 거의 회수되어 짧은 손 타격의 시점이 어긋난다. runtime 8은 선택되지 않는다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다.",
+    "issues": [
+      {
+        "frames": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9,
+          10
+        ],
+        "reason": "뻗은 앞손은 준비2–5에 있고 적중6·7·9·10에는 손을 회수하거나 대기하여 판정과 손 타격 표현이 어긋난다.",
+        "required_change": "원화의 손 타격 자체는 있으므로 우선 이 모션의 표현 프레임 선택·시간 배치를 조정해 준비에서는 손 당기기, 적중에서는 앞손 뻗음이 보이게 검사한다. 범용 단계 선택을 유지하려면 준비1–5·적중6·7·9·10의 원화 자세를 수정한다. 공격 시간·피해는 변경하지 않는다."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_light_combo_02",
+    "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_02_16f.png",
+    "sha256": "3fe535dda5d63e360ab9e14ea4b9c233619d0e79d1f2c207b0935aea018e75e5",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_02.tres",
+    "sprite_frames_sha256": "7b5a2779d6749dcafc4ab464ada4c3a640b482fa630311690b27df279cc0bd81",
+    "expected_action": "rising knee",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__attack_light_combo_02.jpg": "ca0f64bac06f73ce3930f04cf070661d7507bab0e9cc2697961f96a2f4b288f6",
+      "sheets/myo-ryung__attack_light_combo_02.png": "3fe535dda5d63e360ab9e14ea4b9c233619d0e79d1f2c207b0935aea018e75e5"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-light-02",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_02",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_02",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_02",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–2 대기에서 3–6에 무릎이 위로 올라오고 7–10에 다시 내린다. runtime 적중6·7에서 높은 무릎 자세를 보여 계약의 rising knee를 읽을 수 있고, 이후9·10은 회수에 해당한다. 손 타격1단과 구별된다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_light_combo_03",
+    "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_03_16f.png",
+    "sha256": "7d5679a3de72ae7bc0b41dc232bdc0a593f59235b6d9efa75ed0d6afc66b03e0",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_03.tres",
+    "sprite_frames_sha256": "659fda221a5eefdd7a7d44e6f0e2a161f87b75c3ebd6a841993d394207ecec3d",
+    "expected_action": "spinning kick",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__attack_light_combo_03.jpg": "dacbba0857339b49b04a44f03b6aa822858abab549bf7963349cd1c8caa7588c",
+      "sheets/myo-ryung__attack_light_combo_03.png": "7d5679a3de72ae7bc0b41dc232bdc0a593f59235b6d9efa75ed0d6afc66b03e0"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-light-03",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_03",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_03",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_03",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_03",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3–4에서 허리를 돌려 준비하고 5에서 무릎을 접은 뒤 6–9에서 회전 전방 킥, 10–16에서 회수한다. runtime 적중6·7·9에 뻗은 발이 표시되어 spinning kick과 맞는다. 8의 생략이 회전 흐름을 깨는지는 재생으로 확인해야 한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_light_combo_04",
+    "path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_04_16f.png",
+    "sha256": "0ff3f0fdc7ca0801f50008cd4d87ddf88051145a101765a49b623c4205cb966b",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/attack_light_combo_04.tres",
+    "sprite_frames_sha256": "c228189a7d7d2dbf3679ff1edd9466f8a6fc7bd8d3e9c74f7feb7461ff9b8644",
+    "expected_action": "leaping spin-kick with opened ears and ribbon",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__attack_light_combo_04.jpg": "4f8384fe2fb878f34a04d339e3b05cbbebabd76f24ecd33448cdf694d7c16dba",
+      "sheets/myo-ryung__attack_light_combo_04.png": "0ff3f0fdc7ca0801f50008cd4d87ddf88051145a101765a49b623c4205cb966b"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-light-04",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_combo_04",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_combo_04",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_combo_04",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_combo_04",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_combo_04",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "attack_light_combo_04",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_combo_04",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "attack_light_combo_04",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "attack_light_combo_04",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_combo_04",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_combo_04",
+            50.0000000000001
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_combo_04",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_combo_04",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_combo_04",
+            50.0000000000001
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_combo_04",
+            50.0000000000001
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3에서 웅크려 4–6에서 몸이 뜨고 7의 뒤돌린 몸에서 8–10의 공중 킥으로 이어진다. 귀와 리본도 공중에서 펼쳐지고 12–14에 착지한다. runtime 적중6·7·9·10에 회전과 킥이 걸리며 leaping spin-kick 계약을 정적으로 확인했다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_light_down",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down_16f.png",
+    "sha256": "86d9a4fb3fe3925d34500ce3e7c1c2cc04da6febce02302e119331a64442e7a6",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_down.tres",
+    "sprite_frames_sha256": "50eac4909627511ff0155d735556cb6fc144e757ea016c200f755e60d4b6ff08",
+    "expected_action": "짧고 빠른 아래쪽 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_light_down.jpg": "ae8cd176268af2fdc9904fc4caa8c48bb37e37c14d322db315af20853f4a5124",
+      "sheets/myo-ryung__attack_light_down.png": "86d9a4fb3fe3925d34500ce3e7c1c2cc04da6febce02302e119331a64442e7a6"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-light-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_down",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_down",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3–4의 낮춘 준비, 5–8의 낮은 앞차기, 9–12의 회수 순서가 명확하다. runtime 적중6–8에서 발끝을 낮게 뻗어 계약의 low toe check와 부합한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "attack_light_up",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+    "sha256": "f4e15ec50ae5994b34f924375d5fb2e1687b6bccfe7918bf71a4f7a2a8ff560d",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_light_up.tres",
+    "sprite_frames_sha256": "70aa4996e916943de56997e38b6e8e78ab1eb1d40a543ea8216a71c71fc41c2d",
+    "expected_action": "짧고 빠른 위쪽 약공격",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__attack_light_up.jpg": "f8aa377fd07c310748e62671d644f256e75d0de39d15fd1fdeab4332ec0c3dd4",
+      "sheets/myo-ryung__attack_light_up.png": "f4e15ec50ae5994b34f924375d5fb2e1687b6bccfe7918bf71a4f7a2a8ff560d"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-light-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            1,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            2,
+            "startup",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            4,
+            "startup",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            9,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            10,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            11,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            12,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            13,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ],
+          [
+            14,
+            "recovery",
+            "attack_light_up",
+            33.3333333333334
+          ],
+          [
+            15,
+            "recovery",
+            "attack_light_up",
+            16.6666666666667
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3–5에서 무릎을 들고 6–8에서 위 사선으로 발을 뻗으며 9–16에서 회수한다. runtime 적중6–8과 상승 킥이 일치하며 문서의 빠른 대공 약공격을 읽을 수 있다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "death",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/death_16f.png",
+    "sha256": "3da15a279c06c514dfe56bf6a9f5fd03ce122cdcb97041b59032f03e4d415e4c",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/death.tres",
+    "sprite_frames_sha256": "23994f8ec10ef2662e6914b60fc28447ed8ec75914fb7f7a9622cef50ae332ed",
+    "expected_action": "마지막 사망과 끝 자세; 방어·대기와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__death.jpg": "f7daadbe21e86d9969e4c1243feeb835864c6cbf833c5079c69e2ab0d515f49c",
+      "sheets/myo-ryung__death.png": "3da15a279c06c514dfe56bf6a9f5fd03ce122cdcb97041b59032f03e4d415e4c"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            1,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            2,
+            "death",
+            "death",
+            100.0000000000002
+          ],
+          [
+            3,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            4,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            5,
+            "death",
+            "death",
+            100.0000000000002
+          ],
+          [
+            6,
+            "death",
+            "death",
+            66.6666666666668
+          ],
+          [
+            7,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            8,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            9,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            10,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            11,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            12,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            13,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            14,
+            "death",
+            "death",
+            83.3333333333335
+          ],
+          [
+            15,
+            "death",
+            "death",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–4에서 힘이 빠져 고개와 몸이 숙여지고 5–10에서 바닥으로 쓰러지며 11–16에서 누운 자세를 유지한다. runtime 최종16 정지는 사망 끝 자세와 맞으며 wake_up처럼 다시 서지 않는다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "evade",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/evade_16f.png",
+    "sha256": "5cc1f90a39e40237010266a2061c50fb22fdde3137bb1130dc79f2d5f92f5ed3",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/evade.tres",
+    "sprite_frames_sha256": "69848e07d0802f77a1c7a9171e9f026476c8981cf0927c864a9580ec53e57ef9",
+    "expected_action": "몸을 낮추거나 이동하며 피하기; 달리기·공격과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__evade.jpg": "26b52dc7e2f00d0044d94cfa08f241da12f6dc60aa11f1183072e0cffe729c47",
+      "sheets/myo-ryung__evade.png": "5cc1f90a39e40237010266a2061c50fb22fdde3137bb1130dc79f2d5f92f5ed3"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            1,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            2,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            4,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            5,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            6,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            7,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            9,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            10,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            12,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            13,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            14,
+            "evade",
+            "evade",
+            16.6666666666667
+          ],
+          [
+            15,
+            "evade",
+            "evade",
+            1816.6666666666733
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "2–7에서 몸을 낮추어 앞으로 피하고 8–11에서 몸을 다시 세운 뒤 12–16에서 대기로 돌아온다. runtime 선택2·3·5–8·10·11·13–16에서도 낮춤→회복 순서는 유지된다. 공격 발 뻗음은 없어 달리기·타격과 구별된다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "guard",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/guard_16f.png",
+    "sha256": "781e92ceb388161188de47b82df45952943b9e39844a3b6bc6ad20f53c68d0e1",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/guard.tres",
+    "sprite_frames_sha256": "0612128673a6f2c22a639f866570beaca9ab6858c18036af577d16728fc94c58",
+    "expected_action": "앞을 막는 방어 자세를 만들고 실제 정지 프레임에서도 유지",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__guard.jpg": "99909985d67e547dcb76a1169464b489cc7effec0d2dc56b3a7ece55aed27b5a",
+      "sheets/myo-ryung__guard.png": "781e92ceb388161188de47b82df45952943b9e39844a3b6bc6ad20f53c68d0e1"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            1,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            2,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            3,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            4,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            5,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            6,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            7,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            8,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            9,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            10,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            11,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            12,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            13,
+            "guard",
+            "guard",
+            33.3333333333334
+          ],
+          [
+            14,
+            "guard",
+            "guard",
+            50.0000000000001
+          ],
+          [
+            15,
+            "guard",
+            "guard",
+            1383.333333333338
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "3–8에서 팔을 얼굴 앞에 모으지만 9부터 팔이 낮아지고 13–16에서 일반 대기 자세가 된다. runtime은 16을 약1383ms 유지하므로 실제 방어 유지에서 앞을 막는 자세가 사라진다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다.",
+    "issues": [
+      {
+        "frames": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "reason": "방어 후반에 앞팔을 내려 일반 대기로 돌아오며 실제 정지16에서 얼굴·몸 앞을 막지 않는다.",
+        "required_change": "방어 진입 뒤 전방을 가리는 자세를 유지하고 최종16도 방어 중임을 읽을 수 있게 수정한다."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "hitstun",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/hitstun_16f.png",
+    "sha256": "a290eee8a62c50796d93fe5dc689f6f038ed23362f571efa1f13cdeff91151b4",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/hitstun.tres",
+    "sprite_frames_sha256": "9e95ec785aa27bb4f4184d523fc6b5e78a4d944ac6f65dce1e9f88a06b61c927",
+    "expected_action": "맞은 순간의 반응과 경직; 자발적 공격·방어와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__hitstun.jpg": "41f8a3dc676b59993219693024ca77bdcf2cf9571e14559c2f5f941daf327ea5",
+      "sheets/myo-ryung__hitstun.png": "a290eee8a62c50796d93fe5dc689f6f038ed23362f571efa1f13cdeff91151b4"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            1,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            2,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            3,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            4,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            5,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            6,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            7,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            8,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            9,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            10,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            11,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            12,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            13,
+            "hitstun",
+            "hitstun",
+            33.3333333333334
+          ],
+          [
+            14,
+            "hitstun",
+            "hitstun",
+            50.0000000000001
+          ],
+          [
+            15,
+            "hitstun",
+            "hitstun",
+            1383.333333333338
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "2–7에서 고개와 상체가 뒤로 젖고 다리가 들리며 8–12에서 중심을 되찾는다. 자발적인 킥과 다른 피격 반응은 명확하다. 13–16은 대기로 복귀하고 runtime은 최종16을 유지하므로 긴 경직 상태에서 회복 자세 노출이 적절한지는 실제 상태 종료와 함께 추가 확인해야 한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "idle",
+    "path": "assets/character/myo-ryung/animation/runtime/idle_16f.png",
+    "sha256": "f1f9404a3423415e79b2c6c49d3786a8561248807dfba7acd518619339c8cf29",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/idle.tres",
+    "sprite_frames_sha256": "ce170dc0d6c74a6e59381c968945ba4602feb0e2b0ab0915218f39a673744854",
+    "expected_action": "대기 호흡; 이동·공격과 구별되고 자연스럽게 반복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__idle.jpg": "a22321246b7ab3bba3f8709495cc7ef65ee85514d4909db2f51ec7c7059908f1",
+      "sheets/myo-ryung__idle.png": "f1f9404a3423415e79b2c6c49d3786a8561248807dfba7acd518619339c8cf29"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            1,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            2,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            3,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            4,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            5,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            6,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            7,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            8,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            9,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            10,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            11,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            12,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            13,
+            "idle",
+            "idle",
+            133.3333333333336
+          ],
+          [
+            14,
+            "idle",
+            "idle",
+            116.6666666666669
+          ],
+          [
+            15,
+            "idle",
+            "idle",
+            133.3333333333336
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "16장 전체에서 발 위치를 크게 바꾸지 않고 상체·귀·머리카락의 작은 높이 변화가 이어진다. 이동이나 타격으로 읽히지 않으며 16과1의 기본 자세가 가까워 반복 연결 후보로 적합하다. runtime 1–16의 반복 순서를 확인했다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "jump",
+    "path": "assets/character/myo-ryung/animation/runtime/jump_16f.png",
+    "sha256": "d02b54c6b449cf520cf5e239c40208211a04fae8b2c12c3d8d2c97f3bcb102e9",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/jump.tres",
+    "sprite_frames_sha256": "de162a39b778663f08add0a722ebb81ad1d2ca746583a01053834e28095450fb",
+    "expected_action": "상승→정점→하강→지상 착지; 공중에 착지 자세를 표시하지 않음",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__jump.jpg": "49f6903f485080fb6b1091b1e7d39080ab465dd3ca05323ede5eb987bc61b1e4",
+      "sheets/myo-ryung__jump.png": "d02b54c6b449cf520cf5e239c40208211a04fae8b2c12c3d8d2c97f3bcb102e9"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            3,
+            "ascent",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            4,
+            "ascent",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            5,
+            "ascent",
+            "jump",
+            183.33333333333366
+          ],
+          [
+            6,
+            "apex",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            7,
+            "apex",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            8,
+            "apex",
+            "jump",
+            50.0000000000001
+          ],
+          [
+            10,
+            "descent",
+            "jump",
+            66.6666666666668
+          ],
+          [
+            11,
+            "descent",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            12,
+            "descent",
+            "jump",
+            183.33333333333366
+          ],
+          [
+            13,
+            "landing",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            14,
+            "landing",
+            "jump",
+            83.3333333333335
+          ],
+          [
+            15,
+            "landing",
+            "jump",
+            100.0000000000002
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "4–6에서 몸을 띄워 다리를 접고 7–9에서 공중 자세, 10–12에서 다리를 아래로 펼친다. 13은 무릎을 굽혀 바닥을 디딘 착지 압축 자세인데 runtime은 descent의 13을 약183ms 유지한 뒤 landing14–16으로 넘어간다. 착지가 공중 하강에서 먼저 노출된다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다.",
+    "issues": [
+      {
+        "frames": [
+          13
+        ],
+        "reason": "바닥에 양발을 딛고 무릎을 압축한 착지 자세13이 runtime descent 단계에서 약183ms 동안 표시된다.",
+        "required_change": "우선 표현 코드의 하강 프레임 선택에서 착지 압축13을 제외하고 landing으로 옮겨 검사한다. 현행 코드 범위를 유지해야 한다면 원화13을 비접지 하강 자세로 다시 그리고 착지 압축은14–16에 둔다. 물리·점프 시간은 변경하지 않는다."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "knock_down",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down_16f.png",
+    "sha256": "fe4bf61bd20732c594ac8da9e324689ea3867012c5902e037febdd4e500e6554",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/knock_down.tres",
+    "sprite_frames_sha256": "a118667b32524c980812e57195f61643a056f4477344e835d0fa374b04c5b9b5",
+    "expected_action": "균형을 잃고 바닥에 넘어짐; 일어남과 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__knock_down.jpg": "7382b6262222f47738e4f01fae32552002b49836661236f8ff2b7528d2f76345",
+      "sheets/myo-ryung__knock_down.png": "fe4bf61bd20732c594ac8da9e324689ea3867012c5902e037febdd4e500e6554"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            1,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            2,
+            "knock_down",
+            "knock_down",
+            100.0000000000002
+          ],
+          [
+            3,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            4,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            5,
+            "knock_down",
+            "knock_down",
+            100.0000000000002
+          ],
+          [
+            6,
+            "knock_down",
+            "knock_down",
+            66.6666666666668
+          ],
+          [
+            7,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            8,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            9,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            10,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            11,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            12,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            13,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            14,
+            "knock_down",
+            "knock_down",
+            83.3333333333335
+          ],
+          [
+            15,
+            "knock_down",
+            "knock_down",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–3에서 뒤로 밀리고 4–7에서 몸이 수평으로 무너지며 8–16에서 바닥에 누운 자세를 유지한다. runtime 최종16 정지는 넘어진 상태와 일치하고 스스로 일어나지 않는다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "launch",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/launch_16f.png",
+    "sha256": "dd03338e3db1ac06bb959c01bddc3cbd7cb3f6d6739d16badc68b581043bdf67",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/launch.tres",
+    "sprite_frames_sha256": "97be15b97c6dc2dbb795cbd01cd7535f573f1fc91d0d65985fa55f48cc386718",
+    "expected_action": "타격으로 공중에 밀려나는 반응; 점프·착지와 구별",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__launch.jpg": "80c857c93713372434832b6ffff963e9edebce4bdb648b5840cb947850b724d6",
+      "sheets/myo-ryung__launch.png": "dd03338e3db1ac06bb959c01bddc3cbd7cb3f6d6739d16badc68b581043bdf67"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            1,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            2,
+            "launch",
+            "launch",
+            100.0000000000002
+          ],
+          [
+            3,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            4,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            5,
+            "launch",
+            "launch",
+            100.0000000000002
+          ],
+          [
+            6,
+            "launch",
+            "launch",
+            66.6666666666668
+          ],
+          [
+            7,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            8,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            9,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            10,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            11,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            12,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            13,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            14,
+            "launch",
+            "launch",
+            83.3333333333335
+          ],
+          [
+            15,
+            "launch",
+            "launch",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "2–8에서 상체를 뒤로 젖혀 공중에 밀려나며 9–12에서 다리를 펼쳐 균형을 찾는다. 피격으로 날아감은 점프 준비와 구별된다. 14–16은 접지·대기 회복으로 보여 runtime 최종16 정지가 공중 이동 중 노출되는지는 실제 상태 종료와 함께 추가 확인해야 한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "ring_out",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out_16f.png",
+    "sha256": "01d0557997c186f4a93c33f22da79977e6902bed7424cd346b09b88f08dad866",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ring_out.tres",
+    "sprite_frames_sha256": "7922eedb92e4d2b4208debcbc3cb2422871e4486971f94022027502836ff788f",
+    "expected_action": "장외 탈락하며 균형을 잃거나 화면 밖으로 떨어짐",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__ring_out.jpg": "a1d8312de2811dfe3dd55a8dd26275d2c8d0bb26b002530f1c04a7f9c025857c",
+      "sheets/myo-ryung__ring_out.png": "01d0557997c186f4a93c33f22da79977e6902bed7424cd346b09b88f08dad866"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            1,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            2,
+            "ring_out",
+            "ring_out",
+            100.0000000000002
+          ],
+          [
+            3,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            4,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            5,
+            "ring_out",
+            "ring_out",
+            100.0000000000002
+          ],
+          [
+            6,
+            "ring_out",
+            "ring_out",
+            66.6666666666668
+          ],
+          [
+            7,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            8,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            9,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            10,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            11,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            12,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            13,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            14,
+            "ring_out",
+            "ring_out",
+            83.3333333333335
+          ],
+          [
+            15,
+            "ring_out",
+            "ring_out",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–8에서 균형을 잃고 9–14에서 머리가 아래로 향하는 회전 낙하, 15–16에서 다리를 든 채 흔들린다. runtime 16정지에서도 서 있거나 가드하지 않아 장외 탈락으로 읽힌다. 화면 밖 이동은 실제 게임 위치 처리와 함께 확인해야 한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "run",
+    "path": "assets/character/myo-ryung/animation/runtime/run_16f.png",
+    "sha256": "ada29eeed9de1c1a5d853d0258f44363769db58df301cccf6ac4b404669ae975",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/run.tres",
+    "sprite_frames_sha256": "70fa08656788a16822d5a1e1e91623d2929e59b572c8cc4f0972d16bc0a2ee22",
+    "expected_action": "달리기; 발 교대와 몸의 무게 이동, 자연스러운 반복",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__run.jpg": "0972cbfa8ba5d5ae85f318b4e721fe11d9ad64330117fc61949c6c4acf6b7ca3",
+      "sheets/myo-ryung__run.png": "ada29eeed9de1c1a5d853d0258f44363769db58df301cccf6ac4b404669ae975"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            1,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            2,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            3,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            4,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            5,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            6,
+            "run",
+            "run",
+            66.6666666666668
+          ],
+          [
+            7,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            8,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            9,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            10,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            11,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            12,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            13,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            14,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            15,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            0,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            1,
+            "run",
+            "run",
+            100.0000000000002
+          ],
+          [
+            2,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            3,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            4,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            5,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            6,
+            "run",
+            "run",
+            83.3333333333335
+          ],
+          [
+            7,
+            "run",
+            "run",
+            83.3333333333335
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "2–12에서 발을 앞뒤로 내밀고 상체가 기울어 달리기가 보이나 13–16은 일반 대기처럼 양발을 딛고 서 있다. runtime은 1–16 반복이므로 매 회전 약333ms 동안 뛰기를 멈췄다 다시 출발하는 그림 순서가 된다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다.",
+    "issues": [
+      {
+        "frames": [
+          13,
+          14,
+          15,
+          16
+        ],
+        "reason": "달리기 루프 마지막4장이 양발을 바닥에 두고 선 대기 자세여서 runtime 매 반복에 약333ms의 멈춤 구간이 생긴다.",
+        "required_change": "13–16을 발 교대와 무게 이동이 이어지는 달리기 중간 자세로 수정해16→1도 연속되게 한다."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "spawn",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn_16f.png",
+    "sha256": "c9a2c2677049b4740d25f4e1da60f727069871c8cb1568e3446827ed138ba063",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/spawn.tres",
+    "sprite_frames_sha256": "c92933183e56465ae617500c1db7e1e673f5d45853cdc9ebd04c23d5a20c56d9",
+    "expected_action": "등장해 전투 가능한 자세로 자리 잡음",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__spawn.jpg": "1a1d5611d3d4a14d056673b770276b97b819c6784f61a67546aaae18e06fb5cf",
+      "sheets/myo-ryung__spawn.png": "c9a2c2677049b4740d25f4e1da60f727069871c8cb1568e3446827ed138ba063"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            1,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            2,
+            "spawn",
+            "spawn",
+            100.0000000000002
+          ],
+          [
+            3,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            4,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            5,
+            "spawn",
+            "spawn",
+            100.0000000000002
+          ],
+          [
+            6,
+            "spawn",
+            "spawn",
+            66.6666666666668
+          ],
+          [
+            7,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            8,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            9,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            10,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            11,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            12,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            13,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            14,
+            "spawn",
+            "spawn",
+            83.3333333333335
+          ],
+          [
+            15,
+            "spawn",
+            "spawn",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1의 낮게 숙인 자세에서 2–4에 몸을 일으키고 5–16에 전투 대기로 자리 잡는다. runtime 최종16 정지는 등장 완료 후 전투 가능한 자세와 맞는다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "special_down",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down_16f.png",
+    "sha256": "6193d4f9a144f8ad3c2b1f7de50cd74351de59f354f8a695d55c59d4a3298141",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_down.tres",
+    "sprite_frames_sha256": "66a1e917d47922e6f456334d60313f42e07386f4534e2e250ff252e1ee16572d",
+    "expected_action": "delayed stomp; short ground hop or aerial descent",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__special_down.jpg": "15f788136885cfb929294f554c6c9c534fcb8a75788e936f16104fa6d93fd40d",
+      "sheets/myo-ryung__special_down.png": "6193d4f9a144f8ad3c2b1f7de50cd74351de59f354f8a695d55c59d4a3298141"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung.base-special-down",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "special_down",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_down",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_down",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_down",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_down",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_down",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_down",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "2에서 몸을 낮춘 뒤 3–6에서 가볍게 뛰어 다리를 접고 7–9에서 발을 아래쪽으로 내민 뒤 12–14에서 착지한다. runtime 적중6–10에는 발 내리기7–9가 들어 있어 지연 후 발구르기·공중 하강이라는 계약과 부합한다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "special_neutral",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral_16f.png",
+    "sha256": "d0b66398b7b6c9fd115b73ffc26bb349443a01c123a4fe6efbf1802b7c3ac3e7",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral.tres",
+    "sprite_frames_sha256": "9d05f63ff19958e07a485ac15872a6efe844c4b0fd34ff31351fedefee6306ad",
+    "expected_action": "short-range rapid forward kicks",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__special_neutral.jpg": "6b67a8b708f88a519c875b07b8e4c7537571ca7a238f2335a7b0690bbfaa7028",
+      "sheets/myo-ryung__special_neutral.png": "d0b66398b7b6c9fd115b73ffc26bb349443a01c123a4fe6efbf1802b7c3ac3e7"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-special-neutral",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "special_neutral",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_neutral",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_neutral",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_neutral",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_neutral",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_neutral",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_neutral",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "3·7·11에서 발을 앞으로 뻗고 그 사이에 무릎을 접어 세 차례 킥을 표현한다. 하지만 runtime 준비1–5에 첫 킥3, 회복11–16에 마지막 킥11이 놓이며 적중6–10에서는 한 차례7만 완성된다. 계약의 rapid forward kicks가 적중 구간과 일치하지 않는다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다.",
+    "issues": [
+      {
+        "frames": [
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "reason": "세 차례의 킥 중 첫 타3은 준비, 마지막 타11은 회복에 놓이고 적중6–10은 한 차례 킥만 완성해 연속 킥과 실제 적중 구간이 어긋난다.",
+        "required_change": "준비1–5를 킥 준비로 두고 적중6–10에 반복적으로 앞으로 차고 접는 움직임을 집중시킨다. 회복11–16에는 추가 타격 대신 회수만 둔다."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "special_side",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side_16f.png",
+    "sha256": "fba72c0c15577cd8f986e3949751e197657dab98f48f56ec28fe722bc152a0e4",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_side.tres",
+    "sprite_frames_sha256": "026ecb268db27879a7e0fe97005c3123abe1f8740fe15d3da31e9f18a4388892",
+    "expected_action": "arc jump-kick entry",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__special_side.jpg": "99c481d1da0f60483cfc6337797a1ca05e9e0fe93875a1d057534a53af0be4e7",
+      "sheets/myo-ryung__special_side.png": "fba72c0c15577cd8f986e3949751e197657dab98f48f56ec28fe722bc152a0e4"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung.base-special-side",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            2,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            3,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            4,
+            "startup",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            7,
+            "active",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            9,
+            "active",
+            "special_side",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_side",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_side",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_side",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_side",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_side",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_side",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–2에서 낮게 준비하고 3–6에서 몸을 앞 위로 띄우며 7–9에서 공중 전방 킥, 10–14에서 하강·회복한다. runtime 적중6–10과 킥이 겹쳐 arc jump-kick entry 계약에 맞는다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "special_up",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up_16f.png",
+    "sha256": "fa13be2fb5b77f8f0028f803d93b6dfa709deb02bca0e0b2db9cd200fe721d57",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_up.tres",
+    "sprite_frames_sha256": "7d9d0b78f2d9b9d6c38fd3a93f71ad66c06eef32775f52ada9ea10a913d9069c",
+    "expected_action": "high Skybound recovery with long end recovery",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__special_up.jpg": "d8544a3fb2f721f5272d08c72b3e636f4aba6ceef4baa5a8a09ab48b9e036f41",
+      "sheets/myo-ryung__special_up.png": "fa13be2fb5b77f8f0028f803d93b6dfa709deb02bca0e0b2db9cd200fe721d57"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung-special-up",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            2,
+            "startup",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            3,
+            "startup",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            4,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            5,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            8,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "special_up",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "special_up",
+            33.3333333333334
+          ],
+          [
+            11,
+            "recovery",
+            "special_up",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            13,
+            "recovery",
+            "special_up",
+            50.0000000000001
+          ],
+          [
+            14,
+            "recovery",
+            "special_up",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "special_up",
+            33.3333333333334
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "3–5에서 위로 뛰고 6–9에서 발을 위로 뻗으며 10–13에서 다리를 내려 회수한다. runtime 적중5–10과 상승 동작이 일치하고 회복11–16에는 착지 전후 균형 회복이 있다. 공중 복귀 높이와 긴 회복 체감은 재생 확인이 필요하다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "ultimate",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate_16f.png",
+    "sha256": "156fc23f1e6b392f3cbde1cf554b6f982be9b1f020930a0b16b041f2ba4bf185",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/ultimate.tres",
+    "sprite_frames_sha256": "450127b53a481ebabb2768cf8b9be8f1a8dbaffea17388c82fe270f7f815e595",
+    "expected_action": "capture launch, serial kicks, descending finish",
+    "action_source": "docs/contracts/attack-system-v01.json",
+    "materials": {
+      "boards/myo-ryung__ultimate.jpg": "0a8828f59636729b131619ed1ef176a9ce1fbc8dde4bc7c194d5932f33cf6aff",
+      "sheets/myo-ryung__ultimate.png": "156fc23f1e6b392f3cbde1cf554b6f982be9b1f020930a0b16b041f2ba4bf185"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "myo-ryung.base-ultimate",
+        "sequence": [
+          [
+            0,
+            "startup",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            1,
+            "startup",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            2,
+            "startup",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            3,
+            "startup",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            4,
+            "startup",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            5,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            6,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            7,
+            "active",
+            "ultimate",
+            33.3333333333334
+          ],
+          [
+            8,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            9,
+            "active",
+            "ultimate",
+            16.6666666666667
+          ],
+          [
+            10,
+            "recovery",
+            "ultimate",
+            50.0000000000001
+          ],
+          [
+            11,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            12,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            13,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            14,
+            "recovery",
+            "ultimate",
+            66.6666666666668
+          ],
+          [
+            15,
+            "recovery",
+            "ultimate",
+            50.0000000000001
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "observations": "2–4에서 몸이 떠오르고 5–9에서 전방 킥, 10–13에서 몸을 기울여 하강한 뒤 14–16에서 착지한다. runtime 적중6–10 뒤 회복11–16이므로 계약의 descending finish에 해당할 수 있는 다리 내리기11–13은 이미 회복이다. 초기 포획 타격의 구분과 연속 킥의 재차 뻗음도 약하다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다.",
+    "issues": [
+      {
+        "frames": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "reason": "포획 띄우기→연속 킥→하강 마무리의 구분이 약하며 하강 마무리 후보11–13이 runtime 회복에 놓인다.",
+        "required_change": "승인 계약의 포획·연속 킥·하강 마무리를 구분한 원화 시안을 제작하고 실제 적중6–10과 비교한다. 현재 시트만으로 타이밍을 바꿔도 포획·연속 킥의 구분 부족은 남는다. 현재 적중 길이로 세 동작을 표현할 수 없다면 제작 담당이 계약·표현 설계 재검토를 요청한다. 전투 시간·피해는 임의 변경하지 않는다."
+      }
+    ],
+    "drafts": []
+  },
+  {
+    "character_id": "myo-ryung",
+    "motion": "wake_up",
+    "path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up_16f.png",
+    "sha256": "57edd564c1a137d86d18a093603b10baadea9ae81911153cbd9771b4a2963dff",
+    "sprite_frames_path": "assets/character/myo-ryung/animation/runtime/local_ai_v01/wake_up.tres",
+    "sprite_frames_sha256": "71f1cdd60be0410833f1362507c6efb7ff4cee06b8adac3b637973d03e58a3e2",
+    "expected_action": "넘어진 자세에서 몸을 일으켜 대기 자세로 복귀",
+    "action_source": "docs/gameplay/combat.md",
+    "materials": {
+      "boards/myo-ryung__wake_up.jpg": "5843c82e046739a735a2f5a59e6e6acdd2486a887bdd14ae8c6488c9a49b7be6",
+      "sheets/myo-ryung__wake_up.png": "57edd564c1a137d86d18a093603b10baadea9ae81911153cbd9771b4a2963dff"
+    },
+    "runtime_variants": [
+      {
+        "attack_id": "",
+        "sequence": [
+          [
+            0,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            1,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            2,
+            "wake_up",
+            "wake_up",
+            100.0000000000002
+          ],
+          [
+            3,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            4,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            5,
+            "wake_up",
+            "wake_up",
+            100.0000000000002
+          ],
+          [
+            6,
+            "wake_up",
+            "wake_up",
+            66.6666666666668
+          ],
+          [
+            7,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            8,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            9,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            10,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            11,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            12,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            13,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            14,
+            "wake_up",
+            "wake_up",
+            83.3333333333335
+          ],
+          [
+            15,
+            "wake_up",
+            "wake_up",
+            766.6666666666686
+          ]
+        ]
+      }
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": true,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "blocked",
+    "observations": "1–3의 바닥에 누운 상태에서 4–6은 팔·무릎으로 몸을 받치고 7–10은 한쪽 무릎을 펴며 11–16에서 서 있는 대기로 복귀한다. runtime 최종16정지와 일어남 완료가 일치하며 knock_down과 순서가 반대다. 16프레임 비교판을 직접 열고 action_source 원문 및 runtime_variants의 선택 순서·단계·정지 프레임을 대조했다. 정상·느린·좌우 반전·소형 재생 확인은 부모 검토 대기이다. 비교판·시간표상 잠정 적합이며 재생 확인 전이므로 blocked로 둔다.",
+    "issues": [],
+    "drafts": []
+  }
+]

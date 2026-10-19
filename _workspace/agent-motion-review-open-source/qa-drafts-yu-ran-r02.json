@@ -1,0 +1,69 @@
+[
+  {
+    "character_id": "yu-ran",
+    "motion": "run",
+    "revision": 2,
+    "path": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/run/r02.png",
+    "sourcehash": "dfaad2e319dcd978af3f9bd04c398b58a2e9b946274228bdc4781aa711445e49",
+    "generation_sha256": "cf059ce7c84419cb04ca9cb8061b52faf61869ec930c19ebe84dae7f5d371edd",
+    "viewed_board": "/Users/jdh/Desktop/workspace/ForestArena/_workspace/agent-motion-review-open-source/drafts/yu-ran/run/r02-board.jpg",
+    "viewed_board_sha256": "65e6b6dfe6e746fc15b869858868e33c7a04a7ede00819d01824d93b727d6473",
+    "checked_frames": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "checks": {
+      "all_frames": true,
+      "normal_playback": false,
+      "slow_playback": false,
+      "runtime_timing": false,
+      "mirrored": false,
+      "small_scale": false
+    },
+    "status": "fix",
+    "static_status": "fix",
+    "observations": "r02-board.jpg의 실제 alpha 회색 합성16프레임을 직접 확인했다.5~6·8 및13~14·16의 뒤쪽 부츠에 밑창을 보여 주는 변화는 생겼지만, 화면 오른쪽을 향한 가까운 쪽 맨 허벅지와 앞쪽 무릎·정강이의 연결은1~4와5~8에서 거의 같은 역할을 유지한다.9~12와13~16에서도 같은 앞다리가 앞으로 뻗는다. 멀리 있는 다리가 앞으로 통과해 지지발이 되는 단계가 명확하게 없고, 앞쪽 주먹도 전 프레임에서 앞으로 유지되어 반대 팔 흔들림이 읽히지 않는다. 따라서 밑창 표시만으로 좌우 지지발 교대를 증명하지 못하며 r01의 같은 원인이 반복된다. 몸통 기울임·달리기 실루엣·한 개 고리 꼬리·회색 머리·청록 의상 장식은 보존됐다. 정상/느린 실제 재생을 보았다고 기록하지 않는다.",
+    "issues": [
+      {
+        "frames": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "reason": "두 반주기에서 같은 앞쪽 허벅지가 전방을 차지한다. 뒤 부츠 밑창의 방향 변화가 생겼지만 반대쪽 다리가 전방 접지로 넘어오는 순서와 반대 팔의 전후 교대가 보이지 않는다.",
+        "required_change": "이번 작업에서는fix로 미해결을 남긴다. 세 번째 이미지 재생성을 요청하지 않는다. 다음 작업은 접근 재분류가 필요하다. 제작 담당이 승인 외형의 두 다리와 양팔을 구분한 접지/압축/통과/비행 핵심 자세를 먼저 수작업 또는 관절 구조로 고정한 뒤, 그 명확한 반대 지지발 쌍을 기준으로 연속 프레임을 만드는 방식으로 다시 설계한다. 구체 방법 채택은 별도 제작 결정이며 이번 시안이나 QA가 승인된 자산을 대체하지 않는다."
+      }
+    ],
+    "round_limit_reached": true,
+    "reclassification_required": true,
+    "next_action": "r01과r02를 보존하고 동일 원인 미해결로 마무리한다. 추가 생성 없이 후속 제작 방법 재분류 대상으로 전달한다.",
+    "runtime_replacement_approved": false
+  }
+]
