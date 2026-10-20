@@ -13,6 +13,8 @@ const STATE_MOTIONS := {
 	FighterController.State.SPAWNING: &"spawn",
 }
 
+const AttackEffects := preload("res://scripts/fighter_attack_effects.gd")
+
 var fighter: FighterController
 var sprite: AnimatedSprite2D
 var character_id: StringName
@@ -43,6 +45,11 @@ func _ready() -> void:
 	# collision body extends 14 px below its origin.
 	sprite.position = Vector2(0, -50)
 	add_child(sprite)
+	var effects := AttackEffects.new()
+	effects.name = "AttackReachEffects"
+	effects.fighter = fighter
+	add_child(effects)
+	move_child(effects, 0) # Cloth reach stays behind the approved body and face.
 	sync_visual(0.0)
 
 
@@ -96,7 +103,7 @@ static func display_layout(entry: Dictionary) -> Dictionary:
 	var key := "%s/%s" % [entry.get("character_id", ""), entry.get("visual_state_id", "")]
 	var calibration: Dictionary = _display_layouts.get(key, {})
 	if not calibration.is_empty() and not String(entry.get("sha256", "")).is_empty() and calibration.get("asset_sha256") == entry.get("sha256"):
-		return {"scale": float(calibration.scale), "foot_pivot_y": float(calibration.foot_pivot_y), "calibrated": true}
+		return {"scale": float(calibration.scale), "foot_pivot_y": float(calibration.foot_pivot_y), "calibrated": true, "descent_frame_range": calibration.get("descent_frame_range", []), "landing_frame_range": calibration.get("landing_frame_range", [13,16]), "landing_down_frame_range": calibration.get("landing_down_frame_range", [12,16])}
 	return {"scale": float(entry.get("presentation_scale", 1.0)), "foot_pivot_y": float(entry.get("foot_pivot_y", 128)), "calibrated": false}
 
 
@@ -136,8 +143,12 @@ func sync_visual(delta: float) -> void:
 			requested_motion = &"jump"
 		else:
 			_landing_elapsed = -1.0
+	if fighter.wakeup_protection_ticks > 0 and (fighter.state == FighterController.State.WAKE_UP or (fighter.state == FighterController.State.IDLE and fighter.is_on_floor())):
+		requested_motion = &"wake_up"
 	if fighter.active_attack != null:
 		requested_motion = fighter.active_attack.visual_state_id
+		if fighter.active_attack.attack_movement == 1 and fighter.attack_travel_active:
+			requested_motion = &"run"
 	missing_motion = &"" if _motions.has(requested_motion) else requested_motion
 	var shown := requested_motion if missing_motion.is_empty() else &"idle"
 	if not _motions.has(shown):
@@ -158,7 +169,12 @@ func sync_visual(delta: float) -> void:
 		sprite.animation = shown
 	_elapsed += delta
 	var frames := sprite.sprite_frames.get_frame_count(shown)
-	if shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
+	if shown == &"knock_down" and fighter.landing_down_ticks > 0:
+		var span: Array = drawing.get("landing_down_frame_range", [12,16])
+		sprite.frame = timed_frame(18 - fighter.landing_down_ticks,18,int(span[0]),int(span[1]))
+	elif shown == &"wake_up" and fighter.wakeup_protection_ticks > 0:
+		sprite.frame = timed_frame(12 - fighter.wakeup_protection_ticks,12,0,frames)
+	elif shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
 		if airborne:
 			var stage := 0 if fighter.velocity.y < -60.0 else (2 if fighter.velocity.y > 60.0 else 1)
 			# Read the consumed jump allowance, including early same-stage air jumps.
@@ -168,11 +184,12 @@ func sync_visual(delta: float) -> void:
 				_jump_stage_elapsed = 0.0
 				_jump_stage = stage
 			_jump_stage_elapsed += delta
-			sprite.frame = airborne_jump_frame(fighter.velocity.y, _jump_stage_elapsed)
+			sprite.frame = airborne_jump_frame(fighter.velocity.y, _jump_stage_elapsed, drawing.get("descent_frame_range", []))
 		else:
-			sprite.frame = mini(13 + int(_landing_elapsed * 12.0), 15)
+			var span: Array = drawing.get("landing_frame_range", [13,16])
+			sprite.frame = clampi(int(span[0]) + floori(_landing_elapsed / 0.25 * (int(span[1])-int(span[0]))),int(span[0]),int(span[1])-1)
 			_landing_elapsed += delta
-	elif fighter.active_attack != null and missing_motion.is_empty():
+	elif fighter.active_attack != null and missing_motion.is_empty() and shown != &"run":
 		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, layout.get("phase_frame_ranges", []))
 	else:
 		var index: int
@@ -192,9 +209,15 @@ func sync_visual(delta: float) -> void:
 	sprite.modulate = Color(1, 1, 1, 0.45) if fighter.invulnerability_ticks > 0 else Color.WHITE
 
 
-static func airborne_jump_frame(vertical_speed: float, stage_elapsed: float) -> int:
+static func timed_frame(elapsed_ticks: int, duration_ticks: int, begin: int, end: int) -> int:
+	return clampi(begin + roundi(float(elapsed_ticks) / maxi(duration_ticks - 1,1) * (end - begin - 1)),begin,end-1)
+
+
+static func airborne_jump_frame(vertical_speed: float, stage_elapsed: float, descent: Array = []) -> int:
 	# Physics owns position. Airborne art never advances into grounded landing poses.
 	var begin := 3 if vertical_speed < -60.0 else (10 if vertical_speed > 60.0 else 6)
+	if vertical_speed > 60.0 and descent.size() == 2:
+		return mini(int(descent[0]) + int(stage_elapsed * 12.0),int(descent[1])-1)
 	var end := 5 if vertical_speed < -60.0 else (12 if vertical_speed > 60.0 else 9)
 	return mini(begin + int(stage_elapsed * 12.0), end)
 

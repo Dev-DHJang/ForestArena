@@ -98,7 +98,7 @@ func _run() -> void:
 		fighter.state = FighterController.State.FALL
 		fighter.velocity.y = 200.0
 		presentation.sync_visual(1.0)
-		_check(presentation.sprite.frame == 12, "%s falling never shows grounded landing" % id)
+		_check(presentation.sprite.frame == (10 if id == &"ja-hyun" else (11 if id == &"nabi" else 12)), "%s falling never shows grounded landing" % id)
 		fighter.state = FighterController.State.JUMP
 		fighter.velocity.y = -400.0
 		presentation.sync_visual(0.01)
@@ -121,7 +121,7 @@ func _run() -> void:
 		fighter.state = FighterController.State.IDLE
 		fighter.velocity.y = 0.0
 		presentation.sync_visual(0.01)
-		_check(presentation.sprite.frame == 13, "%s landing begins only on ground state" % id)
+		_check(presentation.sprite.frame == (12 if id in [&"ja-hyun",&"nabi"] else 13), "%s landing begins only on ground state" % id)
 		presentation.sync_visual(0.25)
 		presentation.sync_visual(0.01)
 		_check(presentation.sprite.animation == &"idle", "%s landing returns to idle after its duration" % id)

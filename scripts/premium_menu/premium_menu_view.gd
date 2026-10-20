@@ -273,9 +273,9 @@ func _character_matches(character: CharacterData) -> bool:
 
 func _character_id() -> String:
 	var selected: String = String(state.get("selected_id", app.store.data.selected_character))
-	if not app.catalog.contains(selected, "character"): selected = String(app.catalog.combat.characters[0].character_id)
+	if not app.catalog.is_playable_character(StringName(selected)): selected = String(app.catalog.combat.characters[0].character_id)
 	if not _character_matches(app.catalog.combat.character_by_id(StringName(selected))):
-		for character: CharacterData in app.catalog.combat.characters:
+		for character: CharacterData in app.catalog.playable_characters():
 			if _character_matches(character):
 				selected = String(character.character_id)
 				break
@@ -294,7 +294,7 @@ func _character() -> void:
 	var rows := _scroll(main, Rect2(0, 84, 286, 372))
 	var visible := 0
 	for item: Dictionary in app.catalog.products:
-		if item.kind != "character": continue
+		if item.kind != "character" or not app.catalog.is_playable_character(StringName(item.id)): continue
 		var data: CharacterData = app.catalog.combat.character_by_id(StringName(item.id))
 		if not _character_matches(data): continue
 		visible += 1
@@ -365,54 +365,7 @@ func _accessory_category(id: String) -> String:
 	return "기술"
 
 func _accessories() -> void:
-	var items: Array[Dictionary] = []
-	for item: Dictionary in app.catalog.products:
-		if item.kind == "accessory": items.append(item)
-	var selected: String = String(state.get("selected_id", app.store.data.selected_accessory))
-	if not app.catalog.contains(selected, "accessory"): selected = String(items[0].id)
-	if state.id == "accessory_collection":
-		var filtered: Array[Dictionary] = []
-		for item: Dictionary in items:
-			if state.filter in ["방어", "이동", "기술"] and _accessory_category(item.id) != state.filter: continue
-			if state.filter == "보유" and not app.store.owns(item.id): continue
-			if state.filter == "장착" and item.id != app.store.data.selected_accessory: continue
-			filtered.append(item)
-		items = filtered
-		var selected_visible := false
-		for item: Dictionary in items:
-			if item.id == selected: selected_visible = true
-		if not selected_visible: selected = "" if items.is_empty() else String(items[0].id)
-	state.selected_id = selected
-	if state.id == "accessory_detail":
-		_texture(_accessory_icon(selected), main, Rect2(112, 70, 330, 290))
-		var detail := _panel_column(main, Rect2(554, 0, 598, 456))
-		var item: Dictionary = app.catalog.product(selected)
-		_label(item.name, detail, 32)
-		_label(_owned_label(selected), detail, 20, STYLE.GOLD)
-		_label("장신구 효과", detail, 23)
-		_label(item.description, detail, 22)
-		_label("캐릭터와 장신구의 조합은 전투 편성에 적용됩니다.\n등급과 희귀도 구분은 없습니다.", detail, 19, STYLE.MUTED)
-		_footer_button("초안에 넣기" if state.get("preset_edit", false) else "장신구 장착", "select", {"id": selected}, true)
-		return
-	var top := VBoxContainer.new()
-	main.add_child(top)
-	_place(top, Rect2(0, 0, 1152, 72))
-	_tabs(["전체", "방어", "이동", "기술", "보유", "장착"], "filter", top, String(state.filter))
-	var rows := _scroll(main, Rect2(0, 84, 1152, 372))
-	var grid := GridContainer.new()
-	grid.columns = 4
-	grid.size_flags_horizontal = SIZE_EXPAND_FILL
-	rows.add_child(grid)
-	var count := 0
-	for item: Dictionary in items:
-		if state.filter in ["방어", "이동", "기술"] and _accessory_category(item.id) != state.filter: continue
-		if state.filter == "보유" and not app.store.owns(item.id): continue
-		if state.filter == "장착" and item.id != app.store.data.selected_accessory: continue
-		count += 1
-		_card(item, grid, item.id == selected, "accessory")
-	if count == 0: _label("조건에 맞는 장신구가 없습니다.\n전체 필터에서 모든 장신구를 살펴보세요.", rows, 24, STYLE.MUTED)
-	_footer_button("상세 보기", "open", {"id": "accessory_detail", "params": {"selected_id": selected, "filter": state.filter, "preset_edit": state.get("preset_edit", false)}}, false, selected.is_empty()).set_meta("qa_id", "menu/accessory_collection/detail")
-	_footer_button("초안에 넣기" if state.get("preset_edit", false) else "장신구 장착", "select", {"id": selected}, true, selected.is_empty())
+	_label("장신구는 이번 전투에서 사용하지 않습니다.\n기존 보유 기록은 유지됩니다.", main, 26, STYLE.MUTED, Rect2(100, 120, 900, 120))
 
 func _card(item: Dictionary, parent: Node, selected := false, behavior := "shop") -> void:
 	var panel := PanelContainer.new()
@@ -471,7 +424,8 @@ func _presets() -> void:
 	char_button.set_meta("qa_id", "menu/preset/edit/character")
 	_label("기본 전투 스타일 · 추가 직업 준비 중", right, 18, STYLE.MUTED)
 	_label("장신구 · " + _product_name(String(preset.get("accessory", "")), "장착 없음"), right, 23)
-	var acc_button := _button("장신구 바꾸기", "preset_edit", {"id": "accessory_collection"}, right)
+	var acc_button := _button("장신구 미사용", "preset_edit", {"id": "accessory_collection"}, right)
+	acc_button.disabled = true
 	acc_button.set_meta("qa_id", "menu/preset/edit/accessory")
 	var remove := _button("장신구 해제", "preset_clear_accessory", {}, right)
 	remove.set_meta("qa_id", "menu/preset/clear/accessory")
@@ -480,7 +434,7 @@ func _presets() -> void:
 
 func _shop() -> void:
 	var left := _scroll(main, Rect2(0, 0, 202, 456), "category_scroll")
-	for entry: Array in [["추천", "전체"], ["장신구", "accessory"], ["캐릭터", "character"]]:
+	for entry: Array in [["추천", "전체"], ["캐릭터", "character"]]:
 		var button := _button(entry[0], "update", {"category": entry[1], "scroll": 0}, left, state.category == entry[1])
 		button.set_meta("qa_id", "menu/shop/category/" + String(entry[1]))
 	_label("먼저 연습하고\n내게 맞는 동료를\n선택하세요.", left, 20, STYLE.MUTED)
@@ -508,7 +462,7 @@ func _shop() -> void:
 	var grid := GridContainer.new()
 	grid.columns = 3
 	rows.add_child(grid)
-	for item: Dictionary in app.catalog.products:
+	for item: Dictionary in app.catalog.playable_products():
 		if state.category != "전체" and item.kind != state.category: continue
 		_card(item, grid)
 
@@ -869,7 +823,7 @@ func _minimap_preview(parent: Node) -> void:
 
 func _initialize_minimap(map: BattleMinimap) -> void:
 	if not is_instance_valid(map) or not map.is_inside_tree(): return
-	map.configure(load("res://assets/combat/stages/forest_ledge_stage.tres") as StageData, {&"self": {"nickname": app.store.data.nickname, "character_id": app.store.data.selected_character if app.store.data.first_granted else "ja-hyun", "team_id": "alpha"}, &"other": {"nickname": "AI 1", "character_id": "myo-ryung", "team_id": "beta"}}, &"self", true)
+	map.configure(load("res://assets/combat/stages/forest_ledge_stage.tres") as StageData, {&"self": {"nickname": app.store.data.nickname, "character_id": app.store.data.selected_character if app.store.data.first_granted else "ja-hyun", "team_id": "alpha"}, &"other": {"nickname": "AI 1", "character_id": "nabi", "team_id": "beta"}}, &"self", true)
 	map.apply_settings(draft, text_scale)
 	map.update_snapshot({"fighters": [{"id": "self", "stocks": 3, "position": Vector2(100, 420)}, {"id": "other", "stocks": 3, "position": Vector2(1100, 520)}]})
 
@@ -896,14 +850,14 @@ func _draw_controls(settings: Dictionary) -> void:
 	_controls_preview.add_child(joystick)
 	_place(joystick, Rect2(88 if floating else 30, 46, 110, 110))
 	_label("＋", joystick, 38, STYLE.GOLD, Rect2(33, 20, 50, 62))
-	for index: int in 3:
+	for index: int in 4:
 		var button := Panel.new()
 		button.add_theme_stylebox_override("panel", STYLE.surface(true))
 		button.modulate.a = 1.0 - float(settings.button_transparency) / 100.0
 		_controls_preview.add_child(button)
-		var side: float = 76 * float(settings.button_scale)
-		_place(button, Rect2(390 + index * 118, 60 - index * 8, side, side))
-		_label(["점프", "약", "강"][index], button, 20, STYLE.GOLD, Rect2(12, 17, side - 24, 44))
+		var side: float = 64 * float(settings.button_scale)
+		_place(button, Rect2(330 + index * 104, 60 - index * 8, side, side))
+		_label(["점프", "약", "강", "특수"][index], button, 20, STYLE.GOLD, Rect2(12, 17, side - 24, 44))
 
 func update_preview(settings: Dictionary) -> void:
 	draft = settings

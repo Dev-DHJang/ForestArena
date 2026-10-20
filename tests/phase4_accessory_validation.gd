@@ -96,7 +96,7 @@ func _test_layer_priority_and_conflicts() -> void:
 
 
 func _test_complete_move_set_replacement() -> RuntimeCombatProfile:
-	var local_catalog := LocalPlayCatalog.new().combat
+	var local_catalog := LocalPlayCatalog.new(false).combat
 	var boxing := local_catalog.accessory_by_id(&"fixture-boxing-gloves")
 	var first_profile: RuntimeCombatProfile
 	for character: CharacterData in local_catalog.characters:

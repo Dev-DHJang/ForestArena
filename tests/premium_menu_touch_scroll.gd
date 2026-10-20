@@ -44,6 +44,19 @@ func run() -> void:
 		if node.get_meta("qa_id", "") == "menu/shop/scroll": scroll = node
 	check(scroll != null, "native shop scroll exists")
 	if scroll != null:
+		# The real two-character shop fits without scrolling.
+		var compact_before := scroll.scroll_vertical
+		await gesture(scroll.get_global_rect().get_center(), scroll.get_global_rect().get_center() - Vector2(0,260))
+		check(scroll.scroll_vertical == compact_before, "the actual compact product shop needs no scroll")
+		check(not is_instance_valid(app.menu_router.view.modal), "compact list pan does not trigger purchase")
+		# Independent crowded-list fixture uses the production cards and native
+		# ScrollContainer; it never adds products or changes stored ownership.
+		var grids := scroll.find_children("*", "GridContainer", true, false)
+		check(not grids.is_empty(), "production shop exposes a native grid for the crowded fixture")
+		if not grids.is_empty():
+			for ignored: int in 12: app.menu_router.view.call("_card", app.catalog.product("nabi"), grids[0])
+		await settle()
+		check(scroll.get_v_scroll_bar().max_value > scroll.size.y, "crowded fixture actually overflows")
 		var before := scroll.scroll_vertical
 		var area := scroll.get_global_rect()
 		var start := area.position + area.size * Vector2(0.17, 0.72)

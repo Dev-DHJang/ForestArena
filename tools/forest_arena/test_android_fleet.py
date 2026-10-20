@@ -93,7 +93,7 @@ class RunnerTests(unittest.TestCase):
         self.clock = Clock()
         self.adb = FakeADB(states)
         return fleet.DeviceRun(self.adb, 'device-1', 'test-run', self.output, 'Game', screen_timeout=1,
-                               match_timeout=5, stall_timeout=1, clock=self.clock.time, sleep=self.clock.sleep)
+                               match_timeout=5, stall_timeout=1, clock=self.clock.time, sleep=self.clock.sleep, protocol=2)
     def test_serials_explicit_limit_and_duplicates(self):
         self.assertEqual(fleet.selected_serials(['one,two', 'three']), ['one', 'two', 'three'])
         self.assertEqual(fleet.selected_serials([]), [])
@@ -101,7 +101,7 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaises(ValueError): fleet.selected_serials(values)
     def test_28_jobs_round_robin_no_duplication(self):
         for count in range(1, 5):
-            jobs = fleet.combination_jobs(count)
+            jobs = fleet.combination_jobs(count, protocol=2)
             flat = [(job['character'], job['accessory']) for group in jobs for job in group]
             self.assertEqual(len(flat), 28)
             self.assertEqual(len(set(flat)), 28)
@@ -224,7 +224,7 @@ class RunnerTests(unittest.TestCase):
         d = self.device([])
         d.combos = [{'character':'ja-hyun', 'accessory':''}]
         d.mark('OFF-02','pass','observed')
-        fleet.write_summary(self.output,'test-run',{},[d],[])
+        fleet.write_summary(self.output,'test-run',{'lan_protocol':2},[d],[])
         result = json.loads((self.output/'results.json').read_text())
         self.assertEqual(sum(c['status']=='pass' for c in result['combination_coverage']),1)
         self.assertEqual(sum(c['status']=='미실행' for c in result['combination_coverage']),27)
@@ -1291,11 +1291,11 @@ class RunnerTests(unittest.TestCase):
         with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata(manifest, '/tmp/other')
         with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata({**manifest, 'files': {}}, '/tmp/snapshot')
 
-    def test_explicit_project_and_lan_protocol_preserve_default_v2(self):
+    def test_explicit_project_and_lan_protocol_default_v3_preserves_v1(self):
         args = fleet.parser().parse_args(['--project-root', '/tmp/snapshot', '--lan-protocol', '1'])
         self.assertEqual(args.project_root, Path('/tmp/snapshot'))
         self.assertEqual(args.lan_protocol, 1)
-        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 2)
+        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 3)
         v1 = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output, 'godot', 'run', '/tmp/snapshot', 1)
         self.assertEqual(v1.code, 'FAH1|ws://192.168.1.2:7777|1')
         self.assertEqual(v1.project_root, Path('/tmp/snapshot'))
@@ -1519,6 +1519,160 @@ class RunnerTests(unittest.TestCase):
 
     def test_suite_defaults(self):
         self.assertEqual(fleet.parser().parse_args(['--suite','extended']).mode,'extended')
+
+
+class ProductV3Tests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.output = Path(self.temp.name)
+        self.clock = Clock()
+        self.adb = FakeADB([])
+        self.device = fleet.DeviceRun(self.adb, 'device-1', 'run', self.output, 'Game', clock=self.clock.time, sleep=self.clock.sleep)
+
+    @staticmethod
+    def fighter(character='ja-hyun'):
+        return {'id': 'player', 'state': 'IDLE', 'character_id': character, 'accessory_id': '', 'position': {'x': 0, 'y': 0},
+                'runtime_profile': {'base_stats': {'weight': 100, 'ground_speed': 300}, 'stats': {'weight': 100, 'ground_speed': 300},
+                                    'attack_ids': [character+'-light-01', character+'-heavy-side', character+'-air-light', character+'-air-heavy', character+'-special-neutral'], 'combat_effects': [], 'replacement_move_set': ''}}
+
+    @staticmethod
+    def ui():
+        return [{'id': 'touch/'+action, 'kind': 'touch', 'visible': True} for action in ('move_up', 'move_down', 'move_left', 'move_right')+fleet.PRODUCT_ACTIONS]
+
+    def test_protocol_three_default_and_legacy_codes_preserved(self):
+        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 3)
+        self.assertEqual(self.device.protocol, 3)
+        for protocol in (1, 2, 3):
+            server = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output/str(protocol), 'godot', 'run', protocol=protocol)
+            expected = 'FAH1|ws://192.168.1.2:7777|1' if protocol == 1 else f'FAH{protocol}|http://192.168.1.2:8888|ws://192.168.1.2:7777|{protocol}'
+            self.assertEqual(server.code, expected)
+
+    def test_product_jobs_never_empty_for_four_devices_and_never_legacy_combos(self):
+        for count in range(1, 5):
+            jobs = fleet.combination_jobs(count)
+            self.assertEqual(len(jobs), count)
+            self.assertTrue(all(jobs))
+            self.assertEqual({(job['character'], job['accessory']) for group in jobs for job in group}, {('ja-hyun', ''), ('nabi', '')})
+        self.assertEqual(sum(map(len, fleet.combination_jobs(4, protocol=2))), 28)
+
+    def test_new_policy_ignores_legacy_current_policy_flag_and_validates_runtime(self):
+        d = fleet.DeviceRun(self.adb, 'device-1', 'run', self.output/'current', 'Game', current_policy=True)
+        self.assertFalse(d.current_policy)
+        d.state = {'snapshot': {'fighters': [self.fighter(), {**self.fighter('nabi'), 'id': 'ai'}]}}
+        d.read = lambda: d.state
+        with patch.object(d, 'validate_current_profile', side_effect=AssertionError('legacy contract must not run')):
+            result = d.assert_config('ja-hyun', '')
+        self.assertEqual(result['combat_policy'], 'two-fighter-no-accessories-v2')
+        self.assertIn('not executed', result['runtime_configuration']['legacy_accessory_effect_checks'])
+
+    def test_all_participants_must_be_active_and_unequipped(self):
+        state = {'snapshot': {'fighters': [self.fighter(), self.fighter('nabi')]}}
+        fleet.DeviceRun.validate_active_fighters(state)
+        for change in ({'character_id': 'myo-ryung'}, {'accessory_id': 'fixture-thorns'}):
+            bad = {'snapshot': {'fighters': [self.fighter(), {**self.fighter('nabi'), **change}]}}
+            with self.assertRaises(fleet.Failure): fleet.DeviceRun.validate_active_fighters(bad)
+
+    def test_runtime_rejects_removed_moves_effects_and_accessory_stat_bonus(self):
+        for change in ({'character_id': 'yu-ran'}, {'accessory_id': 'fixture-thorns'}):
+            with self.assertRaises(fleet.Failure): fleet.DeviceRun.validate_product_profile({**self.fighter(), **change})
+        for edit in ({'attack_ids': ['ja-hyun-ultimate']}, {'attack_ids': ['ja-hyun-dash-light']}, {'attack_ids': ['ja-hyun-heavy-charge']}, {'replacement_move_set': 'yu-ran.base'}, {'combat_effects': [{'cause_id': 'fixture-thorns'}]}, {'stats': {'weight': 105, 'ground_speed': 300}}):
+            fighter = self.fighter()
+            fighter['runtime_profile'].update(edit)
+            with self.assertRaises(fleet.Failure): fleet.DeviceRun.validate_product_profile(fighter)
+
+    def test_exact_four_buttons_and_no_inactive_selection_cards(self):
+        fleet.DeviceRun.assert_product_ui({'ui': self.ui()})
+        for extra in ({'id': 'touch/ultimate', 'kind': 'touch'}, {'id': 'touch/evade', 'kind': 'touch'}, {'id': 'card/old', 'text': '묘령'}, {'id': 'prepare/choice/장신구'}):
+            with self.assertRaises(fleet.Failure): fleet.DeviceRun.assert_product_ui({'ui': self.ui()+[extra]})
+        with self.assertRaises(fleet.Failure): fleet.DeviceRun.assert_product_ui({'ui': self.ui()[:-1]})
+
+    def test_native_shop_new_policy_buys_only_active_character_and_no_accessories(self):
+        fixture = RunnerTests('test_initial_ui_native_shop_modal_settings_apply_and_cold_launch')
+        fixture.setUp()
+        self.addCleanup(fixture.tearDown)
+        d, touched, _ = fixture.premium_initial_ui()
+        d.protocol, d.policy = 3, fleet.product_policy(3)
+        original_read = d.read
+        def read():
+            state = original_read()
+            state['profile'].update(selected_character='ja-hyun', selected_accessory='')
+            d.state = state
+            return state
+        d.read = read
+        result = d.initial_ui()
+        self.assertEqual(result['profile']['characters'], ['ja-hyun', 'nabi'])
+        self.assertEqual(result['profile']['accessories'], [])
+        self.assertNotIn('menu/shop/category/accessory', touched)
+        self.assertFalse(any('myo-ryung' in node or 'yu-ran' in node or 'fixture-' in node for node in touched))
+        self.assertIn('preserved', result['legacy_ownership'])
+
+    def test_actual_selection_loop_only_runs_two_unequipped_characters(self):
+        d = self.device
+        d.state = {'profile': {'selected_character': 'ja-hyun', 'selected_accessory': ''}, 'ui': []}
+        d.prepare = Mock()
+        d.read = lambda: d.state
+        d.tap = lambda name: d.state['profile'].update(selected_character=next(key for key,value in fleet.CHARACTER_LABELS.items() if value == name))
+        d.wait = lambda predicate, **kwargs: d.state if predicate(d.state) else self.fail('selection predicate did not match')
+        d.start_match = Mock()
+        d.assert_config = Mock(return_value={})
+        d.select_option = Mock(side_effect=AssertionError('accessory selector must not run'))
+        result = d.selections()
+        self.assertEqual([(row['character'], row['accessory']) for row in result['actual_match_selections']], [('ja-hyun', ''), ('nabi', '')])
+        self.assertEqual(d.start_match.call_count, 2)
+
+    def test_actual_input_loop_skips_all_removed_action_probes(self):
+        d = self.device
+        d.state = {'ui': self.ui(), 'touch': {'active': []}, 'touch_events': [], 'combat_events': [], 'snapshot': {'fighters': [self.fighter(), {**self.fighter('nabi'), 'id': 'ai'}]}}
+        d.prepare, d.start_match, d.command = Mock(), Mock(), Mock()
+        d.read = lambda: d.state
+        d.wait = lambda predicate, **kwargs: d.state if predicate(d.state) else self.fail(kwargs.get('label', 'predicate failed'))
+        touched = []
+        def tap(id, **kwargs):
+            action = id.removeprefix('touch/')
+            touched.append(action)
+            seq = len(d.state['touch_events'])+1
+            d.state['touch_events'].extend([{'seq': seq, 'action': action, 'edge': 'press'}, {'seq': seq+1, 'action': action, 'edge': 'release'}])
+            actor = d.state['snapshot']['fighters'][0]
+            actor['position'] = {'x': actor['position']['x']+(10 if action == 'move_right' else -10 if action == 'move_left' else 0), 'y': 0}
+            d.state['combat_events'].append({'seq': len(d.state['combat_events'])+1, 'id': 'fighter_state', 'fighter_id': 'player', 'state': 'JUMP' if action == 'jump' else 'ATTACK_ACTIVE', 'attack_id': {'attack_light': 'ja-hyun-light-01', 'attack_heavy': 'ja-hyun-heavy-side', 'attack_special': 'ja-hyun-special-neutral'}.get(action, '')})
+        d.tap = tap
+        d.positive_evade = Mock(side_effect=AssertionError('legacy evade must not run'))
+        result = d.inputs()
+        self.assertEqual(touched, ['move_right', 'move_left', 'jump', 'attack_light', 'attack_heavy', 'attack_special'])
+        self.assertNotIn('ultimate_after_ready', result)
+        self.assertNotIn('evade_positive', result)
+        self.assertIn('not executed', result['removed_actions'])
+
+    def test_v3_login_keeps_authenticated_nickname_flow(self):
+        d = Mock(alias='phone')
+        d.state = {'ui': []}
+        d.node.return_value = {'id': 'input'}
+        with patch.object(fleet, '_menu'):
+            fleet._lan_login(d, 'join', 'FA3|http://192.168.1.2:8888|ws://192.168.1.2:7777|ABCDEFGH|3', 3)
+        self.assertIn(unittest.mock.call('demo_nickname'), d.screen.call_args_list)
+        self.assertIn(unittest.mock.call('이 닉네임으로 계속'), d.tap.call_args_list)
+
+    def test_v3_room_capacity_uses_authenticated_room_field(self):
+        peer = Mock()
+        peer.receive_until.side_effect = [{'type': 'joined', 'slot': 2}, {'type': 'match_start', 'slot': 2}, {'type': 'match_end'}]
+        with patch.object(fleet, '_protocol_auth', return_value={'access_token': 'private'}), patch.object(fleet, 'ProtocolPeer', return_value=peer):
+            guest = fleet.CapacityGuest(Mock(protocol=3), 'FA3|http://127.0.0.1:1|ws://127.0.0.1:2|ABCDEFGH|3').start()
+        self.assertEqual(peer.send.call_args.args[0]['room_code'], 'ABCDEFGH')
+        self.assertEqual(peer.send.call_args.args[0]['selection']['accessory_id'], '')
+        guest.close()
+
+    def test_summary_separates_two_product_jobs_from_legacy_ownership(self):
+        d = self.device
+        d.mark('DEV-01', 'pass', 'fixture only; not physical')
+        d.combos = [{'character': 'ja-hyun', 'accessory': ''}, {'character': 'myo-ryung', 'accessory': 'fixture-thorns'}]
+        fleet.write_summary(self.output, 'run', {'lan_protocol': 3}, [d], [])
+        result = json.loads((self.output/'results.json').read_text())
+        self.assertEqual(len(result['combination_coverage']), 2)
+        self.assertEqual(sum(row['status']=='pass' for row in result['combination_coverage']), 1)
+        self.assertIn('2개 현재 정책 조합 중 완료 1개', (self.output/'summary.md').read_text())
+        self.assertEqual(result['summary']['combat_policy'], 'two-fighter-no-accessories-v2')
+
 
 
 class AuthFixtureTests(unittest.TestCase):

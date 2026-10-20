@@ -235,7 +235,7 @@ func _character_cards(owned_only: bool, callback: Callable, compact := false) ->
 		row.add_theme_constant_override("v_separation", 10)
 	row.add_theme_constant_override("separation", 12)
 	body.add_child(row)
-	for character: CharacterData in catalog.combat.characters:
+	for character: CharacterData in catalog.playable_characters():
 		if owned_only and not store.owns(String(character.character_id)): continue
 		var frame := PanelContainer.new()
 		frame.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -367,7 +367,7 @@ func _show_lan_host() -> void:
 	screen = "lan_host"
 	_new_page("LAN 방 만들기")
 	_label("Mac 호스트 연결 코드", 18)
-	_line_input("FAH2|http://192.168.x.x:3001|ws://192.168.x.x:7778|2", lan_host_code, func(value: String) -> void: lan_host_code = value)
+	_line_input("FAH3|http://192.168.x.x:3001|ws://192.168.x.x:7778|3", lan_host_code, func(value: String) -> void: lan_host_code = value)
 	_button("연결 코드 붙여넣기", _paste_lan_host_code)
 	_lan_loadout_controls(_show_lan_host)
 	_button("방 생성", _begin_lan_host)
@@ -379,7 +379,7 @@ func _show_lan_join() -> void:
 	screen = "lan_join"
 	_new_page("LAN 방 참가")
 	_label("방장이 전달한 한 줄 초대 코드", 18)
-	_line_input("FA2|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|2", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
+	_line_input("FA3|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|3", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
 	_button("초대 코드 붙여넣기", _paste_lan_invite_code)
 	_lan_loadout_controls(_show_lan_join)
 	_button("방 참가", _begin_lan_join)
@@ -415,15 +415,13 @@ func _lan_loadout_controls(refresh: Callable) -> void:
 	_character_cards(true, func(id: String) -> void:
 		if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}): message = store.error
 		refresh.call())
-	_choice("장신구", [""] + store.data.accessories, store.data.selected_accessory, func(id: String) -> void:
-		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": id, "opponent": store.data.opponent_character}): message = store.error
-		refresh.call())
+	_label("장신구는 현재 대전에서 사용하지 않습니다.", 18)
 
 
 func _selected_lan_loadout() -> LoadoutSelection:
 	var selection := LoadoutSelection.new()
 	selection.character_id = StringName(store.data.selected_character)
-	selection.accessory_id = StringName(store.data.selected_accessory)
+	selection.accessory_id = &""
 	return selection
 
 
@@ -587,6 +585,8 @@ func _start_lan_match() -> void:
 	match_scene = MATCH_SCENE.instantiate()
 	if transitions != null and transitions.busy: match_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	match_scene.app_shell_mode = true
+	match_scene.get_node("MatchController").rules = (load("res://assets/combat/two_fighter_combat_rules.tres") as CombatRules).duplicate(true)
+	match_scene.get_node("Interface/TouchCommandSource").simplified_controls = true
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
 	add_child(match_scene)
@@ -915,7 +915,7 @@ func _add_minimap_settings() -> void:
 	preview.set_process(false)
 	preview.configure(load("res://assets/combat/stages/forest_ledge_stage.tres") as StageData, {
 		&"self": {"nickname": store.data.nickname, "character_id": store.data.selected_character if store.data.first_granted else "ja-hyun", "team_id": "alpha"},
-		&"other": {"nickname": "AI 1", "character_id": "myo-ryung", "team_id": "beta"}
+		&"other": {"nickname": "AI 1", "character_id": "nabi", "team_id": "beta"}
 	}, &"self", true)
 	preview.apply_settings(settings, _text_scale())
 	preview.update_snapshot({"fighters": [{"id": "self", "stocks": 3, "position": Vector2(100, 420)}, {"id": "other", "stocks": 3, "position": Vector2(1100, 520)}]})
@@ -985,11 +985,9 @@ func _show_prepare() -> void:
 		_choice_labels("팀 인원", ["1 대 1", "2 대 2", "3 대 3", "4 대 4"], team_size - 1, func(index: int) -> void:
 			team_size = index + 1
 			_show_prepare())
-	_choice("장신구", [""] + store.data.accessories, store.data.selected_accessory, func(id: String) -> void:
-		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": id, "opponent": store.data.opponent_character}): message = store.error
-		_show_prepare())
+	_label("장신구는 현재 대전에서 사용하지 않습니다.", 18)
 	var opponents: Array = []
-	for character: CharacterData in catalog.combat.characters: opponents.append(String(character.character_id))
+	for character: CharacterData in catalog.playable_characters(): opponents.append(String(character.character_id))
 	_choice("AI 캐릭터", opponents, store.data.opponent_character, func(id: String) -> void:
 		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": store.data.selected_accessory, "opponent": id}): message = store.error
 		_show_prepare())
@@ -1071,8 +1069,10 @@ func start_match() -> void:
 	match_scene = MATCH_SCENE.instantiate()
 	if transitions != null and transitions.busy: match_scene.process_mode = Node.PROCESS_MODE_DISABLED
 	match_scene.app_shell_mode = true
+	match_scene.get_node("MatchController").rules = (load("res://assets/combat/two_fighter_combat_rules.tres") as CombatRules).duplicate(true)
+	match_scene.get_node("Interface/TouchCommandSource").simplified_controls = true
 	match_controller = match_scene.get_node("MatchController")
-	match_controller.loadout_catalog = catalog.combat
+	match_controller.loadout_catalog = catalog.combat.duplicate(true)
 	var selections: Array[LoadoutSelection] = [config.participants[0].selection, config.participants[1].selection]
 	match_controller.player_selection = selections[0]
 	match_controller.training_dummy_selection = selections[1]
@@ -1119,7 +1119,7 @@ func start_match() -> void:
 
 
 func _build_match_config() -> LocalMatchConfig:
-	if not store.valid(store.data) or not store.data.first_granted: return null
+	if not store.valid(store.data) or not store.data.first_granted or not catalog.is_playable_character(StringName(store.data.selected_character)) or not catalog.is_playable_character(StringName(store.data.opponent_character)) or not store.data.selected_accessory.is_empty(): return null
 	var config := LocalMatchConfig.new()
 	config.mode = selected_mode
 	config.seed = 3001
@@ -1127,11 +1127,11 @@ func _build_match_config() -> LocalMatchConfig:
 	if selected_mode == LocalMatchConfig.Mode.SOLO: total = solo_participant_count
 	elif selected_mode == LocalMatchConfig.Mode.TEAM: total = team_size * 2
 	var character_ids: Array[StringName] = []
-	for character: CharacterData in catalog.combat.characters: character_ids.append(character.character_id)
+	for character: CharacterData in catalog.playable_characters(): character_ids.append(character.character_id)
 	for index: int in total:
 		var selection := LoadoutSelection.new()
 		selection.character_id = StringName(store.data.selected_character) if index == 0 else character_ids[(character_ids.find(StringName(store.data.opponent_character)) + index - 1) % character_ids.size()]
-		selection.accessory_id = StringName(store.data.selected_accessory) if index == 0 else &""
+		selection.accessory_id = &"" if index == 0 else &""
 		var participant := LocalMatchParticipant.new()
 		participant.participant_id = &"player" if index == 0 else StringName("ai_%d" % index)
 		participant.selection = selection
@@ -1181,7 +1181,13 @@ func _configure_bots(config: LocalMatchConfig) -> void:
 	if config.mode == LocalMatchConfig.Mode.PRACTICE: return
 	for index: int in range(1, config.participants.size()):
 		var participant := config.participants[index]
-		var bot := BOT.new(participant.participant_id, config.seed + index * 97, {"reaction_interval_ticks": config.reaction_interval_ticks, "team_id": participant.team_id, "stage_data": match_controller.stage_data})
+		var heavy_range := 105.0
+		var profile_fighter := match_controller.call("_fighter_by_id", participant.participant_id) as FighterController
+		if profile_fighter != null:
+			for attack: AttackData in profile_fighter.runtime_profile.move_set.attacks():
+				if attack.action_id == &"attack_heavy" and attack.activation_context == AttackData.ActivationContext.GROUND:
+					heavy_range = maxf(heavy_range, attack.hitbox_offset.x + attack.hitbox_size.x * 0.5)
+		var bot := BOT.new(participant.participant_id, config.seed + index * 97, {"simplified_combat": true, "heavy_range": heavy_range, "reaction_interval_ticks": config.reaction_interval_ticks, "team_id": participant.team_id, "stage_data": match_controller.stage_data})
 		# Preserve the legacy 1v1 hook while all local modes share the same AI path.
 		if index == 1: match_controller.bot_source = bot
 		else: match_controller.bot_sources.append(bot)

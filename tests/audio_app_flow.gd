@@ -53,6 +53,10 @@ func run() -> void:
 	await process_frame
 	check(audio.context == "battle" and has_voice("match_start"), "real local match starts battle music and cue")
 	app.match_controller.set_physics_process(false)
+	app.match_controller.bot_source = null
+	for tick: int in 40:
+		await physics_frame
+		app.match_controller.step_fixed_tick(false)
 	var events: Array[Dictionary] = []
 	app.match_controller.presentation_event.connect(func(event_id: StringName, payload: Dictionary) -> void:
 		if event_id == &"attack_started": events.append(payload))
@@ -63,13 +67,16 @@ func run() -> void:
 	check(events.is_empty(), "rejected empty gauge ultimate has no presentation event")
 	fighter.runtime_state.ultimate_gauge = app.match_controller.rules.ultimate_gauge_max
 	fighter.consume_intent(intent, app.match_controller.rules)
-	check(events.size() == 1, "successful ultimate emits once")
+	check(events.is_empty(), "removed ultimate with full gauge has no event")
+	intent.action_id = &"attack_special"
+	fighter.consume_intent(intent, app.match_controller.rules)
+	check(events.size() == 1, "successful ground special emits once")
 	if not events.is_empty():
 		check(events[0].character_id == "nabi" and events[0].has("epoch") and events[0].has("event_seq"), "actual fighter event carries character and network sequence")
-		check(audio.resolve_event(&"attack_started", events[0]) == "nabi_ultimate", "actual attack event chooses character sound")
-		check(has_voice("nabi_ultimate"), "successful attack reaches audio adapter")
+		check(audio.resolve_event(&"attack_started", events[0]) == "nabi_special_neutral", "actual attack event chooses character sound")
+		check(has_voice("nabi_special_neutral"), "successful attack reaches audio adapter")
 	fighter.consume_intent(intent, app.match_controller.rules)
-	check(events.size() == 1, "rejected active ultimate does not emit another sound")
+	check(events.size() == 1, "rejected active special does not emit another sound")
 	app._show_lan_match_controls()
 	var battle_index: int = audio.music_index
 	app._show_lan_leave_confirm()

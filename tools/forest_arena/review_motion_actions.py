@@ -11,6 +11,7 @@ from pathlib import Path
 import shutil
 
 from PIL import Image, ImageDraw
+from motion_review_candidates import load_selection, local_path
 
 STATES = {
     "idle": "대기 호흡; 이동·공격과 구별되고 자연스럽게 반복",
@@ -83,16 +84,31 @@ def compact(samples):
     return result
 
 
-def timeline_errors(root: Path, timeline: dict, rows: list) -> list[str]:
+def timeline_errors(root: Path, timeline: dict, rows: list, selection: dict | None = None) -> list[str]:
     errors = list(timeline.get("errors", []))
     if timeline.get("schema_version") != 1 or not timeline.get("sources"):
         errors.append("missing timeline source fingerprints")
     required_sources = {"assets/character/manifest.json", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md"}
+    if (root / "scripts/fighter_attack_effects.gd").is_file():
+        required_sources.add("scripts/fighter_attack_effects.gd")
+    if selection is not None:
+        required_sources.update(selection["required_sources"])
+        if timeline.get("candidate_selection") != selection["candidate_selection"]:
+            errors.append("timeline candidate catalog or original scope changed")
+        if timeline.get("generator_sha256") != sha(root / "tools/forest_arena/motion_review_timeline.gd"):
+            errors.append("candidate timeline generator changed or missing")
+    elif timeline.get("candidate_selection"):
+        errors.append("candidate timeline requires explicit catalog and scope")
     required_sources.update(r["sprite_frames_path"].removeprefix("res://") for r in rows)
     if not required_sources.issubset(timeline.get("sources", {})):
         errors.append("timeline lacks required code, action or SpriteFrames fingerprints")
     for path, digest in timeline.get("sources", {}).items():
-        if not (root / path).is_file() or sha(root / path) != digest:
+        try:
+            actual = local_path(root, path)
+        except ValueError:
+            errors.append(f"unsafe timeline source: {path}")
+            continue
+        if sha(actual) != digest:
             errors.append(f"timeline source changed: {path}")
     wanted = {(r["character_id"], motion_id(r)): r for r in rows}
     if len(wanted) != len(rows):
@@ -123,6 +139,10 @@ def timeline_errors(root: Path, timeline: dict, rows: list) -> list[str]:
                 source = wanted[key]
                 state_ticks = math.ceil(16 / float(source["fps"]) * 60) * 2 if source.get("loop") and float(source.get("fps", 0)) > 0 else 120
                 expected_phases = {"ascent": 20, "apex": 12, "descent": 20, "landing": 16} if row["motion"] == "jump" else {row["motion"]: state_ticks}
+                if selection is not None and variant.get("attack_id") == "state:landing-down-18" and row["motion"] == "knock_down":
+                    expected_phases = {"knock_down": 18}
+                elif selection is not None and variant.get("attack_id") == "state:wakeup-protection-12" and row["motion"] == "wake_up":
+                    expected_phases = {"wake_up": 12}
             else:
                 lengths = variant.get("phase_ticks", [])
                 expected_phases = dict(zip(("startup", "active", "recovery"), lengths)) if len(lengths) == 3 and all(isinstance(n, int) and n > 0 for n in lengths) else {}
@@ -152,18 +172,27 @@ def make_board(sheet: Image.Image, name: str, destination: Path):
     board.save(destination, quality=88)
 
 
-def prepare(root: Path, timeline_path: Path, output: Path):
-    rows, timeline = entries(root), read(timeline_path)
-    errors = timeline_errors(root, timeline, rows)
+def prepare(root: Path, timeline_path: Path, output: Path, catalog: Path | None = None, scope: Path | None = None, scope_sha256: str | None = None):
+    if bool(catalog) != bool(scope):
+        raise ValueError("candidate review requires both --catalog and --scope")
+    selection = load_selection(root, catalog, scope, scope_sha256) if catalog else None
+    rows, timeline = selection["rows"] if selection else entries(root), read(timeline_path)
+    errors = timeline_errors(root, timeline, rows, selection)
     if errors:
         raise ValueError("; ".join(errors))
     if (output / "motion-review.json").exists():
         raise ValueError("review already exists; use a new output directory to preserve human decisions")
+    if selection and (not output.resolve().is_relative_to((root / "_workspace").resolve()) or output.resolve() == (root / "_workspace").resolve()):
+        raise ValueError("candidate evidence output must stay inside project _workspace")
     output.mkdir(parents=True, exist_ok=True)
     (output / "boards").mkdir(exist_ok=True)
     (output / "sheets").mkdir(exist_ok=True)
     by_key = {(r["character_id"], r["motion"]): r for r in timeline["motions"]}
     review = {"schema_version": 1, "reviewer": "", "sources": timeline["sources"], "timeline_sha256": sha(timeline_path), "motions": []}
+    if selection:
+        review["candidate_selection"] = selection["candidate_selection"]
+        review["reviewer_role"] = ""
+        review["approval_status"] = "pending"
     cards = []
     for row in sorted(rows, key=lambda r: (r["character_id"], motion_id(r))):
         cid, motion = row["character_id"], motion_id(row)
@@ -171,7 +200,7 @@ def prepare(root: Path, timeline_path: Path, output: Path):
         basename = f"{cid}__{motion}"
         board_path = f"boards/{basename}.jpg"
         sheet_path = f"sheets/{basename}.png"
-        expected, source = action(root, cid, motion)
+        expected, source = (row["expected_action"], row["action_source"]) if selection else action(root, cid, motion)
         with Image.open(root / row["path"], formats=["PNG"]) as image:
             if image.size != (2048, 128) or "A" not in image.getbands():
                 raise ValueError(f"invalid sheet shape or alpha: {key}")
@@ -188,14 +217,17 @@ def prepare(root: Path, timeline_path: Path, output: Path):
             "runtime_variants": [{"attack_id": v["attack_id"], "sequence": t} for v, t in zip(variants, timelines)],
             "checks": dict.fromkeys(CHECKS, False), "status": "blocked", "observations": "", "issues": [], "drafts": [],
         })
+        if selection:
+            review["motions"][-1]["asset_type"] = row["type"]
+            review["motions"][-1]["reuse_approved_runtime"] = row.get("reuse_approved_runtime", False)
         options = "".join(f'<option value="{i}">{html.escape(v["attack_id"] or motion)}</option>' for i, v in enumerate(variants))
         cards.append(f'''<article id="{basename}" data-character="{cid}"><h2>{html.escape(key)}</h2>
 <p>{html.escape(expected)}</p><div class="play"><canvas width="256" height="256"></canvas></div>
-<label>재생 <select class="variant">{options}</select></label>
+<label>게임 변형 <select class="variant">{options}</select></label>
+<label>비교 <select class="playback-mode"><option value="runtime">게임 코드의 실제 타이밍</option><option value="authored">전체 16프레임 원화 FPS</option></select></label>
 <button class="slow">속도 1×</button><button class="mirror">좌우 반전</button><button class="small">작게</button><button class="pause">정지</button>
 <p class="time"></p><details><summary>전체 16프레임</summary><img class="board" src="{board_path}"></details>
-<img class="sheet" src="{sheet_path}" hidden><script type="application/json">{json.dumps(timelines)}</script></article>''')
-    write(output / "motion-review.json", review)
+<img class="sheet" src="{sheet_path}" hidden><script type="application/json">{json.dumps(timelines)}</script><script class="authored-timeline" type="application/json">{json.dumps([[i, "authored-only", motion, 1000.0 / float(row.get("fps", 12))] for i in range(16)])}</script></article>''')
     shutil.copyfile(timeline_path, output / "timeline.json")
     page = '''<!doctype html><meta charset="utf-8"><title>모션 행위 검토</title>
 <style>body{background:#172128;color:#eef1f4;font:15px system-ui;margin:16px}nav{position:sticky;top:0;background:#172128;padding:12px;z-index:2}main{display:grid;grid-template-columns:repeat(3,minmax(300px,1fr));gap:12px}article{background:#293840;padding:12px;min-height:440px}h2{font-size:15px}p{min-height:36px}button,select{font:14px system-ui;margin:3px;padding:5px}.play{height:256px;display:flex;justify-content:center}canvas{image-rendering:auto;background:#94999e}.board{width:100%}body.wall main{grid-template-columns:repeat(4,minmax(0,1fr))}body.wall article{padding:4px;min-height:140px}body.wall h2{font-size:10px;overflow-wrap:anywhere}body.wall .play{height:96px}body.wall canvas{width:96px;height:96px}body.wall article>p:not(.time),body.wall article>label,body.wall article>button,body.wall details{display:none}body.wall .time{font-size:9px;min-height:20px}</style>
@@ -205,13 +237,13 @@ def prepare(root: Path, timeline_path: Path, output: Path):
 const players=[...document.querySelectorAll('article')].map(a=>{
  const canvas=a.querySelector('canvas'),ctx=canvas.getContext('2d'),sheet=a.querySelector('.sheet'),variants=JSON.parse(a.querySelector('script').textContent);
  let elapsed=0,last=performance.now(),speed=1,mirror=false,small=false,paused=false;
- const select=a.querySelector('select');select.onchange=()=>elapsed=0;
+ const select=a.querySelector('select'),mode=a.querySelector('.playback-mode'),authored=JSON.parse(a.querySelector('.authored-timeline').textContent);select.onchange=mode.onchange=()=>elapsed=0;
  a.querySelector('.slow').onclick=()=>{speed=speed===1?.25:1;a.querySelector('.slow').textContent='속도 '+speed+'×'};
  a.querySelector('.mirror').onclick=()=>mirror=!mirror;
  a.querySelector('.small').onclick=()=>small=!small;
  a.querySelector('.pause').onclick=()=>{paused=!paused;a.querySelector('.pause').textContent=paused?'재생':'정지'};
  function draw(now){if(!paused)elapsed+=(now-last)*speed;last=now;
- const seq=variants[Number(select.value)],duration=seq.reduce((n,s)=>n+s[3],0);let t=elapsed%duration,i=0;
+ const seq=mode.value==='runtime'?variants[Number(select.value)]:authored,duration=seq.reduce((n,s)=>n+s[3],0);let t=elapsed%duration,i=0;
  while(i<seq.length-1&&t>=seq[i][3])t-=seq[i++][3];const s=seq[i];ctx.clearRect(0,0,256,256);ctx.save();ctx.translate(128,128);ctx.scale(mirror?-1:1,1);const size=small?128:256;if(sheet.complete)ctx.drawImage(sheet,s[0]*128,0,128,128,-size/2,-size/2,size,size);ctx.restore();
  a.querySelector('.time').textContent='frame '+(s[0]+1)+' / '+s[1]+' / '+Math.round(elapsed%duration)+' ms';requestAnimationFrame(draw)}requestAnimationFrame(draw);return a});
 function filter(){let count=0;for(const a of players){a.hidden=!!((character.value&&a.dataset.character!==character.value)||!a.id.includes(search.value));if(!a.hidden)count++}document.querySelector('#count').textContent=count+' motions'}
@@ -220,15 +252,39 @@ document.getElementById('wall').onclick=()=>document.body.classList.toggle('wall
 for(const [id,cls] of [['allslow','slow'],['allmirror','mirror'],['allsmall','small']])document.getElementById(id).onclick=()=>players.filter(a=>!a.hidden).forEach(a=>a.querySelector('.'+cls).click());
 </script>'''
     (output / "index.html").write_text(page)
+    if selection:
+        review["evidence_sha256"] = {name: sha(output / name) for name in ("index.html", "timeline.json")}
+    write(output / "motion-review.json", review)
     print(f"prepared {len(rows)} motions: {output / 'index.html'}")
 
 
-def validate(root: Path, path: Path, require_pass: bool = False) -> list[str]:
+def validate(root: Path, path: Path, require_pass: bool = False, catalog: Path | None = None, scope: Path | None = None, scope_sha256: str | None = None) -> list[str]:
     review = read(path)
     errors = []
+    if bool(catalog) != bool(scope):
+        return ["candidate review requires both --catalog and --scope"]
+    try:
+        selection = load_selection(root, catalog, scope, scope_sha256) if catalog else None
+    except (ValueError, OSError, TypeError, KeyError) as error:
+        return [str(error)]
+    if selection:
+        if review.get("candidate_selection") != selection["candidate_selection"]:
+            errors.append("review candidate catalog or original scope changed")
+        if review.get("approval_status") != "pending":
+            errors.append("QA review must not claim user approval or runtime registration")
+        if review.get("reviewer_role") != "qa":
+            errors.append("missing independent qa reviewer role")
+        evidence = review.get("evidence_sha256", {})
+        if set(evidence) != {"index.html", "timeline.json"}:
+            errors.append("missing candidate comparison playback evidence")
+        for name, digest in evidence.items():
+            if name not in {"index.html", "timeline.json"} or not (path.parent / name).is_file() or sha(path.parent / name) != digest:
+                errors.append("candidate playback evidence changed: " + name)
+    elif review.get("candidate_selection"):
+        errors.append("candidate review requires explicit catalog and scope")
     if review.get("schema_version") != 1 or not str(review.get("reviewer", "")).strip():
         errors.append("missing schema or independent reviewer")
-    wanted = {(r["character_id"], motion_id(r)): r for r in entries(root)}
+    wanted = {(r["character_id"], motion_id(r)): r for r in (selection["rows"] if selection else entries(root))}
     rows = review.get("motions", [])
     counts = Counter((r.get("character_id"), r.get("motion")) for r in rows)
     if set(counts) != set(wanted) or any(n != 1 for n in counts.values()):
@@ -244,7 +300,7 @@ def validate(root: Path, path: Path, require_pass: bool = False) -> list[str]:
         errors.append("review timeline changed or missing")
     else:
         recorded_timeline = read(timeline_path)
-        errors.extend(timeline_errors(root, recorded_timeline, list(wanted.values())))
+        errors.extend(timeline_errors(root, recorded_timeline, list(wanted.values()), selection))
     timeline_rows = {(r["character_id"], r["motion"]): r for r in (recorded_timeline or {}).get("motions", [])}
     if require_pass and any(row.get("status") != "pass" for row in rows):
         errors.append("motion decisions are not all pass")
@@ -262,6 +318,10 @@ def validate(root: Path, path: Path, require_pass: bool = False) -> list[str]:
             actual = root / str(row.get(pfield, ""))
             if row.get(pfield) != expected_path or not actual.is_file() or sha(actual) != row.get(hfield):
                 errors.append(f"reviewed asset changed: {label}/{pfield}")
+        if selection and (row.get("asset_type") != expected["type"] or row.get("reuse_approved_runtime") != expected.get("reuse_approved_runtime", False)):
+            errors.append(f"candidate or runtime reuse identity changed: {label}")
+        if selection and (row.get("expected_action") != expected["expected_action"] or row.get("action_source") != expected["action_source"]):
+            errors.append(f"candidate expected action differs from fixed scope: {label}")
         action_source = root / str(row.get("action_source", ""))
         if not row.get("expected_action") or not action_source.is_file():
             errors.append(f"missing expected action or source: {label}")
@@ -272,8 +332,13 @@ def validate(root: Path, path: Path, require_pass: bool = False) -> list[str]:
         materials = row.get("materials", {})
         if not materials:
             errors.append(f"missing review materials: {label}")
+        if selection and set(materials) != {f"boards/{key[0]}__{key[1]}.jpg", f"sheets/{key[0]}__{key[1]}.png"}:
+            errors.append(f"missing candidate frame board or source sheet: {label}")
         for material, digest in materials.items():
             actual = path.parent / material
+            if Path(material).is_absolute() or ".." in Path(material).parts or not actual.resolve().is_relative_to(path.parent.resolve()):
+                errors.append(f"escaping review evidence path: {label}/{material}")
+                continue
             if not actual.is_file() or sha(actual) != digest:
                 errors.append(f"review evidence changed: {label}/{material}")
         if row.get("status") != "blocked" and not str(row.get("observations", "")).strip():
@@ -299,11 +364,15 @@ def main():
     validate_cmd.add_argument("--project-root", type=Path, required=True)
     validate_cmd.add_argument("--review", type=Path, required=True)
     validate_cmd.add_argument("--require-pass", action="store_true", help="also fail when any semantic review is not pass")
+    for command in (prepare_cmd, validate_cmd):
+        command.add_argument("--catalog", type=Path, help="pending candidate catalog; requires --scope")
+        command.add_argument("--scope", type=Path, help="original explicit candidate motion scope JSON")
+        command.add_argument("--scope-sha256", help="optional externally pinned SHA256 of the original scope bytes")
     args = parser.parse_args()
     if args.command == "prepare":
-        prepare(args.project_root.resolve(), args.timeline.resolve(), args.output.resolve())
+        prepare(args.project_root.resolve(), args.timeline.resolve(), args.output.resolve(), args.catalog.resolve() if args.catalog else None, args.scope.resolve() if args.scope else None, args.scope_sha256)
     else:
-        errors = validate(args.project_root.resolve(), args.review.resolve(), args.require_pass)
+        errors = validate(args.project_root.resolve(), args.review.resolve(), args.require_pass, args.catalog.resolve() if args.catalog else None, args.scope.resolve() if args.scope else None, args.scope_sha256)
         for error in errors:
             print(error)
         print("Review decisions:", dict(Counter(row.get("status") for row in read(args.review)["motions"])))

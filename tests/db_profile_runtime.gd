@@ -80,17 +80,17 @@ func run() -> void:
 		check(app.db_client.revision == 1, "import revision")
 		await press("상점 · 모두 0원")
 		# Choose specific shop rows so the test is independent of catalog ordering.
-		for item: Dictionary in app.catalog.products:
+		for item: Dictionary in app.catalog.playable_products():
 			if not app.store.owns(item.id):
 				await press_qa("purchase/" + String(item.id))
 				await press_qa("menu/shop/purchase_confirm/" + String(item.id))
-		check(app.store.data.characters.size() == 4 and app.store.data.accessories.size() == 6, "shop UI persists full catalog")
+		check(app.store.data.characters.size() == 2 and app.store.data.accessories.is_empty(), "shop UI persists full catalog")
 		app.handle_back_request()
 		await wait_idle()
 		await press("오프라인 대전")
-		await press("유란")
-		check(app.store.data.selected_character == "yu-ran", "character UI saves selection")
-		check(await app._change_profile("select", {"character": "yu-ran", "accessory": "fixture-thorns", "opponent": "myo-ryung"}), "accessory and opponent save")
+		await press("자현")
+		check(app.store.data.selected_character == "ja-hyun", "character UI saves selection")
+		check(await app._change_profile("select", {"character": "ja-hyun", "accessory": "", "opponent": "nabi"}), "accessory and opponent save")
 		await press("로비")
 		await press("접근성 설정")
 		check(await app._change_profile("accessibility", {"text_scale": 1.3, "reduce_visual_effects": true, "haptics_enabled": false}), "settings save")
@@ -112,10 +112,10 @@ func run() -> void:
 		check(app.db_client.pending.is_empty() and app.store.data.selected_character == "nabi", "retry applies once")
 		check(app.db_client.revision == int(committed.get("revision", -1)), "replay preserves committed revision")
 		app.db_client.revision -= 1
-		check(not await app._change_profile("select", {"character": "nabi", "accessory": "", "opponent": "yu-ran"}), "stale revision rejected")
+		check(not await app._change_profile("select", {"character": "nabi", "accessory": "", "opponent": "ja-hyun"}), "stale revision rejected")
 		check(app.db_client.pending.is_empty() and app.db_client.error == "revision_conflict", "conflict refreshes latest DB and clears rejected request")
 		app.db_client.access_token = "expired-token-for-runtime-test"
-		check(await app._change_profile("select", {"character": "yu-ran", "accessory": "fixture-thorns", "opponent": "myo-ryung"}), "final selection saved")
+		check(await app._change_profile("select", {"character": "ja-hyun", "accessory": "", "opponent": "nabi"}), "final selection saved")
 		app._show_home()
 		await press("오프라인 대전")
 		await press("대전 시작")
@@ -142,8 +142,8 @@ func run() -> void:
 		await test_first_grant_conflict()
 	else:
 		check(app.db_mode, "separate process automatically reconnects DB mode")
-		check(app.store.data.selected_character == "yu-ran" and app.store.data.selected_accessory == "fixture-thorns" and app.store.data.opponent_character == "myo-ryung", "restart restores DB selection")
-		check(app.store.data.characters.size() == 4 and app.store.data.accessories.size() == 6, "restart restores DB ownership")
+		check(app.store.data.selected_character == "ja-hyun" and app.store.data.selected_accessory == "" and app.store.data.opponent_character == "nabi", "restart restores DB selection")
+		check(app.store.data.characters.size() == 2 and app.store.data.accessories.is_empty(), "restart restores DB ownership")
 		check(is_equal_approx(float(app.store.data.accessibility.text_scale), 1.3) and not app.store.data.accessibility.haptics_enabled, "restart restores settings")
 		check(app.store.data.nickname == "DB숲지기" and app.store.data.minimap == {"transparency": 65, "marker_style": "dot", "show_names": false}, "restart restores nickname and minimap")
 		var source := LocalPlayerStore.new(LocalPlayCatalog.new(), source_path)

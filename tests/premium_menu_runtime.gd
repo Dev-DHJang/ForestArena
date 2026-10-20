@@ -2,7 +2,7 @@ extends SceneTree
 
 # Independent contract checks exercise the native controls that ship in the app.
 # --ui-capture writes the real rendered viewport; never run it with --headless.
-const OUTPUT := "res://_workspace/premium-menu-features-v01/qa-captures"
+const OUTPUT := "res://_workspace/two-fighter-combat-v2/qa/premium-menu-runtime"
 const MENUS := {
 	"character_collection": "SCR_04_CharacterCollection", "character_detail": "SCR_05_CharacterDetail",
 	"accessory_collection": "SCR_06_AccessoryCollection", "accessory_detail": "SCR_07_AccessoryDetail",
@@ -289,9 +289,15 @@ func run_state_coverage() -> void:
 				await press("menu/mission/modal_confirm")
 			"preset_slot": await press("menu/preset/slot/%d" % int(params.slot))
 			"open_product_modal":
-				await press("purchase/" + String(params.product_id))
-				check(is_instance_valid(app.menu_router.view.modal), "state native shop modal: " + String(row.design_screen))
-				await press("menu/shop/modal_cancel")
+				var product_id := String(params.product_id)
+				if app.catalog.is_playable_character(StringName(product_id)):
+					await press("purchase/" + product_id)
+					check(is_instance_valid(app.menu_router.view.modal), "state native shop modal: " + String(row.design_screen))
+					await press("menu/shop/modal_cancel")
+				else:
+					var profile_before: Dictionary = app.store.data.duplicate(true)
+					check(button("purchase/" + product_id) == null and not app.store.purchase(product_id), "archived product unavailable: " + product_id)
+					check(app.store.data == profile_before, "archived product rejection preserves inventory")
 			"settings_reset_modal":
 				await press("menu/%s/settings_reset" % menu)
 				check(is_instance_valid(app.menu_router.view.modal), "state native defaults modal: " + String(row.design_screen))
@@ -316,7 +322,10 @@ func run_state_coverage() -> void:
 				await press("menu/settings/settings_cancel")
 		if row.policy in ["honest_empty", "unlinked_service", "local_progress"]: check(app.menu_service.snapshot(menu).status in ["local", "unlinked"], "real local or unlinked state: " + String(row.design_screen))
 		if menu == "character_detail": check(app.menu_router.state.tab == params.get("tab", app.menu_router.state.tab), "character detail uses requested native tab")
-		if params.has("selected_id"): check(app.menu_router.state.selected_id == params.selected_id, "state visible item matches requested real catalog ID: " + String(row.design_screen))
+		if params.has("selected_id"):
+			if menu in ["character_collection", "character_detail"] and not app.catalog.is_playable_character(StringName(params.selected_id)):
+				check(app.catalog.is_playable_character(StringName(app.menu_router.state.selected_id)) and app.catalog.contains(params.selected_id, "character"), "archived design selection falls back to active while original catalog remains: " + String(row.design_screen))
+			else: check(app.menu_router.state.selected_id == params.selected_id, "state visible item matches requested real catalog ID: " + String(row.design_screen))
 		var passed := true
 		for index: int in range(start, checks.size()):
 			if not checks[index].pass: passed = false
@@ -376,7 +385,7 @@ func run_native_service_state(kind: String, design_screen: String) -> void:
 
 func run_ownership_checks() -> void:
 	app.menu_router.reset()
-	await open_menu("character_collection", {"selected_id": "myo-ryung", "filter": "전체"})
+	await open_menu("character_collection", {"selected_id": "nabi", "filter": "전체"})
 	var before: Dictionary = app.store.data.duplicate(true)
 	await press("menu/character_collection/select")
 	check(is_instance_valid(app.menu_router.view.modal), "unowned selection shows honest purchase guidance")
@@ -385,32 +394,40 @@ func run_ownership_checks() -> void:
 	await press("menu/character_collection/detail")
 	await press("menu/character_detail/tab/이야기")
 	await press("menu/character_detail/back")
-	check(app.menu_router.state.id == "character_collection" and app.menu_router.state.selected_id == "myo-ryung", "detail back preserves character selection")
+	check(app.menu_router.state.id == "character_collection" and app.menu_router.state.selected_id == "nabi", "detail back preserves active character selection")
 	await open_menu("shop", {"category": "전체"})
-	for product: Dictionary in app.catalog.products:
+	for product: Dictionary in app.catalog.playable_products():
 		if app.store.owns(String(product.id)): continue
 		check(int(product.price) == 0, "existing free price: " + String(product.id))
 		await press("purchase/" + String(product.id))
 		check(is_instance_valid(app.menu_router.view.modal), "purchase opens native confirmation: " + String(product.id))
 		await press("menu/shop/purchase_confirm/" + String(product.id))
 		check(app.store.owns(String(product.id)), "confirmed free purchase updates ownership: " + String(product.id))
-	await open_menu("character_collection", {"selected_id": "myo-ryung"})
+	await open_menu("character_collection", {"selected_id": "nabi"})
 	await press("menu/character_collection/select")
-	check(app.store.data.selected_character == "myo-ryung", "owned character selection applies real profile")
-	await open_menu("accessory_collection", {"selected_id": "fixture-iron-armor"})
-	await press("menu/accessory_collection/select")
-	check(app.store.data.selected_accessory == "fixture-iron-armor", "owned accessory selection applies real profile")
-	await open_menu("collection", {"category": "character", "filter": "보유"})
+	check(app.store.data.selected_character == "nabi", "owned active character selection applies real profile")
+	# Import an old inventory as fixture, preserving all archived IDs on disk.
+	app.store.data.characters.append("myo-ryung")
+	app.store.data.accessories.append("fixture-iron-armor")
+	check(app.store._commit(app.store.data.duplicate(true)), "archived inventory fixture saves")
+	var reopened := LocalPlayerStore.new(app.catalog, app.save_path)
+	check(reopened.load_profile() and reopened.owns("myo-ryung") and reopened.owns("fixture-iron-armor"), "archived character and accessory survive profile reopen")
 	before = app.store.data.duplicate(true)
+	await open_menu("character_collection", {"selected_id": "myo-ryung"})
+	check(app.catalog.is_playable_character(StringName(app.menu_router.state.selected_id)) and button("menu/character_collection/character/myo-ryung") == null, "archived owned character is unavailable in current selection")
+	await open_menu("accessory_collection", {"selected_id": "fixture-iron-armor"})
+	check(button("menu/accessory_collection/select") == null and "사용하지 않" in labels(), "accessory page explains no combat equipment")
+	check(not app.store.select("myo-ryung", "", "nabi") and not app.store.select("nabi", "fixture-iron-armor", "ja-hyun"), "owned archived items cannot enter current combat")
+	check(app.store.data == before, "archived selection rejection preserves full profile")
+	await open_menu("collection", {"category": "character", "filter": "보유"})
 	await press("menu/collection/read/myo-ryung")
 	check("읽기 전용" in labels(), "codex detail explains readonly record")
 	check(button("menu/collection/select") == null and button("menu/collection/purchase") == null, "codex detail has no selection or purchase")
 	await press("menu/collection/modal_confirm")
-	check(app.store.data == before, "codex detail leaves actual profile unchanged")
+	check(app.store.data == before, "codex detail leaves archived ownership and selection unchanged")
 
 func run_preset_checks() -> void:
-	const CHARACTERS := ["ja-hyun", "myo-ryung", "nabi", "yu-ran"]
-	const ACCESSORIES := ["fixture-iron-armor", "fixture-boxing-gloves", "fixture-thorns", "fixture-explosive-gloves"]
+	const CHARACTERS := ["ja-hyun", "nabi", "ja-hyun", "nabi"]
 	app.menu_router.reset()
 	await open_menu("preset")
 	await press("menu/preset/slot/3")
@@ -425,18 +442,27 @@ func run_preset_checks() -> void:
 		await press("menu/character_collection/character/" + CHARACTERS[index])
 		await press("menu/character_collection/select")
 		check(app.menu_router.state.id == "preset", "preset character chooser returns to draft")
-		await press("menu/preset/edit/accessory")
-		await press("menu/accessory_collection/accessory/" + ACCESSORIES[index])
-		await press("menu/accessory_collection/select")
+		check(button("menu/preset/edit/accessory").disabled, "new preset equipment edit is disabled")
 		await press("menu/preset/preset_save")
-		check(app.menu_store.slots[index] == {"character": CHARACTERS[index], "accessory": ACCESSORIES[index]}, "slot %d stores chosen native draft" % index)
+		check(app.menu_store.slots[index] == {"character": CHARACTERS[index], "accessory": ""}, "slot %d stores active unequipped draft" % index)
 		check(app.store.data == actual_before, "slot %d draft save leaves actual loadout unchanged" % index)
 		await press("menu/preset/preset_apply")
 		check(app.screen == "prepare", "slot %d apply opens real prepare" % index)
-		check(app.store.data.selected_character == CHARACTERS[index] and app.store.data.selected_accessory == ACCESSORIES[index], "slot %d applies chosen real loadout" % index)
+		check(app.store.data.selected_character == CHARACTERS[index] and app.store.data.selected_accessory == "", "slot %d applies chosen active loadout" % index)
 	var restored = load("res://scripts/premium_menu/local_menu_state_store.gd").new(qa_dir, app.catalog)
 	check(restored.load_presets(app._menu_owner_key(), {"character": app.store.data.selected_character, "accessory": app.store.data.selected_accessory}), "menu presets reopen isolated disk file")
 	check(restored.slots == app.menu_store.slots and restored.selected_slot == 3, "all four slots and active slot survive reopen")
+	# A historical slot remains readable and unmodified when applying its normalized copy.
+	var archived := {"character":"myo-ryung", "accessory":"fixture-iron-armor"}
+	var owner: String = app._menu_owner_key()
+	restored._owners[owner].slots[3] = archived.duplicate(true)
+	check(restored._commit_presets(restored._owners.duplicate(true)), "old preset document fixture persists")
+	app.menu_router.reset()
+	await open_menu("preset")
+	await press("menu/preset/slot/3")
+	await press("menu/preset/preset_apply")
+	check(app.screen == "prepare" and app.catalog.is_playable_character(StringName(app.store.data.selected_character)) and app.store.data.selected_accessory == "", "old preset applies only normalized active copy")
+	check(restored.load_presets(owner, {}) and restored.slots[3] == archived, "applying old preset preserves stored archived original")
 	check(int(app.store.data.schema_version) == 3, "menu presets leave player schema v3 unchanged")
 
 func run_settings_checks() -> void:

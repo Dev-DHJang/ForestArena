@@ -6,7 +6,7 @@ func check(ok: bool, label: String) -> void:
 	if not ok: failures.append(label)
 
 func _initialize() -> void:
-	var local := LocalPlayCatalog.new()
+	var local := LocalPlayCatalog.new(false)
 	check(local.combat.characters.size() == 4 and local.combat.accessories.size() == 6, "catalog coverage")
 	var stable_ids := ["fixture-iron-armor", "fixture-boxing-gloves", "fixture-thorns", "fixture-explosive-gloves", "fixture-ultimate-charm", "fixture-phoenix-revive"]
 	for accessory: AccessoryData in local.combat.accessories:

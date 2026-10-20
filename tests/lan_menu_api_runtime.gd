@@ -46,7 +46,7 @@ func open_client() -> Dictionary:
 	return client
 
 func send(client: Dictionary, message: Dictionary) -> void:
-	message.protocol_version = 2
+	message.protocol_version = 3
 	check(client.peer.put_packet(JSON.stringify(message).to_utf8_buffer()) == OK, "normal LAN v2 input sends")
 
 func message(client: Dictionary, kind: String) -> Dictionary:
@@ -115,10 +115,10 @@ func run() -> void:
 	var created := await message(host, "room_created")
 	if failed: return
 	var guest := await open_client()
-	send(guest, {"type": "join_room", "room_code": created.room_code, "access_token": guest_token, "selection": selection("yu-ran")})
+	send(guest, {"type": "join_room", "room_code": created.room_code, "access_token": guest_token, "selection": selection("ja-hyun")})
 	var ready := await message(host, "room_ready")
 	check(String(ready.names["1"]).begins_with("LanHost") and String(ready.names["2"]).begins_with("LanGuest"), "actual API nicknames reach server")
-	check(ready.loadouts["1"].character_id == "nabi" and ready.loadouts["2"].character_id == "yu-ran", "approved selections reach actual server")
+	check(ready.loadouts["1"].character_id == "nabi" and ready.loadouts["2"].character_id == "ja-hyun", "approved selections reach actual server")
 	var first_start := await message(host, "match_start")
 	await message(guest, "match_start")
 	var first := await play_left(host)

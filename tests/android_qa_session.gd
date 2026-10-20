@@ -26,12 +26,24 @@ func run() -> void:
 	check(app.screen == "first", "fresh isolated first selection")
 	check(app.store.grant_first("ja-hyun"), "ordinary first grant")
 	for item: Dictionary in app.catalog.products:
-		if not app.store.owns(item.id): check(app.store.purchase(item.id), "normal purchase " + String(item.id))
+		if app.store.owns(item.id): continue
+		if app.catalog.is_playable_character(StringName(item.id)):
+			check(app.store.purchase(item.id), "normal active purchase " + String(item.id))
+		else:
+			var before: Dictionary = app.store.data.duplicate(true)
+			check(not app.store.purchase(item.id), "archived product purchase rejected " + String(item.id))
+			check(app.store.data == before, "rejected purchase preserves inventory " + String(item.id))
 	app._show_prepare()
 	await process_frame
 	var ui: Array = qa._ui()
-	check(ui.any(func(value: Dictionary) -> bool: return value.id == "prepare/choice/장신구"), "stable selection IDs")
-	mail(qa, 1, "select_config", {"character": "nabi", "accessory": "fixture-iron-armor", "mode": 3})
+	check(ui.any(func(value: Dictionary) -> bool: return value.id == "prepare/choice/모드"), "stable selection IDs")
+	check(not ui.any(func(value: Dictionary) -> bool: return value.id == "prepare/choice/장신구"), "product prepare excludes accessory selection")
+	var selected_before: Dictionary = app.store.data.duplicate(true)
+	qa._select_config({"character": "nabi", "accessory": "fixture-iron-armor", "mode": 3})
+	check(qa.command_error == "selection_failed" and app.store.data == selected_before, "QA cannot equip archived accessory")
+	qa._select_config({"character": "yu-ran", "accessory": "", "mode": 3})
+	check(qa.command_error == "selection_failed" and app.store.data == selected_before, "QA cannot select inactive character")
+	mail(qa, 1, "select_config", {"character": "nabi", "accessory": "", "mode": 3})
 	check(qa.command_seq == 1 and qa.command_error.is_empty() and app.store.data.selected_character == "nabi", "normal config selects owned values")
 	mail(qa, 1, "select_config", {"character": "yu-ran"})
 	check(app.store.data.selected_character == "nabi", "replayed seq ignored")
@@ -41,7 +53,7 @@ func run() -> void:
 	await process_frame
 	qa._observe_match()
 	check(qa.match_generation == 1 and qa.snapshot.fighters.size() == 2, "observe real match")
-	check(qa.snapshot.fighters[0].character_id == "nabi" and qa.snapshot.fighters[0].accessory_id == "fixture-iron-armor", "selected resource reaches fighter")
+	check(qa.snapshot.fighters[0].character_id == "nabi" and qa.snapshot.fighters[0].accessory_id == "", "selected resource reaches fighter")
 	mail(qa, 3, "autoplay", {"enabled": true, "ultimate": false})
 	check(qa._bot != null and not qa._bot.allow_ultimate and app.match_controller.bot_sources.has(qa._bot), "QA bot uses normal controller source")
 	check(Engine.time_scale == 1 and Engine.physics_ticks_per_second == 60, "real time unchanged")

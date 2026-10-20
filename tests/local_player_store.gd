@@ -13,11 +13,11 @@ func _initialize() -> void:
 	check(store.grant_first("nabi"), "first character grant")
 	check(not store.grant_first("ja-hyun"), "one grant only")
 	check(not store.select("ja-hyun", "", "nabi"), "unowned rejected")
-	for item: Dictionary in catalog.products:
+	for item: Dictionary in catalog.playable_products():
 		if not store.owns(item.id): check(store.purchase(item.id), "purchase " + item.id)
 		check(not store.purchase(item.id), "duplicate " + item.id)
 	check(not store.purchase("unknown"), "unknown product")
-	check(store.select("yu-ran", String(catalog.combat.accessories[0].accessory_id), "yu-ran"), "mirror selection")
+	check(store.select("nabi", "", "nabi"), "mirror selection")
 	var reload := LocalPlayerStore.new(catalog, path)
 	check(reload.load_profile(), "restart loads")
 	for key: String in ["characters", "accessories", "selected_character", "selected_accessory", "opponent_character", "first_granted"]:

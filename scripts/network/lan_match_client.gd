@@ -14,9 +14,9 @@ signal result_sync_changed(match_id: String, state: String)
 signal rematch_changed(ready_slots: Array, closed: bool)
 signal failed(code: String)
 
-const PROTOCOL_VERSION := 2
+const PROTOCOL_VERSION := 3
 const RECONNECT_GRACE_MSEC := 60_000
-const ACTIONS: Array[StringName] = [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]
+const ACTIONS: Array[StringName] = [&"jump", &"attack_light", &"attack_heavy", &"attack_special"]
 
 var access_token_provider: Callable
 var _refreshing_auth := false
@@ -66,6 +66,9 @@ func begin_join(invite_code: String, selection: LoadoutSelection, nickname: Stri
 
 func _begin(url: String, intent: String, code: String, selection: LoadoutSelection, nickname: String = "", access_token: String = "") -> bool:
 	stop()
+	if selection == null or not LocalPlayCatalog.PLAYABLE_IDS.has(String(selection.character_id)) or not selection.job_id.is_empty() or not selection.accessory_id.is_empty():
+		failed.emit("inactive_combat_selection")
+		return false
 	_access_token = access_token
 	if access_token.is_empty():
 		failed.emit("authentication_required")
@@ -288,12 +291,12 @@ func _poll_input() -> void:
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		_send_input(&"move", direction, CombatIntent.Edge.HOLD)
 	for action: StringName in ACTIONS:
-		var action_direction := CombatIntent.Direction.NEUTRAL if action == &"ultimate" else direction
+		var action_direction := direction
 		if Input.is_action_just_pressed(action): _send_input(action, action_direction, CombatIntent.Edge.PRESS)
-		elif Input.is_action_just_released(action): _send_input(action, action_direction, CombatIntent.Edge.RELEASE)
 
 
 func _send_input(action: StringName, direction: CombatIntent.Direction, edge: CombatIntent.Edge) -> void:
+	if action != &"move" and action not in ACTIONS: return
 	_seq += 1
 	_send({"type": "input", "seq": _seq, "action_id": String(action), "direction": direction, "edge": edge})
 

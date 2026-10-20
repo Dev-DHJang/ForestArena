@@ -29,6 +29,18 @@ CHARACTER_LABELS = {'ja-hyun': '자현', 'myo-ryung': '묘령', 'nabi': '나비'
 CHARACTERS = ('ja-hyun', 'myo-ryung', 'nabi', 'yu-ran')
 ACCESSORIES = ('', 'fixture-boxing-gloves', 'fixture-thorns', 'fixture-iron-armor',
                'fixture-phoenix-revive', 'fixture-ultimate-charm', 'fixture-explosive-gloves')
+ACTIVE_CHARACTERS = ('ja-hyun', 'nabi')
+PRODUCT_ACTIONS = ('jump', 'attack_light', 'attack_heavy', 'attack_special')
+
+
+def product_policy(protocol=3):
+    if protocol not in (1, 2, 3):
+        raise ValueError('지원하지 않는 LAN 프로토콜입니다.')
+    return {'id': 'two-fighter-no-accessories-v2' if protocol >= 3 else 'legacy-four-fighter-accessories',
+            'characters': ACTIVE_CHARACTERS if protocol >= 3 else CHARACTERS,
+            'accessories': ('',) if protocol >= 3 else ACCESSORIES}
+
+
 CASES = ('DEV-01', 'UI-01', 'OFF-01', 'INPUT-01', 'LIFE-01', 'OFF-02', 'MODE-01',
          'LAN-01', 'LAN-02', 'LAN-03', 'SOAK-01', 'MANUAL-01')
 
@@ -68,11 +80,14 @@ def selected_serials(values):
     return serials
 
 
-def combination_jobs(device_count):
+def combination_jobs(device_count, protocol=3):
     if not 1 <= device_count <= 4:
         raise ValueError('device_count must be 1..4')
     jobs = [[] for _ in range(device_count)]
-    for index, (character, accessory) in enumerate((c, a) for c in CHARACTERS for a in ACCESSORIES):
+    policy = product_policy(protocol)
+    pairs = [(c, a) for c in policy['characters'] for a in policy['accessories']]
+    for index in range(max(len(pairs), device_count)):
+        character, accessory = pairs[index % len(pairs)]
         jobs[index % device_count].append({'character': character, 'accessory': accessory})
     return jobs
 
@@ -348,13 +363,15 @@ class ADB:
 
 
 class DeviceRun:
-    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None, current_policy=False, touch_helper=None):
+    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None, current_policy=False, touch_helper=None, protocol=3):
         self.adb, self.alias, self.run_id, self.output, self.activity = adb, alias, run_id, output, activity
         self.output.mkdir(parents=True, exist_ok=True)
         self.screen_timeout, self.match_timeout, self.stall_timeout = screen_timeout, match_timeout, stall_timeout
         self.install_timeout = install_timeout
         self.apk_sha256 = apk_sha256
-        self.current_policy = current_policy
+        self.protocol = protocol
+        self.policy = product_policy(protocol)
+        self.current_policy = current_policy and protocol < 3
         self.touch_helper = touch_helper
         self.apk_identity = {}
         self.clock, self.sleep = clock, sleep
@@ -591,14 +608,14 @@ class DeviceRun:
         self.evidence('end')
         result = {'schema_version': 1, 'run_id': self.run_id, 'device': self.alias, 'case_id': case_id,
                   'status': status, 'step': self.state.get('step', ''), 'input_source': input_source, 'duration_seconds': round(self.clock()-started, 3),
-                  'expected': CASE_EXPECTATIONS[case_id], 'observed': observed, 'message': message}
+                  'expected': case_expectation(case_id, self.protocol), 'observed': observed, 'message': message}
         self.results.append(result)
         dump_json(self.output / 'results.json', self.results)
         return status
 
     def mark(self, case_id, status, message):
         self.results.append({'schema_version': 1, 'run_id': self.run_id, 'device': self.alias, 'case_id': case_id,
-                             'status': status, 'step': self.state.get('step', 'unobserved'), 'expected': CASE_EXPECTATIONS[case_id], 'observed': {}, 'message': message})
+                             'status': status, 'step': self.state.get('step', 'unobserved'), 'expected': case_expectation(case_id, self.protocol), 'observed': {}, 'message': message})
 
     def launch(self):
         prior_boot = self.read().get('boot_id')
@@ -705,8 +722,9 @@ class DeviceRun:
         self.screen('shop')
         # The first character is already owned. Buy every remaining catalog ID
         # through its card and confirmation modal, with fresh state after each tap.
-        for category, field, products in (('character', 'characters', CHARACTERS),
-                                          ('accessory', 'accessories', ACCESSORIES[1:])):
+        purchase_groups = [('character', 'characters', self.policy['characters'])]
+        if self.protocol < 3: purchase_groups.append(('accessory', 'accessories', ACCESSORIES[1:]))
+        for category, field, products in purchase_groups:
             self.tap(id=f'menu/shop/category/{category}')
             for product_id in products:
                 if product_id in self.read().get('profile', {}).get(field, []):
@@ -718,9 +736,13 @@ class DeviceRun:
                           label=f'상점 구매 저장 {product_id}')
         self.evidence('shop-owned')
         profile = self.read()['profile']
-        require(set(profile['characters']) == set(CHARACTERS) and set(profile['accessories']) == set(ACCESSORIES[1:])
-                and len(profile['characters']) == 4 and len(profile['accessories']) == 6,
-                '상점 보유 목록이 네 캐릭터/여섯 장신구와 다릅니다.')
+        if self.protocol >= 3:
+            require(set(ACTIVE_CHARACTERS).issubset(profile.get('characters', [])), '활성 두 캐릭터 구매/보유를 확인하지 못했습니다.')
+            require(profile.get('selected_character') in ACTIVE_CHARACTERS and profile.get('selected_accessory', '') == '', '현재 선택은 활성 캐릭터·장신구 미장착이어야 합니다.')
+        else:
+            require(set(profile['characters']) == set(CHARACTERS) and set(profile['accessories']) == set(ACCESSORIES[1:])
+                    and len(profile['characters']) == 4 and len(profile['accessories']) == 6,
+                    '상점 보유 목록이 네 캐릭터/여섯 장신구와 다릅니다.')
         self.adb.shell('input', 'keyevent', '4')
         self.screen('home')
         self.tap('접근성 설정')
@@ -734,7 +756,8 @@ class DeviceRun:
         self.launch()
         self.screen('home')
         require(self.state['profile'] == saved, '재실행 뒤 보유·선택·설정이 복원되지 않았습니다.')
-        return {'profile': saved, 'relaunched': True}
+        return {'profile': saved, 'relaunched': True, 'combat_policy': self.policy['id'],
+                'legacy_ownership': 'preserved; inactive characters/accessories are outside this product combat check' if self.protocol >= 3 else 'legacy catalog inspected'}
 
     def prepare(self):
         if self.read().get('screen') == 'home':
@@ -763,15 +786,17 @@ class DeviceRun:
         self.prepare()
         validated = []
         self.case_observations = {'actual_match_selections': validated}
-        for character in CHARACTERS:
+        for character in self.policy['characters']:
+            if self.protocol >= 3: self.assert_product_ui(self.read(), buttons=False)
             self.tap(CHARACTER_LABELS[character])
             self.wait(lambda s: s.get('profile', {}).get('selected_character') == character)
-            accessory = self.state['profile']['selected_accessory']
+            accessory = self.state['profile'].get('selected_accessory', '')
+            if self.protocol >= 3: require(accessory == '', '새 제품 경기에서 장신구가 선택돼 있습니다.')
             self.start_match()
             observed = self.assert_config(character, accessory)
             validated.append({'character': character, 'accessory': accessory, **observed})
             self.prepare()
-        for accessory in ACCESSORIES:
+        for accessory in (() if self.protocol >= 3 else ACCESSORIES):
             self.select_option('장신구', accessory)
             self.wait(lambda s: s.get('profile', {}).get('selected_accessory') == accessory)
             character = self.state['profile']['selected_character']
@@ -779,16 +804,49 @@ class DeviceRun:
             observed = self.assert_config(character, accessory)
             validated.append({'character': character, 'accessory': accessory, **observed})
             self.prepare()
-        return {'actual_match_selections': validated}
+        return {'actual_match_selections': validated, 'combat_policy': self.policy['id'], 'accessory_policy': 'not equipped' if self.protocol >= 3 else 'legacy combinations'}
 
     def assert_config(self, character, accessory):
         fighter = self.player(self.read())
         require(fighter.get('character_id') == character and fighter.get('accessory_id', '') == accessory,
                 '선택과 실제 경기 데이터가 다릅니다.')
         observed = {'presentation': fighter.get('presentation', {})}
-        if self.current_policy:
+        if self.protocol >= 3:
+            self.validate_active_fighters(self.state)
+            observed['runtime_configuration'] = self.validate_product_profile(fighter)
+            observed['combat_policy'] = self.policy['id']
+        elif self.current_policy:
             observed['runtime_configuration'] = self.validate_current_profile(fighter, accessory)
         return observed
+
+    @staticmethod
+    def validate_active_fighters(state):
+        fighters = state.get('snapshot', {}).get('fighters', [])
+        require(len(fighters) >= 2 and all(fighter.get('character_id') in ACTIVE_CHARACTERS and fighter.get('accessory_id', '') == '' for fighter in fighters), '실제 참가자 모두 활성 두 캐릭터·미장착이어야 합니다.')
+        return {'participant_count': len(fighters), 'combat_policy': 'two-fighter-no-accessories-v2'}
+
+    @staticmethod
+    def assert_product_ui(state, buttons=True):
+        nodes = [node for node in state.get('ui', []) if node.get('visible', True)]
+        require(not any(node.get('text') in {CHARACTER_LABELS[c] for c in CHARACTERS if c not in ACTIVE_CHARACTERS} for node in nodes), '비활성 캐릭터 선택 카드가 현재 경기 준비에 노출됐습니다.')
+        require(not any(node.get('id', '').endswith('/choice/장신구') for node in nodes), '현재 경기에서 장신구 선택 목록이 노출됐습니다.')
+        if buttons:
+            actions = {str(node.get('id', '')).removeprefix('touch/') for node in nodes if node.get('kind') == 'touch' and str(node.get('id', '')).startswith('touch/') and not str(node.get('id', '')).startswith('touch/move_')}
+            require(actions == set(PRODUCT_ACTIONS), '현재 터치 버튼은 점프·약·강·특수 네 개여야 합니다.')
+        return {'combat_policy': 'two-fighter-no-accessories-v2', 'action_buttons': list(PRODUCT_ACTIONS) if buttons else []}
+
+    @staticmethod
+    def validate_product_profile(fighter):
+        require(fighter.get('character_id') in ACTIVE_CHARACTERS and fighter.get('accessory_id', '') == '', '실제 경기 편성은 활성 두 캐릭터·미장착이어야 합니다.')
+        profile = fighter.get('runtime_profile', {})
+        base, stats = profile.get('base_stats', {}), profile.get('stats', {})
+        require(base and stats and set(base) == set(stats), '미장착 경기의 기준/실제 능력치 진단이 없습니다.')
+        require(all(math.isclose(float(stats[field]), float(value), rel_tol=1e-5, abs_tol=1e-4) for field, value in base.items()), '미장착 경기 능력치에 장신구 보정이 남았습니다.')
+        attacks = profile.get('attack_ids', [])
+        require(attacks and not any(any(word in attack for word in ('ultimate', 'dash', 'charge')) for attack in attacks), '제거된 필살기·기본 대시·차지 공격이 실제 편성에 남았습니다.')
+        require(not profile.get('replacement_move_set') and not any(effect.get('cause_id') in ACCESSORIES[1:] for effect in profile.get('combat_effects', [])), '미장착 편성에 장신구 동작 교체나 효과가 남았습니다.')
+        return {'evidence_kind': 'live_runtime_configuration', 'combat_policy': 'two-fighter-no-accessories-v2', 'attack_ids': attacks, 'accessory_id': '', 'stats': stats,
+                'legacy_accessory_effect_checks': 'outside current product policy; not executed'}
 
     @staticmethod
     def validate_current_profile(fighter, accessory):
@@ -861,7 +919,8 @@ class DeviceRun:
         self.command('autoplay', enabled=False)
         self.wait(lambda state: self.player(state).get('state') not in ('SPAWNING', 'DEAD', 'RING_OUT', None), label='플레이어 입력 준비')
         checked = []
-        self.case_observations = {'actions': checked, 'evade_positive': '미실행: 실제 방향+회피 동시 터치 수동 검사 필요'}
+        if self.protocol >= 3: self.assert_product_ui(self.read())
+        self.case_observations = {'actions': checked, 'combat_policy': self.policy['id'], 'evade_positive': '미실행: 실제 방향+회피 동시 터치 수동 검사 필요'}
         for action in ('move_right', 'move_left', 'jump', 'attack_light', 'attack_heavy', 'attack_special'):
             before = self.read()
             previous_seq = max((e.get('seq', 0) for e in before.get('touch_events', [])), default=0)
@@ -882,6 +941,11 @@ class DeviceRun:
             self.wait(changed, label=f'{action} 실제 전투 상태 변화')
             checked.append(action)
             self.sleep(1.0)
+        if self.protocol >= 3:
+            self.case_observations.pop('evade_positive', None)
+            self.case_observations['removed_actions'] = 'dash/evade/ultimate/charge are not offered; legacy action checks not executed'
+            self.prepare()
+            return self.case_observations
         # A neutral evade touch cannot enter EVADE: normal game rules require
         # held direction. Validate its touch edges without inventing a positive
         # simultaneous-touch result, and keep testing ultimate independently.
@@ -1229,20 +1293,28 @@ CASE_EXPECTATIONS = {
  'MANUAL-01': '실제 Wi-Fi 수동 끄기/켜기·동시 터치·소리·진동 확인',
 }
 
+def case_expectation(case_id, protocol=3):
+    product = {'UI-01': '활성 두 캐릭터 실제 첫 선택·0원 구매·저장 복원; 기존 보유 보존',
+               'OFF-01': '자현·나비와 장신구 미장착의 실제 경기 반영',
+               'INPUT-01': '방향패드·점프·약·강·특수 네 버튼 실제 누름/해제·전투 변화; 제거 행동 미노출',
+               'SOAK-01': '현재 활성 두 캐릭터·미장착 조합 실제 결과·재대전·무진행/시간 제한 확인'}
+    return product.get(case_id, CASE_EXPECTATIONS.get(case_id, '실행 전제 및 증거 확인')) if protocol >= 3 else CASE_EXPECTATIONS.get(case_id, '실행 전제 및 증거 확인')
+
+
 class LanServer:
     """Independent game process and in-memory guest fixture per device pair."""
-    def __init__(self, bind, cidr, port, api_port, output, godot, run_id, project_root=ROOT, protocol=2):
+    def __init__(self, bind, cidr, port, api_port, output, godot, run_id, project_root=ROOT, protocol=3):
         self.bind, self.cidr, self.port, self.api_port = bind, cidr, port, api_port
         self.output, self.godot, self.run_id = output, godot, run_id
         self.output.mkdir(parents=True, exist_ok=True)
-        require(protocol in (1, 2), '지원하지 않는 LAN 프로토콜입니다.')
+        require(protocol in (1, 2, 3), '지원하지 않는 LAN 프로토콜입니다.')
         self.project_root, self.protocol = Path(project_root), protocol
         self.fixture = self.process = self.stream = None
-        self.code = f'FAH2|http://{bind}:{api_port}|ws://{bind}:{port}|2' if protocol == 2 else f'FAH1|ws://{bind}:{port}|1'
+        self.code = f'FAH{protocol}|http://{bind}:{api_port}|ws://{bind}:{port}|{protocol}' if protocol >= 2 else f'FAH1|ws://{bind}:{port}|1'
 
     def start(self):
         env = os.environ.copy()
-        if self.protocol == 2:
+        if self.protocol >= 2:
             from android_fleet_auth_fixture import GuestFixture
             import secrets
             token = secrets.token_urlsafe(32)
@@ -1335,7 +1407,7 @@ def _menu(device):
     device.screen('lan_menu')
 
 
-def _lan_login(device, intent, code, protocol=2):
+def _lan_login(device, intent, code, protocol=3):
     _menu(device)
     device.tap('방 만들기' if intent == 'host' else '초대 코드로 참가')
     device.screen('lan_host' if intent == 'host' else 'lan_join')
@@ -1510,7 +1582,7 @@ class CapacityGuest:
         try:
             auth = _protocol_auth(self.server)
             self.peer = ProtocolPeer(self.server)
-            room = self.invite.split('|')[3 if self.server.protocol==2 else 2]
+            room = self.invite.split('|')[3 if self.server.protocol>=2 else 2]
             self.peer.send({'type':'join_room','room_code':room,'selection':{'schema_version':1,'character_id':'ja-hyun','job_id':'','accessory_id':''},**auth})
             joined = self.peer.receive_until(lambda m:m.get('type') in ('joined','error'))
             require(joined.get('type')=='joined' and joined.get('slot')==2, '정원용 임시 참가자가 슬롯 2에 들어가지 못했습니다.')
@@ -1540,11 +1612,11 @@ def _third_guest_rejection(server,invite):
     auth = _protocol_auth(server)
     peer = ProtocolPeer(server)
     try:
-        room = invite.split('|')[3 if server.protocol==2 else 2]
+        room = invite.split('|')[3 if server.protocol>=2 else 2]
         peer.send({'type':'join_room','room_code':room,'selection':{'schema_version':1,'character_id':'ja-hyun','job_id':'','accessory_id':''},**auth})
         response = peer.receive_until(lambda m:m.get('type')=='error')
         require(response.get('code')=='room_full',f'정원 초과 오류 불일치: {response.get("code")}')
-        return {'room_full':'pass','source':'authenticated_protocol_probe' if server.protocol==2 else 'protocol_v1_probe',
+        return {'room_full':'pass','source':'authenticated_protocol_probe' if server.protocol>=2 else 'protocol_v1_probe',
                 'actual_third_apk_ui':'미실행'}
     finally:
         peer.close()
@@ -1721,7 +1793,7 @@ def lan_pair(host, guest, server):
             device.wait_new_match(generation, lan=True)
             device.assert_reset()
             device.mark('LAN-01', 'pass', '방·결과·서버 일치·재대전 초기화 확인')
-            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1', 'home_restore_input': True, 'home_restore_device': host.alias, 'home_resume': home_restore}
+            device.results[-1]['observed'] = {'result': result, 'auth_provider': 'ephemeral_test_fixture' if server.protocol >= 2 else 'none_protocol_v1', 'home_restore_input': True, 'home_restore_device': host.alias, 'home_resume': home_restore}
             device.evidence('rematch')
         current = 'LAN-03'
         host.case_id = guest.case_id = current
@@ -1765,7 +1837,7 @@ def lan_pair(host, guest, server):
         lan02_observed['invalid_code'] = _lan_error_apk_ui(host,before_error,('invalid_invite_code','invalid_room_code'),'invalid-code-error')
         # Syntactically valid missing room on live server.
         parts = invite.split('|')
-        parts[3 if server.protocol == 2 else 2] = 'ZZZZZZZZ'
+        parts[3 if server.protocol >= 2 else 2] = 'ZZZZZZZZ'
         before_error = host.read()
         _lan_login(host, 'join', '|'.join(parts), server.protocol)
         lan02_observed['missing_room'] = _lan_error_apk_ui(host,before_error,('room_not_found','invalid_room'),'missing-room-error')
@@ -1780,7 +1852,7 @@ def lan_pair(host, guest, server):
         _lan_login(host, 'host', server.code, server.protocol)
         lan02_observed['server_off'] = _lan_error_apk_ui(host,before_error,('connection_failed','connection_lost','request_timeout'),'server-off-error')
         host.mark(current, 'blocked', '자동 오류 이벤트·복귀 검사 완료; 네 오류 문구는 화면 캡처의 별도 시각 확인 대기')
-        host.results[-1]['observed'] = {**lan02_observed, 'full_room': full, 'full_room_apk_ui': full_ui, 'actual_error_ui_device': host.alias, 'auth_provider': 'ephemeral_test_fixture' if server.protocol == 2 else 'none_protocol_v1'}
+        host.results[-1]['observed'] = {**lan02_observed, 'full_room': full, 'full_room_apk_ui': full_ui, 'actual_error_ui_device': host.alias, 'auth_provider': 'ephemeral_test_fixture' if server.protocol >= 2 else 'none_protocol_v1'}
         host.results[-1]['input_source'] = 'adb_touch+debug_text_setup+' + full['source']
         host.evidence('errors')
         guest.mark(current, 'blocked', '정원 초과 이벤트·LAN 메뉴 복귀·입력 해제 확인; 오류 문구 시각 확인 대기')
@@ -1899,8 +1971,8 @@ def parser():
     parse.add_argument('--project-root', type=Path, default=ROOT, help='APK를 만든 소스와 LAN 서버의 프로젝트 경로')
     parse.add_argument('--source-manifest', type=Path, help='원본 코드·자산 복제 내역 JSON; 실행 증거에 보존')
     parse.add_argument('--touch-helper', type=Path, help='SDK로 컴파일한 실제 복수 터치 jar; 없으면 입력 검사에서 준비')
-    parse.add_argument('--current-policy', action='store_true', help='현재 개발 버전 장신구 능력치·공격 교체 계약 검사')
-    parse.add_argument('--lan-protocol', type=int, choices=(1, 2), default=2, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
+    parse.add_argument('--current-policy', action='store_true', help='protocol1/2의 이전 장신구 계약 검사; protocol3에서는 미장착 새 정책만 검사')
+    parse.add_argument('--lan-protocol', type=int, choices=(1, 2, 3), default=3, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
     parse.add_argument('--apk', type=Path, default=ROOT / 'build/android/ForestArena-debug.apk')
     parse.add_argument('--serial', '--serials', action='append', default=[], help='ADB serial; 반복 또는 쉼표 목록. 자동 전체 선택 없음')
     parse.add_argument('--case', choices=('OFF-01', 'LIFE-01', 'MODE-01', 'LAN-01', 'SOAK-01'), help='선택·장신구, 생명주기, 모드, LAN-01/02/03 또는 반복 대전 독립 재검사; DEV-01/UI-01 준비 포함')
@@ -1925,7 +1997,7 @@ def write_summary(output, run_id, meta, devices, global_results):
     results = []
     for record in global_results+[r for device in devices for r in device.results]:
         defaults = {'schema_version': 1, 'run_id': run_id, 'device': '전체', 'step': 'preflight',
-                    'expected': CASE_EXPECTATIONS.get(record.get('case_id'), '실행 전제 및 증거 확인'), 'observed': {}}
+                    'expected': case_expectation(record.get('case_id'), meta.get('lan_protocol', 3)), 'observed': {}}
         results.append({**defaults, **record})
     summary = aggregate(results)
     if meta.get('selected_case'):
@@ -1935,18 +2007,20 @@ def write_summary(output, run_id, meta, devices, global_results):
         every_device_completed = bool(devices) and all(any(r['case_id'] == 'SOAK-01' and r['status'] == 'pass' for r in device.results) for device in devices)
         if not every_device_completed:
             summary['status'] = 'blocked'
-    required = [(c, a) for c in CHARACTERS for a in ACCESSORIES]
-    completed = {(j['character'], j['accessory']) for d in devices for j in d.combos}
+    policy = product_policy(meta.get('lan_protocol', 3))
+    required = [(c, a) for c in policy['characters'] for a in policy['accessories']]
+    summary['combat_policy'] = policy['id']
+    completed = {(j['character'], j['accessory']) for d in devices for j in d.combos} & set(required)
     coverage = [{'character': c, 'accessory': a, 'status': 'pass' if (c, a) in completed else '미실행'} for c, a in required]
     dump_json(output / 'results.json', {'schema_version': 1, 'run_id': run_id, 'metadata': meta, 'summary': summary, 'cases': results, 'combination_coverage': coverage})
     lines = [f'# Android 실기기 자동 플레이 · {run_id}', '', f'전체 판정: **{summary["status"]}**', '',
-             '실기기에서 관측한 사례만 pass로 기록합니다. LAN v1은 인증 API 없이 검사하며 v2 테스트용 게스트 API는 제품 DB/API 검증 결과가 아닙니다.', '',
+             '실기기에서 관측한 사례만 pass로 기록합니다. LAN v1은 인증 API 없이 검사하며 v2/v3 테스트용 게스트 API는 제품 DB/API 검증 결과가 아닙니다.', '',
              '| 기기 | 사례 | 판정 | 내용 |', '| --- | --- | --- | --- |']
     if meta.get('selected_case'):
         lines.insert(4, f'판정 범위: **{summary["scope"]}**. 다른 사례의 통과를 뜻하지 않습니다.')
         lines.insert(5, '')
     lines += [f'| {r.get("device", "전체")} | {r["case_id"]} | {r["status"]} | {r["message"].replace("|", "/")} |' for r in results]
-    lines += ['', f'28개 조합 중 완료 {len(completed)}개; 나머지는 미실행.', '',
+    lines += ['', f'{len(required)}개 현재 정책 조합 중 완료 {len(completed)}개; 나머지는 미실행.', '',
               '성능 수치는 승인된 합격 기준이 없어 측정값만 제공합니다. 실제 Wi-Fi 끄기/켜기, 동시 터치, 소리 청취·진동 체감은 수동 재검사입니다.', '']
     (output / 'summary.md').write_text('\n'.join(lines), encoding='utf-8')
     return summary
@@ -1987,8 +2061,8 @@ def main(argv=None):
     output.mkdir(parents=True, exist_ok=False)
     (output / '.gdignore').touch()
     meta = {'mode': args.mode, 'duration_seconds': duration, 'apk': str(args.apk.resolve()), 'selected_serials': serials,
-            'auth_provider': 'ephemeral_test_fixture' if args.lan_protocol == 2 else 'none_protocol_v1',
-            'lan_protocol': args.lan_protocol, 'current_policy': args.current_policy, 'selected_case': args.case, 'project_root': str(args.project_root.resolve()), 'code_version': ''}
+            'auth_provider': 'ephemeral_test_fixture' if args.lan_protocol >= 2 else 'none_protocol_v1',
+            'lan_protocol': args.lan_protocol, 'combat_policy': product_policy(args.lan_protocol)['id'], 'current_policy': args.current_policy and args.lan_protocol < 3, 'selected_case': args.case, 'project_root': str(args.project_root.resolve()), 'code_version': ''}
     git = run_process(['git', '-C', str(args.project_root), 'rev-parse', 'HEAD'])
     meta['code_version'] = git.stdout.decode().strip()
     meta['install_timeout_seconds'] = args.install_timeout
@@ -1997,7 +2071,7 @@ def main(argv=None):
     devices, global_results = [], []
     stage = 'DEV-01'
     try:
-        meta.update(archive_runner_sources(output, include_auth=args.lan_protocol == 2 and args.case not in ('OFF-01', 'LIFE-01', 'MODE-01', 'SOAK-01')))
+        meta.update(archive_runner_sources(output, include_auth=args.lan_protocol >= 2 and args.case not in ('OFF-01', 'LIFE-01', 'MODE-01', 'SOAK-01')))
         if not serials:
             raise Blocked('선택한 실기기가 없습니다. --serial을 명시하세요. 자동 전체 선택은 하지 않습니다.')
         require(args.project_root.is_dir(), '프로젝트 경로가 없습니다.')
@@ -2019,10 +2093,10 @@ def main(argv=None):
             if identity in identities:
                 raise Failure('서로 다른 ADB serial이 같은 물리 기기를 가리킵니다. 한 경로만 선택하세요.')
             identities.add(identity)
-            device = DeviceRun(adb, f'device-{index+1}', run_id, output / f'device-{index+1}', meta['apk_metadata']['activity'], args.screen_timeout, args.match_timeout, args.stall_timeout, install_timeout=args.install_timeout, apk_sha256=meta['apk_metadata'].get('sha256'), current_policy=args.current_policy, touch_helper=args.touch_helper)
+            device = DeviceRun(adb, f'device-{index+1}', run_id, output / f'device-{index+1}', meta['apk_metadata']['activity'], args.screen_timeout, args.match_timeout, args.stall_timeout, install_timeout=args.install_timeout, apk_sha256=meta['apk_metadata'].get('sha256'), current_policy=args.current_policy, touch_helper=args.touch_helper, protocol=args.lan_protocol)
             device.device_info = info
             devices.append(device)
-        jobs = combination_jobs(len(devices))
+        jobs = combination_jobs(len(devices), args.lan_protocol)
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(devices)) as pool:
             futures = [pool.submit(offline, device, args.apk, args.mode, duration, jobs[index], selected_case=args.case) for index, device in enumerate(devices)]
             eligible = [future.result() for future in futures]

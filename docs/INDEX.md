@@ -26,6 +26,7 @@
 | 중요한 결정이 승인됐는가? | [결정 기록](product/decisions.md) | [용어 가이드의 결정 상태](GLOSSARY.md#프로젝트-진행-용어) |
 | 재화와 구매 가격은 어떻게 제안됐는가? | [재화·가격 제안](product/economy-pricing-v01.md) | [결정 기록 ADR-010](product/decisions.md#adr-010-장신구-획득경제-정책-제안) |
 | 장신구의 효과와 제한은 무엇인가? | [장신구 설정](gameplay/accessories-v01.md) | [전투 규칙](gameplay/combat.md) |
+| 현재 자현·나비 기술과 조작은 무엇인가? | [자현·나비 전투 v2](gameplay/two-fighter-combat-v2.md) | [작업 기록](../_workspace/two-fighter-combat-v2/00_request.md) |
 | 이동·공격·승패는 어떻게 동작하는가? | [전투 규칙](gameplay/combat.md) | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md), [공격 데이터 형식](contracts/attack-system-v01.json) |
 | 자현·묘령·나비는 어떻게 싸우는가? | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md) | [전투 규칙](gameplay/combat.md) |
 | 메뉴의 기록·친구·순위는 어떻게 동작하는가? | [실제 메뉴 기능](ui/menu-features-v01.md) | 통합 프로필·미션·사회 기능·승패 순위 |
@@ -71,6 +72,7 @@ docs/
 
 | 파일 | 역할 | 주요 검사 |
 | --- | --- | --- |
+| [두 캐릭터 전투 형식](contracts/two-fighter-combat-v2.json) | 현재 활성 입력·AttackData v4·상태 기록과 LAN3 | `tests/two_fighter_combat_v2.gd`, `tests/two_fighter_product.gd` |
 | [공격 데이터 형식](contracts/attack-system-v01.json) | 기술 입력, 공격 단계와 캐릭터별 공격 설계 | `tests/combat_concept_contract.gd` |
 | [캐릭터 외형 데이터](contracts/character-appearance-v01.json) | 승인 캐릭터의 필수·허용·금지 외형 | `tests/character_appearance_contract.gd` |
 | [비전투 화면 데이터](ui/non-combat-ui-v01.json) | 24개 화면과 이미지 자리 | `tests/ui_design_contract.gd` |

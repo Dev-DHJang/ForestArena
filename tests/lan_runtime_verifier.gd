@@ -1,7 +1,7 @@
 extends Node
 
 const TIMEOUT_MSEC := 5000
-const PROTOCOL_VERSION := 2
+const PROTOCOL_VERSION := 3
 
 var websocket_url := "ws://127.0.0.1:17777"
 var clients: Array[Dictionary] = []
@@ -51,21 +51,21 @@ func _run() -> void:
 	_close_client(cancelled)
 	await get_tree().create_timer(0.4).timeout
 	var host := await _open_client()
-	_send(host, {"type": "create_room", "access_token": "host", "nickname": "공격자위조", "selection": _selection("nabi", "fixture-iron-armor")})
+	_send(host, {"type": "create_room", "access_token": "host", "nickname": "공격자위조", "selection": _selection("nabi", "")})
 	var created := await _wait_message(host, "room_created")
 	_require(LanInvite.parse_invite_code(String(created.invite_code)).room_code == created.room_code, "invite")
 	await _wait_message(host, "room_waiting")
 	var duplicate := await _open_client()
-	_send(duplicate, {"type": "join_room", "access_token": "host", "room_code": created.room_code, "selection": _selection("yu-ran", "")})
+	_send(duplicate, {"type": "join_room", "access_token": "host", "room_code": created.room_code, "selection": _selection("ja-hyun", "")})
 	_require((await _wait_message(duplicate, "error")).code == "duplicate_guest", "same_guest_rejected")
 	_close_client(duplicate)
 	var guest := await _open_client()
-	_send(guest, {"type": "join_room", "access_token": "guest", "nickname": "공격자위조", "room_code": created.room_code, "selection": _selection("yu-ran", "fixture-boxing-gloves")})
+	_send(guest, {"type": "join_room", "access_token": "guest", "nickname": "공격자위조", "room_code": created.room_code, "selection": _selection("ja-hyun", "")})
 	var guest_joined := await _wait_message(guest, "joined")
 	var host_ready := await _wait_message(host, "room_ready")
 	var guest_ready := await _wait_message(guest, "room_ready")
 	_require(host_ready.get("names") == {"1": "호스트숲", "2": "손님숲"} and guest_ready.get("names") == host_ready.get("names"), "both clients get normalized nicknames")
-	_require(host_ready.loadouts["1"].character_id == "nabi" and guest_ready.loadouts["2"].character_id == "yu-ran", "loadouts")
+	_require(host_ready.loadouts["1"].character_id == "nabi" and guest_ready.loadouts["2"].character_id == "ja-hyun", "loadouts")
 	var host_start := await _wait_message(host, "match_start")
 	await _wait_message(guest, "match_start")
 	var snapshot := await _wait_message(host, "snapshot")

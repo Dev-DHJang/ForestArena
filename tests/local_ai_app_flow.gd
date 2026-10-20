@@ -30,7 +30,7 @@ func run() -> void:
 	if shop_button != null: shop_button.pressed.emit()
 	await create_timer(0.24).timeout
 	await process_frame
-	for item: Dictionary in app.catalog.products:
+	for item: Dictionary in app.catalog.playable_products():
 		if app.store.owns(item.id): continue
 		var product_button := find_qa(app, "purchase/" + String(item.id))
 		check(product_button != null, "native product " + String(item.id))
@@ -43,7 +43,7 @@ func run() -> void:
 		if confirm != null: confirm.pressed.emit()
 		await create_timer(0.24).timeout
 		await process_frame
-	check(app.store.data.characters.size() == 4 and app.store.data.accessories.size() == 6, "shop buttons purchase the full free catalog")
+	check(app.store.data.characters.size() == 2 and app.store.data.accessories.is_empty(), "shop buttons purchase both active characters without accessories")
 	app.handle_back_request(500)
 	await create_timer(0.24).timeout
 	await process_frame
@@ -78,19 +78,15 @@ func run() -> void:
 	if prepare_button != null: prepare_button.pressed.emit()
 	await create_timer(0.24).timeout
 	await process_frame
-	var character_button := find_button(app, "유란")
+	var character_button := find_button(app, "자현")
 	check(character_button != null, "owned character selection button exists")
 	if character_button != null: character_button.pressed.emit()
 	await create_timer(0.24).timeout
 	await process_frame
 	var choices := find_options(app)
-	check(choices.size() == 3, "mode, accessory and AI selectors exist")
-	if choices.size() == 3:
-		select_option(choices[1], "철갑옷")
-		await create_timer(0.24).timeout
-		await process_frame
-		choices = find_options(app)
-		select_option(choices[2], "나비")
+	check(choices.size() == 2, "mode and active AI selectors exist without equipment")
+	if choices.size() == 2:
+		select_option(choices[1], "나비")
 		await create_timer(0.24).timeout
 		await process_frame
 	var start_button := find_button(app, "대전 시작")
@@ -98,8 +94,8 @@ func run() -> void:
 	if start_button != null: start_button.pressed.emit()
 	await physics_frame
 	check(app.screen == "match", "start button opens match")
-	check(app.match_controller.player.runtime_profile.character_id == &"yu-ran", "UI-selected player reaches match")
-	check(app.match_controller.player.runtime_profile.accessory_id == &"fixture-iron-armor", "UI-selected accessory reaches match")
+	check(app.match_controller.player.runtime_profile.character_id == &"ja-hyun", "UI-selected player reaches match")
+	check(app.match_controller.player.runtime_profile.accessory_id == &"", "UI-selected product starts without accessory")
 	check(app.match_controller.training_dummy.runtime_profile.character_id == &"nabi", "UI-selected opponent reaches match")
 	# Every local Phase 6 mode creates actual participants through the same match
 	# controller; this is intentionally not a menu-only configuration test.
@@ -146,8 +142,8 @@ func run() -> void:
 	check(not indicator.visible, "partly visible approved sprite hides arrow")
 	app._close_match()
 	app._show_home()
-	for own: CharacterData in app.catalog.combat.characters:
-		for enemy: CharacterData in app.catalog.combat.characters:
+	for own: CharacterData in app.catalog.playable_characters():
+		for enemy: CharacterData in app.catalog.playable_characters():
 			check(app.store.select(String(own.character_id), "", String(enemy.character_id)), "selection")
 			app.start_match()
 			await physics_frame
