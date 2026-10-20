@@ -34,7 +34,7 @@ def run_exports(rounds,batch=1,invoke=call,task=TASK,resize=None):
  import subprocess
  import time
  if batch not in (1,2):raise ValueError('Export batch count must be 1 or 2')
- task=Path(task);last_saved=0
+ task=Path(task);prior=task/'export-foreground-progress.json';last_saved=json.loads(prior.read_text()).get('savedCheckpoint',0) if prior.exists() else 0
  if resize is None:
   def resize():
    subprocess.run([sys.executable,str(task/'resize_exports.py')],check=True,capture_output=True,text=True)

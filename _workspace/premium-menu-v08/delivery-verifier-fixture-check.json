@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "tests": 22,
+  "checks": [
+    "missing final evidence fails; never reports partial PASS",
+    "current scene hash uses Node JSON.stringify, including Korean/emoji/float formatting",
+    "all current native/preview/wide files independently decoded and SHA/identity/provenance checked",
+    "stale native spec hash rejected",
+    "preview wrong source SHA rejected",
+    "preview wrong media ID rejected",
+    "missing output scene rejected",
+    "missing 20:9 comparison rejected",
+    "stale comparison signature rejected",
+    "recorded PNG size mismatch rejected",
+    "duplicate output filename rejected",
+    "rejected aggregate capture provenance rejected",
+    "actual PNG bytes differing from recorded SHA rejected",
+    "artifact path traversal rejected",
+    "existing runtime ID requires matching basename and actual file SHA; same name with wrong bytes and other name with same bytes excluded",
+    "absent basename or unmatched source hash creates no runtime ID",
+    "runtime registry remains byte-for-byte unchanged during metadata lookup",
+    "executed manual step matches exact expected actual prototype ID",
+    "manual NOT_RUN rejected",
+    "wrong observed arrival ID rejected",
+    "missing manual case rejected",
+    "manual expected destination tampering rejected"
+  ],
+  "note": "Synthetic local file fixtures only. Final actual delivery checker was not run; no Penpot API, browser, runtime source or delivery evidence was modified."
+}

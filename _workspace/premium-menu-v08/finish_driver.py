@@ -61,6 +61,10 @@ return {total:keys.length,created:ready.length,exported:exported.length};""")
                 if status[count_key] <= before or not result.get('out'):
                     raise RuntimeError(stage + ' made no progress: ' + json.dumps(status))
                 self.record(stage, {**status, 'savedVerified': False})
+            if stage == 'comparison-geometry':
+                # The remote renderer must be able to look up all five real IDs.
+                version = self.save('메뉴 v08 · 20:9 비교 편집 원본 ' + str(status['created']) + '/' + str(status['total']))
+                self.record('comparison-geometry-saved', {**status, 'version': version, 'savedBeforeExport': True, 'savedVerified': False})
         version = self.save('메뉴 v08 · 20:9 비교 ' + str(status['exported']) + '/' + str(status['total']))
         self.record('comparisons', {**status, 'version': version, 'savedVerified': False})
 
@@ -74,18 +78,22 @@ return {total:keys.length,created:ready.length,exported:exported.length};""")
             ('prototype-wiring', 'wired', 'return await storage.v08.wirePrototypeBatch(12);'),
         ):
             saved_at = status[count_key]
+            checkpoint_every = 64 if count_key == 'prepared' else 128
             while status[count_key] < status['total']:
                 before = status[count_key]
                 result = self.rpc(stage, expression)
                 status = self.prototype_status()
                 if status[count_key] <= before or not result.get('out'):
                     raise RuntimeError(stage + ' made no progress: ' + json.dumps(status))
-                row = {**status, 'savedCheckpoint': saved_at, 'savedVerified': False}
-                if status[count_key] - saved_at >= 24 or status[count_key] == status['total']:
+                row = {**status, 'savedCheckpoint': saved_at, 'checkpointEvery': checkpoint_every, 'savedVerified': False}
+                if status[count_key] - saved_at >= checkpoint_every and status[count_key] != status['total']:
                     version = self.save('메뉴 v08 · ' + ('프로토타입 구성 ' if count_key == 'prepared' else '프로토타입 연결 ') + str(status[count_key]) + '/' + str(status['total']))
                     saved_at = status[count_key]
                     row.update(savedCheckpoint=saved_at, version=version)
                 self.record(stage, row)
+            # Force the complete geometry and complete wiring versions separately.
+            version = self.save('메뉴 v08 · ' + ('프로토타입 구성 ' if count_key == 'prepared' else '프로토타입 연결 ') + str(status[count_key]) + '/' + str(status['total']))
+            self.record(stage, {**status, 'savedCheckpoint': status[count_key], 'checkpointEvery': checkpoint_every, 'finalForcedSave': True, 'version': version, 'savedVerified': False})
         self.record('prototypes', {**status, 'savedVerified': False})
 
     def audit(self):

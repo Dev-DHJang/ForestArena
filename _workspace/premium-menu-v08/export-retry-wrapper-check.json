@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "tests": 5,
+  "checks": [
+    "only known network/Failedtofetch/ResourceRequest timeouts retry; integrity and unknown task timeouts stop",
+    "one transient failure journals counts, pauses two seconds, then resumes and finishes serially",
+    "exactly three consecutive failures without native/preview progress stop",
+    "actual current-spec progress resets the consecutive failure counter",
+    "integrity/provenance failures stop immediately without retry journal or sleep"
+  ],
+  "note": "Synthetic callbacks only. No Penpot API, browser, actual export, save or finish stage executed."
+}

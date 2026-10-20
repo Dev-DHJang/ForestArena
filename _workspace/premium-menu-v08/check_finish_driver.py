@@ -33,6 +33,7 @@ class Fake:
             return {'out': [{'created': True}]}
         if marker == 'comparison-exports':
             assert self.created == 5 and 'await storage.v08.exportComparisonBatch(1)' in code
+            assert any('20:9 비교 편집 원본 5/5' in code for code in self.versions), 'New comparison IDs were not saved before remote rendering'
             self.exported += 1
             return {'out': [{'exported': True}]}
         if marker == 'prototype-status':
@@ -95,6 +96,12 @@ def main():
     assert any('237/237' in code for code in fake.versions)
     all_code.extend(fake.code)
     rows.append({'name': 'dynamic-237-count-serial-all-stages', 'passed': True})
+    assert result['stages']['prototype-geometry']['checkpointEvery'] == 64
+    assert result['stages']['prototype-wiring']['checkpointEvery'] == 128
+    assert result['stages']['prototype-geometry']['finalForcedSave'] and result['stages']['prototype-wiring']['finalForcedSave']
+    assert sum('프로토타입 구성' in code for code in fake.versions) == 4
+    assert sum('프로토타입 연결' in code for code in fake.versions) == 2
+    rows.append({'name': 'comparison-IDs-saved-before-render-and-prototype-64-128-final-forced-save', 'passed': True})
 
     fake = Fake(total=37, prepared=18, wired=12, created=4, exported=3)
     _, result = run_case(fake)
