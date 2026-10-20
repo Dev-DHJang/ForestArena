@@ -1,0 +1,70 @@
+{
+  "version": 2,
+  "purpose": "OS launcher icon; body-connected Myo-ryung bust",
+  "source_character_id": "myo-ryung",
+  "source_character_unchanged": true,
+  "approved_source_sha256": "1343a179f48057ded029947a2290e59fae37e2c954b0cf5e8bd86553479b192b",
+  "source_record": "_workspace/myoryung-app-branding-v02/input-provenance.json",
+  "tool": "built-in image_gen (previous interrupted session); Godot Image API for deterministic resizing and layer packaging",
+  "regular_composition": "User-selected full square original resized to 1024/192; no head extraction",
+  "foreground_placement": {
+    "canvas": [
+      432,
+      432
+    ],
+    "bust_size": [
+      360,
+      360
+    ],
+    "bust_offset": [
+      36,
+      10
+    ],
+    "launcher_viewport": [
+      72,
+      72,
+      288,
+      288
+    ],
+    "safe_content": "Face, eyes and mouth inside central viewport; shoulders and clothing continue to bottom. Ear tips may be cropped by launcher masks."
+  },
+  "assets": [
+    {
+      "path": "assets/branding/myo-ryung-v02/adaptive-background-432.png",
+      "sha256": "267f409cbfc9b2aba5b5fff07ec24d7076916a29b84ae2a6903bf0b162aa58ea",
+      "size": [
+        432,
+        432
+      ],
+      "alpha": false
+    },
+    {
+      "path": "assets/branding/myo-ryung-v02/adaptive-foreground-432.png",
+      "sha256": "54ec1de0968e835b88ced73a3cc4a01b5c939e3386e23bf06cf64e6b5e0bed25",
+      "size": [
+        432,
+        432
+      ],
+      "alpha": true
+    },
+    {
+      "path": "assets/branding/myo-ryung-v02/app-icon-1024.png",
+      "sha256": "afd83e54fb92ab7633d1e6dc13901bfab731012340841ad830af9f6c5bbd1b46",
+      "size": [
+        1024,
+        1024
+      ],
+      "alpha": false
+    },
+    {
+      "path": "assets/branding/myo-ryung-v02/main-192.png",
+      "sha256": "d4235d67a1de7f87978619b29ac9c1cb1253e4ea65f36ee87896c6c1f129eefa",
+      "size": [
+        192,
+        192
+      ],
+      "alpha": false
+    }
+  ],
+  "license_context": "AI-generated derivative of existing approved user-provided character; not independent third-party rights clearance."
+}
