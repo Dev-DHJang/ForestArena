@@ -1,0 +1,39 @@
+{
+  "scope": "local mocks only; no Penpot API, browser, actual save or actual audit executed",
+  "tests": [
+    {
+      "name": "dynamic-237-count-serial-all-stages",
+      "passed": true
+    },
+    {
+      "name": "resume-partially-completed-stages",
+      "passed": true
+    },
+    {
+      "name": "idempotent-complete-no-extra-shape-work",
+      "passed": true
+    },
+    {
+      "name": "reject-no-progress",
+      "passed": true
+    },
+    {
+      "name": "reject-audit-issue",
+      "passed": true
+    },
+    {
+      "name": "reject-audit-count",
+      "passed": true
+    },
+    {
+      "name": "reject-audit-missing-issues",
+      "passed": true
+    },
+    {
+      "name": "generated-rpc-and-helper-javascript-syntax",
+      "passed": true
+    }
+  ],
+  "passed": 8,
+  "failed": 0
+}

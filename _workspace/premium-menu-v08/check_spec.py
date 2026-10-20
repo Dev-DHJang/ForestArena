@@ -58,5 +58,41 @@ for i in [1,2,3]:
  for e in byname[name]['elements']:
   if e['name'] in ['BUTTON / 저장','BUTTON / 편성 적용'] and e.get('dest')!='MENU08 / SelectionRequired':errors.append([name,'empty preset signals success'])
 
-report={'scope' :'static geometry only; not a PNG/Penpot visual pass','base':len(p['base']),'scenes':len(p['scenes']),'legacyMapping':len(p['legacyMapping']),'errors':errors,'warnings':warnings}
+# Settings examples must preserve the applied values and restore the actual runtime defaults.
+# Category combinations are outside this finite prototype; each category round-trip is checked.
+settingsBase='EXT_06_GeneralSettings'
+def sn(tag):return 'MENU08 / '+settingsBase+' / '+tag
+def visible_action(scene,label):
+ es=scene['elements'];start=max((i for i,e in enumerate(es) if e['name']=='MODAL / scrim'),default=-1)
+ return next(e for i,e in enumerate(es) if i>start and e['name']=='BUTTON / '+label)
+def follow(scene,label):return byname[visible_action(scene,label)['dest']]
+def expect(scene,values,what):
+ if scene.get('settingsState',{}).get('values')!=values:errors.append([scene['name'],what,scene.get('settingsState',{}).get('values'),values])
+settingCases=[('소리','소리',{'music':40,'effects':40,'muted':True},{'music':60,'effects':80,'muted':False}),('화면 효과','화면 효과',{'reduce_visual_effects':True},{'reduce_visual_effects':False}),('접근성','접근성',{'text_scale':1.15,'haptics_enabled':False},{'text_scale':1.0,'haptics_enabled':True}),('미니맵','미니맵',{'transparency':50,'marker_style':'dot','show_names':False},{'transparency':30,'marker_style':'face','show_names':True}),('접근성-large','접근성',{'text_scale':1.3,'haptics_enabled':False},{'text_scale':1.0,'haptics_enabled':True})]
+for tag,tab,changed,defaults in settingCases:
+ dirty=byname[sn('접근성-large' if tag=='접근성-large' else tab+'-off')]
+ applied=follow(dirty,'적용');saved=follow(applied,'닫기')
+ expect(applied,changed,'applied overlay lost changed settings');expect(saved,changed,'closing applied overlay lost saved settings')
+ if saved.get('settingsState',{}).get('stage')!='saved':errors.append([saved['name'],'applied result is still dirty'])
+ reset=follow(saved,'기본값 복원');expect(follow(reset,'취소'),changed,'cancel reset lost applied settings')
+ restored=follow(reset,'기본값 복원');expect(restored,defaults,'restore does not match runtime defaults')
+ if restored.get('settingsState',{}).get('savedValues')!=changed:errors.append([restored['name'],'restored draft forgot previous saved values'])
+ discard=follow(restored,'취소');expect(follow(discard,'취소'),defaults,'cancel discard did not keep restored draft');expect(follow(discard,'변경 버리기'),changed,'discard did not return previous saved settings')
+ defaultApplied=follow(restored,'적용');defaultSaved=follow(defaultApplied,'닫기');expect(defaultSaved,defaults,'applying restored defaults lost defaults')
+for tab in ['소리','미니맵']:
+ for kind,baselineTag in [('default-draft-from-initial-',None),('changed-from-default-','default-saved-')]:
+  scene=byname[sn(kind+tab)];expected=byname[(settingsBase if tab=='소리' else sn(tab)) if baselineTag is None else sn(baselineTag+tab)]
+  if follow(follow(scene,'취소'),'변경 버리기')['name']!=expected['name']:errors.append([scene['name'],'draft cancel lost its own saved baseline'])
+large=byname[sn('접근성-large')]
+if follow(follow(large,'취소'),'변경 버리기')['name']!=sn('접근성'):errors.append([large['name'],'maximum text draft cancel lost saved accessibility'])
+for floating,info,reset,fixed in [('MENU08 / ControlsFloatingFromLobby','MENU08 / ControlsParametersFloatingLobby','MENU08 / SettingsResetFloatingLobby','MENU08 / ControlsFromLobby'),('MENU08 / CBT_08_Settings / floating','MENU08 / ControlsParametersFloating','MENU08 / SettingsResetFloating','CBT_08_Settings')]:
+ for label in ['취소','확인']:
+  if follow(byname[info],label)['name']!=floating:errors.append([info,'floating info lost source on '+label])
+ if follow(byname[reset],'취소')['name']!=floating:errors.append([reset,'floating reset cancel lost source'])
+ if follow(byname[reset],'복원')['name']!=fixed:errors.append([reset,'restore did not return fixed defaults'])
+nickname=byname['MENU08 / NicknameEdit'];nicknameResult=follow(nickname,'변경 확인');nicknameProfile=follow(nicknameResult,'프로필로')
+if not any(e['name']=='INPUT / value' and e['text']=='숲빛 여행자' for e in nickname['elements']):errors.append(['NicknameEdit','missing editable input example'])
+if not any(e['name']=='PROFILE / name' and e['text']=='숲빛 여행자' for e in nicknameProfile['elements']):errors.append(['NicknameEdit','confirmation did not show changed nickname'])
+
+report={'scope' :'static geometry and representative behavior; not a PNG/Penpot visual pass','base':len(p['base']),'scenes':len(p['scenes']),'legacyMapping':len(p['legacyMapping']),'errors':errors,'warnings':warnings}
 (TASK/'geometry-audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));raise SystemExit(bool(errors))

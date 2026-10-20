@@ -1,7 +1,7 @@
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlsplit,unquote
-import json,re,base64
+import json,re,base64,hashlib
 ROOT=Path(__file__).resolve().parents[2]
 TASK=ROOT/'_workspace/premium-menu-v08'
 OLD=ROOT/'_workspace/premium-menu-v07'
@@ -18,7 +18,16 @@ class Handler(SimpleHTTPRequestHandler):
   self.send_header('Access-Control-Allow-Private-Network','true')
   super().end_headers()
  def do_GET(self):
-  if self.path.startswith('/media/') and self.path.endswith('.json'):
+  if self.path.startswith('/png-bytes/') and urlsplit(self.path).path.endswith('.png.json'):
+   name=unquote(urlsplit(self.path).path.rsplit('/',1)[-1]).removesuffix('.json')
+   if not re.fullmatch(r'[A-Za-z0-9_-]+\.png',name):return self.send_error(400)
+   file=TASK/'exports'/name
+   if not file.exists():return self.send_error(404)
+   data=file.read_bytes()
+   if not data.startswith(b'\x89PNG\r\n\x1a\n'):return self.send_error(415)
+   result=json.dumps({'bytes':list(data),'sha256':hashlib.sha256(data).hexdigest(),'length':len(data)},separators=(',',':')).encode()
+   self.send_response(200);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(result)));self.end_headers();self.wfile.write(result)
+  elif self.path.startswith('/media/') and self.path.endswith('.json'):
    key=self.path.split('/')[-1].removesuffix('.json')
    if key in ['character-room','accessory-workshop','shop-market','archive','social-lodge','observatory']:
     path=ROOT/'assets/ui/premium-menu-v07/backgrounds'/f'{key}-v07.png'
@@ -37,6 +46,11 @@ class Handler(SimpleHTTPRequestHandler):
   name=self.path.rsplit('/',1)[-1];size=int(self.headers.get('Content-Length','0'))
   if not re.fullmatch(r'[A-Za-z0-9_.-]+\.(png|json|svg)',name) or not 0<size<100000000:return self.send_error(400)
   payload=self.rfile.read(size)
+  if self.path=='/digest/sha256.json':
+   data=bytes(json.loads(payload)['bytes'])
+   if not data.startswith(b'\x89PNG\r\n\x1a\n'):return self.send_error(415)
+   result=json.dumps({'sha256':hashlib.sha256(data).hexdigest(),'bytes':len(data)}).encode()
+   self.send_response(200);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(result)));self.end_headers();self.wfile.write(result);return
   if self.path.startswith('/export/'):
    data=bytes(json.loads(payload)['bytes']);target=TASK/'exports'
    if not data.startswith(b'\x89PNG\r\n\x1a\n'):return self.send_error(415)

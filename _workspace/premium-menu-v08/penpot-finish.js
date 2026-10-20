@@ -16,7 +16,11 @@ N.activateExportPage=async(names,comparison=false)=>{
  const ids=new Set(pages.map(p=>p.id));if(ids.size!==1)throw Error('One export batch must use one page only: '+[...new Set(pages.map(p=>p.name))].join(', '));
  const page=pages[0];if(!page)throw Error('Export batch is empty');if(penpot.currentPage.id!==page.id)await penpot.openPage(page);N.ensureFlags();if(penpot.viewport&&N.quietExportViewport!==false){penpot.selection=[];penpot.viewport.zoom=1;penpot.viewport.center={x:-3000,y:-3000};}return page;
 };
-N.sha256=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(v=>v.toString(16).padStart(2,'0')).join('');
+N.sha256=async bytes=>{
+ if(typeof crypto!=='undefined'&&crypto&&crypto.subtle&&typeof crypto.subtle.digest==='function')return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))).map(v=>v.toString(16).padStart(2,'0')).join('');
+ const response=await fetch(N.endpoint+'/digest/sha256.json',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({bytes:Array.from(bytes)})});if(!response.ok)throw Error('SHA-256 digest service '+response.status);
+ const result=await response.json();if(!/^[a-f0-9]{64}$/.test(result.sha256)||result.bytes!==bytes.length)throw Error('SHA-256 digest response is invalid');return result.sha256;
+};
 N.nativeSpecHash=name=>{const spec=N.spec.scenes.find(s=>s.name===name);if(!spec)return null;let h=2166136261;for(const c of JSON.stringify(spec)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return (h>>>0).toString(16);};
 N.hasExportSnapshot=name=>{
  const raw=N.boards[name]?.getPluginData('v08-snapshot-media');if(!raw)return false;

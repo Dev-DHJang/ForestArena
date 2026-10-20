@@ -26,6 +26,12 @@ N.exportNextBatch=async(design=false,count=2)=>{
 };
 N.exportPngUrl=filename=>{if(typeof filename!=='string'||!/^[A-Za-z0-9_-]+[.]png$/.test(filename))throw Error('Invalid export PNG filename');return N.endpoint+'/_workspace/premium-menu-v08/exports/'+encodeURIComponent(filename);};
 N.readPngSize=bytes=>{if(bytes.length<24||[137,80,78,71,13,10,26,10].some((v,i)=>bytes[i]!==v))throw Error('Invalid PNG bytes');const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);return [view.getUint32(16),view.getUint32(20)];};
+N.exportPngBytesUrl=filename=>{N.exportPngUrl(filename);return N.endpoint+'/png-bytes/'+encodeURIComponent(filename)+'.json';};
+N.readExportPng=async filename=>{
+ const response=await fetch(N.exportPngBytesUrl(filename));if(!response.ok)throw Error('PNG byte JSON fetch '+response.status);const result=await response.json();
+ if(!Array.isArray(result.bytes)||!Number.isInteger(result.length)||result.length!==result.bytes.length||!result.bytes.every(v=>Number.isInteger(v)&&v>=0&&v<=255)||!/^[a-f0-9]{64}$/.test(result.sha256))throw Error('PNG byte JSON length, byte values or digest are invalid');
+ const bytes=new Uint8Array(result.bytes);if(bytes.length!==result.length)throw Error('PNG byte JSON length differs');return {bytes,sha256:result.sha256,length:result.length};
+};
 N.importSnapshotBatch=async(records,count=2)=>{
  N.ensureFlags();if(!Array.isArray(records))throw Error('Derived snapshot records must be an array');
  const pending=records.filter(r=>{const existing=N.exportRecords[r.name];return !existing||existing.sha256!==r.sha256||existing.sourceSha256!==r.sourceSha256||existing.nativeSpecHash!==N.nativeSpecHash(r.name)||!N.hasExportSnapshot(r.name);});
@@ -39,10 +45,10 @@ N.importSnapshotBatch=async(records,count=2)=>{
   if(source.id!==b.id||source.filename!==sourceFilename||source.nativeSpecHash!==specHash||record.nativeSpecHash!==specHash)throw Error('Derived source identity or spec hash differs: '+name);
   if(filename!==N.fileName(name)||JSON.stringify(record.outputSize)!=='[1280,720]'||JSON.stringify(source.outputSize)!=='[1920,1080]')throw Error('Derived output name or dimensions differ: '+name);
   if(!/^[a-f0-9]{64}$/.test(sha256)||!/^[a-f0-9]{64}$/.test(sourceSha256)||typeof resizeAlgorithm!=='string'||!/pillow/i.test(resizeAlgorithm)||!/lanczos/i.test(resizeAlgorithm))throw Error('Derived hash or Pillow LANCZOS metadata is invalid: '+name);
-  if(!source.sha256){const response=await fetch(N.exportPngUrl(sourceFilename));if(!response.ok)throw Error('Source PNG fetch '+response.status);const bytes=new Uint8Array(await response.arrayBuffer());if(JSON.stringify(N.readPngSize(bytes))!=='[1920,1080]')throw Error('Actual source PNG dimensions differ: '+name);source.sha256=await N.sha256(bytes);}
+  if(!source.sha256){const png=await N.readExportPng(sourceFilename),bytes=png.bytes;if(JSON.stringify(N.readPngSize(bytes))!=='[1920,1080]')throw Error('Actual source PNG dimensions differ: '+name);const actualSha256=await N.sha256(bytes);if(png.sha256!==actualSha256)throw Error('Actual source PNG JSON SHA-256 differs: '+name);source.sha256=actualSha256;}
   if(source.sha256!==sourceSha256)throw Error('Actual native source SHA-256 differs: '+name);
-  const response=await fetch(N.exportPngUrl(filename));if(!response.ok)throw Error('Derived PNG fetch '+response.status);const bytes=new Uint8Array(await response.arrayBuffer());
-  if(JSON.stringify(N.readPngSize(bytes))!=='[1280,720]'||await N.sha256(bytes)!==sha256||(record.bytes&&record.bytes!==bytes.length))throw Error('Actual derived PNG size or SHA-256 differs: '+name);
+  const png=await N.readExportPng(filename),bytes=png.bytes;
+  if(JSON.stringify(N.readPngSize(bytes))!=='[1280,720]'||await N.sha256(bytes)!==sha256||png.sha256!==sha256||(record.bytes&&record.bytes!==bytes.length))throw Error('Actual derived PNG size or SHA-256 differs: '+name);
   const media=await penpot.uploadMediaData(filename,bytes,'image/png');if(penpot.currentPage.id!==page.id)await penpot.openPage(page);N.ensureFlags();
   b.setPluginData('v08-snapshot-media',JSON.stringify(media));b.setPluginData('v08-snapshot-provenance',JSON.stringify({sha256,sourceFilename,sourceSha256,resizeAlgorithm,nativeSpecHash:specHash}));N.snapshots[name]=media;
   N.exportRecords[name]={name,id:b.id,filename,bytes:bytes.length,outputSize:[1280,720],sha256,sourceFilename,sourceSha256,resizeAlgorithm,nativeSpecHash:specHash,snapshotMediaId:media.id};

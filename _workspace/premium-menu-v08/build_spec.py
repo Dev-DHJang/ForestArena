@@ -50,7 +50,7 @@ def lobby():
  new('SCR_03_Lobby','FOREST ARENA','character-room','숲의 아레나',footer=False)
  # Lobby hero leaves an open centre and two asymmetric information anchors.
  cur['elements']=[e for e in cur['elements'] if e['name'] not in ['BUTTON / 뒤로','BUTTON / 전체 메뉴']]
- 
+
  for e in cur['elements']:
   if e['name'] in ['TITLE','EYEBROW']:e['w']=968
  btn('프로필',1320,48,240,80,'SCR_24_Profile',ic='people');btn('설정',1584,48,240,80,'EXT_06_GeneralSettings',ic='gear')
@@ -456,6 +456,160 @@ S={name:S[name] for name in oldOrder}|{name:scene for name,scene in S.items() if
 lobbyReachable=reachable('SCR_03_Lobby');reviewOnly=sorted(set(S)-lobbyReachable-{s for s in S if s=='MENU08 / Review' or s.startswith('MENU08 / Review /')})
 if set(S)-reachable('SCR_03_Lobby')-reachable('MENU08 / Review'):raise ValueError('Selection states unreachable')
 
+# Preserve saved values, distinct draft defaults, and modal return contexts.
+SEMANTIC_BASELINE=json.loads((TASK/'semantic-fix-baseline.json').read_text())
+SET_BASE='EXT_06_GeneralSettings'
+SETTING_VALUES={
+ '소리':{'initial':{'music':70,'effects':70,'muted':False},'changed':{'music':40,'effects':40,'muted':True},'default':{'music':60,'effects':80,'muted':False}},
+ '화면 효과':{'initial':{'reduce_visual_effects':False},'changed':{'reduce_visual_effects':True},'default':{'reduce_visual_effects':False}},
+ '접근성':{'initial':{'text_scale':1.0,'haptics_enabled':True},'changed':{'text_scale':1.15,'haptics_enabled':False},'default':{'text_scale':1.0,'haptics_enabled':True}},
+ '미니맵':{'initial':{'transparency':20,'marker_style':'face','show_names':True},'changed':{'transparency':50,'marker_style':'dot','show_names':False},'default':{'transparency':30,'marker_style':'face','show_names':True}}}
+def set_name(tag):return nm(SET_BASE,tag)
+def initial_name(tab):return SET_BASE if tab=='소리' else set_name(tab)
+def set_values(scene,tab,values,baseline,stage):
+ scene['settingsState']={'category':tab,'values':deepcopy(values),'savedValues':deepcopy(baseline),'stage':stage}
+ sliders=[values['music'],values['effects']] if tab=='소리' else [values['transparency']] if tab=='미니맵' else []
+ k=0
+ for e in scene['elements']:
+  if e['name']=='SETTING / value':e['text']=str(sliders[k])+'%';k+=1
+ tracks=[e for e in scene['elements'] if e['name']=='SLIDER / value'];thumbs=[e for e in scene['elements'] if e['name']=='SLIDER / thumb']
+ for i,v in enumerate(sliders):
+  width=round(352*v/(90 if tab=='미니맵' else 100)/8)*8
+  tracks[i]['w']=max(8,width);thumbs[i]['x']=1432+max(0,width-16)
+ toggle={'소리':('muted',656),'화면 효과':('reduce_visual_effects',368),'접근성':('haptics_enabled',512),'미니맵':('show_names',656)}[tab]
+ for e in scene['elements']:
+  if e['kind']=='button' and e['y']==toggle[1] and e['x']==1568:e.update(text='켬' if values[toggle[0]] else '끔',state='selected' if values[toggle[0]] else 'ghost')
+  if tab=='접근성' and e['kind']=='button' and e['y']==368 and e.get('text') in ['기본','크게','최대']:e['state']='selected' if e['text']=={1.0:'기본',1.15:'크게',1.3:'최대'}[values['text_scale']] else 'ghost'
+  if tab=='미니맵' and e['kind']=='button' and e['y']==512 and e.get('text') in ['얼굴','점']:e['state']='selected' if e['text']==('얼굴' if values['marker_style']=='face' else '점') else 'ghost'
+  if e['name']=='SETTINGS / save state':e.update(text='현재 설정이 적용되어 있습니다.' if stage=='saved' else '기본값을 복원했습니다. 적용을 눌러 저장하세요.' if stage=='default-draft' else '저장하지 않은 변경 사항이 있습니다.',color=C['muted'] if stage=='saved' else C['gold'])
+profiles=[(tab,tab,vals['changed']) for tab,vals in SETTING_VALUES.items()]+[('접근성-large','접근성',{'text_scale':1.3,'haptics_enabled':False})]
+# One saved/default snapshot per category; the maximum text option has its own saved snapshot.
+for tab,values in SETTING_VALUES.items():
+ init=initial_name(tab);default=set_name('default-saved-'+tab);defaultDirty=set_name('default-draft-from-initial-'+tab)
+ cur=deepcopy(S[init]);cur.update(name=default,target=False);S[default]=cur;set_values(cur,tab,values['default'],values['default'],'saved')
+ cur=deepcopy(S[init]);cur.update(name=defaultDirty,target=False);S[defaultDirty]=cur;set_values(cur,tab,values['default'],values['initial'],'default-draft')
+for tag,tab,changedValues in profiles:
+ dirty=set_name('접근성-large') if tag=='접근성-large' else set_name(tab+'-off');saved=set_name('saved-'+tag);defaultSaved=set_name('default-saved-'+tab);defaultDirty=set_name('default-draft-from-saved-'+tag);changedFromDefault=set_name('changed-from-default-'+tag)
+ set_values(S[dirty],tab,changedValues,SETTING_VALUES[tab]['initial'],'changed')
+ cur=deepcopy(S[dirty]);cur.update(name=saved,target=False);S[saved]=cur;set_values(cur,tab,changedValues,changedValues,'saved')
+ cur=deepcopy(S[initial_name(tab)]);cur.update(name=defaultDirty,target=False);S[defaultDirty]=cur;set_values(cur,tab,SETTING_VALUES[tab]['default'],changedValues,'default-draft')
+ cur=deepcopy(S[dirty]);cur.update(name=changedFromDefault,target=False);S[changedFromDefault]=cur;set_values(cur,tab,changedValues,SETTING_VALUES[tab]['default'],'changed')
+# Native default rows retain current-value examples; defaults are shown only after restore.
+for tab,values in SETTING_VALUES.items():set_values(S[initial_name(tab)],tab,values['initial'],values['initial'],'saved')
+for tag,tab,changedValues in profiles:
+ init=initial_name(tab);dirty=set_name('접근성-large') if tag=='접근성-large' else set_name(tab+'-off');saved=set_name('saved-'+tag);defaultSaved=set_name('default-saved-'+tab);defaultDirty=set_name('default-draft-from-saved-'+tag);defaultInitial=set_name('default-draft-from-initial-'+tab);changedFromDefault=set_name('changed-from-default-'+tag)
+ applied=set_name('applied-'+tag);appliedDefault=set_name('applied-default-'+tab);resetDirty=set_name('reset-changed-'+tag);resetSaved=set_name('reset-saved-'+tag);resetChangedDefault=set_name('reset-changed-from-default-'+tag)
+ # Existing applied IDs are rebuilt with the values that were actually applied.
+ overlay(applied,saved,'설정을 적용했습니다.',tab+' 설정을 이 기기에 저장했습니다.',[('닫기',saved,'ghost'),('설정으로',saved,'primary')],'check')
+ overlay(resetDirty,dirty,tab+' 설정을 복원할까요?','이 분류의 값을 기본값으로 되돌립니다.\n복원한 값은 적용 버튼으로 저장합니다.',[('취소',dirty,'ghost'),('기본값 복원',defaultInitial,'primary')],'gear')
+ overlay(resetSaved,saved,tab+' 설정을 복원할까요?','이 분류의 값을 기본값으로 되돌립니다.\n취소하면 현재 적용한 값을 유지합니다.',[('취소',saved,'ghost'),('기본값 복원',defaultDirty,'primary')],'gear')
+ overlay(resetChangedDefault,changedFromDefault,tab+' 설정을 복원할까요?','적용하지 않은 변경을 기본값으로 되돌립니다.\n현재 저장한 기본 설정은 그대로 유지됩니다.',[('취소',changedFromDefault,'ghost'),('기본값 복원',defaultSaved,'primary')],'gear')
+ for view,baseline,reset,apply in [(dirty,init,resetDirty,applied),(saved,saved,resetSaved,None),(defaultDirty,saved,None,appliedDefault),(changedFromDefault,defaultSaved,resetChangedDefault,applied)]:
+  for e in S[view]['elements']:
+   if e['name']=='BUTTON / 취소':e['dest']=baseline
+   if e['name']=='BUTTON / 기본값 복원':e.update(dest=reset,state='ghost' if reset else 'disabled')
+   if e['name']=='BUTTON / 적용':e.update(dest=apply,state='primary' if apply else 'disabled')
+   if e['name']=='BUTTON / 소리' and tab=='소리' or e['name']=='BUTTON / '+tab:
+    if view==saved:e['dest']=saved
+   if view==saved and e.get('dest') and e['name'] not in ['BUTTON / 취소','BUTTON / 기본값 복원','BUTTON / 적용','BUTTON / 뒤로','BUTTON / 전체 메뉴']:
+    # Value controls alter a visible draft, never jump back to an unrelated baseline.
+    if e['kind']=='hotspot' or (e['kind']=='button' and e['y']>=328 and e['x']>=1376):e['dest']=defaultDirty
+   if view==defaultDirty and (e['kind']=='hotspot' or (e['kind']=='button' and e['y']>=328 and e['y']<832 and e['x']>=1376)):e['dest']=saved
+  if view==saved:
+   # Saved snapshots have normal category navigation, not dirty-state discard links.
+   cleanButtons={e['name']:e for e in S[init]['elements'] if e['kind']=='button' and e['x']==96 and 200<=e['y']<800}
+   for e in S[view]['elements']:
+    if e['name'] in cleanButtons:e['dest']=saved if e['text']==tab else cleanButtons[e['name']]['dest']
+    if e['name']=='BUTTON / 뒤로':e['dest']='SCR_03_Lobby'
+for tab,values in SETTING_VALUES.items():
+ init=initial_name(tab);defaultSaved=set_name('default-saved-'+tab);defaultInitial=set_name('default-draft-from-initial-'+tab);appliedDefault=set_name('applied-default-'+tab);defaultTag=tab
+ overlay(set_name('reset-'+tab),init,tab+' 설정을 복원할까요?','이 분류의 값을 기본값으로 되돌립니다.\n복원한 값은 적용 버튼으로 저장합니다.',[('취소',init,'ghost'),('기본값 복원',defaultInitial,'primary')],'gear')
+ overlay(appliedDefault,defaultSaved,'기본 설정을 적용했습니다.',tab+' 기본 설정을 이 기기에 저장했습니다.',[('닫기',defaultSaved,'ghost'),('설정으로',defaultSaved,'primary')],'check')
+ for view in [defaultSaved,defaultInitial]:
+  for e in S[view]['elements']:
+   if e['name']=='BUTTON / 취소':e['dest']=view if view==defaultSaved else init
+   if e['name']=='BUTTON / 기본값 복원':e.update(dest=None,state='disabled')
+   if e['name']=='BUTTON / 적용':e.update(dest=appliedDefault if view==defaultInitial else None,state='primary' if view==defaultInitial else 'disabled')
+   if e['kind']=='hotspot' or (e['kind']=='button' and e['y']>=328 and e['y']<832 and e['x']>=1376):
+    profileTag='접근성-large' if e.get('text')=='최대' else tab
+    e['dest']=set_name('changed-from-default-'+profileTag) if view==defaultSaved else set_name('접근성-large') if profileTag=='접근성-large' else set_name(tab+'-off')
+   if e['name']=='BUTTON / '+tab:e['dest']=view
+ # Legacy general sound reset also restores actual defaults and an unapplied state.
+ if tab=='소리':
+  for e in S['MENU08 / SettingsResetGeneral']['elements']:
+   if e['name']=='BUTTON / 복원':e['dest']=defaultInitial
+# A restored value that already equals the saved value uses the existing clean state.
+# This avoids manufacturing dirty/default combinations that the runtime cannot have.
+semanticAliases={}
+for tab in ['화면 효과','접근성']:
+ semanticAliases[set_name('default-saved-'+tab)]=initial_name(tab)
+ semanticAliases[set_name('default-draft-from-initial-'+tab)]=initial_name(tab)
+for tag,tab,_ in profiles:
+ if tab in ['화면 효과','접근성']:
+  semanticAliases[set_name('changed-from-default-'+tag)]=set_name('접근성-large') if tag=='접근성-large' else set_name(tab+'-off')
+  semanticAliases[set_name('reset-changed-from-default-'+tag)]=set_name('reset-changed-'+tag)
+for name in semanticAliases:S.pop(name)
+for scene in S.values():
+ for e in scene['elements']:
+  if e.get('dest') in semanticAliases:e['dest']=semanticAliases[e['dest']]
+# Each new draft can cancel back to its own saved snapshot. The prototype models
+# one representative value set per category, rather than every cross-category combination.
+draftContexts=[]
+for tag,tab,changedValues in profiles:
+ saved=set_name('saved-'+tag)
+ draftContexts.append((set_name('default-draft-from-saved-'+tag),saved,tab))
+ if tab in ['소리','미니맵']:
+  draftContexts.append((set_name('changed-from-default-'+tag),set_name('default-saved-'+tab),tab))
+for tab in ['소리','미니맵']:draftContexts.append((set_name('default-draft-from-initial-'+tab),initial_name(tab),tab))
+draftContexts.append((set_name('접근성-large'),initial_name('접근성'),'접근성'))
+for view,baseline,tab in draftContexts:
+ discard=set_name('discard-draft-'+view.rsplit(' / ',1)[-1])
+ overlay(discard,view,'변경 내용을 버릴까요?','아직 적용하지 않은 설정이 있습니다.\n변경을 버리면 이전에 저장한 값으로 돌아갑니다.',[('취소',view,'ghost'),('변경 버리기',baseline,'primary')],'gear')
+ for e in S[view]['elements']:
+  if e['name'] in ['BUTTON / 취소','BUTTON / 뒤로']:e['dest']=discard
+# Saved snapshots are clean. Re-selecting an already selected option is a no-op.
+for scene in S.values():
+ state=scene.get('settingsState')
+ if not state:continue
+ if state['stage']=='saved' and not scene.get('overlay'):
+  for e in scene['elements']:
+   if e['name']=='BUTTON / 취소':e['dest']='SCR_03_Lobby'
+ for e in scene['elements']:
+  if e['kind']=='button' and e.get('state')=='selected' and 328<=e['y']<832 and e['x']>=1376 and e.get('text') in ['기본','크게','최대','얼굴','점']:e['dest']=scene['name']
+ for e in scene['elements']:
+  if e['name']=='BUTTON / '+state['category']:e['dest']=scene['name']
+
+# Information and reset dialogs remember floating input and their lobby/pause origin.
+for lobbyContext,source,oldInfo,oldReset in [(True,'MENU08 / ControlsFloatingFromLobby','MENU08 / ControlsParametersLobby','MENU08 / SettingsResetLobbyControls'),(False,nm('CBT_08_Settings','floating'),'MENU08 / ControlsParameters','MENU08 / SettingsReset')]:
+ info='MENU08 / ControlsParametersFloatingLobby' if lobbyContext else 'MENU08 / ControlsParametersFloating';reset='MENU08 / SettingsResetFloatingLobby' if lobbyContext else 'MENU08 / SettingsResetFloating';fixed='MENU08 / ControlsFromLobby' if lobbyContext else 'CBT_08_Settings'
+ overlay(info,source,'조작 크기와 투명도','버튼 크기는 100–120%, 투명도는 0–50%입니다.\n터치 영역도 표시 크기에 맞춰 함께 조절됩니다.',[('취소',source,'ghost'),('확인',source,'primary')],'gear')
+ overlay(reset,source,'조작 설정을 복원할까요?','고정 조이스틱 · 크기 100% · 투명도 0%로\n되돌립니다. 복원 후 적용 버튼으로 저장하세요.',[('취소',source,'ghost'),('복원',fixed,'primary')],'gear')
+ for e in S[source]['elements']:
+  if e.get('dest')==oldInfo:e['dest']=info
+  if e.get('dest')==oldReset:e['dest']=reset
+# Nickname editing uses an editable native text field and a labeled prototype result.
+# Keyboard input and validation remain in the existing app, not a fabricated Penpot form engine.
+renamedProfile='MENU08 / ProfileNicknameExample';nicknameResult='MENU08 / NicknameChangedExample'
+cur=deepcopy(S['SCR_24_Profile']);cur.update(name=renamedProfile,target=False,nicknameExample='숲빛 여행자');S[renamedProfile]=cur
+for e in cur['elements']:
+ if e['name']=='PROFILE / name':e['text']='숲빛 여행자'
+ if e['name'].startswith('CONTEXT /'):e['text']='닉네임 변경 결과의 시안 예시입니다. 실제 저장 자료가 아닙니다.'
+overlay(nicknameResult,renamedProfile,'닉네임을 변경했습니다.','변경한 닉네임 / 숲빛 여행자\n\n시안의 입력·저장 결과 예시입니다.\n실제 앱에서는 입력한 이름을 확인하고 저장합니다.',[('닫기',renamedProfile,'ghost'),('프로필로',renamedProfile,'primary')],'check')
+cur=S['MENU08 / NicknameEdit'];cur['nicknameExample']='숲빛 여행자';cur['elements']=[e for e in cur['elements'] if e['name']!='MODAL / message']
+rect('INPUT / nickname',504,424,912,96,'bg',1,4,'line');text('INPUT / value','숲빛 여행자',536,448,848,32,'text')
+text('NICKNAME / hint','닉네임 입력 시안입니다. 실제 입력은 앱에서 진행합니다.\n한글·영문 등 1–12자 · LAN 방이 열려 있으면 변경할 수 없습니다.',504,560,912,28,'muted')
+for e in cur['elements']:
+ if e['name']=='BUTTON / 변경 확인':e['dest']=nicknameResult
+
+# Fix grammar without altering other approved character descriptions.
+for scene in S.values():
+ for e in scene['elements']:
+  if e.get('text'):e['text']=e['text'].replace('꼬리 쓸기 · 위치 유지을','꼬리 쓸기 · 위치 유지를')
+semanticOrder=[row['name'] for row in SEMANTIC_BASELINE['scenes']]
+S={name:S[name] for name in semanticOrder}|{name:scene for name,scene in S.items() if name not in semanticOrder}
+lobbyReachable=reachable('SCR_03_Lobby');reviewOnly=sorted(set(S)-lobbyReachable-{s for s in S if s=='MENU08 / Review' or s.startswith('MENU08 / Review /')})
+if set(S)-reachable('SCR_03_Lobby')-reachable('MENU08 / Review'):raise ValueError('Settings states unreachable')
+
 # Provide complete old-state traceability while preserving original MENU07 boards.
 oldnames={s['name'] for s in OLD['scenes']};legacy=[]
 for old in sorted(oldnames):
@@ -476,6 +630,10 @@ before={row['name']:row['sha256'] for row in SELECTION_BASELINE['scenes']}
 changed=[{'name':name,'beforeSha256':before[name],'afterSha256':scene_hash(scene)} for name,scene in S.items() if name in before and before[name]!=scene_hash(scene)]
 added=[{'name':name,'beforeSha256':None,'afterSha256':scene_hash(scene)} for name,scene in S.items() if name not in before]
 (TASK/'changed-scenes.json').write_text(json.dumps({'basis':SELECTION_BASELINE['basis'],'algorithm':SELECTION_BASELINE['algorithm'],'originalOrderPreserved':list(S)[:len(oldOrder)]==oldOrder,'beforeScenes':len(before),'afterScenes':len(S),'changedExisting':changed,'added':added,'unchangedExisting':len(before)-len(changed)},ensure_ascii=False,indent=2)+'\n')
+semanticBefore={row['name']:row['sha256'] for row in SEMANTIC_BASELINE['scenes']}
+semanticChanged=[{'name':name,'beforeSha256':semanticBefore[name],'afterSha256':scene_hash(scene)} for name,scene in S.items() if name in semanticBefore and semanticBefore[name]!=scene_hash(scene)]
+semanticAdded=[{'name':name,'beforeSha256':None,'afterSha256':scene_hash(scene)} for name,scene in S.items() if name not in semanticBefore]
+(TASK/'semantic-changed-scenes.json').write_text(json.dumps({'basis':SEMANTIC_BASELINE['basis'],'algorithm':SEMANTIC_BASELINE['algorithm'],'reason':'Persist applied settings values; restore actual runtime defaults as drafts; preserve floating modal return; correct character grammar; provide editable nickname input and example saved result','originalOrderPreserved':list(S)[:len(semanticOrder)]==semanticOrder,'beforeScenes':len(semanticBefore),'afterScenes':len(S),'changedExisting':semanticChanged,'added':semanticAdded,'unchangedExisting':len(semanticBefore)-len(semanticChanged)},ensure_ascii=False,indent=2)+'\n')
 with (TASK/'state-table.csv').open('w') as f:
  w=csv.writer(f);w.writerow(['scene','kind','legacy_scene','background','control_count','purpose'])
  for s in S.values():w.writerow([s['name'],'base' if s['target'] else 'popup' if s.get('overlay') else 'variant',s.get('legacyName',''),s['background'],sum(e['kind'] in ['button','hotspot'] for e in s['elements']),s['title']])
