@@ -21,7 +21,7 @@
 
 - `tests/android_qa_session.gd` 보완 뒤 개별 검사 PASS (`qa/verify-finish-android-qa-session.log`).
 - 나머지 전체 스크립트 구간은 PASS (`qa/verify-finish-remaining.log`): 메뉴 공통 callback, LAN 결과 저장·계약·재접속, 실제 loopback 서버와 두 클라이언트의 연결/결과/재대전, QA 두 경기 분리, API TypeScript 검사, 온라인 계약과 하네스. 이 LAN 결과는 테스트 인증 서버를 쓴 로컬 연결 확인이며 PostgreSQL이나 물리 Android 통과를 뜻하지 않는다.
-- `./scripts/verify.sh` 전체 단일 실행은 `qa/verify-finish-full-r03.log`의 `Forest Arena verification passed.`까지 완료했다. 그 뒤 시각 QA에서 발견한 하강·다운·기상 표시 구간을 보완했고, 최종 실행은 `qa/verify-final-r04.log`에 기록한다.
+- `./scripts/verify.sh` 전체 단일 실행은 `qa/verify-finish-full-r03.log`의 `Forest Arena verification passed.`까지 완료했다. 그 뒤 시각 QA에서 발견한 하강·다운·기상 표시 구간을 보완했고, 최종 r04도 완료했고 `qa/verify-final-r04.log`에 기록했다.
 - 프리미엄 메뉴는2841개 검사·81상태 모두 PASS, 실패0(`qa/premium-menu-runtime/runtime-report.json`). native_capture=false, device_test=not_run이다.
 
 ## 남은 확인과 경고

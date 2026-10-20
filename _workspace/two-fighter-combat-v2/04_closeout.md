@@ -9,7 +9,9 @@
 - 독립검사:03_qa_combat_r01.md,03_qa_product_r01.md와모션QA기록.
 - 통합검사:03_integration.md 및qa폴더의원시로그/DB실조회/실제화면·영상.
 - 사용자검토:review/approval.html(새5개),review/index.html(실사용36개),review/live-special/index.html(실제특수3경기).
-- PR/커밋정보는생성뒤아래에확정한다. 승인전draft를유지하며아직develop병합하지않는다.
+- Draft PR: https://github.com/Dev-DHJang/ForestArena/pull/109
+- 구현커밋:34edb0f0f8e60714a3c6c9f1592ae262443f12dd. 리소스/검사기록추가:ef51f4091e287e0ae500d17cec99cec5bce0f685.
+- 승인전draft를유지하며아직develop병합하지않았다. 병합SHA는없다.
 
 ## 승인 대상
 
