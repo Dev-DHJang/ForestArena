@@ -1,0 +1,26 @@
+{
+  "reason": "verify.sh reached LAN runtime after all earlier tests passed, then fixture port 18081 was already in use; port became available, rerun LAN and remaining checks",
+  "commands": [
+    {
+      "command": "./scripts/verify-lan-runtime.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "./scripts/verify-android-qa-lan.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "./scripts/verify-online-server.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "./scripts/verify-harness.sh",
+      "exit_code": 1
+    },
+    {
+      "command": "./scripts/verify-harness.sh (after closeout draft existed)",
+      "exit_code": 0,
+      "log": "verify-harness-final.log"
+    }
+  ]
+}

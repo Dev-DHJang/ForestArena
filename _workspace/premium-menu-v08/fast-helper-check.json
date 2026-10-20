@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "scenes": 214,
+  "checks": [
+    "native source element order",
+    "semantic native projection including text, label, control destinations and legacy metadata",
+    "changed and removed elements replaced",
+    "repeated element names matched by complete content",
+    "clone uses source from the currently active page",
+    "natural child ordering and validation flags restored after background calls and page changes",
+    "soft stop respects scene boundary",
+    "invalidated owned state retry removes deleted proxy before candidate lookup",
+    "state pages contain at most 24 states and start with an explicit full-draw seed",
+    "only the approved empty orphan is removed"
+  ],
+  "statePages": [
+    {
+      "name": "12_Menu_States_v08",
+      "states": 24
+    },
+    {
+      "name": "13_Menu_States_v08_02",
+      "states": 24
+    },
+    {
+      "name": "14_Menu_States_v08_03",
+      "states": 24
+    },
+    {
+      "name": "15_Menu_States_v08_04",
+      "states": 24
+    },
+    {
+      "name": "16_Menu_States_v08_05",
+      "states": 24
+    },
+    {
+      "name": "17_Menu_States_v08_06",
+      "states": 24
+    },
+    {
+      "name": "18_Menu_States_v08_07",
+      "states": 24
+    },
+    {
+      "name": "19_Menu_States_v08_08",
+      "states": 24
+    },
+    {
+      "name": "20_Menu_States_v08_09",
+      "states": 8
+    }
+  ],
+  "explicitSeeds": 9,
+  "operations": {
+    "fullDrawElements": 8351,
+    "drawnElements": 2251,
+    "reorders": 967,
+    "cloneCallsIncludingDescendants": 9209
+  },
+  "note": "Mock verifies clone/delta algorithm; actual Penpot geometry and PNG still require final audit."
+}
