@@ -1,19 +1,39 @@
 {
-  "checkedAt": "2026-10-20T09:03:55.260315+00:00",
+  "checkedAt": "2026-10-21T10:26:44.263748+00:00",
+  "installed": true,
+  "physicalVerified": true,
+  "model": "SM-S918N",
+  "android": "16",
   "checks": [
     {
       "command": "adb devices -l",
       "exitCode": 0,
-      "stdout": "List of devices attached\n\n",
-      "stderr": ""
+      "physicalDevices": 1,
+      "aliases": 2,
+      "privateIdentifiersOmitted": true
     },
     {
       "command": "adb mdns services",
       "exitCode": 0,
-      "stdout": "List of discovered mdns services\n\n",
-      "stderr": ""
+      "services": 1,
+      "privateIdentifiersOmitted": true
     }
   ],
-  "installed": false,
-  "physicalVerified": false
+  "apkSha256": "5050b0021cc72159852275ce8024c0f04603f1fd662d70ad41a7db82dd632763",
+  "evidence": "physical-20261021/device-test-results.json",
+  "independentQa": "physical-20261021/03_qa_r01.md",
+  "scope": [
+    "launcher icon",
+    "launch after update",
+    "cold relaunch",
+    "Godot boot logo hidden",
+    "title start touch",
+    "HOME and resume"
+  ],
+  "limits": [
+    "기존 앱 데이터를 유지한 업데이트 설치이므로 새 기기 최초 설치 검사는 아니다.",
+    "Godot 메뉴 v08 배치를 변경한 APK가 아니다.",
+    "821ms는 Android activity 시작 시간이며 전체 타이틀 로딩 시간 측정이 아니다.",
+    "음향 출력·장시간 전투 성능·다른 Android 기기 전수 검사는 이번 확인에 포함하지 않았다."
+  ]
 }
