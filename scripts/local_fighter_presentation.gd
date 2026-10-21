@@ -48,6 +48,7 @@ func _ready() -> void:
 	var effects := AttackEffects.new()
 	effects.name = "AttackReachEffects"
 	effects.fighter = fighter
+	effects.sprite = sprite
 	add_child(effects)
 	move_child(effects, 0) # Cloth reach stays behind the approved body and face.
 	sync_visual(0.0)

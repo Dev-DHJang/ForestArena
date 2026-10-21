@@ -21,6 +21,7 @@ godot --headless --path . --script res://tests/two_fighter_combat_v2.gd
 godot --headless --path . --script res://tests/two_fighter_combat_boundaries.gd
 godot --headless --path . --script res://tests/two_fighter_product.gd
 godot --headless --path . --script res://tests/two_fighter_presentation.gd
+godot --headless --path . --script res://tests/two_fighter_vfx.gd
 godot --headless --path . --script res://tests/two_fighter_ai.gd
 godot --headless --path . --script res://tests/android_device_combat_regression.gd
 godot --headless --path . --script res://tests/phase1_input_ui.gd

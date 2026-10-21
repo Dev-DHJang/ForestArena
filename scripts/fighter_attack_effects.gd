@@ -1,73 +1,169 @@
 extends Node2D
-## Attack reach is drawn from authored data. This layer never resolves hits.
+## Read-only cloth and claw trails. Hit detection remains in FighterController.
+const SCARF_TEXTURE_ID := "fa.ui.menu.v07.character.ja-hyun"
+# Cross-sections of the ACTUAL worn left scarf in the approved concept (1086×1448).
+# UVs sample the blue cloth, white print and charcoal tip; no new scarf artwork.
+const SCARF_LEFT := [Vector2(270,535), Vector2(220,543), Vector2(153,565), Vector2(95,603), Vector2(53,658), Vector2(80,704)]
+const SCARF_RIGHT := [Vector2(278,548), Vector2(221,550), Vector2(175,582), Vector2(148,625), Vector2(125,682), Vector2(113,742)]
+# Pixel anchors belong to the displayed 128px cells, not combat coordinates.
+const AIR_HAND := [Vector2(61,29),Vector2(62,32),Vector2(69,22),Vector2(71,23),Vector2(69,79),Vector2(68,78),Vector2(69,85),Vector2(74,87),Vector2(69,94),Vector2(69,93),Vector2(53,45),Vector2(47,47),Vector2(58,38),Vector2(60,41),Vector2(50,55),Vector2(51,58)]
+const SWEEP_COLLAR := [Vector2(58,84),Vector2(58,84),Vector2(58,84),Vector2(61,85),Vector2(53,84),Vector2(59,84),Vector2(60,87),Vector2(66,88),Vector2(61,86),Vector2(59,85),Vector2(57,84),Vector2(59,86),Vector2(59,85),Vector2(58,85),Vector2(58,85),Vector2(58,85)]
+const SWEEP_TIPS := [[Vector2(38,95),Vector2(68,94)],[Vector2(38,97),Vector2(80,99)],[Vector2(45,102),Vector2(37,71)],[Vector2(35,73),Vector2(95,70)],[Vector2(10,94),Vector2(112,84)],[Vector2(43,85),Vector2(90,106)],[Vector2(27,94),Vector2(90,109)],[Vector2(37,87),Vector2(39,106)],[Vector2(36,67),Vector2(94,69)],[Vector2(25,70),Vector2(94,73)],[Vector2(13,81),Vector2(107,88)],[Vector2(33,80),Vector2(91,95)],[Vector2(27,65),Vector2(104,65)],[Vector2(43,95),Vector2(81,95)],[Vector2(38,95),Vector2(70,94)],[Vector2(38,95),Vector2(70,94)]]
 var fighter: FighterController
+var sprite: AnimatedSprite2D
+var _scarf: Texture2D
+# Canvas commands hold RIDs: retain mesh resources until the next redraw.
+var _meshes: Array[ArrayMesh] = []
 
 func _process(_delta: float) -> void:
 	queue_redraw()
 
+func effect_envelope() -> Vector2:
+	# x: normalised sweep time; y: opacity. Recovery has a brief diminishing tail.
+	if fighter == null or fighter.active_attack == null: return Vector2.ZERO
+	var attack := fighter.active_attack
+	match fighter.state:
+		FighterController.State.ATTACK_STARTUP:
+			return Vector2(float(fighter.attack_phase_tick) / maxi(attack.startup_ticks, 1), 0.65)
+		FighterController.State.ATTACK_ACTIVE:
+			return Vector2(float(fighter.attack_phase_tick) / maxi(attack.active_ticks - 1, 1), 1.0)
+		FighterController.State.ATTACK_RECOVERY:
+			return Vector2(1.0, maxf(0.0, 1.0 - float(fighter.attack_phase_tick) / 7.0))
+	return Vector2.ZERO
+
+func _anchor(pixel: Vector2) -> Vector2:
+	if sprite == null: return Vector2(-10 * fighter.facing, -44)
+	var point := pixel - Vector2(64,64)
+	if sprite.flip_h: point.x = -point.x
+	return sprite.position + point * sprite.scale
+
 func _draw() -> void:
+	_meshes.clear()
 	if fighter == null or fighter.active_attack == null or fighter.runtime_profile == null: return
 	var attack := fighter.active_attack
 	if attack.schema_version < 4: return
-	var id := String(fighter.runtime_profile.character_id)
-	var active := fighter.state == FighterController.State.ATTACK_ACTIVE
+	# A pending/missing pose must not attach cloth to the fallback idle artwork.
+	if sprite != null and sprite.animation != attack.visual_state_id: return
+	var envelope := effect_envelope()
+	if envelope.y <= 0.0: return
 	var preparing := fighter.state == FighterController.State.ATTACK_STARTUP
-	if not active and not preparing: return
-	var strength := 1.0 if active else 0.2 + 0.3 * float(fighter.attack_phase_tick) / maxi(attack.startup_ticks, 1)
+	var recovering := fighter.state == FighterController.State.ATTACK_RECOVERY
 	var sign_x := float(fighter.facing)
-	var origin := Vector2(16 * sign_x, -42)
-	if id == "ja-hyun" and attack.action_id == &"attack_special":
-		# All three authored areas share the same global pulse. No downwards arc.
-		var phase := (fighter.attack_phase_tick + 1) % 6
-		strength *= 1.0 if phase in [0, 1] else 0.42
-		_ribbon(origin, Vector2(-235, -30), strength)
-		_ribbon(origin, Vector2(235, -30), strength)
-		_ribbon(origin, Vector2(0, -260), strength)
-	elif id == "ja-hyun" and attack.action_id == &"attack_heavy":
-		var endpoint := attack.hitbox_offset + Vector2(attack.hitbox_size.x * 0.42, 0)
-		endpoint.x *= sign_x
-		if attack.activation_context == AttackData.ActivationContext.AIR:
-			_ribbon(Vector2(12 * sign_x, -106), Vector2(62 * sign_x, 42), strength)
-		else:
-			_ribbon(origin, endpoint, strength)
-	elif attack.activation_context == AttackData.ActivationContext.AIR and attack.action_id == &"attack_light":
-		var reach := (attack.hitbox_offset.x + attack.hitbox_size.x * 0.4) * sign_x
-		if id == "ja-hyun": _ribbon(origin, Vector2(reach, -36), strength)
-		else: _claws(Vector2(reach - 32 * sign_x, -36), Vector2(46 * sign_x, -12), strength)
-	elif id == "nabi" and attack.action_id == &"attack_heavy":
-		_claws(Vector2(30 * sign_x, -34), Vector2(16 * sign_x, -92), strength)
-	elif id == "nabi" and attack.action_id == &"attack_special" and fighter.attack_strike_ready:
-		_claws(origin, Vector2(76 * sign_x, -12), strength)
+	var id := String(fighter.runtime_profile.character_id)
+	var progress := envelope.x
+	if id == "ja-hyun":
+		if _scarf == null: _scarf = get_node("/root/ForestArenaResources").load_texture(SCARF_TEXTURE_ID)
+		var frame := clampi(sprite.frame if sprite != null else 0,0,15)
+		var root_point := _anchor(Vector2(54,88))
+		if attack.action_id == &"attack_special":
+			# Extend the two worn tails along their current painted pose, rather than
+			# adding independent ribbons. Preparation uses the original cloth alone.
+			if preparing: return
+			root_point = _anchor(SWEEP_COLLAR[frame])
+			for tail: int in 2:
+				var painted_tip := _anchor(SWEEP_TIPS[frame][tail])
+				var direction := painted_tip-root_point
+				var up_pose := frame in [3,8,9,12]
+				var side := -1.0 if direction.x < 0 else 1.0
+				var offset := Vector2(side * (115.0 if up_pose else 226.0), -235.0 if up_pose else -12.0)
+				var reach := 0.35 + 0.65*envelope.y if recovering else 1.0
+				var control := root_point + direction * 2.0
+				_cloth(root_point,control,root_point+offset*reach,envelope.y,0.9 if tail == 0 else 0.75)
+		elif attack.action_id == &"attack_heavy" and attack.activation_context == AttackData.ActivationContext.AIR:
+			if preparing: return
+			# The one tail held by the attacking hand continues the drawn downward
+			# sweep. Its other worn tail remains the original character artwork.
+			root_point = _anchor(AIR_HAND[frame])
+			var sweep := progress
+			var tip := root_point + Vector2(lerpf(145,76,sweep)*sign_x,lerpf(-42,120,sweep))
+			var control := root_point + Vector2(100*sign_x,lerpf(-96,18,sweep))
+			_cloth(root_point,control,tip,envelope.y,0.90)
+		elif attack.action_id == &"attack_heavy" or (attack.action_id == &"attack_light" and attack.activation_context == AttackData.ActivationContext.AIR):
+			var reach := attack.hitbox_offset.x + attack.hitbox_size.x * 0.40
+			var tip := Vector2(reach * sign_x, -36)
+			var extension := 0.3 + progress * 0.7 if preparing else 1.0
+			_cloth(root_point, root_point + Vector2(80*sign_x,-45), root_point.lerp(tip,extension), envelope.y, 0.85)
+	elif id == "nabi":
+		if attack.action_id == &"attack_heavy":
+			# Anticipation is in the hand pose. The crescent starts with the actual swing.
+			if not preparing: _uppercut(progress, envelope.y)
+		elif not preparing and (attack.activation_context == AttackData.ActivationContext.AIR or (attack.action_id == &"attack_special" and fighter.attack_strike_ready)):
+			var strike_progress := progress
+			if attack.action_id == &"attack_special":
+				strike_progress = clampf(float(fighter.attack_phase_tick - (attack.active_ticks - 4)) / 3.0,0.0,1.0) if not recovering else 1.0
+			_slash(Vector2(38*sign_x,-48), strike_progress, envelope.y)
 
-func _ribbon(start: Vector2, finish: Vector2, opacity: float) -> void:
-	var axis := finish - start
-	var normal := axis.normalized().orthogonal()
-	var tick := fighter.attack_phase_tick
-	var pulse := float((tick + 1) % 6) / 6.0
-	var extension := 1.0 if pulse < 0.17 else 0.78 + 0.22 * pulse
-	if fighter.active_attack.action_id != &"attack_special": extension = 1.0
-	var tip := start + axis * extension
-	var points := PackedVector2Array()
-	var edges := PackedVector2Array()
-	var back := PackedVector2Array()
-	for index: int in 17:
-		var t := float(index) / 16.0
-		var bend := sin(t * PI) * (16.0 + 13.0 * sin(t * TAU + tick * 0.6))
-		var point := start.lerp(tip, t) + normal * bend
-		var half_width := lerpf(4.0, 1.0, t) + sin(t * PI) * 3.0
-		points.append(point)
-		edges.append(point + normal * half_width)
-		back.append(point - normal * half_width)
-	back.reverse()
-	edges.append_array(back)
-	draw_colored_polygon(edges, Color(0.10, 0.25, 0.75, opacity))
-	draw_polyline(points, Color(0.22, 0.54, 1.0, opacity), 3.0, true)
-	draw_polyline(points, Color(0.64, 0.83, 1, opacity * 0.6), 0.8, true)
+func _cloth(start: Vector2, control: Vector2, tip: Vector2, opacity: float, width_scale: float) -> void:
+	if _scarf == null: return
+	var texture_size := _scarf.get_size()
+	var vertices := PackedVector2Array()
+	var uvs := PackedVector2Array()
+	var colors := PackedColorArray()
+	var indices := PackedInt32Array()
+	var left_edge := PackedVector2Array()
+	var right_edge := PackedVector2Array()
+	for index: int in 33:
+		var t := float(index) / 32.0
+		var center := start.bezier_interpolate(control, control.lerp(tip,0.65), tip,t)
+		var next_t := minf(1.0,t+0.01)
+		var previous_t := maxf(0.0,t-0.01)
+		var tangent := start.bezier_interpolate(control,control.lerp(tip,0.65),tip,next_t) - start.bezier_interpolate(control,control.lerp(tip,0.65),tip,previous_t)
+		var normal := tangent.normalized().orthogonal()
+		# Flat fabric with broad belly, twisting folds and a sharply cut cloth end.
+		var width := (4.0 + 7.5 * sin(t*PI*0.88)) * width_scale
+		width *= 0.62 + 0.38 * absf(cos(t*PI*1.6 + fighter.attack_phase_tick*0.10))
+		if t > 0.92: width *= (1.0-t)/0.08
+		var l := center + normal * width
+		var r := center - normal * width
+		var section := minf(t*5,4.9999)
+		var k := int(section)
+		var uv_l: Vector2 = SCARF_LEFT[k].lerp(SCARF_LEFT[k+1],section-k) / texture_size
+		var uv_r: Vector2 = SCARF_RIGHT[k].lerp(SCARF_RIGHT[k+1],section-k) / texture_size
+		vertices.append(l); vertices.append(r)
+		uvs.append(uv_l); uvs.append(uv_r)
+		var shade := 0.84 + 0.16 * sin(t*PI*3.0)
+		colors.append(Color(shade,shade,shade,opacity)); colors.append(Color(shade,shade,shade,opacity))
+		left_edge.append(l); right_edge.append(r)
+		if index > 0:
+			var v := index*2
+			indices.append_array(PackedInt32Array([v-2,v,v+1,v-2,v+1,v-1]))
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX]=vertices; arrays[Mesh.ARRAY_TEX_UV]=uvs
+	arrays[Mesh.ARRAY_COLOR]=colors; arrays[Mesh.ARRAY_INDEX]=indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+	_meshes.append(mesh)
+	draw_mesh(mesh,_scarf)
+	draw_polyline(left_edge,Color(0.38,0.56,1.0,opacity*0.7),0.7,true)
+	draw_polyline(right_edge,Color(0.025,0.035,0.12,opacity*0.85),1.0,true)
 
-func _claws(start: Vector2, sweep: Vector2, opacity: float) -> void:
-	var normal := sweep.normalized().orthogonal()
+func _uppercut(progress: float, opacity: float) -> void:
+	# Three tapered crescents grow from the attacking side, sweep up, then dissipate.
+	var sign_x := float(fighter.facing)
+	var center := Vector2(7*sign_x,-48)
 	for finger: int in 3:
-		var offset := normal * (finger - 1) * 9.0
-		var points := PackedVector2Array([start + offset, start + sweep * 0.4 + offset + normal * 8, start + sweep + offset])
-		draw_polyline(points, Color(0.72, 0.48, 1, opacity * 0.8), 6.0, true)
-		draw_polyline(points, Color(0.94, 0.87, 1, opacity), 2.0, true)
+		var radius := 66.0 + finger*12.0
+		var head := lerpf(0.70,-1.45, minf(1.0, progress*1.35))
+		var tail := head + lerpf(0.45,1.70,minf(1.0,progress*2.5))
+		_crescent(center,radius,head,tail,sign_x,opacity,5.0-finger*0.65)
+
+func _slash(center: Vector2, progress: float, opacity: float) -> void:
+	for finger: int in 3:
+		_crescent(center,42.0+finger*10,lerpf(-0.9,0.3,progress),1.65,float(fighter.facing),opacity,3.5)
+
+func _crescent(center: Vector2, radius: float, head: float, tail: float, facing: float, opacity: float, thickness: float) -> void:
+	var outer := PackedVector2Array()
+	var inner := PackedVector2Array()
+	var highlight := PackedVector2Array()
+	for index: int in 25:
+		var t := float(index)/24.0
+		var angle := lerpf(tail,head,t)
+		var direction := Vector2(cos(angle)*facing,sin(angle))
+		var width := pow(sin(t*PI),0.75)*thickness
+		outer.append(center+direction*(radius+width))
+		inner.append(center+direction*(radius-width))
+		highlight.append(center+direction*(radius+width*0.38))
+	inner.reverse();outer.append_array(inner)
+	draw_colored_polygon(outer,Color(0.60,0.30,0.92,opacity*0.75))
+	draw_polyline(highlight,Color(0.92,0.79,1.0,opacity*0.95),1.3,true)
