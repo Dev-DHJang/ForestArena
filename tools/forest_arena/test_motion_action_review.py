@@ -13,7 +13,7 @@ class MotionActionReviewTest(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        for path in ("assets/character", "docs/contracts", "docs/gameplay", "scripts"):
+        for path in ("assets/character", "docs/contracts", "docs/gameplay", "scripts", "tools/forest_arena"):
             (self.root / path).mkdir(parents=True)
         self.sheet = self.root / "assets/character/run.png"
         Image.new("RGBA", (2048, 128), (32, 80, 10, 128)).save(self.sheet)
@@ -25,7 +25,8 @@ class MotionActionReviewTest(unittest.TestCase):
         (self.root / "docs/gameplay/combat.md").write_text("달리기는 발을 교대한다")
         (self.root / "scripts/local_fighter_presentation.gd").write_text("fixture presentation")
         (self.root / "scripts/fighter_controller.gd").write_text("fixture fighter")
-        timeline_sources = {p: sha(self.root / p) for p in ["assets/character/manifest.json", "assets/character/run.tres", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md"]}
+        (self.root / "tools/forest_arena/motion_layout.py").write_text("fixture tooling: motion_layout.py")
+        timeline_sources = {p: sha(self.root / p) for p in ["assets/character/manifest.json", "assets/character/run.tres", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md", "tools/forest_arena/motion_layout.py"]}
         self.timeline = self.root / "timeline.json"
         write(self.timeline, {"schema_version": 1, "errors": [], "sources": timeline_sources, "motions": [{"required_variant_ids": ["state:run"], "character_id": "test", "motion": "run", "sheet_sha256": sha(self.sheet), "variants": [{"attack_id": "state:run", "samples": [{"frame": (i // 5) % 16, "shown": "run", "phase": "run", "duration_ms": 1000 / 60} for i in range(120)]}]}]})
         self.output = self.root / "review"
@@ -114,6 +115,25 @@ class MotionActionReviewTest(unittest.TestCase):
         sample.update(shown="jump", frame=16)
         self.assertTrue(any("invalid runtime" in e for e in timeline_errors(self.root, timeline, read(self.manifest)["assets"])))
 
+    def test_timeline_frame_bound_follows_declared_24_count(self):
+        timeline=read(self.timeline)
+        rows=read(self.manifest)["assets"]
+        rows[0]["frame_count"]=24
+        samples=timeline["motions"][0]["variants"][0]["samples"]
+        samples[-1]["frame"]=23
+        self.assertEqual(timeline_errors(self.root,timeline,rows),[])
+        samples[-1]["frame"]=24
+        self.assertTrue(any("invalid runtime sample" in e for e in timeline_errors(self.root,timeline,rows)))
+
+    def test_loop_capture_length_includes_authored_duration_weights(self):
+        timeline=read(self.timeline)
+        rows=read(self.manifest)["assets"]
+        rows[0].update(frame_count=24,fps=24,loop=True,frame_durations=[1.0]*23+[2.0])
+        samples=timeline["motions"][0]["variants"][0]["samples"]
+        self.assertTrue(any("incomplete runtime phases" in e for e in timeline_errors(self.root,timeline,rows)))
+        samples.extend([dict(samples[0]) for _ in range(6)])
+        self.assertEqual(timeline_errors(self.root,timeline,rows),[])
+
     def test_timeline_rejects_missing_motion_and_changed_source(self):
         timeline = read(self.timeline)
         timeline["motions"] = []
@@ -197,6 +217,58 @@ class MotionActionReviewTest(unittest.TestCase):
         self.assertEqual(compact(samples), [[6, "startup", "guard", 20], [6, "active", "guard", 10]])
 
 
+class MotionLayoutTest(unittest.TestCase):
+    def test_legacy_defaults_and_visual_id_precedence(self):
+        from motion_layout import layout, motion_id, frame_box
+        spec = layout({})
+        self.assertEqual(spec["sheet_size"], (2048,128))
+        self.assertEqual(spec["frame_durations"], [1.0]*16)
+        self.assertEqual(frame_box(15,spec),(1920,0,2048,128))
+        self.assertEqual(motion_id({"path":"version_32f.png", "visual_state_id":"attack_light_combo_01"}),"attack_light_combo_01")
+        self.assertEqual(motion_id({"path":"jump_24f.png"}),"jump")
+
+    def test_two_row_layout_and_metadata_are_read_only(self):
+        from motion_layout import layout, frame_box
+        import copy
+        row = {"frame_count":24, "atlas_columns":12, "frame_durations":[1.0]*23+[2.0],
+               "phase_frame_ranges":[[0,8],[8,12],[12,24]],
+               "jump_frame_ranges":{"ascent":[0,6],"apex":[6,10],"descent":[10,16],"landing":[16,24]},
+               "run_stride_px":96, "frame_anchors":[{"scarf_root":[40,60],"scarf_hand":[65,70],"scarf_tips":[[10,50],[20,55]]} for _ in range(24)]}
+        before=copy.deepcopy(row)
+        spec=layout(row)
+        self.assertEqual(spec["sheet_size"],(1536,256))
+        self.assertEqual(frame_box(12,spec),(0,128,128,256))
+        self.assertEqual(frame_box(23,spec),(1408,128,1536,256))
+        self.assertEqual(row,before)
+        self.assertEqual(layout({"frame_count":32})["sheet_size"],(2048,256))
+
+    def test_reject_invalid_counts_atlases_durations_ranges_and_anchors(self):
+        from motion_layout import layout
+        invalid = [{"frame_count":n} for n in [0,17,25,33,True,24.0]]
+        invalid += [{"frame_count":32,"atlas_columns":n} for n in [0,8,17,True]]
+        invalid += [{"cell_size":64},{"frame_durations":[1]*15}]
+        invalid += [{"frame_durations":[1]*15+[n]} for n in [0,-1,float("nan"),float("inf"),True]]
+        invalid += [{"phase_frame_ranges":[[0,5],[4,10],[10,16]]},{"phase_frame_ranges":[[0,5],[5,10],[10,15]]},
+                    {"jump_frame_ranges":{"ascent":[0,6]}},{"run_stride_px":0},
+                    {"descent_frame_range":[10,17]},{"frame_anchors":[{}]*15},
+                    {"frame_anchors":[{"scarf_root":[129,2]}]*16},{"frame_anchors":[{"scarf_tips":[[1,2]]}]*16}]
+        for row in invalid:
+            with self.subTest(row=row), self.assertRaises(ValueError): layout(row)
+
+    def test_board_uses_declared_rows_not_horizontal_strip(self):
+        from motion_layout import layout
+        from review_motion_actions import make_board
+        with tempfile.TemporaryDirectory() as temporary:
+            sheet=Image.new("RGBA",(2048,256),(0,0,0,0))
+            sheet.paste((190,20,40,255),(0,128,128,256))
+            destination=Path(temporary)/"board.jpg"
+            make_board(sheet,"24 frame fixture",destination,layout({"frame_count":24}))
+            with Image.open(destination) as board:
+                self.assertEqual(board.size,(528,840))
+                pixel=board.getpixel((40,24+4*136+40))
+                self.assertGreater(pixel[0],pixel[1]+100)
+
+
 class CandidateMotionReviewTest(unittest.TestCase):
     """Pending candidates never replace approved runtime assets or default coverage."""
 
@@ -213,8 +285,8 @@ class CandidateMotionReviewTest(unittest.TestCase):
         self.sprite.write_text('[gd_resource type="SpriteFrames" format=3]\n[ext_resource type="Texture2D" path="res://_workspace/candidate-test/run.png" id="1"]\n')
         self.attack = self.root / "assets/attack.tres"
         self.attack.write_text("fixture AttackData")
-        (self.root / "tools/forest_arena").mkdir(parents=True)
-        for name in ("motion_review_candidates.py", "review_motion_actions.py", "motion_review_timeline.gd", "motion_review_candidate_frames.gd"):
+        (self.root / "tools/forest_arena").mkdir(parents=True, exist_ok=True)
+        for name in ("motion_review_candidates.py", "review_motion_actions.py", "motion_review_timeline.gd", "motion_review_candidate_frames.gd", "motion_layout.py"):
             (self.root / "tools/forest_arena" / name).write_text("fixture tooling: " + name)
         self.catalog = self.work / "catalog.json"
         self.scope = self.work / "scope.json"
@@ -237,6 +309,90 @@ class CandidateMotionReviewTest(unittest.TestCase):
         self.review_path = self.output / "motion-review.json"
         self.review = read(self.review_path)
         self.review.update(reviewer="independent fixture reviewer", reviewer_role="qa")
+
+    def test_phase_drawings_cannot_exceed_actual_combat_ticks(self):
+        from motion_review_candidates import load_selection
+        timeline = read(self.timeline)
+        row = dict(self.row,phase_frame_ranges=[[0,4],[4,9],[9,16]])
+        entry=timeline["motions"][0]
+        entry.update(required_variant_ids=["test-attack"], variants=[{"attack_id":"test-attack","phase_ticks":[8,4,18],"samples":[{"frame":0,"shown":"run","phase":phase,"duration_ms":1000/60} for phase,count in [("startup",8),("active",4),("recovery",18)] for _ in range(count)]}])
+        selection=load_selection(self.root,self.catalog,self.scope,self.scope_digest)
+        self.assertTrue(any("more drawings" in e for e in timeline_errors(self.root,timeline,[row],selection)))
+        row["reuse_approved_runtime"]=True
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+
+    def test_new_phase_must_show_every_authored_drawing(self):
+        from motion_review_candidates import load_selection
+        timeline=read(self.timeline)
+        row=dict(self.row,frame_count=24,phase_frame_ranges=[[0,8],[8,12],[12,24]])
+        selection=load_selection(self.root,self.catalog,self.scope,self.scope_digest)
+        samples=[{"frame":frame,"shown":"run","phase":phase,"duration_ms":1000/60} for phase,frames in [("startup",range(8)),("active",range(8,12)),("recovery",[12,12,13,13,14,14,15,15,16,17,18,19,20,20,21,22,23,23])] for frame in frames]
+        entry=timeline["motions"][0]
+        entry.update(required_variant_ids=["attack"],variants=[{"attack_id":"attack","phase_ticks":[8,4,18],"samples":samples}])
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+        samples[8]["frame"]=9
+        self.assertTrue(any("authored drawing skipped" in e for e in timeline_errors(self.root,timeline,[row],selection)))
+        del row["phase_frame_ranges"]
+        self.assertTrue(any("explicit phase_frame_ranges" in e for e in timeline_errors(self.root,timeline,[row],selection)))
+
+    def test_new_sixteen_frame_weights_cannot_hide_authored_drawings(self):
+        from motion_review_candidates import load_selection
+        selection=load_selection(self.root,self.catalog,self.scope,self.scope_digest)
+        timeline=read(self.timeline)
+        row=dict(self.row,frame_count=16,frame_durations=[100.0,1,1,1]+[1.0]*12,phase_frame_ranges=[[0,4],[4,8],[8,16]])
+        samples=[{"frame":frame,"shown":"run","phase":phase,"duration_ms":1000/60}
+            for phase,frames in [("startup",[0,0,0,0,0,0,0,3]),("active",[4,5,6,7]),
+                ("recovery",[8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15,15,15])]
+            for frame in frames]
+        timeline["motions"][0].update(required_variant_ids=["attack"],variants=[{"attack_id":"attack","phase_ticks":[8,4,18],"samples":samples}])
+        self.assertTrue(any("authored drawing skipped" in error for error in timeline_errors(self.root,timeline,[row],selection)))
+        row["reuse_approved_runtime"]=True
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+
+        row.pop("reuse_approved_runtime")
+        row["frame_durations"]=[1.0]*16
+        for sample,frame in zip(samples,[0,0,1,1,2,2,3,3]): sample["frame"]=frame
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+
+    def test_new_sixteen_frame_without_ranges_requires_every_drawing(self):
+        from motion_review_candidates import load_selection
+        selection=load_selection(self.root,self.catalog,self.scope,self.scope_digest)
+        timeline=read(self.timeline)
+        row=dict(self.row,frame_count=16)
+        frames=list(range(16))+[15]*14
+        phases=["startup"]*8+["active"]*4+["recovery"]*18
+        samples=[{"frame":frame,"shown":"run","phase":phase,"duration_ms":1000/60} for frame,phase in zip(frames,phases)]
+        timeline["motions"][0].update(required_variant_ids=["attack"],variants=[{"attack_id":"attack","phase_ticks":[8,4,18],"samples":samples}])
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+        samples[7]["frame"]=6
+        self.assertTrue(any("skipped by full attack playback" in error for error in timeline_errors(self.root,timeline,[row],selection)))
+        row["reuse_approved_runtime"]=True
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+
+    def test_jump_declared_landing_never_appears_in_air(self):
+        from motion_review_candidates import load_selection
+        timeline=read(self.timeline)
+        ranges={"ascent":[0,4],"apex":[4,6],"descent":[6,10],"landing":[10,16]}
+        row=dict(self.row,visual_state_id="jump",jump_frame_ranges=ranges)
+        samples=[{"frame":ranges[phase][0],"shown":"jump","phase":phase,"duration_ms":1000/60} for phase,count in [("ascent",20),("apex",12),("descent",20),("landing",16)] for _ in range(count)]
+        entry=timeline["motions"][0]
+        entry.update(motion="jump",required_variant_ids=["state:jump"],variants=[{"attack_id":"state:jump","samples":samples}])
+        selection=load_selection(self.root,self.catalog,self.scope,self.scope_digest)
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+        samples[0]["frame"]=10
+        self.assertTrue(any("airborne landing forbidden" in e for e in timeline_errors(self.root,timeline,[row],selection)))
+
+    def test_run_stride_requires_actual_distance_samples(self):
+        from motion_review_candidates import load_selection
+        timeline=read(self.timeline)
+        row=dict(self.row,run_stride_px=96)
+        samples=timeline["motions"][0]["variants"][0]["samples"]
+        selection=load_selection(self.root,self.catalog,self.scope,self.scope_digest)
+        self.assertTrue(any("movement samples" in e for e in timeline_errors(self.root,timeline,[row],selection)))
+        for i,sample in enumerate(samples): sample["position"]=[192*i/len(samples),0]
+        self.assertEqual(timeline_errors(self.root,timeline,[row],selection),[])
+        samples[-1]["position"]=[0,0]
+        self.assertTrue(any("two distance cycles" in e for e in timeline_errors(self.root,timeline,[row],selection)))
 
     def test_short_state_timer_variants_are_complete_and_candidate_only(self):
         from motion_review_candidates import load_selection
@@ -431,6 +587,232 @@ class CandidateMotionReviewTest(unittest.TestCase):
             self.check_input()
 
 
+class MotionRegistrationTest(unittest.TestCase):
+    """Registration writes only artificial temporary project fixtures."""
+
+    def setUp(self):
+        self.fixture=CandidateMotionReviewTest("test_pending_candidate_is_blocked_not_automatically_passed")
+        self.fixture.setUp()
+        self.addCleanup(self.fixture.doCleanups)
+        self.root,self.work=self.fixture.root,self.fixture.work
+        self.targets=self.work/"targets.json"
+        self.approval=self.work/"user-approval.json"
+        self.backup=self.work/"registration-backup"
+        self.config={"schema_version":1,"kind":"motion-registration-targets","approval_record":str(self.approval.relative_to(self.root)),"motions":[{"character_id":"test","motion":"guard","asset_id":"test-guard-stable-v01","png_path":"assets/character/test/animation/runtime/guard_24f_v02.png","sprite_frames_path":"res://assets/character/test/animation/runtime/guard.tres"}]}
+        self.original_source=self.work/"original-source.png"
+        Image.new("RGBA",(128,128),(20,40,60,180)).save(self.original_source)
+        self.provenance={"source_path":str(self.original_source.relative_to(self.root)),"source_sha256":sha(self.original_source),
+            "creation":{"method":"Synthetic fixture drawing","provider":"unit test","version":"fixture-v02"},
+            "rights":{"status":"Synthetic fixture only; no real asset approval","references":["fixture://original-art"]},
+            "conversion":{"method":"Synthetic fixture packing","uniform_scale":1.0}}
+        self.fixture.update_catalog(lambda doc: doc["assets"][0].update(self.provenance))
+        self.prepare_art(24)
+
+    def prepare_art(self,count):
+        from motion_review_candidates import load_selection
+        columns=12 if count==24 else 16
+        Image.new("RGBA",(columns*128,((count+columns-1)//columns)*128),(30,50,70,180)).save(self.fixture.sheet)
+        self.fixture.update_catalog(lambda doc: doc["assets"][0].update(visual_state_id="guard",frame_count=count,atlas_columns=columns,sha256=sha(self.fixture.sheet)))
+        scope=read(self.fixture.scope)
+        scope["motions"]=[{"character_id":"test","motion":"guard"}]
+        write(self.fixture.scope,scope)
+        self.scope_hash=sha(self.fixture.scope)
+        selection=load_selection(self.root,self.fixture.catalog,self.fixture.scope,self.scope_hash)
+        timeline=read(self.fixture.timeline)
+        timeline["candidate_selection"]=selection["candidate_selection"]
+        timeline["sources"].update({source:sha(self.root/source) for source in selection["required_sources"]})
+        row=timeline["motions"][0]
+        row.update(motion="guard",sheet_sha256=sha(self.fixture.sheet),required_variant_ids=["state:guard"])
+        row["variants"]=[{"attack_id":"state:guard","samples":[{"frame":i%count,"shown":"guard","phase":"guard","duration_ms":1000/60} for i in range(120)]}]
+        write(self.fixture.timeline,timeline)
+        output=self.work/("registration-review-"+str(len(list(self.work.glob("registration-review-*")))))
+        prepare(self.root,self.fixture.timeline,output,self.fixture.catalog,self.fixture.scope,self.scope_hash)
+        self.review=output/"motion-review.json"
+        review=read(self.review)
+        review.update(reviewer="independent QA fixture only",reviewer_role="qa")
+        review["motions"][0].update(status="pass",observations="Temporary artificial fixture only; no real user approval",checks=dict.fromkeys(CHECKS,True))
+        write(self.review,review)
+        self.config["motions"][0]["png_path"]="assets/character/test/animation/runtime/guard_%df_v02.png" % count
+        write(self.targets,self.config)
+
+    def plan(self):
+        from register_motion_candidates import plan_registration
+        return plan_registration(self.root,self.fixture.catalog,self.fixture.scope,self.scope_hash,self.review,self.targets)
+
+    def fixture_approval(self,plan):
+        from register_motion_candidates import plan_digest
+        # Never emit this artificial decision outside this disposable fixture.
+        approval={"schema_version":1,"kind":"user-motion-registration-approval","source":"user","plan_sha256":plan_digest(plan),**{key:plan[key] for key in ["catalog_sha256","scope_sha256","qa_review_sha256","registration_targets_sha256"]},"motions":[{**{key:row[key] for key in ["character_id","motion","png_sha256","candidate_sprite_frames_sha256","registered_sprite_frames_sha256"]},"user_approved":True,"user_message":"Synthetic unit-test approval; not a real user decision","message_reference":"fixture://user-message/1","approved_on":"2026-10-21"} for row in plan["motions"]]}
+        write(self.approval,approval)
+        return approval
+
+    def snapshot(self):
+        return {str(path.relative_to(self.root)):path.read_bytes() for path in self.root.rglob("*") if path.is_file()}
+
+    def test_dryrun_16_24_32_is_read_only_and_pins_rewritten_spriteframes(self):
+        from register_motion_candidates import digest,plan_digest
+        for count in [16,24,32]:
+            self.prepare_art(count)
+            before=self.snapshot()
+            plan,pending=self.plan()
+            self.assertEqual(before,self.snapshot())
+            self.assertEqual(len(plan_digest(plan)),64)
+            row=plan["motions"][0]
+            rendered=pending[row["sprite_frames_path"].removeprefix("res://")]
+            self.assertNotIn(b"_workspace/",rendered)
+            self.assertIn(row["png_path"].encode(),rendered)
+            self.assertEqual(digest(rendered),row["registered_sprite_frames_sha256"])
+
+    def test_missing_approval_refuses_before_any_write_or_backup(self):
+        from register_motion_candidates import install
+        plan,pending=self.plan(); before=self.snapshot()
+        with self.assertRaisesRegex(ValueError,"human approval.*missing"):
+            install(self.root,plan,pending,self.backup)
+        self.assertEqual(before,self.snapshot())
+        self.assertFalse(self.backup.exists())
+
+    def test_qa_pass_cannot_replace_explicit_user_approval(self):
+        from register_motion_candidates import install
+        plan,pending=self.plan(); approval=self.fixture_approval(plan)
+        approval["source"]="qa"; write(self.approval,approval); before=self.snapshot()
+        with self.assertRaisesRegex(ValueError,"user decision"):
+            install(self.root,plan,pending,self.backup)
+        self.assertEqual(before,self.snapshot())
+
+    def test_each_plan_scope_review_artwork_hash_and_decision_is_required(self):
+        from register_motion_candidates import verify_approval
+        plan,_=self.plan()
+        for field in ["plan_sha256","catalog_sha256","scope_sha256","qa_review_sha256","registration_targets_sha256","png_sha256","candidate_sprite_frames_sha256","registered_sprite_frames_sha256","user_approved","user_message","message_reference"]:
+            with self.subTest(field=field):
+                approval=self.fixture_approval(plan)
+                if field in approval: approval[field]="wrong"
+                else: approval["motions"][0][field]=False if field=="user_approved" else ""
+                write(self.approval,approval)
+                with self.assertRaises(ValueError): verify_approval(self.root,plan)
+
+    def test_approval_covers_exactly_each_motion(self):
+        from register_motion_candidates import verify_approval
+        plan,_=self.plan()
+        for mode in ["missing","duplicate","unknown"]:
+            approval=self.fixture_approval(plan)
+            if mode=="missing": approval["motions"]=[]
+            elif mode=="duplicate": approval["motions"]*=2
+            else: approval["motions"][0]["motion"]="unknown"
+            write(self.approval,approval)
+            with self.assertRaisesRegex(ValueError,"every planned motion"):
+                verify_approval(self.root,plan)
+
+    def test_stale_qa_or_source_refuses_registration(self):
+        from register_motion_candidates import install
+        plan,pending=self.plan(); self.fixture_approval(plan)
+        (self.root/"scripts/local_fighter_presentation.gd").write_text("Changed after QA")
+        before=self.snapshot()
+        with self.assertRaisesRegex(ValueError,"QA review is not current"):
+            install(self.root,plan,pending,self.backup)
+        self.assertEqual(before,self.snapshot())
+
+    def test_existing_png_and_unsafe_target_never_overwritten(self):
+        for path in ["../escape_24f_v02.png","assets/character/other/animation/runtime/guard_24f_v02.png","assets/character/test/animation/runtime/guard_16f_v02.png"]:
+            with self.subTest(path=path):
+                config=read(self.targets); config["motions"][0]["png_path"]=path; write(self.targets,config)
+                with self.assertRaises(ValueError): self.plan()
+        write(self.targets,self.config)
+        target=self.root/self.config["motions"][0]["png_path"]
+        target.parent.mkdir(parents=True); target.write_bytes(b"existing immutable PNG")
+        before=self.snapshot()
+        with self.assertRaisesRegex(ValueError,"must not overwrite"):
+            self.plan()
+        self.assertEqual(before,self.snapshot())
+
+    def test_fixture_install_preserves_existing_png_and_id_consumer(self):
+        from register_motion_candidates import install
+        manifest=read(self.fixture.fixture.manifest)
+        old_png=self.root/"assets/character/test/animation/runtime/guard_16f_v01.png"
+        old_png.parent.mkdir(parents=True)
+        Image.new("RGBA",(2048,128),(10,20,30,160)).save(old_png)
+        frame_path=self.root/"assets/character/test/animation/runtime/guard.tres"
+        frame_path.write_text('previous approved SpriteFrames')
+        existing={"type":"animation-runtime","asset_id":"test-guard-stable-v01","character_id":"test","visual_state_id":"guard","path":str(old_png.relative_to(self.root)),"sha256":sha(old_png),"sprite_frames_path":"res://"+str(frame_path.relative_to(self.root)),"consumer_path":"res://"+str(frame_path.relative_to(self.root)),"fps":12,"loop":False,"frame_count":16,
+            "creation":{"method":"Old fixture creation","provider":"old fixture","version":"v01"},
+            "rights":{"status":"Old fixture rights","references":["fixture://old-art"]},"motion_unification":{"source_path":"old-source.png","source_sha256":"old-sha"},
+            "source_path":"old-source.png","source_sha256":"old-sha","conversion":{"method":"Old fixture packing"},"verified_on":"old-date",
+            "registration_history":[{"path":"older-version.png","sha256":"older-sha"}]}
+        manifest["assets"].append(existing); write(self.fixture.fixture.manifest,manifest)
+        self.prepare_art(24)
+        plan,pending=self.plan(); self.fixture_approval(plan)
+        old_bytes=old_png.read_bytes(); source_bytes=self.fixture.sheet.read_bytes()
+        receipt=install(self.root,plan,pending,self.backup)
+        self.assertEqual(receipt["status"],"installed")
+        self.assertEqual(old_png.read_bytes(),old_bytes)
+        self.assertEqual((self.root/self.config["motions"][0]["png_path"]).read_bytes(),source_bytes)
+        updated=read(self.fixture.fixture.manifest)
+        result=next(row for row in updated["assets"] if row.get("visual_state_id")=="guard")
+        self.assertEqual(result["asset_id"],existing["asset_id"])
+        self.assertEqual(result["consumer_path"],existing["consumer_path"])
+        self.assertEqual(result["sprite_frames_path"],existing["sprite_frames_path"])
+        self.assertEqual(result["frame_count"],24)
+        for field,value in self.provenance.items():
+            self.assertEqual(result[field],value)
+        self.assertEqual(result["motion_registration"]["provenance"],self.provenance)
+        self.assertNotIn("motion_unification",result)
+        self.assertNotIn("verified_on",result)
+        self.assertEqual(result["registration_history"][0],existing["registration_history"][0])
+        self.assertEqual(result["registration_history"][1],{key:value for key,value in existing.items() if key!="registration_history"})
+        self.assertNotIn("registration_history",result["registration_history"][1])
+        self.assertEqual((self.backup/str(frame_path.relative_to(self.root))).read_text(),"previous approved SpriteFrames")
+        self.assertEqual(updated["assets"][0],manifest["assets"][0])
+
+    def test_registration_requires_current_complete_provenance(self):
+        for field in self.provenance:
+            with self.subTest(field=field):
+                self.fixture.update_catalog(lambda doc: doc["assets"][0].update(self.provenance))
+                self.fixture.update_catalog(lambda doc: doc["assets"][0].pop(field))
+                self.prepare_art(24)
+                before=self.snapshot()
+                with self.assertRaisesRegex(ValueError,"requires explicit source_path"):
+                    self.plan()
+                self.assertEqual(before,self.snapshot())
+
+    def test_registration_rejects_changed_original_source(self):
+        Image.new("RGBA",(128,128),(90,80,70,180)).save(self.original_source)
+        before=self.snapshot()
+        with self.assertRaisesRegex(ValueError,"original source PNG SHA256"):
+            self.plan()
+        self.assertEqual(before,self.snapshot())
+
+    def test_original_source_change_after_plan_refuses_before_backup(self):
+        from register_motion_candidates import install
+        plan,pending=self.plan()
+        self.fixture_approval(plan)
+        Image.new("RGBA",(128,128),(90,80,70,180)).save(self.original_source)
+        before=self.snapshot()
+        with self.assertRaisesRegex(ValueError,"original source PNG SHA256"):
+            install(self.root,plan,pending,self.backup)
+        self.assertEqual(before,self.snapshot())
+        self.assertFalse(self.backup.exists())
+
+    def test_registration_rejects_incomplete_origin_descriptions(self):
+        import copy
+        for field,key in [("creation","provider"),("rights","status"),("conversion","method"),("rights","references")]:
+            with self.subTest(field=field,key=key):
+                provenance=copy.deepcopy(self.provenance)
+                provenance[field].pop(key)
+                self.fixture.update_catalog(lambda doc: doc["assets"][0].update(provenance))
+                self.prepare_art(24)
+                before=self.snapshot()
+                with self.assertRaisesRegex(ValueError,"candidate .* requires"):
+                    self.plan()
+                self.assertEqual(before,self.snapshot())
+
+    def test_replacement_cannot_change_logical_id_or_sprite_consumer(self):
+        manifest=read(self.fixture.fixture.manifest)
+        existing={"type":"animation-runtime","asset_id":"test-original-stable","character_id":"test","visual_state_id":"guard","path":"assets/character/run.png","sprite_frames_path":"res://assets/character/run.tres","consumer_path":"res://assets/character/run.tres"}
+        manifest["assets"].append(existing); write(self.fixture.fixture.manifest,manifest)
+        self.prepare_art(24)
+        with self.assertRaisesRegex(ValueError,"preserve its existing logical ID"):
+            self.plan()
+
+
 class CandidateFramesGodotTest(unittest.TestCase):
     def setUp(self):
         import shutil
@@ -453,6 +835,55 @@ class CandidateFramesGodotTest(unittest.TestCase):
     def run_godot(self):
         import subprocess
         return subprocess.run(["godot", "--headless", "--path", str(self.project), "--script", "res://tests/motion_candidate_frames.gd", "--", str(self.fixture)], text=True, capture_output=True, timeout=30)
+
+    def variable_fixture(self,count,columns=16):
+        durations=[1.0+(i%3)*0.25 for i in range(count)]
+        image=Image.new("RGBA",(columns*128,((count+columns-1)//columns)*128),(0,0,0,0))
+        for i in range(count): image.paste((20,70,150,180),((i%columns)*128,(i//columns)*128,(i%columns+1)*128,(i//columns+1)*128))
+        image.save(self.sheet)
+        regions="\n".join('[sub_resource type="AtlasTexture" id="f%d"]\natlas = ExtResource("1")\nregion = Rect2(%d, %d, 128, 128)\n' % (i,(i%columns)*128,(i//columns)*128) for i in range(count))
+        frames=", ".join('{"duration": %s, "texture": SubResource("f%d")}' % (durations[i],i) for i in range(count))
+        self.sprite.write_text('[gd_resource type="SpriteFrames" load_steps=%d format=3]\n[ext_resource type="Texture2D" path="%s" id="1"]\n%s\n[resource]\nanimations = [{"frames": [%s], "loop": false, "name": &"guard", "speed": 12.0}]\n' % (count+2,self.sheet_res,regions,frames))
+        entry=read(self.fixture)
+        entry.update(frame_count=count,atlas_columns=columns,frame_durations=durations)
+        write(self.fixture,entry)
+
+    def test_two_row_24_and_32_frames_and_variable_durations_load(self):
+        for count,columns in [(24,12),(32,16)]:
+            with self.subTest(count=count):
+                self.variable_fixture(count,columns)
+                before={p:p.read_bytes() for p in (self.sheet,self.sprite,self.fixture)}
+                result=self.run_godot()
+                self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+                self.assertEqual(before,{p:p.read_bytes() for p in before})
+                self.assertFalse(self.sheet.with_suffix(".png.import").exists())
+
+    def test_second_row_wrong_region_or_duration_rejected(self):
+        self.variable_fixture(24)
+        self.sprite.write_text(self.sprite.read_text().replace("Rect2(0, 128, 128, 128)","Rect2(0, 0, 128, 128)"))
+        result=self.run_godot()
+        self.assertEqual(result.returncode,1,result.stdout+result.stderr)
+        self.assertIn("PNG/order/region/duration differs",result.stdout)
+        self.variable_fixture(32)
+        entry=read(self.fixture)
+        entry["frame_durations"][-1]=9.0
+        write(self.fixture,entry)
+        result=self.run_godot()
+        self.assertEqual(result.returncode,1,result.stdout+result.stderr)
+        self.assertIn("PNG/order/region/duration differs",result.stdout)
+
+    def test_nontransparent_unused_cells_and_wrong_counts_rejected(self):
+        self.variable_fixture(24)
+        with Image.open(self.sheet) as source:
+            image=source.copy(); image.putpixel((2047,255),(0,0,0,255)); image.save(self.sheet)
+        result=self.run_godot()
+        self.assertEqual(result.returncode,1,result.stdout+result.stderr)
+        self.assertIn("unused atlas cell must be transparent",result.stdout)
+        self.variable_fixture(32)
+        entry=read(self.fixture); entry["frame_count"]=33; write(self.fixture,entry)
+        result=self.run_godot()
+        self.assertEqual(result.returncode,1,result.stdout+result.stderr)
+        self.assertIn("invalid candidate frame_count",result.stdout)
 
     def test_ignored_workspace_png_and_real_spriteframes_load_without_import(self):
         result = self.run_godot()
@@ -480,6 +911,17 @@ class CandidateFramesGodotTest(unittest.TestCase):
         result = self.run_godot()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("MOTION_CANDIDATE_FRAMES: PASS", result.stdout)
+
+    def test_default_timeline_still_covers_all_120_approved_motions(self):
+        import subprocess
+        from review_motion_actions import entries
+        timeline=self.work/"legacy-timeline.json"
+        result=subprocess.run(["godot","--headless","--path",str(self.project),"--script","res://tools/forest_arena/motion_review_timeline.gd","--","--output",str(timeline)],text=True,capture_output=True,timeout=30)
+        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+        captured=read(timeline)
+        self.assertEqual(len(captured["motions"]),120)
+        self.assertEqual(timeline_errors(self.project,captured,entries(self.project)),[])
+        self.assertTrue(all(variant["samples"] for row in captured["motions"] for variant in row["variants"]))
 
     def test_candidate_timeline_uses_explicit_new_movesets_not_legacy_base(self):
         import subprocess

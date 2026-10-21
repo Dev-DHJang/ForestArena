@@ -1,6 +1,13 @@
 extends Node2D
 ## Read-only cloth and claw trails. Hit detection remains in FighterController.
 const SCARF_TEXTURE_ID := "fa.ui.menu.v07.character.ja-hyun"
+# The fallback coordinates below were inspected only on these exact drawings.
+const LEGACY_ANCHOR_HASHES := {
+	&"attack_air_heavy": "7099bc4b8d712d55fe3f02aa32fa45a968ded610d2e38941676d76d0548053f7",
+	&"special_scarf_sweep": "60154607d07cfc1c948af936f5783541c722e5fec410c2224b4986a007912928",
+	&"special_neutral": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a",
+	&"attack_air_light": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca",
+}
 # Cross-sections of the ACTUAL worn left scarf in the approved concept (1086×1448).
 # UVs sample the blue cloth, white print and charcoal tip; no new scarf artwork.
 const SCARF_LEFT := [Vector2(270,535), Vector2(220,543), Vector2(153,565), Vector2(95,603), Vector2(53,658), Vector2(80,704)]
@@ -11,6 +18,9 @@ const SWEEP_COLLAR := [Vector2(58,84),Vector2(58,84),Vector2(58,84),Vector2(61,8
 const SWEEP_TIPS := [[Vector2(38,95),Vector2(68,94)],[Vector2(38,97),Vector2(80,99)],[Vector2(45,102),Vector2(37,71)],[Vector2(35,73),Vector2(95,70)],[Vector2(10,94),Vector2(112,84)],[Vector2(43,85),Vector2(90,106)],[Vector2(27,94),Vector2(90,109)],[Vector2(37,87),Vector2(39,106)],[Vector2(36,67),Vector2(94,69)],[Vector2(25,70),Vector2(94,73)],[Vector2(13,81),Vector2(107,88)],[Vector2(33,80),Vector2(91,95)],[Vector2(27,65),Vector2(104,65)],[Vector2(43,95),Vector2(81,95)],[Vector2(38,95),Vector2(70,94)],[Vector2(38,95),Vector2(70,94)]]
 var fighter: FighterController
 var sprite: AnimatedSprite2D
+# Supplied by the read-only presentation for the exact hashed artwork entry.
+var frame_anchors: Array = []
+var artwork_sha256 := ""
 var _scarf: Texture2D
 # Canvas commands hold RIDs: retain mesh resources until the next redraw.
 var _meshes: Array[ArrayMesh] = []
@@ -37,6 +47,39 @@ func _anchor(pixel: Vector2) -> Vector2:
 	if sprite.flip_h: point.x = -point.x
 	return sprite.position + point * sprite.scale
 
+func current_frame_anchors() -> Dictionary:
+	if sprite == null or sprite.sprite_frames == null: return {}
+	var count := sprite.sprite_frames.get_frame_count(sprite.animation)
+	if frame_anchors.size() == count and sprite.frame < frame_anchors.size():
+		var row: Variant = frame_anchors[sprite.frame]
+		if row is Dictionary:
+			for key: String in ["scarf_root", "scarf_hand"]:
+				if row.has(key) and not _valid_pixel_point(row[key]): return {}
+			if row.has("scarf_tips"):
+				var tips: Variant = row.scarf_tips
+				if not tips is Array or tips.size() != 2: return {}
+				for tip: Variant in tips:
+					if not _valid_pixel_point(tip): return {}
+			return row
+	# These coordinates were inspected on the old 16-frame sheets only. Never
+	# clamp a 24/32-frame drawing to frame 15 of a different pose sequence.
+	if count != 16 or not frame_anchors.is_empty() or artwork_sha256.is_empty() or LEGACY_ANCHOR_HASHES.get(sprite.animation) != artwork_sha256: return {}
+	var frame := sprite.frame
+	if sprite.animation == &"attack_air_heavy":
+		return {"scarf_hand": [AIR_HAND[frame].x, AIR_HAND[frame].y]}
+	if sprite.animation == &"special_scarf_sweep":
+		return {"scarf_root": [SWEEP_COLLAR[frame].x, SWEEP_COLLAR[frame].y], "scarf_tips": [[SWEEP_TIPS[frame][0].x,SWEEP_TIPS[frame][0].y], [SWEEP_TIPS[frame][1].x,SWEEP_TIPS[frame][1].y]]}
+	return {"scarf_root": [54,88]}
+
+static func _pixel_point(value: Variant) -> Vector2:
+	return Vector2(float(value[0]), float(value[1]))
+
+static func _valid_pixel_point(value: Variant) -> bool:
+	if not value is Array or value.size() != 2: return false
+	for coordinate: Variant in value:
+		if not (coordinate is float or coordinate is int) or not is_finite(float(coordinate)): return false
+	return true
+
 func _draw() -> void:
 	_meshes.clear()
 	if fighter == null or fighter.active_attack == null or fighter.runtime_profile == null: return
@@ -53,32 +96,34 @@ func _draw() -> void:
 	var progress := envelope.x
 	if id == "ja-hyun":
 		if _scarf == null: _scarf = get_node("/root/ForestArenaResources").load_texture(SCARF_TEXTURE_ID)
-		var frame := clampi(sprite.frame if sprite != null else 0,0,15)
-		var root_point := _anchor(Vector2(54,88))
+		var anchors := current_frame_anchors()
+		if anchors.is_empty(): return
+		var root_point := _anchor(_pixel_point(anchors.get("scarf_root", [54,88])))
 		if attack.action_id == &"attack_special":
 			# Extend the two worn tails along their current painted pose, rather than
 			# adding independent ribbons. Preparation uses the original cloth alone.
-			if preparing: return
-			root_point = _anchor(SWEEP_COLLAR[frame])
+			if preparing or not anchors.has("scarf_root") or not anchors.has("scarf_tips"): return
+			root_point = _anchor(_pixel_point(anchors.scarf_root))
 			for tail: int in 2:
-				var painted_tip := _anchor(SWEEP_TIPS[frame][tail])
+				var painted_tip := _anchor(_pixel_point(anchors.scarf_tips[tail]))
 				var direction := painted_tip-root_point
-				var up_pose := frame in [3,8,9,12]
+				var up_pose := sprite.frame in [3,8,9,12] if frame_anchors.is_empty() else direction.y < -absf(direction.x) * 0.6
 				var side := -1.0 if direction.x < 0 else 1.0
 				var offset := Vector2(side * (115.0 if up_pose else 226.0), -235.0 if up_pose else -12.0)
 				var reach := 0.35 + 0.65*envelope.y if recovering else 1.0
 				var control := root_point + direction * 2.0
 				_cloth(root_point,control,root_point+offset*reach,envelope.y,0.9 if tail == 0 else 0.75)
 		elif attack.action_id == &"attack_heavy" and attack.activation_context == AttackData.ActivationContext.AIR:
-			if preparing: return
+			if preparing or not anchors.has("scarf_hand"): return
 			# The one tail held by the attacking hand continues the drawn downward
 			# sweep. Its other worn tail remains the original character artwork.
-			root_point = _anchor(AIR_HAND[frame])
+			root_point = _anchor(_pixel_point(anchors.scarf_hand))
 			var sweep := progress
 			var tip := root_point + Vector2(lerpf(145,76,sweep)*sign_x,lerpf(-42,120,sweep))
 			var control := root_point + Vector2(100*sign_x,lerpf(-96,18,sweep))
 			_cloth(root_point,control,tip,envelope.y,0.90)
 		elif attack.action_id == &"attack_heavy" or (attack.action_id == &"attack_light" and attack.activation_context == AttackData.ActivationContext.AIR):
+			if not anchors.has("scarf_root"): return
 			var reach := attack.hitbox_offset.x + attack.hitbox_size.x * 0.40
 			var tip := Vector2(reach * sign_x, -36)
 			var extension := 0.3 + progress * 0.7 if preparing else 1.0

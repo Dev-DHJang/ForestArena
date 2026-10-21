@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 import re
 
+from motion_layout import layout, motion_id
+
 
 def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -57,6 +59,7 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
         cid, motion = row.get("character_id"), row.get("visual_state_id")
         if cid not in known_characters or not isinstance(motion, str) or not re.fullmatch(r"[a-z][a-z0-9_-]*", motion):
             raise ValueError("unknown character or invalid motion ID")
+        layout(row)
         key = (cid, motion)
         if key in keys:
             raise ValueError("duplicate candidate motion")
@@ -65,8 +68,8 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
         if row.get("type") != "animation-candidate" and not reuse:
             raise ValueError("candidate row requires animation-candidate or explicitly approved runtime reuse")
         if reuse:
-            registered = [entry for entry in manifest if entry.get("type") == "animation-runtime" and entry.get("character_id") == cid and (entry.get("visual_state_id") or Path(entry.get("path", "")).stem.removesuffix("_16f")) == motion]
-            if len(registered) != 1 or any(row.get(field) != registered[0].get(field) for field in ("path", "sprite_frames_path", "fps", "loop")):
+            registered = [entry for entry in manifest if entry.get("type") == "animation-runtime" and entry.get("character_id") == cid and motion_id(entry) == motion]
+            if len(registered) != 1 or any(row.get(field) != registered[0].get(field) for field in ("path", "sprite_frames_path", "fps", "loop", "frame_count", "atlas_columns", "cell_size", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors")):
                 raise ValueError("approved runtime reuse must exactly match the registered PNG/SpriteFrames/fps/loop")
         if not isinstance(row.get("fps"), (int, float)) or isinstance(row["fps"], bool) or not 0 < row["fps"] <= 120 or not isinstance(row.get("loop"), bool):
             raise ValueError("candidate fps/loop is invalid")
@@ -125,7 +128,7 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
         raise ValueError("candidate requires exact character_movesets mapping for every scoped character")
     if any(path not in attack_sources for path in character_movesets.values()):
         raise ValueError("character_movesets must refer to explicitly pinned AttackData sources")
-    mandatory = ["assets/character/manifest.json", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md", "tools/forest_arena/motion_review_timeline.gd", "tools/forest_arena/motion_review_candidate_frames.gd", "tools/forest_arena/motion_review_candidates.py", "tools/forest_arena/review_motion_actions.py"]
+    mandatory = ["assets/character/manifest.json", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md", "tools/forest_arena/motion_review_timeline.gd", "tools/forest_arena/motion_review_candidate_frames.gd", "tools/forest_arena/motion_review_candidates.py", "tools/forest_arena/review_motion_actions.py", "tools/forest_arena/motion_layout.py"]
     for source in ("scripts/data/attack_data.gd", "scripts/data/combat_rules.gd", "scripts/fighter_attack_effects.gd"):
         if (root / source).is_file(): mandatory.append(source)
     required = set(mandatory + attack_sources)

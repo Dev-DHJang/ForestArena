@@ -21,9 +21,9 @@ description: Forest Arena 프레임 애니메이션·스프라이트 시트·Spr
 
 1. 승인 캐릭터 모션은 manifest, 승인 콘셉트 PNG와 외형 계약을 확인하고 `_workspace/character-motion-<character-id>/`에 시안과 검토를 남긴다.
 2. `docs/content/motion-action-review.md`에 따라 제작 전에 기대 행위·핵심 자세·방향·공격 단계를 기록한다. 새 모션과 수정 모션은 전체 프레임·정상 속도·게임 재생 자료를 QA에 전달하고 독립 검토 뒤 사용자 승인을 요청한다.
-3. idle은 8 FPS 루프, run은 12 FPS 루프, jump는 단발 기본값으로 각각 16프레임·128×128 셀·2048×128 시트를 만든다.
+3. 기존16프레임 자산의 idle8 FPS·run12 FPS·jump단발 기본값은 호환한다. 신규는 선언한16·24·32프레임과128×128 셀·최대16열을 사용한다. 그림 수와 단계별 표시 시간은 전투 시간을 바꾸지 않는다.
 4. 모션별 사용자 명시 승인 전에는 런타임 경로·manifest에 쓰지 않고, 승인되지 않은 모션은 런타임 파일을 생성하지 않는다.
-5. 승인 뒤에만 `assets/character/<character-id>/animation/runtime/<motion>_16f.png`와 `<motion>.tres`를 등록하고 manifest에 생성 방식·권리·해시·소비 경로를 갱신한다.
+5. 승인 뒤에만 `assets/character/<character-id>/animation/runtime/<motion>_<frame_count>f.png`와 `<motion>.tres`를 등록하고 manifest에 생성 방식·권리·해시·소비 경로를 갱신한다.
 6. 프레임 순서, pivot, 방향 전환, 루프, alpha, 잘림과 외형 계약의 필수·각도 한정·금지 요소를 검증한다. 애니메이션은 AttackData 타이밍을 표현하며 판정을 결정하지 않는다.
 7. 공급자별 경로를 공용 전투 코드에 노출하지 않고 최대 줌아웃 실루엣과 Android 메모리·draw call 영향을 측정한다.
 

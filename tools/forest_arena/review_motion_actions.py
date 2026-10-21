@@ -12,6 +12,7 @@ import shutil
 
 from PIL import Image, ImageDraw
 from motion_review_candidates import load_selection, local_path
+from motion_layout import layout, frame_box, motion_id
 
 STATES = {
     "idle": "대기 호흡; 이동·공격과 구별되고 자연스럽게 반복",
@@ -52,10 +53,6 @@ def write(path: Path, value):
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n")
 
 
-def motion_id(row):
-    return row.get("visual_state_id") or Path(row["path"]).stem.removesuffix("_16f")
-
-
 def entries(root: Path):
     return [r for r in read(root / "assets/character/manifest.json")["assets"] if r.get("type") == "animation-runtime"]
 
@@ -89,6 +86,8 @@ def timeline_errors(root: Path, timeline: dict, rows: list, selection: dict | No
     if timeline.get("schema_version") != 1 or not timeline.get("sources"):
         errors.append("missing timeline source fingerprints")
     required_sources = {"assets/character/manifest.json", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md"}
+    if (root / "tools/forest_arena/motion_layout.py").is_file():
+        required_sources.add("tools/forest_arena/motion_layout.py")
     if (root / "scripts/fighter_attack_effects.gd").is_file():
         required_sources.add("scripts/fighter_attack_effects.gd")
     if selection is not None:
@@ -120,6 +119,11 @@ def timeline_errors(root: Path, timeline: dict, rows: list, selection: dict | No
         key = row["character_id"], row["motion"]
         if key not in wanted:
             continue
+        try:
+            spec = layout(wanted[key])
+        except ValueError as error:
+            errors.append(f"invalid motion layout: {key}: {error}")
+            continue
         if row.get("sheet_sha256") != sha(root / wanted[key]["path"]):
             errors.append(f"timeline sheet changed: {key}")
         if not row.get("variants"):
@@ -137,7 +141,7 @@ def timeline_errors(root: Path, timeline: dict, rows: list, selection: dict | No
             phase_counts = Counter(s.get("phase") for s in samples)
             if str(variant.get("attack_id", "")).startswith("state:"):
                 source = wanted[key]
-                state_ticks = math.ceil(16 / float(source["fps"]) * 60) * 2 if source.get("loop") and float(source.get("fps", 0)) > 0 else 120
+                state_ticks = math.ceil(sum(spec["frame_durations"]) / float(source["fps"]) * 60) * 2 if source.get("loop") and float(source.get("fps", 0)) > 0 else 120
                 expected_phases = {"ascent": 20, "apex": 12, "descent": 20, "landing": 16} if row["motion"] == "jump" else {row["motion"]: state_ticks}
                 if selection is not None and variant.get("attack_id") == "state:landing-down-18" and row["motion"] == "knock_down":
                     expected_phases = {"knock_down": 18}
@@ -146,25 +150,54 @@ def timeline_errors(root: Path, timeline: dict, rows: list, selection: dict | No
             else:
                 lengths = variant.get("phase_ticks", [])
                 expected_phases = dict(zip(("startup", "active", "recovery"), lengths)) if len(lengths) == 3 and all(isinstance(n, int) and n > 0 for n in lengths) else {}
+            if selection is not None and not wanted[key].get("reuse_approved_runtime", False) and spec["frame_count"] != 16 and not str(variant.get("attack_id", "")).startswith("state:") and "phase_frame_ranges" not in wanted[key]:
+                errors.append(f"variable-count attack requires explicit phase_frame_ranges: {key}")
+            if selection is not None and not wanted[key].get("reuse_approved_runtime", False) and not str(variant.get("attack_id", "")).startswith("state:"):
+                visible = {sample.get("frame") for sample in samples}
+                if not set(range(spec["frame_count"])).issubset(visible):
+                    errors.append(f"candidate authored drawing skipped by full attack playback: {key}")
+            if not str(variant.get("attack_id", "")).startswith("state:") and "phase_frame_ranges" in wanted[key] and selection is not None and not wanted[key].get("reuse_approved_runtime", False):
+                ranges = wanted[key]["phase_frame_ranges"]
+                if len(lengths) == 3 and any(end - begin > ticks for (begin, end), ticks in zip(ranges, lengths)):
+                    errors.append(f"candidate phase has more drawings than visible combat ticks: {key}")
+                if len(lengths) == 3:
+                    for phase, (begin,end) in zip(("startup","active","recovery"),ranges):
+                        visible={sample.get("frame") for sample in samples if sample.get("phase")==phase}
+                        if not set(range(begin,end)).issubset(visible):
+                            errors.append(f"candidate authored drawing skipped by actual phase playback: {key}/{phase}")
             expected_order = [phase for phase, count in expected_phases.items() for _ in range(count)]
             if not expected_phases or dict(phase_counts) != expected_phases or [s.get("phase") for s in samples] != expected_order:
                 errors.append(f"incomplete runtime phases or tick counts: {key}")
             if not variant.get("samples"):
                 errors.append(f"missing runtime samples: {key}")
             for sample in variant.get("samples", []):
-                if sample.get("shown") != row["motion"] or not 0 <= sample.get("frame", -1) < 16 or abs(sample.get("duration_ms", 0) - 1000 / 60) > 0.01:
+                if sample.get("shown") != row["motion"] or not isinstance(sample.get("frame"), int) or isinstance(sample.get("frame"), bool) or not 0 <= sample.get("frame", -1) < spec["frame_count"] or abs(sample.get("duration_ms", 0) - 1000 / 60) > 0.01:
                     errors.append(f"invalid runtime sample: {key}")
                     break
+                if row["motion"] == "jump" and "jump_frame_ranges" in wanted[key]:
+                    begin, end = wanted[key]["jump_frame_ranges"].get(sample.get("phase"), [-1,-1])
+                    if not begin <= sample["frame"] < end:
+                        errors.append(f"jump sample outside declared phase; airborne landing forbidden: {key}")
+                        break
+            if row["motion"] == "run" and "run_stride_px" in wanted[key] and str(variant.get("attack_id", "")).startswith("state:"):
+                positions = [sample.get("position") for sample in samples]
+                if not positions or any(not isinstance(p, list) or len(p) != 2 or any(not isinstance(n, (float, int)) or isinstance(n, bool) or not math.isfinite(n) for n in p) for p in positions):
+                    errors.append(f"run_stride review requires finite displayed movement samples: {key}")
+                else:
+                    step = float(wanted[key]["run_stride_px"]) * 2 / len(positions)
+                    if any(not math.isclose(p[0] - positions[0][0], i * step, abs_tol=0.001) for i, p in enumerate(positions)):
+                        errors.append(f"run_stride review must cover two distance cycles: {key}")
     return errors
 
 
-def make_board(sheet: Image.Image, name: str, destination: Path):
-    board = Image.new("RGB", (528, 568), "#2d3238")
+def make_board(sheet: Image.Image, name: str, destination: Path, spec: dict | None = None):
+    spec = spec or layout({})
+    board = Image.new("RGB", (528, 24 + math.ceil(spec["frame_count"] / 4) * 136), "#2d3238")
     draw = ImageDraw.Draw(board)
     draw.text((8, 6), name, fill="white")
-    for index in range(16):
+    for index in range(spec["frame_count"]):
         x, y = 2 + index % 4 * 132, 24 + index // 4 * 136
-        frame = sheet.crop((index * 128, 0, (index + 1) * 128, 128)).convert("RGBA")
+        frame = sheet.crop(frame_box(index, spec)).convert("RGBA")
         back = Image.new("RGBA", (128, 128), "#a3a8ab")
         back.alpha_composite(frame)
         board.paste(back.convert("RGB"), (x, y))
@@ -201,10 +234,15 @@ def prepare(root: Path, timeline_path: Path, output: Path, catalog: Path | None 
         board_path = f"boards/{basename}.jpg"
         sheet_path = f"sheets/{basename}.png"
         expected, source = (row["expected_action"], row["action_source"]) if selection else action(root, cid, motion)
+        spec = layout(row)
         with Image.open(root / row["path"], formats=["PNG"]) as image:
-            if image.size != (2048, 128) or "A" not in image.getbands():
+            if image.size != spec["sheet_size"] or "A" not in image.getbands():
                 raise ValueError(f"invalid sheet shape or alpha: {key}")
-            make_board(image, key, output / board_path)
+            for index in range(spec["frame_count"], spec["atlas_columns"] * spec["rows"]):
+                x, y = index % spec["atlas_columns"] * 128, index // spec["atlas_columns"] * 128
+                if image.crop((x,y,x+128,y+128)).getchannel("A").getbbox() is not None:
+                    raise ValueError(f"unused atlas cell must be transparent: {key}")
+            make_board(image, key, output / board_path, spec)
         shutil.copyfile(root / row["path"], output / sheet_path)
         variants = by_key[cid, motion]["variants"]
         timelines = [compact(v["samples"]) for v in variants]
@@ -221,13 +259,13 @@ def prepare(root: Path, timeline_path: Path, output: Path, catalog: Path | None 
             review["motions"][-1]["asset_type"] = row["type"]
             review["motions"][-1]["reuse_approved_runtime"] = row.get("reuse_approved_runtime", False)
         options = "".join(f'<option value="{i}">{html.escape(v["attack_id"] or motion)}</option>' for i, v in enumerate(variants))
-        cards.append(f'''<article id="{basename}" data-character="{cid}"><h2>{html.escape(key)}</h2>
+        cards.append(f'''<article id="{basename}" data-character="{cid}" data-columns="{spec['atlas_columns']}"><h2>{html.escape(key)}</h2>
 <p>{html.escape(expected)}</p><div class="play"><canvas width="256" height="256"></canvas></div>
 <label>게임 변형 <select class="variant">{options}</select></label>
-<label>비교 <select class="playback-mode"><option value="runtime">게임 코드의 실제 타이밍</option><option value="authored">전체 16프레임 원화 FPS</option></select></label>
+<label>비교 <select class="playback-mode"><option value="runtime">게임 코드의 실제 타이밍</option><option value="authored">전체 {spec["frame_count"]}프레임 원화 FPS</option></select></label>
 <button class="slow">속도 1×</button><button class="mirror">좌우 반전</button><button class="small">작게</button><button class="pause">정지</button>
-<p class="time"></p><details><summary>전체 16프레임</summary><img class="board" src="{board_path}"></details>
-<img class="sheet" src="{sheet_path}" hidden><script type="application/json">{json.dumps(timelines)}</script><script class="authored-timeline" type="application/json">{json.dumps([[i, "authored-only", motion, 1000.0 / float(row.get("fps", 12))] for i in range(16)])}</script></article>''')
+<p class="time"></p><details><summary>전체 {spec["frame_count"]}프레임</summary><img class="board" src="{board_path}"></details>
+<img class="sheet" src="{sheet_path}" hidden><script type="application/json">{json.dumps(timelines)}</script><script class="authored-timeline" type="application/json">{json.dumps([[i, "authored-only", motion, 1000.0 * spec["frame_durations"][i] / float(row.get("fps", 12))] for i in range(spec["frame_count"])])}</script></article>''')
     shutil.copyfile(timeline_path, output / "timeline.json")
     page = '''<!doctype html><meta charset="utf-8"><title>모션 행위 검토</title>
 <style>body{background:#172128;color:#eef1f4;font:15px system-ui;margin:16px}nav{position:sticky;top:0;background:#172128;padding:12px;z-index:2}main{display:grid;grid-template-columns:repeat(3,minmax(300px,1fr));gap:12px}article{background:#293840;padding:12px;min-height:440px}h2{font-size:15px}p{min-height:36px}button,select{font:14px system-ui;margin:3px;padding:5px}.play{height:256px;display:flex;justify-content:center}canvas{image-rendering:auto;background:#94999e}.board{width:100%}body.wall main{grid-template-columns:repeat(4,minmax(0,1fr))}body.wall article{padding:4px;min-height:140px}body.wall h2{font-size:10px;overflow-wrap:anywhere}body.wall .play{height:96px}body.wall canvas{width:96px;height:96px}body.wall article>p:not(.time),body.wall article>label,body.wall article>button,body.wall details{display:none}body.wall .time{font-size:9px;min-height:20px}</style>
@@ -244,7 +282,7 @@ const players=[...document.querySelectorAll('article')].map(a=>{
  a.querySelector('.pause').onclick=()=>{paused=!paused;a.querySelector('.pause').textContent=paused?'재생':'정지'};
  function draw(now){if(!paused)elapsed+=(now-last)*speed;last=now;
  const seq=mode.value==='runtime'?variants[Number(select.value)]:authored,duration=seq.reduce((n,s)=>n+s[3],0);let t=elapsed%duration,i=0;
- while(i<seq.length-1&&t>=seq[i][3])t-=seq[i++][3];const s=seq[i];ctx.clearRect(0,0,256,256);ctx.save();ctx.translate(128,128);ctx.scale(mirror?-1:1,1);const size=small?128:256;if(sheet.complete)ctx.drawImage(sheet,s[0]*128,0,128,128,-size/2,-size/2,size,size);ctx.restore();
+ while(i<seq.length-1&&t>=seq[i][3])t-=seq[i++][3];const s=seq[i];ctx.clearRect(0,0,256,256);ctx.save();ctx.translate(128,128);ctx.scale(mirror?-1:1,1);const size=small?128:256;if(sheet.complete)ctx.drawImage(sheet,(s[0]%Number(a.dataset.columns))*128,Math.floor(s[0]/Number(a.dataset.columns))*128,128,128,-size/2,-size/2,size,size);ctx.restore();
  a.querySelector('.time').textContent='frame '+(s[0]+1)+' / '+s[1]+' / '+Math.round(elapsed%duration)+' ms';requestAnimationFrame(draw)}requestAnimationFrame(draw);return a});
 function filter(){let count=0;for(const a of players){a.hidden=!!((character.value&&a.dataset.character!==character.value)||!a.id.includes(search.value));if(!a.hidden)count++}document.querySelector('#count').textContent=count+' motions'}
 const character=document.querySelector('#character'),search=document.querySelector('#search');character.onchange=search.oninput=filter;filter();

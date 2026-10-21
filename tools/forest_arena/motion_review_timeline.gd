@@ -4,6 +4,7 @@ const Presentation := preload("res://scripts/local_fighter_presentation.gd")
 var errors: Array[String] = []
 var candidate_plan: Dictionary = {}
 var candidate_textures: Array[Texture2D] = []
+var warnings: Array[String] = []
 
 
 func _initialize() -> void:
@@ -15,7 +16,7 @@ func _sample(presentation: Node2D, fighter: FighterController, delta: float, pha
 	presentation.sync_visual(delta)
 	if before != fighter.snapshot():
 		errors.append("presentation changed combat snapshot")
-	return {"frame": presentation.sprite.frame, "shown": String(presentation.sprite.animation), "phase": phase, "duration_ms": 1000.0 / 60.0}
+	return {"frame": presentation.sprite.frame, "shown": String(presentation.sprite.animation), "phase": phase, "duration_ms": 1000.0 / 60.0, "position": [fighter.position.x, fighter.position.y]}
 
 
 func _reset(presentation: Node2D, fighter: FighterController) -> void:
@@ -127,11 +128,34 @@ func _run() -> void:
 				var samples: Array[Dictionary] = []
 				var phases := [FighterController.State.ATTACK_STARTUP, FighterController.State.ATTACK_ACTIVE, FighterController.State.ATTACK_RECOVERY]
 				var lengths := [attack.startup_ticks, attack.active_ticks, attack.recovery_ticks]
+				if not candidate_plan.is_empty() and not entry.get("reuse_approved_runtime", false) and int(entry.get("frame_count",16)) != 16 and not entry.has("phase_frame_ranges"):
+					errors.append("variable-count attack requires explicit phase_frame_ranges: %s/%s" % [id,motion])
+				if entry.has("phase_frame_ranges"):
+					for phase_index: int in 3:
+						var bounds: Array = entry.phase_frame_ranges[phase_index]
+						if int(bounds[1]) - int(bounds[0]) > int(lengths[phase_index]):
+							var message := "phase drawings exceed visible combat ticks: %s/%s %s" % [id, motion, ["startup", "active", "recovery"][phase_index]]
+							if entry.get("reuse_approved_runtime", false) or candidate_plan.is_empty(): warnings.append(message)
+							else: errors.append(message)
 				for phase_index in range(3):
 					fighter.state = phases[phase_index]
 					for tick in range(lengths[phase_index]):
 						fighter.attack_phase_tick = tick
 						samples.append(_sample(presentation, fighter, 1.0 / 60.0, ["startup", "active", "recovery"][phase_index]))
+				if not candidate_plan.is_empty() and not entry.get("reuse_approved_runtime", false):
+					var all_visible := {}
+					for sample: Dictionary in samples: all_visible[sample.frame] = true
+					for frame_index: int in range(int(entry.get("frame_count",16))):
+						if not all_visible.has(frame_index): errors.append("candidate authored drawing skipped by full attack playback: %s/%s frame %d" % [id,motion,frame_index])
+				if not candidate_plan.is_empty() and not entry.get("reuse_approved_runtime", false) and entry.has("phase_frame_ranges"):
+					for phase_index: int in 3:
+						var phase_name: String = ["startup", "active", "recovery"][phase_index]
+						var visible := {}
+						for sample: Dictionary in samples:
+							if sample.phase == phase_name: visible[sample.frame] = true
+						var bounds: Array = entry.phase_frame_ranges[phase_index]
+						for frame_index: int in range(int(bounds[0]),int(bounds[1])):
+							if not visible.has(frame_index): errors.append("candidate authored drawing skipped by actual phase playback: %s/%s/%s frame %d" % [id,motion,phase_name,frame_index])
 				variants.append({"attack_id": String(attack.attack_id), "phase_ticks": lengths, "self_impulse": [attack.self_impulse.x, attack.self_impulse.y], "samples": samples})
 			if variants.is_empty() or motion == "attack_heavy_charge":
 				_reset(presentation, fighter)
@@ -150,8 +174,16 @@ func _run() -> void:
 							found = true
 							break
 					if not found: errors.append("no runtime state or attack for %s/%s" % [id, motion])
-					var state_ticks := ceili(16.0 / float(entry.fps) * 60.0) * 2 if entry.get("loop", false) else 120
-					for tick in range(state_ticks): samples.append(_sample(presentation, fighter, 1.0 / 60.0, motion))
+					var weights := float(entry.get("frame_count", 16))
+					if entry.has("frame_durations"):
+						weights = 0.0
+						for weight: float in entry.frame_durations: weights += weight
+					var state_ticks := ceili(weights / float(entry.fps) * 60.0) * 2 if entry.get("loop", false) else 120
+					# Run review advances real displayed distance, not an artificial FPS counter.
+					for tick in range(state_ticks):
+						if motion == "run" and entry.has("run_stride_px"):
+							fighter.position.x = float(tick) * float(entry.run_stride_px) * 2.0 / state_ticks
+						samples.append(_sample(presentation, fighter, 1.0 / 60.0, motion))
 				variants.push_front({"attack_id": "state:" + motion, "stimulus": "synthetic fixed state: 120 ticks or two complete loops; jump uses staged vertical speeds", "samples": samples})
 			if not candidate_plan.is_empty() and motion in ["knock_down", "wake_up"]:
 				_reset(presentation,fighter)
@@ -170,6 +202,8 @@ func _run() -> void:
 	var fingerprints := {}
 	for source: String in ["assets/character/manifest.json", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md"]:
 		fingerprints[source] = FileAccess.get_sha256("res://" + source)
+	if FileAccess.file_exists("res://tools/forest_arena/motion_layout.py"):
+		fingerprints["tools/forest_arena/motion_layout.py"] = FileAccess.get_sha256("res://tools/forest_arena/motion_layout.py")
 	if FileAccess.file_exists("res://scripts/fighter_attack_effects.gd"):
 		fingerprints["scripts/fighter_attack_effects.gd"] = FileAccess.get_sha256("res://scripts/fighter_attack_effects.gd")
 	var presentation_constants := (load("res://scripts/local_fighter_presentation.gd") as GDScript).get_script_constant_map()
@@ -195,7 +229,7 @@ func _run() -> void:
 		push_error("cannot write " + output)
 		quit(1)
 		return
-	var result := {"schema_version": 1, "generator_sha256": FileAccess.get_sha256(get_script().resource_path), "sources": fingerprints, "motions": motions, "errors": errors}
+	var result := {"schema_version": 1, "generator_sha256": FileAccess.get_sha256(get_script().resource_path), "sources": fingerprints, "motions": motions, "errors": errors, "warnings": warnings}
 	if not candidate_plan.is_empty(): result["candidate_selection"] = candidate_plan.candidate_selection
 	file.store_string(JSON.stringify(result, "\t") + "\n")
 	for error in errors: push_error(error)

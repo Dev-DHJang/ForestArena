@@ -110,9 +110,9 @@ func _validate_entry_against(visual_state_id: String, entry: Dictionary, expecte
 		failures.append("incorrect Ja-Hyun acting purpose: %s" % visual_state_id)
 	if entry.get("combo_index") != expected_move.get("combo_index") or entry.get("is_finisher") != expected_move.get("finisher") or entry.get("acting_purpose") != expected_move.get("role"):
 		failures.append("manifest and attack-system visual metadata disagree: %s" % visual_state_id)
-	var sheet_name := String(entry.get("path", "")).get_file().get_basename().trim_suffix("_16f")
-	if sheet_name != visual_state_id:
-		failures.append("runtime sheet and visual state differ: %s" % visual_state_id)
+	# Explicit visual_state_id is the contract; versioned sheet names may differ.
+	if String(entry.get("visual_state_id", "")) != visual_state_id:
+		failures.append("runtime visual state differs: %s" % visual_state_id)
 	if entry.get("sprite_frames_path") != entry.get("consumer_path"):
 		failures.append("SpriteFrames consumer mismatch: %s" % visual_state_id)
 
