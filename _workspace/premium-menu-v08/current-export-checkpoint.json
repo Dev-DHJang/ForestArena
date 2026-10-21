@@ -1,9 +1,11 @@
 {
-  "status": "PARTIAL_CURRENT_SPEC_EXPORTS",
-  "checkedAt": "2026-10-20T22:13:57.233975+00:00",
+  "status": "CURRENT_SPEC_EXPORTS_COMPLETE_ONLY",
+  "checkedAt": "2026-10-21T10:29:37.612011+00:00",
   "expected": 263,
-  "currentPairs": 134,
+  "currentPairs": 263,
+  "comparisons": 5,
   "specSha256": "62cbef087faf9a3c3a00dc52b001ba3243d2a4f82943e87ee33a43e02fc26ffd",
+  "note": "Output checkpoint only; final prototype audit, actual manual clicks and reload verification remain separate.",
   "rows": [
     {
       "name": "CBT_08_Settings",
@@ -96,6 +98,37 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "87ad0100",
         "snapshotMediaId": "65d5ee1e-9774-8045-8008-d174eb4d94fd"
+      }
+    },
+    {
+      "name": "MENU08 / AllMenus",
+      "native": {
+        "name": "MENU08 / AllMenus",
+        "id": "b6d2d70b-7f33-8009-8008-d1684562d3c9",
+        "filename": "MENU08___AllMenus-2858de04-v08-1920.png",
+        "bytes": 1534019,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "91f1c64b",
+        "sha256": "343a8a22d03abae7bd124d15aa7ebdcc7a148bc114adaa25b9bd9576890e1b86"
+      },
+      "preview": {
+        "name": "MENU08 / AllMenus",
+        "id": "b6d2d70b-7f33-8009-8008-d1684562d3c9",
+        "filename": "MENU08___AllMenus-2858de04-v08.png",
+        "bytes": 936364,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "dc4be45b646a15b125785e1dbfebfe3515c137048ea36c473685e4dc7060d7a2",
+        "sourceFilename": "MENU08___AllMenus-2858de04-v08-1920.png",
+        "sourceSha256": "343a8a22d03abae7bd124d15aa7ebdcc7a148bc114adaa25b9bd9576890e1b86",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "91f1c64b",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2205d80aae7"
       }
     },
     {
@@ -223,6 +256,68 @@
       }
     },
     {
+      "name": "MENU08 / ControlsParametersFloating",
+      "native": {
+        "name": "MENU08 / ControlsParametersFloating",
+        "id": "71f67bbe-b6c3-8057-8008-d1b069e99dde",
+        "filename": "MENU08___ControlsParametersFloating-ef3cda31-v08-1920.png",
+        "bytes": 436110,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "2c22c403",
+        "sha256": "ed42b3286d771483f399f37dcd4379481a69aa59b0a90cce57a5307136452837"
+      },
+      "preview": {
+        "name": "MENU08 / ControlsParametersFloating",
+        "id": "71f67bbe-b6c3-8057-8008-d1b069e99dde",
+        "filename": "MENU08___ControlsParametersFloating-ef3cda31-v08.png",
+        "bytes": 311103,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "214fed50b2ef01bc014da6ee5988608635d535f9d8dfd78d491f84c2d6d8f034",
+        "sourceFilename": "MENU08___ControlsParametersFloating-ef3cda31-v08-1920.png",
+        "sourceSha256": "ed42b3286d771483f399f37dcd4379481a69aa59b0a90cce57a5307136452837",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "2c22c403",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d225d535c405"
+      }
+    },
+    {
+      "name": "MENU08 / ControlsParametersFloatingLobby",
+      "native": {
+        "name": "MENU08 / ControlsParametersFloatingLobby",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06793918f",
+        "filename": "MENU08___ControlsParametersFloatingLobby-2f7953a7-v08-1920.png",
+        "bytes": 436110,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "498048e4",
+        "sha256": "ed42b3286d771483f399f37dcd4379481a69aa59b0a90cce57a5307136452837"
+      },
+      "preview": {
+        "name": "MENU08 / ControlsParametersFloatingLobby",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06793918f",
+        "filename": "MENU08___ControlsParametersFloatingLobby-2f7953a7-v08.png",
+        "bytes": 311103,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "214fed50b2ef01bc014da6ee5988608635d535f9d8dfd78d491f84c2d6d8f034",
+        "sourceFilename": "MENU08___ControlsParametersFloatingLobby-2f7953a7-v08-1920.png",
+        "sourceSha256": "ed42b3286d771483f399f37dcd4379481a69aa59b0a90cce57a5307136452837",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "498048e4",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d225b2e9ea47"
+      }
+    },
+    {
       "name": "MENU08 / ControlsParametersLobby",
       "native": {
         "name": "MENU08 / ControlsParametersLobby",
@@ -251,6 +346,161 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "ce9a4a24",
         "snapshotMediaId": "65d5ee1e-9774-8045-8008-d1740d2cd050"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00ee995c8",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-___-4e53a523-v08-1920.png",
+        "bytes": 450148,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "38219ebb",
+        "sha256": "8c5fbf2309175347ab90d1f125e622dec3672ef54794f720a00522c5ada047ed"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00ee995c8",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-___-4e53a523-v08.png",
+        "bytes": 309488,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d5ed93e3527f894be4ce3f9ab1345f3e3c7f2de249d95d3b09975bbb0ae43d5d",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___applied-default-___-4e53a523-v08-1920.png",
+        "sourceSha256": "8c5fbf2309175347ab90d1f125e622dec3672ef54794f720a00522c5ada047ed",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "38219ebb",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d22513cec7dc"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0095d6bc7",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-__-1d33ca8c-v08-1920.png",
+        "bytes": 458004,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "fc15a8f4",
+        "sha256": "b7df03d05ec47cd9a5698a6970d17814300f8f35236495ef9ad839fd6502dc42"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0095d6bc7",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-__-1d33ca8c-v08.png",
+        "bytes": 313494,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "35ceb2456031dddeeea8d10426921588719b745ed4270ad892324285e8b08965",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___applied-default-__-1d33ca8c-v08-1920.png",
+        "sourceSha256": "b7df03d05ec47cd9a5698a6970d17814300f8f35236495ef9ad839fd6502dc42",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "fc15a8f4",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d224dbb1f1aa"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00ccaa07d",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-___-7c6d7c18-v08-1920.png",
+        "bytes": 452010,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "59b6d5cb",
+        "sha256": "68cf8e192c5c3b8b8a212ed97b2bd1d71a78a60671c8fc3b1b5245b1e4c59611"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00ccaa07d",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-___-7c6d7c18-v08.png",
+        "bytes": 310925,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "10967f8a7e3e176ee1e7ac76d684e46b5dec639b232cc4704f1be70ffe3d51f8",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___applied-default-___-7c6d7c18-v08-1920.png",
+        "sourceSha256": "68cf8e192c5c3b8b8a212ed97b2bd1d71a78a60671c8fc3b1b5245b1e4c59611",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "59b6d5cb",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d225073e6262"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00b14bb80",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-_____-49d76ad8-v08-1920.png",
+        "bytes": 457617,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "ff0bb6af",
+        "sha256": "e02ecf6e72ac37962a3a0abc3befe43f896b892ae228c3ee69ee7ec68ae2bf78"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-default-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00b14bb80",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-default-_____-49d76ad8-v08.png",
+        "bytes": 314053,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "c8909dd24be1b97fbf67bcd869e2a55e307771dacf97f0a5e09360383ed53ffd",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___applied-default-_____-49d76ad8-v08-1920.png",
+        "sourceSha256": "e02ecf6e72ac37962a3a0abc3befe43f896b892ae228c3ee69ee7ec68ae2bf78",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "ff0bb6af",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d224e8af4f5c"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-미니맵",
+        "id": "b6d2d70b-7f33-8009-8008-d167ec9dc737",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-___-848253db-v08-1920.png",
+        "bytes": 451529,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "35c548f2",
+        "sha256": "c985dc3b83c21e7a2245c2995126109647950397d839b08dda613d1a46cac035"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-미니맵",
+        "id": "b6d2d70b-7f33-8009-8008-d167ec9dc737",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-___-848253db-v08.png",
+        "bytes": 308467,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5fdfcb9776378e1dd8194163b99f58be93dec49f37a7ff6945fa2cdb7e8b1431",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___applied-___-848253db-v08-1920.png",
+        "sourceSha256": "c985dc3b83c21e7a2245c2995126109647950397d839b08dda613d1a46cac035",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "35c548f2",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21e7684fbeb"
       }
     },
     {
@@ -285,6 +535,68 @@
       }
     },
     {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성",
+        "id": "b6d2d70b-7f33-8009-8008-d167e87b0b8f",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-___-fb170e60-v08-1920.png",
+        "bytes": 452642,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "584fd46c",
+        "sha256": "53ff63259733d753cb02b34c847176514a7ee676e02c87307b620b612778b5c2"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성",
+        "id": "b6d2d70b-7f33-8009-8008-d167e87b0b8f",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-___-fb170e60-v08.png",
+        "bytes": 309730,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "e58fa10a66dd20899bc520711d8febfe59ab169ccf29a1601fbd65de3fa1f0a5",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___applied-___-fb170e60-v08-1920.png",
+        "sourceSha256": "53ff63259733d753cb02b34c847176514a7ee676e02c87307b620b612778b5c2",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "584fd46c",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21c6bcb8e01"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00681bc7e",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-___-large-17f60f32-v08-1920.png",
+        "bytes": 452528,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "538faf98",
+        "sha256": "3f9b4aed1724fa316c1a9979e963eab3e4e3ec144ac96ec3d30ef690c749bd63"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00681bc7e",
+        "filename": "MENU08___EXT_06_GeneralSettings___applied-___-large-17f60f32-v08.png",
+        "bytes": 309593,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "b25013facb67337003cc4a7bc049376c82a49daa6b3247f8aa4e2d65aa68d884",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___applied-___-large-17f60f32-v08-1920.png",
+        "sourceSha256": "3f9b4aed1724fa316c1a9979e963eab3e4e3ec144ac96ec3d30ef690c749bd63",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "538faf98",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d224b4459466"
+      }
+    },
+    {
       "name": "MENU08 / EXT_06_GeneralSettings / applied-화면 효과",
       "native": {
         "name": "MENU08 / EXT_06_GeneralSettings / applied-화면 효과",
@@ -313,6 +625,812 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "f29c456e",
         "snapshotMediaId": "86d07029-2be7-815f-8008-d21c0faa8b0a"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcb6b84e0",
+        "filename": "MENU08___EXT_06_GeneralSettings___changed-from-default-___-1eec2cf9-v08-1920.png",
+        "bytes": 1683443,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "14625bee",
+        "sha256": "05dbab89971f359cd1512f49f1442744a0f0650272e8e561ded82ecbb61316e2"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcb6b84e0",
+        "filename": "MENU08___EXT_06_GeneralSettings___changed-from-default-___-1eec2cf9-v08.png",
+        "bytes": 1026203,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "e550a78e20ca615b382535e0b7206ba95c058a6a0e89f57c58d1e4a4dc5bf514",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___changed-from-default-___-1eec2cf9-v08-1920.png",
+        "sourceSha256": "05dbab89971f359cd1512f49f1442744a0f0650272e8e561ded82ecbb61316e2",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "14625bee",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d223efccec37"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc009ae04",
+        "filename": "MENU08___EXT_06_GeneralSettings___changed-from-default-__-b9308b6-v08-1920.png",
+        "bytes": 1685816,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "b35f0835",
+        "sha256": "6cfef48af061d1127cfc7da7b059390bb4c5702e4a6f55363a1b6a9996e7b425"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc009ae04",
+        "filename": "MENU08___EXT_06_GeneralSettings___changed-from-default-__-b9308b6-v08.png",
+        "bytes": 1025824,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "dc6391447762d777b56d11e21a9d648630a57d04d1ceba38f8c288cfe8b63d46",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___changed-from-default-__-b9308b6-v08-1920.png",
+        "sourceSha256": "6cfef48af061d1127cfc7da7b059390bb4c5702e4a6f55363a1b6a9996e7b425",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "b35f0835",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2237c78c313"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbdf9fcd6",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-initial-___-88cf825-v08-1920.png",
+        "bytes": 1673125,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "bf927ca8",
+        "sha256": "d4298c9e120541f30bf362f10428b20248e2d45fd1d91534a2e8b0a8009649d5"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbdf9fcd6",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-initial-___-88cf825-v08.png",
+        "bytes": 1022159,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "fa5936c805b98c431bc8da8f8d0bc94cb06f71e60b7f3e4bba4402d0eaa46b18",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-draft-from-initial-___-88cf825-v08-1920.png",
+        "sourceSha256": "d4298c9e120541f30bf362f10428b20248e2d45fd1d91534a2e8b0a8009649d5",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "bf927ca8",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2234e016ee2"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbbceae94",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-initial-__-6aa61ab2-v08-1920.png",
+        "bytes": 1693353,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "96225ea7",
+        "sha256": "59c421b3a73570e57e0b27e8934eb4831a79d6c7c8dc7a72403fd223467bef04"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbbceae94",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-initial-__-6aa61ab2-v08.png",
+        "bytes": 1030527,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "7a62e70b6522d2a64e771ffc083652ea4d02d92d7348703abfc3613984cc2f68",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-draft-from-initial-__-6aa61ab2-v08-1920.png",
+        "sourceSha256": "59c421b3a73570e57e0b27e8934eb4831a79d6c7c8dc7a72403fd223467bef04",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "96225ea7",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2232b92775c"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcb11374f",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-84bbb24a-v08-1920.png",
+        "bytes": 1673125,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "3ba1f103",
+        "sha256": "d4298c9e120541f30bf362f10428b20248e2d45fd1d91534a2e8b0a8009649d5"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcb11374f",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-84bbb24a-v08.png",
+        "bytes": 1022159,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "fa5936c805b98c431bc8da8f8d0bc94cb06f71e60b7f3e4bba4402d0eaa46b18",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-84bbb24a-v08-1920.png",
+        "sourceSha256": "d4298c9e120541f30bf362f10428b20248e2d45fd1d91534a2e8b0a8009649d5",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "3ba1f103",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d223e025da46"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbfb5ace2",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-__-30afc7b3-v08-1920.png",
+        "bytes": 1693353,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "8afa35f4",
+        "sha256": "59c421b3a73570e57e0b27e8934eb4831a79d6c7c8dc7a72403fd223467bef04"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbfb5ace2",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-__-30afc7b3-v08.png",
+        "bytes": 1030527,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "7a62e70b6522d2a64e771ffc083652ea4d02d92d7348703abfc3613984cc2f68",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-__-30afc7b3-v08-1920.png",
+        "sourceSha256": "59c421b3a73570e57e0b27e8934eb4831a79d6c7c8dc7a72403fd223467bef04",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "8afa35f4",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2236d0bf507"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc6e2d5db",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-7ead0c4d-v08-1920.png",
+        "bytes": 1661467,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "9daf43a8",
+        "sha256": "265d266826c253b46c4771423a1ddf41190b958a84e7238cb1d2506b1e984b95"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc6e2d5db",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-7ead0c4d-v08.png",
+        "bytes": 1009821,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "8818ea068c7692194dafcabda0a8a96e41756e6f4d99db44e721060a57f19f9d",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-7ead0c4d-v08-1920.png",
+        "sourceSha256": "265d266826c253b46c4771423a1ddf41190b958a84e7238cb1d2506b1e984b95",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "9daf43a8",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d223c227b017"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcdba8a4c",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-large-89bd24ef-v08-1920.png",
+        "bytes": 1661467,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "5f693c07",
+        "sha256": "265d266826c253b46c4771423a1ddf41190b958a84e7238cb1d2506b1e984b95"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcdba8a4c",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-large-89bd24ef-v08.png",
+        "bytes": 1009821,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "8818ea068c7692194dafcabda0a8a96e41756e6f4d99db44e721060a57f19f9d",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-___-large-89bd24ef-v08-1920.png",
+        "sourceSha256": "265d266826c253b46c4771423a1ddf41190b958a84e7238cb1d2506b1e984b95",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "5f693c07",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2240ee8ec20"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc2d2c2e0",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-_____-6de4622d-v08-1920.png",
+        "bytes": 1684690,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "27068f4b",
+        "sha256": "f9251de755672017581ad182fe0fe9d49a5a6c4da9ff2cf6d3df419e9339e787"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc2d2c2e0",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-_____-6de4622d-v08.png",
+        "bytes": 1024809,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "6133b92d324cab51a209cd8100cec75fc2637d6d85be801b102d12b51528f682",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-draft-from-saved-_____-6de4622d-v08-1920.png",
+        "sourceSha256": "f9251de755672017581ad182fe0fe9d49a5a6c4da9ff2cf6d3df419e9339e787",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "27068f4b",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d223a6c98d50"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-saved-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbc679e4b",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-saved-___-4e10ba01-v08-1920.png",
+        "bytes": 1670901,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "5b415f47",
+        "sha256": "d73ecb1dde30c027b05fc8c271c7c380f580e19ab6578ae33ee5dfb5503248c1"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbc679e4b",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-saved-___-4e10ba01-v08.png",
+        "bytes": 1018625,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "1876188951edc7b0fab70714935b4963fe4fa1b2bb818bac1c62c0adf814ea01",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-saved-___-4e10ba01-v08-1920.png",
+        "sourceSha256": "d73ecb1dde30c027b05fc8c271c7c380f580e19ab6578ae33ee5dfb5503248c1",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "5b415f47",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2233f455ff9"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-saved-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afb979d38b",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-saved-__-2974f24e-v08-1920.png",
+        "bytes": 1691264,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "b9fa19d6",
+        "sha256": "55641562d90b18ba9ce2c53f498c85a4caa66184c3cf7595141c4d00d8cfda71"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / default-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afb979d38b",
+        "filename": "MENU08___EXT_06_GeneralSettings___default-saved-__-2974f24e-v08.png",
+        "bytes": 1026847,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "377c5c8f59f068612ee0e8f8d75bac0a706b00bf2101fa40f23f31da4878204b",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___default-saved-__-2974f24e-v08-1920.png",
+        "sourceSha256": "55641562d90b18ba9ce2c53f498c85a4caa66184c3cf7595141c4d00d8cfda71",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "b9fa19d6",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2231e78ad6c"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0189cdafa",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-changed-from-default-___-70fa9dae-v08-1920.png",
+        "bytes": 465906,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "75d2f8bf",
+        "sha256": "d7280f8d429a6d48d18a62a046784c57fcd62a9142bd3e49d3547b6d3fae1c3d"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0189cdafa",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-changed-from-default-___-70fa9dae-v08.png",
+        "bytes": 326532,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d0501919eb419e2bb57b345c9309b9f31166d0a4c67563a4fbbe92f6a23b87c7",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-changed-from-default-___-70fa9dae-v08-1920.png",
+        "sourceSha256": "d7280f8d429a6d48d18a62a046784c57fcd62a9142bd3e49d3547b6d3fae1c3d",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "75d2f8bf",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2255fde071f"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0132516f7",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-changed-from-default-__-b6ce5357-v08-1920.png",
+        "bytes": 467507,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "3628e629",
+        "sha256": "a1d87d9f2dee11696f714720ced57d1f8ffaca7c3dfe1479d98b98e9ee7d2ec1"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0132516f7",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-changed-from-default-__-b6ce5357-v08.png",
+        "bytes": 327570,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "7cdd0c0bae5dad1ebe19aaac51f0713659ea1a1737eb4e307d95775d10877341",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-changed-from-default-__-b6ce5357-v08-1920.png",
+        "sourceSha256": "a1d87d9f2dee11696f714720ced57d1f8ffaca7c3dfe1479d98b98e9ee7d2ec1",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "3628e629",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2252cf0d1e6"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b065235fff",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-initial-___-89628dca-v08-1920.png",
+        "bytes": 463742,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "349705ba",
+        "sha256": "6557d8d85a988c399d6a2ff5aa28ddd565194e63712af6e6db6f29e8c5426ddc"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b065235fff",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-initial-___-89628dca-v08.png",
+        "bytes": 325818,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "8abe099d1a9fbd2b96a33e6693dff87ef5f87308e1e87e93ef7dcbe32a10fc2d",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-initial-___-89628dca-v08-1920.png",
+        "sourceSha256": "6557d8d85a988c399d6a2ff5aa28ddd565194e63712af6e6db6f29e8c5426ddc",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "349705ba",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22590a230f9"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b062c43d2c",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-initial-__-e1f90333-v08-1920.png",
+        "bytes": 470624,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "cee601f1",
+        "sha256": "7e8eb7822f5472dda1a1768ce69a8856054de4bffa976b1678efb3f90d6af433"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b062c43d2c",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-initial-__-e1f90333-v08.png",
+        "bytes": 329585,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "41051041ca7cf0c0bc8ebe95927d831b16c9abf94dbb7e6864340a02639e7912",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-initial-__-e1f90333-v08-1920.png",
+        "sourceSha256": "7e8eb7822f5472dda1a1768ce69a8856054de4bffa976b1678efb3f90d6af433",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "cee601f1",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d2257a03194e"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b016e6c31b",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-87bf1dbd-v08-1920.png",
+        "bytes": 463742,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "59fef392",
+        "sha256": "6557d8d85a988c399d6a2ff5aa28ddd565194e63712af6e6db6f29e8c5426ddc"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b016e6c31b",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-87bf1dbd-v08.png",
+        "bytes": 325818,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "8abe099d1a9fbd2b96a33e6693dff87ef5f87308e1e87e93ef7dcbe32a10fc2d",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-87bf1dbd-v08-1920.png",
+        "sourceSha256": "6557d8d85a988c399d6a2ff5aa28ddd565194e63712af6e6db6f29e8c5426ddc",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "59fef392",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22552be7fb0"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b01148bd9a",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-__-e166a5fa-v08-1920.png",
+        "bytes": 470624,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "8fb8f621",
+        "sha256": "7e8eb7822f5472dda1a1768ce69a8856054de4bffa976b1678efb3f90d6af433"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b01148bd9a",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-__-e166a5fa-v08.png",
+        "bytes": 329585,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "41051041ca7cf0c0bc8ebe95927d831b16c9abf94dbb7e6864340a02639e7912",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-__-e166a5fa-v08-1920.png",
+        "sourceSha256": "7e8eb7822f5472dda1a1768ce69a8856054de4bffa976b1678efb3f90d6af433",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "8fb8f621",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d22520a165e8"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b01564c24d",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-a0244542-v08-1920.png",
+        "bytes": 463953,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "5378ffce",
+        "sha256": "de13837f5c04dd265e6912393393405ea30e5976af20fdf99dada4a867cbb614"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b01564c24d",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-a0244542-v08.png",
+        "bytes": 326395,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "da9b522045711cbfed7d17e056ab6b57b4df93d0d59fcc7d93cd93c16a84e19e",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-a0244542-v08-1920.png",
+        "sourceSha256": "de13837f5c04dd265e6912393393405ea30e5976af20fdf99dada4a867cbb614",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "5378ffce",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22546c0a219"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b019019e56",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-large-aa12af4c-v08-1920.png",
+        "bytes": 463953,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "92f3f6a9",
+        "sha256": "de13837f5c04dd265e6912393393405ea30e5976af20fdf99dada4a867cbb614"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b019019e56",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-large-aa12af4c-v08.png",
+        "bytes": 326395,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "da9b522045711cbfed7d17e056ab6b57b4df93d0d59fcc7d93cd93c16a84e19e",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-___-large-aa12af4c-v08-1920.png",
+        "sourceSha256": "de13837f5c04dd265e6912393393405ea30e5976af20fdf99dada4a867cbb614",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "92f3f6a9",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2256d9be883"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0138b60a2",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-_____-e8e951da-v08-1920.png",
+        "bytes": 469045,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "3fd7368",
+        "sha256": "8e117791cf78f82f82edbbbd9aa68e321b03f117358cd499d46c991e0a5b8919"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0138b60a2",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-_____-e8e951da-v08.png",
+        "bytes": 328601,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "0cd2caefad2f8650e289b5dae7cc8d142ee70ec3d5987337ba10d2c448dea8fd",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-default-draft-from-saved-_____-e8e951da-v08-1920.png",
+        "sourceSha256": "8e117791cf78f82f82edbbbd9aa68e321b03f117358cd499d46c991e0a5b8919",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "3fd7368",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22539d97412"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06674eb02",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-___-large-1ba45e6b-v08-1920.png",
+        "bytes": 465136,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "fc518dd0",
+        "sha256": "bff7a157296e616114a19c4f3fe2535662be8bcec58ff8bd3fd49d9797ced015"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06674eb02",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-draft-___-large-1ba45e6b-v08.png",
+        "bytes": 326887,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "16898da1ad99e818a50f716d4c1d3c612e97b782c5d0b25147b4233b0ba9e470",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-draft-___-large-1ba45e6b-v08-1920.png",
+        "sourceSha256": "bff7a157296e616114a19c4f3fe2535662be8bcec58ff8bd3fd49d9797ced015",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "fc518dd0",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d225a461f4c3"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-로비",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-로비",
+        "id": "b6d2d70b-7f33-8009-8008-d167ed42fbec",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-316695a9-v08-1920.png",
+        "bytes": 460569,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "febaae37",
+        "sha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-로비",
+        "id": "b6d2d70b-7f33-8009-8008-d167ed42fbec",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-316695a9-v08.png",
+        "bytes": 322612,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5dec07887f7d6983bcb4b317f9e7426afce025a3925f383c94845014d25e2834",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-316695a9-v08-1920.png",
+        "sourceSha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "febaae37",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d21e879b186b"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-소리",
+        "id": "b6d2d70b-7f33-8009-8008-d167eec160f7",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-3d41b131-v08-1920.png",
+        "bytes": 460569,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "565f19ce",
+        "sha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-소리",
+        "id": "b6d2d70b-7f33-8009-8008-d167eec160f7",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-3d41b131-v08.png",
+        "bytes": 322612,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5dec07887f7d6983bcb4b317f9e7426afce025a3925f383c94845014d25e2834",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-3d41b131-v08-1920.png",
+        "sourceSha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "565f19ce",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21e9609ca8b"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-접근성",
+        "id": "b6d2d70b-7f33-8009-8008-d167ef5e9a38",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-___-9bc9c93f-v08-1920.png",
+        "bytes": 460569,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "fa8b878d",
+        "sha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-접근성",
+        "id": "b6d2d70b-7f33-8009-8008-d167ef5e9a38",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-___-9bc9c93f-v08.png",
+        "bytes": 322612,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5dec07887f7d6983bcb4b317f9e7426afce025a3925f383c94845014d25e2834",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-___-9bc9c93f-v08-1920.png",
+        "sourceSha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "fa8b878d",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21eb052cc3d"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-조작",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-조작",
+        "id": "b6d2d70b-7f33-8009-8008-d167ef9fb9c4",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-b2c371e6-v08-1920.png",
+        "bytes": 460569,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "7e22de39",
+        "sha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-조작",
+        "id": "b6d2d70b-7f33-8009-8008-d167ef9fb9c4",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-b2c371e6-v08.png",
+        "bytes": 322612,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5dec07887f7d6983bcb4b317f9e7426afce025a3925f383c94845014d25e2834",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-b2c371e6-v08-1920.png",
+        "sourceSha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "7e22de39",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21ebe3136f6"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-화면 효과",
+        "id": "b6d2d70b-7f33-8009-8008-d167ef2d22b7",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-_____-bd374317-v08-1920.png",
+        "bytes": 460569,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "4e74a94d",
+        "sha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-미니맵-to-화면 효과",
+        "id": "b6d2d70b-7f33-8009-8008-d167ef2d22b7",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-_____-bd374317-v08.png",
+        "bytes": 322612,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5dec07887f7d6983bcb4b317f9e7426afce025a3925f383c94845014d25e2834",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-_____-bd374317-v08-1920.png",
+        "sourceSha256": "0668da6410ed9a626a0ebd637d8ebd46a5987ffaba39fdc378c14eed32452d91",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "4e74a94d",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21ea42805db"
       }
     },
     {
@@ -471,6 +1589,161 @@
       }
     },
     {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-로비",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-로비",
+        "id": "b6d2d70b-7f33-8009-8008-d167e8c1f3f4",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-3c4fa0ea-v08-1920.png",
+        "bytes": 459338,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "70484404",
+        "sha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-로비",
+        "id": "b6d2d70b-7f33-8009-8008-d167e8c1f3f4",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-3c4fa0ea-v08.png",
+        "bytes": 322683,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d6982d0c0d617cf957e6d22a857e2bb2001be91537ec4c5fc851645926a54085",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-3c4fa0ea-v08-1920.png",
+        "sourceSha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "70484404",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21c7a1429a7"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-미니맵",
+        "id": "b6d2d70b-7f33-8009-8008-d167ea528004",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-___-3546aa95-v08-1920.png",
+        "bytes": 459338,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "da79cbc4",
+        "sha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-미니맵",
+        "id": "b6d2d70b-7f33-8009-8008-d167ea528004",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-___-3546aa95-v08.png",
+        "bytes": 322683,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d6982d0c0d617cf957e6d22a857e2bb2001be91537ec4c5fc851645926a54085",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-___-3546aa95-v08-1920.png",
+        "sourceSha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "da79cbc4",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22604b4e551"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-소리",
+        "id": "b6d2d70b-7f33-8009-8008-d167e9e3bfa6",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-a87b942-v08-1920.png",
+        "bytes": 459338,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "beef556d",
+        "sha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-소리",
+        "id": "b6d2d70b-7f33-8009-8008-d167e9e3bfa6",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-a87b942-v08.png",
+        "bytes": 322683,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d6982d0c0d617cf957e6d22a857e2bb2001be91537ec4c5fc851645926a54085",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-a87b942-v08-1920.png",
+        "sourceSha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "beef556d",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21c8a46135a"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-조작",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-조작",
+        "id": "b6d2d70b-7f33-8009-8008-d167ea80ddc1",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-a9085995-v08-1920.png",
+        "bytes": 459338,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "cdaaae94",
+        "sha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-조작",
+        "id": "b6d2d70b-7f33-8009-8008-d167ea80ddc1",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-a9085995-v08.png",
+        "bytes": 322683,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d6982d0c0d617cf957e6d22a857e2bb2001be91537ec4c5fc851645926a54085",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-__-a9085995-v08-1920.png",
+        "sourceSha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "cdaaae94",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21e5b56543d"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-화면 효과",
+        "id": "b6d2d70b-7f33-8009-8008-d167ea11b7fd",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-_____-7cf12872-v08-1920.png",
+        "bytes": 459338,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "c192c84e",
+        "sha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / discard-접근성-to-화면 효과",
+        "id": "b6d2d70b-7f33-8009-8008-d167ea11b7fd",
+        "filename": "MENU08___EXT_06_GeneralSettings___discard-___-to-_____-7cf12872-v08.png",
+        "bytes": 322683,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d6982d0c0d617cf957e6d22a857e2bb2001be91537ec4c5fc851645926a54085",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___discard-___-to-_____-7cf12872-v08-1920.png",
+        "sourceSha256": "a14b7e9bf71c706353b0e969b3e2f813619a5b4b59aee1e2e02160ce7bf66b58",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "c192c84e",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21c99cfaf2c"
+      }
+    },
+    {
       "name": "MENU08 / EXT_06_GeneralSettings / discard-화면 효과-to-로비",
       "native": {
         "name": "MENU08 / EXT_06_GeneralSettings / discard-화면 효과-to-로비",
@@ -626,6 +1899,409 @@
       }
     },
     {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b006270f46",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-from-default-___-80c6090b-v08-1920.png",
+        "bytes": 466562,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "4655af72",
+        "sha256": "e6cacfc015d033707aa7c945cd1c87deb2227a47731a61a42769802a03f39646"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b006270f46",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-from-default-___-80c6090b-v08.png",
+        "bytes": 329171,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d097321c5ac0e05b7f6bb77e6d533d6a87393cfcd970097462bb1b75e70a355a",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-changed-from-default-___-80c6090b-v08-1920.png",
+        "sourceSha256": "e6cacfc015d033707aa7c945cd1c87deb2227a47731a61a42769802a03f39646",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "4655af72",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d224a7925219"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b000fbe7c8",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-from-default-__-96935a64-v08-1920.png",
+        "bytes": 468262,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "460cfa54",
+        "sha256": "2cdc64efd1928a7465e2f19d8e62240ce4442a78e0ba2b0aa6298359b877ec04"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b000fbe7c8",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-from-default-__-96935a64-v08.png",
+        "bytes": 329791,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "b91b4cc0bf07362c9ba332d4061a5b44270755e4434027ab249bbf678db51449",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-changed-from-default-__-96935a64-v08-1920.png",
+        "sourceSha256": "2cdc64efd1928a7465e2f19d8e62240ce4442a78e0ba2b0aa6298359b877ec04",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "460cfa54",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22437aeddcc"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0041b2b93",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-db1553c-v08-1920.png",
+        "bytes": 463212,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e25845dd",
+        "sha256": "d597063c973d51dbb6a52c8e74ca8f60d262d13a5c3a4ea66e11ea39efb67582"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0041b2b93",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-db1553c-v08.png",
+        "bytes": 325782,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "65cce6a548238bccaa552ebc79b6bda49d22b79e3bc4ab4927879e63e08be4b0",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-db1553c-v08-1920.png",
+        "sourceSha256": "d597063c973d51dbb6a52c8e74ca8f60d262d13a5c3a4ea66e11ea39efb67582",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e25845dd",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d22489745658"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1affe7f4921",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-__-b6b95799-v08-1920.png",
+        "bytes": 464876,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "1dea2ba3",
+        "sha256": "3570317457cd07c492c36f1a81be41b7009a36f3a45ae50017df79e451ee8fb1"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1affe7f4921",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-__-b6b95799-v08.png",
+        "bytes": 326441,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "8c2628e105ed3867c9094a8db92d5712e5e057c4567212e788653281ffef076e",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-changed-__-b6b95799-v08-1920.png",
+        "sourceSha256": "3570317457cd07c492c36f1a81be41b7009a36f3a45ae50017df79e451ee8fb1",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "1dea2ba3",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2241c54a199"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00232757d",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-8db335e7-v08-1920.png",
+        "bytes": 464354,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "1ea7e5e8",
+        "sha256": "b94378ed16650c57cf98408e2677aed22f7ebf7758a70a63ec03897b6bc89a97"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00232757d",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-8db335e7-v08.png",
+        "bytes": 327810,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "dcf4a38ef61b4aedb3501648272375e1a3040baeea194231de4e0fb01d75c212",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-8db335e7-v08-1920.png",
+        "sourceSha256": "b94378ed16650c57cf98408e2677aed22f7ebf7758a70a63ec03897b6bc89a97",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "1ea7e5e8",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2246bb2a168"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00781e327",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-large-fd85fe39-v08-1920.png",
+        "bytes": 464227,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "ee479b57",
+        "sha256": "0421651a04ca097d25e282f850036a3495b3992887de816d3340923d6bb537ad"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b00781e327",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-large-fd85fe39-v08.png",
+        "bytes": 327636,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "a37d528781a708e373d92330415f1e250b11355bc02b6a3fb3084526c4ceb92f",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-changed-___-large-fd85fe39-v08-1920.png",
+        "sourceSha256": "0421651a04ca097d25e282f850036a3495b3992887de816d3340923d6bb537ad",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "ee479b57",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d224c0e70a4e"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b001223d49",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-_____-60460fef-v08-1920.png",
+        "bytes": 464500,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "ffa15607",
+        "sha256": "7d0c3a57e16208f526ec882b86cd5d9ef8a1075165cc7b52fd2136bb12344540"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b001223d49",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-changed-_____-60460fef-v08.png",
+        "bytes": 327638,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "28afe8ca8fc14ced031bb657a6cfe5d233244cdf6f1424a5ec4e47e949e534ed",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-changed-_____-60460fef-v08-1920.png",
+        "sourceSha256": "7d0c3a57e16208f526ec882b86cd5d9ef8a1075165cc7b52fd2136bb12344540",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "ffa15607",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d224464e5303"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b005b94f2c",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-1c6746cb-v08-1920.png",
+        "bytes": 463072,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "76fdaa64",
+        "sha256": "0ff84da790c42e0f650cd9a2a0595d432aa7eda8931362de4715c95b0f8a2fc4"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1b005b94f2c",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-1c6746cb-v08.png",
+        "bytes": 324946,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "a3c65adf39fcc72da96d2258e3a0388f4e6aaa8b17419594f69d235438f2cb3c",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-1c6746cb-v08-1920.png",
+        "sourceSha256": "0ff84da790c42e0f650cd9a2a0595d432aa7eda8931362de4715c95b0f8a2fc4",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "76fdaa64",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2249aa7dfa5"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0008dddf9",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-__-c094f124-v08-1920.png",
+        "bytes": 464774,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "39932c68",
+        "sha256": "6afbb95f741e64ba4e1a19f4a8bec3f1b5694b2eb0135e752983bc8cbe8d2c8f"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0008dddf9",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-__-c094f124-v08.png",
+        "bytes": 325620,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "c71ef7a9538981d06440e83967ced20a21ddc909861aa7da6a15ac29ae3891dc",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-saved-__-c094f124-v08-1920.png",
+        "sourceSha256": "6afbb95f741e64ba4e1a19f4a8bec3f1b5694b2eb0135e752983bc8cbe8d2c8f",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "39932c68",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d2242b924060"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b003d5ff19",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-5f8cfab0-v08-1920.png",
+        "bytes": 464157,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "4fd07258",
+        "sha256": "fd6006b5033822e2da939b94e0383ad525e834d5af9a78a1bf5d935783414a93"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1b003d5ff19",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-5f8cfab0-v08.png",
+        "bytes": 326955,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "afddaadd20a73eb9db9e6fc91fd92687ded44400e5c90ef4a9a637ce6e9aad37",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-5f8cfab0-v08-1920.png",
+        "sourceSha256": "fd6006b5033822e2da939b94e0383ad525e834d5af9a78a1bf5d935783414a93",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "4fd07258",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d22477b8f690"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0087f1e59",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-large-c06d3f62-v08-1920.png",
+        "bytes": 464037,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "50fc8b6c",
+        "sha256": "fd5c39942c790c140b5d9e723b6ebf0bed115ac323ecd41a8ae1b11fcab64ce7"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1b0087f1e59",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-large-c06d3f62-v08.png",
+        "bytes": 326790,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "e14b2613b299c21a626cb0b961022e5670419d746c56af013036bf9409677a03",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-saved-___-large-c06d3f62-v08-1920.png",
+        "sourceSha256": "fd5c39942c790c140b5d9e723b6ebf0bed115ac323ecd41a8ae1b11fcab64ce7",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "50fc8b6c",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d224ce396534"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b001f7fdf2",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-_____-5bd89220-v08-1920.png",
+        "bytes": 464333,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "330558ca",
+        "sha256": "ebf2068bfb408dddb6bfdcd16b87931f8dad2edfc215be86d592cc083e39b800"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1b001f7fdf2",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-saved-_____-5bd89220-v08.png",
+        "bytes": 326835,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d1f0f84e8d3d3818e416b0cbc272446da1799138e3dd9785c807cffebc77f189",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-saved-_____-5bd89220-v08-1920.png",
+        "sourceSha256": "ebf2068bfb408dddb6bfdcd16b87931f8dad2edfc215be86d592cc083e39b800",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "330558ca",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d224534d232a"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-미니맵",
+        "id": "b6d2d70b-7f33-8009-8008-d167eabb0482",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-___-9365bcfd-v08-1920.png",
+        "bytes": 459116,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "ff5ea535",
+        "sha256": "5f15fd638fd70fa3b87adc9cdbccd146621ebf68d1dd791b378a12a72908ed75"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-미니맵",
+        "id": "b6d2d70b-7f33-8009-8008-d167eabb0482",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-___-9365bcfd-v08.png",
+        "bytes": 323240,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "2661daaf8ad443ce75c6db66fc115e8a228c7ded7ff997e0d001a420d4498b4f",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-___-9365bcfd-v08-1920.png",
+        "sourceSha256": "5f15fd638fd70fa3b87adc9cdbccd146621ebf68d1dd791b378a12a72908ed75",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "ff5ea535",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21e692bf8d8"
+      }
+    },
+    {
       "name": "MENU08 / EXT_06_GeneralSettings / reset-소리",
       "native": {
         "name": "MENU08 / EXT_06_GeneralSettings / reset-소리",
@@ -657,6 +2333,37 @@
       }
     },
     {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-접근성",
+        "id": "b6d2d70b-7f33-8009-8008-d167e6b02ed6",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-___-e1e0e882-v08-1920.png",
+        "bytes": 461303,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "5d361c48",
+        "sha256": "972a7d3c38ddbd741c63e44a46e29537a171cbfe491b316712f0a42712bd502f"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / reset-접근성",
+        "id": "b6d2d70b-7f33-8009-8008-d167e6b02ed6",
+        "filename": "MENU08___EXT_06_GeneralSettings___reset-___-e1e0e882-v08.png",
+        "bytes": 325243,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "4e73d349b285483c0d59aa88ae04d6c08cbf305a53996f15c177ac104ec33faf",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___reset-___-e1e0e882-v08-1920.png",
+        "sourceSha256": "972a7d3c38ddbd741c63e44a46e29537a171cbfe491b316712f0a42712bd502f",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "5d361c48",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d21c5e032ec5"
+      }
+    },
+    {
       "name": "MENU08 / EXT_06_GeneralSettings / reset-화면 효과",
       "native": {
         "name": "MENU08 / EXT_06_GeneralSettings / reset-화면 효과",
@@ -685,6 +2392,161 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "b34de5a6",
         "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21c038d32fe"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-미니맵",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc8fa4da9",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-___-bcef0369-v08-1920.png",
+        "bytes": 1682096,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "ce794717",
+        "sha256": "4629a4594abb88284231818ca4413f86639eae624b6dfbff3904aee10eb0348f"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-미니맵",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc8fa4da9",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-___-bcef0369-v08.png",
+        "bytes": 1024311,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "ec1f187d0ca955e0c5d88d6a150e22c786f088d7144704485345631228ddb16a",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___saved-___-bcef0369-v08-1920.png",
+        "sourceSha256": "4629a4594abb88284231818ca4413f86639eae624b6dfbff3904aee10eb0348f",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "ce794717",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d223d2a15b88"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbeb7afe3",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-__-74e16406-v08-1920.png",
+        "bytes": 1684506,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e7fc7e1d",
+        "sha256": "a0a9d2b1a4af8e70d2927b50c50c2d5800a728666ab5ed23cb1110422af35ff9"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+        "id": "71f67bbe-b6c3-8057-8008-d1afbeb7afe3",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-__-74e16406-v08.png",
+        "bytes": 1023997,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "2a72296b11bdab43cf29fb72c35d379457a6d0edd000a861a7d20ade685dd221",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___saved-__-74e16406-v08-1920.png",
+        "sourceSha256": "a0a9d2b1a4af8e70d2927b50c50c2d5800a728666ab5ed23cb1110422af35ff9",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e7fc7e1d",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2235caa0e10"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc3f22cda",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-___-b28641e-v08-1920.png",
+        "bytes": 1672657,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "5368964f",
+        "sha256": "d5c2c4353f79549f8d8bc3770b58ead79eb198c31bf1abcad1850fcfb8136ab6"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc3f22cda",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-___-b28641e-v08.png",
+        "bytes": 1013544,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "583c6aa07b2ce41c5faa89d75a3b38eb2070b7f1092c178b095054a7db33f970",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___saved-___-b28641e-v08-1920.png",
+        "sourceSha256": "d5c2c4353f79549f8d8bc3770b58ead79eb198c31bf1abcad1850fcfb8136ab6",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "5368964f",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d223b4526242"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcc8b604d",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-___-large-f4fe0018-v08-1920.png",
+        "bytes": 1671803,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "38704249",
+        "sha256": "ce6aba89d56344450c421b22cdc9253e128fc6bf70326f841041e192c2efa906"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성-large",
+        "id": "71f67bbe-b6c3-8057-8008-d1afcc8b604d",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-___-large-f4fe0018-v08.png",
+        "bytes": 1013253,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "9c12ad9ca038b6219679611ea87e58970eb62b87704cd7e405f46cc683f2053e",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___saved-___-large-f4fe0018-v08-1920.png",
+        "sourceSha256": "ce6aba89d56344450c421b22cdc9253e128fc6bf70326f841041e192c2efa906",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "38704249",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22401054b94"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-화면 효과",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc0cfd307",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-_____-730c2826-v08-1920.png",
+        "bytes": 1673842,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "29fc7815",
+        "sha256": "1b2fea3573d85b22e3df3785856fc69f8b774b2d7bca00b7e59dfcfc44c59e25"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / saved-화면 효과",
+        "id": "71f67bbe-b6c3-8057-8008-d1afc0cfd307",
+        "filename": "MENU08___EXT_06_GeneralSettings___saved-_____-730c2826-v08.png",
+        "bytes": 1018257,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "65f5c7caf44415409ba678a378922f708f93a60c29ab86551e311c7fcb1d9632",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings___saved-_____-730c2826-v08-1920.png",
+        "sourceSha256": "1b2fea3573d85b22e3df3785856fc69f8b774b2d7bca00b7e59dfcfc44c59e25",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "29fc7815",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22399340072"
       }
     },
     {
@@ -809,6 +2671,37 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "f8697e48",
         "snapshotMediaId": "da05d154-084a-817e-8008-d21a41669cde"
+      }
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 접근성-large",
+      "native": {
+        "name": "MENU08 / EXT_06_GeneralSettings / 접근성-large",
+        "id": "b6d2d70b-7f33-8009-8008-d167efd0eec1",
+        "filename": "MENU08___EXT_06_GeneralSettings______-large-47646f1a-v08-1920.png",
+        "bytes": 1673240,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "b0f58e6b",
+        "sha256": "12291c897c5c6036d8804e260e72f6813d5b6c72d7672e5e2d5aae46979a6c37"
+      },
+      "preview": {
+        "name": "MENU08 / EXT_06_GeneralSettings / 접근성-large",
+        "id": "b6d2d70b-7f33-8009-8008-d167efd0eec1",
+        "filename": "MENU08___EXT_06_GeneralSettings______-large-47646f1a-v08.png",
+        "bytes": 1015340,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "b205699c8e34681d36af6cc489ed1de4ec90e05f9eb2a77a79aa45a8f3aba9a8",
+        "sourceFilename": "MENU08___EXT_06_GeneralSettings______-large-47646f1a-v08-1920.png",
+        "sourceSha256": "12291c897c5c6036d8804e260e72f6813d5b6c72d7672e5e2d5aae46979a6c37",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "b0f58e6b",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21edf8acc48"
       }
     },
     {
@@ -967,6 +2860,68 @@
       }
     },
     {
+      "name": "MENU08 / FriendDelete",
+      "native": {
+        "name": "MENU08 / FriendDelete",
+        "id": "b6d2d70b-7f33-8009-8008-d16840d82a00",
+        "filename": "MENU08___FriendDelete-5cccdb0e-v08-1920.png",
+        "bytes": 472172,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "681d499a",
+        "sha256": "332930b8226e40296e539f53a09d4ded38470e1f14d7e760f928940f26afbc3f"
+      },
+      "preview": {
+        "name": "MENU08 / FriendDelete",
+        "id": "b6d2d70b-7f33-8009-8008-d16840d82a00",
+        "filename": "MENU08___FriendDelete-5cccdb0e-v08.png",
+        "bytes": 328980,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "35c2c66f34dfab46652c7d2fcbb8b3ce49e4faefad4dcc3b1eafea264e95cefa",
+        "sourceFilename": "MENU08___FriendDelete-5cccdb0e-v08-1920.png",
+        "sourceSha256": "332930b8226e40296e539f53a09d4ded38470e1f14d7e760f928940f26afbc3f",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "681d499a",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d220200473aa"
+      }
+    },
+    {
+      "name": "MENU08 / FriendInviteUnavailable",
+      "native": {
+        "name": "MENU08 / FriendInviteUnavailable",
+        "id": "b6d2d70b-7f33-8009-8008-d16843a25411",
+        "filename": "MENU08___FriendInviteUnavailable-40300706-v08-1920.png",
+        "bytes": 474744,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "14da65e1",
+        "sha256": "26c26430f4f3d8c98f53a5364f704115b3223f6febeaa0fbf24413ae1ddfc462"
+      },
+      "preview": {
+        "name": "MENU08 / FriendInviteUnavailable",
+        "id": "b6d2d70b-7f33-8009-8008-d16843a25411",
+        "filename": "MENU08___FriendInviteUnavailable-40300706-v08.png",
+        "bytes": 333695,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "7c1e832dd3277000b433b77fe28bb300f69b2462a679c0c3162b70b4a2eaefd9",
+        "sourceFilename": "MENU08___FriendInviteUnavailable-40300706-v08-1920.png",
+        "sourceSha256": "26c26430f4f3d8c98f53a5364f704115b3223f6febeaa0fbf24413ae1ddfc462",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "14da65e1",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d2202cac42c6"
+      }
+    },
+    {
       "name": "MENU08 / FriendProfile",
       "native": {
         "name": "MENU08 / FriendProfile",
@@ -995,6 +2950,68 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "ec2a343e",
         "snapshotMediaId": "bac6ebe2-a861-8073-8008-d1753293df07"
+      }
+    },
+    {
+      "name": "MENU08 / FriendRequestResult",
+      "native": {
+        "name": "MENU08 / FriendRequestResult",
+        "id": "b6d2d70b-7f33-8009-8008-d16843d82a7b",
+        "filename": "MENU08___FriendRequestResult-868e2887-v08-1920.png",
+        "bytes": 441147,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e0c9362e",
+        "sha256": "3cb16c0ada90d39abbefd4be9305cc7c9b3110e5576d25606958b6ae39600862"
+      },
+      "preview": {
+        "name": "MENU08 / FriendRequestResult",
+        "id": "b6d2d70b-7f33-8009-8008-d16843d82a7b",
+        "filename": "MENU08___FriendRequestResult-868e2887-v08.png",
+        "bytes": 311183,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "adf369edadacb817e4929d733d088060b02a5b8d8cc6781f32291d7c67608009",
+        "sourceFilename": "MENU08___FriendRequestResult-868e2887-v08-1920.png",
+        "sourceSha256": "3cb16c0ada90d39abbefd4be9305cc7c9b3110e5576d25606958b6ae39600862",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e0c9362e",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d220404e177d"
+      }
+    },
+    {
+      "name": "MENU08 / FriendRequestSent",
+      "native": {
+        "name": "MENU08 / FriendRequestSent",
+        "id": "b6d2d70b-7f33-8009-8008-d16845206d8a",
+        "filename": "MENU08___FriendRequestSent-c182b44-v08-1920.png",
+        "bytes": 439560,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "b48db332",
+        "sha256": "4317771615cd329e71774615531f8549136717e6d48a194573d86c227030a090"
+      },
+      "preview": {
+        "name": "MENU08 / FriendRequestSent",
+        "id": "b6d2d70b-7f33-8009-8008-d16845206d8a",
+        "filename": "MENU08___FriendRequestSent-c182b44-v08.png",
+        "bytes": 311147,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5c5c4f4269895ec2d41a52ecac19ee87ccaba4615946c4fbc90067049b21f3be",
+        "sourceFilename": "MENU08___FriendRequestSent-c182b44-v08-1920.png",
+        "sourceSha256": "4317771615cd329e71774615531f8549136717e6d48a194573d86c227030a090",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "b48db332",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2204f2852b6"
       }
     },
     {
@@ -1122,6 +3139,37 @@
       }
     },
     {
+      "name": "MENU08 / NicknameChangedExample",
+      "native": {
+        "name": "MENU08 / NicknameChangedExample",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06cb70f38",
+        "filename": "MENU08___NicknameChangedExample-649bd24f-v08-1920.png",
+        "bytes": 641458,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "ba9c8151",
+        "sha256": "b91ea6936f315affb088fded84ea9bfa3b1087a30a788ee3089ea6307efbe049"
+      },
+      "preview": {
+        "name": "MENU08 / NicknameChangedExample",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06cb70f38",
+        "filename": "MENU08___NicknameChangedExample-649bd24f-v08.png",
+        "bytes": 432016,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "91b437e35e8446700b87fc7f29c446b28fcf17d151c2bf2e844b08fe6d5f54db",
+        "sourceFilename": "MENU08___NicknameChangedExample-649bd24f-v08-1920.png",
+        "sourceSha256": "b91ea6936f315affb088fded84ea9bfa3b1087a30a788ee3089ea6307efbe049",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "ba9c8151",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22600d8517f"
+      }
+    },
+    {
       "name": "MENU08 / NicknameEdit",
       "native": {
         "name": "MENU08 / NicknameEdit",
@@ -1246,6 +3294,37 @@
       }
     },
     {
+      "name": "MENU08 / ProfileNicknameExample",
+      "native": {
+        "name": "MENU08 / ProfileNicknameExample",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06a4e664a",
+        "filename": "MENU08___ProfileNicknameExample-181b8528-v08-1920.png",
+        "bytes": 2071529,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e27a709a",
+        "sha256": "d5d9634322aeea908b1486f176649e72ca4dc2e9cc91e56956fa5f207a021ac6"
+      },
+      "preview": {
+        "name": "MENU08 / ProfileNicknameExample",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06a4e664a",
+        "filename": "MENU08___ProfileNicknameExample-181b8528-v08.png",
+        "bytes": 1232986,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "79863498c9503e82334792c525cecf0328f83ff8aa42346876cc8f7edf5d060a",
+        "sourceFilename": "MENU08___ProfileNicknameExample-181b8528-v08-1920.png",
+        "sourceSha256": "d5d9634322aeea908b1486f176649e72ca4dc2e9cc91e56956fa5f207a021ac6",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e27a709a",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d225f42358d9"
+      }
+    },
+    {
       "name": "MENU08 / RankError",
       "native": {
         "name": "MENU08 / RankError",
@@ -1305,6 +3384,223 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "65b96786",
         "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21b52edc5ce"
+      }
+    },
+    {
+      "name": "MENU08 / Review",
+      "native": {
+        "name": "MENU08 / Review",
+        "id": "b6d2d70b-7f33-8009-8008-d16848bfaa08",
+        "filename": "MENU08___Review-6c5733fd-v08-1920.png",
+        "bytes": 1504092,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "d7c21b73",
+        "sha256": "6c10dffd8c8c5934cf7b2cb519633306dd89d475c5423b9e0cee043e8665697a"
+      },
+      "preview": {
+        "name": "MENU08 / Review",
+        "id": "b6d2d70b-7f33-8009-8008-d16848bfaa08",
+        "filename": "MENU08___Review-6c5733fd-v08.png",
+        "bytes": 909955,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "864436c74c5e5405e38f77094b3e7aa270a79c5ab86c7471e66af861681365a7",
+        "sourceFilename": "MENU08___Review-6c5733fd-v08-1920.png",
+        "sourceSha256": "6c10dffd8c8c5934cf7b2cb519633306dd89d475c5423b9e0cee043e8665697a",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "d7c21b73",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2207118c4e4"
+      }
+    },
+    {
+      "name": "MENU08 / Review / page-2",
+      "native": {
+        "name": "MENU08 / Review / page-2",
+        "id": "b6d2d70b-7f33-8009-8008-d1684ace038e",
+        "filename": "MENU08___Review___page-2-df49518-v08-1920.png",
+        "bytes": 1500471,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "40c9abe6",
+        "sha256": "a1de25ef2a830607ba3385627a1e85bf4ade710677a4887d4063d443daca4a2b"
+      },
+      "preview": {
+        "name": "MENU08 / Review / page-2",
+        "id": "b6d2d70b-7f33-8009-8008-d1684ace038e",
+        "filename": "MENU08___Review___page-2-df49518-v08.png",
+        "bytes": 907812,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "e4ed88231a5ebd8c7286937c16e70e5f093ac1bb21dadf2cb55cbcff1df2bf96",
+        "sourceFilename": "MENU08___Review___page-2-df49518-v08-1920.png",
+        "sourceSha256": "a1de25ef2a830607ba3385627a1e85bf4ade710677a4887d4063d443daca4a2b",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "40c9abe6",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d220846389b2"
+      }
+    },
+    {
+      "name": "MENU08 / Review / page-3",
+      "native": {
+        "name": "MENU08 / Review / page-3",
+        "id": "b6d2d70b-7f33-8009-8008-d1684b7eff22",
+        "filename": "MENU08___Review___page-3-ef496ab-v08-1920.png",
+        "bytes": 1646670,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "dc78962e",
+        "sha256": "d81ee75da19b5f2a16e4d8442aa725259c300c692c1c4150f96021afd5f0539b"
+      },
+      "preview": {
+        "name": "MENU08 / Review / page-3",
+        "id": "b6d2d70b-7f33-8009-8008-d1684b7eff22",
+        "filename": "MENU08___Review___page-3-ef496ab-v08.png",
+        "bytes": 972927,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "a34f479ad011aeef3aaa9a62243fc2c4d03674ec6c7695ce7d2a88d96d6c1329",
+        "sourceFilename": "MENU08___Review___page-3-ef496ab-v08-1920.png",
+        "sourceSha256": "d81ee75da19b5f2a16e4d8442aa725259c300c692c1c4150f96021afd5f0539b",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "dc78962e",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d220948f3b0c"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_03_Lobby / applied-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_03_Lobby / applied-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16853b0a762",
+        "filename": "MENU08___SCR_03_Lobby___applied-ja-hyun-79f85957-v08-1920.png",
+        "bytes": 1867686,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "eaf8f01f",
+        "sha256": "5c0d90f348fc1a160eba3eff1ec591b14550e144a294ee5d468bb140492f4ca0"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_03_Lobby / applied-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16853b0a762",
+        "filename": "MENU08___SCR_03_Lobby___applied-ja-hyun-79f85957-v08.png",
+        "bytes": 1143987,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "7ffb6a79db26d02cacd198f4f8193d8c2a9a2afccc28dda037f9128425f81001",
+        "sourceFilename": "MENU08___SCR_03_Lobby___applied-ja-hyun-79f85957-v08-1920.png",
+        "sourceSha256": "5c0d90f348fc1a160eba3eff1ec591b14550e144a294ee5d468bb140492f4ca0",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "eaf8f01f",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22111476f6f"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_03_Lobby / applied-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_03_Lobby / applied-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d16880de781b",
+        "filename": "MENU08___SCR_03_Lobby___applied-myo-ryung-b839c8e2-v08-1920.png",
+        "bytes": 1821653,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "35e8f4af",
+        "sha256": "0af4de80e0a6dccc5234d68b7f51119905b0d531c4501e2641173ec68162e9c8"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_03_Lobby / applied-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d16880de781b",
+        "filename": "MENU08___SCR_03_Lobby___applied-myo-ryung-b839c8e2-v08.png",
+        "bytes": 1115017,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "b868a2d17b076e5fb1d0aef898f44f5e965a984dde2ab3cc83ecbff47db59a88",
+        "sourceFilename": "MENU08___SCR_03_Lobby___applied-myo-ryung-b839c8e2-v08-1920.png",
+        "sourceSha256": "0af4de80e0a6dccc5234d68b7f51119905b0d531c4501e2641173ec68162e9c8",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "35e8f4af",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2218244bada"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_03_Lobby / applied-nabi",
+      "native": {
+        "name": "MENU08 / SCR_03_Lobby / applied-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d1688ad8ecb8",
+        "filename": "MENU08___SCR_03_Lobby___applied-nabi-e28f62d9-v08-1920.png",
+        "bytes": 1869717,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "dffdb3fc",
+        "sha256": "a6216148208181851857a9b6debbb678b5c6129e74419d3f6a2dbd0b903cb35d"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_03_Lobby / applied-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d1688ad8ecb8",
+        "filename": "MENU08___SCR_03_Lobby___applied-nabi-e28f62d9-v08.png",
+        "bytes": 1145839,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "0521b4a909dfd2761ed1d6da575d177d66b8e4e33a0b84ea35cfc9b34283e4a2",
+        "sourceFilename": "MENU08___SCR_03_Lobby___applied-nabi-e28f62d9-v08-1920.png",
+        "sourceSha256": "a6216148208181851857a9b6debbb678b5c6129e74419d3f6a2dbd0b903cb35d",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "dffdb3fc",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d221fdf36275"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_03_Lobby / applied-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_03_Lobby / applied-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688fdc53dd",
+        "filename": "MENU08___SCR_03_Lobby___applied-yu-ran-6f2a39fb-v08-1920.png",
+        "bytes": 1885517,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "1358b001",
+        "sha256": "d9175d27b3863ffdd6d6011247f5ade7945c1ff14f75690e59c37b456429fb82"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_03_Lobby / applied-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688fdc53dd",
+        "filename": "MENU08___SCR_03_Lobby___applied-yu-ran-6f2a39fb-v08.png",
+        "bytes": 1151727,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d5f6c8111818affc402e6b036887cc68f19b533387689c4fe521ddd51ab72fb9",
+        "sourceFilename": "MENU08___SCR_03_Lobby___applied-yu-ran-6f2a39fb-v08-1920.png",
+        "sourceSha256": "d9175d27b3863ffdd6d6011247f5ade7945c1ff14f75690e59c37b456429fb82",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "1358b001",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d22280cf604e"
       }
     },
     {
@@ -2207,6 +4503,37 @@
       }
     },
     {
+      "name": "MENU08 / SCR_05_CharacterDetail / char-3-tab-2-filter-전체",
+      "native": {
+        "name": "MENU08 / SCR_05_CharacterDetail / char-3-tab-2-filter-전체",
+        "id": "b6d2d70b-7f33-8009-8008-d166b1f2d6bb",
+        "filename": "MENU08___SCR_05_CharacterDetail___char-3-tab-2-filter-__-cf3b433c-v08-1920.png",
+        "bytes": 1745019,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "57c77a3e",
+        "sha256": "c14cebeb7d6756bcd01ddb885511807cae76f3b28293f0d20bc43d3bfe8d6cf7"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_05_CharacterDetail / char-3-tab-2-filter-전체",
+        "id": "b6d2d70b-7f33-8009-8008-d166b1f2d6bb",
+        "filename": "MENU08___SCR_05_CharacterDetail___char-3-tab-2-filter-__-cf3b433c-v08.png",
+        "bytes": 1064872,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d98220b83266a1cce025c5706df2737c1351c53ebc8caee725f31913a201e9fb",
+        "sourceFilename": "MENU08___SCR_05_CharacterDetail___char-3-tab-2-filter-__-cf3b433c-v08-1920.png",
+        "sourceSha256": "c14cebeb7d6756bcd01ddb885511807cae76f3b28293f0d20bc43d3bfe8d6cf7",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "57c77a3e",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22602ed71ae"
+      }
+    },
+    {
       "name": "MENU08 / SCR_06_AccessoryCollection / item-0-filter-기술",
       "native": {
         "name": "MENU08 / SCR_06_AccessoryCollection / item-0-filter-기술",
@@ -2362,6 +4689,37 @@
       }
     },
     {
+      "name": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-이동",
+      "native": {
+        "name": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168ae1d4d2b",
+        "filename": "MENU08___SCR_06_AccessoryCollection___item-3-filter-__-10c8ea06-v08-1920.png",
+        "bytes": 1333338,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "d939cea0",
+        "sha256": "ce57816f26c9e31fb4f15dc1ef4160413ef14ff66c80b9625e34890c0af7c219"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168ae1d4d2b",
+        "filename": "MENU08___SCR_06_AccessoryCollection___item-3-filter-__-10c8ea06-v08.png",
+        "bytes": 837401,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "831bee1955e92b72db3a95d295b580892e09028244713b9d645897b1e693caf0",
+        "sourceFilename": "MENU08___SCR_06_AccessoryCollection___item-3-filter-__-10c8ea06-v08-1920.png",
+        "sourceSha256": "ce57816f26c9e31fb4f15dc1ef4160413ef14ff66c80b9625e34890c0af7c219",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "d939cea0",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d222aaf75822"
+      }
+    },
+    {
       "name": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-전체",
       "native": {
         "name": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-전체",
@@ -2390,6 +4748,37 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "6a179f50",
         "snapshotMediaId": "65d5ee1e-9774-8045-8008-d1709dc58704"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_06_AccessoryCollection / item-4-filter-기술",
+      "native": {
+        "name": "MENU08 / SCR_06_AccessoryCollection / item-4-filter-기술",
+        "id": "b6d2d70b-7f33-8009-8008-d168b396ca4d",
+        "filename": "MENU08___SCR_06_AccessoryCollection___item-4-filter-__-d077c82c-v08-1920.png",
+        "bytes": 1388504,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "f4f6ace1",
+        "sha256": "ca0c43f2b4f8afcc025fddbeff23cec0be112c990a7e266b4e84c63da60f14d6"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_06_AccessoryCollection / item-4-filter-기술",
+        "id": "b6d2d70b-7f33-8009-8008-d168b396ca4d",
+        "filename": "MENU08___SCR_06_AccessoryCollection___item-4-filter-__-d077c82c-v08.png",
+        "bytes": 860170,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "b9d346372f0a4f0aa295a9a9b7b43686681bc1c4792e7302b1f8889d956304ea",
+        "sourceFilename": "MENU08___SCR_06_AccessoryCollection___item-4-filter-__-d077c82c-v08-1920.png",
+        "sourceSha256": "ca0c43f2b4f8afcc025fddbeff23cec0be112c990a7e266b4e84c63da60f14d6",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "f4f6ace1",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22302dc932f"
       }
     },
     {
@@ -2424,6 +4813,37 @@
       }
     },
     {
+      "name": "MENU08 / SCR_06_AccessoryCollection / item-5-filter-이동",
+      "native": {
+        "name": "MENU08 / SCR_06_AccessoryCollection / item-5-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168b239b449",
+        "filename": "MENU08___SCR_06_AccessoryCollection___item-5-filter-__-f1a5f684-v08-1920.png",
+        "bytes": 1333514,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "41672392",
+        "sha256": "cb1a6ef9cd19efb471b1b51407c2c792ef6fbf2b6c83384786ca061a30c419bf"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_06_AccessoryCollection / item-5-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168b239b449",
+        "filename": "MENU08___SCR_06_AccessoryCollection___item-5-filter-__-f1a5f684-v08.png",
+        "bytes": 835903,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "aea312c17856e1f6d54eff487f4d024bc9ffd96f030667f10cc34f54917ce5c1",
+        "sourceFilename": "MENU08___SCR_06_AccessoryCollection___item-5-filter-__-f1a5f684-v08-1920.png",
+        "sourceSha256": "cb1a6ef9cd19efb471b1b51407c2c792ef6fbf2b6c83384786ca061a30c419bf",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "41672392",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d222cc0c5bf9"
+      }
+    },
+    {
       "name": "MENU08 / SCR_06_AccessoryCollection / item-5-filter-전체",
       "native": {
         "name": "MENU08 / SCR_06_AccessoryCollection / item-5-filter-전체",
@@ -2452,6 +4872,68 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "71e28e57",
         "snapshotMediaId": "65d5ee1e-9774-8045-8008-d170e00db80d"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_07_AccessoryDetail / item-0-filter-방어",
+      "native": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-0-filter-방어",
+        "id": "b6d2d70b-7f33-8009-8008-d168b2cc07a8",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-0-filter-__-ab6397e3-v08-1920.png",
+        "bytes": 1421637,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "a113554",
+        "sha256": "12d12c394ffc18efdf808e8de3e4c3841e3062f83ab48f98dfe5d3d5cc990cd0"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-0-filter-방어",
+        "id": "b6d2d70b-7f33-8009-8008-d168b2cc07a8",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-0-filter-__-ab6397e3-v08.png",
+        "bytes": 895160,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "926e43da3d1f614ce35c1d4e26c21a79d861e7c57e809fc74283cf5d0969aa2b",
+        "sourceFilename": "MENU08___SCR_07_AccessoryDetail___item-0-filter-__-ab6397e3-v08-1920.png",
+        "sourceSha256": "12d12c394ffc18efdf808e8de3e4c3841e3062f83ab48f98dfe5d3d5cc990cd0",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "a113554",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d222e93ca8fb"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_07_AccessoryDetail / item-1-filter-기술",
+      "native": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-1-filter-기술",
+        "id": "b6d2d70b-7f33-8009-8008-d168b33a315c",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-1-filter-__-6df7fa75-v08-1920.png",
+        "bytes": 1421906,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "db5eb424",
+        "sha256": "b4d6f3f33e15dec42fc26f8df3463a753139b417b8667cff326e8a6f6ebcda87"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-1-filter-기술",
+        "id": "b6d2d70b-7f33-8009-8008-d168b33a315c",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-1-filter-__-6df7fa75-v08.png",
+        "bytes": 899832,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "fb3b9033bafb52ae1bc4265ffd3d65d81e8c3cd27924b3f140fee3dfa4051077",
+        "sourceFilename": "MENU08___SCR_07_AccessoryDetail___item-1-filter-__-6df7fa75-v08-1920.png",
+        "sourceSha256": "b4d6f3f33e15dec42fc26f8df3463a753139b417b8667cff326e8a6f6ebcda87",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "db5eb424",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d222f5ea434f"
       }
     },
     {
@@ -2486,6 +4968,37 @@
       }
     },
     {
+      "name": "MENU08 / SCR_07_AccessoryDetail / item-2-filter-이동",
+      "native": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-2-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d16890b4d12c",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-2-filter-__-2328c757-v08-1920.png",
+        "bytes": 1428010,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "ccc0864c",
+        "sha256": "a19f85387f319a678b6466cb0e1ae936dfbd9b65ba6f3d7795ed06dc50fd6b09"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-2-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d16890b4d12c",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-2-filter-__-2328c757-v08.png",
+        "bytes": 903467,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "2a2f5a77827469d5f8f1271d5296c7f4f9fae43a81d9e721b7a460c6a1485625",
+        "sourceFilename": "MENU08___SCR_07_AccessoryDetail___item-2-filter-__-2328c757-v08-1920.png",
+        "sourceSha256": "a19f85387f319a678b6466cb0e1ae936dfbd9b65ba6f3d7795ed06dc50fd6b09",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "ccc0864c",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2229c78c7f9"
+      }
+    },
+    {
       "name": "MENU08 / SCR_07_AccessoryDetail / item-2-filter-전체",
       "native": {
         "name": "MENU08 / SCR_07_AccessoryDetail / item-2-filter-전체",
@@ -2514,6 +5027,37 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "edd243ef",
         "snapshotMediaId": "bac6ebe2-a861-8073-8008-d1707e9e76a6"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_07_AccessoryDetail / item-3-filter-이동",
+      "native": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-3-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168b08084a8",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-3-filter-__-aa8186b8-v08-1920.png",
+        "bytes": 1429148,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "777195d2",
+        "sha256": "22f01f6af6a002427d08cff38b7068ddb9adafc8021a6ea5556358f897574a29"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-3-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168b08084a8",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-3-filter-__-aa8186b8-v08.png",
+        "bytes": 904305,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "445e31003661b484dbf7306fbfb75f488f378366c6c9c6e9e5143dd5992cc1ba",
+        "sourceFilename": "MENU08___SCR_07_AccessoryDetail___item-3-filter-__-aa8186b8-v08-1920.png",
+        "sourceSha256": "22f01f6af6a002427d08cff38b7068ddb9adafc8021a6ea5556358f897574a29",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "777195d2",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d222b9029e01"
       }
     },
     {
@@ -2548,6 +5092,37 @@
       }
     },
     {
+      "name": "MENU08 / SCR_07_AccessoryDetail / item-4-filter-기술",
+      "native": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-4-filter-기술",
+        "id": "b6d2d70b-7f33-8009-8008-d168b4649e06",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-4-filter-__-e3c01b02-v08-1920.png",
+        "bytes": 1432522,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "12d0bfe6",
+        "sha256": "e1c5951fe5394961f87b54280b74860019c811d0aaa1f936a8c17d8396d2e3e7"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-4-filter-기술",
+        "id": "b6d2d70b-7f33-8009-8008-d168b4649e06",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-4-filter-__-e3c01b02-v08.png",
+        "bytes": 909662,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "6f26bfcba6492303dba2d4a1c8ce8f0258b9713a145377226fc5b91b4eb4ef01",
+        "sourceFilename": "MENU08___SCR_07_AccessoryDetail___item-4-filter-__-e3c01b02-v08-1920.png",
+        "sourceSha256": "e1c5951fe5394961f87b54280b74860019c811d0aaa1f936a8c17d8396d2e3e7",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "12d0bfe6",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d223117e722f"
+      }
+    },
+    {
       "name": "MENU08 / SCR_07_AccessoryDetail / item-4-filter-전체",
       "native": {
         "name": "MENU08 / SCR_07_AccessoryDetail / item-4-filter-전체",
@@ -2579,6 +5154,37 @@
       }
     },
     {
+      "name": "MENU08 / SCR_07_AccessoryDetail / item-5-filter-이동",
+      "native": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-5-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168b283978c",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-5-filter-__-5aab82a2-v08-1920.png",
+        "bytes": 1432597,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "5582f73e",
+        "sha256": "2f7a16c6990c1e2c83d9922118389f9bc90a9466032ad0c4631fc591928ba0f8"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_07_AccessoryDetail / item-5-filter-이동",
+        "id": "b6d2d70b-7f33-8009-8008-d168b283978c",
+        "filename": "MENU08___SCR_07_AccessoryDetail___item-5-filter-__-5aab82a2-v08.png",
+        "bytes": 907425,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "04a32c08a83e276f140936e9dd0d08a1cf90ffd87d477c0df576582c5c65755a",
+        "sourceFilename": "MENU08___SCR_07_AccessoryDetail___item-5-filter-__-5aab82a2-v08-1920.png",
+        "sourceSha256": "2f7a16c6990c1e2c83d9922118389f9bc90a9466032ad0c4631fc591928ba0f8",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "5582f73e",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d222d8b087cb"
+      }
+    },
+    {
       "name": "MENU08 / SCR_07_AccessoryDetail / item-5-filter-전체",
       "native": {
         "name": "MENU08 / SCR_07_AccessoryDetail / item-5-filter-전체",
@@ -2607,6 +5213,750 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "e938a511",
         "snapshotMediaId": "65d5ee1e-9774-8045-8008-d170ef73bfb3"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / applied-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / applied-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16850776ed7",
+        "filename": "MENU08___SCR_08_Preset___applied-ja-hyun-ae0a88d3-v08-1920.png",
+        "bytes": 1870713,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "bece2075",
+        "sha256": "f8a346842504d414aad5b4e07b3762dd2bd4017665198d7e79e64d533b41b39f"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / applied-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16850776ed7",
+        "filename": "MENU08___SCR_08_Preset___applied-ja-hyun-ae0a88d3-v08.png",
+        "bytes": 1136053,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "7714269884ca87a5cb964880d0fd7c0d4c74e01f576f0414d4d2e9e083aa4869",
+        "sourceFilename": "MENU08___SCR_08_Preset___applied-ja-hyun-ae0a88d3-v08-1920.png",
+        "sourceSha256": "f8a346842504d414aad5b4e07b3762dd2bd4017665198d7e79e64d533b41b39f",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "bece2075",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d220d3f6476c"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / applied-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / applied-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687e08576a",
+        "filename": "MENU08___SCR_08_Preset___applied-myo-ryung-7fcccf86-v08-1920.png",
+        "bytes": 1819435,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "f6d767db",
+        "sha256": "2cf16a58c3884c711a97aa9703a4e791af8bab809bde50499d51528135933bed"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / applied-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687e08576a",
+        "filename": "MENU08___SCR_08_Preset___applied-myo-ryung-7fcccf86-v08.png",
+        "bytes": 1104131,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "8565bfe23562312065292c9a9a23700d7592888151831033146aea4cccbf6b47",
+        "sourceFilename": "MENU08___SCR_08_Preset___applied-myo-ryung-7fcccf86-v08-1920.png",
+        "sourceSha256": "2cf16a58c3884c711a97aa9703a4e791af8bab809bde50499d51528135933bed",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "f6d767db",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d2214efa9d01"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / applied-nabi",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / applied-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d168881e2cda",
+        "filename": "MENU08___SCR_08_Preset___applied-nabi-897d397d-v08-1920.png",
+        "bytes": 1869649,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "95a2be80",
+        "sha256": "3fa97832187c398f63d578bd5ab3d77b42cca52d27487a69366ebb4570305a9d"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / applied-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d168881e2cda",
+        "filename": "MENU08___SCR_08_Preset___applied-nabi-897d397d-v08.png",
+        "bytes": 1135468,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "96804b9b76c50822a23eff138acaef0962af832d5fc941c868499ae2f0f26d85",
+        "sourceFilename": "MENU08___SCR_08_Preset___applied-nabi-897d397d-v08-1920.png",
+        "sourceSha256": "3fa97832187c398f63d578bd5ab3d77b42cca52d27487a69366ebb4570305a9d",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "95a2be80",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d221c50d3c28"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / applied-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / applied-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688c6312bd",
+        "filename": "MENU08___SCR_08_Preset___applied-yu-ran-39090d1f-v08-1920.png",
+        "bytes": 1880652,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "f105ad87",
+        "sha256": "f96c1683aace94f5d1aadbbeb21f5da5a7ad26b6a8f6e99220cac443e52e63a2"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / applied-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688c6312bd",
+        "filename": "MENU08___SCR_08_Preset___applied-yu-ran-39090d1f-v08.png",
+        "bytes": 1141340,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "302ab59f900d1abe18b4e0f94d14f2b2ff01edd490c7cacbb61b1a86b038530b",
+        "sourceFilename": "MENU08___SCR_08_Preset___applied-yu-ran-39090d1f-v08-1920.png",
+        "sourceSha256": "f96c1683aace94f5d1aadbbeb21f5da5a7ad26b6a8f6e99220cac443e52e63a2",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "f105ad87",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d22248ecc91d"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-confirm-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16851eb1bb7",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-ja-hyun-2b9473-v08-1920.png",
+        "bytes": 501965,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "8081e383",
+        "sha256": "90472e4d07b90004422ecde6b8b2e7e6c0dda73bea9e818e1839d6e2763a6f97"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16851eb1bb7",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-ja-hyun-2b9473-v08.png",
+        "bytes": 353417,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "1e1b3ab17bdf28cc133abd7a49c239db19e3b1fa72b14aca38e217b1cd1de4d5",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-confirm-ja-hyun-2b9473-v08-1920.png",
+        "sourceSha256": "90472e4d07b90004422ecde6b8b2e7e6c0dda73bea9e818e1839d6e2763a6f97",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "8081e383",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d220f5eabe08"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-confirm-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687f9de711",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-myo-ryung-5fcea5a6-v08-1920.png",
+        "bytes": 496751,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "3e67ee0",
+        "sha256": "24050253d1f1998bdeb8f7bb8e30e3656d2ba7313dfa14ec08a81b4a9d1d6a2a"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687f9de711",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-myo-ryung-5fcea5a6-v08.png",
+        "bytes": 349940,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "fd4827366ee50916d3efa48ec364e1173ba5e928ec98a9ebed339c47c83614de",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-confirm-myo-ryung-5fcea5a6-v08-1920.png",
+        "sourceSha256": "24050253d1f1998bdeb8f7bb8e30e3656d2ba7313dfa14ec08a81b4a9d1d6a2a",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "3e67ee0",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22168eb430e"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-confirm-nabi",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d16889646415",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-nabi-43a2b1d-v08-1920.png",
+        "bytes": 498631,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e53d7bc4",
+        "sha256": "3af4e673ba236ca24f0e63ce841a55b0a94813bc81259633e805140a39b6cb69"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d16889646415",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-nabi-43a2b1d-v08.png",
+        "bytes": 350941,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "75668a99e35ddf172a7fd1ff77d4295e0f1014eede92f0640100ad4e4a95a788",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-confirm-nabi-43a2b1d-v08-1920.png",
+        "sourceSha256": "3af4e673ba236ca24f0e63ce841a55b0a94813bc81259633e805140a39b6cb69",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e53d7bc4",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d221e20d4d79"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-confirm-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688e00b304",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-yu-ran-efa1973f-v08-1920.png",
+        "bytes": 499481,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "6bee2297",
+        "sha256": "81b5a9fdca8b7ff86bac4385d33a293a4130e3db22cc9ab56c6a710ce651aaad"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-confirm-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688e00b304",
+        "filename": "MENU08___SCR_08_Preset___apply-confirm-yu-ran-efa1973f-v08.png",
+        "bytes": 351887,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "f8c474386808bcff6c2f5bf23d38893450fc04cd6210ee3b53aed8f65788734c",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-confirm-yu-ran-efa1973f-v08-1920.png",
+        "sourceSha256": "81b5a9fdca8b7ff86bac4385d33a293a4130e3db22cc9ab56c6a710ce651aaad",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "6bee2297",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22266cc3802"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16852910a76",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-ja-hyun-778ffe4d-v08-1920.png",
+        "bytes": 500700,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "4f221105",
+        "sha256": "e5c7857bd0c0b71fabfc08ee93d2508836d986132dd5e13167f78123561310d1"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16852910a76",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-ja-hyun-778ffe4d-v08.png",
+        "bytes": 352011,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "5eeca535cc9076b7642880ad8f556fa03c2f62e9fc605f4ac1eeea8c69a0f227",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-saved-confirm-ja-hyun-778ffe4d-v08-1920.png",
+        "sourceSha256": "e5c7857bd0c0b71fabfc08ee93d2508836d986132dd5e13167f78123561310d1",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "4f221105",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d2210445e61a"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1688026068c",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-myo-ryung-b24208-v08-1920.png",
+        "bytes": 495493,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e6fa06f9",
+        "sha256": "369b92ab946061d7c91cc89a2afaf3b8d515b75d9fd641cac687cad8bfad55e8"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1688026068c",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-myo-ryung-b24208-v08.png",
+        "bytes": 348459,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "f3c9f8e3c4e8adf92552085a483411626fe527563cb98c4066e6c03dc8690168",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-saved-confirm-myo-ryung-b24208-v08-1920.png",
+        "sourceSha256": "369b92ab946061d7c91cc89a2afaf3b8d515b75d9fd641cac687cad8bfad55e8",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e6fa06f9",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22174ff3b8b"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-nabi",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d16889ef9504",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-nabi-a0a70f8b-v08-1920.png",
+        "bytes": 497416,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "fe9ee438",
+        "sha256": "cfa53c377a26b1c11feaec903019b9b3832fd4391973cf747c0fcef8b9f48b7a"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d16889ef9504",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-nabi-a0a70f8b-v08.png",
+        "bytes": 349513,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "28dd50138b2adf133220eafec266aad662d20dbb619d0eed625af5a2a7d73884",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-saved-confirm-nabi-a0a70f8b-v08-1920.png",
+        "sourceSha256": "cfa53c377a26b1c11feaec903019b9b3832fd4391973cf747c0fcef8b9f48b7a",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "fe9ee438",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d221ef195998"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688eb4c066",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-yu-ran-7dd2d015-v08-1920.png",
+        "bytes": 498245,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "2d04f535",
+        "sha256": "a0ea3d5c23e34463dafd161250f9991bfb0cd1783ceb4c12ac0e361beb3ef764"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / apply-saved-confirm-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688eb4c066",
+        "filename": "MENU08___SCR_08_Preset___apply-saved-confirm-yu-ran-7dd2d015-v08.png",
+        "bytes": 350457,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "b403e9fbd499da523dceaefc46cd05ab2ff926da13f4d495a8f34d8f6f69fef8",
+        "sourceFilename": "MENU08___SCR_08_Preset___apply-saved-confirm-yu-ran-7dd2d015-v08-1920.png",
+        "sourceSha256": "a0ea3d5c23e34463dafd161250f9991bfb0cd1783ceb4c12ac0e361beb3ef764",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "2d04f535",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22273d2b861"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / draft-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / draft-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d1684bde28e3",
+        "filename": "MENU08___SCR_08_Preset___draft-ja-hyun-10927a4d-v08-1920.png",
+        "bytes": 1872923,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "bcdd070c",
+        "sha256": "4761d292551595a116185c6d1bc8fe25474aeea3b4084dcbb82fb4137f580f80"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / draft-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d1684bde28e3",
+        "filename": "MENU08___SCR_08_Preset___draft-ja-hyun-10927a4d-v08.png",
+        "bytes": 1138372,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "a75e233b3cfc9d532d34b85b808ee687d3ed2ed8b4d058f19e6914091b43c62c",
+        "sourceFilename": "MENU08___SCR_08_Preset___draft-ja-hyun-10927a4d-v08-1920.png",
+        "sourceSha256": "4761d292551595a116185c6d1bc8fe25474aeea3b4084dcbb82fb4137f580f80",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "bcdd070c",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d220b145b021"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / draft-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / draft-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1685cb501de",
+        "filename": "MENU08___SCR_08_Preset___draft-myo-ryung-e9cf1e08-v08-1920.png",
+        "bytes": 1821661,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "acb5bc1a",
+        "sha256": "addf427cdb90de08661eb3fa3a37ab8c82550cac56d3e004619f412290ff95c7"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / draft-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1685cb501de",
+        "filename": "MENU08___SCR_08_Preset___draft-myo-ryung-e9cf1e08-v08.png",
+        "bytes": 1106393,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "bcad8e7fcedfb6a7e59f02e6a2805cdde64773d6b0a8fc521f6153acc0bf9940",
+        "sourceFilename": "MENU08___SCR_08_Preset___draft-myo-ryung-e9cf1e08-v08-1920.png",
+        "sourceSha256": "addf427cdb90de08661eb3fa3a37ab8c82550cac56d3e004619f412290ff95c7",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "acb5bc1a",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22130007482"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / draft-nabi",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / draft-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d168872abbb6",
+        "filename": "MENU08___SCR_08_Preset___draft-nabi-10a5038b-v08-1920.png",
+        "bytes": 1872310,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "c4be24f3",
+        "sha256": "8f375825eaa671562316ddec64be7c1fa89984400cc68eab982eeaebcadaeccd"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / draft-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d168872abbb6",
+        "filename": "MENU08___SCR_08_Preset___draft-nabi-10a5038b-v08.png",
+        "bytes": 1137923,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "eebea6806ea0fb7e3783e636abee4ebab618ab3f43929d9b855983613ab665d3",
+        "sourceFilename": "MENU08___SCR_08_Preset___draft-nabi-10a5038b-v08-1920.png",
+        "sourceSha256": "8f375825eaa671562316ddec64be7c1fa89984400cc68eab982eeaebcadaeccd",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "c4be24f3",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d221a26b20f4"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / draft-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / draft-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688b8ea951",
+        "filename": "MENU08___SCR_08_Preset___draft-yu-ran-5b43e415-v08-1920.png",
+        "bytes": 1882941,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "d4f8396c",
+        "sha256": "b2078ac8a31013da1171f1d02f044070483f854cf3d201fb25e40463002fbad8"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / draft-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688b8ea951",
+        "filename": "MENU08___SCR_08_Preset___draft-yu-ran-5b43e415-v08.png",
+        "bytes": 1143589,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d66ed59e66d07ee70b8d5f80500df570602e1dfd4723c7f2c39965ea78ff8f70",
+        "sourceFilename": "MENU08___SCR_08_Preset___draft-yu-ran-5b43e415-v08-1920.png",
+        "sourceSha256": "b2078ac8a31013da1171f1d02f044070483f854cf3d201fb25e40463002fbad8",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "d4f8396c",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2222dfa5edb"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / save-confirm-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16850cf12cd",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-ja-hyun-11cfed30-v08-1920.png",
+        "bytes": 507284,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "b63e328b",
+        "sha256": "d024356cb2b1d1cbcda57643283162644827d12a2d9506cca2730d619b5485dc"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d16850cf12cd",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-ja-hyun-11cfed30-v08.png",
+        "bytes": 358548,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "1898e4b2e5eca476f120f4aa30947896f369a58e7145c6a5a3034fc4318b8a5b",
+        "sourceFilename": "MENU08___SCR_08_Preset___save-confirm-ja-hyun-11cfed30-v08-1920.png",
+        "sourceSha256": "d024356cb2b1d1cbcda57643283162644827d12a2d9506cca2730d619b5485dc",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "b63e328b",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d220e0410294"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / save-confirm-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687ed5138f",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-myo-ryung-d1bdfb69-v08-1920.png",
+        "bytes": 502082,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "fb1f775a",
+        "sha256": "7c443cb6484cd1c89f2d528354c95d79748eca7fae68d1ff953e4c4967935fe5"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687ed5138f",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-myo-ryung-d1bdfb69-v08.png",
+        "bytes": 355160,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "08801e8a347db054c56810bd6ed1dc2d00e3751d7ae48888878aa56e77dc7cb3",
+        "sourceFilename": "MENU08___SCR_08_Preset___save-confirm-myo-ryung-d1bdfb69-v08-1920.png",
+        "sourceSha256": "7c443cb6484cd1c89f2d528354c95d79748eca7fae68d1ff953e4c4967935fe5",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "fb1f775a",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2215cb33b31"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / save-confirm-nabi",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d168886f0488",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-nabi-9278c714-v08-1920.png",
+        "bytes": 504022,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e4a92524",
+        "sha256": "2df36f84c24b6a4dea93f4fe8bb78797cf3846ee8babb8d1e407a96ac9303d21"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d168886f0488",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-nabi-9278c714-v08.png",
+        "bytes": 356175,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "6a543c982722d441e31a12dbdb2a880eb8c87b45bc6495dce6f14c3bc27ed127",
+        "sourceFilename": "MENU08___SCR_08_Preset___save-confirm-nabi-9278c714-v08-1920.png",
+        "sourceSha256": "2df36f84c24b6a4dea93f4fe8bb78797cf3846ee8babb8d1e407a96ac9303d21",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e4a92524",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d221d3cb3f64"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / save-confirm-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688ccb988d",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-yu-ran-2559de4a-v08-1920.png",
+        "bytes": 504860,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "826f17b7",
+        "sha256": "9b44a60be5c440b496133623166eb49793356cb8dd4571240b9efb27786e0e19"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / save-confirm-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688ccb988d",
+        "filename": "MENU08___SCR_08_Preset___save-confirm-yu-ran-2559de4a-v08.png",
+        "bytes": 357118,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "ab9296501b5079c387c7efd8c1ee1dd1b76ebb50c4fec6c08e59d8bc5aa8c6d2",
+        "sourceFilename": "MENU08___SCR_08_Preset___save-confirm-yu-ran-2559de4a-v08-1920.png",
+        "sourceSha256": "9b44a60be5c440b496133623166eb49793356cb8dd4571240b9efb27786e0e19",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "826f17b7",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d222577ff401"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / saved-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / saved-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d1685013d43d",
+        "filename": "MENU08___SCR_08_Preset___saved-ja-hyun-e2396c65-v08-1920.png",
+        "bytes": 1870320,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "d5189cfd",
+        "sha256": "5dafa0518bd9843c2890030b3df382fc674b05d1d5db6a89441a2ce9c8a826ff"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / saved-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d1685013d43d",
+        "filename": "MENU08___SCR_08_Preset___saved-ja-hyun-e2396c65-v08.png",
+        "bytes": 1136173,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "36f767ca57a07430a31f9b54deddaf7eab8deef3abca04beafceda547c007eeb",
+        "sourceFilename": "MENU08___SCR_08_Preset___saved-ja-hyun-e2396c65-v08-1920.png",
+        "sourceSha256": "5dafa0518bd9843c2890030b3df382fc674b05d1d5db6a89441a2ce9c8a826ff",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "d5189cfd",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d220c6867673"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / saved-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / saved-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687b247b44",
+        "filename": "MENU08___SCR_08_Preset___saved-myo-ryung-cc9a7fb0-v08-1920.png",
+        "bytes": 1819089,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "974232ea",
+        "sha256": "774bb1107dc004a4219377f41d4cabed7bf8c12c8e8594ad540be8e077b33030"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / saved-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d1687b247b44",
+        "filename": "MENU08___SCR_08_Preset___saved-myo-ryung-cc9a7fb0-v08.png",
+        "bytes": 1104224,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "7f7b3fa9810bad0675a96d82526d785f9eca42c16438ca5594117070c0dceec8",
+        "sourceFilename": "MENU08___SCR_08_Preset___saved-myo-ryung-cc9a7fb0-v08-1920.png",
+        "sourceSha256": "774bb1107dc004a4219377f41d4cabed7bf8c12c8e8594ad540be8e077b33030",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "974232ea",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d22141688bb4"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / saved-nabi",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / saved-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d16887b7b079",
+        "filename": "MENU08___SCR_08_Preset___saved-nabi-72deeba3-v08-1920.png",
+        "bytes": 1869755,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "25f7fac4",
+        "sha256": "2e39d108fc382f144a5c3a77b6ae40b1db7b0f107ae04fad4abb87e00ea30c58"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / saved-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d16887b7b079",
+        "filename": "MENU08___SCR_08_Preset___saved-nabi-72deeba3-v08.png",
+        "bytes": 1135884,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "69b3817218894199c6a656b4c6f8de8e64a95afa7457e1fe7b56fdcea54ca3c2",
+        "sourceFilename": "MENU08___SCR_08_Preset___saved-nabi-72deeba3-v08-1920.png",
+        "sourceSha256": "2e39d108fc382f144a5c3a77b6ae40b1db7b0f107ae04fad4abb87e00ea30c58",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "25f7fac4",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d221b7be7c92"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_08_Preset / saved-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_08_Preset / saved-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688be3fb45",
+        "filename": "MENU08___SCR_08_Preset___saved-yu-ran-99d6935d-v08-1920.png",
+        "bytes": 1880394,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "5216c777",
+        "sha256": "23eba78ca6f51f89d7fbdd940939741eafbe7b911d69f6d77df4dad1cfa59fea"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_08_Preset / saved-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d1688be3fb45",
+        "filename": "MENU08___SCR_08_Preset___saved-yu-ran-99d6935d-v08.png",
+        "bytes": 1141363,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "4443d5bf5cdec86ed79625039341545f8251a382fc1d747ead144361a24a0c52",
+        "sourceFilename": "MENU08___SCR_08_Preset___saved-yu-ran-99d6935d-v08-1920.png",
+        "sourceSha256": "23eba78ca6f51f89d7fbdd940939741eafbe7b911d69f6d77df4dad1cfa59fea",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "5216c777",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2223bafee4e"
       }
     },
     {
@@ -3106,6 +6456,192 @@
       }
     },
     {
+      "name": "MENU08 / SCR_20_Collection / accessory-0",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / accessory-0",
+        "id": "b6d2d70b-7f33-8009-8008-d167f64ed9bc",
+        "filename": "MENU08___SCR_20_Collection___accessory-0-2537dc55-v08-1920.png",
+        "bytes": 428415,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "cbcc0391",
+        "sha256": "a2a021718bb9717ac865b253c9caeb5c10a452c584bb839de5fc5956cdead971"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / accessory-0",
+        "id": "b6d2d70b-7f33-8009-8008-d167f64ed9bc",
+        "filename": "MENU08___SCR_20_Collection___accessory-0-2537dc55-v08.png",
+        "bytes": 298061,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "de6255041bad34bcf0c40b6e40e271cf2f1d117c43520ba24936fc7f7dc83bef",
+        "sourceFilename": "MENU08___SCR_20_Collection___accessory-0-2537dc55-v08-1920.png",
+        "sourceSha256": "a2a021718bb9717ac865b253c9caeb5c10a452c584bb839de5fc5956cdead971",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "cbcc0391",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21f7c946695"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / accessory-1",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / accessory-1",
+        "id": "b6d2d70b-7f33-8009-8008-d167f8254a63",
+        "filename": "MENU08___SCR_20_Collection___accessory-1-2437dac2-v08-1920.png",
+        "bytes": 428401,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "3c912353",
+        "sha256": "62a85ef8617f9711a93582243c603fcd3f41757c5c47102553dc836f78d3a8f3"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / accessory-1",
+        "id": "b6d2d70b-7f33-8009-8008-d167f8254a63",
+        "filename": "MENU08___SCR_20_Collection___accessory-1-2437dac2-v08.png",
+        "bytes": 301217,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "28e7898e85080cf25b2c3c2afbee7288a6fce9f79ec5124c6492c5e8a649c750",
+        "sourceFilename": "MENU08___SCR_20_Collection___accessory-1-2437dac2-v08-1920.png",
+        "sourceSha256": "62a85ef8617f9711a93582243c603fcd3f41757c5c47102553dc836f78d3a8f3",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "3c912353",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d21f8ab68f09"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / accessory-2",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / accessory-2",
+        "id": "b6d2d70b-7f33-8009-8008-d167f8befacf",
+        "filename": "MENU08___SCR_20_Collection___accessory-2-2337d92f-v08-1920.png",
+        "bytes": 430488,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "2c2da76d",
+        "sha256": "3a1afb51c574643215d56b6a286e8a979c4135194b9308dbd99f7a23003bdb14"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / accessory-2",
+        "id": "b6d2d70b-7f33-8009-8008-d167f8befacf",
+        "filename": "MENU08___SCR_20_Collection___accessory-2-2337d92f-v08.png",
+        "bytes": 301167,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "f836d1762b6ef881a7de575416b28e7d1a9c8d2d75ccc7cc65e138d3e92fdf23",
+        "sourceFilename": "MENU08___SCR_20_Collection___accessory-2-2337d92f-v08-1920.png",
+        "sourceSha256": "3a1afb51c574643215d56b6a286e8a979c4135194b9308dbd99f7a23003bdb14",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "2c2da76d",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d21f99cbf9a6"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / accessory-3",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / accessory-3",
+        "id": "b6d2d70b-7f33-8009-8008-d167f913dc70",
+        "filename": "MENU08___SCR_20_Collection___accessory-3-2237d79c-v08-1920.png",
+        "bytes": 429493,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "84e3d443",
+        "sha256": "8dbc76f1666d3e9abaa71203e86ee6fb80ab7aefd3964399bd831b092f82cafc"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / accessory-3",
+        "id": "b6d2d70b-7f33-8009-8008-d167f913dc70",
+        "filename": "MENU08___SCR_20_Collection___accessory-3-2237d79c-v08.png",
+        "bytes": 300580,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "429ea2f780d9ad65587ab57a854d87ede307beb52da44abdac57423a2b2fc987",
+        "sourceFilename": "MENU08___SCR_20_Collection___accessory-3-2237d79c-v08-1920.png",
+        "sourceSha256": "8dbc76f1666d3e9abaa71203e86ee6fb80ab7aefd3964399bd831b092f82cafc",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "84e3d443",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21fa5bad2b0"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / accessory-4",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / accessory-4",
+        "id": "b6d2d70b-7f33-8009-8008-d1683b2a1dd5",
+        "filename": "MENU08___SCR_20_Collection___accessory-4-2137d609-v08-1920.png",
+        "bytes": 433141,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "630aad12",
+        "sha256": "56054e440b86cbff13014a0c64c9ef6e8a56efff8585766a2fec7687e2b71abf"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / accessory-4",
+        "id": "b6d2d70b-7f33-8009-8008-d1683b2a1dd5",
+        "filename": "MENU08___SCR_20_Collection___accessory-4-2137d609-v08.png",
+        "bytes": 304290,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "d5f959bdd5596bef249e20094f6bfcd627a47a71712a9c8319506988e834479d",
+        "sourceFilename": "MENU08___SCR_20_Collection___accessory-4-2137d609-v08-1920.png",
+        "sourceSha256": "56054e440b86cbff13014a0c64c9ef6e8a56efff8585766a2fec7687e2b71abf",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "630aad12",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21fb5cc80c6"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / accessory-5",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / accessory-5",
+        "id": "b6d2d70b-7f33-8009-8008-d1683d1dcbd7",
+        "filename": "MENU08___SCR_20_Collection___accessory-5-2037d476-v08-1920.png",
+        "bytes": 430454,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "2cd5287d",
+        "sha256": "06e4bfb54364341448d7ab344300710dc42f58d4913b1922a6979ae99c2aaac5"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / accessory-5",
+        "id": "b6d2d70b-7f33-8009-8008-d1683d1dcbd7",
+        "filename": "MENU08___SCR_20_Collection___accessory-5-2037d476-v08.png",
+        "bytes": 300163,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "0370e1e6aaa878c6712b76afa70d8a891155b89f5729a7af2a33fa8f17a02fd6",
+        "sourceFilename": "MENU08___SCR_20_Collection___accessory-5-2037d476-v08-1920.png",
+        "sourceSha256": "06e4bfb54364341448d7ab344300710dc42f58d4913b1922a6979ae99c2aaac5",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "2cd5287d",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21fc47b43ff"
+      }
+    },
+    {
       "name": "MENU08 / SCR_20_Collection / accessory-unowned",
       "native": {
         "name": "MENU08 / SCR_20_Collection / accessory-unowned",
@@ -3134,6 +6670,130 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "defc3c50",
         "snapshotMediaId": "65d5ee1e-9774-8045-8008-d171a7b1e8df"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / character-0",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / character-0",
+        "id": "b6d2d70b-7f33-8009-8008-d167f0f586ac",
+        "filename": "MENU08___SCR_20_Collection___character-0-e9c15a78-v08-1920.png",
+        "bytes": 478022,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "34abbaf1",
+        "sha256": "690f8874782f189bdd08401f70f63e3ceb96f20cee51cbd7279a2178f0bef026"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / character-0",
+        "id": "b6d2d70b-7f33-8009-8008-d167f0f586ac",
+        "filename": "MENU08___SCR_20_Collection___character-0-e9c15a78-v08.png",
+        "bytes": 326445,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "16bfd463ea8eb881dd89cb9ddd3bb877d350c07ecabc0d5ee8953a0c6271bc92",
+        "sourceFilename": "MENU08___SCR_20_Collection___character-0-e9c15a78-v08-1920.png",
+        "sourceSha256": "690f8874782f189bdd08401f70f63e3ceb96f20cee51cbd7279a2178f0bef026",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "34abbaf1",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21eec6cb016"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / character-1",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / character-1",
+        "id": "b6d2d70b-7f33-8009-8008-d167f55f69af",
+        "filename": "MENU08___SCR_20_Collection___character-1-eac15c0b-v08-1920.png",
+        "bytes": 478108,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e20a27ea",
+        "sha256": "eea80b07f7681d8c0cac943607f5264e3f6c56156a881220c54f03f08052644b"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / character-1",
+        "id": "b6d2d70b-7f33-8009-8008-d167f55f69af",
+        "filename": "MENU08___SCR_20_Collection___character-1-eac15c0b-v08.png",
+        "bytes": 326115,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "501dbeecf9d1a30626d36bd2caeb66ac7ad55f3be178dc6b6edc04d7f4fd3b91",
+        "sourceFilename": "MENU08___SCR_20_Collection___character-1-eac15c0b-v08-1920.png",
+        "sourceSha256": "eea80b07f7681d8c0cac943607f5264e3f6c56156a881220c54f03f08052644b",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e20a27ea",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d21f5040e83d"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / character-2",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / character-2",
+        "id": "b6d2d70b-7f33-8009-8008-d167f5e380fd",
+        "filename": "MENU08___SCR_20_Collection___character-2-ebc15d9e-v08-1920.png",
+        "bytes": 475980,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "76139654",
+        "sha256": "e0fb311d2677f1eee4fd92bf8dab223a0de18add7385bb5bf6c40dd7bd04a190"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / character-2",
+        "id": "b6d2d70b-7f33-8009-8008-d167f5e380fd",
+        "filename": "MENU08___SCR_20_Collection___character-2-ebc15d9e-v08.png",
+        "bytes": 324896,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "c02ca890bf6132cd555b9b83f495199cb4bba6534ff2105639bf9b193a3301aa",
+        "sourceFilename": "MENU08___SCR_20_Collection___character-2-ebc15d9e-v08-1920.png",
+        "sourceSha256": "e0fb311d2677f1eee4fd92bf8dab223a0de18add7385bb5bf6c40dd7bd04a190",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "76139654",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21f5ead1687"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_20_Collection / character-3",
+      "native": {
+        "name": "MENU08 / SCR_20_Collection / character-3",
+        "id": "b6d2d70b-7f33-8009-8008-d167f6140471",
+        "filename": "MENU08___SCR_20_Collection___character-3-ecc15f31-v08-1920.png",
+        "bytes": 477740,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "aa81315f",
+        "sha256": "37295b5bd0ee4a75c00f66fe50655450009fd0a260a27e07944f491a8a3a5db8"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_20_Collection / character-3",
+        "id": "b6d2d70b-7f33-8009-8008-d167f6140471",
+        "filename": "MENU08___SCR_20_Collection___character-3-ecc15f31-v08.png",
+        "bytes": 325811,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "3476220ab849ca3100a3fd6ba5b8b3b7463eb0cfe5cf6210e2ec3bf5bc2fc6ec",
+        "sourceFilename": "MENU08___SCR_20_Collection___character-3-ecc15f31-v08-1920.png",
+        "sourceSha256": "37295b5bd0ee4a75c00f66fe50655450009fd0a260a27e07944f491a8a3a5db8",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "aa81315f",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21f6df515c0"
       }
     },
     {
@@ -3292,6 +6952,68 @@
       }
     },
     {
+      "name": "MENU08 / SCR_21_Mission / tab-1-detail-0",
+      "native": {
+        "name": "MENU08 / SCR_21_Mission / tab-1-detail-0",
+        "id": "b6d2d70b-7f33-8009-8008-d1683d98b212",
+        "filename": "MENU08___SCR_21_Mission___tab-1-detail-0-64239423-v08-1920.png",
+        "bytes": 440590,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e950ee74",
+        "sha256": "1fa81739ed560deab52a8fc97f185cdea4feaf243ed68162374b179c69e13a2e"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_21_Mission / tab-1-detail-0",
+        "id": "b6d2d70b-7f33-8009-8008-d1683d98b212",
+        "filename": "MENU08___SCR_21_Mission___tab-1-detail-0-64239423-v08.png",
+        "bytes": 313214,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "deb6dabf752f65c3305825fd4696fc38170397517732a189e49033c367a32f94",
+        "sourceFilename": "MENU08___SCR_21_Mission___tab-1-detail-0-64239423-v08-1920.png",
+        "sourceSha256": "1fa81739ed560deab52a8fc97f185cdea4feaf243ed68162374b179c69e13a2e",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e950ee74",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d21fd1f162f1"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_21_Mission / tab-1-detail-1",
+      "native": {
+        "name": "MENU08 / SCR_21_Mission / tab-1-detail-1",
+        "id": "b6d2d70b-7f33-8009-8008-d1683f33d351",
+        "filename": "MENU08___SCR_21_Mission___tab-1-detail-1-63239290-v08-1920.png",
+        "bytes": 438755,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "e6665f34",
+        "sha256": "4b06df062e49f0eb1f1f2af6ac52233ce711db8ea579bc64141ca9c4529ab60a"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_21_Mission / tab-1-detail-1",
+        "id": "b6d2d70b-7f33-8009-8008-d1683f33d351",
+        "filename": "MENU08___SCR_21_Mission___tab-1-detail-1-63239290-v08.png",
+        "bytes": 310530,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "17af9394af928ba3d3463d9e0c48ef691f5e513d07b545acfe69c073443a91ff",
+        "sourceFilename": "MENU08___SCR_21_Mission___tab-1-detail-1-63239290-v08-1920.png",
+        "sourceSha256": "4b06df062e49f0eb1f1f2af6ac52233ce711db8ea579bc64141ca9c4529ab60a",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "e6665f34",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21fe35920a8"
+      }
+    },
+    {
       "name": "MENU08 / SCR_21_Mission / tab-2",
       "native": {
         "name": "MENU08 / SCR_21_Mission / tab-2",
@@ -3320,6 +7042,99 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "bae339c",
         "snapshotMediaId": "bac6ebe2-a861-8073-8008-d171c4febdb8"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_21_Mission / tab-2-detail-0",
+      "native": {
+        "name": "MENU08 / SCR_21_Mission / tab-2-detail-0",
+        "id": "b6d2d70b-7f33-8009-8008-d1683f9ea5a7",
+        "filename": "MENU08___SCR_21_Mission___tab-2-detail-0-93c5c870-v08-1920.png",
+        "bytes": 427709,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "7de2a71d",
+        "sha256": "b878fe5d48b635ae9ec250f835073ab8cdc27516b5e3032a50615892d0083d1b"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_21_Mission / tab-2-detail-0",
+        "id": "b6d2d70b-7f33-8009-8008-d1683f9ea5a7",
+        "filename": "MENU08___SCR_21_Mission___tab-2-detail-0-93c5c870-v08.png",
+        "bytes": 303343,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "80a1e27d745b5b5ec2515386e063770c122d856762dd74761bc59fc2b9c7b44c",
+        "sourceFilename": "MENU08___SCR_21_Mission___tab-2-detail-0-93c5c870-v08-1920.png",
+        "sourceSha256": "b878fe5d48b635ae9ec250f835073ab8cdc27516b5e3032a50615892d0083d1b",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "7de2a71d",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d21ff0c0009b"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_21_Mission / tab-2-detail-1",
+      "native": {
+        "name": "MENU08 / SCR_21_Mission / tab-2-detail-1",
+        "id": "b6d2d70b-7f33-8009-8008-d1684071614d",
+        "filename": "MENU08___SCR_21_Mission___tab-2-detail-1-94c5ca03-v08-1920.png",
+        "bytes": 427970,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "2d621d27",
+        "sha256": "92ccf22fdeadfac3ff850681a8d07d72dd909940f346aeb04af665b804f65746"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_21_Mission / tab-2-detail-1",
+        "id": "b6d2d70b-7f33-8009-8008-d1684071614d",
+        "filename": "MENU08___SCR_21_Mission___tab-2-detail-1-94c5ca03-v08.png",
+        "bytes": 303556,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "a803da6c1fabe03a0a5987eb5b872816d7656d9ec7381b084656984bf3d07e54",
+        "sourceFilename": "MENU08___SCR_21_Mission___tab-2-detail-1-94c5ca03-v08-1920.png",
+        "sourceSha256": "92ccf22fdeadfac3ff850681a8d07d72dd909940f346aeb04af665b804f65746",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "2d621d27",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d22001d1d99b"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_21_Mission / tab-2-detail-2",
+      "native": {
+        "name": "MENU08 / SCR_21_Mission / tab-2-detail-2",
+        "id": "b6d2d70b-7f33-8009-8008-d16840b74d10",
+        "filename": "MENU08___SCR_21_Mission___tab-2-detail-2-95c5cb96-v08-1920.png",
+        "bytes": 428378,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "979ab65e",
+        "sha256": "3eb204a261c101198bd157c6561224518565b05f4683d862abc9f8530dd10b90"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_21_Mission / tab-2-detail-2",
+        "id": "b6d2d70b-7f33-8009-8008-d16840b74d10",
+        "filename": "MENU08___SCR_21_Mission___tab-2-detail-2-95c5cb96-v08.png",
+        "bytes": 306092,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "86262ac25f1930382fd116f87ca6b14826af531435e9d368bce5d7fbb3a98a37",
+        "sourceFilename": "MENU08___SCR_21_Mission___tab-2-detail-2-95c5cb96-v08-1920.png",
+        "sourceSha256": "3eb204a261c101198bd157c6561224518565b05f4683d862abc9f8530dd10b90",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "979ab65e",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d2200f3746aa"
       }
     },
     {
@@ -3571,6 +7386,130 @@
       }
     },
     {
+      "name": "MENU08 / SCR_24_Profile / applied-ja-hyun",
+      "native": {
+        "name": "MENU08 / SCR_24_Profile / applied-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d168596d3e11",
+        "filename": "MENU08___SCR_24_Profile___applied-ja-hyun-de76af7d-v08-1920.png",
+        "bytes": 2111976,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "58c1d9fc",
+        "sha256": "05fdcb5e6cb637028cff09a079a048f5e50b21a7fb419c761dc94a580a7eeb96"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_24_Profile / applied-ja-hyun",
+        "id": "b6d2d70b-7f33-8009-8008-d168596d3e11",
+        "filename": "MENU08___SCR_24_Profile___applied-ja-hyun-de76af7d-v08.png",
+        "bytes": 1260952,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "88e02bd66bb9bd4a3609b4a844aabb297eaca3ce6cde5074772cc0a6c398b438",
+        "sourceFilename": "MENU08___SCR_24_Profile___applied-ja-hyun-de76af7d-v08-1920.png",
+        "sourceSha256": "05fdcb5e6cb637028cff09a079a048f5e50b21a7fb419c761dc94a580a7eeb96",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "58c1d9fc",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d2211f79b8ae"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_24_Profile / applied-myo-ryung",
+      "native": {
+        "name": "MENU08 / SCR_24_Profile / applied-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d16884d2c1f8",
+        "filename": "MENU08___SCR_24_Profile___applied-myo-ryung-d4429bb8-v08-1920.png",
+        "bytes": 2071617,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "20337f6c",
+        "sha256": "010bcadbf801a0c3895ead4bc94bc741e7144b7ee6e55018a107dcef68149c34"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_24_Profile / applied-myo-ryung",
+        "id": "b6d2d70b-7f33-8009-8008-d16884d2c1f8",
+        "filename": "MENU08___SCR_24_Profile___applied-myo-ryung-d4429bb8-v08.png",
+        "bytes": 1233089,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "a990245e9ca2a6204cf8f5d4d63d99d44a1b9934b1e5731893c50c16ff9164ab",
+        "sourceFilename": "MENU08___SCR_24_Profile___applied-myo-ryung-d4429bb8-v08-1920.png",
+        "sourceSha256": "010bcadbf801a0c3895ead4bc94bc741e7144b7ee6e55018a107dcef68149c34",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "20337f6c",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d22194ad354a"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_24_Profile / applied-nabi",
+      "native": {
+        "name": "MENU08 / SCR_24_Profile / applied-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d1688b4e8be4",
+        "filename": "MENU08___SCR_24_Profile___applied-nabi-3a922fdb-v08-1920.png",
+        "bytes": 2105548,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "b44a8cc8",
+        "sha256": "31c23ac97d7b2acffd148c4239917b605a9f4a3a6a5ceb11b82b613a995a7503"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_24_Profile / applied-nabi",
+        "id": "b6d2d70b-7f33-8009-8008-d1688b4e8be4",
+        "filename": "MENU08___SCR_24_Profile___applied-nabi-3a922fdb-v08.png",
+        "bytes": 1254705,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "4e89447aefbb7b47674be9fb0e14ee8e5c68984917591e26f1be6ebb000475ba",
+        "sourceFilename": "MENU08___SCR_24_Profile___applied-nabi-3a922fdb-v08-1920.png",
+        "sourceSha256": "31c23ac97d7b2acffd148c4239917b605a9f4a3a6a5ceb11b82b613a995a7503",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "b44a8cc8",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d2220d46be46"
+      }
+    },
+    {
+      "name": "MENU08 / SCR_24_Profile / applied-yu-ran",
+      "native": {
+        "name": "MENU08 / SCR_24_Profile / applied-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d168906e2af6",
+        "filename": "MENU08___SCR_24_Profile___applied-yu-ran-ceee9c85-v08-1920.png",
+        "bytes": 2110867,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "2e5a0832",
+        "sha256": "be815979aa46e9ef1879cc93a641a5a01e23cf98e7599ea1cc60b9b4eb8d3de1"
+      },
+      "preview": {
+        "name": "MENU08 / SCR_24_Profile / applied-yu-ran",
+        "id": "b6d2d70b-7f33-8009-8008-d168906e2af6",
+        "filename": "MENU08___SCR_24_Profile___applied-yu-ran-ceee9c85-v08.png",
+        "bytes": 1259492,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "0106ff8733512f5ea4bc7a57add1f11da0a7e2170509f23a6ecf85cbc85f03d5",
+        "sourceFilename": "MENU08___SCR_24_Profile___applied-yu-ran-ceee9c85-v08-1920.png",
+        "sourceSha256": "be815979aa46e9ef1879cc93a641a5a01e23cf98e7599ea1cc60b9b4eb8d3de1",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "2e5a0832",
+        "snapshotMediaId": "da05d154-084a-817e-8008-d2228e798372"
+      }
+    },
+    {
       "name": "MENU08 / SelectionRequired",
       "native": {
         "name": "MENU08 / SelectionRequired",
@@ -3692,6 +7631,68 @@
         "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
         "nativeSpecHash": "23799572",
         "snapshotMediaId": "bac6ebe2-a861-8073-8008-d173d2aae6e8"
+      }
+    },
+    {
+      "name": "MENU08 / SettingsResetFloating",
+      "native": {
+        "name": "MENU08 / SettingsResetFloating",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06a24287e",
+        "filename": "MENU08___SettingsResetFloating-1b6ef7c9-v08-1920.png",
+        "bytes": 441538,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "cbd2fd67",
+        "sha256": "25e9a9a2a455541bad4868e0704a457391317b6875a544be803ca9bdb59e082c"
+      },
+      "preview": {
+        "name": "MENU08 / SettingsResetFloating",
+        "id": "71f67bbe-b6c3-8057-8008-d1b06a24287e",
+        "filename": "MENU08___SettingsResetFloating-1b6ef7c9-v08.png",
+        "bytes": 315937,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "28a16dbd331979103392157756ff5e3a75b3c11116a11fa3758cb8fea0aed39a",
+        "sourceFilename": "MENU08___SettingsResetFloating-1b6ef7c9-v08-1920.png",
+        "sourceSha256": "25e9a9a2a455541bad4868e0704a457391317b6875a544be803ca9bdb59e082c",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "cbd2fd67",
+        "snapshotMediaId": "86d07029-2be7-815f-8008-d225e320526f"
+      }
+    },
+    {
+      "name": "MENU08 / SettingsResetFloatingLobby",
+      "native": {
+        "name": "MENU08 / SettingsResetFloatingLobby",
+        "id": "71f67bbe-b6c3-8057-8008-d1b069be0cd4",
+        "filename": "MENU08___SettingsResetFloatingLobby-da2ce45f-v08-1920.png",
+        "bytes": 441538,
+        "outputSize": [
+          1920,
+          1080
+        ],
+        "nativeSpecHash": "8d90269d",
+        "sha256": "25e9a9a2a455541bad4868e0704a457391317b6875a544be803ca9bdb59e082c"
+      },
+      "preview": {
+        "name": "MENU08 / SettingsResetFloatingLobby",
+        "id": "71f67bbe-b6c3-8057-8008-d1b069be0cd4",
+        "filename": "MENU08___SettingsResetFloatingLobby-da2ce45f-v08.png",
+        "bytes": 315937,
+        "outputSize": [
+          1280,
+          720
+        ],
+        "sha256": "28a16dbd331979103392157756ff5e3a75b3c11116a11fa3758cb8fea0aed39a",
+        "sourceFilename": "MENU08___SettingsResetFloatingLobby-da2ce45f-v08-1920.png",
+        "sourceSha256": "25e9a9a2a455541bad4868e0704a457391317b6875a544be803ca9bdb59e082c",
+        "resizeAlgorithm": "Pillow 12.1.0 Image.Resampling.LANCZOS; RGBA 1920x1080 -> 1280x720",
+        "nativeSpecHash": "8d90269d",
+        "snapshotMediaId": "8af72ccb-2daf-802c-8008-d225c8f4fbc3"
       }
     },
     {
@@ -4159,7 +8160,5 @@
         "snapshotMediaId": "bac6ebe2-a861-8073-8008-d16c171ae59b"
       }
     }
-  ],
-  "prototypeChecked": false,
-  "allScenesCompleted": false
+  ]
 }
