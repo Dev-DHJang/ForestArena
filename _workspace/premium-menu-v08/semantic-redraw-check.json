@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "tests": 17,
+  "checks": [
+    "pure JavaScript SHA256 matches empty and abc published vectors",
+    "SHA256 padding lengths 0–74 and million-a match Node crypto",
+    "SHA256 Korean and supplementary Unicode match Node crypto",
+    "whole spec and all 263 serialized scenes match Node crypto",
+    "PNG-only digest endpoint is never called for text specs",
+    "existing source IDs, original pages, geometry and ready markers preserved",
+    "only owned children removed; legacy child IDs, hidden states and content preserved",
+    "native element order/count and editable Noto Sans KR labels preserved",
+    "prototype metadata invalidated only on active prototype page",
+    "one native page per batch, maximum two scenes, flags restored after awaits",
+    "existing export records and snapshot media unchanged",
+    "exact saved spec signature skips completed redraws",
+    "date-only current-spec change invalidates old marker",
+    "updated manifest digest invalidates old marker",
+    "invalid batch sizes rejected",
+    "missing source rejected before drawing",
+    "UTF-8 Korean and supplementary Unicode digest input correct"
+  ],
+  "note": "Local mock only. No Penpot API, save, reload, rendering or clicks executed."
+}

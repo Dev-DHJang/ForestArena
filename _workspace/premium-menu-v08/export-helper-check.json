@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "checks": [
+    "same-page export batches only",
+    "source page active for export and metadata even after upload changes page",
+    "actual 1920 native PNG rendered at scale 1",
+    "records without snapshot metadata are retried",
+    "derived PNG source SHA-256, target SHA-256 and PNG dimensions verified",
+    "source digest recovered from actual whitelisted source PNG",
+    "import limited to two records on one page",
+    "snapshot provenance stored",
+    "import replay uploads nothing",
+    "path traversal and modified bytes rejected",
+    "background entry points disabled",
+    "crypto undefined uses the loopback SHA-256 service",
+    "invalid digest hash, byte count and HTTP status are rejected",
+    "available WebCrypto uses the same digest without loopback",
+    "PNG bytes use JSON-only responses with no arrayBuffer method",
+    "PNG byte JSON length, byte range and service SHA are validated"
+  ],
+  "nativeRenders": 6,
+  "uploads": 6,
+  "loopbackDigestCalls": 19,
+  "note": "Mock validates the export/import workflow. Actual PNG rendering, cloud save and reload require separate confirmation."
+}

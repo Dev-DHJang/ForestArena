@@ -1,0 +1,27 @@
+{
+  "officialPackage": "@penpot/mcp",
+  "version": "2.15.4",
+  "penpotHostVersion": "2.18.4",
+  "loopbackPorts": [
+    4400,
+    4401,
+    4402,
+    4403,
+    4438
+  ],
+  "pluginCompatibility": [
+    "manual local MCP mode",
+    "absolute loopback UI URL",
+    "visible official connection UI"
+  ],
+  "serverCompatibility": [
+    "local task timeout 30 to 120 seconds; no auth or permissions changes"
+  ],
+  "observedFailure": "unawaited background production progress reached 169 but was not persisted after renderer crash; not accepted as completion",
+  "acceptedMethod": "await actual API batch, saveVersion, reload and inspect native count and version",
+  "files": {
+    "packages/plugin/dist/plugin.js": "daa5f713c26577f544013cfe26fcda6c3a4387e99a4db07cb9156a34c3112801",
+    "packages/plugin/dist/manifest.json": "466b18f39ca3a70563285bbbb350ca0e8abc0e9c58aa22c5f791a2095e51e087",
+    "packages/server/dist/index.js": "72ec17d1ca741553f2396e7b4cd74d261dc59891a2bccab6568cdc12875a5139"
+  }
+}
