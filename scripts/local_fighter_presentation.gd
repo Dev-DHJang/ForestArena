@@ -181,6 +181,7 @@ func sync_visual(delta: float) -> void:
 	var drawing := display_layout(layout)
 	var display_scale := float(drawing.scale)
 	sprite.scale = Vector2.ONE * display_scale
+	sprite.position.x = 0.0
 	sprite.position.y = fighter.ground_contact_offset_y() - (float(drawing.foot_pivot_y) - 64.0) * display_scale
 	sprite.flip_h = fighter.facing < 0
 	var restarted_motion := shown != _last_motion or fighter.activation_serial != _last_activation
@@ -249,6 +250,14 @@ func sync_visual(delta: float) -> void:
 			index = mini(index, int(layout.state_hold_frame))
 		sprite.frame = index % frames if sprite.sprite_frames.get_animation_loop(shown) else mini(index, frames - 1)
 	_was_airborne = airborne
+	var frame_anchors: Array = drawing.get("frame_anchors", [])
+	if frame_anchors.size() == frames:
+		var anchors: Variant = frame_anchors[sprite.frame]
+		if anchors is Dictionary and anchors.has("body_root") and AttackEffects._valid_pixel_point(anchors.body_root):
+			var origin := Vector2(float(anchors.body_root[0]),float(anchors.body_root[1]))
+			if origin.x >= 0.0 and origin.x <= 128.0 and origin.y >= 0.0 and origin.y <= 128.0:
+				sprite.position.x = (64.0-origin.x) * display_scale * (-1.0 if sprite.flip_h else 1.0)
+				sprite.position.y = fighter.ground_contact_offset_y() - (origin.y-64.0) * display_scale
 	_previous_vertical_speed = fighter.velocity.y
 	_previous_air_jumps = fighter.air_jumps_remaining
 	_previous_launcher_jump = fighter.launcher_jump_available

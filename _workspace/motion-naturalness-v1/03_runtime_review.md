@@ -46,3 +46,18 @@ root의 후속 대조에서 `phase_frame_ranges` 자체가 없는 새16프레임
 `render-pilot.gd`의 촬영 전용 플랫폼 알림 제외도 독립적으로 읽었다. 현재 `main.gd._notification`은 포커스 이탈·일시중단·포커스 복귀·재개 네 알림에만 반응하고 나머지는 동작이 없다. fixture는 autoload 준비 뒤 이 함수 이름 하나만 바꿔 제품 루트 스크립트를 컴파일한다. 따라서 현재 소스에서 제외되는 동작은 OS 포커스에 의한 입력 해제·경기 일시중단/재개뿐이며 경기 계산·준비·입력·실제 고정 틱 실행은 보존한다. 매 틱 pause를 강제로 푸는 방식은 없다. 원본 main과 변환 fixture의 해시를 모두 기록하므로 이 제외 범위를 재현할 수 있다.
 
 이는 백그라운드 원화 촬영 조건으로 적절하며 실제 Android 생명주기 검사 통과를 뜻하지 않는다. 실패한 상속 시도 r08과 포커스 간섭 촬영 r01은 실패 증거로 보존한다. 최신 무영상 r09의 작은 요약 필드에서 errors=[]·checks=3265를 확인했다. 전체 동영상 품질을 이 검사로 판단하지 않았다. 촬영 결과 자체에도 `platform_lifecycle_ignored_for_capture=true`를 명시하라는 제안을 root에게 전달했고 최종 재촬영에 반영하기로 했다. fixture 수정은 root 소유로 두었다.
+
+## 접지 기준 body_root 독립 대조
+
+root가 추가한 `frame_anchors[].body_root`의 계약·Python 검사·표시 코드·테스트를 독립적으로 대조했다. 현재 표시 프레임을 선택한 **뒤** 해당 점을 사용하며, sprite 전체의 이동과 효과가 동일한 크기/반전 변환을 따른다. `(body_root.x,body_root.y)`를 실제 fighter의 표시 기준 `(0,ground_contact_offset_y())`에 놓는 식이 양쪽 방향에서 일치한다. 몸 그림의 비율을 바꾸거나 픽셀을 수정하지 않는다. 배열 길이 불일치·점 누락·잘못된 숫자·셀 밖 좌표이면 매 sync 처음 설정한 X=0과 기존 발 pivot이 유지된다. 새 필드는 해시가 있는 표시 항목에서만 읽히고 PNG/전투/물리 위치는 변경하지 않는다. 현재 Nabi X 적용 범위에 필수 코드 수정은 발견하지 않았다.
+
+최신 확인:
+
+- `qa/code-review-body-root-variable-r01.log`: **53개 PASS**. 접지점·반전·효과 연결·전투 스냅샷 보존·범위 밖 좌표를 포함한다.
+- `qa/code-review-body-root-python-r01.log`: **83개 PASS**. body_root 허용 목록·정상 점·범위 밖/무한 좌표 거부를 포함한다.
+- `qa/code-review-body-root-contract-r01.log`: **CHARACTER_MOTION_CONTRACT PASS**.
+- `qa/code-review-body-root-vfx-r01.log`: **TWO_FIGHTER_VFX PASS**.
+- `qa/code-review-body-root-legacy-r01.log/json`: 기존 **120모션 시간표 PASS**, Python으로 현재 소스 해시와 다시 대조해 오류0개.
+- `git diff --check`: **PASS**.
+
+이 대조는 root가 작성한 표시/검사 코드의 독립 검토다. 본 담당자는 body_root 값·원화·후보 catalog·manifest를 수정하지 않았다. 실제 신발 기준점을 올바르게 측정했는지와 원화 연결이 자연스러운지는 재촬영 뒤 별도 원화/재생 QA에서 확인해야 한다.

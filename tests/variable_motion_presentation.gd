@@ -165,6 +165,22 @@ func run() -> void:
 	visual._motion_layouts[&"attack_air_heavy"].frame_anchors = anchors.slice(0,16)
 	visual.sync_visual(0.0)
 	check(effect.current_frame_anchors().scarf_hand==[visual.sprite.frame,64],"new 16-frame art accepts its own explicit per-pose attachments")
+	var rooted_anchors := anchors.slice(0,16).duplicate(true)
+	for row: Dictionary in rooted_anchors: row.body_root = [80,120]
+	visual._motion_layouts[&"attack_air_heavy"].frame_anchors = rooted_anchors
+	fighter.facing = 1
+	var rooted_before := fighter.snapshot()
+	visual.sync_visual(0.0)
+	check(effect._anchor(Vector2(80,120)).is_equal_approx(Vector2(0,fighter.ground_contact_offset_y())),"the shown frame's body root reaches the actual ground reference without cropping pixels")
+	check(visual.sprite.position.x==-16.0,"per-pose grounding offsets the whole sprite")
+	fighter.facing = -1
+	visual.sync_visual(0.0)
+	check(visual.sprite.position.x==16.0 and effect._anchor(Vector2(80,120)).is_equal_approx(Vector2(0,fighter.ground_contact_offset_y())),"body root and attached effects mirror together")
+	fighter.facing = 1
+	check(rooted_before==fighter.snapshot(),"body-root alignment never changes combat or facing")
+	for row: Dictionary in rooted_anchors: row.body_root = [129,120]
+	visual.sync_visual(0.0)
+	check(visual.sprite.position.x==0.0,"out-of-cell body roots preserve the common pivot")
 	visual._motion_layouts[&"attack_air_heavy"].erase("frame_anchors")
 	visual._motion_layouts[&"attack_air_heavy"].erase("sha256")
 	visual.sync_visual(0.0)

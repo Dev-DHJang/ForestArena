@@ -70,9 +70,9 @@ def layout(row: dict) -> dict:
         def point(value):
             return isinstance(value, list) and len(value) == 2 and all(not isinstance(n, bool) and isinstance(n, (float, int)) and math.isfinite(n) and 0 <= n <= cell for n in value)
         for frame in anchors:
-            if not isinstance(frame, dict) or set(frame) - {"scarf_root", "scarf_hand", "scarf_tips"}:
+            if not isinstance(frame, dict) or set(frame) - {"scarf_root", "scarf_hand", "scarf_tips", "body_root"}:
                 raise ValueError("frame_anchors contains an unknown anchor")
-            if any(not point(frame[key]) for key in ("scarf_root", "scarf_hand") if key in frame):
+            if any(not point(frame[key]) for key in ("scarf_root", "scarf_hand", "body_root") if key in frame):
                 raise ValueError("frame_anchors points must be finite cell coordinates")
             if "scarf_tips" in frame and (not isinstance(frame["scarf_tips"], list) or len(frame["scarf_tips"]) != 2 or not all(point(p) for p in frame["scarf_tips"])):
                 raise ValueError("frame_anchors scarf_tips must contain two cell points")

@@ -233,7 +233,7 @@ class MotionLayoutTest(unittest.TestCase):
         row = {"frame_count":24, "atlas_columns":12, "frame_durations":[1.0]*23+[2.0],
                "phase_frame_ranges":[[0,8],[8,12],[12,24]],
                "jump_frame_ranges":{"ascent":[0,6],"apex":[6,10],"descent":[10,16],"landing":[16,24]},
-               "run_stride_px":96, "frame_anchors":[{"scarf_root":[40,60],"scarf_hand":[65,70],"scarf_tips":[[10,50],[20,55]]} for _ in range(24)]}
+               "run_stride_px":96, "frame_anchors":[{"body_root":[63.25,124],"scarf_root":[40,60],"scarf_hand":[65,70],"scarf_tips":[[10,50],[20,55]]} for _ in range(24)]}
         before=copy.deepcopy(row)
         spec=layout(row)
         self.assertEqual(spec["sheet_size"],(1536,256))
@@ -251,7 +251,8 @@ class MotionLayoutTest(unittest.TestCase):
         invalid += [{"phase_frame_ranges":[[0,5],[4,10],[10,16]]},{"phase_frame_ranges":[[0,5],[5,10],[10,15]]},
                     {"jump_frame_ranges":{"ascent":[0,6]}},{"run_stride_px":0},
                     {"descent_frame_range":[10,17]},{"frame_anchors":[{}]*15},
-                    {"frame_anchors":[{"scarf_root":[129,2]}]*16},{"frame_anchors":[{"scarf_tips":[[1,2]]}]*16}]
+                    {"frame_anchors":[{"scarf_root":[129,2]}]*16},{"frame_anchors":[{"scarf_tips":[[1,2]]}]*16},
+                    {"frame_anchors":[{"body_root":[129,124]}]*16}, {"frame_anchors":[{"body_root":[63,float("inf")]}]*16}]
         for row in invalid:
             with self.subTest(row=row), self.assertRaises(ValueError): layout(row)
 
