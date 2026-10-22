@@ -31,7 +31,7 @@ python3 tools/forest_arena/register_motion_candidates.py \
 
 `--install --backup-dir <새 _workspace 백업 폴더>`를 추가하면 실제 등록을 요청한다. 이때만 별도 사용자 승인 기록을 요구한다. 기록은 `source=user`, 정확한 계획·catalog·scope·QA·targets 해시와 **각 모션별** 명시 승인, PNG/원본·최종 SpriteFrames 해시, 사용자 메시지·참조·날짜를 포함해야 한다. 누락되거나 바뀌면 첫 폴더 생성 전 거부한다. 설치 직전에 QA와 입력·출력 해시를 다시 검사하고, 기존 manifest·SpriteFrames를 백업한다. 기존 PNG는 삭제하거나 덮어쓰지 않는다.
 
-이번 작업에서는 실제 사용자 승인 기록을 만들거나 등록을 실행하지 않았다. 자동 검사에서만 임시 프로젝트와 가상 승인 문자열을 사용했다. 시안 10종의 실제 QA와 사용자 승인 뒤에 targets와 승인 기록을 확정할 수 있다.
+이번 작업에서는 실제 사용자 승인 기록을 만들거나 등록을 실행하지 않았다. 자동 검사에서만 임시 프로젝트와 가상 승인 문자열을 사용했다. 시안10종의 실제 QA 뒤 targets와 쓰기 없는 계획을 미리 준비할 수 있다. 실제 승인 기록은 사용자 모션별 결정이 도착한 뒤에만 작성한다. 현재 준비 결과는02_registration_handoff.md를 따른다.
 
 ## 검증
 
