@@ -2,8 +2,9 @@
 import argparse, hashlib, json, math, statistics, importlib.util
 from pathlib import Path
 from PIL import Image
-P=argparse.ArgumentParser();P.add_argument('character');P.add_argument('motion');P.add_argument('source');P.add_argument('--count',type=int,required=True);P.add_argument('--columns',type=int,required=True);P.add_argument('--rows',type=int,default=4);P.add_argument('--version',default='r01');P.add_argument('--ground-start',type=int,default=0);P.add_argument('--select');P.add_argument('--phase-counts')
+P=argparse.ArgumentParser();P.add_argument('character');P.add_argument('motion');P.add_argument('source');P.add_argument('--count',type=int,required=True);P.add_argument('--columns',type=int,required=True);P.add_argument('--rows',type=int,default=4);P.add_argument('--version',default='r01');P.add_argument('--ground-start',type=int,default=0);P.add_argument('--select');P.add_argument('--phase-counts');P.add_argument('--frame-offsets')
 a=P.parse_args();ROOT=Path(__file__).resolve().parents[2];BASE=Path(__file__).resolve().parent
+offsets=json.loads((ROOT/a.frame_offsets).read_text()) if a.frame_offsets else {}
 source=ROOT/a.source;im=Image.open(source).convert('RGBA');assert a.count in (16,24,32)
 spec=importlib.util.spec_from_file_location('split_figures',BASE/'split-figures.py');split=importlib.util.module_from_spec(spec);spec.loader.exec_module(split)
 figures,unused=split.split_figures(im,a.columns,a.rows)
@@ -32,6 +33,8 @@ for target,source_index in enumerate(selection):
  if a.motion=='jump' and target>=a.ground_start:
   ground_anchor_offsets[str(target)]=124-box[3]-y
   y=124-box[3]
+ if str(target) in offsets:
+  dx,dy=offsets[str(target)];x+=round(dx);y+=round(dy)
  assert box and x+box[0]>=1 and x+box[2]<=127,('pose clipped horizontally',target,source_box,box,x,y)
  placements.append((target,scaled,x,y,box))
 padding_shift_y=min(0,126-max(y+box[3] for _,_,_,y,box in placements))
@@ -46,7 +49,7 @@ for i in range(a.count):lines+=['',f'[sub_resource type="AtlasTexture" id="Frame
 loop=a.motion=='run';fps=12
 lines+=['','[resource]','animations = [{','"frames": ['+', '.join('{"duration": 1.0, "texture": SubResource("Frame_%d")}'%i for i in range(a.count))+'],',f'"loop": {str(loop).lower()},',f'"name": &"{a.motion}",',f'"speed": {fps}.0','}]']
 tres.write_text('\n'.join(lines)+'\n')
-row={'type':'animation-candidate','character_id':a.character,'visual_state_id':a.motion,'path':png.relative_to(ROOT).as_posix(),'sprite_frames_path':'res://'+tres.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(png.read_bytes()).hexdigest(),'frame_count':a.count,'atlas_columns':16,'cell_size':128,'frame_durations':[1.0]*a.count,'fps':fps,'loop':loop,'presentation_scale':reference_scale/scale,'foot_pivot_y':124+padding_shift_y,'source_path':source.relative_to(ROOT).as_posix(),'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'conversion':{'ground_anchor_offsets':ground_anchor_offsets,'reference_scale':reference_scale,'padding_shift_y':padding_shift_y,'uniform_scale':scale,'translation':[tx,ty],'ground_reference_start':a.ground_start,'frame_bounds':out_bounds,'source_selection':selection,'unassigned_small_regions':unused,'method':'connected original figure regions; uniform scale and cell-relative translation; no pose repainting'}}
+row={'type':'animation-candidate','character_id':a.character,'visual_state_id':a.motion,'path':png.relative_to(ROOT).as_posix(),'sprite_frames_path':'res://'+tres.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(png.read_bytes()).hexdigest(),'frame_count':a.count,'atlas_columns':16,'cell_size':128,'frame_durations':[1.0]*a.count,'fps':fps,'loop':loop,'presentation_scale':reference_scale/scale,'foot_pivot_y':124+padding_shift_y,'source_path':source.relative_to(ROOT).as_posix(),'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'conversion':{'explicit_pose_offsets':offsets,'ground_anchor_offsets':ground_anchor_offsets,'reference_scale':reference_scale,'padding_shift_y':padding_shift_y,'uniform_scale':scale,'translation':[tx,ty],'ground_reference_start':a.ground_start,'frame_bounds':out_bounds,'source_selection':selection,'unassigned_small_regions':unused,'method':'connected original figure regions; uniform scale and cell-relative translation; no pose repainting'}}
 if a.motion=='run':row['run_stride_px']=96
 elif a.motion=='jump':row['jump_frame_ranges']={'ascent':[0,6],'apex':[6,10],'descent':[10,16],'landing':[16,24]}
 else:row['phase_frame_ranges']=([[0,4],[4,8],[8,16]] if a.count==16 else ([[0,6],[6,10],[10,24]] if a.count==24 else [[0,8],[8,12],[12,32]]))

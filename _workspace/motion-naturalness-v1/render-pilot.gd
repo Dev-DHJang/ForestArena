@@ -255,7 +255,7 @@ func run() -> void:
 	check(sources == source_hashes(),"source code and candidate assets stayed unchanged throughout capture")
 	DirAccess.make_dir_recursive_absolute(output)
 	var file := FileAccess.open(output.path_join("state-report.json"),FileAccess.WRITE)
-	file.store_string(JSON.stringify({"scenarios":rows,"errors":errors,"checks":check_count,"sources":sources,"approval_status":"pending","android_device_test":false},"\t")+"\n")
+	file.store_string(JSON.stringify({"scenarios":rows,"errors":errors,"checks":check_count,"sources":sources,"approval_status":"pending","android_device_test":false,"platform_lifecycle_ignored_for_capture":true},"\t")+"\n")
 	for error: String in errors: push_error(error)
 	print("PILOT_LIVE_RENDER: %s (%d checks, %d clips)" % ["PASS" if errors.is_empty() else "FAIL",check_count,rows.size()])
 	quit(0 if errors.is_empty() else 1)

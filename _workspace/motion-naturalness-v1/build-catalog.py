@@ -4,7 +4,7 @@ import hashlib,json
 base=Path(__file__).resolve().parent;root=base.parents[1]
 old=json.loads((root/'_workspace/two-fighter-combat-v2/candidate-catalog.json').read_text())
 by_key={(r['character_id'],r['visual_state_id']):r for r in old['assets']}
-selected={'ja-hyun':{'run':'r06','jump':'r03','attack_light_combo_01':'r02','attack_light_combo_02':'r02','attack_light_combo_04':'r02'},'nabi':{'run':'r05','jump':'r03','attack_light_combo_01':'r02','attack_light_up':'r03','attack_light_combo_02':'r03'}}
+selected={'ja-hyun':{'run':'r07','jump':'r04','attack_light_combo_01':'r04','attack_light_combo_02':'r04','attack_light_combo_04':'r05'},'nabi':{'run':'r05','jump':'r03','attack_light_combo_01':'r03','attack_light_up':'r03','attack_light_combo_02':'r05'}}
 rows=[]
 for cid,motions in selected.items():
  for motion,version in motions.items():
@@ -13,7 +13,7 @@ for cid,motions in selected.items():
   row['asset_id']=original.get('asset_id',f'{cid}-{motion.replace("_","-")}-16f-v01')
   row['expected_action']=original['expected_action'];row['action_source']='_workspace/motion-naturalness-v1/02_expectations.md'
   row['creation']={'method':'built-in image_gen original poses followed by source figure separation and uniform layout conversion','provider':'OpenAI built-in image generation','version':'motion-naturalness-pilot-v01','source_path':row['source_path'],'source_sha256':row['source_sha256']}
-  row['rights']={'status':f'derived from the previously approved {cid} appearance; current motion pending explicit user approval; external license verification not asserted','references':['assets/character/manifest.json','_workspace/motion-naturalness-v1/00_request.md']}
+  row['rights']={'status':f'derived from the previously approved {cid} appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted','references':['assets/character/manifest.json','_workspace/motion-naturalness-v1/00_request.md']}
   sidecar=(root/row['source_path']).with_suffix('.json')
   if sidecar.exists():row['conversion']['source_layout_record']={'path':str(sidecar.relative_to(root)),'sha256':hashlib.sha256(sidecar.read_bytes()).hexdigest()}
   rows.append(row)
