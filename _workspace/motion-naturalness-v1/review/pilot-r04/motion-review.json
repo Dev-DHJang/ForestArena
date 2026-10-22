@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewer": "",
+  "reviewer": "pilot_boundary_qa",
   "sources": {
     "_workspace/motion-naturalness-v1/02_expectations.md": "a414e332005ea7780c8f6406b6d228264c0c4808085631efab5b003f7a571a50",
     "_workspace/motion-naturalness-v1/candidate-catalog.json": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
@@ -42,7 +42,77 @@
     "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
     "tools/forest_arena/motion_review_candidates.py": "e35e22e81f6cd4d52465c86fd425bbb3a69cc7d8b923789ad8d270ab15802a52",
     "tools/forest_arena/motion_review_timeline.gd": "abf664a942bed9da3d37445a1bf70420750abc3e271bbf37f7deaca8a77c93b4",
-    "tools/forest_arena/review_motion_actions.py": "a8154e49f1989dbedf15410138a24da14e3c2fb2dfc667ae3fac7df3f5694e23"
+    "tools/forest_arena/review_motion_actions.py": "a8154e49f1989dbedf15410138a24da14e3c2fb2dfc667ae3fac7df3f5694e23",
+    "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__full-combo.mp4": "3cc930eb13f5da5cb44fa7259174369910f13070940398f8d6c8835095bd7250",
+    "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+    "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__full-combo.mp4": "26a7b6676e5cef7996aaf504f6a72231a50cad8b5e6354eeba81d099ee7b6f2a",
+    "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part6.jpg": "8ebc7da30f718e7e6fadf6042c053ef3a38455e6aa173be45e1dc115e46a5b45",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part6.jpg": "13628e0e5d76eb1808b29caea5e4b0745787f4b779a81695d415b0003b38bfd6",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part4.jpg": "968243bce92d904d58989986d80cc1cee3bdc3a8657baf3036fb16e0ecf6b85a",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part5.jpg": "4c656712dbc6f9a4555a57e7d3bb7313e840a3e6c4672964a35dcbcfb40a1d11",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part4.jpg": "5be362e214746e1a3c7ad625594ba578c50d4176c67ca6e55cc0a6505fcf546c",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part5.jpg": "2d218c859824aa32e4be041f21a6538060fbd5deac2b5fdaf79d2b0e054ac1a3",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part1.jpg": "f43003ec5d962a28c913099ad69a7bfb235780290441a07985e7f42625d5a9c1",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part1.jpg": "421689139a67ab8455a17c8e876f0d0184bcd8004c1897c7d909cce0da84e3cf",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part2.jpg": "2d3fa7df62f4039dc10e059831eea70a12bf69481001e4e3a5bd20c22b383200",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part3.jpg": "122dba8d0cc27bbb423b15c86ad94795fb8bb916a75246924ef25ef2cc45dfcf",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part2.jpg": "6ee5cb7113844e74188daa1e494b05ccf048f7c506115cfeb4d4c23c74f25d5d",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part3.jpg": "d58a51271b2f15ab9651de97eea592a0c008e9a2f672df5b69c83f71d030f296",
+    "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__jump-land.mp4": "d7b0e39be445bbfd1bbcb27d89881ba72a2e49420d021d184ecfc7f70ee0c002",
+    "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__jump-land.mp4": "4563b383232936bcef93a9fdedd66793b29d5a6a445c535ff40fbef4d5b7ef00",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part1.jpg": "1dcedb9dbabf685bf3e856109452622014d0b23e04bd899ac2fd84513d7d4992",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part2.jpg": "ee26eda7a23919278de8561a57b13434c48884208e64161e2fbef3e4f747564a",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part3.jpg": "c81fdd7582fbd33731f0ea294bd5564735b5b4409c91edc5d2c0be050136e087",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part4.jpg": "8d7ce8b33bcc3966a9d899dd3f54cd38a3765ec9a5bc99afb0b3e15617c78dd3",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part4.jpg": "4297566a2c07df5ed38d54cd34b04e1eb369c5bbdeba1eed5f2654e834ac0499",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part3.jpg": "0e980992470d4f37eee8f7ebac4f9515ce5d295e9b9e88e7d4f6ab95eec2e675",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part2.jpg": "e9f81fbc620c366e442aafd179a63321ab0a0e1890511fd0b4484304b74774a4",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part1.jpg": "e4eb30a2f7cc618386b3ebbb98170d36d250d224d4bb9886031276a864b32193",
+    "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__run-stop.mp4": "2644d7adb6314a589d52f9a7fe62376dc31466355831a73ce2a6bbdfe78ff7aa",
+    "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__run-stop.mp4": "15ccf475cc43b02574e6181c61afa8e184c287a9c22715207d66c5dffa4feb81",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part1.jpg": "d48f7bd685317d596c87f9e416696f0e7de1d3869505ecd46982347708a69ac6",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part2.jpg": "c98cfa4292208269cc6157d911f6814186c5b7115fc0432db634742c3603961a",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part3.jpg": "8e605b930409e3f9a6f8d6e055bbcb51254248ac684a14b5720744839f932287",
+    "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part4.jpg": "665e21bb4c27bcf027ab4286e7e76e8fb998387a5574f5f4f5f47aad619cec41",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part2.jpg": "3d40843abdd79c8e6bda64625a9ce62bddcf7314ea4c6b7e0816e485347d86f4",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part3.jpg": "f14b3c64dbcb0e86de7b1a9bcd01acf0b59caa1264ffe2a5c5ed781fd073ca05",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part1.jpg": "7b92ab5625665dd1bd27a29667f789c6e7e0338d5a8fa88f0f9a5bd2b8110b27",
+    "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part4.jpg": "36de545f3afdff53a9d9db5cbf8d9379d86fa830dbe8195bd687694d759d658b",
+    "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__full-combo.mp4": "7111c8a289131badcbd394c77fde0d950e6fe4a07cd378ed4dbae8c5b762900c",
+    "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__full-combo.mp4": "d7478088f602f000ffaecd5cf1d6264465522a37144949dfdec3358a19d994f1",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part6.jpg": "421b7d9318d4efe7c61c44640d03c58820b94a57c6cf138c048f06f4bb425bf7",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part5.jpg": "24264a52e190a21a23b28f47c5e4eedeb7bb521f091240c6e8d7b90743e3be99",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part4.jpg": "466182be36c80bad1a2f55555f02db390d1521ec9804af202342cd432f02a93c",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part1.jpg": "d8abc5675b958bcb9812e39cd9494f20a6ff3bf315bbe48c3bbf277e6f2b1413",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part3.jpg": "d5fbee005a37110ee2bd0bad3fa345644f374fcaeb6ac78072531e18ef51c835",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part2.jpg": "503c1bdb2cc2389b7fba3ce23e370c234383335c55ec41750b9d5a5eb525c225",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part6.jpg": "3d516ab6fb1320d623a39a87ba1abf56e2527731f099f67e913a3178b4448aaa",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part5.jpg": "5a6a89d3cdf6cb304147c7cfe5db5fdec42835776f644575e5974c384731c599",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part4.jpg": "2e6590bb2d9bd7688037a523afb7e671dccec297129ec580e4c7edec69a2e650",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part1.jpg": "4719b4b69fe0202ecd3f769514b3e94659f8e5780d86f63582027d6be1605552",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part3.jpg": "ca204071a9f09fcf6d24f28bc96a3336419d580ef193971ad542b57fb8be7447",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part2.jpg": "7b9aa38b9cb1c8a89e577c3f60212942b568865b2a80a1dd34e8bd1eddad0003",
+    "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__jump-land.mp4": "59455e4e79c231bd838e1c0de5ee77bb914c81faaaee9164b12db661150a3d80",
+    "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__jump-land.mp4": "0824f092b2593bfb3f848b6a0633ddc139411ef2cc2ec724d1a78119735ded66",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part4.jpg": "846479809121967874db33f32c584f747babdddc0846c55be98c553cdabcd06d",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part3.jpg": "d27eaf1abfc64f3d74384db2d49e8b78c3da91c8bd0d82d38428a3eef2a8023d",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part2.jpg": "cfd1ea951172dcabded4c50ecd6e3428ddc79ed97d2a27090527cf93b44cf202",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part1.jpg": "043056b780002fa53f07e190bcf151a80cdfd105572c8c4ce03939cab0aa9f6a",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part3.jpg": "be87313eb91c4a251f060ea2757cfdb2aea3addce887f1e0c5a2dde600c6f6ae",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part2.jpg": "186e98bce8bd85bc0e9b1f63b0e505ea9fc12ef99900a7ff19b43c936e106206",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part1.jpg": "310940b2ce8a7051fbe147f56ce5439119b340ec31bde7e9ab4f883782fa7889",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part4.jpg": "a1f13bb9168c2ed45ca1ee38c05f1530367b78afb95fc2f992abe18045906ae2",
+    "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__run-stop.mp4": "025797e108e47e5dfc672919c9eacb5d6e208dabf9df4351555c45bbd02fdad7",
+    "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__run-stop.mp4": "319204ae9c93e508e53d71699cd51981d2edac9780de61635127b0033be0dd86",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part4.jpg": "bb41faffc40e8f6a50d746c9ef11463be139c17cb5f068e3063b458143c4f80f",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part2.jpg": "e81f7b0f997bc2a1472ee060a014e1348c7bfb991ceaed42e17d5ed0e671b345",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part3.jpg": "0e26d16ed81cabf78253a36c40ca9b4d7b07e516c6ede91d4089f212d5ec6d1b",
+    "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part1.jpg": "9fec041a6d0f101b6ba0337bc1b3f95480fe3a66142a1ab79251a413b8bd3a66",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part4.jpg": "fe8ed48aa5291181587cdb3160ebe1ead43c5a38d56f79e4b89345517f4c4434",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part1.jpg": "3ca5f7279a45c7d39ccc6ba178ee0fd385e1fe7eae64a4eec83ef9a671e3be0c",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part2.jpg": "7695d82122dad0b55b8517c9ad2648a0eaa4cabaf7ddbb25ce0f50122f8c3122",
+    "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part3.jpg": "eb8fbad30a878e096e9a542ce4da088f878b602559bd05a175cc72736d86b77a"
   },
   "timeline_sha256": "72c09528b3c05f31e3234a13206b5d0001f229b75c92b8abc11713d2d5e12675",
   "motions": [
@@ -265,19 +335,37 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체16셀과 두 실제4타 연계 각162tick에서 약1·약3에 같은 왼손 전방 펀치가 표시되는 것을 확인했다. F0~3 준비, F4~7 한 번의 전진 펀치, F8~15 회수가 읽히고 반대손은 가드한다. 실제 body_root 보정에서 발 아래 기준과 얼굴 단위가 유지되며 다음 오른손/마무리 킥 준비로 이어진다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__full-combo.mp4": "3cc930eb13f5da5cb44fa7259174369910f13070940398f8d6c8835095bd7250",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__full-combo.mp4": "26a7b6676e5cef7996aaf504f6a72231a50cad8b5e6354eeba81d099ee7b6f2a",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part6.jpg": "8ebc7da30f718e7e6fadf6042c053ef3a38455e6aa173be45e1dc115e46a5b45",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part6.jpg": "13628e0e5d76eb1808b29caea5e4b0745787f4b779a81695d415b0003b38bfd6",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part4.jpg": "968243bce92d904d58989986d80cc1cee3bdc3a8657baf3036fb16e0ecf6b85a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part5.jpg": "4c656712dbc6f9a4555a57e7d3bb7313e840a3e6c4672964a35dcbcfb40a1d11",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part4.jpg": "5be362e214746e1a3c7ad625594ba578c50d4176c67ca6e55cc0a6505fcf546c",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part5.jpg": "2d218c859824aa32e4be041f21a6538060fbd5deac2b5fdaf79d2b0e054ac1a3",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part1.jpg": "f43003ec5d962a28c913099ad69a7bfb235780290441a07985e7f42625d5a9c1",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part1.jpg": "421689139a67ab8455a17c8e876f0d0184bcd8004c1897c7d909cce0da84e3cf",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part2.jpg": "2d3fa7df62f4039dc10e059831eea70a12bf69481001e4e3a5bd20c22b383200",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part3.jpg": "122dba8d0cc27bbb423b15c86ad94795fb8bb916a75246924ef25ef2cc45dfcf",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part2.jpg": "6ee5cb7113844e74188daa1e494b05ccf048f7c506115cfeb4d4c23c74f25d5d",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part3.jpg": "d58a51271b2f15ab9651de97eea592a0c008e9a2f672df5b69c83f71d030f296"
+      }
     },
     {
       "character_id": "ja-hyun",
@@ -397,19 +485,37 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체16셀과 실제 정방향/반전소형4타 연계 각162tick을 대조했다. 왼손 모션과 다른 오른손을 몸 뒤에서 앞으로 보내는 단타와 회수가 구별되며, 왼손은 가까운 가드를 유지한다. tick40→41 및70→71 앞뒤 연계에 새 필수 높이 튐이나 바닥 이탈을 보지 못했다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__full-combo.mp4": "3cc930eb13f5da5cb44fa7259174369910f13070940398f8d6c8835095bd7250",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__full-combo.mp4": "26a7b6676e5cef7996aaf504f6a72231a50cad8b5e6354eeba81d099ee7b6f2a",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part6.jpg": "8ebc7da30f718e7e6fadf6042c053ef3a38455e6aa173be45e1dc115e46a5b45",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part6.jpg": "13628e0e5d76eb1808b29caea5e4b0745787f4b779a81695d415b0003b38bfd6",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part4.jpg": "968243bce92d904d58989986d80cc1cee3bdc3a8657baf3036fb16e0ecf6b85a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part5.jpg": "4c656712dbc6f9a4555a57e7d3bb7313e840a3e6c4672964a35dcbcfb40a1d11",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part4.jpg": "5be362e214746e1a3c7ad625594ba578c50d4176c67ca6e55cc0a6505fcf546c",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part5.jpg": "2d218c859824aa32e4be041f21a6538060fbd5deac2b5fdaf79d2b0e054ac1a3",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part1.jpg": "f43003ec5d962a28c913099ad69a7bfb235780290441a07985e7f42625d5a9c1",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part1.jpg": "421689139a67ab8455a17c8e876f0d0184bcd8004c1897c7d909cce0da84e3cf",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part2.jpg": "2d3fa7df62f4039dc10e059831eea70a12bf69481001e4e3a5bd20c22b383200",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part3.jpg": "122dba8d0cc27bbb423b15c86ad94795fb8bb916a75246924ef25ef2cc45dfcf",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part2.jpg": "6ee5cb7113844e74188daa1e494b05ccf048f7c506115cfeb4d4c23c74f25d5d",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part3.jpg": "d58a51271b2f15ab9651de97eea592a0c008e9a2f672df5b69c83f71d030f296"
+      }
     },
     {
       "character_id": "ja-hyun",
@@ -529,19 +635,37 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "새 r05 전체16셀과 실제 정방향/반전소형4타 연계 각162tick을 재검토했다. F0~3 준비/무릎 들기→F4~7 단 한 번 전방 킥→F8~15 회수와 가드 복귀가 읽힌다. 이전 r04의 깊은 F14→idle 상승 문제는 새 중간 원화로 해소됐다. tick129~137의 F13→새 F14→F15→idle이 몸과 발 기준을 유지하며 이어진다. 머리 단위를 유지하고 지지 다리를 펴는 키 변화는 자세 변화로 읽힌다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__full-combo.mp4": "3cc930eb13f5da5cb44fa7259174369910f13070940398f8d6c8835095bd7250",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__full-combo.mp4": "26a7b6676e5cef7996aaf504f6a72231a50cad8b5e6354eeba81d099ee7b6f2a",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part6.jpg": "8ebc7da30f718e7e6fadf6042c053ef3a38455e6aa173be45e1dc115e46a5b45",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part6.jpg": "13628e0e5d76eb1808b29caea5e4b0745787f4b779a81695d415b0003b38bfd6",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part4.jpg": "968243bce92d904d58989986d80cc1cee3bdc3a8657baf3036fb16e0ecf6b85a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part5.jpg": "4c656712dbc6f9a4555a57e7d3bb7313e840a3e6c4672964a35dcbcfb40a1d11",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part4.jpg": "5be362e214746e1a3c7ad625594ba578c50d4176c67ca6e55cc0a6505fcf546c",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part5.jpg": "2d218c859824aa32e4be041f21a6538060fbd5deac2b5fdaf79d2b0e054ac1a3",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part1.jpg": "f43003ec5d962a28c913099ad69a7bfb235780290441a07985e7f42625d5a9c1",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part1.jpg": "421689139a67ab8455a17c8e876f0d0184bcd8004c1897c7d909cce0da84e3cf",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part2.jpg": "2d3fa7df62f4039dc10e059831eea70a12bf69481001e4e3a5bd20c22b383200",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part3.jpg": "122dba8d0cc27bbb423b15c86ad94795fb8bb916a75246924ef25ef2cc45dfcf",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-full-combo-r06-part2.jpg": "6ee5cb7113844e74188daa1e494b05ccf048f7c506115cfeb4d4c23c74f25d5d",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-full-combo-r06-part3.jpg": "d58a51271b2f15ab9651de97eea592a0c008e9a2f672df5b69c83f71d030f296"
+      }
     },
     {
       "character_id": "ja-hyun",
@@ -691,19 +815,33 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체24셀 및 정방향/반전소형 각120tick을 대조했다. 상승 때 다리를 접고 정점 뒤 몸을 열어 하강하며, 공중에서 지상을 딛는 F16 이후 그림이 표시되지 않는다. 실제 착지 tick57 이후 F16~23의 무릎 압축/회복을 거쳐 tick73에 idle로 돌아온다. 0.85 고정 크기와 머리 단위를 실제 캡처로 대조했고 새 필수 비율 결함이나 잘림은 확인하지 않았다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__jump-land.mp4": "d7b0e39be445bbfd1bbcb27d89881ba72a2e49420d021d184ecfc7f70ee0c002",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__jump-land.mp4": "4563b383232936bcef93a9fdedd66793b29d5a6a445c535ff40fbef4d5b7ef00",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part1.jpg": "1dcedb9dbabf685bf3e856109452622014d0b23e04bd899ac2fd84513d7d4992",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part2.jpg": "ee26eda7a23919278de8561a57b13434c48884208e64161e2fbef3e4f747564a",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part3.jpg": "c81fdd7582fbd33731f0ea294bd5564735b5b4409c91edc5d2c0be050136e087",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-jump-land-r06-part4.jpg": "8d7ce8b33bcc3966a9d899dd3f54cd38a3765ec9a5bc99afb0b3e15617c78dd3",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part4.jpg": "4297566a2c07df5ed38d54cd34b04e1eb369c5bbdeba1eed5f2654e834ac0499",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part3.jpg": "0e980992470d4f37eee8f7ebac4f9515ce5d295e9b9e88e7d4f6ab95eec2e675",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part2.jpg": "e9f81fbc620c366e442aafd179a63321ab0a0e1890511fd0b4484304b74774a4",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-jump-land-r06-part1.jpg": "e4eb30a2f7cc618386b3ebbb98170d36d250d224d4bb9886031276a864b32193"
+      }
     },
     {
       "character_id": "ja-hyun",
@@ -919,19 +1057,33 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체16셀과 실제 정방향/반전소형 각120tick을 대조했다. 앞으로 기울여 달리는 자세, 좌우 다리 교대와 팔의 반대 스윙이 읽히며 반복 경계에 모델 크기나 지면 기준의 큰 튐이 없다. 0.85 고정 표시 배율에서 얼굴 크기는 승인 idle과 연결되고 tick72 입력 해제 뒤 실제 idle로 돌아온다. 정상·느린 순서에서 별도 필수 수정으로 분류할 발 미끄러짐은 확인하지 않았다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/ja-hyun__run-stop.mp4": "2644d7adb6314a589d52f9a7fe62376dc31466355831a73ce2a6bbdfe78ff7aa",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/ja-hyun__run-stop.mp4": "15ccf475cc43b02574e6181c61afa8e184c287a9c22715207d66c5dffa4feb81",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part1.jpg": "d48f7bd685317d596c87f9e416696f0e7de1d3869505ecd46982347708a69ac6",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part2.jpg": "c98cfa4292208269cc6157d911f6814186c5b7115fc0432db634742c3603961a",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part3.jpg": "8e605b930409e3f9a6f8d6e055bbcb51254248ac684a14b5720744839f932287",
+        "_workspace/motion-naturalness-v1/qa/ja-normal-run-stop-r06-part4.jpg": "665e21bb4c27bcf027ab4286e7e76e8fb998387a5574f5f4f5f47aad619cec41",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part2.jpg": "3d40843abdd79c8e6bda64625a9ce62bddcf7314ea4c6b7e0816e485347d86f4",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part3.jpg": "f14b3c64dbcb0e86de7b1a9bcd01acf0b59caa1264ffe2a5c5ed781fd073ca05",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part1.jpg": "7b92ab5625665dd1bd27a29667f789c6e7e0338d5a8fa88f0f9a5bd2b8110b27",
+        "_workspace/motion-naturalness-v1/qa/ja-hyun-mirror-small-run-stop-r06-part4.jpg": "36de545f3afdff53a9d9db5cbf8d9379d86fa830dbe8195bd687694d759d658b"
+      }
     },
     {
       "character_id": "nabi",
@@ -1051,19 +1203,37 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체16셀과 두 실제3타 연계 각162tick을 대조했다. 왼손이 앞을 할퀴는 한 번의 전방 궤적과 회수가 읽히며 반대손은 가드한다. F8~15 회수 이후 오른손 상향 할퀴기 준비로 이어진다. body_root 표시 보정에서 발 기준을 유지하고 정방향/반전소형 모두 잘림이나 몸의 옆 튐을 보지 못했다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__full-combo.mp4": "7111c8a289131badcbd394c77fde0d950e6fe4a07cd378ed4dbae8c5b762900c",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__full-combo.mp4": "d7478088f602f000ffaecd5cf1d6264465522a37144949dfdec3358a19d994f1",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part6.jpg": "421b7d9318d4efe7c61c44640d03c58820b94a57c6cf138c048f06f4bb425bf7",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part5.jpg": "24264a52e190a21a23b28f47c5e4eedeb7bb521f091240c6e8d7b90743e3be99",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part4.jpg": "466182be36c80bad1a2f55555f02db390d1521ec9804af202342cd432f02a93c",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part1.jpg": "d8abc5675b958bcb9812e39cd9494f20a6ff3bf315bbe48c3bbf277e6f2b1413",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part3.jpg": "d5fbee005a37110ee2bd0bad3fa345644f374fcaeb6ac78072531e18ef51c835",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part2.jpg": "503c1bdb2cc2389b7fba3ce23e370c234383335c55ec41750b9d5a5eb525c225",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part6.jpg": "3d516ab6fb1320d623a39a87ba1abf56e2527731f099f67e913a3178b4448aaa",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part5.jpg": "5a6a89d3cdf6cb304147c7cfe5db5fdec42835776f644575e5974c384731c599",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part4.jpg": "2e6590bb2d9bd7688037a523afb7e671dccec297129ec580e4c7edec69a2e650",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part1.jpg": "4719b4b69fe0202ecd3f769514b3e94659f8e5780d86f63582027d6be1605552",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part3.jpg": "ca204071a9f09fcf6d24f28bc96a3336419d580ef193971ad542b57fb8be7447",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part2.jpg": "7b9aa38b9cb1c8a89e577c3f60212942b568865b2a80a1dd34e8bd1eddad0003"
+      }
     },
     {
       "character_id": "nabi",
@@ -1183,19 +1353,37 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체16셀과 실제 정방향/반전소형3타 연계 각162tick을 대조했다. 두 손을 앞에서 교차한 준비 뒤 F5~7에 바깥으로 펼치는 X자 단타와 회복이 읽힌다. 최종 body_root 보정으로 지지 중심이 옆으로 흘러가는 이전 문제가 재현되지 않았고 tick106→107의 idle 복귀도 이어진다. 반전·소형에서도 양손 안무와 얼굴·발이 잘리지 않는다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__full-combo.mp4": "7111c8a289131badcbd394c77fde0d950e6fe4a07cd378ed4dbae8c5b762900c",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__full-combo.mp4": "d7478088f602f000ffaecd5cf1d6264465522a37144949dfdec3358a19d994f1",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part6.jpg": "421b7d9318d4efe7c61c44640d03c58820b94a57c6cf138c048f06f4bb425bf7",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part5.jpg": "24264a52e190a21a23b28f47c5e4eedeb7bb521f091240c6e8d7b90743e3be99",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part4.jpg": "466182be36c80bad1a2f55555f02db390d1521ec9804af202342cd432f02a93c",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part1.jpg": "d8abc5675b958bcb9812e39cd9494f20a6ff3bf315bbe48c3bbf277e6f2b1413",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part3.jpg": "d5fbee005a37110ee2bd0bad3fa345644f374fcaeb6ac78072531e18ef51c835",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part2.jpg": "503c1bdb2cc2389b7fba3ce23e370c234383335c55ec41750b9d5a5eb525c225",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part6.jpg": "3d516ab6fb1320d623a39a87ba1abf56e2527731f099f67e913a3178b4448aaa",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part5.jpg": "5a6a89d3cdf6cb304147c7cfe5db5fdec42835776f644575e5974c384731c599",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part4.jpg": "2e6590bb2d9bd7688037a523afb7e671dccec297129ec580e4c7edec69a2e650",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part1.jpg": "4719b4b69fe0202ecd3f769514b3e94659f8e5780d86f63582027d6be1605552",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part3.jpg": "ca204071a9f09fcf6d24f28bc96a3336419d580ef193971ad542b57fb8be7447",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part2.jpg": "7b9aa38b9cb1c8a89e577c3f60212942b568865b2a80a1dd34e8bd1eddad0003"
+      }
     },
     {
       "character_id": "nabi",
@@ -1315,19 +1503,37 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체16셀과 실제 정방향/반전소형3타 연계 각162tick을 대조했다. 오른손이 아래에서 위로 한 번 할퀴고 위로 펼친 손을 가드로 회수한다. 반대손은 방어를 유지하며 두 손 X 동작이나 공중 어퍼와 구분된다. 실제 준비/판정/회복의 프레임 선택과 앞뒤 연계를 확인했고 필수 수정은 발견하지 않았다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__full-combo.mp4": "7111c8a289131badcbd394c77fde0d950e6fe4a07cd378ed4dbae8c5b762900c",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__full-combo.mp4": "d7478088f602f000ffaecd5cf1d6264465522a37144949dfdec3358a19d994f1",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part6.jpg": "421b7d9318d4efe7c61c44640d03c58820b94a57c6cf138c048f06f4bb425bf7",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part5.jpg": "24264a52e190a21a23b28f47c5e4eedeb7bb521f091240c6e8d7b90743e3be99",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part4.jpg": "466182be36c80bad1a2f55555f02db390d1521ec9804af202342cd432f02a93c",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part1.jpg": "d8abc5675b958bcb9812e39cd9494f20a6ff3bf315bbe48c3bbf277e6f2b1413",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part3.jpg": "d5fbee005a37110ee2bd0bad3fa345644f374fcaeb6ac78072531e18ef51c835",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-full-combo-r06-part2.jpg": "503c1bdb2cc2389b7fba3ce23e370c234383335c55ec41750b9d5a5eb525c225",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part6.jpg": "3d516ab6fb1320d623a39a87ba1abf56e2527731f099f67e913a3178b4448aaa",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part5.jpg": "5a6a89d3cdf6cb304147c7cfe5db5fdec42835776f644575e5974c384731c599",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part4.jpg": "2e6590bb2d9bd7688037a523afb7e671dccec297129ec580e4c7edec69a2e650",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part1.jpg": "4719b4b69fe0202ecd3f769514b3e94659f8e5780d86f63582027d6be1605552",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part3.jpg": "ca204071a9f09fcf6d24f28bc96a3336419d580ef193971ad542b57fb8be7447",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-full-combo-r06-part2.jpg": "7b9aa38b9cb1c8a89e577c3f60212942b568865b2a80a1dd34e8bd1eddad0003"
+      }
     },
     {
       "character_id": "nabi",
@@ -1477,19 +1683,33 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체24셀 및 정방향/반전소형 각120tick을 대조했다. 상승의 접힌 다리, 정점 자세, 하강의 펼친 다리가 구분된다. 실제 접촉 tick60부터 F16~23 착지/회복이 재생되고 tick76에 idle로 돌아오며 공중에 먼저 착지 자세를 표시하지 않는다. 반전·소형에서도 공중/착지의 실루엣이 유지된다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__jump-land.mp4": "59455e4e79c231bd838e1c0de5ee77bb914c81faaaee9164b12db661150a3d80",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__jump-land.mp4": "0824f092b2593bfb3f848b6a0633ddc139411ef2cc2ec724d1a78119735ded66",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part4.jpg": "846479809121967874db33f32c584f747babdddc0846c55be98c553cdabcd06d",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part3.jpg": "d27eaf1abfc64f3d74384db2d49e8b78c3da91c8bd0d82d38428a3eef2a8023d",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part2.jpg": "cfd1ea951172dcabded4c50ecd6e3428ddc79ed97d2a27090527cf93b44cf202",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-jump-land-r06-part1.jpg": "043056b780002fa53f07e190bcf151a80cdfd105572c8c4ce03939cab0aa9f6a",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part3.jpg": "be87313eb91c4a251f060ea2757cfdb2aea3addce887f1e0c5a2dde600c6f6ae",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part2.jpg": "186e98bce8bd85bc0e9b1f63b0e505ea9fc12ef99900a7ff19b43c936e106206",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part1.jpg": "310940b2ce8a7051fbe147f56ce5439119b340ec31bde7e9ab4f883782fa7889",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-jump-land-r06-part4.jpg": "a1f13bb9168c2ed45ca1ee38c05f1530367b78afb95fc2f992abe18045906ae2"
+      }
     },
     {
       "character_id": "nabi",
@@ -1705,19 +1925,33 @@
         }
       ],
       "checks": {
-        "all_frames": false,
-        "normal_playback": false,
-        "slow_playback": false,
-        "runtime_timing": false,
-        "mirrored": false,
-        "small_scale": false
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
       },
-      "status": "blocked",
-      "observations": "",
+      "status": "pass",
+      "observations": "전체16셀과 실제 정방향/반전소형 각120tick을 대조했다. 다리 교대, 팔 스윙, 꼬리의 뒤따르는 변화로 이동이 읽힌다. F15→F0 반복과 tick71→72 정지 전환에서 발 아래 기준이나 전체 몸 크기가 튀는 필수 문제를 보지 못했다. 작은 표시에서도 얼굴·꼬리·진행 방향을 구별했다. 60Hz 전체 상태/프레임 순서와 실제 MP4의 정상·0.25배 전체 재생을 함께 확인했다. 사용자 승인 및 Android 기기 통과를 뜻하지 않는다.",
       "issues": [],
       "drafts": [],
       "asset_type": "animation-candidate",
-      "reuse_approved_runtime": false
+      "reuse_approved_runtime": false,
+      "actual_playback_materials": {
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/nabi__run-stop.mp4": "025797e108e47e5dfc672919c9eacb5d6e208dabf9df4351555c45bbd02fdad7",
+        "_workspace/motion-naturalness-v1/review/live-pilot-r06/state-report.json": "6e2c1cc46d7ec821ae194e45b0794f3aef2701b52f04af3ad805bbd8617552d0",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/nabi__run-stop.mp4": "319204ae9c93e508e53d71699cd51981d2edac9780de61635127b0033be0dd86",
+        "_workspace/motion-naturalness-v1/review/live-pilot-mirror-r06/state-report.json": "e2c602926c125b591e825fa4f923117d98799ebc0d40bdcde4dbc6b20ac6612a",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part4.jpg": "bb41faffc40e8f6a50d746c9ef11463be139c17cb5f068e3063b458143c4f80f",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part2.jpg": "e81f7b0f997bc2a1472ee060a014e1348c7bfb991ceaed42e17d5ed0e671b345",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part3.jpg": "0e26d16ed81cabf78253a36c40ca9b4d7b07e516c6ede91d4089f212d5ec6d1b",
+        "_workspace/motion-naturalness-v1/qa/nabi-normal-run-stop-r06-part1.jpg": "9fec041a6d0f101b6ba0337bc1b3f95480fe3a66142a1ab79251a413b8bd3a66",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part4.jpg": "fe8ed48aa5291181587cdb3160ebe1ead43c5a38d56f79e4b89345517f4c4434",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part1.jpg": "3ca5f7279a45c7d39ccc6ba178ee0fd385e1fe7eae64a4eec83ef9a671e3be0c",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part2.jpg": "7695d82122dad0b55b8517c9ad2648a0eaa4cabaf7ddbb25ce0f50122f8c3122",
+        "_workspace/motion-naturalness-v1/qa/nabi-mirror-small-run-stop-r06-part3.jpg": "eb8fbad30a878e096e9a542ce4da088f878b602559bd05a175cc72736d86b77a"
+      }
     }
   ],
   "candidate_selection": {
@@ -1727,10 +1961,24 @@
     "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
     "approval_status": "pending"
   },
-  "reviewer_role": "",
+  "reviewer_role": "qa",
   "approval_status": "pending",
   "evidence_sha256": {
     "index.html": "ca1065bff3a701a5d89b2433e074f21eeee19b30fc4d849023b12962cfd8a0bc",
     "timeline.json": "72c09528b3c05f31e3234a13206b5d0001f229b75c92b8abc11713d2d5e12675"
+  },
+  "inspection_coverage": {
+    "full_candidate_cells": 176,
+    "actual_frames_normal": 804,
+    "actual_frames_mirrored_small": 804,
+    "camera_zoom_normal": 1.5,
+    "camera_zoom_small": 0.75,
+    "playback_rates": [
+      1,
+      0.25
+    ],
+    "method": "All candidate contact sheets and all 1608 actual rendered frames were visually compared in time order with the 60Hz state report. Actual MP4s were played from start through ended at both rates in Chrome, with UI progress/end checks. Canvas from pilot-r04 supplies pose/timing evidence only; physical size and grounding judgments use actual renders.",
+    "android_device_test": false,
+    "approval_status": "pending"
   }
 }
