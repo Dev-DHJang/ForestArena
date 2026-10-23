@@ -65,7 +65,15 @@
         "approximate_motion_width_px": 22,
         "measurement_tolerance_px": 2,
         "review_kind": "manual whole-sheet calibration, not per-frame fitting"
-      }
+      },
+      "descent_frame_range": [
+        10,
+        11
+      ],
+      "landing_frame_range": [
+        12,
+        16
+      ]
     },
     {
       "character_id": "myo-ryung",
@@ -109,7 +117,15 @@
       "body_review": {
         "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
         "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
-      }
+      },
+      "descent_frame_range": [
+        10,
+        12
+      ],
+      "landing_frame_range": [
+        12,
+        16
+      ]
     },
     {
       "character_id": "ja-hyun",
@@ -687,7 +703,11 @@
         "approximate_motion_width_px": 28,
         "measurement_tolerance_px": 2,
         "review_kind": "manual whole-sheet calibration, not per-frame fitting"
-      }
+      },
+      "landing_down_frame_range": [
+        12,
+        16
+      ]
     },
     {
       "character_id": "ja-hyun",
@@ -1312,7 +1332,11 @@
       "body_review": {
         "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
         "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
-      }
+      },
+      "landing_down_frame_range": [
+        12,
+        16
+      ]
     },
     {
       "character_id": "nabi",

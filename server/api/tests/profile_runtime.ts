@@ -26,9 +26,9 @@ try {
   assert.deepEqual(replay[0]!.data, replay[1]!.data);
   assert.equal((await request("POST", "/v1/profile/actions", token, {...grant, payload: {id: "ja-hyun"}})).data.error, "request_id_conflict");
   assert.equal((await request("POST", "/v1/profile/import", token, {profile: fresh})).data.revision, 2);
-  const concurrent = await Promise.all(["yu-ran", "myo-ryung"].map(id => request("POST", "/v1/profile/actions", token, {request_id: randomUUID(), expected_revision: 2, action: "purchase", payload: {id}})));
+  const concurrent = await Promise.all(["ja-hyun", "ja-hyun"].map(id => request("POST", "/v1/profile/actions", token, {request_id: randomUUID(), expected_revision: 2, action: "purchase", payload: {id}})));
   assert.deepEqual(concurrent.map(r => r.status).sort(), [200, 409]);
-  assert.equal((await request("POST", "/v1/profile/actions", token, {request_id: randomUUID(), expected_revision: 3, action: "select", payload: {character: "ja-hyun", accessory: "", opponent: "nabi"}})).status, 400);
+  assert.equal((await request("POST", "/v1/profile/actions", token, {request_id: randomUUID(), expected_revision: 3, action: "select", payload: {character: "yu-ran", accessory: "", opponent: "nabi"}})).status, 400);
   const migrationAuth = await request("POST", "/v1/auth/guest", "", {});
   await db.query("INSERT INTO app.player_profiles (player_id, profile) VALUES ($1, $2)", [migrationAuth.data.player_id, fresh]);
   const migrated = await request("GET", "/v1/profile", migrationAuth.data.access_token);

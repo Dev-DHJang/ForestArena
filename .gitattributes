@@ -2,3 +2,8 @@
 *.csv whitespace=cr-at-eol
 # Keep hash-bound historical SVG exports byte-for-byte, including generated blank padding lines.
 assets/ui/forestlight-polish-v04/*.svg whitespace=-blank-at-eol
+# Motion captures, timelines and source snapshots are generated evidence;
+# keep handwritten QA findings and product code visible in pull request diffs.
+_workspace/motion-naturalness-v1/review/** linguist-generated=true
+_workspace/motion-naturalness-v1/qa/*.json linguist-generated=true
+_workspace/motion-naturalness-v1/qa/*.log linguist-generated=true

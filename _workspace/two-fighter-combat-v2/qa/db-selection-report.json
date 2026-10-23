@@ -1,0 +1,219 @@
+{
+  "checks": [
+    {
+      "name": "GET normalizes inactive selection, retains all archived ownership and settings",
+      "pass": true
+    },
+    {
+      "name": "repeated GET does not rewrite an already normalized row",
+      "pass": true
+    },
+    {
+      "name": "inactive-only ownership receives ja-hyun without deleting archived records",
+      "pass": true
+    },
+    {
+      "name": "new import response equals committed normalized SQL row",
+      "pass": true
+    },
+    {
+      "name": "import into an existing archived row commits its own normalization",
+      "pass": true
+    },
+    {
+      "name": "reject inactive new purchase {\"id\":\"myo-ryung\"}",
+      "pass": true
+    },
+    {
+      "name": "reject inactive new purchase {\"id\":\"fixture-iron-armor\"}",
+      "pass": true
+    },
+    {
+      "name": "reject inactive new select {\"character\":\"myo-ryung\",\"accessory\":\"\",\"opponent\":\"nabi\"}",
+      "pass": true
+    },
+    {
+      "name": "reject inactive new select {\"character\":\"nabi\",\"accessory\":\"fixture-iron-armor\",\"opponent\":\"ja-hyun\"}",
+      "pass": true
+    },
+    {
+      "name": "rejected actions preserve the committed profile and revision",
+      "pass": true
+    },
+    {
+      "name": "GET normalization never reports success after forced SQL UPDATE failure",
+      "pass": true
+    },
+    {
+      "name": "POST normalization never reports success after forced SQL UPDATE failure",
+      "pass": true
+    },
+    {
+      "name": "normalization recovers and commits after the owned failure trigger is removed",
+      "pass": true
+    }
+  ],
+  "observations": [
+    {
+      "label": "get-normalized",
+      "profile": {
+        "minimap": {
+          "show_names": false,
+          "marker_style": "dot",
+          "transparency": 65
+        },
+        "nickname": "과거보유",
+        "characters": [
+          "myo-ryung",
+          "yu-ran",
+          "nabi"
+        ],
+        "accessories": [
+          "fixture-iron-armor",
+          "fixture-phoenix-revive"
+        ],
+        "accessibility": {
+          "text_scale": 1.3,
+          "haptics_enabled": false,
+          "reduce_visual_effects": true
+        },
+        "first_granted": true,
+        "schema_version": 3,
+        "opponent_character": "ja-hyun",
+        "selected_accessory": "",
+        "selected_character": "nabi"
+      },
+      "revision": 1,
+      "updated_at": "2026-10-19T22:24:23.342Z"
+    },
+    {
+      "label": "free-fallback",
+      "profile": {
+        "minimap": {
+          "show_names": false,
+          "marker_style": "dot",
+          "transparency": 65
+        },
+        "nickname": "과거보유",
+        "characters": [
+          "myo-ryung",
+          "yu-ran",
+          "ja-hyun"
+        ],
+        "accessories": [
+          "fixture-iron-armor",
+          "fixture-phoenix-revive"
+        ],
+        "accessibility": {
+          "text_scale": 1.3,
+          "haptics_enabled": false,
+          "reduce_visual_effects": true
+        },
+        "first_granted": true,
+        "schema_version": 3,
+        "opponent_character": "ja-hyun",
+        "selected_accessory": "",
+        "selected_character": "ja-hyun"
+      },
+      "revision": 1,
+      "updated_at": "2026-10-19T22:24:23.362Z"
+    },
+    {
+      "label": "new-import",
+      "profile": {
+        "minimap": {
+          "show_names": false,
+          "marker_style": "dot",
+          "transparency": 65
+        },
+        "nickname": "과거보유",
+        "characters": [
+          "myo-ryung",
+          "yu-ran",
+          "nabi"
+        ],
+        "accessories": [
+          "fixture-iron-armor",
+          "fixture-phoenix-revive"
+        ],
+        "accessibility": {
+          "text_scale": 1.3,
+          "haptics_enabled": false,
+          "reduce_visual_effects": true
+        },
+        "first_granted": true,
+        "schema_version": 3,
+        "opponent_character": "ja-hyun",
+        "selected_accessory": "",
+        "selected_character": "nabi"
+      },
+      "revision": 1,
+      "updated_at": "2026-10-19T22:24:23.374Z"
+    },
+    {
+      "label": "existing-import",
+      "profile": {
+        "minimap": {
+          "show_names": false,
+          "marker_style": "dot",
+          "transparency": 65
+        },
+        "nickname": "과거보유",
+        "characters": [
+          "myo-ryung",
+          "yu-ran",
+          "ja-hyun"
+        ],
+        "accessories": [
+          "fixture-iron-armor",
+          "fixture-phoenix-revive"
+        ],
+        "accessibility": {
+          "text_scale": 1.3,
+          "haptics_enabled": false,
+          "reduce_visual_effects": true
+        },
+        "first_granted": true,
+        "schema_version": 3,
+        "opponent_character": "ja-hyun",
+        "selected_accessory": "",
+        "selected_character": "ja-hyun"
+      },
+      "revision": 1,
+      "updated_at": "2026-10-19T22:24:23.387Z"
+    },
+    {
+      "label": "write-failure-recovered",
+      "profile": {
+        "minimap": {
+          "show_names": false,
+          "marker_style": "dot",
+          "transparency": 65
+        },
+        "nickname": "과거보유",
+        "characters": [
+          "myo-ryung",
+          "yu-ran",
+          "nabi"
+        ],
+        "accessories": [
+          "fixture-iron-armor",
+          "fixture-phoenix-revive"
+        ],
+        "accessibility": {
+          "text_scale": 1.3,
+          "haptics_enabled": false,
+          "reduce_visual_effects": true
+        },
+        "first_granted": true,
+        "schema_version": 3,
+        "opponent_character": "ja-hyun",
+        "selected_accessory": "",
+        "selected_character": "nabi"
+      },
+      "revision": 1,
+      "updated_at": "2026-10-19T22:24:23.438Z"
+    }
+  ],
+  "physical_device": "not_run"
+}

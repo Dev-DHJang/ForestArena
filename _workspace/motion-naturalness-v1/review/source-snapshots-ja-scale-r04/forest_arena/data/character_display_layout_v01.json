@@ -1,0 +1,1441 @@
+{
+  "schema_version": 1,
+  "layout_id": "fa.character.display.body-consistency.v01",
+  "method": "One fixed scale per approved motion; preserve pose compression, frame timing and the 124px contact anchor. SHA binds calibration to approved runtime sheet; no PNG rewriting.",
+  "motions": [
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "idle",
+      "asset_sha256": "f1f9404a3423415e79b2c6c49d3786a8561248807dfba7acd518619339c8cf29",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "run",
+      "asset_sha256": "ada29eeed9de1c1a5d853d0258f44363769db58df301cccf6ac4b404669ae975",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "idle",
+      "asset_sha256": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 24,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "run",
+      "asset_sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f",
+      "scale": 1.090909,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 22,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "jump",
+      "asset_sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9",
+      "scale": 1.090909,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 22,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      },
+      "descent_frame_range": [
+        10,
+        11
+      ],
+      "landing_frame_range": [
+        12,
+        16
+      ]
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "jump",
+      "asset_sha256": "d02b54c6b449cf520cf5e239c40208211a04fae8b2c12c3d8d2c97f3bcb102e9",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "idle",
+      "asset_sha256": "c766ba882bbaabdbf2605a20a4f0d9885c9f4a7197fe985949e44fd9d96d682c",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "run",
+      "asset_sha256": "4315e5671ef1657e23c2e6a88c584d7deac30813ca74dae83ed3252c8d47087d",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "jump",
+      "asset_sha256": "eb5131c3a0d715b0c5d63419bc8a81ab4a923955141d06910e33a36d139e8df9",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      },
+      "descent_frame_range": [
+        10,
+        12
+      ],
+      "landing_frame_range": [
+        12,
+        16
+      ]
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_combo_01",
+      "asset_sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4",
+      "scale": 1.263158,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 19,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_combo_02",
+      "asset_sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 24,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_combo_03",
+      "asset_sha256": "584897a891216b42c2ff321ff8f4a4ff87485de8031349d6b325217994a3945b",
+      "scale": 1.043478,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 23,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_01",
+      "asset_sha256": "197ced5a2708faa61be194fa6c6bd2cbdf8606e4dc12af9611ada9a199527fdf",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_02",
+      "asset_sha256": "3fe535dda5d63e360ab9e14ea4b9c233619d0e79d1f2c207b0935aea018e75e5",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_03",
+      "asset_sha256": "7d5679a3de72ae7bc0b41dc232bdc0a593f59235b6d9efa75ed0d6afc66b03e0",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_04",
+      "asset_sha256": "0ff3f0fdc7ca0801f50008cd4d87ddf88051145a101765a49b623c4205cb966b",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "idle",
+      "asset_sha256": "20b9b8c295f46d71f534a8f67068a5fb50ea5361cef00d3f03dee9aef446e9c3",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "run",
+      "asset_sha256": "41a942ac4a33475a663bce3401bc030640c68995d0025ccf7b828e5bd6159182",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "jump",
+      "asset_sha256": "5771377471508bf7d25ac9cdea7b01b8d9920dc2803d1bb942d05010dfc0ce93",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_combo_01",
+      "asset_sha256": "a8af1c4d398ae7cd4c3f7063ad6f9d99f9c04f4ebb1b9abe8281325dd57d0c2e",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_combo_02",
+      "asset_sha256": "596ac083d1404138aaecb8259a64a5ae79d17548e5ceea6a479422285de10b5b",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_01",
+      "asset_sha256": "f16915b97d5dba6ece85096408c90755449d22869be8bc5a7212902a537e0a15",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_02",
+      "asset_sha256": "d2af0ad229b584f87f804317552afc7ae4f341962a36b3108e5b5c16d33da799",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_03",
+      "asset_sha256": "50f889d6741e403ce3af8b290c22954a53491333ac7fb881561c08cd0b2f91aa",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "guard",
+      "asset_sha256": "8e8edd378d625c00ede4811f61cad3bcc856f1dd9c74e188ec4f67c83ba2138e",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "evade",
+      "asset_sha256": "0f9ad855b0314fa2ab7af853e30d97546c2a7e0a2b053a87c9f62de90891d4a4",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_air_heavy",
+      "asset_sha256": "070ba45cd3b2bcf25bb0c5bc00b83bc6b94e3b59f35781fd1af83806a1815d73",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_air_light",
+      "asset_sha256": "989ae8f7102aa6efa46a380747b3e56e576fe2a70089c32d69c4886e6b1fb424",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_dash_heavy",
+      "asset_sha256": "00ba0a2ce3095c9d55743dc99209b750d4930342b98cb78d9d5da940490f7af5",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_dash_light",
+      "asset_sha256": "8d4c65ae41272876dc38611cdcbcbbe41ae033433e52bcd143ad57804864854a",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_charge",
+      "asset_sha256": "dd1915abf9c701b3662da177e7e29388743233d6cc0762e79396c1acd21ea3fe",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_down",
+      "asset_sha256": "c811593f08e89d1e29e724e8b828df26c716a2bd5e906961d75c0796f0b4eecc",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_side",
+      "asset_sha256": "d4748d9a58a9eee689a08e8fbb2e24e21e17802cdb5d2abc2635d6e6884eeffe",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_up",
+      "asset_sha256": "734d6b435a5ab4f44142f3ebbe178d4570dd1e6e08fa1ea894e029146edda18b",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_down",
+      "asset_sha256": "81c8b610c73e4a3a29285aea4035b1535278ee7141c8360230ca997fd4309005",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_up",
+      "asset_sha256": "b02763862f73c756327b50191e010793d98ea9cde0b7043cdf5eebaba64ade6a",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "death",
+      "asset_sha256": "24eccab38ca8846e84b869106cfce3dc429abc69de5f4a2dd353946a97ec5e21",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "hitstun",
+      "asset_sha256": "461142dc244bbb84bcca63e0018b220dfbc9eb485df8bf375d9167001c2e4d55",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "knock_down",
+      "asset_sha256": "4cb51ed7278aeb396c6c5126bb711049494e2a258bbd867ac2c03c082986dde3",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "launch",
+      "asset_sha256": "de7a82ff3e381d5ab7a958ea423fbfae7d75e5b0589bb287ba9aeeab28d556e7",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "ring_out",
+      "asset_sha256": "57448b79a12b30c7cbe1004a0017ab283bee178cddc01108297cc0b1361a979d",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "spawn",
+      "asset_sha256": "c3a73a316cd88fb94107a08a37dba667c0195f35835c201abb30d553b34c9b10",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_down",
+      "asset_sha256": "9a31a08bc6aae80f52e27ff6441c8c2a728a5a1fa73facb4791cc2096930b4b0",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_neutral",
+      "asset_sha256": "42f114b1daa58ca29de782fb6e0f653347578d809cd0375798a5bb8e326130b2",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_side",
+      "asset_sha256": "63f909dd9142585c2352886be65e0442266f891ddc93e5385421f67dc2873532",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_up",
+      "asset_sha256": "d94f561effce012b24aa9c90f45a210ee121c3e5661f421940788c03a81e0117",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "ultimate",
+      "asset_sha256": "8fd6776d274191578b0854b879e55b83559f35f4de4a88f976f1e9d1885b7c91",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "wake_up",
+      "asset_sha256": "4f855575c457cf8c6d572bd2bab8f28f0e2d9b81cc59c534d3440b75fdbc0904",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_air_light",
+      "asset_sha256": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_dash_light",
+      "asset_sha256": "4755f65719e84fca6e7235437b9bdf49cf0905d9953ef70772c17321c984e71d",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_charge",
+      "asset_sha256": "ace7c74679e9923ac81b80c5eecf148d218f26670ce635976fe86dc0a0bac6e2",
+      "scale": 0.8,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 30,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_down",
+      "asset_sha256": "962bf4074bc79b3052858eb2ff0a0f37e5b8f890f55e961808f672aa7495bab1",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_up",
+      "asset_sha256": "7a05081a88ea9951b592421467cdf52eb75cd485e22d0c4cacf3578b96a0f6d6",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "death",
+      "asset_sha256": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "evade",
+      "asset_sha256": "e8cff000e56939f3025a31ba07f6c831770789b56f456b2fb7d181510a260571",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "guard",
+      "asset_sha256": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "hitstun",
+      "asset_sha256": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "knock_down",
+      "asset_sha256": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      },
+      "landing_down_frame_range": [
+        12,
+        16
+      ]
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "launch",
+      "asset_sha256": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "ring_out",
+      "asset_sha256": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "spawn",
+      "asset_sha256": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "wake_up",
+      "asset_sha256": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_air_heavy",
+      "asset_sha256": "e0917da078f586a1019e9478dafede67df0127569054842fecf46f088c521ae3",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_dash_heavy",
+      "asset_sha256": "d1409261995c9d163ba3d63c6682c7abe0efe799a343687f4032bccc36664208",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_down",
+      "asset_sha256": "e164066b9fabded4241d36a44e73540545ccfeaad8d8f131088f36751efe65ed",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_side",
+      "asset_sha256": "c0c2ccb5f5b4350884028a1b8f98acd731b09078bf3d945a0c91d018022687e1",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_up",
+      "asset_sha256": "bf59be198db2cef364a3e00d93077350d826bede5e66b26f2923ecdf4929109f",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_down",
+      "asset_sha256": "d59f7e567248f4f8e601b6f7a7872b53f48e5db70f226bea2539e00409c42cd8",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_neutral",
+      "asset_sha256": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 24,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_side",
+      "asset_sha256": "396ba33cc5cb8f016845482c01419f62eeff6a9b8e6fc737c121f80292e40f5a",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_up",
+      "asset_sha256": "8a1790bcde658ef60187a4d7592b1ee832a9add952a388ef497a9141ebc64ba8",
+      "scale": 0.857143,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 28,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "ultimate",
+      "asset_sha256": "53459a9979ada30921db43a5090ae61fa25226e1968cc90863cf40fa1aa22b27",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "hair-and-face-core-width; excludes ears, weapon, tail and effects",
+        "approximate_reference_width_px": 24,
+        "approximate_motion_width_px": 24,
+        "measurement_tolerance_px": 2,
+        "review_kind": "manual whole-sheet calibration, not per-frame fitting"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "evade",
+      "asset_sha256": "5cc1f90a39e40237010266a2061c50fb22fdde3137bb1130dc79f2d5f92f5ed3",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "guard",
+      "asset_sha256": "781e92ceb388161188de47b82df45952943b9e39844a3b6bc6ad20f53c68d0e1",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "hitstun",
+      "asset_sha256": "a290eee8a62c50796d93fe5dc689f6f038ed23362f571efa1f13cdeff91151b4",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "launch",
+      "asset_sha256": "dd03338e3db1ac06bb959c01bddc3cbd7cb3f6d6739d16badc68b581043bdf67",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_charge",
+      "asset_sha256": "f2931bb4587a99cdf179876a9b01baa26a43bc317f15061d94506ca45df293b0",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "death",
+      "asset_sha256": "3da15a279c06c514dfe56bf6a9f5fd03ce122cdcb97041b59032f03e4d415e4c",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "knock_down",
+      "asset_sha256": "fe4bf61bd20732c594ac8da9e324689ea3867012c5902e037febdd4e500e6554",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "ring_out",
+      "asset_sha256": "01d0557997c186f4a93c33f22da79977e6902bed7424cd346b09b88f08dad866",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "spawn",
+      "asset_sha256": "c9a2c2677049b4740d25f4e1da60f727069871c8cb1568e3446827ed138ba063",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "wake_up",
+      "asset_sha256": "57edd564c1a137d86d18a093603b10baadea9ae81911153cbd9771b4a2963dff",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_air_heavy",
+      "asset_sha256": "d041da7089946eaec6d13bbb451e4383040c95a3ba8fbdcf22453275d163bd39",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_air_light",
+      "asset_sha256": "8e1848c5040de81316589415460369f14dc6d690ed7d1faf6fa76427ba4af177",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_dash_heavy",
+      "asset_sha256": "c54a679cc4fc98cea185ffcaf8ae40fd379627625a8934b64c470f0e27ea71f2",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_dash_light",
+      "asset_sha256": "bcfee70f11e949396c7d4c0f48118d39bc19efe8b0c4e5a585f97f107996eb24",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_down",
+      "asset_sha256": "ce6b1ac95a7a2e5ce946e7bea5c67a45afcd95efe15963ed25ffdb6df98be578",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_side",
+      "asset_sha256": "84f7700602a1f6e645351efe7f46edbef90f76734b80a428ad9b0585734abeb1",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_up",
+      "asset_sha256": "15f74ab16204e4cfc2d46728a4bca49f3ddae93a85583b9a75fff320a1eca8ed",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_down",
+      "asset_sha256": "86d9a4fb3fe3925d34500ce3e7c1c2cc04da6febce02302e119331a64442e7a6",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_up",
+      "asset_sha256": "f4e15ec50ae5994b34f924375d5fb2e1687b6bccfe7918bf71a4f7a2a8ff560d",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_down",
+      "asset_sha256": "6193d4f9a144f8ad3c2b1f7de50cd74351de59f354f8a695d55c59d4a3298141",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_neutral",
+      "asset_sha256": "d0b66398b7b6c9fd115b73ffc26bb349443a01c123a4fe6efbf1802b7c3ac3e7",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_side",
+      "asset_sha256": "fba72c0c15577cd8f986e3949751e197657dab98f48f56ec28fe722bc152a0e4",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_up",
+      "asset_sha256": "fa13be2fb5b77f8f0028f803d93b6dfa709deb02bca0e0b2db9cd200fe721d57",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "ultimate",
+      "asset_sha256": "156fc23f1e6b392f3cbde1cf554b6f982be9b1f020930a0b16b041f2ba4bf185",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_air_heavy",
+      "asset_sha256": "5720aa097d0777bf8fd8d6b65806f3ffae73a0157bcb88bed1289cb41a1e6e91",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_air_light",
+      "asset_sha256": "c2fc1013635bfbfbeccd6b6bc8f3696738de92b6b83b9caf1e62148c8bda8bb4",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_dash_heavy",
+      "asset_sha256": "d9cb6e7aa9ff2e74ef866ff713420184be9dee8989c23bf05813f8fd0e2e21b9",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_dash_light",
+      "asset_sha256": "17817fe14e190186810b36ac2847d1b70e936aa9e308e8defb31e57d25eab9e0",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_charge",
+      "asset_sha256": "5a9676f3df93615aa62d763bc3df54074113b1df156991122d261603b5e91b52",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_down",
+      "asset_sha256": "bea13566ab7fd728185d1ceabcfec7d60ed52ce5b8b81139bbdfbd9f15bc9b6e",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_side",
+      "asset_sha256": "5d60d780300d4146964ecbd82a6e74b8984683dd15623de9c8cb269d3c7617ec",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_up",
+      "asset_sha256": "3d4c8792aa463dbf2f3db4f71318c07daf30886f11499e2ef309ce3ff5a68da3",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_down",
+      "asset_sha256": "2228b68d5aefaa6c0efb1baa7e1b1b61f02649e0eb67b43686ea7f7fb2eabf74",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_up",
+      "asset_sha256": "8af360a44e7cb9952665b8cb5f0ae3fb8414c988fd1230d980b5c96ba07aafa9",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "death",
+      "asset_sha256": "56d0f8d4ac18cefc6372d9fb81a3a3f1c209a144642c313a5c4fac638166caba",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "evade",
+      "asset_sha256": "1e21729157471f9b94451de3b74baf9d787e85ae2fbb504db7b93741ed8f9fa8",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "guard",
+      "asset_sha256": "35dab26efd3378cbe4962ffb79fd0a647304689ed73f36b9c333f554574d02a2",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "hitstun",
+      "asset_sha256": "9339f73e56d073282ccd8a292be360ddfc179e9efc4936e084abaf02e9baa14b",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "knock_down",
+      "asset_sha256": "198c37fb81af679940f13da81b5a6c5a27ac09866b7401265b60b308f29fca2e",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      },
+      "landing_down_frame_range": [
+        12,
+        16
+      ]
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "launch",
+      "asset_sha256": "1eea5e9be6db877de2d45e6675ddb97418700b1fa8794c0c26b09e6c04f19c0d",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "ring_out",
+      "asset_sha256": "1a7fb9c08dc0b697aca38daba5908366f8f9e4cd2dc544db9eac4457d98f4c67",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "spawn",
+      "asset_sha256": "9e63ac92fcac25b2400f5537e3f826257902d0c360f6eff153c5f830b7a63a07",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_down",
+      "asset_sha256": "2c7cef09a4a0c00ac24ba3e7b154bb4dc91d3ac82c47c9c48caab8a8057a9a62",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_neutral",
+      "asset_sha256": "1c71a3cfde679730c702280e1fbcc9103950772657b81a92b12bb33cf0c9f4f0",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_side",
+      "asset_sha256": "5846af8cf4127f734b5e0684843bf0ed86c367ad8c3aab50e6c69a64d1bfd60f",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_up",
+      "asset_sha256": "f6ac931dd708f46ee7340719cc7aca735cb68502c3ee47809559e0680fbea25e",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "ultimate",
+      "asset_sha256": "576c551a8a48e19c36bdd66f7e2b8625b56113de2d5c3e298e8e7d2c29db3681",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "wake_up",
+      "asset_sha256": "f70d21b1d418a58349234ef15e52ae36a3c9af01ac4a9f8e310b67e1f474305d",
+      "scale": 1.0,
+      "foot_pivot_y": 124,
+      "body_review": {
+        "basis": "2026-10-17 user-approved proportion-unified sheet; preserve exact review pixels",
+        "review_kind": "approved fixed 1.0 presentation scale and 124px foot anchor; prior-sheet measurement not reused"
+      }
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "character_id": "ja-hyun",
+  "motion": "attack_air_heavy",
+  "status": "manual source points; pending independent attachment and motion QA",
+  "coordinate_space": "source cell-local pixels, cell top-left=(0,0), not atlas-normalized; points may be outside a nominal cell where a complete pose crosses a grid boundary",
+  "source_path": "_workspace/motion-naturalness-v1/remaining/ja-hyun/attack_air_heavy-r01.png",
+  "source_sha256": "9ddcbe8a2fc6ee0cc158ff8268064d079e2d10798cc89d88c39f533509305445",
+  "source_grid": [
+    4,
+    4
+  ],
+  "source_cell_size": [
+    313.5,
+    313.5
+  ],
+  "method": "manual visual choice on current newly generated cloth/hand; no reuse of old frame anchors; hidden anatomical neck junction indicated where the collar occludes cloth",
+  "frames": [
+    {
+      "frame_index": 0,
+      "source_frame_index": 0,
+      "source_cell_origin": [
+        0.0,
+        0.0
+      ],
+      "scarf_hand": [
+        122.0,
+        99.0
+      ]
+    },
+    {
+      "frame_index": 1,
+      "source_frame_index": 1,
+      "source_cell_origin": [
+        313.5,
+        0.0
+      ],
+      "scarf_hand": [
+        151.5,
+        83.0
+      ]
+    },
+    {
+      "frame_index": 2,
+      "source_frame_index": 2,
+      "source_cell_origin": [
+        627.0,
+        0.0
+      ],
+      "scarf_hand": [
+        204.0,
+        82.0
+      ]
+    },
+    {
+      "frame_index": 3,
+      "source_frame_index": 3,
+      "source_cell_origin": [
+        940.5,
+        0.0
+      ],
+      "scarf_hand": [
+        164.5,
+        70.0
+      ]
+    },
+    {
+      "frame_index": 4,
+      "source_frame_index": 4,
+      "source_cell_origin": [
+        0.0,
+        313.5
+      ],
+      "scarf_hand": [
+        170.0,
+        115.5
+      ]
+    },
+    {
+      "frame_index": 5,
+      "source_frame_index": 5,
+      "source_cell_origin": [
+        313.5,
+        313.5
+      ],
+      "scarf_hand": [
+        183.5,
+        117.5
+      ]
+    },
+    {
+      "frame_index": 6,
+      "source_frame_index": 6,
+      "source_cell_origin": [
+        627.0,
+        313.5
+      ],
+      "scarf_hand": [
+        223.0,
+        255.5
+      ]
+    },
+    {
+      "frame_index": 7,
+      "source_frame_index": 7,
+      "source_cell_origin": [
+        940.5,
+        313.5
+      ],
+      "scarf_hand": [
+        207.5,
+        254.5
+      ]
+    },
+    {
+      "frame_index": 8,
+      "source_frame_index": 8,
+      "source_cell_origin": [
+        0.0,
+        627.0
+      ],
+      "scarf_hand": [
+        221.0,
+        233.0
+      ]
+    },
+    {
+      "frame_index": 9,
+      "source_frame_index": 9,
+      "source_cell_origin": [
+        313.5,
+        627.0
+      ],
+      "scarf_hand": [
+        221.5,
+        179.0
+      ]
+    },
+    {
+      "frame_index": 10,
+      "source_frame_index": 10,
+      "source_cell_origin": [
+        627.0,
+        627.0
+      ],
+      "scarf_hand": [
+        223.0,
+        168.0
+      ]
+    },
+    {
+      "frame_index": 11,
+      "source_frame_index": 11,
+      "source_cell_origin": [
+        940.5,
+        627.0
+      ],
+      "scarf_hand": [
+        173.5,
+        74.0
+      ]
+    },
+    {
+      "frame_index": 12,
+      "source_frame_index": 12,
+      "source_cell_origin": [
+        0.0,
+        940.5
+      ],
+      "scarf_hand": [
+        195.0,
+        49.5
+      ]
+    },
+    {
+      "frame_index": 13,
+      "source_frame_index": 13,
+      "source_cell_origin": [
+        313.5,
+        940.5
+      ],
+      "scarf_hand": [
+        168.5,
+        54.5
+      ]
+    },
+    {
+      "frame_index": 14,
+      "source_frame_index": 14,
+      "source_cell_origin": [
+        627.0,
+        940.5
+      ],
+      "scarf_hand": null,
+      "unresolved": "The scarf is released in recovery; no visible cloth-gripping hand at this pose. Do not invent a cloth junction."
+    },
+    {
+      "frame_index": 15,
+      "source_frame_index": 15,
+      "source_cell_origin": [
+        940.5,
+        940.5
+      ],
+      "scarf_hand": null,
+      "unresolved": "The scarf is released in recovery; no visible cloth-gripping hand at this pose. Do not invent a cloth junction."
+    }
+  ]
+}

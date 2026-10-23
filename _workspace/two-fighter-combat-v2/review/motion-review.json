@@ -1,0 +1,5535 @@
+{
+  "schema_version": 1,
+  "reviewer": "independent-qa/final_motion_review",
+  "sources": {
+    "_workspace/two-fighter-combat-v2/02_motion_expectations.md": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+    "_workspace/two-fighter-combat-v2/candidate-catalog.json": "f275ba56f90e601ace0593df9909230d08057a2facc8cdb1a9c9c5857370bc89",
+    "_workspace/two-fighter-combat-v2/candidate-scope.json": "6935ac1ed76aa30ca4cd0ab38ff407c6784f0786a30a4102f33a62fb476baf3b",
+    "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_air_heavy_16f_r01n02.png": "7099bc4b8d712d55fe3f02aa32fa45a968ded610d2e38941676d76d0548053f7",
+    "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_air_heavy_r01n02.tres": "6f6f88e233426fa062cb4db4bd0983bbf727e2a42854d6ee1a4c6fb807e65bdd",
+    "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_light_combo_04_16f_r01n02.png": "9be989f3f5c492ad318313bbb8abae8fbbc49eed1cf4e19ae3587d7f4dd048f5",
+    "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_light_combo_04_r01n02.tres": "6a84f8e1e9fc1a93d2bdecadd1267d946bcbcccfd58eb4dfe676d7a14a503066",
+    "_workspace/two-fighter-combat-v2/candidates/ja-hyun/special_scarf_sweep_16f_r01n02.png": "60154607d07cfc1c948af936f5783541c722e5fec410c2224b4986a007912928",
+    "_workspace/two-fighter-combat-v2/candidates/ja-hyun/special_scarf_sweep_r01n02.tres": "b792393f7e652d88e352042a55e79a76d8765db9b64f2405829339a41dcc9b3a",
+    "_workspace/two-fighter-combat-v2/candidates/nabi/attack_air_heavy_16f_r04n02.png": "4a2002d96960843970ef90868a3d29d1a0f93f7a2dafda9a884412f6be7f1084",
+    "_workspace/two-fighter-combat-v2/candidates/nabi/attack_air_heavy_r04n02.tres": "9f6ba87f2801da83fa2061d9b7150e95dc2522cd08727a6bbbcc60838e4517c6",
+    "_workspace/two-fighter-combat-v2/candidates/nabi/attack_light_up_16f_r02n02.png": "8dc4a16879180018fafebd15aec875e5eacb8f29b807c351efa039bbf1005943",
+    "_workspace/two-fighter-combat-v2/candidates/nabi/attack_light_up_r02n02.tres": "03250ba1047443fc83ea6061114615fab2fa6f50fec1edf4168eb13355e95207",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres": "cbb10adcaa71d9bb86ad179cc832505980b673a7376b4cfaeacd5de4e5fb4f7a",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres": "f515c7a1973444dcb089efd459d4bab62fe12bf8d453c5b0e7b12d0a2a524bc9",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4",
+    "assets/character/ja-hyun/animation/runtime/idle.tres": "c416cb8b33b9b932ac24e9c689eaf41a3f90e8714e48d8cbfa65bd10ef25bc74",
+    "assets/character/ja-hyun/animation/runtime/idle_16f.png": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d",
+    "assets/character/ja-hyun/animation/runtime/jump.tres": "84d0a70be2bad274308cdbeaae2b5f21842517976e2aaa09ffa19cefc3f0f053",
+    "assets/character/ja-hyun/animation/runtime/jump_16f.png": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres": "f96b06083cf197f7d1962bb858c5c8463bda0d69c792b688058d5676db39e844",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light_16f.png": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres": "7167a50e35fc610e8e5d397578f0c44a69872684455e53d81c3aa064084142d8",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/death_16f.png": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres": "21184f6f6b2d69246b2d49366e09ea7fd11ae421ab82a1ab0ff4b6aff2e7b905",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard_16f.png": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres": "ce5ea6686de3fac67e3f5ae4072b42b1a60581f5d1d0f4cb78a93798663c9f52",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun_16f.png": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres": "71b17d1252477ce322e85ef6c07e4e2a513f0172f4c07b3a0f890e5e3af2d50c",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down_16f.png": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres": "cde9f4a264ef920705963ddb817edb059b48468128df0f0a65170e1d8041f276",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch_16f.png": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres": "481cee65f6885fbb8d9661875f46f2c83516ba241465eb0cbde4147c1aad1dd0",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out_16f.png": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres": "c29b090258ca06cbdc82f376559d58d32f7c22172a592a802b988fb728814e4a",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn_16f.png": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres": "197b5f74bad0724bc2c18069a8423d29d04511ee593b6fd49092c4b5c6774ceb",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral_16f.png": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres": "42e964de90d5d5e99e28f4ae58ed760de8f3e0553abd94fc0f5a251c751b727e",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up_16f.png": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67",
+    "assets/character/ja-hyun/animation/runtime/run.tres": "2bbe7085c4b838deeee77d42de73d50cb1cceb578e0ea1828221a0e4b1f62057",
+    "assets/character/ja-hyun/animation/runtime/run_16f.png": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "b7441e081bf90f6b7a3e79e1a909b837f8b6fab108e6acf1e33dec2041ab910b",
+    "assets/character/nabi/animation/runtime/idle.tres": "ae13e2fef33008f6436388049fc620daec09929911c4acfbc868ed7325c136b2",
+    "assets/character/nabi/animation/runtime/idle_16f.png": "c766ba882bbaabdbf2605a20a4f0d9885c9f4a7197fe985949e44fd9d96d682c",
+    "assets/character/nabi/animation/runtime/jump.tres": "da14c3449857b4484773bb01748cc5001139c5a6a54c967f2f79878110aa2de8",
+    "assets/character/nabi/animation/runtime/jump_16f.png": "eb5131c3a0d715b0c5d63419bc8a81ab4a923955141d06910e33a36d139e8df9",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres": "1ce0fd217593d8030dbd770ded5aeea58a4e932a2dec0b18af00c7325697db48",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light_16f.png": "c2fc1013635bfbfbeccd6b6bc8f3696738de92b6b83b9caf1e62148c8bda8bb4",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres": "e00d5f43c968d7cb237fd8b8d6a3b1867bf5ca53fade373c08412a5885131f5b",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up_16f.png": "3d4c8792aa463dbf2f3db4f71318c07daf30886f11499e2ef309ce3ff5a68da3",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres": "3b670d1ee3f129bb201977f7c9298035abac7da709d8ffb69ed31d0c43a6d162",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png": "a8af1c4d398ae7cd4c3f7063ad6f9d99f9c04f4ebb1b9abe8281325dd57d0c2e",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres": "ab875b7685963eabadccbc4d8547afcb29b86d8dba4f739157f516aa999c2ca6",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png": "596ac083d1404138aaecb8259a64a5ae79d17548e5ceea6a479422285de10b5b",
+    "assets/character/nabi/animation/runtime/local_ai_v01/death.tres": "d3f82d6f3722e0481bdb2bd44f6a96f93a635afe2a82bcab444d2130249c6a62",
+    "assets/character/nabi/animation/runtime/local_ai_v01/death_16f.png": "56d0f8d4ac18cefc6372d9fb81a3a3f1c209a144642c313a5c4fac638166caba",
+    "assets/character/nabi/animation/runtime/local_ai_v01/guard.tres": "0603eb7af38233cb1a8402d2a9d20b9a8ab8e1448e11b416d595ef9b637265ce",
+    "assets/character/nabi/animation/runtime/local_ai_v01/guard_16f.png": "35dab26efd3378cbe4962ffb79fd0a647304689ed73f36b9c333f554574d02a2",
+    "assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres": "ce69464559ba9d827ed5a61b041e25962d1c2cfa7f39f4727c37f353081e76cf",
+    "assets/character/nabi/animation/runtime/local_ai_v01/hitstun_16f.png": "9339f73e56d073282ccd8a292be360ddfc179e9efc4936e084abaf02e9baa14b",
+    "assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres": "1407422a8738bdbdc86a7c7462fdbecf1a95e63c1d5a1c19518cf51223f905db",
+    "assets/character/nabi/animation/runtime/local_ai_v01/knock_down_16f.png": "198c37fb81af679940f13da81b5a6c5a27ac09866b7401265b60b308f29fca2e",
+    "assets/character/nabi/animation/runtime/local_ai_v01/launch.tres": "c9fef77fef17c056633f083347ad64dd3a09e8672dc4a2e8ef2bfe421eb8ada5",
+    "assets/character/nabi/animation/runtime/local_ai_v01/launch_16f.png": "1eea5e9be6db877de2d45e6675ddb97418700b1fa8794c0c26b09e6c04f19c0d",
+    "assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres": "d745b23f2b2e82216438570ac758f3520b9c2072874d9dbc609054398a043328",
+    "assets/character/nabi/animation/runtime/local_ai_v01/ring_out_16f.png": "1a7fb9c08dc0b697aca38daba5908366f8f9e4cd2dc544db9eac4457d98f4c67",
+    "assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres": "2a73576a8b08a082fd6ecead2976afefe6d8a1a7ee1a55d4458986d344c4f0f0",
+    "assets/character/nabi/animation/runtime/local_ai_v01/spawn_16f.png": "9e63ac92fcac25b2400f5537e3f826257902d0c360f6eff153c5f830b7a63a07",
+    "assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres": "785ea871ed54246fdf17790b5fe85afbdb2f4db7b500a8890f827cde004dfac2",
+    "assets/character/nabi/animation/runtime/local_ai_v01/special_side_16f.png": "5846af8cf4127f734b5e0684843bf0ed86c367ad8c3aab50e6c69a64d1bfd60f",
+    "assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres": "fdc5e54cc1d2c056f87877f2df4189a51e0cd39326688b6e8833dc20785c3562",
+    "assets/character/nabi/animation/runtime/local_ai_v01/wake_up_16f.png": "f70d21b1d418a58349234ef15e52ae36a3c9af01ac4a9f8e310b67e1f474305d",
+    "assets/character/nabi/animation/runtime/run.tres": "e73638537ca89ed90ea5c434b6c7f184b0dfb2ee8dc465b264fe04ea6fcf4c88",
+    "assets/character/nabi/animation/runtime/run_16f.png": "4315e5671ef1657e23c2e6a88c584d7deac30813ca74dae83ed3252c8d47087d",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "dd6db3c85d999ee630729e0bae75a61969e387f72acb2c9aa270306c81eb0a3c",
+    "scripts/fighter_controller.gd": "998ac7f8d89deb5b9d8435a983589389b952abb42c117cfba066a816a7c5772a",
+    "scripts/local_fighter_presentation.gd": "72754913b13b40a7307336ded5740d2df6ccc49390ac5cc75a0605d7e738e9c8",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "7d41b908cc12278ed30c7f83fa436cde440ca66a7560571b85ec205dd4fd3e79",
+    "tools/forest_arena/motion_review_candidates.py": "06885c5e363478994158850dc81223ea53778ca78a866a8bf8329c49e7be5e9a",
+    "tools/forest_arena/motion_review_timeline.gd": "da37e3da950e42716c87cab4200b1e8c5825540b5dcc102a334e64a1af5012bb",
+    "tools/forest_arena/review_motion_actions.py": "232c1369f5d83e0aeb8bdcc531f61a6874c588dabbdae424878b47071c7ea76b",
+    "_workspace/two-fighter-combat-v2/review/rendered/index.html": "c68716b1aaeafe51db85e76873d573f3c960debfc82455dbef7214ceba4ba2a3",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_air_heavy.jpg": "a7ecdeed7a126d83e9f4b556769d113566e3efa581dcd880b67189ec64700ac4",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_air_heavy.mkv": "0acf50d64cc5276e5c728ba7d4b5cbbb39021b7ad4c1f977b4fa290ebadb18bd",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_air_heavy.mp4": "91f50595929c7c9bc7453adcdb270b8f02ac8d804c8e4e649af5981cb99d7116",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_air_light.jpg": "fa70cf862db1b05eeffd0567f9f36bbb95c710f95dbf11c75f35e9c47d25ecb2",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_air_light.mkv": "c8d1442a428e03c4d6ceb8c63196e87dc1db80c55d032907e69e88c6480d23aa",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_air_light.mp4": "ce8df89d517e6d26f8e38b93eeb24ec7e5d06e9f2f8aad3ebaaf6e76c28c23cd",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_light_combo_04.jpg": "8b702b83b08aa9e1d9213713e8aa92011b5e3ad09da8a835494e3b0e9858e731",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_light_combo_04.mkv": "5fa4aebe319f5c1789380e002920645f1dee0b045848ed9ed26ba3343aae93d6",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__attack_light_combo_04.mp4": "dacd02a3ccdb83a0d5a5e7435c348af0fe9255a54f739cf940174ae59cfca1ed",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__special_neutral.jpg": "fffc15377233c6fadfb05f2065bb1eb514624e0062912d10c89a77ca51bd31ce",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__special_neutral.mkv": "5042a75cb93aea206cd98df7af3de2b6797dd698f5323d723320b631aeb53385",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__special_neutral.mp4": "44b3c9d12b192f3cc0c049329d7e078830c7e67604493c8617ac5c1d2a4e5289",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__special_scarf_sweep.jpg": "de6ff9b269973bce4aeae1d9f22a092c5d8fd0d09a2bb2cba5a9d55894641b84",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__special_scarf_sweep.mkv": "71f6520f7b2e03afb17f1eaf895822f2d55cfaaafd010bc325b5cc69c2ce1eb0",
+    "_workspace/two-fighter-combat-v2/review/rendered/ja-hyun__special_scarf_sweep.mp4": "390c54dbdd7455603daec5e7623d1f312bf9b9e20036a4292e4d7a22d200b5ee",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_air_heavy.jpg": "f9ecd6bc105886eba4013f78359aa28bada68d5881c57a9955a264e7d59f1d28",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_air_heavy.mkv": "842e662254732c4c60cf87682f46a2d0afb88b3b4335fa546622cde5a8d7be8d",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_air_heavy.mp4": "011cfe4c37dc081a0b10fc9279f2362e38e3298cb494b8e7ad069fbecbb7085c",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_air_light.jpg": "42bd34ed4c87769dd1539e90648dfd68252a1b9e954fd381cf293ea0608a890c",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_air_light.mkv": "dd9555db489ba7eaa9369b86b660baece4d06b358ad3ac324bf8e376b82587b4",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_air_light.mp4": "18e6c01aaf67c02c98e4a1e71569c7614aee6b303b9d29673c0cd6fb023cd59d",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_light_up.jpg": "d45a2ed7c2455b82a4148f8952ef7d23f0af8a1e66993ef01c0ec9602de8ed5a",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_light_up.mkv": "d2c1cdecf1057c9b3080da97b69c015e045c182d6394960840abf10387fbbcf7",
+    "_workspace/two-fighter-combat-v2/review/rendered/nabi__attack_light_up.mp4": "2acdb80a709429f60a93346c5f1f9af962efcbb8950ed6d6bcf959908d2f46ca",
+    "_workspace/two-fighter-combat-v2/review/rendered/qa-grid.html": "18feb8db8d9db09cf6a92ccc4ec8d65c9059326a0de4f72382a7eddb02425d70",
+    "_workspace/two-fighter-combat-v2/review/rendered/render-report.json": "778e0a45ed75b49a52a328e6278b3a775567123f3a774e2a1600e500ec376582",
+    "_workspace/two-fighter-combat-v2/review/live-special/blocked.jpg": "5a9ef438b2015a6bb24eb8bc158a73a6cf71ef9f91358e8fc022e92b39b9c973",
+    "_workspace/two-fighter-combat-v2/review/live-special/blocked.mkv": "6b04932fbf4afecd9769eae481214112e9967c034e3f49a561e7f22123123a5f",
+    "_workspace/two-fighter-combat-v2/review/live-special/blocked.mp4": "e1cf2e41cc56899b1beb16c58c727246e1171e3d26b6163e21c85ff6862b7128",
+    "_workspace/two-fighter-combat-v2/review/live-special/index.html": "98bf4e27d30505a8265887e5bb487e57bde9b6a41bf87f0098e6c467af6990b4",
+    "_workspace/two-fighter-combat-v2/review/live-special/qa-grid.html": "2e1c8c51efb267e4503372ea7781bcd3a182435655e3434de00440168d5f49f8",
+    "_workspace/two-fighter-combat-v2/review/live-special/state-report.json": "0704bd216d6f939f9dfd5706827e524ae4850e047d77a3a30b4d4ca1a67b563d",
+    "_workspace/two-fighter-combat-v2/review/live-special/success.jpg": "f89ac71a6b3d7aaa5aeec2141af8c164d97f52ccb3999d9cc2f3a7a3eabc00c0",
+    "_workspace/two-fighter-combat-v2/review/live-special/success.mkv": "403a2cef31f12eee3388dbd4a0b965b12b1bc31f605b48863403c9187024fa83",
+    "_workspace/two-fighter-combat-v2/review/live-special/success.mp4": "297edd3ae16825b44e410dd309766be23e969fcf4b2221f4c51cd9e67d700c14",
+    "_workspace/two-fighter-combat-v2/review/live-special/whiff.jpg": "6884c1575fb3d927f34d0cdbd06978a1253ab4f1423d96b07a66c59959d1b7cd",
+    "_workspace/two-fighter-combat-v2/review/live-special/whiff.mkv": "66b90a5e2203dc5ac80fa57409ddf6a7bcb949cea0f3fb74c448d1792e537bdf",
+    "_workspace/two-fighter-combat-v2/review/live-special/whiff.mp4": "58f0448aef25a5ee9d0d31ad1af734e3eec60a8556d905181ad7689744d26354",
+    "_workspace/two-fighter-combat-v2/qa/final-motion/live-success-strike22-25.jpg": "52da91960c6ca55fc1d1cb27d72ab78ae6e249c1678172bf4a5864777e740969",
+    "_workspace/two-fighter-combat-v2/qa/final-motion/r02-current-fx.jpg": "21eb2f360e177058819813774fe138bf47a98697f9fc25abbafcbc4311b5df91",
+    "_workspace/two-fighter-combat-v2/qa/final-motion/timeline-r02.json": "d14a9887f6e3ba9f5ca2b17bc0c00086eb1210fe7be4cd777cbef344b3fa35c9"
+  },
+  "timeline_sha256": "d14a9887f6e3ba9f5ca2b17bc0c00086eb1210fe7be4cd777cbef344b3fa35c9",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_heavy",
+      "path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_air_heavy_16f_r01n02.png",
+      "sha256": "7099bc4b8d712d55fe3f02aa32fa45a968ded610d2e38941676d76d0548053f7",
+      "sprite_frames_path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_air_heavy_r01n02.tres",
+      "sprite_frames_sha256": "6f6f88e233426fa062cb4db4bd0983bbf727e2a42854d6ee1a4c6fb807e65bdd",
+      "expected_action": "공중에서 목도리를 머리 위에서 아래로 내려치는 단타. 시전자는 공중에 남고 피해자가 급강하한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__attack_air_heavy.jpg": "0b3778a683d6c5ef80d7199b8bc497954120af7af6c19d0b3fd77801253b15d1",
+        "sheets/ja-hyun__attack_air_heavy.png": "7099bc4b8d712d55fe3f02aa32fa45a968ded610d2e38941676d76d0548053f7"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-air-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–4 두 발을 접어 머리 위로 천을 준비하고 F5–10 천을 앞·아래로 내려친다. F11–16 짧은 천을 어깨로 회수하므로 두번째 내려치기가 아니다. 게임활성83ms의 한 번 내려침과 얇은 하향효과, 시전자공중자세를 확인했다. n02에 귀·천의수직잘림과이웃조각이 없다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_light",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "sha256": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "sprite_frames_sha256": "f96b06083cf197f7d1962bb858c5c8463bda0d69c792b688058d5676db39e844",
+      "expected_action": "발을 딛지 않은 공중 단타 펀치와 긴 목도리 리치. 새 점프·공격 잠금은 피해자에게 적용한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__attack_air_light.jpg": "2123d1ee9949b32b0ee4d3621b0aafa90f4415b1349fbba52176fea8f41598f7",
+        "sheets/ja-hyun__attack_air_light.png": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-air-light",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              7,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_light",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_light",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–4 두 발을 접고 F5–8 전방으로 한 번 팔을 뻗은 뒤 F9–16 접은 공중 자세로 회수한다. 실제 8/4/18tick 표현 영상에서 긴 파랑 천 효과가 전방으로 이어지고 회복 때 사라진다. 공중에 남은 단타로 읽힌다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_light_combo_01",
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png",
+      "sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+      "sprite_frames_sha256": "cbb10adcaa71d9bb86ad179cc832505980b673a7376b4cfaeacd5de4e5fb4f7a",
+      "expected_action": "왼손 전방 펀치. 지상 약1과 약3은 같은 손이다. 준비→전방 단타→회복.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__attack_light_combo_01.jpg": "797ae0196d2a0cecb643dd99fb5250faed90fa662f316843fe8bf0dc86786dd9",
+        "sheets/ja-hyun__attack_light_combo_01.png": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-light-01",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              4,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_01",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ]
+          ]
+        },
+        {
+          "attack_id": "ja-hyun-light-03",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              4,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_01",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F5–9 화면 앞쪽 손이 한 번 전방으로 펴지고 F10–16 회수한다. 약1·약3 두변형은 같은 왼손·같은타임라인이며 combo02의 반대팔과 구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_light_combo_02",
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png",
+      "sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+      "sprite_frames_sha256": "f515c7a1973444dcb089efd459d4bab62fe12bf8d453c5b0e7b12d0a2a524bc9",
+      "expected_action": "반대 오른손 전방 펀치. 왼손 첫타와 사용 손을 구분한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__attack_light_combo_02.jpg": "c56ab5c8f1e92053fd196b3e901b4d0ac20bcd075b2992a6dfd89ee11675ae95",
+        "sheets/ja-hyun__attack_light_combo_02.png": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-light-02",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              4,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_02",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3–6 뒤쪽팔을 당겼다가 F7–11 반대손이 전방으로 나간다. combo01과 어깨·팔꿈치 출발점이 달라 오른손 두번째 타격으로 읽힌다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_light_combo_04",
+      "path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_light_combo_04_16f_r01n02.png",
+      "sha256": "9be989f3f5c492ad318313bbb8abae8fbbc49eed1cf4e19ae3587d7f4dd048f5",
+      "sprite_frames_path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_light_combo_04_r01n02.tres",
+      "sprite_frames_sha256": "6a84f8e1e9fc1a93d2bdecadd1267d946bcbcccfd58eb4dfe676d7a14a503066",
+      "expected_action": "한 발로 버티고 다른 발을 전방으로 펼치는 강한 킥. 목도리 공격이 아닌 약4 다운 마무리.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__attack_light_combo_04.jpg": "08a161e824d5a8f9e191813530e41d4c5c8d6fdf70037a1656815a56cb9645ae",
+        "sheets/ja-hyun__attack_light_combo_04.png": "9be989f3f5c492ad318313bbb8abae8fbbc49eed1cf4e19ae3587d7f4dd048f5"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-light-04",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_04",
+              66.6666666666668
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_04",
+              66.6666666666668
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_04",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_04",
+              66.6666666666668
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3–5 무릎을 들고 F6–9 반대발로 버틴 채 앞다리를 곧게 편다. F10–12 발을 회수해 F13–16 준비 자세로 돌아온다. 게임 활성 F5/F7/F8에 발차기 실루엣이 읽힌다. 이웃 셀 조각·발끝 절단이 없다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "death",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death_16f.png",
+      "sha256": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres",
+      "sprite_frames_sha256": "7167a50e35fc610e8e5d397578f0c44a69872684455e53d81c3aa064084142d8",
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__death.jpg": "b39a7ccca6cc5d306efab2324fc3e977c2065d872020a414d9af0046abd8998c",
+        "sheets/ja-hyun__death.png": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:death",
+          "sequence": [
+            [
+              0,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              1,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              2,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              3,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              4,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              5,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              6,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              7,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              8,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              9,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              10,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              11,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              12,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              13,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              14,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              15,
+              "death",
+              "death",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3부터 고개와 무릎이 내려가고 F7–12 주저앉아 앞으로 쓰러진다. F13–16 움직임이 작아져 사망 끝자세를 유지한다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "guard",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard_16f.png",
+      "sha256": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres",
+      "sprite_frames_sha256": "21184f6f6b2d69246b2d49366e09ea7fd11ae421ab82a1ab0ff4b6aff2e7b905",
+      "expected_action": "두 손 또는 팔로 몸 앞을 방어한다. 공격·피하기로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__guard.jpg": "5332f1cf699ab3b95868fcc2e65488b835caf5f532f780318e3300341e3264e1",
+        "sheets/ja-hyun__guard.png": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:guard",
+          "sequence": [
+            [
+              0,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              1,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              2,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              3,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              4,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              5,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              6,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              7,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              8,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              9,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              10,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              11,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              12,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              13,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              14,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              15,
+              "guard",
+              "guard",
+              1383.333333333338
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F2부터 앞손과 반대손을 얼굴·몸통 앞에 올리고 F5–16 방어 자세를 유지한다. 앞쪽으로 펴는 펀치와 구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "hitstun",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "sha256": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres",
+      "sprite_frames_sha256": "ce5ea6686de3fac67e3f5ae4072b42b1a60581f5d1d0f4cb78a93798663c9f52",
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__hitstun.jpg": "1c6a62d1c5f87933fa82d93b76b947a6679b50e1e47256cc61ce7d7e8cbd8e37",
+        "sheets/ja-hyun__hitstun.png": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:hitstun",
+          "sequence": [
+            [
+              0,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              1,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              2,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              3,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              4,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              5,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              6,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              7,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              8,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              9,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              10,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              11,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              12,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              13,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              14,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              15,
+              "hitstun",
+              "hitstun",
+              1383.333333333338
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3 눈을 감고 F4–6 상체와 팔이 뒤로 밀리며 F9–16 회복한다. 실제 최소 12tick의 첫200ms에서도 F4–5 반응이 보이며 공격팔을 전방으로 펴지 않는다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "idle",
+      "path": "assets/character/ja-hyun/animation/runtime/idle_16f.png",
+      "sha256": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/idle.tres",
+      "sprite_frames_sha256": "c416cb8b33b9b932ac24e9c689eaf41a3f90e8714e48d8cbfa65bd10ef25bc74",
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__idle.jpg": "3572eaaee529340fbec1258e0abeb864cc40ddd395b36d2e2260c7996c7d0d41",
+        "sheets/ja-hyun__idle.png": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:idle",
+          "sequence": [
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–4 낮은 준비 자세에서 F5–12 체중과 목도리만 작게 흔들리고 F13–16 원래 자세로 돌아온다. 루프 끝과 처음의 다리 위치가 이어진다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "jump",
+      "path": "assets/character/ja-hyun/animation/runtime/jump_16f.png",
+      "sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/jump.tres",
+      "sprite_frames_sha256": "84d0a70be2bad274308cdbeaae2b5f21842517976e2aaa09ffa19cefc3f0f053",
+      "expected_action": "상승·정점·하강을 구분한다. 실제 착지 전에는 지면을 딛는 착지 자세를 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__jump.jpg": "98d237202b1bcf7f60e18e2ab5bcd3f4c581d8c465cff43ebd3027c00a79ec38",
+        "sheets/ja-hyun__jump.png": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:jump",
+          "sequence": [
+            [
+              3,
+              "ascent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ascent",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              5,
+              "ascent",
+              "jump",
+              183.33333333333366
+            ],
+            [
+              6,
+              "apex",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              7,
+              "apex",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              8,
+              "apex",
+              "jump",
+              50.0000000000001
+            ],
+            [
+              10,
+              "descent",
+              "jump",
+              333.3333333333338
+            ],
+            [
+              12,
+              "landing",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              13,
+              "landing",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              14,
+              "landing",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              15,
+              "landing",
+              "jump",
+              66.6666666666668
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "원화 F4–10은 발을 접거나 한 발을 내린 공중 자세다. 수정된 실제 하강은 F11만 유지하고 실제 착지 뒤 F13–16으로 회복한다. 하강 중 양발을 딛던 F12–13이 사라졌다. 새 timeline과 정상·느린 재생에서 이 순서를 다시 확인했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "knock_down",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "sha256": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres",
+      "sprite_frames_sha256": "71b17d1252477ce322e85ef6c07e4e2a513f0172f4c07b3a0f890e5e3af2d50c",
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__knock_down.jpg": "810b93255b7739d622cf33ab9a12c386a8c89cb9b6aefa53897b278f59a99835",
+        "sheets/ja-hyun__knock_down.png": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:knock_down",
+          "sequence": [
+            [
+              0,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              1,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              2,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              3,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              4,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              5,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              6,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              7,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              8,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              9,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              10,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              11,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:landing-down-18",
+          "sequence": [
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              50.0000000000001
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "원화 F8–12 바닥에 닿고 F13–16 옆으로 누워 끝난다. 새 state:landing-down-18 변형은 실제 300ms 동안 F13–16만 표시해 착지 순간부터 누운 피격자로 읽힌다. 기존 2초 원화 전체 변형과 분리해 정상·느린·반전 재생을 다시 보았다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "launch",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch_16f.png",
+      "sha256": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres",
+      "sprite_frames_sha256": "cde9f4a264ef920705963ddb817edb059b48468128df0f0a65170e1d8041f276",
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__launch.jpg": "53075141757b26acc92bbd68c184fb88516306c7d4fd0255e2722e8ceebcd278",
+        "sheets/ja-hyun__launch.png": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:launch",
+          "sequence": [
+            [
+              0,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              1,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              2,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              3,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              4,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              5,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              6,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              7,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              8,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              9,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              10,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              11,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              12,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              13,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              14,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              15,
+              "launch",
+              "launch",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F4–8 두 발이 뜨고 몸통이 뒤로 누우며 F9–14 공중에서 돌아간다. 자발적 점프의 무릎 모으기와 구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "ring_out",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "sha256": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres",
+      "sprite_frames_sha256": "481cee65f6885fbb8d9661875f46f2c83516ba241465eb0cbde4147c1aad1dd0",
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__ring_out.jpg": "aa7007317b24e3662604e8f3bacbcbac869eff6c634233178704fef19cda40d5",
+        "sheets/ja-hyun__ring_out.png": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:ring_out",
+          "sequence": [
+            [
+              0,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              1,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              2,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              3,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              5,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              6,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              7,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              8,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              9,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              10,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              11,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              12,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              13,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              14,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              15,
+              "ring_out",
+              "ring_out",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–6 팔다리가 벌어진 채 뒤로 밀리고 F7–12 거꾸로 회전한다. F13–16 몸을 접으며 장외로 날아가는 수동 반응이다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "run",
+      "path": "assets/character/ja-hyun/animation/runtime/run_16f.png",
+      "sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/run.tres",
+      "sprite_frames_sha256": "2bbe7085c4b838deeee77d42de73d50cb1cceb578e0ea1828221a0e4b1f62057",
+      "expected_action": "전진 달리기. 발 교대와 체중 이동이 이어지고 루프가 튀지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__run.jpg": "86617c9fe2797050087238f94aa4e2ab6e191b4e1336fcdff631e2aa126bd548",
+        "sheets/ja-hyun__run.png": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:run",
+          "sequence": [
+            [
+              0,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              1,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              2,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              3,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              6,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              0,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              1,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              2,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              3,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3–8 앞으로 뻗는 발과 뒤로 접는 발이 교대하고 F9–16 지지 다리가 바뀐다. 목도리는 이동 반대편으로 흘러 전진 달리기로 읽힌다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "spawn",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn_16f.png",
+      "sha256": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres",
+      "sprite_frames_sha256": "c29b090258ca06cbdc82f376559d58d32f7c22172a592a802b988fb728814e4a",
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__spawn.jpg": "f9764da170d9dc57aa5a1e19a8953738232eb0af7ff61da6092eadc1625bd3ba",
+        "sheets/ja-hyun__spawn.png": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:spawn",
+          "sequence": [
+            [
+              0,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              1,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              2,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              3,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              4,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              5,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              6,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              7,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              8,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              9,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              10,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              11,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              12,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              13,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              14,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              15,
+              "spawn",
+              "spawn",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–4 발이 뜬 등장 뒤 F5–8 몸을 낮춰 착지하고 F9–16 준비 자세로 일어난다. 사망·장외 회전과 구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_neutral",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral_16f.png",
+      "sha256": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres",
+      "sprite_frames_sha256": "197b5f74bad0724bc2c18069a8423d29d04511ee593b6fd49092c4b5c6774ceb",
+      "expected_action": "긴 목도리를 전방으로 내민 뒤 당기는 단타 강공격. 별도 리본 효과로180 리치와 끌기를 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__special_neutral.jpg": "17efb9dccfd387c46bcea41c3b67f80f4aaac852f921c8137cc106492aa42f6c",
+        "sheets/ja-hyun__special_neutral.png": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "special_neutral",
+              50.0000000000001
+            ],
+            [
+              2,
+              "startup",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "special_neutral",
+              50.0000000000001
+            ],
+            [
+              4,
+              "startup",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "special_neutral",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "special_neutral",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "special_neutral",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "special_neutral",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "special_neutral",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "special_neutral",
+              66.6666666666668
+            ],
+            [
+              12,
+              "recovery",
+              "special_neutral",
+              66.6666666666668
+            ],
+            [
+              13,
+              "recovery",
+              "special_neutral",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "special_neutral",
+              66.6666666666668
+            ],
+            [
+              15,
+              "recovery",
+              "special_neutral",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3–6 푸른 천을 전방으로 뻗고 F7–9 팔을 몸쪽으로 당긴다. 실제 12/5/20tick 표현 영상에서 별도 긴 파랑 천이 전방 리치를 표시하고 회복 때 사라진다. 한 번 걸기→회수로 읽히며 얼굴을 덮지 않는다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_scarf_sweep",
+      "path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/special_scarf_sweep_16f_r01n02.png",
+      "sha256": "60154607d07cfc1c948af936f5783541c722e5fec410c2224b4986a007912928",
+      "sprite_frames_path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/special_scarf_sweep_r01n02.tres",
+      "sprite_frames_sha256": "b792393f7e652d88e352042a55e79a76d8765db9b64f2405829339a41dcc9b3a",
+      "expected_action": "좌·우·위 세 방향 목도리 휘두르기1초. 전역6tick마다10회이며 앞9회끌기·마지막밀기. 별도 리본 효과와 대조한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__special_scarf_sweep.jpg": "8f11df51838873e9113c416f708e1a0056cc20ab351259442d81ac7715ef787d",
+        "sheets/ja-hyun__special_scarf_sweep.png": "60154607d07cfc1c948af936f5783541c722e5fec410c2224b4986a007912928"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "special_scarf_sweep",
+              66.6666666666668
+            ],
+            [
+              2,
+              "startup",
+              "special_scarf_sweep",
+              66.6666666666668
+            ],
+            [
+              3,
+              "startup",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "special_scarf_sweep",
+              66.6666666666668
+            ],
+            [
+              5,
+              "active",
+              "special_scarf_sweep",
+              133.3333333333336
+            ],
+            [
+              6,
+              "active",
+              "special_scarf_sweep",
+              116.6666666666669
+            ],
+            [
+              7,
+              "active",
+              "special_scarf_sweep",
+              116.6666666666669
+            ],
+            [
+              8,
+              "active",
+              "special_scarf_sweep",
+              133.3333333333336
+            ],
+            [
+              9,
+              "active",
+              "special_scarf_sweep",
+              116.6666666666669
+            ],
+            [
+              10,
+              "active",
+              "special_scarf_sweep",
+              116.6666666666669
+            ],
+            [
+              11,
+              "active",
+              "special_scarf_sweep",
+              133.3333333333336
+            ],
+            [
+              12,
+              "active",
+              "special_scarf_sweep",
+              66.6666666666668
+            ],
+            [
+              13,
+              "recovery",
+              "special_scarf_sweep",
+              100.0000000000002
+            ],
+            [
+              14,
+              "recovery",
+              "special_scarf_sweep",
+              200.00000000000034
+            ],
+            [
+              15,
+              "recovery",
+              "special_scarf_sweep",
+              100.0000000000002
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F4/F9–10 위, F5/F11 오른쪽, F6–8/F12 왼쪽으로 천이 흐르고 F13 양쪽 벌림 마무리다. 실제효과는 좌·우·위 세방향만 6tick 펄스로 밝아지고 마지막활성에벌림이온다. 얇고 휘는 효과가 본체 뒤에 있어 얼굴이 남고 아래공격선은 없다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "wake_up",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "sha256": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67",
+      "sprite_frames_path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres",
+      "sprite_frames_sha256": "42e964de90d5d5e99e28f4ae58ed760de8f3e0553abd94fc0f5a251c751b727e",
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/ja-hyun__wake_up.jpg": "40104419dc11a03a8e4cca5391f04d8005423d3b97abf0048b0d82b7e9920010",
+        "sheets/ja-hyun__wake_up.png": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:wake_up",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              100.0000000000002
+            ],
+            [
+              3,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              100.0000000000002
+            ],
+            [
+              6,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              9,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              12,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:wakeup-protection-12",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              3,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              12,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "원화 F1–3 누움→F4–10 손·무릎 지지→F11–16 일어남이 이어진다. 새 12tick/200ms 변형은 F1,F2,F4,F5,F6,F8,F9,F11,F12,F13,F15,F16으로 끝까지 진행해 일어남이 읽힌다. 실제 바닥·IDLE 전환 후에도 표시가 이어지고 이동 입력 시 RUN으로 바뀌는 독립 테스트도 PASS했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_heavy",
+      "path": "_workspace/two-fighter-combat-v2/candidates/nabi/attack_air_heavy_16f_r04n02.png",
+      "sha256": "4a2002d96960843970ef90868a3d29d1a0f93f7a2dafda9a884412f6be7f1084",
+      "sprite_frames_path": "_workspace/two-fighter-combat-v2/candidates/nabi/attack_air_heavy_r04n02.tres",
+      "sprite_frames_sha256": "9f6ba87f2801da83fa2061d9b7150e95dc2522cd08727a6bbbcc60838e4517c6",
+      "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__attack_air_heavy.jpg": "e3a8b1c673a1c942bfdf1fb51629fad6c7347cc82a35e36cc5222808466d252e",
+        "sheets/nabi__attack_air_heavy.png": "4a2002d96960843970ef90868a3d29d1a0f93f7a2dafda9a884412f6be7f1084"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-air-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_heavy",
+              66.6666666666668
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–5 발을접고앞팔을아래에준비,F6 가슴앞,F7 대각위,F8–10 같은어깨에서이어진팔을머리위에유지한다. 반대팔은몸앞에남아r02의팔교체가없다. F11–16 회수하고두번째타격은없다. 최신효과가얼굴뒤에있어팔·표정이읽히며n02상단잘림이없다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_light",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "sha256": "c2fc1013635bfbfbeccd6b6bc8f3696738de92b6b83b9caf1e62148c8bda8bb4",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "sprite_frames_sha256": "1ce0fd217593d8030dbd770ded5aeea58a4e932a2dec0b18af00c7325697db48",
+      "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__attack_air_light.jpg": "dac1f0787b18a48c8f48a0e8742f00173b98a0d60d7c61db75610f871c4137a4",
+        "sheets/nabi__attack_air_light.png": "c2fc1013635bfbfbeccd6b6bc8f3696738de92b6b83b9caf1e62148c8bda8bb4"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-air-light",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              7,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_light",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_light",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–4 발을 접은 준비→F5–8 한 팔 전방 할퀴기→F9–16 회수다. 실제 8/4/18tick 영상에서 앞쪽 긴 리치 위치에 세 줄 손톱 흔적이 나타나고 회복 때 사라진다. 몸이 착지하거나 두 번 공격하지 않는다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_heavy_up",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+      "sha256": "3d4c8792aa463dbf2f3db4f71318c07daf30886f11499e2ef309ce3ff5a68da3",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+      "sprite_frames_sha256": "e00d5f43c968d7cb237fd8b8d6a3b1867bf5ca53fade373c08412a5885131f5b",
+      "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__attack_heavy_up.jpg": "ef6c07aeaf8b5562dca02e272461e5aaee6495be5198b707db2b34835829bd7a",
+        "sheets/nabi__attack_heavy_up.png": "3d4c8792aa463dbf2f3db4f71318c07daf30886f11499e2ef309ce3ff5a68da3"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              5,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              6,
+              "active",
+              "attack_heavy_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_heavy_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              9,
+              "active",
+              "attack_heavy_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_heavy_up",
+              66.6666666666668
+            ],
+            [
+              12,
+              "recovery",
+              "attack_heavy_up",
+              66.6666666666668
+            ],
+            [
+              13,
+              "recovery",
+              "attack_heavy_up",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "attack_heavy_up",
+              66.6666666666668
+            ],
+            [
+              15,
+              "recovery",
+              "attack_heavy_up",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–3 낮은손준비,F4–9 한팔을위로뻗으며몸을일으킨다. F10–12 돌아내려오고 F13–16 지상준비로회복하여공중에서시작하는airheavy와구별된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_combo_01",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+      "sha256": "a8af1c4d398ae7cd4c3f7063ad6f9d99f9c04f4ebb1b9abe8281325dd57d0c2e",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "sprite_frames_sha256": "3b670d1ee3f129bb201977f7c9298035abac7da709d8ffb69ed31d0c43a6d162",
+      "expected_action": "왼손으로 전방 할퀴기. 첫 약공격 준비→앞으로 단타→회복.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__attack_light_combo_01.jpg": "c291d21227cb8ebc5389bdcc38089b9799f50a9f8e9fb03249474eac0864f6fa",
+        "sheets/nabi__attack_light_combo_01.png": "a8af1c4d398ae7cd4c3f7063ad6f9d99f9c04f4ebb1b9abe8281325dd57d0c2e"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-01",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F4–8 왼팔을전방으로뻗어보라손톱을내민다. F9–16 회수하며약2의반대팔상승과다른첫할퀴기다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_combo_02",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+      "sha256": "596ac083d1404138aaecb8259a64a5ae79d17548e5ceea6a479422285de10b5b",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "sprite_frames_sha256": "ab875b7685963eabadccbc4d8547afcb29b86d8dba4f739157f516aa999c2ca6",
+      "expected_action": "두 손을 교차한 뒤 양쪽으로 벌려 X자 할퀴는 약3 다운 마무리.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__attack_light_combo_02.jpg": "73b6f5108e02eea023a985ac7d660a83ae021410a04fd694e758b1b695929edb",
+        "sheets/nabi__attack_light_combo_02.png": "596ac083d1404138aaecb8259a64a5ae79d17548e5ceea6a479422285de10b5b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-03",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F2–4 양팔을벌려준비하고 F5–7 손톱을가슴앞에서교차,F8–11 양쪽으로벌려X자마무리,F12–16 회수한다. 한팔어퍼와구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_up",
+      "path": "_workspace/two-fighter-combat-v2/candidates/nabi/attack_light_up_16f_r02n02.png",
+      "sha256": "8dc4a16879180018fafebd15aec875e5eacb8f29b807c351efa039bbf1005943",
+      "sprite_frames_path": "_workspace/two-fighter-combat-v2/candidates/nabi/attack_light_up_r02n02.tres",
+      "sprite_frames_sha256": "03250ba1047443fc83ea6061114615fab2fa6f50fec1edf4168eb13355e95207",
+      "expected_action": "오른손을 아래에서 위로 할퀴는 지상 약2. 반대손은 방어하고 양손X나점프어퍼와구별한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__attack_light_up.jpg": "47f5d32f49425b3d9978a1a0d87f0a276d23279301780f44d503d18ba0640de1",
+        "sheets/nabi__attack_light_up.png": "8dc4a16879180018fafebd15aec875e5eacb8f29b807c351efa039bbf1005943"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-02",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_up",
+              66.6666666666668
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_up",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_up",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_up",
+              66.6666666666668
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F2–5 앞쪽어깨에이어진오른팔을낮게준비,F6–10 같은팔을머리위로올리고반대손은얼굴곁에남는다. F11–15 회수하며양발지지가유지된다. 게임활성F5/F7/F8/F10에서상승이읽히며n02상단이웃조각이없다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "death",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/death_16f.png",
+      "sha256": "56d0f8d4ac18cefc6372d9fb81a3a3f1c209a144642c313a5c4fac638166caba",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/death.tres",
+      "sprite_frames_sha256": "d3f82d6f3722e0481bdb2bd44f6a96f93a635afe2a82bcab444d2130249c6a62",
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__death.jpg": "79cc5ccf15abb2586735f5f622a9bd5855dd05a80932969ad9947d36b6ee8433",
+        "sheets/nabi__death.png": "56d0f8d4ac18cefc6372d9fb81a3a3f1c209a144642c313a5c4fac638166caba"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:death",
+          "sequence": [
+            [
+              0,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              1,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              2,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              3,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              4,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              5,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              6,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              7,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              8,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              9,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              10,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              11,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              12,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              13,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              14,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              15,
+              "death",
+              "death",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F4–8 몸을낮추고 F9–12 옆으로쓰러진다. F13–16 닫힌눈과누운몸을유지하여장외회전과구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "guard",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/guard_16f.png",
+      "sha256": "35dab26efd3378cbe4962ffb79fd0a647304689ed73f36b9c333f554574d02a2",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/guard.tres",
+      "sprite_frames_sha256": "0603eb7af38233cb1a8402d2a9d20b9a8ab8e1448e11b416d595ef9b637265ce",
+      "expected_action": "두 손 또는 팔로 몸 앞을 방어한다. 공격·피하기로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__guard.jpg": "bdd0d7d2902cec5356a55931a20f38e70786ee669aaf7029a2920d258cd4ae1a",
+        "sheets/nabi__guard.png": "35dab26efd3378cbe4962ffb79fd0a647304689ed73f36b9c333f554574d02a2"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:guard",
+          "sequence": [
+            [
+              0,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              1,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              2,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              3,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              4,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              5,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              6,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              7,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              8,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              9,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              10,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              11,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              12,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              13,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              14,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              15,
+              "guard",
+              "guard",
+              1383.333333333338
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F2–5 양팔을 몸앞에 모으고 F6–16 앞손이 얼굴·몸통을 가린다. 손톱을 뻗는 공격과 구분되고 반복공격이 없다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "hitstun",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "sha256": "9339f73e56d073282ccd8a292be360ddfc179e9efc4936e084abaf02e9baa14b",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres",
+      "sprite_frames_sha256": "ce69464559ba9d827ed5a61b041e25962d1c2cfa7f39f4727c37f353081e76cf",
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__hitstun.jpg": "b9adce2fe7e238dc29d55f46a92046329f1608e84939a65ca991f33cca7bae26",
+        "sheets/nabi__hitstun.png": "9339f73e56d073282ccd8a292be360ddfc179e9efc4936e084abaf02e9baa14b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:hitstun",
+          "sequence": [
+            [
+              0,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              1,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              2,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              3,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              4,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              5,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              6,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              7,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              8,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              9,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              10,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              11,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              12,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              13,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              14,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              15,
+              "hitstun",
+              "hitstun",
+              1383.333333333338
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3–4 눈을 감고 F5–8 팔이 벌어지며 상체가 뒤로 젖혀진다. F9–16 다시 균형을 잡는다. 최초200ms의F5에서도 피격표정·상체기울기가 시작됨을 프레임과24fps로대조했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "idle",
+      "path": "assets/character/nabi/animation/runtime/idle_16f.png",
+      "sha256": "c766ba882bbaabdbf2605a20a4f0d9885c9f4a7197fe985949e44fd9d96d682c",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/idle.tres",
+      "sprite_frames_sha256": "ae13e2fef33008f6436388049fc620daec09929911c4acfbc868ed7325c136b2",
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__idle.jpg": "65b09d0bfecde0458c385e4ecc9c74688a30c01bc35da2f644991a96d9aebebe",
+        "sheets/nabi__idle.png": "c766ba882bbaabdbf2605a20a4f0d9885c9f4a7197fe985949e44fd9d96d682c"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:idle",
+          "sequence": [
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–4 준비자세에서 F5–12 어깨·꼬리와 무릎이 작게 움직인다. F13–16 처음자세로 돌아오며 발바꿈·공격으로 보이지 않는다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "jump",
+      "path": "assets/character/nabi/animation/runtime/jump_16f.png",
+      "sha256": "eb5131c3a0d715b0c5d63419bc8a81ab4a923955141d06910e33a36d139e8df9",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/jump.tres",
+      "sprite_frames_sha256": "da14c3449857b4484773bb01748cc5001139c5a6a54c967f2f79878110aa2de8",
+      "expected_action": "상승·정점·하강을 구분한다. 실제 착지 전에는 지면을 딛는 착지 자세를 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__jump.jpg": "924a1010c6c2316086447101c11068361a9480ce0f868b3289cd0b709e0a3020",
+        "sheets/nabi__jump.png": "eb5131c3a0d715b0c5d63419bc8a81ab4a923955141d06910e33a36d139e8df9"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:jump",
+          "sequence": [
+            [
+              3,
+              "ascent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ascent",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              5,
+              "ascent",
+              "jump",
+              183.33333333333366
+            ],
+            [
+              6,
+              "apex",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              7,
+              "apex",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              8,
+              "apex",
+              "jump",
+              50.0000000000001
+            ],
+            [
+              10,
+              "descent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              11,
+              "descent",
+              "jump",
+              266.6666666666671
+            ],
+            [
+              12,
+              "landing",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              13,
+              "landing",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              14,
+              "landing",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              15,
+              "landing",
+              "jump",
+              66.6666666666668
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F4–9 발을 접은 상승·정점, F11–12 한 발을 내린 하강이 구분된다. 수정된 하강은 F11–12만 유지하고, 양발을 딛는 F13은 실제 착지 뒤 F13–16 회복에만 나온다. 새 timeline과 정상·느린 재생에서 공중 착지 선행이 사라졌다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "knock_down",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "sha256": "198c37fb81af679940f13da81b5a6c5a27ac09866b7401265b60b308f29fca2e",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres",
+      "sprite_frames_sha256": "1407422a8738bdbdc86a7c7462fdbecf1a95e63c1d5a1c19518cf51223f905db",
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__knock_down.jpg": "9bdb02c5a81f174714024412e3204c722e7f25287a072bf6f7e2364d99f896ec",
+        "sheets/nabi__knock_down.png": "198c37fb81af679940f13da81b5a6c5a27ac09866b7401265b60b308f29fca2e"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:knock_down",
+          "sequence": [
+            [
+              0,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              1,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              2,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              3,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              4,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              5,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              6,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              7,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              8,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              9,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              10,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              11,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:landing-down-18",
+          "sequence": [
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              50.0000000000001
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "원화 F7–10 바닥에 닿고 F13–16 옆으로 누워 유지한다. 새 state:landing-down-18 변형은 실제 300ms 동안 F13–16을 표시해 공중 자세로 끝나던 문제가 사라졌다. 정상·느린·반전 재생에서 누운 실루엣이 유지된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "launch",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/launch_16f.png",
+      "sha256": "1eea5e9be6db877de2d45e6675ddb97418700b1fa8794c0c26b09e6c04f19c0d",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/launch.tres",
+      "sprite_frames_sha256": "c9fef77fef17c056633f083347ad64dd3a09e8672dc4a2e8ef2bfe421eb8ada5",
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__launch.jpg": "2c7247a3e0cd383ca48b32ac6dd7c65e49ba88fd6d1970cedc05dd4cde4697ff",
+        "sheets/nabi__launch.png": "1eea5e9be6db877de2d45e6675ddb97418700b1fa8794c0c26b09e6c04f19c0d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:launch",
+          "sequence": [
+            [
+              0,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              1,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              2,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              3,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              4,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              5,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              6,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              7,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              8,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              9,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              10,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              11,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              12,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              13,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              14,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              15,
+              "launch",
+              "launch",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F2–6 발이 뜨고 뒤로 누우며 F7–12 몸통이 돌아간다. F13–16 웅크린 채 밀려가는 끝자세로 자기공격과 구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "ring_out",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "sha256": "1a7fb9c08dc0b697aca38daba5908366f8f9e4cd2dc544db9eac4457d98f4c67",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres",
+      "sprite_frames_sha256": "d745b23f2b2e82216438570ac758f3520b9c2072874d9dbc609054398a043328",
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__ring_out.jpg": "33313e49537dc5935afa7f2fb28ea42285d38cc9382878cc4acb000c92351542",
+        "sheets/nabi__ring_out.png": "1a7fb9c08dc0b697aca38daba5908366f8f9e4cd2dc544db9eac4457d98f4c67"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:ring_out",
+          "sequence": [
+            [
+              0,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              1,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              2,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              3,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              5,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              6,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              7,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              8,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              9,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              10,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              11,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              12,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              13,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              14,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              15,
+              "ring_out",
+              "ring_out",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–6 팔을벌려뒤로밀리고 F7–12 거꾸로회전한다. F13–16 웅크린공중반응으로사망의바닥누움과구분된다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "run",
+      "path": "assets/character/nabi/animation/runtime/run_16f.png",
+      "sha256": "4315e5671ef1657e23c2e6a88c584d7deac30813ca74dae83ed3252c8d47087d",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/run.tres",
+      "sprite_frames_sha256": "e73638537ca89ed90ea5c434b6c7f184b0dfb2ee8dc465b264fe04ea6fcf4c88",
+      "expected_action": "전진 달리기. 발 교대와 체중 이동이 이어지고 루프가 튀지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__run.jpg": "bf3c900c166088d089abb32334a7312569a5b82b92bc47ed99dd1a84546a905d",
+        "sheets/nabi__run.png": "4315e5671ef1657e23c2e6a88c584d7deac30813ca74dae83ed3252c8d47087d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:run",
+          "sequence": [
+            [
+              0,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              1,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              2,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              3,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              6,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              0,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              1,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              2,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              3,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F3–8 앞다리 뻗기와 뒷다리 접기가 교대하고 F9–16 반대다리 지지가 이어진다. 큰 꼬리와 머리의 높이 변화가 이어진다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "spawn",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/spawn_16f.png",
+      "sha256": "9e63ac92fcac25b2400f5537e3f826257902d0c360f6eff153c5f830b7a63a07",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres",
+      "sprite_frames_sha256": "2a73576a8b08a082fd6ecead2976afefe6d8a1a7ee1a55d4458986d344c4f0f0",
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__spawn.jpg": "2abacc6c7a6b0adc3c87de17cde2f597c117509483f3d7c2574e1b76f8663792",
+        "sheets/nabi__spawn.png": "9e63ac92fcac25b2400f5537e3f826257902d0c360f6eff153c5f830b7a63a07"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:spawn",
+          "sequence": [
+            [
+              0,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              1,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              2,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              3,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              4,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              5,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              6,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              7,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              8,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              9,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              10,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              11,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              12,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              13,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              14,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              15,
+              "spawn",
+              "spawn",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–7 공중에서내려오고 F8–11 손과무릎을낮춰착지한뒤 F12–16 몸을세운다. 준비자세로끝나며사망끝자세가아니다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "special_side",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_side_16f.png",
+      "sha256": "5846af8cf4127f734b5e0684843bf0ed86c367ad8c3aab50e6c69a64d1bfd60f",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres",
+      "sprite_frames_sha256": "785ea871ed54246fdf17790b5fe85afbdb2f4db7b500a8890f827cde004dfac2",
+      "expected_action": "낮은 전진 돌파(run)→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__special_side.jpg": "de21546a4e1aefe786952f0a28a5f53a21366e24313cca4ccba8a9fc754b324f",
+        "sheets/nabi__special_side.png": "5846af8cf4127f734b5e0684843bf0ed86c367ad8c3aab50e6c69a64d1bfd60f"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              6,
+              "active",
+              "special_side",
+              100.0000000000002
+            ],
+            [
+              7,
+              "active",
+              "special_side",
+              100.0000000000002
+            ],
+            [
+              8,
+              "active",
+              "special_side",
+              100.0000000000002
+            ],
+            [
+              9,
+              "active",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "special_side",
+              66.6666666666668
+            ],
+            [
+              12,
+              "recovery",
+              "special_side",
+              66.6666666666668
+            ],
+            [
+              13,
+              "recovery",
+              "special_side",
+              66.6666666666668
+            ],
+            [
+              14,
+              "recovery",
+              "special_side",
+              66.6666666666668
+            ],
+            [
+              15,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "원화 F1–4 낮은 준비와 F5–10 할퀴기, F11–16 회수·정지를 확인했다. 실제 경기 success는 tick9–21 낮은 run으로 x600→864에 돌파하고 tick22 바라보기를 -1로 바꿔 상대쪽을 한 번 할퀸다. tick22–25 네 장을 무손실 영상에서 따로 보았으며 HP105→93 한 번 후 tick26 회복·46 정지다. whiff는 x920(320 이동)에서 타격 없이 정지, 벽 case는 x600에서 실패·회복하며 HP가 유지된다. 정상·느린·반전 표시와 state-report를 함께 대조했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    },
+    {
+      "character_id": "nabi",
+      "motion": "wake_up",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "sha256": "f70d21b1d418a58349234ef15e52ae36a3c9af01ac4a9f8e310b67e1f474305d",
+      "sprite_frames_path": "assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres",
+      "sprite_frames_sha256": "fdc5e54cc1d2c056f87877f2df4189a51e0cd39326688b6e8833dc20785c3562",
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md",
+      "action_source_sha256": "80506c10c791be2725806f8f128c313b73d2b9b057c1494053f3eef209adce87",
+      "materials": {
+        "boards/nabi__wake_up.jpg": "f271ec8fb24a93970969fba26c9a784ad98093b20bf84027d57be88d3cd5bd9e",
+        "sheets/nabi__wake_up.png": "f70d21b1d418a58349234ef15e52ae36a3c9af01ac4a9f8e310b67e1f474305d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:wake_up",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              100.0000000000002
+            ],
+            [
+              3,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              100.0000000000002
+            ],
+            [
+              6,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              9,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              12,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:wakeup-protection-12",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              3,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              12,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "F1–3 누움→F4–8 손으로 밀기→F9–12 다리 펴기→F13–16 준비 자세가 명확하다. 새 12tick/200ms 변형은 시작부터 끝 F16까지 압축 재생하여 누운 F1에서 idle로 뛰던 문제가 사라졌다. 정상·느린 재생·소형 표시와 실제 IDLE 전환 테스트를 대조했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-runtime",
+      "reuse_approved_runtime": true,
+      "inspection_note": "전체 프레임·재생·좌우 반전·작은 표시에서 귀/꼬리/천 또는 손톱과 인간형 손발을 대조했다. 셀 절단·이웃 셀 조각을 관찰하지 못했다."
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/two-fighter-combat-v2/candidate-catalog.json",
+    "catalog_sha256": "f275ba56f90e601ace0593df9909230d08057a2facc8cdb1a9c9c5857370bc89",
+    "scope_path": "_workspace/two-fighter-combat-v2/candidate-scope.json",
+    "scope_sha256": "6935ac1ed76aa30ca4cd0ab38ff407c6784f0786a30a4102f33a62fb476baf3b",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "qa",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "f3a1cb278b94ffbf07682b42d1febfe5dbb2328d93ff189dad5eeabc57373485",
+    "timeline.json": "d14a9887f6e3ba9f5ca2b17bc0c00086eb1210fe7be4cd777cbef344b3fa35c9"
+  },
+  "review_round": "r02",
+  "review_method": "모든 16프레임 비교판 직접 확인; 원화 FPS와 게임 timeline 정상·0.25배 재생 화면 표본, 반전·소형 표시; 효과 포함 실제 코드 렌더8개, 실제 경기3case와 핵심 단타4프레임, 실제 바닥 전환 자동 검사 대조. 연속 모든 동영상 화면을 실시간 지켜본 검사 또는 Android 기기 검사로 확대 해석하지 않는다."
+}

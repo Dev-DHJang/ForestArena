@@ -10,6 +10,9 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 		return result
 	var attack := context.attack
 	var defender := context.defender
+	if defender.wakeup_protection_ticks > 0 and not attack.ignore_armor_and_immunity:
+		result.type = HitResult.Type.IMMUNE
+		return result
 	if defender.runtime_state.guarding and not attack.ignore_armor_and_immunity:
 		result.type = HitResult.Type.BLOCK
 		result.guard_damage = attack.guard_damage if attack.guard_damage > 0.0 else attack.damage
@@ -19,7 +22,7 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 			defender.state = FighterController.State.HITSTUN
 		EffectControllerScript.dispatch(EffectData.Trigger.ON_BLOCKED, context.attacker, defender, rules, attack.attack_id, 0, attack.tags)
 		return result
-	if defender.invulnerability_ticks > 0 and not attack.ignore_armor_and_immunity:
+	if (defender.invulnerability_ticks > 0 or defender.wakeup_protection_ticks > 0) and not attack.ignore_armor_and_immunity:
 		result.type = HitResult.Type.IMMUNE
 		return result
 	if not attack.ignore_armor_and_immunity and _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_TAG, attack.tags):
@@ -36,15 +39,19 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 	result.type = HitResult.Type.HIT
 	result.damage = attack.damage
 	result.knockback = Vector2.ZERO if _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_KNOCKBACK, attack.tags) else direction * speed
+	if attack.schema_version == 4 and attack.landing_knockdown and attack.hit_reaction == AttackData.HitReaction.SLAM:
+		result.knockback.y = minf(rules.max_fall_speed, maxf(result.knockback.y, attack.knockback))
 	result.hitstun_ticks = 0 if _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_HITSTUN, attack.tags) else CombatMath.hitstun_ticks(attack, defender._stats().weight, rules)
 	var reaction: int = attack.hit_reaction
 	if _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_KNOCKDOWN, attack.tags) and reaction in [AttackData.HitReaction.KNOCK_DOWN, AttackData.HitReaction.SLAM, AttackData.HitReaction.CRUMPLE]:
 		reaction = AttackData.HitReaction.NORMAL_HIT
 	result.reaction = AttackData.HitReaction.keys()[reaction]
 	defender.apply_hit(attack, result.knockback, result.hitstun_ticks, rules, reaction)
+	if attack.pull_ticks > 0 and defender.state not in [FighterController.State.RING_OUT, FighterController.State.DEAD]:
+		defender.begin_pull(context.source_position, speed, attack.pull_ticks, attack.pull_stop_distance)
 	# Gauge changes only after effective damage; blocked, immune and armored hits do not fill it.
-	context.attacker.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, context.attacker.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_dealt + attack.resource_gain)
-	defender.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, defender.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_taken)
+	if not rules.simplified_combat: context.attacker.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, context.attacker.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_dealt + attack.resource_gain)
+	if not rules.simplified_combat: defender.runtime_state.ultimate_gauge = minf(rules.ultimate_gauge_max, defender.runtime_state.ultimate_gauge + result.damage * rules.ultimate_gauge_per_damage_taken)
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_HIT, context.attacker, defender, rules, attack.attack_id, 0, attack.tags)
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_INCOMING_HIT, defender, context.attacker, rules, attack.attack_id, 0, attack.tags)
 	EffectControllerScript.dispatch(EffectData.Trigger.ON_DAMAGED, defender, context.attacker, rules, attack.attack_id, 0, attack.tags)
@@ -65,7 +72,11 @@ static func _has_rule(profile: RuntimeCombatProfile, kind: CombatRuleData.Kind, 
 static func _launch_direction(context: HitContext) -> Vector2:
 	var attack := context.attack
 	if attack.launch_mode == AttackData.LaunchMode.TOWARD_SOURCE:
-		return (context.source_position - context.target_position).normalized()
+		var direction := context.source_position - context.target_position
+		return Vector2(context.source_facing, 0) if direction.is_zero_approx() else direction.normalized()
+	if attack.launch_mode == AttackData.LaunchMode.AWAY_FROM_SOURCE:
+		var direction := context.target_position - context.source_position
+		return Vector2(context.source_facing, 0) if direction.is_zero_approx() else direction.normalized()
 	var result := attack.launch_vector
 	if attack.input_direction == AttackData.InputDirection.OMNI:
 		match context.source_direction:

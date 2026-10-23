@@ -1,0 +1,365 @@
+{
+  "character_id": "ja-hyun",
+  "motion": "special_scarf_sweep",
+  "status": "manual source points; pending independent attachment and motion QA",
+  "coordinate_space": "source cell-local pixels, cell top-left=(0,0), not atlas-normalized; points may be outside a nominal cell where a complete pose crosses a grid boundary",
+  "source_path": "_workspace/motion-naturalness-v1/remaining/ja-hyun/special_scarf_sweep-part-a-r01.png",
+  "source_sha256": "76b4a6498ac8eceb71c384b7bb01d50160ab3f1407b94e6ef95536718a9145f8",
+  "source_grid": [
+    4,
+    4
+  ],
+  "source_cell_size": [
+    313.5,
+    313.5
+  ],
+  "method": "manual visual choice on current newly generated cloth/hand; no reuse of old frame anchors; hidden anatomical neck junction indicated where the collar occludes cloth",
+  "frames": [
+    {
+      "frame_index": 0,
+      "source_frame_index": 0,
+      "source_cell_origin": [
+        0.0,
+        0.0
+      ],
+      "scarf_root": [
+        180.0,
+        149.0
+      ],
+      "scarf_tips": [
+        [
+          29.0,
+          172.0
+        ],
+        [
+          99.0,
+          218.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 1,
+      "source_frame_index": 1,
+      "source_cell_origin": [
+        313.5,
+        0.0
+      ],
+      "scarf_root": [
+        192.5,
+        154.0
+      ],
+      "scarf_tips": [
+        [
+          154.5,
+          220.0
+        ],
+        [
+          226.5,
+          208.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 2,
+      "source_frame_index": 2,
+      "source_cell_origin": [
+        627.0,
+        0.0
+      ],
+      "scarf_root": [
+        190.0,
+        151.0
+      ],
+      "scarf_tips": [
+        [
+          183.0,
+          204.0
+        ],
+        [
+          266.0,
+          211.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 3,
+      "source_frame_index": 3,
+      "source_cell_origin": [
+        940.5,
+        0.0
+      ],
+      "scarf_root": [
+        195.5,
+        155.0
+      ],
+      "scarf_tips": [
+        [
+          249.5,
+          190.0
+        ],
+        [
+          282.5,
+          188.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 4,
+      "source_frame_index": 4,
+      "source_cell_origin": [
+        0.0,
+        313.5
+      ],
+      "scarf_root": [
+        182.0,
+        156.5
+      ],
+      "scarf_tips": [
+        [
+          23.0,
+          73.5
+        ],
+        null
+      ],
+      "unresolved": "One scarf tail hem is occluded behind the arm/body; a second distinct endpoint cannot be visually fixed from this drawing."
+    },
+    {
+      "frame_index": 5,
+      "source_frame_index": 5,
+      "source_cell_origin": [
+        313.5,
+        313.5
+      ],
+      "scarf_root": [
+        194.5,
+        158.5
+      ],
+      "scarf_tips": [
+        [
+          60.5,
+          67.5
+        ],
+        [
+          261.5,
+          16.5
+        ]
+      ]
+    },
+    {
+      "frame_index": 6,
+      "source_frame_index": 6,
+      "source_cell_origin": [
+        627.0,
+        313.5
+      ],
+      "scarf_root": [
+        169.0,
+        163.5
+      ],
+      "scarf_tips": [
+        [
+          128.0,
+          5.5
+        ],
+        [
+          275.0,
+          88.5
+        ]
+      ]
+    },
+    {
+      "frame_index": 7,
+      "source_frame_index": 7,
+      "source_cell_origin": [
+        940.5,
+        313.5
+      ],
+      "scarf_root": [
+        192.5,
+        166.5
+      ],
+      "scarf_tips": [
+        [
+          140.5,
+          7.5
+        ],
+        [
+          286.5,
+          145.5
+        ]
+      ]
+    },
+    {
+      "frame_index": 8,
+      "source_frame_index": 8,
+      "source_cell_origin": [
+        0.0,
+        627.0
+      ],
+      "scarf_root": [
+        177.0,
+        145.0
+      ],
+      "scarf_tips": [
+        [
+          144.0,
+          5.0
+        ],
+        [
+          247.0,
+          53.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 9,
+      "source_frame_index": 9,
+      "source_cell_origin": [
+        313.5,
+        627.0
+      ],
+      "scarf_root": [
+        183.5,
+        148.0
+      ],
+      "scarf_tips": [
+        [
+          317.5,
+          137.0
+        ],
+        [
+          320.5,
+          188.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 10,
+      "source_frame_index": 10,
+      "source_cell_origin": [
+        627.0,
+        627.0
+      ],
+      "scarf_root": [
+        178.0,
+        148.0
+      ],
+      "scarf_tips": [
+        [
+          314.0,
+          127.0
+        ],
+        [
+          324.0,
+          208.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 11,
+      "source_frame_index": 11,
+      "source_cell_origin": [
+        940.5,
+        627.0
+      ],
+      "scarf_root": [
+        186.5,
+        148.0
+      ],
+      "scarf_tips": [
+        [
+          43.5,
+          148.0
+        ],
+        [
+          276.5,
+          248.0
+        ]
+      ]
+    },
+    {
+      "frame_index": 12,
+      "source_frame_index": 12,
+      "source_cell_origin": [
+        0.0,
+        940.5
+      ],
+      "scarf_root": [
+        171.0,
+        130.5
+      ],
+      "scarf_tips": [
+        null,
+        [
+          214.0,
+          213.5
+        ]
+      ],
+      "unresolved": "One scarf tail hem is occluded behind the arm/body; a second distinct endpoint cannot be visually fixed from this drawing."
+    },
+    {
+      "frame_index": 13,
+      "source_frame_index": 13,
+      "source_cell_origin": [
+        313.5,
+        940.5
+      ],
+      "scarf_root": [
+        180.5,
+        130.5
+      ],
+      "scarf_tips": [
+        [
+          61.5,
+          169.5
+        ],
+        [
+          237.5,
+          204.5
+        ]
+      ]
+    },
+    {
+      "frame_index": 14,
+      "source_frame_index": 14,
+      "source_cell_origin": [
+        627.0,
+        940.5
+      ],
+      "scarf_root": [
+        180.0,
+        133.5
+      ],
+      "scarf_tips": [
+        [
+          44.0,
+          144.5
+        ],
+        null
+      ],
+      "unresolved": "One scarf tail hem is occluded behind the arm/body; a second distinct endpoint cannot be visually fixed from this drawing."
+    },
+    {
+      "frame_index": 15,
+      "source_frame_index": 15,
+      "source_cell_origin": [
+        940.5,
+        940.5
+      ],
+      "scarf_root": [
+        196.5,
+        142.5
+      ],
+      "scarf_tips": [
+        [
+          44.5,
+          153.5
+        ],
+        [
+          78.5,
+          195.5
+        ]
+      ]
+    }
+  ]
+}

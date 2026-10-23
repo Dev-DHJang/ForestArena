@@ -1,0 +1,14 @@
+PASS GET normalizes inactive selection, retains all archived ownership and settings
+PASS repeated GET does not rewrite an already normalized row
+PASS inactive-only ownership receives ja-hyun without deleting archived records
+PASS new import response equals committed normalized SQL row
+PASS import into an existing archived row commits its own normalization
+PASS reject inactive new purchase {"id":"myo-ryung"}
+PASS reject inactive new purchase {"id":"fixture-iron-armor"}
+PASS reject inactive new select {"character":"myo-ryung","accessory":"","opponent":"nabi"}
+PASS reject inactive new select {"character":"nabi","accessory":"fixture-iron-armor","opponent":"ja-hyun"}
+PASS rejected actions preserve the committed profile and revision
+PASS GET normalization never reports success after forced SQL UPDATE failure
+PASS POST normalization never reports success after forced SQL UPDATE failure
+PASS normalization recovers and commits after the owned failure trigger is removed
+TWO_FIGHTER_DB_SELECTION: PASS (13 checks)

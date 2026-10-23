@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "implemented-contract-with-pending-motion-approval",
+  "title": "Forest Arena two fighter combat v2",
+  "rules_document": "docs/gameplay/two-fighter-combat-v2.md",
+  "active_character_ids": ["ja-hyun", "nabi"],
+  "owned_catalog_policy": "Keep all four character and six accessory IDs; normalize only executable selections, preserving preset and ownership history.",
+  "runtime_resources": {
+    "attack_schema": 4,
+    "accepted_legacy_attack_schema": 3,
+    "rules_schema": 5,
+    "accepted_legacy_rules_schema": 4,
+    "rules": "assets/combat/two_fighter_combat_rules.tres",
+    "movesets": ["assets/combat/movesets/two_fighter_ja_hyun_moveset.tres", "assets/combat/movesets/two_fighter_nabi_moveset.tres"]
+  },
+  "product_inputs": ["move", "jump", "attack_light", "attack_heavy", "attack_special"],
+  "excluded_inputs": ["dash", "evade", "ultimate", "charge"],
+  "lan_protocol_version": 3,
+  "presentation_boundary": "UI, sprites and procedural effects read values only; they never resolve damage, action restriction, hit detection or winner.",
+  "attack_v4_optional_fields": {
+    "hit_windows": "Array[Dictionary]: global active 1-based tick and boxes:Array[Rect2]; optional per-pulse damage/knockback/launch_mode/launch_vector/hit_reaction/pull_ticks/pull_stop_distance",
+    "pull_ticks": "int >= 0",
+    "pull_stop_distance": "float >= 0",
+    "air_lock": "int: 0 none, 1 extra jump and attack restriction, 2 all actions",
+    "landing_knockdown": "bool",
+    "preserve_air_actions": "bool",
+    "ground_only": "bool",
+    "attack_movement": "int: 0 none, 1 fixed endpoint behind first enemy",
+    "travel_distance": "float",
+    "travel_speed": "float",
+    "behind_distance": "float",
+    "hit_target_only": "bool"
+  },
+  "launch_modes": {"VECTOR": 0, "TOWARD_SOURCE": 1, "AWAY_FROM_SOURCE": 2},
+  "snapshot_fields": {
+    "air_light_used": "bool", "air_heavy_used": "bool",
+    "air_lock": "int", "air_lock_ticks": "int", "air_lock_expired": "bool",
+    "landing_knockdown_pending": "bool", "landing_down_ticks": "int", "wakeup_protection_ticks": "int",
+    "pull_ticks_remaining": "int", "pull_speed": "float", "pull_stop_distance": "float", "pull_anchor": "{x:number,y:number}",
+    "attack_travel_active": "bool", "attack_target_id": "string", "attack_travel_end": "{x:number,y:number}",
+    "attack_strike_ready": "bool", "attack_travel_failed": "bool", "attack_movement_started": "bool", "on_floor": "bool"
+  },
+  "motion_policy": "Candidate-only until independent action review and explicit approval for each new or changed motion. Existing approved motion reuse does not imply approval of new choreography."
+}

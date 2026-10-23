@@ -20,6 +20,7 @@ static func resolve(fighters: Array[FighterController]) -> void:
 
 
 static func _separate_pair(first: FighterController, second: FighterController) -> bool:
+	if first.attack_travel_active or second.attack_travel_active: return false
 	var first_box := first.get_pushbox_rect()
 	var second_box := second.get_pushbox_rect()
 	if not first_box.intersects(second_box):

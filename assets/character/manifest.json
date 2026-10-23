@@ -210,82 +210,957 @@
       "foot_pivot_y": 124
     },
     {
-      "asset_id": "ja-hyun-run-16f-v01",
-      "character_id": "ja-hyun",
       "type": "animation-runtime",
-      "path": "assets/character/ja-hyun/animation/runtime/run_16f.png",
+      "character_id": "ja-hyun",
+      "visual_state_id": "run",
+      "path": "assets/character/ja-hyun/animation/runtime/run_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+      "sha256": "08a3faa2609ff87aebf8623b95a40fcfacedb88cc8c9cc85d1f2f8b148d80cf3",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/run-r06-combined.png",
+      "source_sha256": "779fd9cd47d1c7a26094863283ca6c18cd7587ffce6b7037e90938d1ba9d9507",
+      "conversion": {
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.15461847389558234,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.15461847389558234,
+        "translation": [
+          2.1526104417670666,
+          42.43875502008032
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            21,
+            47,
+            118,
+            125
+          ],
+          [
+            24,
+            48,
+            112,
+            125
+          ],
+          [
+            29,
+            45,
+            112,
+            123
+          ],
+          [
+            24,
+            47,
+            108,
+            124
+          ],
+          [
+            20,
+            47,
+            105,
+            125
+          ],
+          [
+            19,
+            47,
+            110,
+            125
+          ],
+          [
+            19,
+            48,
+            118,
+            124
+          ],
+          [
+            19,
+            48,
+            112,
+            125
+          ],
+          [
+            25,
+            47,
+            114,
+            124
+          ],
+          [
+            21,
+            47,
+            102,
+            124
+          ],
+          [
+            32,
+            47,
+            112,
+            124
+          ],
+          [
+            26,
+            46,
+            104,
+            123
+          ],
+          [
+            27,
+            47,
+            110,
+            124
+          ],
+          [
+            21,
+            47,
+            110,
+            125
+          ],
+          [
+            23,
+            47,
+            117,
+            123
+          ],
+          [
+            22,
+            47,
+            111,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "presentation_calibration": {
+          "method": "one uniform display scale for every pose; head/face unit referenced to approved crouched idle; folded poses may have lower total height",
+          "scale_multiplier": 0.85,
+          "pixel_bytes_unchanged": true,
+          "run_stride_scaled_with_drawn_leg_travel": true,
+          "independent_diagnostic": "_workspace/motion-naturalness-v1/qa/ja-run-jump-uniform085-diagnostic-r05.jpg"
+        },
+        "source_layout_record": {
+          "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/run-r06-combined.json",
+          "sha256": "62c71c107d3d0ca33cc1dec7a3f8cae769c66641de00b1c0cd66fa8b017a6fd6"
+        }
+      },
+      "asset_id": "ja-hyun-run-16f-v01",
       "creation": {
-        "method": "built-in image generation, approved identity reference and region normalization",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "motion-visual-unification-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/run-r06-combined.png",
+        "source_sha256": "779fd9cd47d1c7a26094863283ca6c18cd7587ffce6b7037e90938d1ba9d9507"
       },
       "rights": {
-        "status": "derived from approved ja-hyun concept; external license verification not asserted",
+        "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User motion-package approval, 2026-09-08",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-08",
-      "sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f",
-      "modifications": [
-        "Normalized the approved 4x4 review frames into a 16-frame RGBA runtime sheet.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      "registration_history": [
+        {
+          "asset_id": "ja-hyun-run-16f-v01",
+          "character_id": "ja-hyun",
+          "type": "animation-runtime",
+          "path": "assets/character/ja-hyun/animation/runtime/run_16f.png",
+          "creation": {
+            "method": "built-in image generation, approved identity reference and region normalization",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "motion-visual-unification-v01"
+          },
+          "rights": {
+            "status": "derived from approved ja-hyun concept; external license verification not asserted",
+            "references": [
+              "User motion-package approval, 2026-09-08",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+            ]
+          },
+          "verified_on": "2026-10-08",
+          "sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f",
+          "modifications": [
+            "Normalized the approved 4x4 review frames into a 16-frame RGBA runtime sheet.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": true,
+          "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+          "consumer_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+          "motion_unification": {
+            "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+            "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/run-r02.png",
+            "source_sha256": "f18b0c25adfa718424978495cf3ec6d705a6120cce34934c522872504d740afb",
+            "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/run_16f.png",
+            "source_scale": 1,
+            "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+          },
+          "visual_state_id": "run",
+          "foot_pivot_y": 124
+        }
       ],
       "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": true,
-      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+      "run_stride_px": 81.6,
+      "presentation_scale": 0.85,
+      "foot_pivot_y": 124,
       "consumer_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
-      "motion_unification": {
-        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
-        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/run-r02.png",
-        "source_sha256": "f18b0c25adfa718424978495cf3ec6d705a6120cce34934c522872504d740afb",
-        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/run_16f.png",
-        "source_scale": 1,
-        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
-      },
-      "visual_state_id": "run",
-      "foot_pivot_y": 124
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/run_16f_r06.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/ja-hyun/run_r06.tres",
+        "candidate_sprite_frames_sha256": "cd99deb20f903c65fc3012ad6a6a9a1803f7beffbd90d754315e2bc9f6ac2eee",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/run-r06-combined.png",
+          "source_sha256": "779fd9cd47d1c7a26094863283ca6c18cd7587ffce6b7037e90938d1ba9d9507",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/run-r06-combined.png",
+            "source_sha256": "779fd9cd47d1c7a26094863283ca6c18cd7587ffce6b7037e90938d1ba9d9507"
+          },
+          "rights": {
+            "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "ground_anchor_offsets": {},
+            "reference_scale": 0.15461847389558234,
+            "padding_shift_y": 0,
+            "uniform_scale": 0.15461847389558234,
+            "translation": [
+              2.1526104417670666,
+              42.43875502008032
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                21,
+                47,
+                118,
+                125
+              ],
+              [
+                24,
+                48,
+                112,
+                125
+              ],
+              [
+                29,
+                45,
+                112,
+                123
+              ],
+              [
+                24,
+                47,
+                108,
+                124
+              ],
+              [
+                20,
+                47,
+                105,
+                125
+              ],
+              [
+                19,
+                47,
+                110,
+                125
+              ],
+              [
+                19,
+                48,
+                118,
+                124
+              ],
+              [
+                19,
+                48,
+                112,
+                125
+              ],
+              [
+                25,
+                47,
+                114,
+                124
+              ],
+              [
+                21,
+                47,
+                102,
+                124
+              ],
+              [
+                32,
+                47,
+                112,
+                124
+              ],
+              [
+                26,
+                46,
+                104,
+                123
+              ],
+              [
+                27,
+                47,
+                110,
+                124
+              ],
+              [
+                21,
+                47,
+                110,
+                125
+              ],
+              [
+                23,
+                47,
+                117,
+                123
+              ],
+              [
+                22,
+                47,
+                111,
+                124
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "presentation_calibration": {
+              "method": "one uniform display scale for every pose; head/face unit referenced to approved crouched idle; folded poses may have lower total height",
+              "scale_multiplier": 0.85,
+              "pixel_bytes_unchanged": true,
+              "run_stride_scaled_with_drawn_leg_travel": true,
+              "independent_diagnostic": "_workspace/motion-naturalness-v1/qa/ja-run-jump-uniform085-diagnostic-r05.jpg"
+            },
+            "source_layout_record": {
+              "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/run-r06-combined.json",
+              "sha256": "62c71c107d3d0ca33cc1dec7a3f8cae769c66641de00b1c0cd66fa8b017a6fd6"
+            }
+          }
+        }
+      }
     },
     {
-      "asset_id": "ja-hyun-jump-16f-v01",
-      "character_id": "ja-hyun",
       "type": "animation-runtime",
-      "path": "assets/character/ja-hyun/animation/runtime/jump_16f.png",
+      "character_id": "ja-hyun",
+      "visual_state_id": "jump",
+      "path": "assets/character/ja-hyun/animation/runtime/jump_24f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+      "sha256": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/jump-r02.png",
+      "source_sha256": "e352bc68aa97d81bfde58c230cc1be9faaa3e916d68caea9e041e45233293abe",
+      "conversion": {
+        "ground_anchor_offsets": {
+          "16": -6,
+          "17": -6,
+          "18": 1,
+          "19": 1,
+          "20": 1,
+          "21": 0,
+          "22": 0,
+          "23": 0
+        },
+        "reference_scale": 0.3452914798206278,
+        "padding_shift_y": -7,
+        "uniform_scale": 0.3452914798206278,
+        "translation": [
+          19.80269058295964,
+          39.40358744394619
+        ],
+        "ground_reference_start": 16,
+        "frame_bounds": [
+          [
+            25,
+            56,
+            104,
+            124
+          ],
+          [
+            23,
+            51,
+            101,
+            124
+          ],
+          [
+            25,
+            45,
+            98,
+            123
+          ],
+          [
+            20,
+            37,
+            104,
+            121
+          ],
+          [
+            32,
+            37,
+            108,
+            123
+          ],
+          [
+            29,
+            43,
+            106,
+            125
+          ],
+          [
+            24,
+            38,
+            102,
+            116
+          ],
+          [
+            23,
+            40,
+            105,
+            116
+          ],
+          [
+            25,
+            39,
+            104,
+            119
+          ],
+          [
+            24,
+            41,
+            103,
+            120
+          ],
+          [
+            25,
+            48,
+            105,
+            126
+          ],
+          [
+            25,
+            50,
+            106,
+            123
+          ],
+          [
+            25,
+            42,
+            105,
+            117
+          ],
+          [
+            26,
+            39,
+            105,
+            118
+          ],
+          [
+            29,
+            40,
+            103,
+            122
+          ],
+          [
+            25,
+            42,
+            101,
+            122
+          ],
+          [
+            25,
+            38,
+            102,
+            117
+          ],
+          [
+            26,
+            40,
+            104,
+            117
+          ],
+          [
+            26,
+            50,
+            107,
+            117
+          ],
+          [
+            31,
+            47,
+            109,
+            117
+          ],
+          [
+            32,
+            41,
+            111,
+            117
+          ],
+          [
+            32,
+            40,
+            108,
+            117
+          ],
+          [
+            32,
+            37,
+            104,
+            117
+          ],
+          [
+            31,
+            38,
+            100,
+            117
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "presentation_calibration": {
+          "method": "one uniform display scale for every pose; head/face unit referenced to approved crouched idle; folded poses may have lower total height",
+          "scale_multiplier": 0.85,
+          "pixel_bytes_unchanged": true,
+          "run_stride_scaled_with_drawn_leg_travel": false,
+          "independent_diagnostic": "_workspace/motion-naturalness-v1/qa/ja-run-jump-uniform085-diagnostic-r05.jpg"
+        }
+      },
+      "asset_id": "ja-hyun-jump-16f-v01",
       "creation": {
-        "method": "built-in image generation, approved identity reference and region normalization",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "motion-visual-unification-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/jump-r02.png",
+        "source_sha256": "e352bc68aa97d81bfde58c230cc1be9faaa3e916d68caea9e041e45233293abe"
       },
       "rights": {
-        "status": "derived from approved ja-hyun concept; external license verification not asserted",
+        "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User stationary-jump approval, 2026-09-08",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-08",
-      "sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9",
-      "modifications": [
-        "Built as a 16-frame RGBA stationary vertical jump with a shared horizontal foot pivot.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      "registration_history": [
+        {
+          "asset_id": "ja-hyun-jump-16f-v01",
+          "character_id": "ja-hyun",
+          "type": "animation-runtime",
+          "path": "assets/character/ja-hyun/animation/runtime/jump_16f.png",
+          "creation": {
+            "method": "built-in image generation, approved identity reference and region normalization",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "motion-visual-unification-v01"
+          },
+          "rights": {
+            "status": "derived from approved ja-hyun concept; external license verification not asserted",
+            "references": [
+              "User stationary-jump approval, 2026-09-08",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+            ]
+          },
+          "verified_on": "2026-10-08",
+          "sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9",
+          "modifications": [
+            "Built as a 16-frame RGBA stationary vertical jump with a shared horizontal foot pivot.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": false,
+          "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+          "consumer_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+          "motion_unification": {
+            "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+            "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/jump-r02.png",
+            "source_sha256": "001e3d0e66dc39cc5c9ab2a07192dc69febec1f97e12f1c317b9e9e790ef19d7",
+            "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/jump_16f.png",
+            "source_scale": 1,
+            "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+          },
+          "visual_state_id": "jump",
+          "foot_pivot_y": 124
+        }
       ],
-      "frame_count": 16,
+      "frame_count": 24,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": false,
-      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
-      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
-      "motion_unification": {
-        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
-        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/jump-r02.png",
-        "source_sha256": "001e3d0e66dc39cc5c9ab2a07192dc69febec1f97e12f1c317b9e9e790ef19d7",
-        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/jump_16f.png",
-        "source_scale": 1,
-        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      "jump_frame_ranges": {
+        "ascent": [
+          0,
+          6
+        ],
+        "apex": [
+          6,
+          10
+        ],
+        "descent": [
+          10,
+          16
+        ],
+        "landing": [
+          16,
+          24
+        ]
       },
-      "visual_state_id": "jump",
-      "foot_pivot_y": 124
+      "presentation_scale": 0.85,
+      "foot_pivot_y": 117,
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/jump_24f_r03.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/ja-hyun/jump_r03.tres",
+        "candidate_sprite_frames_sha256": "67775f8e07ee03535b1facbe369e324e0daf38f5ea46111458fd39986e0d87dc",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/jump-r02.png",
+          "source_sha256": "e352bc68aa97d81bfde58c230cc1be9faaa3e916d68caea9e041e45233293abe",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/jump-r02.png",
+            "source_sha256": "e352bc68aa97d81bfde58c230cc1be9faaa3e916d68caea9e041e45233293abe"
+          },
+          "rights": {
+            "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "ground_anchor_offsets": {
+              "16": -6,
+              "17": -6,
+              "18": 1,
+              "19": 1,
+              "20": 1,
+              "21": 0,
+              "22": 0,
+              "23": 0
+            },
+            "reference_scale": 0.3452914798206278,
+            "padding_shift_y": -7,
+            "uniform_scale": 0.3452914798206278,
+            "translation": [
+              19.80269058295964,
+              39.40358744394619
+            ],
+            "ground_reference_start": 16,
+            "frame_bounds": [
+              [
+                25,
+                56,
+                104,
+                124
+              ],
+              [
+                23,
+                51,
+                101,
+                124
+              ],
+              [
+                25,
+                45,
+                98,
+                123
+              ],
+              [
+                20,
+                37,
+                104,
+                121
+              ],
+              [
+                32,
+                37,
+                108,
+                123
+              ],
+              [
+                29,
+                43,
+                106,
+                125
+              ],
+              [
+                24,
+                38,
+                102,
+                116
+              ],
+              [
+                23,
+                40,
+                105,
+                116
+              ],
+              [
+                25,
+                39,
+                104,
+                119
+              ],
+              [
+                24,
+                41,
+                103,
+                120
+              ],
+              [
+                25,
+                48,
+                105,
+                126
+              ],
+              [
+                25,
+                50,
+                106,
+                123
+              ],
+              [
+                25,
+                42,
+                105,
+                117
+              ],
+              [
+                26,
+                39,
+                105,
+                118
+              ],
+              [
+                29,
+                40,
+                103,
+                122
+              ],
+              [
+                25,
+                42,
+                101,
+                122
+              ],
+              [
+                25,
+                38,
+                102,
+                117
+              ],
+              [
+                26,
+                40,
+                104,
+                117
+              ],
+              [
+                26,
+                50,
+                107,
+                117
+              ],
+              [
+                31,
+                47,
+                109,
+                117
+              ],
+              [
+                32,
+                41,
+                111,
+                117
+              ],
+              [
+                32,
+                40,
+                108,
+                117
+              ],
+              [
+                32,
+                37,
+                104,
+                117
+              ],
+              [
+                31,
+                38,
+                100,
+                117
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "presentation_calibration": {
+              "method": "one uniform display scale for every pose; head/face unit referenced to approved crouched idle; folded poses may have lower total height",
+              "scale_multiplier": 0.85,
+              "pixel_bytes_unchanged": true,
+              "run_stride_scaled_with_drawn_leg_travel": false,
+              "independent_diagnostic": "_workspace/motion-naturalness-v1/qa/ja-run-jump-uniform085-diagnostic-r05.jpg"
+            }
+          }
+        }
+      }
     },
     {
       "asset_id": "myo-ryung-jump-16f-v01",
@@ -376,180 +1251,2029 @@
       "presentation_scale": 1.0
     },
     {
-      "asset_id": "nabi-run-16f-v01",
-      "character_id": "nabi",
       "type": "animation-runtime",
-      "path": "assets/character/nabi/animation/runtime/run_16f.png",
+      "character_id": "nabi",
+      "visual_state_id": "run",
+      "path": "assets/character/nabi/animation/runtime/run_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/run.tres",
+      "sha256": "25b18202ccbad8a557735256d576f890fffbb3ec4e1dc20d4215c490d28a5ef8",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/run-r05-combined.png",
+      "source_sha256": "6c161fa2b14000692fb207e0affd358a0475f09d4ee98462d79783c0330eb985",
+      "conversion": {
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.15770609318996415,
+        "padding_shift_y": -1,
+        "uniform_scale": 0.15770609318996415,
+        "translation": [
+          4.3082437275985725,
+          30.637992831541226
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            15,
+            36,
+            113,
+            126
+          ],
+          [
+            14,
+            36,
+            106,
+            126
+          ],
+          [
+            15,
+            36,
+            112,
+            123
+          ],
+          [
+            19,
+            37,
+            117,
+            123
+          ],
+          [
+            17,
+            35,
+            108,
+            123
+          ],
+          [
+            16,
+            37,
+            114,
+            125
+          ],
+          [
+            15,
+            35,
+            120,
+            121
+          ],
+          [
+            14,
+            35,
+            114,
+            121
+          ],
+          [
+            18,
+            36,
+            121,
+            124
+          ],
+          [
+            19,
+            36,
+            111,
+            123
+          ],
+          [
+            18,
+            34,
+            113,
+            123
+          ],
+          [
+            21,
+            35,
+            112,
+            122
+          ],
+          [
+            20,
+            35,
+            110,
+            123
+          ],
+          [
+            17,
+            35,
+            113,
+            123
+          ],
+          [
+            16,
+            35,
+            114,
+            123
+          ],
+          [
+            18,
+            35,
+            115,
+            123
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "source_layout_record": {
+          "path": "_workspace/motion-naturalness-v1/drafts/nabi/run-r05-combined.json",
+          "sha256": "33b6ea3f239dd27e386e6fa195da6cd2edd86cc2156012052bf6b2f7d104b2c7"
+        }
+      },
+      "asset_id": "nabi-run-16f-v01",
       "creation": {
-        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "character-motion-proportion-unification-nabi-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/run-r05-combined.png",
+        "source_sha256": "6c161fa2b14000692fb207e0affd358a0475f09d4ee98462d79783c0330eb985"
       },
       "rights": {
-        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
-          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-17",
-      "sha256": "4315e5671ef1657e23c2e6a88c584d7deac30813ca74dae83ed3252c8d47087d",
-      "modifications": [
-        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
-        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
-        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
-        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      "registration_history": [
+        {
+          "asset_id": "nabi-run-16f-v01",
+          "character_id": "nabi",
+          "type": "animation-runtime",
+          "path": "assets/character/nabi/animation/runtime/run_16f.png",
+          "creation": {
+            "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "character-motion-proportion-unification-nabi-v01"
+          },
+          "rights": {
+            "status": "derived from approved nabi concept; no additional external rights verification asserted",
+            "references": [
+              "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+              "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+            ]
+          },
+          "verified_on": "2026-10-17",
+          "sha256": "4315e5671ef1657e23c2e6a88c584d7deac30813ca74dae83ed3252c8d47087d",
+          "modifications": [
+            "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+            "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+            "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+            "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": true,
+          "sprite_frames_path": "res://assets/character/nabi/animation/runtime/run.tres",
+          "consumer_path": "res://assets/character/nabi/animation/runtime/run.tres",
+          "foot_pivot_y": 124,
+          "motion_unification": {
+            "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+            "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/run-r01-alpha.png",
+            "source_sha256": "3a605d4e1615db98c03dc44b2f1d3b276d10d6ec92ab58586820fb3492f45573",
+            "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/run/run-r01-clean.png",
+            "review_sha256": "cff558cd3d100ac5ddaca6ada5ab4e01c37da492f7f047f0999718351f31ac13",
+            "source_scale": 0.3170731707317073,
+            "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+          },
+          "visual_state_id": "run",
+          "presentation_scale": 1.0
+        }
       ],
       "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": true,
-      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/run.tres",
+      "run_stride_px": 96,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 123,
       "consumer_path": "res://assets/character/nabi/animation/runtime/run.tres",
-      "foot_pivot_y": 124,
-      "motion_unification": {
-        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
-        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/run-r01-alpha.png",
-        "source_sha256": "3a605d4e1615db98c03dc44b2f1d3b276d10d6ec92ab58586820fb3492f45573",
-        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/run/run-r01-clean.png",
-        "review_sha256": "cff558cd3d100ac5ddaca6ada5ab4e01c37da492f7f047f0999718351f31ac13",
-        "source_scale": 0.3170731707317073,
-        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
-      },
-      "visual_state_id": "run",
-      "presentation_scale": 1.0
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/nabi/run_16f_r05.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/nabi/run_r05.tres",
+        "candidate_sprite_frames_sha256": "1dff19f0854515f57b19da6170d27d224cb5dd581f37c37e975e6b3a2d57a91c",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/run-r05-combined.png",
+          "source_sha256": "6c161fa2b14000692fb207e0affd358a0475f09d4ee98462d79783c0330eb985",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/run-r05-combined.png",
+            "source_sha256": "6c161fa2b14000692fb207e0affd358a0475f09d4ee98462d79783c0330eb985"
+          },
+          "rights": {
+            "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "ground_anchor_offsets": {},
+            "reference_scale": 0.15770609318996415,
+            "padding_shift_y": -1,
+            "uniform_scale": 0.15770609318996415,
+            "translation": [
+              4.3082437275985725,
+              30.637992831541226
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                15,
+                36,
+                113,
+                126
+              ],
+              [
+                14,
+                36,
+                106,
+                126
+              ],
+              [
+                15,
+                36,
+                112,
+                123
+              ],
+              [
+                19,
+                37,
+                117,
+                123
+              ],
+              [
+                17,
+                35,
+                108,
+                123
+              ],
+              [
+                16,
+                37,
+                114,
+                125
+              ],
+              [
+                15,
+                35,
+                120,
+                121
+              ],
+              [
+                14,
+                35,
+                114,
+                121
+              ],
+              [
+                18,
+                36,
+                121,
+                124
+              ],
+              [
+                19,
+                36,
+                111,
+                123
+              ],
+              [
+                18,
+                34,
+                113,
+                123
+              ],
+              [
+                21,
+                35,
+                112,
+                122
+              ],
+              [
+                20,
+                35,
+                110,
+                123
+              ],
+              [
+                17,
+                35,
+                113,
+                123
+              ],
+              [
+                16,
+                35,
+                114,
+                123
+              ],
+              [
+                18,
+                35,
+                115,
+                123
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "source_layout_record": {
+              "path": "_workspace/motion-naturalness-v1/drafts/nabi/run-r05-combined.json",
+              "sha256": "33b6ea3f239dd27e386e6fa195da6cd2edd86cc2156012052bf6b2f7d104b2c7"
+            }
+          }
+        }
+      }
     },
     {
-      "asset_id": "nabi-jump-16f-v01",
+      "type": "animation-runtime",
       "character_id": "nabi",
-      "type": "animation-runtime",
-      "path": "assets/character/nabi/animation/runtime/jump_16f.png",
-      "creation": {
-        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "character-motion-proportion-unification-nabi-v01"
-      },
-      "rights": {
-        "status": "derived from approved nabi concept; no additional external rights verification asserted",
-        "references": [
-          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
-          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
-        ]
-      },
-      "verified_on": "2026-10-17",
-      "sha256": "eb5131c3a0d715b0c5d63419bc8a81ab4a923955141d06910e33a36d139e8df9",
-      "modifications": [
-        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
-        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
-        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
-        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
-      ],
-      "frame_count": 16,
-      "fps": 12,
-      "loop": false,
-      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/jump.tres",
-      "consumer_path": "res://assets/character/nabi/animation/runtime/jump.tres",
-      "foot_pivot_y": 124,
-      "motion_unification": {
-        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
-        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/jump-r01-alpha.png",
-        "source_sha256": "338021b727a137fe2d09549b3a6fbd5541fbfbbcaa5c656908477b7cca358fec",
-        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/jump/jump-r01-clean.png",
-        "review_sha256": "0960d6617b781812f63ed72236f27329a749bd288fd96d44e5797b03e213ccd8",
-        "source_scale": 0.3956043956043956,
-        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
-      },
       "visual_state_id": "jump",
-      "presentation_scale": 1.0
-    },
-    {
-      "asset_id": "ja-hyun-attack-light-combo-01-16f-r02",
-      "character_id": "ja-hyun",
-      "type": "animation-runtime",
-      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png",
+      "path": "assets/character/nabi/animation/runtime/jump_24f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/jump.tres",
+      "sha256": "8e5c530cc6eea933f9f4a7c8b0e8b01c1427efc3e002343f575b87352c60cf5d",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/jump-r01.png",
+      "source_sha256": "a42a481045b34eb8424e5fa8244546e52020e6265b57d5d239ae432494d0ca8b",
+      "conversion": {
+        "ground_anchor_offsets": {
+          "16": -8,
+          "17": -8,
+          "18": 1,
+          "19": 0,
+          "20": 0,
+          "21": 0,
+          "22": 0,
+          "23": 0
+        },
+        "reference_scale": 0.4251207729468599,
+        "padding_shift_y": -15,
+        "uniform_scale": 0.4251207729468599,
+        "translation": [
+          9.584541062801932,
+          18.14492753623189
+        ],
+        "ground_reference_start": 16,
+        "frame_bounds": [
+          [
+            16,
+            35,
+            113,
+            112
+          ],
+          [
+            18,
+            30,
+            121,
+            111
+          ],
+          [
+            17,
+            24,
+            110,
+            112
+          ],
+          [
+            16,
+            15,
+            109,
+            102
+          ],
+          [
+            13,
+            7,
+            116,
+            102
+          ],
+          [
+            22,
+            5,
+            117,
+            98
+          ],
+          [
+            11,
+            7,
+            108,
+            92
+          ],
+          [
+            7,
+            8,
+            110,
+            105
+          ],
+          [
+            14,
+            9,
+            115,
+            99
+          ],
+          [
+            16,
+            8,
+            105,
+            119
+          ],
+          [
+            15,
+            14,
+            108,
+            125
+          ],
+          [
+            18,
+            15,
+            115,
+            126
+          ],
+          [
+            13,
+            5,
+            114,
+            113
+          ],
+          [
+            19,
+            9,
+            118,
+            116
+          ],
+          [
+            11,
+            15,
+            115,
+            117
+          ],
+          [
+            14,
+            18,
+            109,
+            118
+          ],
+          [
+            11,
+            27,
+            122,
+            109
+          ],
+          [
+            21,
+            41,
+            118,
+            109
+          ],
+          [
+            15,
+            36,
+            112,
+            109
+          ],
+          [
+            21,
+            26,
+            120,
+            109
+          ],
+          [
+            24,
+            16,
+            118,
+            109
+          ],
+          [
+            21,
+            13,
+            112,
+            109
+          ],
+          [
+            18,
+            14,
+            106,
+            109
+          ],
+          [
+            22,
+            14,
+            110,
+            109
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting"
+      },
+      "asset_id": "nabi-jump-16f-v01",
       "creation": {
-        "method": "built-in image generation, approved identity reference and region normalization",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "motion-visual-unification-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/jump-r01.png",
+        "source_sha256": "a42a481045b34eb8424e5fa8244546e52020e6265b57d5d239ae432494d0ca8b"
       },
       "rights": {
-        "status": "derived from approved ja-hyun concept; no external reference asset used",
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User r02 Ja-Hyun base-combo approval, 2026-09-09",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-08",
-      "sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4",
-      "modifications": [
-        "Normalized the approved r02 4x4 review frames into a 16-frame RGBA runtime sheet.",
-        "Applied alpha cleanup during normalization.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      "registration_history": [
+        {
+          "asset_id": "nabi-jump-16f-v01",
+          "character_id": "nabi",
+          "type": "animation-runtime",
+          "path": "assets/character/nabi/animation/runtime/jump_16f.png",
+          "creation": {
+            "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "character-motion-proportion-unification-nabi-v01"
+          },
+          "rights": {
+            "status": "derived from approved nabi concept; no additional external rights verification asserted",
+            "references": [
+              "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+              "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+            ]
+          },
+          "verified_on": "2026-10-17",
+          "sha256": "eb5131c3a0d715b0c5d63419bc8a81ab4a923955141d06910e33a36d139e8df9",
+          "modifications": [
+            "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+            "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+            "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+            "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": false,
+          "sprite_frames_path": "res://assets/character/nabi/animation/runtime/jump.tres",
+          "consumer_path": "res://assets/character/nabi/animation/runtime/jump.tres",
+          "foot_pivot_y": 124,
+          "motion_unification": {
+            "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+            "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/jump-r01-alpha.png",
+            "source_sha256": "338021b727a137fe2d09549b3a6fbd5541fbfbbcaa5c656908477b7cca358fec",
+            "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/jump/jump-r01-clean.png",
+            "review_sha256": "0960d6617b781812f63ed72236f27329a749bd288fd96d44e5797b03e213ccd8",
+            "source_scale": 0.3956043956043956,
+            "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+          },
+          "visual_state_id": "jump",
+          "presentation_scale": 1.0
+        }
       ],
-      "frame_count": 16,
+      "frame_count": 24,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": false,
-      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
-      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+      "jump_frame_ranges": {
+        "ascent": [
+          0,
+          6
+        ],
+        "apex": [
+          6,
+          10
+        ],
+        "descent": [
+          10,
+          16
+        ],
+        "landing": [
+          16,
+          24
+        ]
+      },
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 109,
+      "consumer_path": "res://assets/character/nabi/animation/runtime/jump.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/nabi/jump_24f_r03.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/nabi/jump_r03.tres",
+        "candidate_sprite_frames_sha256": "764058d0d8d3dcd6cb432b3193ece9966963acc6eb508514f03bc150ad4e4815",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/jump-r01.png",
+          "source_sha256": "a42a481045b34eb8424e5fa8244546e52020e6265b57d5d239ae432494d0ca8b",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/jump-r01.png",
+            "source_sha256": "a42a481045b34eb8424e5fa8244546e52020e6265b57d5d239ae432494d0ca8b"
+          },
+          "rights": {
+            "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "ground_anchor_offsets": {
+              "16": -8,
+              "17": -8,
+              "18": 1,
+              "19": 0,
+              "20": 0,
+              "21": 0,
+              "22": 0,
+              "23": 0
+            },
+            "reference_scale": 0.4251207729468599,
+            "padding_shift_y": -15,
+            "uniform_scale": 0.4251207729468599,
+            "translation": [
+              9.584541062801932,
+              18.14492753623189
+            ],
+            "ground_reference_start": 16,
+            "frame_bounds": [
+              [
+                16,
+                35,
+                113,
+                112
+              ],
+              [
+                18,
+                30,
+                121,
+                111
+              ],
+              [
+                17,
+                24,
+                110,
+                112
+              ],
+              [
+                16,
+                15,
+                109,
+                102
+              ],
+              [
+                13,
+                7,
+                116,
+                102
+              ],
+              [
+                22,
+                5,
+                117,
+                98
+              ],
+              [
+                11,
+                7,
+                108,
+                92
+              ],
+              [
+                7,
+                8,
+                110,
+                105
+              ],
+              [
+                14,
+                9,
+                115,
+                99
+              ],
+              [
+                16,
+                8,
+                105,
+                119
+              ],
+              [
+                15,
+                14,
+                108,
+                125
+              ],
+              [
+                18,
+                15,
+                115,
+                126
+              ],
+              [
+                13,
+                5,
+                114,
+                113
+              ],
+              [
+                19,
+                9,
+                118,
+                116
+              ],
+              [
+                11,
+                15,
+                115,
+                117
+              ],
+              [
+                14,
+                18,
+                109,
+                118
+              ],
+              [
+                11,
+                27,
+                122,
+                109
+              ],
+              [
+                21,
+                41,
+                118,
+                109
+              ],
+              [
+                15,
+                36,
+                112,
+                109
+              ],
+              [
+                21,
+                26,
+                120,
+                109
+              ],
+              [
+                24,
+                16,
+                118,
+                109
+              ],
+              [
+                21,
+                13,
+                112,
+                109
+              ],
+              [
+                18,
+                14,
+                106,
+                109
+              ],
+              [
+                22,
+                14,
+                110,
+                109
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21,
+              22,
+              23
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting"
+          }
+        }
+      }
+    },
+    {
+      "type": "animation-runtime",
+      "character_id": "ja-hyun",
       "visual_state_id": "attack_light_combo_01",
-      "combo_index": 1,
-      "is_finisher": false,
-      "acting_purpose": "low jab",
-      "motion_unification": {
-        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
-        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/attack_light_combo_01-r02.png",
-        "source_sha256": "d7325682f882527474c202981314fbbe85fb34d65bf5167c12a8c821f5bc425d",
-        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/attack_light_combo_01_16f.png",
-        "source_scale": 1,
-        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+      "sha256": "7fc8bcb8e3de49ab25cde2e0184fee53d99525803fc408849120db8caf887982",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_01-r03.png",
+      "source_sha256": "902e259bee534285b7a5b900ec2c8bad73d8e51727822a4e38db960689729dda",
+      "conversion": {
+        "explicit_pose_offsets": {},
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.2851851851851852,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.2851851851851852,
+        "translation": [
+          12.38148148148148,
+          44.71851851851851
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            25,
+            46,
+            102,
+            124
+          ],
+          [
+            31,
+            46,
+            104,
+            124
+          ],
+          [
+            24,
+            46,
+            103,
+            124
+          ],
+          [
+            33,
+            46,
+            106,
+            124
+          ],
+          [
+            26,
+            48,
+            102,
+            124
+          ],
+          [
+            32,
+            47,
+            108,
+            124
+          ],
+          [
+            27,
+            47,
+            112,
+            124
+          ],
+          [
+            29,
+            47,
+            106,
+            124
+          ],
+          [
+            25,
+            47,
+            101,
+            124
+          ],
+          [
+            32,
+            47,
+            107,
+            124
+          ],
+          [
+            26,
+            48,
+            104,
+            125
+          ],
+          [
+            32,
+            48,
+            108,
+            125
+          ],
+          [
+            26,
+            46,
+            104,
+            121
+          ],
+          [
+            31,
+            47,
+            106,
+            122
+          ],
+          [
+            27,
+            47,
+            103,
+            121
+          ],
+          [
+            33,
+            47,
+            106,
+            122
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_root_calibration": {
+          "method": "entire sprite placement only, no pixel edits; two planted shoe midpoints follow approved idle offset +1px",
+          "sole_centers_in_128_cells": [
+            68.25,
+            69.0,
+            67.0,
+            71.75,
+            65.5,
+            70.0,
+            67.5,
+            71.75,
+            67.0,
+            71.5,
+            68.25,
+            73.25,
+            68.75,
+            70.5,
+            68.25,
+            72.0
+          ],
+          "reference_idle_sole_midpoint": 65.0,
+          "pixel_bytes_unchanged": true
+        }
       },
-      "foot_pivot_y": 124
-    },
-    {
-      "asset_id": "ja-hyun-attack-light-combo-02-16f-r02",
-      "character_id": "ja-hyun",
-      "type": "animation-runtime",
-      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png",
+      "asset_id": "ja-hyun-attack-light-combo-01-16f-r02",
       "creation": {
-        "method": "built-in image generation, approved identity reference and region normalization",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "motion-visual-unification-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_01-r03.png",
+        "source_sha256": "902e259bee534285b7a5b900ec2c8bad73d8e51727822a4e38db960689729dda"
       },
       "rights": {
-        "status": "derived from approved ja-hyun concept; no external reference asset used",
+        "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User r02 Ja-Hyun base-combo approval, 2026-09-09",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-08",
-      "sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4",
-      "modifications": [
-        "Normalized the approved r02 4x4 review frames into a 16-frame RGBA runtime sheet.",
-        "Applied alpha cleanup during normalization.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      "registration_history": [
+        {
+          "asset_id": "ja-hyun-attack-light-combo-01-16f-r02",
+          "character_id": "ja-hyun",
+          "type": "animation-runtime",
+          "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png",
+          "creation": {
+            "method": "built-in image generation, approved identity reference and region normalization",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "motion-visual-unification-v01"
+          },
+          "rights": {
+            "status": "derived from approved ja-hyun concept; no external reference asset used",
+            "references": [
+              "User r02 Ja-Hyun base-combo approval, 2026-09-09",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+            ]
+          },
+          "verified_on": "2026-10-08",
+          "sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4",
+          "modifications": [
+            "Normalized the approved r02 4x4 review frames into a 16-frame RGBA runtime sheet.",
+            "Applied alpha cleanup during normalization.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": false,
+          "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+          "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+          "visual_state_id": "attack_light_combo_01",
+          "combo_index": 1,
+          "is_finisher": false,
+          "acting_purpose": "low jab",
+          "motion_unification": {
+            "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+            "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/attack_light_combo_01-r02.png",
+            "source_sha256": "d7325682f882527474c202981314fbbe85fb34d65bf5167c12a8c821f5bc425d",
+            "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/attack_light_combo_01_16f.png",
+            "source_scale": 1,
+            "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+          },
+          "foot_pivot_y": 124
+        }
       ],
       "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": false,
-      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
-      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "body_root": [
+            67.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            68.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            66.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.5,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            66.5,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            66.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.5,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            67.25,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            72.25,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            67.75,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            69.5,
+            122
+          ]
+        },
+        {
+          "body_root": [
+            67.25,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            71.0,
+            122
+          ]
+        }
+      ],
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_01_16f_r03.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_01_r03.tres",
+        "candidate_sprite_frames_sha256": "cc552e3c847f7e959fe16e30900ad9dbd45afc6cf564fbe49a88792766069dfd",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_01-r03.png",
+          "source_sha256": "902e259bee534285b7a5b900ec2c8bad73d8e51727822a4e38db960689729dda",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_01-r03.png",
+            "source_sha256": "902e259bee534285b7a5b900ec2c8bad73d8e51727822a4e38db960689729dda"
+          },
+          "rights": {
+            "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "explicit_pose_offsets": {},
+            "ground_anchor_offsets": {},
+            "reference_scale": 0.2851851851851852,
+            "padding_shift_y": 0,
+            "uniform_scale": 0.2851851851851852,
+            "translation": [
+              12.38148148148148,
+              44.71851851851851
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                25,
+                46,
+                102,
+                124
+              ],
+              [
+                31,
+                46,
+                104,
+                124
+              ],
+              [
+                24,
+                46,
+                103,
+                124
+              ],
+              [
+                33,
+                46,
+                106,
+                124
+              ],
+              [
+                26,
+                48,
+                102,
+                124
+              ],
+              [
+                32,
+                47,
+                108,
+                124
+              ],
+              [
+                27,
+                47,
+                112,
+                124
+              ],
+              [
+                29,
+                47,
+                106,
+                124
+              ],
+              [
+                25,
+                47,
+                101,
+                124
+              ],
+              [
+                32,
+                47,
+                107,
+                124
+              ],
+              [
+                26,
+                48,
+                104,
+                125
+              ],
+              [
+                32,
+                48,
+                108,
+                125
+              ],
+              [
+                26,
+                46,
+                104,
+                121
+              ],
+              [
+                31,
+                47,
+                106,
+                122
+              ],
+              [
+                27,
+                47,
+                103,
+                121
+              ],
+              [
+                33,
+                47,
+                106,
+                122
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "ground_root_calibration": {
+              "method": "entire sprite placement only, no pixel edits; two planted shoe midpoints follow approved idle offset +1px",
+              "sole_centers_in_128_cells": [
+                68.25,
+                69.0,
+                67.0,
+                71.75,
+                65.5,
+                70.0,
+                67.5,
+                71.75,
+                67.0,
+                71.5,
+                68.25,
+                73.25,
+                68.75,
+                70.5,
+                68.25,
+                72.0
+              ],
+              "reference_idle_sole_midpoint": 65.0,
+              "pixel_bytes_unchanged": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "type": "animation-runtime",
+      "character_id": "ja-hyun",
       "visual_state_id": "attack_light_combo_02",
-      "combo_index": 2,
-      "is_finisher": false,
-      "acting_purpose": "ribbon-drawing side strike",
-      "motion_unification": {
-        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
-        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/attack_light_combo_02-r02.png",
-        "source_sha256": "bdb5b6ef4339242455376a543f854952fe0343db2548e8bad89eaf3539a6b3d0",
-        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/attack_light_combo_02_16f.png",
-        "source_scale": 1,
-        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+      "sha256": "c9a885dabc3cbc2daa732f0043d46bd3fcf32f93a7c0dc7ee9b7d656bf1651fd",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_02-r03.png",
+      "source_sha256": "865de2e54a47ac5d89aa202fc6749d5153d402647ce835e705ea295eb57088e0",
+      "conversion": {
+        "explicit_pose_offsets": {},
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.26506024096385544,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.26506024096385544,
+        "translation": [
+          20.53012048192771,
+          43.653614457831324
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            23,
+            47,
+            95,
+            125
+          ],
+          [
+            22,
+            47,
+            94,
+            125
+          ],
+          [
+            24,
+            47,
+            100,
+            124
+          ],
+          [
+            26,
+            47,
+            100,
+            125
+          ],
+          [
+            23,
+            47,
+            100,
+            123
+          ],
+          [
+            23,
+            48,
+            107,
+            124
+          ],
+          [
+            24,
+            47,
+            111,
+            124
+          ],
+          [
+            31,
+            47,
+            100,
+            123
+          ],
+          [
+            26,
+            47,
+            96,
+            125
+          ],
+          [
+            23,
+            47,
+            98,
+            126
+          ],
+          [
+            25,
+            48,
+            100,
+            126
+          ],
+          [
+            27,
+            47,
+            101,
+            126
+          ],
+          [
+            22,
+            47,
+            94,
+            122
+          ],
+          [
+            25,
+            48,
+            98,
+            123
+          ],
+          [
+            27,
+            48,
+            100,
+            123
+          ],
+          [
+            28,
+            47,
+            101,
+            123
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_root_calibration": {
+          "method": "entire sprite placement only, no pixel edits; two planted shoe midpoints follow approved idle offset +1px",
+          "sole_centers_in_128_cells": [
+            62.25,
+            61.25,
+            65.25,
+            67.0,
+            63.25,
+            63.0,
+            65.25,
+            66.75,
+            63.25,
+            65.0,
+            67.75,
+            68.5,
+            61.5,
+            65.25,
+            66.5,
+            69.25
+          ],
+          "reference_idle_sole_midpoint": 65.0,
+          "pixel_bytes_unchanged": true
+        }
       },
-      "foot_pivot_y": 124
+      "asset_id": "ja-hyun-attack-light-combo-02-16f-r02",
+      "creation": {
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_02-r03.png",
+        "source_sha256": "865de2e54a47ac5d89aa202fc6749d5153d402647ce835e705ea295eb57088e0"
+      },
+      "rights": {
+        "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
+        ]
+      },
+      "registration_history": [
+        {
+          "asset_id": "ja-hyun-attack-light-combo-02-16f-r02",
+          "character_id": "ja-hyun",
+          "type": "animation-runtime",
+          "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png",
+          "creation": {
+            "method": "built-in image generation, approved identity reference and region normalization",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "motion-visual-unification-v01"
+          },
+          "rights": {
+            "status": "derived from approved ja-hyun concept; no external reference asset used",
+            "references": [
+              "User r02 Ja-Hyun base-combo approval, 2026-09-09",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+            ]
+          },
+          "verified_on": "2026-10-08",
+          "sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4",
+          "modifications": [
+            "Normalized the approved r02 4x4 review frames into a 16-frame RGBA runtime sheet.",
+            "Applied alpha cleanup during normalization.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": false,
+          "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+          "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+          "visual_state_id": "attack_light_combo_02",
+          "combo_index": 2,
+          "is_finisher": false,
+          "acting_purpose": "ribbon-drawing side strike",
+          "motion_unification": {
+            "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+            "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/attack_light_combo_02-r02.png",
+            "source_sha256": "bdb5b6ef4339242455376a543f854952fe0343db2548e8bad89eaf3539a6b3d0",
+            "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/attack_light_combo_02_16f.png",
+            "source_scale": 1,
+            "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+          },
+          "foot_pivot_y": 124
+        }
+      ],
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "body_root": [
+            61.25,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            60.25,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            64.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            66.0,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            62.25,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            62.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            65.75,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            62.25,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            126
+          ]
+        },
+        {
+          "body_root": [
+            66.75,
+            126
+          ]
+        },
+        {
+          "body_root": [
+            67.5,
+            126
+          ]
+        },
+        {
+          "body_root": [
+            60.5,
+            122
+          ]
+        },
+        {
+          "body_root": [
+            64.25,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            65.5,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            68.25,
+            123
+          ]
+        }
+      ],
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_02_16f_r03.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_02_r03.tres",
+        "candidate_sprite_frames_sha256": "04dbcc03280f36643755c55b7e85de7ab940c0f79b0f0c950d8fd3d90c7543f2",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_02-r03.png",
+          "source_sha256": "865de2e54a47ac5d89aa202fc6749d5153d402647ce835e705ea295eb57088e0",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_02-r03.png",
+            "source_sha256": "865de2e54a47ac5d89aa202fc6749d5153d402647ce835e705ea295eb57088e0"
+          },
+          "rights": {
+            "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "explicit_pose_offsets": {},
+            "ground_anchor_offsets": {},
+            "reference_scale": 0.26506024096385544,
+            "padding_shift_y": 0,
+            "uniform_scale": 0.26506024096385544,
+            "translation": [
+              20.53012048192771,
+              43.653614457831324
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                23,
+                47,
+                95,
+                125
+              ],
+              [
+                22,
+                47,
+                94,
+                125
+              ],
+              [
+                24,
+                47,
+                100,
+                124
+              ],
+              [
+                26,
+                47,
+                100,
+                125
+              ],
+              [
+                23,
+                47,
+                100,
+                123
+              ],
+              [
+                23,
+                48,
+                107,
+                124
+              ],
+              [
+                24,
+                47,
+                111,
+                124
+              ],
+              [
+                31,
+                47,
+                100,
+                123
+              ],
+              [
+                26,
+                47,
+                96,
+                125
+              ],
+              [
+                23,
+                47,
+                98,
+                126
+              ],
+              [
+                25,
+                48,
+                100,
+                126
+              ],
+              [
+                27,
+                47,
+                101,
+                126
+              ],
+              [
+                22,
+                47,
+                94,
+                122
+              ],
+              [
+                25,
+                48,
+                98,
+                123
+              ],
+              [
+                27,
+                48,
+                100,
+                123
+              ],
+              [
+                28,
+                47,
+                101,
+                123
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "ground_root_calibration": {
+              "method": "entire sprite placement only, no pixel edits; two planted shoe midpoints follow approved idle offset +1px",
+              "sole_centers_in_128_cells": [
+                62.25,
+                61.25,
+                65.25,
+                67.0,
+                63.25,
+                63.0,
+                65.25,
+                66.75,
+                63.25,
+                65.0,
+                67.75,
+                68.5,
+                61.5,
+                65.25,
+                66.5,
+                69.25
+              ],
+              "reference_idle_sole_midpoint": 65.0,
+              "pixel_bytes_unchanged": true
+            }
+          }
+        }
+      }
     },
     {
       "asset_id": "ja-hyun-attack-light-combo-03-16f-r02",
@@ -946,43 +3670,266 @@
       "presentation_scale": 1.0
     },
     {
-      "asset_id": "nabi-attack-light-combo-01-16f-local-v01",
-      "character_id": "nabi",
       "type": "animation-runtime",
-      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_combo_01",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_01-r01.png",
+      "source_sha256": "f6908b0bea3ec0d8c981fdd211cbb63793b851b54bd64c64b5ae7904a4951473",
+      "conversion": {
+        "padding_shift_y": 0,
+        "uniform_scale": 0.36363636363636365,
+        "translation": [
+          17.454545454545453,
+          32.0
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            23,
+            36,
+            102,
+            124
+          ],
+          [
+            25,
+            35,
+            104,
+            124
+          ],
+          [
+            28,
+            36,
+            115,
+            124
+          ],
+          [
+            27,
+            36,
+            108,
+            124
+          ],
+          [
+            23,
+            35,
+            109,
+            124
+          ],
+          [
+            23,
+            36,
+            114,
+            124
+          ],
+          [
+            22,
+            36,
+            115,
+            124
+          ],
+          [
+            23,
+            36,
+            117,
+            124
+          ],
+          [
+            24,
+            36,
+            115,
+            124
+          ],
+          [
+            24,
+            36,
+            104,
+            124
+          ],
+          [
+            25,
+            36,
+            108,
+            124
+          ],
+          [
+            24,
+            36,
+            103,
+            124
+          ],
+          [
+            24,
+            36,
+            104,
+            124
+          ],
+          [
+            25,
+            36,
+            106,
+            124
+          ],
+          [
+            26,
+            36,
+            106,
+            123
+          ],
+          [
+            25,
+            36,
+            105,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          16,
+          17,
+          18,
+          20,
+          22,
+          23
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_root_calibration": {
+          "method": "entire sprite placement only; no pixel crop/warp; grounded shoe midpoint matches approved idle/up world offset -1.25px",
+          "sole_centers_in_128_cells": [
+            69.25,
+            69.75,
+            70.75,
+            71.0,
+            67.75,
+            68.75,
+            68.5,
+            69.5,
+            68.5,
+            69.25,
+            69.0,
+            69.0,
+            68.5,
+            69.75,
+            69.0,
+            69.0
+          ],
+          "reference_idle_sole_midpoint": 62.75,
+          "pixel_bytes_unchanged": true
+        }
+      },
+      "asset_id": "nabi-attack-light-combo-01-16f-local-v01",
       "creation": {
-        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "character-motion-proportion-unification-nabi-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_01-r01.png",
+        "source_sha256": "f6908b0bea3ec0d8c981fdd211cbb63793b851b54bd64c64b5ae7904a4951473"
       },
       "rights": {
-        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
-          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-17",
-      "sha256": "a8af1c4d398ae7cd4c3f7063ad6f9d99f9c04f4ebb1b9abe8281325dd57d0c2e",
-      "modifications": [
-        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
-        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
-        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
-        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      "registration_history": [
+        {
+          "asset_id": "nabi-attack-light-combo-01-16f-local-v01",
+          "character_id": "nabi",
+          "type": "animation-runtime",
+          "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+          "creation": {
+            "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "character-motion-proportion-unification-nabi-v01"
+          },
+          "rights": {
+            "status": "derived from approved nabi concept; no additional external rights verification asserted",
+            "references": [
+              "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+              "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+            ]
+          },
+          "verified_on": "2026-10-17",
+          "sha256": "a8af1c4d398ae7cd4c3f7063ad6f9d99f9c04f4ebb1b9abe8281325dd57d0c2e",
+          "modifications": [
+            "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+            "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+            "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+            "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": false,
+          "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+          "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+          "visual_state_id": "attack_light_combo_01",
+          "combo_index": 1,
+          "is_finisher": false,
+          "acting_purpose": "claw jab while off-hand guards",
+          "presentation_scale": 1.0,
+          "foot_pivot_y": 124,
+          "phase_frame_ranges": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              8
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "motion_unification": {
+            "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+            "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_combo_01-r02-alpha.png",
+            "source_sha256": "6e77eeb6fd0d48af6e29062a6e7c569dc9669ae8bbe796200636ca4cb813c62c",
+            "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_combo_01/attack_light_combo_01-r01-clean.png",
+            "review_sha256": "42120012abe62598ed04a4a34c8e304f501536e22db1d4b1829f6c262a083f2e",
+            "source_scale": 0.4022346368715084,
+            "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+          }
+        }
       ],
       "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": false,
-      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
-      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
-      "visual_state_id": "attack_light_combo_01",
-      "combo_index": 1,
-      "is_finisher": false,
-      "acting_purpose": "claw jab while off-hand guards",
-      "presentation_scale": 1.0,
-      "foot_pivot_y": 124,
       "phase_frame_ranges": [
         [
           0,
@@ -997,54 +3944,551 @@
           16
         ]
       ],
-      "motion_unification": {
-        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
-        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_combo_01-r02-alpha.png",
-        "source_sha256": "6e77eeb6fd0d48af6e29062a6e7c569dc9669ae8bbe796200636ca4cb813c62c",
-        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_combo_01/attack_light_combo_01-r01-clean.png",
-        "review_sha256": "42120012abe62598ed04a4a34c8e304f501536e22db1d4b1829f6c262a083f2e",
-        "source_scale": 0.4022346368715084,
-        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      "frame_anchors": [
+        {
+          "body_root": [
+            70.5,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            71.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.5,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            71.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            124
+          ]
+        }
+      ],
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_01_16f_r02.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_01_r02.tres",
+        "candidate_sprite_frames_sha256": "dab9e55d1a0678f175bba947a92e836858f776e3fcbeccc8e4ca63501f86f0a5",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_01-r01.png",
+          "source_sha256": "f6908b0bea3ec0d8c981fdd211cbb63793b851b54bd64c64b5ae7904a4951473",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_01-r01.png",
+            "source_sha256": "f6908b0bea3ec0d8c981fdd211cbb63793b851b54bd64c64b5ae7904a4951473"
+          },
+          "rights": {
+            "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "padding_shift_y": 0,
+            "uniform_scale": 0.36363636363636365,
+            "translation": [
+              17.454545454545453,
+              32.0
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                23,
+                36,
+                102,
+                124
+              ],
+              [
+                25,
+                35,
+                104,
+                124
+              ],
+              [
+                28,
+                36,
+                115,
+                124
+              ],
+              [
+                27,
+                36,
+                108,
+                124
+              ],
+              [
+                23,
+                35,
+                109,
+                124
+              ],
+              [
+                23,
+                36,
+                114,
+                124
+              ],
+              [
+                22,
+                36,
+                115,
+                124
+              ],
+              [
+                23,
+                36,
+                117,
+                124
+              ],
+              [
+                24,
+                36,
+                115,
+                124
+              ],
+              [
+                24,
+                36,
+                104,
+                124
+              ],
+              [
+                25,
+                36,
+                108,
+                124
+              ],
+              [
+                24,
+                36,
+                103,
+                124
+              ],
+              [
+                24,
+                36,
+                104,
+                124
+              ],
+              [
+                25,
+                36,
+                106,
+                124
+              ],
+              [
+                26,
+                36,
+                106,
+                123
+              ],
+              [
+                25,
+                36,
+                105,
+                124
+              ]
+            ],
+            "source_selection": [
+              0,
+              2,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              16,
+              17,
+              18,
+              20,
+              22,
+              23
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "ground_root_calibration": {
+              "method": "entire sprite placement only; no pixel crop/warp; grounded shoe midpoint matches approved idle/up world offset -1.25px",
+              "sole_centers_in_128_cells": [
+                69.25,
+                69.75,
+                70.75,
+                71.0,
+                67.75,
+                68.75,
+                68.5,
+                69.5,
+                68.5,
+                69.25,
+                69.0,
+                69.0,
+                68.5,
+                69.75,
+                69.0,
+                69.0
+              ],
+              "reference_idle_sole_midpoint": 62.75,
+              "pixel_bytes_unchanged": true
+            }
+          }
+        }
       }
     },
     {
-      "asset_id": "nabi-attack-light-combo-02-16f-local-v01",
-      "character_id": "nabi",
       "type": "animation-runtime",
-      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_combo_02",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_02-r02.png",
+      "source_sha256": "e1b36b5b3103bf54412d67725bd3d7606bad1bf3e75bc5fdb7b21cb1f2f834b0",
+      "conversion": {
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.3499005964214712,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.3263157894736842,
+        "translation": [
+          1.3473684210526287,
+          38.01578947368421
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            25,
+            39,
+            110,
+            123
+          ],
+          [
+            18,
+            41,
+            103,
+            123
+          ],
+          [
+            20,
+            40,
+            102,
+            124
+          ],
+          [
+            11,
+            42,
+            95,
+            125
+          ],
+          [
+            22,
+            39,
+            111,
+            124
+          ],
+          [
+            10,
+            41,
+            123,
+            125
+          ],
+          [
+            7,
+            42,
+            126,
+            125
+          ],
+          [
+            13,
+            44,
+            119,
+            126
+          ],
+          [
+            21,
+            42,
+            116,
+            124
+          ],
+          [
+            18,
+            42,
+            111,
+            124
+          ],
+          [
+            16,
+            45,
+            106,
+            125
+          ],
+          [
+            11,
+            45,
+            97,
+            125
+          ],
+          [
+            24,
+            40,
+            112,
+            121
+          ],
+          [
+            22,
+            40,
+            106,
+            121
+          ],
+          [
+            19,
+            41,
+            100,
+            121
+          ],
+          [
+            16,
+            42,
+            101,
+            121
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_root_calibration": {
+          "method": "entire sprite placement only; no pixel crop/warp; grounded shoe midpoint matches approved idle/up world offset -1.25px",
+          "sole_centers_in_128_cells": [
+            74.25,
+            67.25,
+            67.25,
+            61.5,
+            74.25,
+            71.5,
+            70.75,
+            67.5,
+            74.75,
+            71,
+            69.25,
+            62,
+            76.75,
+            70.75,
+            66.25,
+            65.5
+          ],
+          "reference_idle_sole_midpoint": 62.75,
+          "pixel_bytes_unchanged": true
+        }
+      },
+      "asset_id": "nabi-attack-light-combo-02-16f-local-v01",
       "creation": {
-        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "character-motion-proportion-unification-nabi-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_02-r02.png",
+        "source_sha256": "e1b36b5b3103bf54412d67725bd3d7606bad1bf3e75bc5fdb7b21cb1f2f834b0"
       },
       "rights": {
-        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
-          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-17",
-      "sha256": "596ac083d1404138aaecb8259a64a5ae79d17548e5ceea6a479422285de10b5b",
-      "modifications": [
-        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
-        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
-        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
-        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      "registration_history": [
+        {
+          "asset_id": "nabi-attack-light-combo-02-16f-local-v01",
+          "character_id": "nabi",
+          "type": "animation-runtime",
+          "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+          "creation": {
+            "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "character-motion-proportion-unification-nabi-v01"
+          },
+          "rights": {
+            "status": "derived from approved nabi concept; no additional external rights verification asserted",
+            "references": [
+              "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+              "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+            ]
+          },
+          "verified_on": "2026-10-17",
+          "sha256": "596ac083d1404138aaecb8259a64a5ae79d17548e5ceea6a479422285de10b5b",
+          "modifications": [
+            "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+            "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+            "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+            "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": false,
+          "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+          "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+          "visual_state_id": "attack_light_combo_02",
+          "combo_index": 2,
+          "is_finisher": true,
+          "acting_purpose": "large crossed claw rake",
+          "presentation_scale": 1.0,
+          "foot_pivot_y": 124,
+          "phase_frame_ranges": [
+            [
+              0,
+              5
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "motion_unification": {
+            "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+            "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_combo_02-r02-alpha.png",
+            "source_sha256": "f382ea74f1745b518eb74140af0d74a7df52ff73aeb483bfacb4d63ae965859b",
+            "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_combo_02/attack_light_combo_02-r01-clean.png",
+            "review_sha256": "90ecd55b785e3a7018926a5ba499ab2dc54baa4708a3354dd7ef6877f003cad5",
+            "source_scale": 0.3743169398907104,
+            "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+          }
+        }
       ],
       "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": false,
-      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
-      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
-      "visual_state_id": "attack_light_combo_02",
-      "combo_index": 2,
-      "is_finisher": true,
-      "acting_purpose": "large crossed claw rake",
-      "presentation_scale": 1.0,
-      "foot_pivot_y": 124,
       "phase_frame_ranges": [
         [
           0,
@@ -1059,14 +4503,288 @@
           16
         ]
       ],
-      "motion_unification": {
-        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
-        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_combo_02-r02-alpha.png",
-        "source_sha256": "f382ea74f1745b518eb74140af0d74a7df52ff73aeb483bfacb4d63ae965859b",
-        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_combo_02/attack_light_combo_02-r01-clean.png",
-        "review_sha256": "90ecd55b785e3a7018926a5ba499ab2dc54baa4708a3354dd7ef6877f003cad5",
-        "source_scale": 0.3743169398907104,
-        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      "frame_anchors": [
+        {
+          "body_root": [
+            75.41574461722487,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            68.41574461722487,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            68.41574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.66574461722488,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            75.41574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.66574461722487,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            71.91574461722487,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            68.66574461722487,
+            126
+          ]
+        },
+        {
+          "body_root": [
+            75.91574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.16574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.41574461722487,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            63.16574461722488,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            77.91574461722487,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            71.91574461722487,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            67.41574461722487,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            66.66574461722487,
+            121
+          ]
+        }
+      ],
+      "presentation_scale": 1.0722760212916052,
+      "foot_pivot_y": 124,
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_02_16f_r03.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_02_r03.tres",
+        "candidate_sprite_frames_sha256": "16366888f01c9eb370c2a40581faf47c38c6e98f4b8c06b81aa38a614f02eb31",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_02-r02.png",
+          "source_sha256": "e1b36b5b3103bf54412d67725bd3d7606bad1bf3e75bc5fdb7b21cb1f2f834b0",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_02-r02.png",
+            "source_sha256": "e1b36b5b3103bf54412d67725bd3d7606bad1bf3e75bc5fdb7b21cb1f2f834b0"
+          },
+          "rights": {
+            "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "ground_anchor_offsets": {},
+            "reference_scale": 0.3499005964214712,
+            "padding_shift_y": 0,
+            "uniform_scale": 0.3263157894736842,
+            "translation": [
+              1.3473684210526287,
+              38.01578947368421
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                25,
+                39,
+                110,
+                123
+              ],
+              [
+                18,
+                41,
+                103,
+                123
+              ],
+              [
+                20,
+                40,
+                102,
+                124
+              ],
+              [
+                11,
+                42,
+                95,
+                125
+              ],
+              [
+                22,
+                39,
+                111,
+                124
+              ],
+              [
+                10,
+                41,
+                123,
+                125
+              ],
+              [
+                7,
+                42,
+                126,
+                125
+              ],
+              [
+                13,
+                44,
+                119,
+                126
+              ],
+              [
+                21,
+                42,
+                116,
+                124
+              ],
+              [
+                18,
+                42,
+                111,
+                124
+              ],
+              [
+                16,
+                45,
+                106,
+                125
+              ],
+              [
+                11,
+                45,
+                97,
+                125
+              ],
+              [
+                24,
+                40,
+                112,
+                121
+              ],
+              [
+                22,
+                40,
+                106,
+                121
+              ],
+              [
+                19,
+                41,
+                100,
+                121
+              ],
+              [
+                16,
+                42,
+                101,
+                121
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "ground_root_calibration": {
+              "method": "entire sprite placement only; no pixel crop/warp; grounded shoe midpoint matches approved idle/up world offset -1.25px",
+              "sole_centers_in_128_cells": [
+                74.25,
+                67.25,
+                67.25,
+                61.5,
+                74.25,
+                71.5,
+                70.75,
+                67.5,
+                74.75,
+                71,
+                69.25,
+                62,
+                76.75,
+                70.75,
+                66.25,
+                65.5
+              ],
+              "reference_idle_sole_midpoint": 62.75,
+              "pixel_bytes_unchanged": true
+            }
+          }
+        }
       }
     },
     {
@@ -5483,47 +9201,249 @@
       }
     },
     {
-      "asset_id": "nabi-attack-light-up-16f-local-v01",
-      "character_id": "nabi",
       "type": "animation-runtime",
-      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_up",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+      "sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_up-r03-combined.png",
+      "source_sha256": "f206fa839f6a16efbffda14eb38f8599cf652946143456fb658cfbdeb56a7c7e",
+      "conversion": {
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.36065573770491804,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.36065573770491804,
+        "translation": [
+          -5.245901639344268,
+          32.393442622950815
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            7,
+            36,
+            99,
+            125
+          ],
+          [
+            6,
+            37,
+            100,
+            125
+          ],
+          [
+            7,
+            36,
+            100,
+            124
+          ],
+          [
+            6,
+            36,
+            99,
+            125
+          ],
+          [
+            6,
+            36,
+            99,
+            124
+          ],
+          [
+            6,
+            39,
+            99,
+            124
+          ],
+          [
+            5,
+            34,
+            101,
+            124
+          ],
+          [
+            6,
+            32,
+            100,
+            124
+          ],
+          [
+            5,
+            33,
+            99,
+            124
+          ],
+          [
+            5,
+            36,
+            103,
+            123
+          ],
+          [
+            5,
+            37,
+            101,
+            124
+          ],
+          [
+            6,
+            37,
+            101,
+            124
+          ],
+          [
+            6,
+            36,
+            99,
+            124
+          ],
+          [
+            7,
+            36,
+            100,
+            124
+          ],
+          [
+            6,
+            35,
+            100,
+            124
+          ],
+          [
+            7,
+            37,
+            100,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting"
+      },
+      "asset_id": "nabi-attack-light-up-16f-local-v01",
       "creation": {
-        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
-        "provider": "OpenAI built-in image generation + project-local normalization",
-        "version": "character-motion-proportion-unification-nabi-v01"
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_up-r03-combined.png",
+        "source_sha256": "f206fa839f6a16efbffda14eb38f8599cf652946143456fb658cfbdeb56a7c7e"
       },
       "rights": {
-        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
         "references": [
-          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
-          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
-          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
         ]
       },
-      "verified_on": "2026-10-17",
-      "sha256": "8af360a44e7cb9952665b8cb5f0ae3fb8414c988fd1230d980b5c96ba07aafa9",
-      "modifications": [
-        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
-        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
-        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
-        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
-        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      "registration_history": [
+        {
+          "asset_id": "nabi-attack-light-up-16f-local-v01",
+          "character_id": "nabi",
+          "type": "animation-runtime",
+          "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f.png",
+          "creation": {
+            "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+            "provider": "OpenAI built-in image generation + project-local normalization",
+            "version": "character-motion-proportion-unification-nabi-v01"
+          },
+          "rights": {
+            "status": "derived from approved nabi concept; no additional external rights verification asserted",
+            "references": [
+              "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+              "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+              "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+            ]
+          },
+          "verified_on": "2026-10-17",
+          "sha256": "8af360a44e7cb9952665b8cb5f0ae3fb8414c988fd1230d980b5c96ba07aafa9",
+          "modifications": [
+            "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+            "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+            "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+            "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+            "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+          ],
+          "frame_count": 16,
+          "fps": 12,
+          "loop": false,
+          "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+          "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+          "visual_state_id": "attack_light_up",
+          "presentation_scale": 1.0,
+          "foot_pivot_y": 124,
+          "phase_frame_ranges": [
+            [
+              0,
+              5
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              8,
+              16
+            ]
+          ],
+          "motion_unification": {
+            "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+            "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_up-r01-alpha.png",
+            "source_sha256": "e624aaeee051603a35501e7b6c83d4f5b13cbfd1c4d0975a5b5f9d6ec5843c69",
+            "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_up/attack_light_up-r01-clean.png",
+            "review_sha256": "5dbaf12a7ca11df91b44fa03e0a129f2eec7da842bd34790af573761ba3e4b5f",
+            "source_scale": 0.391304347826087,
+            "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+          }
+        }
       ],
       "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
       "fps": 12,
       "loop": false,
-      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
-      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
-      "visual_state_id": "attack_light_up",
-      "presentation_scale": 1.0,
-      "foot_pivot_y": 124,
       "phase_frame_ranges": [
         [
           0,
-          5
+          4
         ],
         [
-          5,
+          4,
           8
         ],
         [
@@ -5531,14 +9451,167 @@
           16
         ]
       ],
-      "motion_unification": {
-        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
-        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_up-r01-alpha.png",
-        "source_sha256": "e624aaeee051603a35501e7b6c83d4f5b13cbfd1c4d0975a5b5f9d6ec5843c69",
-        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_up/attack_light_up-r01-clean.png",
-        "review_sha256": "5dbaf12a7ca11df91b44fa03e0a129f2eec7da842bd34790af573761ba3e4b5f",
-        "source_scale": 0.391304347826087,
-        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_up_16f_r03.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/nabi/attack_light_up_r03.tres",
+        "candidate_sprite_frames_sha256": "b53192bb83c8eaed6c95ef36bd955783903f6d97af857602ee0acb7f95efceca",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_up-r03-combined.png",
+          "source_sha256": "f206fa839f6a16efbffda14eb38f8599cf652946143456fb658cfbdeb56a7c7e",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_up-r03-combined.png",
+            "source_sha256": "f206fa839f6a16efbffda14eb38f8599cf652946143456fb658cfbdeb56a7c7e"
+          },
+          "rights": {
+            "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "ground_anchor_offsets": {},
+            "reference_scale": 0.36065573770491804,
+            "padding_shift_y": 0,
+            "uniform_scale": 0.36065573770491804,
+            "translation": [
+              -5.245901639344268,
+              32.393442622950815
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                7,
+                36,
+                99,
+                125
+              ],
+              [
+                6,
+                37,
+                100,
+                125
+              ],
+              [
+                7,
+                36,
+                100,
+                124
+              ],
+              [
+                6,
+                36,
+                99,
+                125
+              ],
+              [
+                6,
+                36,
+                99,
+                124
+              ],
+              [
+                6,
+                39,
+                99,
+                124
+              ],
+              [
+                5,
+                34,
+                101,
+                124
+              ],
+              [
+                6,
+                32,
+                100,
+                124
+              ],
+              [
+                5,
+                33,
+                99,
+                124
+              ],
+              [
+                5,
+                36,
+                103,
+                123
+              ],
+              [
+                5,
+                37,
+                101,
+                124
+              ],
+              [
+                6,
+                37,
+                101,
+                124
+              ],
+              [
+                6,
+                36,
+                99,
+                124
+              ],
+              [
+                7,
+                36,
+                100,
+                124
+              ],
+              [
+                6,
+                35,
+                100,
+                124
+              ],
+              [
+                7,
+                37,
+                100,
+                124
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting"
+          }
+        }
       }
     },
     {
@@ -6241,6 +10314,513 @@
         "review_sha256": "05cfe8d9f0782a3a4105d8e1e0514e7b1b9b620a8e556d262ee373718a1b623b",
         "source_scale": 0.3412322274881517,
         "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      }
+    },
+    {
+      "type": "animation-runtime",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_04",
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_04_16f_natural-v02.png",
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_04.tres",
+      "sha256": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+      "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7",
+      "conversion": {
+        "explicit_pose_offsets": {},
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.2619047619047619,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.2619047619047619,
+        "translation": [
+          16.33333333333333,
+          40.45238095238095
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            35,
+            62,
+            98,
+            124
+          ],
+          [
+            28,
+            52,
+            88,
+            124
+          ],
+          [
+            37,
+            50,
+            96,
+            124
+          ],
+          [
+            35,
+            47,
+            89,
+            124
+          ],
+          [
+            31,
+            45,
+            105,
+            124
+          ],
+          [
+            25,
+            46,
+            103,
+            124
+          ],
+          [
+            27,
+            47,
+            107,
+            124
+          ],
+          [
+            31,
+            46,
+            88,
+            124
+          ],
+          [
+            34,
+            45,
+            88,
+            124
+          ],
+          [
+            32,
+            45,
+            88,
+            124
+          ],
+          [
+            29,
+            46,
+            98,
+            124
+          ],
+          [
+            30,
+            45,
+            94,
+            124
+          ],
+          [
+            45,
+            51,
+            106,
+            124
+          ],
+          [
+            28,
+            60,
+            90,
+            124
+          ],
+          [
+            30,
+            56,
+            94,
+            124
+          ],
+          [
+            36,
+            56,
+            92,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_calibration": {
+          "method": "whole-pose placement only; two sole centers averaged for standing poses, single support sole center for knee raise/kick; world sole-center offset equals approved idle +1px",
+          "sole_center_x": [
+            69.0,
+            60.5,
+            63.5,
+            63.5,
+            61.5,
+            57.0,
+            59.0,
+            63.5,
+            66.5,
+            63.0,
+            71.25,
+            67.5,
+            80.25,
+            63.0,
+            65.5,
+            65.5
+          ],
+          "shared_ready_endpoint": 15,
+          "review_status": "pending independent actual-motion QA"
+        },
+        "source_layout_record": {
+          "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.json",
+          "sha256": "713f2f556a29dabf716ac46afe30e701418442054d9248612459f96cde10b757"
+        }
+      },
+      "asset_id": "ja-hyun-attack-light-combo-04-16f-v01",
+      "creation": {
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+        "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7"
+      },
+      "rights": {
+        "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "body_root": [
+            68.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            59.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            60.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            56.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            58.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            65.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.367125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            66.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            79.367125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.617125,
+            124
+          ]
+        }
+      ],
+      "presentation_scale": 1.1326633165829143,
+      "foot_pivot_y": 124,
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_04.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+        "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+        "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+        "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+        "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+        "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_04_16f_r05.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_04_r05.tres",
+        "candidate_sprite_frames_sha256": "a65774dad32cc82cb34b3bb9a88f97a1a7fe90486de6c6c29ca807b58be0a980",
+        "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+          "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7",
+          "creation": {
+            "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+            "provider": "OpenAI built-in image generation",
+            "version": "motion-naturalness-pilot-v01",
+            "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+            "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7"
+          },
+          "rights": {
+            "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/00_request.md"
+            ]
+          },
+          "conversion": {
+            "explicit_pose_offsets": {},
+            "ground_anchor_offsets": {},
+            "reference_scale": 0.2619047619047619,
+            "padding_shift_y": 0,
+            "uniform_scale": 0.2619047619047619,
+            "translation": [
+              16.33333333333333,
+              40.45238095238095
+            ],
+            "ground_reference_start": 0,
+            "frame_bounds": [
+              [
+                35,
+                62,
+                98,
+                124
+              ],
+              [
+                28,
+                52,
+                88,
+                124
+              ],
+              [
+                37,
+                50,
+                96,
+                124
+              ],
+              [
+                35,
+                47,
+                89,
+                124
+              ],
+              [
+                31,
+                45,
+                105,
+                124
+              ],
+              [
+                25,
+                46,
+                103,
+                124
+              ],
+              [
+                27,
+                47,
+                107,
+                124
+              ],
+              [
+                31,
+                46,
+                88,
+                124
+              ],
+              [
+                34,
+                45,
+                88,
+                124
+              ],
+              [
+                32,
+                45,
+                88,
+                124
+              ],
+              [
+                29,
+                46,
+                98,
+                124
+              ],
+              [
+                30,
+                45,
+                94,
+                124
+              ],
+              [
+                45,
+                51,
+                106,
+                124
+              ],
+              [
+                28,
+                60,
+                90,
+                124
+              ],
+              [
+                30,
+                56,
+                94,
+                124
+              ],
+              [
+                36,
+                56,
+                92,
+                124
+              ]
+            ],
+            "source_selection": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "unassigned_small_regions": [],
+            "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+            "ground_calibration": {
+              "method": "whole-pose placement only; two sole centers averaged for standing poses, single support sole center for knee raise/kick; world sole-center offset equals approved idle +1px",
+              "sole_center_x": [
+                69.0,
+                60.5,
+                63.5,
+                63.5,
+                61.5,
+                57.0,
+                59.0,
+                63.5,
+                66.5,
+                63.0,
+                71.25,
+                67.5,
+                80.25,
+                63.0,
+                65.5,
+                65.5
+              ],
+              "shared_ready_endpoint": 15,
+              "review_status": "pending independent actual-motion QA"
+            },
+            "source_layout_record": {
+              "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.json",
+              "sha256": "713f2f556a29dabf716ac46afe30e701418442054d9248612459f96cde10b757"
+            }
+          }
+        }
       }
     }
   ]

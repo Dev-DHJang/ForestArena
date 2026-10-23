@@ -23,13 +23,13 @@ func _run() -> void:
 	app.lan_client.failed.connect(func(code: String) -> void: print("LAN_APP_FLOW_CLIENT_ERROR " + code))
 	await get_tree().process_frame
 	_check(app.store.grant_first("nabi"), "first grant")
-	for item: Dictionary in app.catalog.products:
+	for item: Dictionary in app.catalog.playable_products():
 		if not app.store.owns(item.id): _check(app.store.purchase(item.id), "purchase %s" % item.id)
-	_check(app.store.select("nabi", "fixture-iron-armor", "yu-ran"), "host selection")
+	_check(app.store.select("nabi", "", "ja-hyun"), "host selection")
 	var host_selection := LoadoutSelection.new()
 	host_selection.character_id = &"nabi"
-	host_selection.accessory_id = &"fixture-iron-armor"
-	_check(app.lan_client.begin_host("FAH2|http://127.0.0.1:18081|ws://127.0.0.1:17777|2", host_selection, "호스트숲", "host"), "host connect")
+	host_selection.accessory_id = &""
+	_check(app.lan_client.begin_host("FAH3|http://127.0.0.1:18081|ws://127.0.0.1:17777|3", host_selection, "호스트숲", "host"), "host connect")
 	_check(await _wait_until(func() -> bool: return not app.lan_current_invite.is_empty()), "room invite")
 	app.call("_copy_lan_invite")
 	_check(app.lan_status_label != null and app.lan_status_label.text.contains("복사했습니다"), "invite copy feedback")
@@ -38,18 +38,18 @@ func _run() -> void:
 	guest_app.db_session_path = save_path + ".guest-session"
 	guest_app.demo_guest_session_path = save_path + ".guest-demo-session"
 	add_child(guest_app)
-	_check(guest_app.store.grant_first("yu-ran"), "guest profile")
+	_check(guest_app.store.grant_first("ja-hyun"), "guest profile")
 	guest = guest_app.lan_client
 	var guest_selection := LoadoutSelection.new()
-	guest_selection.character_id = &"yu-ran"
-	guest_selection.accessory_id = &"fixture-boxing-gloves"
+	guest_selection.character_id = &"ja-hyun"
+	guest_selection.accessory_id = &""
 	_check(guest.begin_join(app.lan_current_invite, guest_selection, "손님숲", "guest"), "guest connect")
 	var entered_match := await _wait_until(func() -> bool: return app.screen == "lan_match" and app.match_controller != null)
 	_check(entered_match, "LAN match screen (screen=%s)" % app.screen)
 	if not entered_match:
 		await _finish()
 		return
-	_check(await _wait_until(func() -> bool: return app.match_controller != null and app.match_controller.player.runtime_profile.character_id == &"nabi" and app.match_controller.training_dummy.runtime_profile.character_id == &"yu-ran"), "network loadouts")
+	_check(await _wait_until(func() -> bool: return app.match_controller != null and app.match_controller.player.runtime_profile.character_id == &"nabi" and app.match_controller.training_dummy.runtime_profile.character_id == &"ja-hyun"), "network loadouts")
 	var map := app.match_scene.get_node("Interface/BattleMinimap") as BattleMinimap
 	_check(map.participants[&"lan_host"].nickname == "호스트숲" and map.participants[&"lan_guest"].nickname == "손님숲", "nicknames reach actual minimap")
 	_check(map.local_id == &"lan_host" and not map.team_mode, "host minimap self and neutral mode")

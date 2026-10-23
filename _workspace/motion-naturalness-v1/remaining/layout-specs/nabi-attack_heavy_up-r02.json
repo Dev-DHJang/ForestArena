@@ -1,0 +1,37 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "attack_heavy_up",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.32,
+  "presentation_scale": 1.0,
+  "source_baseline_y": 285.9,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+  "version": "r02",
+  "phase_frame_ranges": [
+    [
+      0,
+      5
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      8,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    5,
+    20
+  ]
+}

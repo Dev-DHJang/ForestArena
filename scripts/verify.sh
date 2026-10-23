@@ -17,6 +17,13 @@ godot --headless --path . --script res://tests/phase1_match_rules.gd
 godot --headless --path . --script res://tests/phase1_determinism.gd
 godot --headless --path . --script res://tests/combat_feel_stage_v2.gd
 godot --headless --path . --script res://tests/match_playtest_combat.gd
+godot --headless --path . --script res://tests/two_fighter_combat_v2.gd
+godot --headless --path . --script res://tests/two_fighter_combat_boundaries.gd
+godot --headless --path . --script res://tests/two_fighter_product.gd
+godot --headless --path . --script res://tests/two_fighter_presentation.gd
+godot --headless --path . --script res://tests/two_fighter_vfx.gd
+godot --headless --path . --script res://tests/variable_motion_presentation.gd
+godot --headless --path . --script res://tests/two_fighter_ai.gd
 godot --headless --path . --script res://tests/android_device_combat_regression.gd
 godot --headless --path . --script res://tests/phase1_input_ui.gd
 godot --headless --path . --script res://tests/phase2_loadout_contract.gd

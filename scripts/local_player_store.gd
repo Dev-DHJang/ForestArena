@@ -53,7 +53,7 @@ func migrate_profile(candidate: Dictionary) -> Dictionary:
 	if valid(candidate):
 		var normalized := candidate.duplicate(true)
 		normalized.minimap.transparency = int(normalized.minimap.transparency)
-		return normalized
+		return normalize_combat_selection(normalized)
 	var version: Variant = candidate.get("schema_version")
 	if (version != 1 and version != 2) or not _valid_base(candidate): return {}
 	if version == 2 and not _valid_accessibility(candidate.get("accessibility")): return {}
@@ -62,12 +62,12 @@ func migrate_profile(candidate: Dictionary) -> Dictionary:
 	if version == 1: migrated.accessibility = default_accessibility()
 	migrated.nickname = "플레이어"
 	migrated.minimap = default_minimap()
-	return migrated if valid(migrated) else {}
+	return normalize_combat_selection(migrated) if valid(migrated) else {}
 
 func _load_candidate(candidate: Dictionary) -> bool:
 	var migrated := migrate_profile(candidate)
 	if migrated.is_empty(): return false
-	if candidate.get("schema_version") == SCHEMA_VERSION:
+	if candidate.get("schema_version") == SCHEMA_VERSION and candidate.selected_character == migrated.selected_character and candidate.selected_accessory == migrated.selected_accessory and candidate.opponent_character == migrated.opponent_character and candidate.characters == migrated.characters:
 		data = migrated
 		return true
 	# Commit first: failed migration must not replace the in-memory profile.
@@ -122,7 +122,7 @@ func owns(id: String) -> bool:
 	return id in data.characters or id in data.accessories
 
 func grant_first(id: String) -> bool:
-	if data.first_granted or not catalog.contains(id, "character"): return false
+	if data.first_granted or not catalog.is_playable_character(StringName(id)): return false
 	var next := data.duplicate(true)
 	next.first_granted = true
 	next.characters.append(id)
@@ -131,12 +131,15 @@ func grant_first(id: String) -> bool:
 
 func purchase(id: String) -> bool:
 	var item := catalog.product(id)
-	if not data.first_granted or item.is_empty() or owns(id) or item.price != 0: return false
+	if not data.first_granted or item.is_empty() or item.kind != "character" or not catalog.is_playable_character(StringName(id)) or owns(id) or item.price != 0: return false
 	var next := data.duplicate(true)
 	next["characters" if item.kind == "character" else "accessories"].append(id)
 	return _commit(next)
 
 func select(character: String, accessory: String, opponent: String) -> bool:
+	if not catalog.is_playable_character(StringName(character)) or not catalog.is_playable_character(StringName(opponent)) or not accessory.is_empty():
+		error = "현재 대전은 자현·나비와 장신구 미장착만 사용할 수 있습니다."
+		return false
 	var next := data.duplicate(true)
 	next.selected_character = character
 	next.selected_accessory = accessory
@@ -195,3 +198,19 @@ func _commit(next: Dictionary) -> bool:
 func _save_failed() -> bool:
 	error = "저장에 실패했습니다. 변경은 적용되지 않았습니다. 저장 공간을 확인하고 다시 시도하세요."
 	return false
+
+
+## Upgrade only the active selection; historical ownership and other profile data stay intact.
+func normalize_combat_selection(candidate: Dictionary) -> Dictionary:
+	var next := candidate.duplicate(true)
+	if not catalog.is_playable_character(StringName(next.get("opponent_character", ""))): next.opponent_character = "ja-hyun"
+	next.selected_accessory = ""
+	if not next.get("first_granted", false): return next
+	if catalog.is_playable_character(StringName(next.get("selected_character", ""))) and next.selected_character in next.characters: return next
+	for id: String in next.characters:
+		if catalog.is_playable_character(StringName(id)):
+			next.selected_character = id
+			return next
+	if not "ja-hyun" in next.characters: next.characters.append("ja-hyun")
+	next.selected_character = "ja-hyun"
+	return next

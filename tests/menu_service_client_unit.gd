@@ -80,8 +80,11 @@ func run() -> void:
 	client.request_adapter = api
 	check(requests.is_empty(), "configure performs no network")
 	check(app.store.grant_first("ja-hyun"), "test profile first grant")
-	check(app.store.purchase("fixture-iron-armor"), "test profile owned accessory")
-	check(app.store.select("ja-hyun", "fixture-iron-armor", "myo-ryung"), "test selected loadout")
+	# A pre-policy profile keeps archived ownership while new selection stays playable.
+	app.store.data.characters.append("myo-ryung")
+	app.store.data.accessories.append("fixture-iron-armor")
+	check(app.store._commit(app.store.data.duplicate(true)), "historical inventory fixture persisted")
+	check(app.store.select("ja-hyun", "", "nabi"), "test selected active loadout")
 	app.db_client.api_url = "http://menu.test"
 	app.db_address = "http://menu.test"
 	app.db_client.player_id = PLAYER
@@ -118,6 +121,7 @@ func run() -> void:
 	check(not replay.has("error") and not client.has_pending_merge(), "same request resumes successful merge")
 	check(merges.size() == 2 and merges[0] == merges[1], "response-loss retry sends identical body and UUID")
 	check(app.store.data.nickname == "검사통합" and app.store.data.selected_character == original_profile.selected_character and app.store.data.selected_accessory == original_profile.selected_accessory, "unification applies final nickname and current loadout")
+	check(app.store.data.characters == original_profile.characters and app.store.data.accessories == original_profile.accessories, "unification preserves archived inventory")
 	check(app.store.data.accessibility == original_profile.accessibility and app.store.data.minimap == original_profile.minimap, "unification preserves current profile settings")
 	var unified: String = client.identity.binding.owner_key
 	check(app.menu_store.load_presets(unified, {"character": app.store.data.selected_character, "accessory": app.store.data.selected_accessory}) and app.menu_store.slots == original_slots, "all presets copied to unified owner")

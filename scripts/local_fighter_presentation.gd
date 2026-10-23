@@ -13,13 +13,17 @@ const STATE_MOTIONS := {
 	FighterController.State.SPAWNING: &"spawn",
 }
 
+const AttackEffects := preload("res://scripts/fighter_attack_effects.gd")
+
 var fighter: FighterController
 var sprite: AnimatedSprite2D
+var effects: Node2D
 var character_id: StringName
 var requested_motion: StringName = &"idle"
 var missing_motion: StringName
 var _motions: Dictionary = {}
 var _motion_layouts: Dictionary = {}
+var _artwork_hashes: Dictionary = {}
 static var _display_layouts: Dictionary = {}
 static var _display_layouts_loaded := false
 var _elapsed := 0.0
@@ -32,6 +36,9 @@ var _previous_launcher_jump := false
 var _jump_stage := -1
 var _jump_stage_elapsed := 0.0
 var _landing_elapsed := -1.0
+var _run_distance := 0.0
+var _last_position := Vector2.ZERO
+var _position_known := false
 
 
 func _ready() -> void:
@@ -43,6 +50,12 @@ func _ready() -> void:
 	# collision body extends 14 px below its origin.
 	sprite.position = Vector2(0, -50)
 	add_child(sprite)
+	effects = AttackEffects.new()
+	effects.name = "AttackReachEffects"
+	effects.fighter = fighter
+	effects.sprite = sprite
+	add_child(effects)
+	move_child(effects, 0) # Cloth reach stays behind the approved body and face.
 	sync_visual(0.0)
 
 
@@ -95,9 +108,18 @@ static func display_layout(entry: Dictionary) -> Dictionary:
 				_display_layouts[key] = row
 	var key := "%s/%s" % [entry.get("character_id", ""), entry.get("visual_state_id", "")]
 	var calibration: Dictionary = _display_layouts.get(key, {})
-	if not calibration.is_empty() and not String(entry.get("sha256", "")).is_empty() and calibration.get("asset_sha256") == entry.get("sha256"):
-		return {"scale": float(calibration.scale), "foot_pivot_y": float(calibration.foot_pivot_y), "calibrated": true}
-	return {"scale": float(entry.get("presentation_scale", 1.0)), "foot_pivot_y": float(entry.get("foot_pivot_y", 128)), "calibrated": false}
+	var hash_matches: bool = not calibration.is_empty() and not String(entry.get("sha256", "")).is_empty() and calibration.get("asset_sha256") == entry.get("sha256")
+	var result := {"scale": float(entry.get("presentation_scale", 1.0)), "foot_pivot_y": float(entry.get("foot_pivot_y", 128)), "calibrated": hash_matches}
+	if hash_matches:
+		result.merge({"scale": float(calibration.scale), "foot_pivot_y": float(calibration.foot_pivot_y), "descent_frame_range": calibration.get("descent_frame_range", []), "landing_frame_range": calibration.get("landing_frame_range", [13,16]), "landing_down_frame_range": calibration.get("landing_down_frame_range", [12,16])}, true)
+	# Optional drawing data travels with the hashed artwork entry. Explicit entry
+	# values win over a matching calibration, so a candidate can revise timing or
+	# attachments even when the source PNG is intentionally unchanged.
+	if not String(entry.get("sha256", "")).is_empty():
+		for field: String in ["frame_count", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors", "phase_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range"]:
+			if hash_matches and calibration.has(field): result[field] = calibration[field]
+			if entry.has(field): result[field] = entry[field]
+	return result
 
 
 func _process(delta: float) -> void:
@@ -112,6 +134,7 @@ func sync_visual(delta: float) -> void:
 		character_id = profile_id
 		_motions.clear()
 		_motion_layouts.clear()
+		_artwork_hashes.clear()
 		var document: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(MANIFEST_PATH))
 		for entry: Dictionary in document.get("assets", []):
 			if entry.get("character_id") == String(character_id) and entry.has("visual_state_id"):
@@ -123,6 +146,8 @@ func sync_visual(delta: float) -> void:
 		_was_airborne = false
 		_jump_stage = -1
 		_landing_elapsed = -1.0
+		_position_known = false
+		_run_distance = 0.0
 	requested_motion = STATE_MOTIONS.get(fighter.state, &"idle")
 	var airborne := fighter.state in [FighterController.State.JUMP, FighterController.State.FALL]
 	if airborne:
@@ -136,29 +161,56 @@ func sync_visual(delta: float) -> void:
 			requested_motion = &"jump"
 		else:
 			_landing_elapsed = -1.0
+	if fighter.wakeup_protection_ticks > 0 and (fighter.state == FighterController.State.WAKE_UP or (fighter.state == FighterController.State.IDLE and fighter.is_on_floor())):
+		requested_motion = &"wake_up"
 	if fighter.active_attack != null:
 		requested_motion = fighter.active_attack.visual_state_id
+		if fighter.active_attack.attack_movement == 1 and fighter.attack_travel_active:
+			# The authored 32-frame special includes its own travel poses.
+			# Older approved 16-frame specials continue to use the run cycle.
+			var travel_frames: SpriteFrames = _motions.get(requested_motion)
+			if requested_motion != &"special_side" or travel_frames == null or travel_frames.get_frame_count(requested_motion) != 32:
+				requested_motion = &"run"
 	missing_motion = &"" if _motions.has(requested_motion) else requested_motion
 	var shown := requested_motion if missing_motion.is_empty() else &"idle"
 	if not _motions.has(shown):
 		sprite.visible = false
+		_position_known = false
+		if effects != null:
+			effects.frame_anchors = []
+			effects.artwork_sha256 = ""
 		return
 	sprite.visible = true
 	var layout: Dictionary = _motion_layouts.get(shown, {})
 	var drawing := display_layout(layout)
 	var display_scale := float(drawing.scale)
 	sprite.scale = Vector2.ONE * display_scale
+	sprite.position.x = 0.0
 	sprite.position.y = fighter.ground_contact_offset_y() - (float(drawing.foot_pivot_y) - 64.0) * display_scale
 	sprite.flip_h = fighter.facing < 0
-	if shown != _last_motion or fighter.activation_serial != _last_activation:
+	var restarted_motion := shown != _last_motion or fighter.activation_serial != _last_activation
+	if restarted_motion:
 		_elapsed = 0.0
+		_run_distance = 0.0
 		_last_motion = shown
 		_last_activation = fighter.activation_serial
 		sprite.sprite_frames = _motions[shown]
 		sprite.animation = shown
 	_elapsed += delta
 	var frames := sprite.sprite_frames.get_frame_count(shown)
-	if shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
+	var weights: Array = drawing.get("frame_durations", [])
+	var position_delta := fighter.global_position - _last_position if _position_known else Vector2.ZERO
+	_last_position = fighter.global_position
+	_position_known = true
+	if effects != null:
+		effects.frame_anchors = drawing.get("frame_anchors", [])
+		effects.artwork_sha256 = _artwork_hash(layout)
+	if shown == &"knock_down" and fighter.landing_down_ticks > 0:
+		var span: Array = drawing.get("landing_down_frame_range", [12,16])
+		sprite.frame = timed_frame(18 - fighter.landing_down_ticks,18,int(span[0]),int(span[1])) if weights.is_empty() else weighted_frame(float(18-fighter.landing_down_ticks)/17.0,int(span[0]),int(span[1]),weights)
+	elif shown == &"wake_up" and fighter.wakeup_protection_ticks > 0:
+		sprite.frame = timed_frame(12 - fighter.wakeup_protection_ticks,12,0,frames) if weights.is_empty() else weighted_frame(float(12-fighter.wakeup_protection_ticks)/11.0,0,frames,weights)
+	elif shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
 		if airborne:
 			var stage := 0 if fighter.velocity.y < -60.0 else (2 if fighter.velocity.y > 60.0 else 1)
 			# Read the consumed jump allowance, including early same-stage air jumps.
@@ -168,38 +220,80 @@ func sync_visual(delta: float) -> void:
 				_jump_stage_elapsed = 0.0
 				_jump_stage = stage
 			_jump_stage_elapsed += delta
-			sprite.frame = airborne_jump_frame(fighter.velocity.y, _jump_stage_elapsed)
+			var jump_ranges: Dictionary = drawing.get("jump_frame_ranges", {})
+			if jump_ranges.is_empty():
+				sprite.frame = airborne_jump_frame(fighter.velocity.y, _jump_stage_elapsed, drawing.get("descent_frame_range", []))
+			else:
+				var stage_names := ["ascent", "apex", "descent"]
+				var span: Array = jump_ranges[stage_names[stage]]
+				sprite.frame = playback_frame(_jump_stage_elapsed, sprite.sprite_frames.get_animation_speed(shown), int(span[0]), int(span[1]), weights, false)
 		else:
-			sprite.frame = mini(13 + int(_landing_elapsed * 12.0), 15)
+			var span: Array = drawing.get("jump_frame_ranges", {}).get("landing", drawing.get("landing_frame_range", [13,16]))
+			sprite.frame = weighted_frame(_landing_elapsed / 0.25, int(span[0]), int(span[1]), weights)
 			_landing_elapsed += delta
-	elif fighter.active_attack != null and missing_motion.is_empty():
-		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, layout.get("phase_frame_ranges", []))
+	elif fighter.active_attack != null and missing_motion.is_empty() and shown != &"run":
+		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, drawing.get("phase_frame_ranges", layout.get("phase_frame_ranges", [])), weights)
+	elif shown == &"run" and float(drawing.get("run_stride_px", 0.0)) > 0.0:
+		var stride := float(drawing.run_stride_px)
+		# Position is only observed. A teleport, respawn or fresh run starts a new
+		# foot cycle; standing still never advances the distance-driven cycle.
+		if restarted_motion or position_delta.length() > stride * 2.0:
+			_run_distance = 0.0
+		else:
+			_run_distance = fposmod(_run_distance + absf(position_delta.x), stride)
+		sprite.frame = weighted_frame(_run_distance / stride, 0, frames, weights)
 	else:
 		var index: int
 		var state_duration_ticks := int(layout.get("state_duration_ticks", 0))
 		if state_duration_ticks > 0:
 			var duration_seconds := float(state_duration_ticks) / 60.0
-			index = floori(clampf(_elapsed / duration_seconds, 0.0, 0.999999) * frames)
+			index = weighted_frame(_elapsed / duration_seconds, 0, frames, weights)
 		else:
-			index = int(_elapsed * sprite.sprite_frames.get_animation_speed(shown))
+			index = int(_elapsed * sprite.sprite_frames.get_animation_speed(shown)) if weights.is_empty() else playback_frame(_elapsed, sprite.sprite_frames.get_animation_speed(shown), 0, frames, weights, sprite.sprite_frames.get_animation_loop(shown))
 		if layout.has("state_hold_frame"):
 			index = mini(index, int(layout.state_hold_frame))
 		sprite.frame = index % frames if sprite.sprite_frames.get_animation_loop(shown) else mini(index, frames - 1)
 	_was_airborne = airborne
+	var frame_anchors: Array = drawing.get("frame_anchors", [])
+	if frame_anchors.size() == frames:
+		var anchors: Variant = frame_anchors[sprite.frame]
+		if anchors is Dictionary and anchors.has("body_root") and AttackEffects._valid_pixel_point(anchors.body_root):
+			var origin := Vector2(float(anchors.body_root[0]),float(anchors.body_root[1]))
+			if origin.x >= 0.0 and origin.x <= 128.0 and origin.y >= 0.0 and origin.y <= 128.0:
+				sprite.position.x = (64.0-origin.x) * display_scale * (-1.0 if sprite.flip_h else 1.0)
+				sprite.position.y = fighter.ground_contact_offset_y() - (origin.y-64.0) * display_scale
 	_previous_vertical_speed = fighter.velocity.y
 	_previous_air_jumps = fighter.air_jumps_remaining
 	_previous_launcher_jump = fighter.launcher_jump_available
 	sprite.modulate = Color(1, 1, 1, 0.45) if fighter.invulnerability_ticks > 0 else Color.WHITE
 
 
-static func airborne_jump_frame(vertical_speed: float, stage_elapsed: float) -> int:
+func _artwork_hash(entry: Dictionary) -> String:
+	# Exported production art has a manifest hash. Old private review candidates
+	# may omit it; hash their original PNG once, never on every render tick.
+	var declared := String(entry.get("sha256", ""))
+	if not declared.is_empty(): return declared
+	var path := String(entry.get("path", ""))
+	if path.is_empty(): return ""
+	if not _artwork_hashes.has(path):
+		_artwork_hashes[path] = FileAccess.get_sha256("res://" + path.trim_prefix("res://"))
+	return _artwork_hashes[path]
+
+
+static func timed_frame(elapsed_ticks: int, duration_ticks: int, begin: int, end: int) -> int:
+	return clampi(begin + roundi(float(elapsed_ticks) / maxi(duration_ticks - 1,1) * (end - begin - 1)),begin,end-1)
+
+
+static func airborne_jump_frame(vertical_speed: float, stage_elapsed: float, descent: Array = []) -> int:
 	# Physics owns position. Airborne art never advances into grounded landing poses.
 	var begin := 3 if vertical_speed < -60.0 else (10 if vertical_speed > 60.0 else 6)
+	if vertical_speed > 60.0 and descent.size() == 2:
+		return mini(int(descent[0]) + int(stage_elapsed * 12.0),int(descent[1])-1)
 	var end := 5 if vertical_speed < -60.0 else (12 if vertical_speed > 60.0 else 9)
 	return mini(begin + int(stage_elapsed * 12.0), end)
 
 
-static func attack_frame(attack: AttackData, state: int, tick: int, count: int, ranges: Array = []) -> int:
+static func attack_frame(attack: AttackData, state: int, tick: int, count: int, ranges: Array = [], weights: Array = []) -> int:
 	# Authored time drives visuals; changing frame rate never changes hit timing.
 	var offset := 0.0
 	var duration := attack.startup_ticks
@@ -213,5 +307,38 @@ static func attack_frame(attack: AttackData, state: int, tick: int, count: int, 
 		var span: Array = ranges[int(offset)]
 		var begin := int(span[0])
 		var end := int(span[1])
+		if not weights.is_empty():
+			return weighted_frame(float(tick) / maxi(duration - 1, 1), begin, end, weights)
 		return clampi(begin + roundi(float(tick) / maxi(duration - 1, 1) * (end - begin - 1)), begin, end - 1)
 	return clampi(int((offset + clampf(float(tick) / maxi(duration, 1), 0, 1)) / 3.0 * count), 0, count - 1)
+
+
+static func weighted_frame(progress: float, begin: int, end: int, weights: Array = []) -> int:
+	# Empty weights are uniform. Existing attack ranges deliberately keep their
+	# original rounded mapping above; new authored weights use interval lengths.
+	var total := _frame_weight_sum(begin, end, weights)
+	var cursor := clampf(progress, 0.0, 0.999999) * total
+	for index: int in range(begin, end):
+		cursor -= _frame_weight(index, weights)
+		if cursor < 0.0: return index
+	return end - 1
+
+
+static func playback_frame(elapsed: float, fps: float, begin: int, end: int, weights: Array = [], loop: bool = false) -> int:
+	var total := _frame_weight_sum(begin, end, weights)
+	var position := maxf(elapsed, 0.0) * fps
+	if loop: position = fposmod(position, total)
+	return weighted_frame(position / total, begin, end, weights)
+
+
+static func _frame_weight(index: int, weights: Array) -> float:
+	if index < weights.size() and (weights[index] is float or weights[index] is int):
+		var value := float(weights[index])
+		if is_finite(value) and value > 0.0: return value
+	return 1.0
+
+
+static func _frame_weight_sum(begin: int, end: int, weights: Array) -> float:
+	var total := 0.0
+	for index: int in range(begin, end): total += _frame_weight(index, weights)
+	return maxf(total, 0.000001)

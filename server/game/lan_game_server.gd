@@ -1,11 +1,11 @@
 extends Node
 
-const PROTOCOL_VERSION := 2
+const PROTOCOL_VERSION := 3
 const SNAPSHOT_INTERVAL_TICKS := 3
 const RECONNECT_GRACE_MSEC := 60_000
 const REMATCH_GRACE_MSEC := 20_000
 const MAX_PACKET_BYTES := 8192
-const ALLOWED_ACTIONS: Array[String] = ["move", "jump", "dash", "evade", "ultimate", "attack_light", "attack_heavy", "attack_special"]
+const ALLOWED_ACTIONS: Array[String] = ["move", "jump", "attack_light", "attack_heavy", "attack_special"]
 const MATCH_SCENE := preload("res://server/game/lan_authority_match.tscn")
 const ROOM_ALPHABET := "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 
@@ -76,6 +76,7 @@ func _ready() -> void:
 	peer.peer_connected.connect(_on_peer_connected)
 	peer.peer_disconnected.connect(_on_peer_disconnected)
 	match_root = MATCH_SCENE.instantiate()
+	match_root.get_node("MatchController").rules = (load("res://assets/combat/two_fighter_combat_rules.tres") as CombatRules).duplicate(true)
 	add_child(match_root)
 	controller = match_root.get_node("MatchController") as MatchController
 	controller.loadout_catalog = catalog
@@ -271,7 +272,7 @@ func _selection_from(value: Variant) -> LoadoutSelection:
 	selection.character_id = StringName(source.get("character_id", ""))
 	selection.job_id = StringName(source.get("job_id", ""))
 	selection.accessory_id = StringName(source.get("accessory_id", ""))
-	if not selection.is_valid_definition(): return null
+	if not selection.is_valid_definition() or not LocalPlayCatalog.PLAYABLE_IDS.has(String(selection.character_id)) or not selection.job_id.is_empty() or not selection.accessory_id.is_empty(): return null
 	if catalog.character_by_id(selection.character_id) == null: return null
 	if not selection.job_id.is_empty() and catalog.job_by_id(selection.job_id) == null: return null
 	if not selection.accessory_id.is_empty() and catalog.accessory_by_id(selection.accessory_id) == null: return null

@@ -1,9 +1,7 @@
 extends SceneTree
 
 const MANIFEST_PATH := "res://assets/character/manifest.json"
-const FRAME_COUNT := 16
 const CELL_SIZE := 128
-const SHEET_SIZE := Vector2(CELL_SIZE * FRAME_COUNT, CELL_SIZE)
 const REQUIRED_MOTIONS := {
 	"ja-hyun/idle": {"fps": 8.0, "loop": true},
 	"ja-hyun/run": {"fps": 12.0, "loop": true},
@@ -29,7 +27,7 @@ func _initialize() -> void:
 		if entry is Dictionary and entry.get("type") == "animation-runtime":
 			_validate_motion(entry, seen_asset_ids, failures)
 			var character_id := String(entry.get("character_id", ""))
-			var motion_name := String(_motion_name_from_sheet("res://%s" % String(entry.get("path", ""))))
+			var motion_name := String(_motion_name(entry))
 			var motion_key := "%s/%s" % [character_id, motion_name]
 			if declared_motions.has(motion_key):
 				failures.append("duplicate declared motion: %s" % motion_key)
@@ -67,11 +65,17 @@ func _validate_motion(entry: Dictionary, seen_asset_ids: Dictionary, failures: P
 	if not frame_path.begins_with("res://"):
 		failures.append("invalid SpriteFrames path: %s" % asset_id)
 		return
-	var motion_name := _motion_name_from_sheet(sheet_path)
+	var motion_name := _motion_name(entry)
+	var count := int(entry.get("frame_count", 16))
+	var columns := int(entry.get("atlas_columns", 16))
+	if count not in [16,24,32] or columns < 1 or columns > mini(16,count) or ceili(float(count)/columns) > 2 or int(entry.get("cell_size", 128)) != CELL_SIZE:
+		failures.append("invalid declared sheet layout: " + asset_id)
+		return
+	var sheet_size := Vector2(columns * CELL_SIZE, ceili(float(count)/columns) * CELL_SIZE)
 	var sheet := load(sheet_path) as Texture2D
 	var image := Image.load_from_file(ProjectSettings.globalize_path(sheet_path))
 	var frames := load(frame_path) as SpriteFrames
-	if sheet == null or sheet.get_size() != SHEET_SIZE:
+	if sheet == null or sheet.get_size() != sheet_size:
 		failures.append("invalid motion sheet size: %s" % sheet_path)
 		return
 	if image == null or image.detect_alpha() == Image.ALPHA_NONE:
@@ -79,17 +83,24 @@ func _validate_motion(entry: Dictionary, seen_asset_ids: Dictionary, failures: P
 	if frames == null or motion_name.is_empty() or not frames.has_animation(motion_name):
 		failures.append("missing SpriteFrames animation: %s" % frame_path)
 		return
-	if entry.get("frame_count") != FRAME_COUNT or frames.get_frame_count(motion_name) != FRAME_COUNT:
+	if frames.get_frame_count(motion_name) != count:
 		failures.append("invalid frame count: %s" % asset_id)
 	if not (entry.get("fps") is float or entry.get("fps") is int) or not is_equal_approx(frames.get_animation_speed(motion_name), float(entry.get("fps"))):
 		failures.append("invalid animation speed: %s" % asset_id)
 	if not (entry.get("loop") is bool) or frames.get_animation_loop(motion_name) != entry.get("loop"):
 		failures.append("invalid animation loop: %s" % asset_id)
-	for index: int in range(FRAME_COUNT):
+	var durations: Array = entry.get("frame_durations", [])
+	if not durations.is_empty() and durations.size() != count:
+		failures.append("duration count mismatch: " + asset_id)
+		return
+	for index: int in range(mini(count, frames.get_frame_count(motion_name))):
 		var atlas := frames.get_frame_texture(motion_name, index) as AtlasTexture
-		if atlas == null or atlas.atlas == null or atlas.atlas.resource_path != sheet_path or atlas.region != Rect2(index * CELL_SIZE, 0, CELL_SIZE, CELL_SIZE):
+		if atlas == null or atlas.atlas == null or atlas.atlas.resource_path != sheet_path or atlas.region != Rect2((index % columns) * CELL_SIZE, (index / columns) * CELL_SIZE, CELL_SIZE, CELL_SIZE):
 			failures.append("invalid atlas frame %d for %s" % [index, asset_id])
 			break
+		var duration := 1.0 if durations.is_empty() else float(durations[index])
+		if not is_finite(duration) or duration <= 0.0 or not is_equal_approx(frames.get_frame_duration(motion_name,index),duration):
+			failures.append("invalid frame duration: " + asset_id)
 	if entry.get("consumer_path") != frame_path:
 		failures.append("motion consumer path mismatch: %s" % asset_id)
 
@@ -107,11 +118,14 @@ func _validate_required_motions(declared_motions: Dictionary, failures: PackedSt
 			failures.append("required motion loop mismatch: %s" % motion_key)
 
 
-func _motion_name_from_sheet(sheet_path: String) -> StringName:
-	var filename := sheet_path.get_file().get_basename()
-	if not filename.ends_with("_16f"):
-		return &""
-	return StringName(filename.trim_suffix("_16f"))
+func _motion_name(entry: Dictionary) -> StringName:
+	if not String(entry.get("visual_state_id", "")).is_empty():
+		return StringName(entry.visual_state_id)
+	var filename := String(entry.get("path", "")).get_file().get_basename()
+	for count: int in [16,24,32]:
+		if filename.ends_with("_%df" % count):
+			return StringName(filename.trim_suffix("_%df" % count))
+	return &""
 
 
 func _is_kebab_case(value: String) -> bool:

@@ -177,7 +177,7 @@ func _retry_local() -> void:
 
 func _select(id: String, redraw := true) -> bool:
 	var item: Dictionary = app.catalog.product(id)
-	if item.is_empty() or not app.store.owns(id):
+	if item.is_empty() or item.kind != "character" or not app.catalog.is_playable_character(StringName(id)) or not app.store.owns(id):
 		if redraw: view.confirm("아직 보유하지 않았습니다", "상점에서 0원 무료 구매 후 선택할 수 있습니다.", "상점으로", func() -> void: open("shop", {"category": item.get("kind", "전체")}))
 		return false
 	if state.get("preset_edit", false):
@@ -188,7 +188,7 @@ func _select(id: String, redraw := true) -> bool:
 		_rebuild()
 		return true
 	var character: String = id if item.kind == "character" else String(app.store.data.selected_character)
-	var accessory: String = id if item.kind == "accessory" else String(app.store.data.selected_accessory)
+	var accessory: String = ""
 	busy = true
 	var ok: bool = await app._change_profile("select", {"character": character, "accessory": accessory, "opponent": app.store.data.opponent_character})
 	busy = false
@@ -217,9 +217,16 @@ func _nickname(value: String) -> void:
 func _valid_preset(value: Dictionary) -> bool:
 	var character: String = String(value.get("character", ""))
 	var accessory: String = String(value.get("accessory", ""))
-	return app.catalog.contains(character, "character") and app.store.owns(character) and (accessory.is_empty() or (app.catalog.contains(accessory, "accessory") and app.store.owns(accessory)))
+	return app.catalog.is_playable_character(StringName(character)) and app.store.owns(character) and accessory.is_empty()
 
 func _apply_preset() -> void:
+	var original_draft := _preset_draft.duplicate(true)
+	if not _preset_draft.is_empty():
+		var candidate: Dictionary = app.store.data.duplicate(true)
+		candidate.selected_character = _preset_draft.get("character", "")
+		candidate.selected_accessory = ""
+		candidate = app.store.normalize_combat_selection(candidate)
+		_preset_draft = {"character": candidate.selected_character, "accessory": ""}
 	if not _valid_preset(_preset_draft):
 		view.confirm("선택이 필요합니다", "보유한 캐릭터와 장신구로 편성을 완성하세요.", "확인", func() -> void: pass)
 		return
@@ -227,7 +234,10 @@ func _apply_preset() -> void:
 	var ok: bool = await app._change_profile("select", {"character": _preset_draft.character, "accessory": _preset_draft.get("accessory", ""), "opponent": app.store.data.opponent_character})
 	busy = false
 	if ok:
-		if not app.menu_store.save_slot(_preset_index, _preset_draft.character, _preset_draft.get("accessory", "")) or not app.menu_store.set_active_slot(_preset_index):
+		# An archived preset is applied through a normalized copy; keep its stored original.
+		var saved := true
+		if original_draft == _preset_draft: saved = app.menu_store.save_slot(_preset_index, _preset_draft.character, _preset_draft.get("accessory", ""))
+		if not saved or not app.menu_store.set_active_slot(_preset_index):
 			state.message = "편성은 적용했지만 프리셋을 저장하지 못했습니다. " + app.menu_store.error
 		else:
 			state = {}

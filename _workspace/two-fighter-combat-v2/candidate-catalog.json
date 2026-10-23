@@ -1,0 +1,1684 @@
+{
+  "schema_version": 1,
+  "kind": "motion-candidates",
+  "approval_status": "pending",
+  "attack_sources": [
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  ],
+  "character_movesets": {
+    "ja-hyun": "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "nabi": "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  },
+  "assets": [
+    {
+      "asset_id": "ja-hyun-idle-16f-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/idle_16f.png",
+      "creation": {
+        "method": "built-in image generation, approved identity reference and region normalization",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; external license verification not asserted",
+        "references": [
+          "User motion-package approval, 2026-09-08",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "b2d65b43b379fd1304cfc26f8af3f9534ee1e937933286c8142e788e6576af3d",
+      "modifications": [
+        "Normalized the approved 4x4 review frames into a 16-frame RGBA runtime sheet.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 8,
+      "loop": true,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/idle.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/idle.tres",
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/idle-r02.png",
+        "source_sha256": "addbb30a0be3a34b670193a2f5e625a8bdca36ffc66122c910aca9ca1d082153",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/idle_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "visual_state_id": "idle",
+      "foot_pivot_y": 124,
+      "reuse_approved_runtime": true,
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-run-16f-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/run_16f.png",
+      "creation": {
+        "method": "built-in image generation, approved identity reference and region normalization",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; external license verification not asserted",
+        "references": [
+          "User motion-package approval, 2026-09-08",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "48af654bccb8058729639e2cb9d19b531c2f8939719b0e99eb9fa085446cc87f",
+      "modifications": [
+        "Normalized the approved 4x4 review frames into a 16-frame RGBA runtime sheet.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": true,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/run-r02.png",
+        "source_sha256": "f18b0c25adfa718424978495cf3ec6d705a6120cce34934c522872504d740afb",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/run_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "visual_state_id": "run",
+      "foot_pivot_y": 124,
+      "reuse_approved_runtime": true,
+      "expected_action": "전진 달리기. 발 교대와 체중 이동이 이어지고 루프가 튀지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-jump-16f-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/jump_16f.png",
+      "creation": {
+        "method": "built-in image generation, approved identity reference and region normalization",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; external license verification not asserted",
+        "references": [
+          "User stationary-jump approval, 2026-09-08",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "247761e002e9b95db86c2b6b32650b62dcb7b78b7e714402b35df73a883b19f9",
+      "modifications": [
+        "Built as a 16-frame RGBA stationary vertical jump with a shared horizontal foot pivot.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/jump-r02.png",
+        "source_sha256": "001e3d0e66dc39cc5c9ab2a07192dc69febec1f97e12f1c317b9e9e790ef19d7",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/jump_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "visual_state_id": "jump",
+      "foot_pivot_y": 124,
+      "reuse_approved_runtime": true,
+      "expected_action": "상승·정점·하강을 구분한다. 실제 착지 전에는 지면을 딛는 착지 자세를 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-guard-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/guard_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "ec5741f1ec2aa8691a3fb78c9d9cca738592c6a4c5ed460e12ef5efab91d72a2",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 24,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres",
+      "visual_state_id": "guard",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/guard-r00.png",
+        "source_sha256": "a57c1e90a1e72c487ba78c7363455bdca4d881f2e3f3777f479d4831ff2759ff",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/guard_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "두 손 또는 팔로 몸 앞을 방어한다. 공격·피하기로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-hitstun-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "7d479abd780138963144bb6b05d9ed6e27221efd82d72898b6c8a5bea82e071b",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 24,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres",
+      "visual_state_id": "hitstun",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/hitstun-r00.png",
+        "source_sha256": "121cc6b33aa74f2c7e544cb60ff64ce314242ca82fa370096ef7c6f44fb0e62f",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/hitstun_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-launch-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres",
+      "visual_state_id": "launch",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/launch-r00.png",
+        "source_sha256": "bf96de9c901cdf2b5bb6ed601cde0716b94b184c86a1d7f84752ea4b6b4c25dc",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/launch_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-knock-down-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "24b882cc94ec4298f3963034cda821f80218fb9444095cf5feea2fad58c84666",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres",
+      "visual_state_id": "knock_down",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 15,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/knock_down-r00.png",
+        "source_sha256": "8c364f3d21731da188ef8de94d8e751157860e1777241ee9d89703528ae2c768",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/knock_down_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-wake-up-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "30d750d1823afe462658fa9fb554b4c91416da99657639b36cef48e6996f0e67",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres",
+      "visual_state_id": "wake_up",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/wake_up-r00.png",
+        "source_sha256": "4eff93ae578b16845030119c0fe56c28be90a9e7b367c7760ddfc7b06a720a83",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/wake_up_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-death-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/death_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "bc4bb47580977ba70267988e5b607b2b7d748fe88a315faf38b4caf192bbdcf3",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres",
+      "visual_state_id": "death",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 15,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/death-r00.png",
+        "source_sha256": "3df37e66db13893e01a2a133ba032bdd4c8f146f9f9c398351f13500cf412410",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/death_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-ring-out-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "7de7256e619a76d2cae75ced5ce8615df3250f6b2e1f1279063c1b64967fd4d4",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres",
+      "visual_state_id": "ring_out",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/ring_out-r00.png",
+        "source_sha256": "4059f75fdfb09fed78b78c8bc0f3d258398cc0b1ece3387844fd6e3a831a7f86",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/ring_out_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-spawn-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "0957af4b01eef9ebe2829dd2375541c6cd1e5bba1fbf2a591809fac3b809e54f",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres",
+      "visual_state_id": "spawn",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/spawn-r00.png",
+        "source_sha256": "bae9e84c061864845019ac3e2838c1ec97b77ff4f3a90ae28f64be823c84d8b8",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/spawn_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-attack-light-combo-01-16f-r02",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f.png",
+      "creation": {
+        "method": "built-in image generation, approved identity reference and region normalization",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no external reference asset used",
+        "references": [
+          "User r02 Ja-Hyun base-combo approval, 2026-09-09",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "92dbca56378007b52cbe4582f197d91170aa0cacd98b9d5b3206da7ffaf672f4",
+      "modifications": [
+        "Normalized the approved r02 4x4 review frames into a 16-frame RGBA runtime sheet.",
+        "Applied alpha cleanup during normalization.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+      "visual_state_id": "attack_light_combo_01",
+      "combo_index": 1,
+      "is_finisher": false,
+      "acting_purpose": "low jab",
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/attack_light_combo_01-r02.png",
+        "source_sha256": "d7325682f882527474c202981314fbbe85fb34d65bf5167c12a8c821f5bc425d",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/attack_light_combo_01_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "foot_pivot_y": 124,
+      "reuse_approved_runtime": true,
+      "expected_action": "왼손 전방 펀치. 지상 약1과 약3은 같은 손이다. 준비→전방 단타→회복.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-attack-light-combo-02-16f-r02",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f.png",
+      "creation": {
+        "method": "built-in image generation, approved identity reference and region normalization",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no external reference asset used",
+        "references": [
+          "User r02 Ja-Hyun base-combo approval, 2026-09-09",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "363ab661b5c40bdca2d227722a6579d24a4beba73c1c01b7879febfb5ad3f8e4",
+      "modifications": [
+        "Normalized the approved r02 4x4 review frames into a 16-frame RGBA runtime sheet.",
+        "Applied alpha cleanup during normalization.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+      "visual_state_id": "attack_light_combo_02",
+      "combo_index": 2,
+      "is_finisher": false,
+      "acting_purpose": "ribbon-drawing side strike",
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/attack_light_combo_02-r02.png",
+        "source_sha256": "bdb5b6ef4339242455376a543f854952fe0343db2548e8bad89eaf3539a6b3d0",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/attack_light_combo_02_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "foot_pivot_y": 124,
+      "reuse_approved_runtime": true,
+      "expected_action": "반대 오른손 전방 펀치. 왼손 첫타와 사용 손을 구분한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_04",
+      "path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_light_combo_04_16f_r01n02.png",
+      "sprite_frames_path": "res://_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_light_combo_04_r01n02.tres",
+      "fps": 12,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "expected_action": "한 발로 버티고 다른 발을 전방으로 펼치는 강한 킥. 목도리 공격이 아닌 약4 다운 마무리.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-special-neutral-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral_16f.png",
+      "creation": {
+        "method": "built-in image generation, approved identity reference and region normalization",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "681d4d2d977da5a8741696d81de7d85b076457b0bebc2086232a1d27ef280b3a",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres",
+      "visual_state_id": "special_neutral",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/special_neutral-r05.png",
+        "source_sha256": "37bbd2c6969abf1ec3d5edbea41caf57d0f53f2108e672a3e3e125bf906e4f55",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/special_neutral_16f.png",
+        "source_scale": 1.15,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "긴 목도리를 전방으로 내민 뒤 당기는 단타 강공격. 별도 리본 효과로180 리치와 끌기를 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "ja-hyun-attack-air-light-16f-local-v01",
+      "character_id": "ja-hyun",
+      "type": "animation-runtime",
+      "path": "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "creation": {
+        "method": "approved original review recovery and region normalization",
+        "provider": "project-local normalization",
+        "version": "motion-visual-unification-v01"
+      },
+      "rights": {
+        "status": "derived from approved ja-hyun concept; no additional external rights verification asserted",
+        "references": [
+          "User approved all previously presented motion drafts, 2026-10-02",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted"
+        ]
+      },
+      "verified_on": "2026-10-08",
+      "sha256": "6ef21a90fdad3abf51c719870dcb04bf18bc0499309ddd1bbb9a50d443149bca",
+      "modifications": [
+        "Removed the gray review background and cross-cell fragments without repainting poses.",
+        "Packed 16 RGBA 128x128 cells with the approved base scale, safe per-frame fit, and foot pivot; preserved review sources.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "consumer_path": "res://assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "visual_state_id": "attack_air_light",
+      "presentation_scale": 1.2,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "motion_unification": {
+        "report_sha256": "7ad926424b3e6d2fbee0d600ce934bd822ad314776464101f45eeaa9707bee5e",
+        "source_path": "_workspace/character-motion-visual-unification/02_drafts/ja-hyun/attack_air_light-r00.png",
+        "source_sha256": "9ac601f3d34aae37f7f3b3a9bc167431b7d77532b0f90c3b7a89ff56e7dfaf8f",
+        "review_path": "_workspace/character-motion-visual-unification/03_staged/ja-hyun/attack_air_light_16f.png",
+        "source_scale": 1,
+        "approval_record": "_workspace/character-motion-visual-unification/approval.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "발을 딛지 않은 공중 단타 펀치와 긴 목도리 리치. 새 점프·공격 잠금은 피해자에게 적용한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_air_heavy",
+      "path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_air_heavy_16f_r01n02.png",
+      "sprite_frames_path": "res://_workspace/two-fighter-combat-v2/candidates/ja-hyun/attack_air_heavy_r01n02.tres",
+      "fps": 12,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 90,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "expected_action": "공중에서 목도리를 머리 위에서 아래로 내려치는 단타. 시전자는 공중에 남고 피해자가 급강하한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_scarf_sweep",
+      "path": "_workspace/two-fighter-combat-v2/candidates/ja-hyun/special_scarf_sweep_16f_r01n02.png",
+      "sprite_frames_path": "res://_workspace/two-fighter-combat-v2/candidates/ja-hyun/special_scarf_sweep_r01n02.tres",
+      "fps": 12,
+      "loop": false,
+      "presentation_scale": 1.45,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          13,
+          16
+        ]
+      ],
+      "expected_action": "좌·우·위 세 방향 목도리 휘두르기1초. 전역6tick마다10회이며 앞9회끌기·마지막밀기. 별도 리본 효과와 대조한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-idle-16f-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/idle_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "c766ba882bbaabdbf2605a20a4f0d9885c9f4a7197fe985949e44fd9d96d682c",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 8,
+      "loop": true,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/01_style_reference/approved-idle-source.png",
+        "source_sha256": "818ca0ff794c5311b99a658044ff286a666f9bdc7a29d40b1378304d26a2270b",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/idle/idle-r01-clean.png",
+        "review_sha256": "b4ecbe6b85d732fad2465f4d9cfb42a27921a8118f057dff40817312e131d656",
+        "source_scale": 0.3769633507853403,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "visual_state_id": "idle",
+      "presentation_scale": 1.0,
+      "reuse_approved_runtime": true,
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-run-16f-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/run_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "4315e5671ef1657e23c2e6a88c584d7deac30813ca74dae83ed3252c8d47087d",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": true,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/run.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/run.tres",
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/run-r01-alpha.png",
+        "source_sha256": "3a605d4e1615db98c03dc44b2f1d3b276d10d6ec92ab58586820fb3492f45573",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/run/run-r01-clean.png",
+        "review_sha256": "cff558cd3d100ac5ddaca6ada5ab4e01c37da492f7f047f0999718351f31ac13",
+        "source_scale": 0.3170731707317073,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "visual_state_id": "run",
+      "presentation_scale": 1.0,
+      "reuse_approved_runtime": true,
+      "expected_action": "전진 달리기. 발 교대와 체중 이동이 이어지고 루프가 튀지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-jump-16f-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/jump_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "eb5131c3a0d715b0c5d63419bc8a81ab4a923955141d06910e33a36d139e8df9",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/jump.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/jump.tres",
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/jump-r01-alpha.png",
+        "source_sha256": "338021b727a137fe2d09549b3a6fbd5541fbfbbcaa5c656908477b7cca358fec",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/jump/jump-r01-clean.png",
+        "review_sha256": "0960d6617b781812f63ed72236f27329a749bd288fd96d44e5797b03e213ccd8",
+        "source_scale": 0.3956043956043956,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "visual_state_id": "jump",
+      "presentation_scale": 1.0,
+      "reuse_approved_runtime": true,
+      "expected_action": "상승·정점·하강을 구분한다. 실제 착지 전에는 지면을 딛는 착지 자세를 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-guard-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/guard_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "35dab26efd3378cbe4962ffb79fd0a647304689ed73f36b9c333f554574d02a2",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 24,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/guard.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/guard.tres",
+      "visual_state_id": "guard",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/guard-r01-alpha.png",
+        "source_sha256": "98e4510805f52d3e523ebfa3763b65cb3d2706f80c2a215078e68bbeb16f9a19",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/guard/guard-r01-clean.png",
+        "review_sha256": "c1a2b8229c6a464c6f78a8a2bf6f56fa47a3e41c6eb92c8a4040e28e3627066f",
+        "source_scale": 0.34951456310679613,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "두 손 또는 팔로 몸 앞을 방어한다. 공격·피하기로 보이지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-hitstun-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/hitstun_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "9339f73e56d073282ccd8a292be360ddfc179e9efc4936e084abaf02e9baa14b",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 24,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres",
+      "visual_state_id": "hitstun",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/hitstun-r01-alpha.png",
+        "source_sha256": "8f5de873d8ded1e19f119e8f13e622fcaea3bbbecd9615f7d4498f049f47ffd5",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/hitstun/hitstun-r01-clean.png",
+        "review_sha256": "4c994b0e99f9daf8d6d36e82d55f3c04e45154a830cc41923e5941d81bfb1f21",
+        "source_scale": 0.3891891891891892,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-launch-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/launch_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "1eea5e9be6db877de2d45e6675ddb97418700b1fa8794c0c26b09e6c04f19c0d",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/launch.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/launch.tres",
+      "visual_state_id": "launch",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/launch-r01-alpha.png",
+        "source_sha256": "17b67f0f3780a3bc5140d3417afd868642c3ab125eb318f1e624c37607039e3e",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/launch/launch-r01-clean.png",
+        "review_sha256": "609d5160e721af3946f2de8203545de3c3662f7030d8f7aa9c2c6e45d7db9ebf",
+        "source_scale": 0.3711340206185567,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-knock-down-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/knock_down_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "198c37fb81af679940f13da81b5a6c5a27ac09866b7401265b60b308f29fca2e",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres",
+      "visual_state_id": "knock_down",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 15,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/knock_down-r01-alpha.png",
+        "source_sha256": "b489cd0b19dcf2dc54aaeee77982550dfd538de409c8bd62ec0dda0d8284681d",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/knock_down/knock_down-r01-clean.png",
+        "review_sha256": "81dbfd7155fa5dd33430a1a5571558648479d6b2a9c8899b0ffd07b437deee0a",
+        "source_scale": 0.325,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-wake-up-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/wake_up_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "f70d21b1d418a58349234ef15e52ae36a3c9af01ac4a9f8e310b67e1f474305d",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres",
+      "visual_state_id": "wake_up",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/wake_up-r01-alpha.png",
+        "source_sha256": "28968e580bbb0b6e10a0db883a5303a0557c58af9e4af31139c3a17865c872f5",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/wake_up/wake_up-r01-clean.png",
+        "review_sha256": "05cfe8d9f0782a3a4105d8e1e0514e7b1b9b620a8e556d262ee373718a1b623b",
+        "source_scale": 0.3412322274881517,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-death-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/death_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "56d0f8d4ac18cefc6372d9fb81a3a3f1c209a144642c313a5c4fac638166caba",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/death.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/death.tres",
+      "visual_state_id": "death",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "state_hold_frame": 15,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/death-r01-alpha.png",
+        "source_sha256": "a07d0ff4cce142431b13112ba36a7d71b29fc983bc077d7406eef26f5adb82e4",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/death/death-r01-clean.png",
+        "review_sha256": "fe7f8f68821113c0358a9d6a03e34b9bbd94578bcffbc76afe5b87a12581b239",
+        "source_scale": 0.34615384615384615,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-ring-out-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/ring_out_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "1a7fb9c08dc0b697aca38daba5908366f8f9e4cd2dc544db9eac4457d98f4c67",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres",
+      "visual_state_id": "ring_out",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/ring_out-r02-alpha.png",
+        "source_sha256": "5a38a3c1d3eec955ecd1153730ad20457767ffb079e0de64fe75ec6838d1131f",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/ring_out/ring_out-r01-clean.png",
+        "review_sha256": "795d84a5f1fefa98be2aecc054f87b2441d92d6358ca34501bc03e828f6fd1e9",
+        "source_scale": 0.3170731707317073,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-spawn-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/spawn_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "9e63ac92fcac25b2400f5537e3f826257902d0c360f6eff153c5f830b7a63a07",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres",
+      "visual_state_id": "spawn",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/spawn-r01-alpha.png",
+        "source_sha256": "fbf71df04fd085e91166835a89790ff4b15f85630504396f962472cda70e8b90",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/spawn/spawn-r01-clean.png",
+        "review_sha256": "d61921855e84539bca4fc2b876bafe30e496a638193c01253cf585c391b291f8",
+        "source_scale": 0.34951456310679613,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-attack-light-combo-01-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "a8af1c4d398ae7cd4c3f7063ad6f9d99f9c04f4ebb1b9abe8281325dd57d0c2e",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "visual_state_id": "attack_light_combo_01",
+      "combo_index": 1,
+      "is_finisher": false,
+      "acting_purpose": "claw jab while off-hand guards",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_combo_01-r02-alpha.png",
+        "source_sha256": "6e77eeb6fd0d48af6e29062a6e7c569dc9669ae8bbe796200636ca4cb813c62c",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_combo_01/attack_light_combo_01-r01-clean.png",
+        "review_sha256": "42120012abe62598ed04a4a34c8e304f501536e22db1d4b1829f6c262a083f2e",
+        "source_scale": 0.4022346368715084,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "왼손으로 전방 할퀴기. 첫 약공격 준비→앞으로 단타→회복.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_up",
+      "path": "_workspace/two-fighter-combat-v2/candidates/nabi/attack_light_up_16f_r02n02.png",
+      "sprite_frames_path": "res://_workspace/two-fighter-combat-v2/candidates/nabi/attack_light_up_r02n02.tres",
+      "fps": 12,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "expected_action": "오른손을 아래에서 위로 할퀴는 지상 약2. 반대손은 방어하고 양손X나점프어퍼와구별한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-attack-light-combo-02-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "596ac083d1404138aaecb8259a64a5ae79d17548e5ceea6a479422285de10b5b",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "visual_state_id": "attack_light_combo_02",
+      "combo_index": 2,
+      "is_finisher": true,
+      "acting_purpose": "large crossed claw rake",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_light_combo_02-r02-alpha.png",
+        "source_sha256": "f382ea74f1745b518eb74140af0d74a7df52ff73aeb483bfacb4d63ae965859b",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_light_combo_02/attack_light_combo_02-r01-clean.png",
+        "review_sha256": "90ecd55b785e3a7018926a5ba499ab2dc54baa4708a3354dd7ef6877f003cad5",
+        "source_scale": 0.3743169398907104,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "두 손을 교차한 뒤 양쪽으로 벌려 X자 할퀴는 약3 다운 마무리.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-attack-heavy-up-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "3d4c8792aa463dbf2f3db4f71318c07daf30886f11499e2ef309ce3ff5a68da3",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+      "visual_state_id": "attack_heavy_up",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          6
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_heavy_up-r01-alpha.png",
+        "source_sha256": "ab42bbe57baaae69802d2274837fe74a6c7d64c1cb1a181c387aa6cbe2ac1d76",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_heavy_up/attack_heavy_up-r01-clean.png",
+        "review_sha256": "fa7d3e11b175ede902433bb8371bcb3290984d2b0441e0e3e5d6167d8c1b0886",
+        "source_scale": 0.36,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-attack-air-light-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "c2fc1013635bfbfbeccd6b6bc8f3696738de92b6b83b9caf1e62148c8bda8bb4",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "visual_state_id": "attack_air_light",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/attack_air_light-r01-alpha.png",
+        "source_sha256": "46222ad1956a5bad10cf224284e8f7ede53772ebdc9167f2ef17061a1d17fba6",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/attack_air_light/attack_air_light-r01-clean.png",
+        "review_sha256": "61444a1ac62cbf47a54d32d26d4852d921c23a865ef399c8a0b8a2dea9e36173",
+        "source_scale": 0.3291139240506329,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_air_heavy",
+      "path": "_workspace/two-fighter-combat-v2/candidates/nabi/attack_air_heavy_16f_r04n02.png",
+      "sprite_frames_path": "res://_workspace/two-fighter-combat-v2/candidates/nabi/attack_air_heavy_r04n02.tres",
+      "fps": 12,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    },
+    {
+      "asset_id": "nabi-special-side-16f-local-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/local_ai_v01/special_side_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "5846af8cf4127f734b5e0684843bf0ed86c367ad8c3aab50e6c69a64d1bfd60f",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 12,
+      "loop": false,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres",
+      "visual_state_id": "special_side",
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 124,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          10
+        ],
+        [
+          10,
+          16
+        ]
+      ],
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/03_alpha/special_side-r01-alpha.png",
+        "source_sha256": "97e625ec93dd86f227afcc896dcb40a54c5eb2aff3c20f5dbf8ae90317bb535c",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/special_side/special_side-r01-clean.png",
+        "review_sha256": "95e907450fbd56fbeec2feb36993501c8bb2ba607825c3af9f955d772fc617d2",
+        "source_scale": 0.3333333333333333,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "reuse_approved_runtime": true,
+      "expected_action": "낮은 전진 돌파(run)→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+      "action_source": "_workspace/two-fighter-combat-v2/02_motion_expectations.md"
+    }
+  ]
+}

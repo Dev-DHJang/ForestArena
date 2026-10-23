@@ -1,0 +1,32 @@
+{
+  "character_id": "ja-hyun",
+  "status": "pending independent QA; unresolved source keys must not be silently replaced",
+  "files": [
+    "attack_air_light-r01.anchors.json",
+    "attack_air_heavy-r01.anchors.json",
+    "special_neutral-r02-combined.anchors.json",
+    "special_scarf_sweep-part-a-r01.anchors.json",
+    "special_scarf_sweep-part-b-r01.anchors.json"
+  ],
+  "unresolved": [
+    {
+      "motion": "attack_air_heavy",
+      "frames": [
+        14,
+        15
+      ],
+      "key": "scarf_hand",
+      "reason": "cloth released during recovery; no visible grip"
+    },
+    {
+      "motion": "special_scarf_sweep",
+      "frames": [
+        4,
+        12,
+        14
+      ],
+      "key": "one scarf_tips point",
+      "reason": "second hem occluded"
+    }
+  ]
+}
