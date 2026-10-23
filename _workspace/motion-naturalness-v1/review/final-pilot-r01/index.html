@@ -3,11 +3,12 @@
 <title>자현·나비 대표 모션 10종 검토</title>
 <style>body{margin:24px auto;padding:0 20px;max-width:1200px;background:#192330;color:#eff5f8;font:16px/1.6 system-ui}h1{font-size:26px}h2{font-size:22px;margin-top:36px}a{color:#9edaff}article{padding:18px;margin:16px 0;background:#253345;border-radius:12px}img,video{max-width:100%;height:auto}button{font:inherit;padding:8px 16px;margin:4px;border-radius:8px}code{overflow-wrap:anywhere}small{color:#c1d0df}.clips{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:16px}</style>
 <h1>자현·나비 대표 모션 10종</h1>
-<p>달리기·점프·약공격의 연결을 먼저 검토하는 시안입니다. 아직 사용자 승인과 게임 자산 등록을 하지 않았습니다. 전체 36종 중 나머지 26종은 이 대표 세트 검토 뒤 진행합니다.</p>
+<p>달리기·점프·약공격의 연결을 검토한 대표 10종 영상입니다. 승인 당시의 후보 재생을 보존합니다. 등록 상태와 남은 26종의 진행 내용은 아래에 표시합니다.</p>
 <p>실제 경기 영상은 제품의 전투·지형·카메라·표시 코드를 사용합니다. 촬영 중 OS 포커스 일시정지만 제외했습니다. Android 기기 중단·복귀 검사 결과가 아닙니다.</p>
 <p>영상의 전체 화면 버튼으로 크게 볼 수 있습니다. 자세 연결은 정상 속도와 느린 속도에서 함께 확인합니다.</p>
 <p><button onclick="speed(1)">정상 속도 1×</button><button onclick="speed(.25)">느리게 0.25×</button><button onclick="document.querySelectorAll('video').forEach(v=>{v.pause();v.currentTime=0})">처음으로</button></p>
 <script>function speed(s){document.querySelectorAll('video').forEach(v=>{v.playbackRate=s})}</script>
+<p><strong>2026-10-23: 대표 10종 사용자 승인·게임 자산 등록 완료.</strong> <a href="../../03_qa_installed_pilot_r01.md">설치 후 독립 QA</a>. 남은 26종은 제작 중이며 아직 승인·등록되지 않았습니다.</p>
 <h2>정상 크기 · 줌 1.50</h2><div class="clips">
 <article><strong>자현 · 달리기 → 정지</strong><video controls loop playsinline preload="metadata" src="../live-pilot-r06/ja-hyun__run-stop.mp4"></video></article>
 <article><strong>자현 · 점프 → 착지</strong><video controls loop playsinline preload="metadata" src="../live-pilot-r06/ja-hyun__jump-land.mp4"></video></article>
@@ -35,4 +36,4 @@
 <article><strong>nabi__attack_light_combo_01</strong> · 16장 · 독립 검토: 통과<p>왼손으로 전방 할퀴기. 첫 약공격 준비→앞으로 단타→회복.</p><a href="../pilot-r04/boards/nabi__attack_light_combo_01.jpg"><img loading="lazy" src="../pilot-r04/boards/nabi__attack_light_combo_01.jpg" alt="nabi__attack_light_combo_01 전체 프레임"></a></article>
 <article><strong>nabi__attack_light_up</strong> · 16장 · 독립 검토: 통과<p>오른손을 아래에서 위로 할퀴는 지상 약2. 반대손은 방어하고 양손X나점프어퍼와구별한다.</p><a href="../pilot-r04/boards/nabi__attack_light_up.jpg"><img loading="lazy" src="../pilot-r04/boards/nabi__attack_light_up.jpg" alt="nabi__attack_light_up 전체 프레임"></a></article>
 <article><strong>nabi__attack_light_combo_02</strong> · 16장 · 독립 검토: 통과<p>두 손을 교차한 뒤 양쪽으로 벌려 X자 할퀴는 약3 다운 마무리.</p><a href="../pilot-r04/boards/nabi__attack_light_combo_02.jpg"><img loading="lazy" src="../pilot-r04/boards/nabi__attack_light_combo_02.jpg" alt="nabi__attack_light_combo_02 전체 프레임"></a></article>
-<p><small>후보 목록 SHA-256: <code>5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941</code><br>미승인 시안 · 피해·공격 시간·60Hz 전투 계산 변경 없음 · Android 기기 검사 미실행</small></p></html>
+<p><small>후보 목록 SHA-256: <code>5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941</code><br>대표 10종 승인·등록 완료 · 피해·공격 시간·60Hz 전투 계산 변경 없음 · Android 기기 검사 미실행</small></p></html>

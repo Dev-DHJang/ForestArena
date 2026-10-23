@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from PIL import Image, UnidentifiedImageError
+from motion_layout import motion_id
 
 from review_motion_actions import CHECKS, compact, prepare, read, sha, timeline_errors, validate, write
 
@@ -913,16 +914,30 @@ class CandidateFramesGodotTest(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertIn("MOTION_CANDIDATE_FRAMES: PASS", result.stdout)
 
-    def test_default_timeline_still_covers_all_120_approved_motions(self):
+    def test_default_timeline_covers_all_approved_motions_and_registered_timings(self):
         import subprocess
         from review_motion_actions import entries
         timeline=self.work/"legacy-timeline.json"
         result=subprocess.run(["godot","--headless","--path",str(self.project),"--script","res://tools/forest_arena/motion_review_timeline.gd","--","--output",str(timeline)],text=True,capture_output=True,timeout=30)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
         captured=read(timeline)
-        self.assertEqual(len(captured["motions"]),120)
-        self.assertEqual(timeline_errors(self.project,captured,entries(self.project)),[])
+        approved = entries(self.project)
+        self.assertGreaterEqual(len(approved),120)
+        self.assertEqual({(r['character_id'],motion_id(r)) for r in approved},
+                         {(r['character_id'],r['motion']) for r in captured['motions']})
+        self.assertEqual(len(captured["motions"]),len(approved))
+        self.assertEqual(timeline_errors(self.project,captured,approved),[])
         self.assertTrue(all(variant["samples"] for row in captured["motions"] for variant in row["variants"]))
+        for row in approved:
+            if row.get('motion_registration') and row['character_id']=='ja-hyun' and motion_id(row)=='attack_light_combo_04':
+                kick = next(r for r in captured['motions'] if r['character_id']=='ja-hyun' and r['motion']=='attack_light_combo_04')
+                self.assertEqual([(v['attack_id'],v['phase_ticks']) for v in kick['variants']],
+                                 [('ja-hyun-light-04',[10,4,22])])
+                self.assertIn('assets/combat/movesets/two_fighter_ja_hyun_moveset.tres',captured['sources'])
+                from review_motion_actions import action
+                expected, source = action(self.project,'ja-hyun','attack_light_combo_04')
+                self.assertIn('킥',expected)
+                self.assertEqual(source,'_workspace/motion-naturalness-v1/02_expectations.md')
 
     def test_candidate_timeline_uses_explicit_new_movesets_not_legacy_base(self):
         import subprocess

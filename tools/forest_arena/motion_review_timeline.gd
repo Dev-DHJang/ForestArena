@@ -5,6 +5,8 @@ var errors: Array[String] = []
 var candidate_plan: Dictionary = {}
 var candidate_textures: Array[Texture2D] = []
 var warnings: Array[String] = []
+var registered_sources: Dictionary = {}
+var used_movesets: Array[MoveSetData] = []
 
 
 func _initialize() -> void:
@@ -39,6 +41,30 @@ func _install_candidates(presentation: Node2D, id: String) -> void:
 			var motion := StringName(entry.visual_state_id)
 			presentation._motions[motion] = frames
 			if not entry.get("reuse_approved_runtime", false): presentation._motion_layouts[motion] = entry.duplicate(true)
+
+
+func _registered_moves(entry: Dictionary, id: String, fallback: MoveSetData) -> MoveSetData:
+	var registration: Dictionary = entry.get("motion_registration", {})
+	if registration.is_empty(): return fallback
+	var source := String(registration.get("catalog_path", ""))
+	if not source.begins_with("_workspace/") or ".." in source.split("/") or "\\" in source:
+		errors.append("unsafe registered motion catalog: " + source)
+		return fallback
+	var path := "res://" + source
+	if not FileAccess.file_exists(path) or FileAccess.get_sha256(path) != registration.get("catalog_sha256"):
+		errors.append("registered motion catalog changed or missing: " + source)
+		return fallback
+	var document: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if not document is Dictionary:
+		errors.append("registered motion catalog is not an object: " + source)
+		return fallback
+	registered_sources[source] = FileAccess.get_sha256(path)
+	var moves_path := String(document.get("character_movesets", {}).get(id, ""))
+	var moves := load("res://" + moves_path.trim_prefix("res://")) as MoveSetData
+	if moves == null:
+		errors.append("registered motion has no recorded MoveSetData: " + id)
+		return fallback
+	return moves
 
 
 func _run() -> void:
@@ -108,6 +134,10 @@ func _run() -> void:
 		if not candidate_plan.is_empty(): _install_candidates(presentation, id)
 		for entry: Dictionary in document.assets:
 			if entry.get("type") not in ["animation-runtime", "animation-candidate"] or entry.get("character_id") != id: continue
+			if candidate_plan.is_empty():
+				profile.move_set = _registered_moves(entry, id, fighter.character_data.base_move_set)
+				fighter.attacks = profile.move_set.attacks()
+			if not used_movesets.has(profile.move_set): used_movesets.append(profile.move_set)
 			var motion := String(entry.get("visual_state_id", String(entry.sprite_frames_path).get_file().get_basename()))
 			var variants: Array[Dictionary] = []
 			var review_attacks: Array[AttackData] = profile.move_set.attacks()
@@ -222,6 +252,11 @@ func _run() -> void:
 		for resource: Resource in [character, selected_moves] + selected_moves.attacks():
 			var path := resource.resource_path.split("::")[0].trim_prefix("res://")
 			if not path.is_empty(): fingerprints[path] = FileAccess.get_sha256("res://" + path)
+	for moves: MoveSetData in used_movesets:
+		for resource: Resource in [moves] + moves.attacks():
+			var path := resource.resource_path.split("::")[0].trim_prefix("res://")
+			if not path.is_empty(): fingerprints[path] = FileAccess.get_sha256("res://" + path)
+	fingerprints.merge(registered_sources)
 	for source: String in candidate_plan.get("required_sources", []):
 		fingerprints[source] = FileAccess.get_sha256("res://" + source)
 	var file := FileAccess.open(output, FileAccess.WRITE)

@@ -58,6 +58,18 @@ def entries(root: Path):
 
 
 def action(root: Path, cid: str, motion: str):
+    for row in entries(root):
+        if row.get('character_id') != cid or motion_id(row) != motion:
+            continue
+        registration = row.get('motion_registration', {})
+        if not registration:
+            break
+        catalog = local_path(root, registration['catalog_path'], candidate=True)
+        if sha(catalog) != registration['catalog_sha256']:
+            raise ValueError('registered motion catalog changed: ' + str(catalog))
+        original = next(r for r in read(catalog)['assets']
+                        if r['character_id'] == cid and motion_id(r) == motion)
+        return original['expected_action'], original['action_source']
     if motion == "attack_heavy_charge":
         return STATES[motion], "scripts/fighter_controller.gd"
     for character in read(root / "docs/contracts/attack-system-v01.json")["characters"]:

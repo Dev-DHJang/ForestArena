@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "kind": "motion-registration-receipt",
+  "plan_sha256": "24877d86d3de0d531da75509f2ab1802521dc17653107be95569721846854669",
+  "approval_sha256": "82951840b1423eb37f01298241ddec9d24c8533fad8080785cc388225586a036",
+  "plan": {
+    "schema_version": 1,
+    "kind": "motion-registration-plan",
+    "registrar_sha256": "901ca7fe4a21f39e8c53d002d41700708ab7b36b72566eeaf46c15dc60314b03",
+    "layout_validator_sha256": "9186353ea51f94f01d9cae3175cd5c5c1b554b836a785ea9d6f4842e7a4648c5",
+    "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+    "catalog_sha256": "5852dd4e468f5d0b8a349cb9d413b9d211ce8b9b5cc72a1a69ea8df9c5609941",
+    "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+    "scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+    "qa_review_path": "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+    "qa_review_sha256": "5a00f00c59aeae08e306ae6641fa0410e6eda961f482031fdb6fbbf29cbea6fb",
+    "registration_targets_path": "_workspace/motion-naturalness-v1/registration-targets.json",
+    "registration_targets_sha256": "2647a0c7e94122c407984af0106a775b1f6e382991422c8b9a474a065ac20ed3",
+    "approval_record": "_workspace/motion-naturalness-v1/user-motion-registration-approval.json",
+    "motions": [
+      {
+        "character_id": "ja-hyun",
+        "motion": "run",
+        "asset_id": "ja-hyun-run-16f-v01",
+        "png_path": "assets/character/ja-hyun/animation/runtime/run_16f_natural-v02.png",
+        "png_sha256": "08a3faa2609ff87aebf8623b95a40fcfacedb88cc8c9cc85d1f2f8b148d80cf3",
+        "candidate_sprite_frames_sha256": "cd99deb20f903c65fc3012ad6a6a9a1803f7beffbd90d754315e2bc9f6ac2eee",
+        "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/run.tres",
+        "registered_sprite_frames_sha256": "86f660a78a954ff6ed579d158f22111d6e6776873e6a4c239fcc579044779054",
+        "operation": "replace"
+      },
+      {
+        "character_id": "ja-hyun",
+        "motion": "jump",
+        "asset_id": "ja-hyun-jump-16f-v01",
+        "png_path": "assets/character/ja-hyun/animation/runtime/jump_24f_natural-v02.png",
+        "png_sha256": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1",
+        "candidate_sprite_frames_sha256": "67775f8e07ee03535b1facbe369e324e0daf38f5ea46111458fd39986e0d87dc",
+        "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/jump.tres",
+        "registered_sprite_frames_sha256": "6f1110e4730c6c45a6fe28ca8802527b1e8f8433434538b3d6838b630052fa7e",
+        "operation": "replace"
+      },
+      {
+        "character_id": "ja-hyun",
+        "motion": "attack_light_combo_01",
+        "asset_id": "ja-hyun-attack-light-combo-01-16f-r02",
+        "png_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f_natural-v02.png",
+        "png_sha256": "7fc8bcb8e3de49ab25cde2e0184fee53d99525803fc408849120db8caf887982",
+        "candidate_sprite_frames_sha256": "cc552e3c847f7e959fe16e30900ad9dbd45afc6cf564fbe49a88792766069dfd",
+        "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+        "registered_sprite_frames_sha256": "4116ef82c444005e4753723e3510d178dddee3bdfd6e8bb376989e6d73cf307a",
+        "operation": "replace"
+      },
+      {
+        "character_id": "ja-hyun",
+        "motion": "attack_light_combo_02",
+        "asset_id": "ja-hyun-attack-light-combo-02-16f-r02",
+        "png_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f_natural-v02.png",
+        "png_sha256": "c9a885dabc3cbc2daa732f0043d46bd3fcf32f93a7c0dc7ee9b7d656bf1651fd",
+        "candidate_sprite_frames_sha256": "04dbcc03280f36643755c55b7e85de7ab940c0f79b0f0c950d8fd3d90c7543f2",
+        "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+        "registered_sprite_frames_sha256": "c4b66105460d8301746458f4454f187230826d6eed70de93a4216b692b3caa9a",
+        "operation": "replace"
+      },
+      {
+        "character_id": "ja-hyun",
+        "motion": "attack_light_combo_04",
+        "asset_id": "ja-hyun-attack-light-combo-04-16f-v01",
+        "png_path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_04_16f_natural-v02.png",
+        "png_sha256": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f",
+        "candidate_sprite_frames_sha256": "a65774dad32cc82cb34b3bb9a88f97a1a7fe90486de6c6c29ca807b58be0a980",
+        "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/attack_light_combo_04.tres",
+        "registered_sprite_frames_sha256": "b92c88918aa0e7af3e252a2f4cddd5ff13647ab0509eb0d013462beb3f670a0d",
+        "operation": "add"
+      },
+      {
+        "character_id": "nabi",
+        "motion": "run",
+        "asset_id": "nabi-run-16f-v01",
+        "png_path": "assets/character/nabi/animation/runtime/run_16f_natural-v02.png",
+        "png_sha256": "25b18202ccbad8a557735256d576f890fffbb3ec4e1dc20d4215c490d28a5ef8",
+        "candidate_sprite_frames_sha256": "1dff19f0854515f57b19da6170d27d224cb5dd581f37c37e975e6b3a2d57a91c",
+        "sprite_frames_path": "res://assets/character/nabi/animation/runtime/run.tres",
+        "registered_sprite_frames_sha256": "2306f85c8851328180d8cdf6a22880775f0f83399e627b6688590e8eca6607cb",
+        "operation": "replace"
+      },
+      {
+        "character_id": "nabi",
+        "motion": "jump",
+        "asset_id": "nabi-jump-16f-v01",
+        "png_path": "assets/character/nabi/animation/runtime/jump_24f_natural-v02.png",
+        "png_sha256": "8e5c530cc6eea933f9f4a7c8b0e8b01c1427efc3e002343f575b87352c60cf5d",
+        "candidate_sprite_frames_sha256": "764058d0d8d3dcd6cb432b3193ece9966963acc6eb508514f03bc150ad4e4815",
+        "sprite_frames_path": "res://assets/character/nabi/animation/runtime/jump.tres",
+        "registered_sprite_frames_sha256": "1ac6908865d495bf6e46966318468f5e2258c7762788cae890565b2ba6ae3b29",
+        "operation": "replace"
+      },
+      {
+        "character_id": "nabi",
+        "motion": "attack_light_combo_01",
+        "asset_id": "nabi-attack-light-combo-01-16f-local-v01",
+        "png_path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f_natural-v02.png",
+        "png_sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+        "candidate_sprite_frames_sha256": "dab9e55d1a0678f175bba947a92e836858f776e3fcbeccc8e4ca63501f86f0a5",
+        "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+        "registered_sprite_frames_sha256": "ef409429cf9915e4a30da5f5d5bf86d23efe4c212053524cc904331b8477074e",
+        "operation": "replace"
+      },
+      {
+        "character_id": "nabi",
+        "motion": "attack_light_up",
+        "asset_id": "nabi-attack-light-up-16f-local-v01",
+        "png_path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f_natural-v02.png",
+        "png_sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+        "candidate_sprite_frames_sha256": "b53192bb83c8eaed6c95ef36bd955783903f6d97af857602ee0acb7f95efceca",
+        "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+        "registered_sprite_frames_sha256": "72b278ff89bde5c6a5b4b10427fb970b2e4177c788a602a91ad502a72bc26402",
+        "operation": "replace"
+      },
+      {
+        "character_id": "nabi",
+        "motion": "attack_light_combo_02",
+        "asset_id": "nabi-attack-light-combo-02-16f-local-v01",
+        "png_path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f_natural-v02.png",
+        "png_sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+        "candidate_sprite_frames_sha256": "16366888f01c9eb370c2a40581faf47c38c6e98f4b8c06b81aa38a614f02eb31",
+        "sprite_frames_path": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+        "registered_sprite_frames_sha256": "16a74dd8b045fd70108d84a66ed580720fd53f3757b6e43a5bbdbde0f2ca9f5a",
+        "operation": "replace"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01.tres",
+        "before_sha256": "cbb10adcaa71d9bb86ad179cc832505980b673a7376b4cfaeacd5de4e5fb4f7a",
+        "after_sha256": "4116ef82c444005e4753723e3510d178dddee3bdfd6e8bb376989e6d73cf307a"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "7fc8bcb8e3de49ab25cde2e0184fee53d99525803fc408849120db8caf887982"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02.tres",
+        "before_sha256": "f515c7a1973444dcb089efd459d4bab62fe12bf8d453c5b0e7b12d0a2a524bc9",
+        "after_sha256": "c4b66105460d8301746458f4454f187230826d6eed70de93a4216b692b3caa9a"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_02_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "c9a885dabc3cbc2daa732f0043d46bd3fcf32f93a7c0dc7ee9b7d656bf1651fd"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_04.tres",
+        "before_sha256": null,
+        "after_sha256": "b92c88918aa0e7af3e252a2f4cddd5ff13647ab0509eb0d013462beb3f670a0d"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/attack_light_combo_04_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/jump.tres",
+        "before_sha256": "84d0a70be2bad274308cdbeaae2b5f21842517976e2aaa09ffa19cefc3f0f053",
+        "after_sha256": "6f1110e4730c6c45a6fe28ca8802527b1e8f8433434538b3d6838b630052fa7e"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/jump_24f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/run.tres",
+        "before_sha256": "2bbe7085c4b838deeee77d42de73d50cb1cceb578e0ea1828221a0e4b1f62057",
+        "after_sha256": "86f660a78a954ff6ed579d158f22111d6e6776873e6a4c239fcc579044779054"
+      },
+      {
+        "path": "assets/character/ja-hyun/animation/runtime/run_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "08a3faa2609ff87aebf8623b95a40fcfacedb88cc8c9cc85d1f2f8b148d80cf3"
+      },
+      {
+        "path": "assets/character/manifest.json",
+        "before_sha256": "b7441e081bf90f6b7a3e79e1a909b837f8b6fab108e6acf1e33dec2041ab910b",
+        "after_sha256": "35d5851096e2ffa85b4d111fc2dbc5025dba7b5307fd538195c7c7826cf93428"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/jump.tres",
+        "before_sha256": "da14c3449857b4484773bb01748cc5001139c5a6a54c967f2f79878110aa2de8",
+        "after_sha256": "1ac6908865d495bf6e46966318468f5e2258c7762788cae890565b2ba6ae3b29"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/jump_24f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "8e5c530cc6eea933f9f4a7c8b0e8b01c1427efc3e002343f575b87352c60cf5d"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+        "before_sha256": "3b670d1ee3f129bb201977f7c9298035abac7da709d8ffb69ed31d0c43a6d162",
+        "after_sha256": "ef409429cf9915e4a30da5f5d5bf86d23efe4c212053524cc904331b8477074e"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+        "before_sha256": "ab875b7685963eabadccbc4d8547afcb29b86d8dba4f739157f516aa999c2ca6",
+        "after_sha256": "16a74dd8b045fd70108d84a66ed580720fd53f3757b6e43a5bbdbde0f2ca9f5a"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+        "before_sha256": "0857daa957b933de69c355b07f5184daa79c83b2c2d4bbc8372ca051f092acbd",
+        "after_sha256": "72b278ff89bde5c6a5b4b10427fb970b2e4177c788a602a91ad502a72bc26402"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/run.tres",
+        "before_sha256": "e73638537ca89ed90ea5c434b6c7f184b0dfb2ee8dc465b264fe04ea6fcf4c88",
+        "after_sha256": "2306f85c8851328180d8cdf6a22880775f0f83399e627b6688590e8eca6607cb"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/run_16f_natural-v02.png",
+        "before_sha256": null,
+        "after_sha256": "25b18202ccbad8a557735256d576f890fffbb3ec4e1dc20d4215c490d28a5ef8"
+      }
+    ]
+  },
+  "status": "installed"
+}

@@ -42,6 +42,8 @@ func _initialize() -> void:
 			failures.append("missing Ja-Hyun runtime attack: %s" % visual_state_id)
 			continue
 		_validate_entry(visual_state_id, declared[visual_state_id], expected_moves, failures)
+	if declared.has("attack_light_combo_04"):
+		_validate_registered_action("attack_light_combo_04", declared["attack_light_combo_04"], "ja-hyun", "킥", failures)
 	_validate_myo_ryung(manifest, attack_system, failures)
 	var nabi_moves := _character_attack_moves("nabi", attack_system, failures)
 	for motion: String in REQUIRED_NABI_ATTACKS:
@@ -104,17 +106,46 @@ func _validate_entry(visual_state_id: String, entry: Dictionary, expected_moves:
 
 func _validate_entry_against(visual_state_id: String, entry: Dictionary, expected: Dictionary, expected_moves: Dictionary, failures: PackedStringArray) -> void:
 	var expected_move: Dictionary = expected_moves.get(visual_state_id, {})
-	if entry.get("combo_index") != expected["combo_index"] or entry.get("is_finisher") != expected["is_finisher"]:
+	var historical_entry: Dictionary = entry
+	if entry.has("motion_registration"):
+		var history: Array = entry.get("registration_history", [])
+		if history.is_empty() or not history.back() is Dictionary:
+			failures.append("registered motion lost its previous contract: %s" % visual_state_id)
+			return
+		historical_entry = history.back()
+		_validate_registered_action(visual_state_id, entry, String(entry.get("character_id", "")), "", failures)
+	if historical_entry.get("combo_index") != expected["combo_index"] or historical_entry.get("is_finisher") != expected["is_finisher"]:
 		failures.append("incorrect Ja-Hyun combo metadata: %s" % visual_state_id)
-	if entry.get("acting_purpose") != expected["acting_purpose"]:
+	if historical_entry.get("acting_purpose") != expected["acting_purpose"]:
 		failures.append("incorrect Ja-Hyun acting purpose: %s" % visual_state_id)
-	if entry.get("combo_index") != expected_move.get("combo_index") or entry.get("is_finisher") != expected_move.get("finisher") or entry.get("acting_purpose") != expected_move.get("role"):
+	if historical_entry.get("combo_index") != expected_move.get("combo_index") or historical_entry.get("is_finisher") != expected_move.get("finisher") or historical_entry.get("acting_purpose") != expected_move.get("role"):
 		failures.append("manifest and attack-system visual metadata disagree: %s" % visual_state_id)
 	# Explicit visual_state_id is the contract; versioned sheet names may differ.
 	if String(entry.get("visual_state_id", "")) != visual_state_id:
 		failures.append("runtime visual state differs: %s" % visual_state_id)
 	if entry.get("sprite_frames_path") != entry.get("consumer_path"):
 		failures.append("SpriteFrames consumer mismatch: %s" % visual_state_id)
+
+
+func _validate_registered_action(visual_state_id: String, entry: Dictionary, character_id: String, required_word: String, failures: PackedStringArray) -> void:
+	var registration: Dictionary = entry.get("motion_registration", {})
+	if registration.is_empty():
+		failures.append("approved current motion has no registration: %s/%s" % [character_id, visual_state_id])
+		return
+	var catalog_path := "res://" + String(registration.get("catalog_path", ""))
+	if not FileAccess.file_exists(catalog_path) or FileAccess.get_sha256(catalog_path) != String(registration.get("catalog_sha256", "")):
+		failures.append("registered action catalog changed: %s/%s" % [character_id, visual_state_id])
+		return
+	var catalog := _load_json(catalog_path, failures)
+	for candidate: Variant in catalog.get("assets", []):
+		if candidate is Dictionary and candidate.get("character_id") == character_id and candidate.get("visual_state_id") == visual_state_id:
+			if candidate.get("sha256") != entry.get("sha256") or candidate.get("frame_count") != entry.get("frame_count"):
+				failures.append("registered action artwork differs: %s/%s" % [character_id, visual_state_id])
+			var action := String(candidate.get("expected_action", ""))
+			if action.is_empty() or candidate.get("action_source") != "_workspace/motion-naturalness-v1/02_expectations.md" or (not required_word.is_empty() and not action.contains(required_word)):
+				failures.append("registered action intent missing: %s/%s" % [character_id, visual_state_id])
+			return
+	failures.append("registered action absent from approved catalog: %s/%s" % [character_id, visual_state_id])
 
 
 func _finish(failures: PackedStringArray) -> void:

@@ -26,12 +26,13 @@ func run() -> void:
 		fighter.state=FighterController.State.FALL
 		fighter.velocity.y=200
 		visual.sync_visual(1.0)
-		check(visual.sprite.frame==(10 if cid==&"ja-hyun" else 11),"air descent never advances into grounded art")
+		check(visual.sprite.sprite_frames.get_frame_count(&"jump")==24,"approved two-fighter jumps load all 24 drawings")
+		check(visual.sprite.frame==15,"air descent holds its last airborne drawing before grounded poses16..23")
 		fighter.state=FighterController.State.IDLE
 		visual.sync_visual(0.24)
-		check(visual.sprite.frame==12,"actual landing starts the first grounded pose")
+		check(visual.sprite.frame==16,"actual landing starts the first approved grounded pose")
 		visual.sync_visual(0.0)
-		check(visual.sprite.frame==15,"landing reaches the standing end within 0.25 seconds")
+		check(visual.sprite.frame==23,"landing reaches the approved standing end within 0.25 seconds")
 		fighter.state=FighterController.State.KNOCK_DOWN
 		for remaining: int in range(18,0,-1):
 			fighter.landing_down_ticks=remaining
