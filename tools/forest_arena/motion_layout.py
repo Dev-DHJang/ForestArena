@@ -70,12 +70,14 @@ def layout(row: dict) -> dict:
         def point(value):
             return isinstance(value, list) and len(value) == 2 and all(not isinstance(n, bool) and isinstance(n, (float, int)) and math.isfinite(n) and 0 <= n <= cell for n in value)
         for frame in anchors:
-            if not isinstance(frame, dict) or set(frame) - {"scarf_root", "scarf_hand", "scarf_tips", "body_root"}:
+            if not isinstance(frame, dict) or set(frame) - {"scarf_root", "scarf_hand", "scarf_tips", "claw_hand", "claw_tip", "body_root"}:
                 raise ValueError("frame_anchors contains an unknown anchor")
-            if any(not point(frame[key]) for key in ("scarf_root", "scarf_hand", "body_root") if key in frame):
+            if any(not point(frame[key]) for key in ("scarf_root", "scarf_hand", "claw_hand", "claw_tip", "body_root") if key in frame):
                 raise ValueError("frame_anchors points must be finite cell coordinates")
-            if "scarf_tips" in frame and (not isinstance(frame["scarf_tips"], list) or len(frame["scarf_tips"]) != 2 or not all(point(p) for p in frame["scarf_tips"])):
-                raise ValueError("frame_anchors scarf_tips must contain two cell points")
+            if "scarf_tips" in frame:
+                tips = frame["scarf_tips"]
+                if not isinstance(tips, list) or len(tips) != 2 or all(tip is None for tip in tips) or any(tip is not None and not point(tip) for tip in tips):
+                    raise ValueError("frame_anchors scarf_tips must contain one or two visible cell points")
     return {"frame_count": count, "atlas_columns": columns, "cell_size": cell,
             "rows": math.ceil(count / columns), "sheet_size": (columns * cell, math.ceil(count / columns) * cell),
             "frame_durations": durations}

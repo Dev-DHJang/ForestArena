@@ -191,6 +191,31 @@ func _run() -> void:
 								_check(combat_before == fighter.snapshot(), "approved phase playback cannot mutate combat")
 			else:
 				_check(presentation.missing_motion == attack.visual_state_id, "missing motion explicitly exposed")
+		if id == &"nabi":
+			var old_special: SpriteFrames = presentation._motions[&"special_side"]
+			var authored_travel := SpriteFrames.new()
+			authored_travel.add_animation(&"special_side")
+			for index: int in 32:
+				authored_travel.add_frame(&"special_side", old_special.get_frame_texture(&"special_side", 0))
+			var travel_attack := AttackData.new()
+			travel_attack.visual_state_id = &"special_side"
+			travel_attack.attack_movement = 1
+			travel_attack.startup_ticks = 10
+			travel_attack.active_ticks = 24
+			travel_attack.recovery_ticks = 20
+			fighter.active_attack = travel_attack
+			fighter.state = FighterController.State.ATTACK_ACTIVE
+			fighter.attack_travel_active = true
+			fighter.attack_phase_tick = 10
+			presentation._motions[&"special_side"] = authored_travel
+			presentation._motion_layouts[&"special_side"] = {"phase_frame_ranges": [[0,4],[4,24],[24,32]]}
+			var travel_before := fighter.snapshot()
+			presentation.sync_visual(1.0/60.0)
+			_check(presentation.sprite.animation == &"special_side" and presentation.sprite.frame >= 4 and presentation.sprite.frame < 24, "authored 32-frame special displays travel poses")
+			_check(travel_before == fighter.snapshot(), "special travel display keeps combat data read-only")
+			presentation._motions[&"special_side"] = old_special
+			presentation.sync_visual(1.0/60.0)
+			_check(presentation.sprite.animation == &"run", "approved 16-frame special still shows the run cycle during travel")
 		fighter.free()
 	if failures.is_empty():
 		print("LOCAL_FIGHTER_PRESENTATION: PASS")

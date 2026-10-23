@@ -1,0 +1,153 @@
+{
+  "character_id": "nabi",
+  "status": "artwork planned; pending independent QA and explicit per-motion user approval",
+  "approved_pilot_user_message": "승인한다.",
+  "ownership": "New source artwork only; no assets/runtime/manifest edits",
+  "rights": "Original Forest Arena character; built-in OpenAI imagegen creation, no external stock",
+  "common": "사람 얼굴/손발, 성인 여성 3등신, 보라검정 머리, 고양이귀2·꼬리1, 라벤더 클로, 방울, 검정보라흰 의상. 가까운 LEFT 흰줄 소매/반창고 허벅지, 먼 RIGHT X소매/X허벅지. 전체 높이 강제 일치 대신 머리 단위 고정.",
+  "motions": [
+    {
+      "motion": "idle",
+      "frame_count": 16,
+      "expected_action": "낮은 준비 자세에서 호흡·손목·꼬리가 작게 움직이는 완전한 한 주기. 마지막은 처음에 매끄럽게 연결.",
+      "key_poses": "중립→작은 들숨→날숨→중립. 전방은 오른쪽. 공격 없이 발 고정.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "guard",
+      "frame_count": 16,
+      "expected_action": "두 팔을 얼굴과 몸 앞에 모아 막는 자세로 진입하고 방어 유지.",
+      "key_poses": "준비→두 팔 모으기→무게 낮춤→단단한 가드 유지. 공격이나 회피 없이 발 고정.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "hitstun",
+      "frame_count": 16,
+      "expected_action": "오른쪽에서 맞아 뒤로 움찔한 뒤 짧게 경직하는 피격자.",
+      "key_poses": "맞는 순간 눈감음/어깨 후퇴→몸 수축→짧은 경직→방어 준비에 가까운 수동 마무리. 스스로 할퀴지 않음.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "launch",
+      "frame_count": 16,
+      "expected_action": "오른쪽에서 타격받아 공중으로 밀린 수동 피격자.",
+      "key_poses": "발이 바닥에서 떨어지고 팔이 벌어짐→몸이 뒤로 젖음→공중 경직 안정. 도약 준비 없음.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "knock_down",
+      "frame_count": 16,
+      "expected_action": "피격자가 뒤로 넘어져 바닥에 누워 정지.",
+      "key_poses": "뒤로 균형 잃음→앉듯 무너짐→옆/등으로 쓰러짐→누운 최종 자세. 공격 아님.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "wake_up",
+      "frame_count": 16,
+      "expected_action": "바닥에 쓰러진 자세에서 일어나 낮은 준비 자세로 회복.",
+      "key_poses": "누움→손짚음→한 무릎→쪼그림→낮은 준비 자세. 발이 자연스럽게 착지.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "death",
+      "frame_count": 16,
+      "expected_action": "마지막 기회를 잃어 전투 불능으로 쓰러져 움직임을 멈춤.",
+      "key_poses": "탈진→무릎 꺾임→바닥으로 쓰러짐→눈감고 완전히 정지. 다시 일어나지 않음.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "ring_out",
+      "frame_count": 16,
+      "expected_action": "경기장 밖으로 수동으로 밀려나 떨어지는 탈락.",
+      "key_poses": "발이 떠있고 당황→팔을 벌려 균형 잃음→몸이 옆으로 기울며 낙하 자세. 공격·도약 아님.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "spawn",
+      "frame_count": 16,
+      "expected_action": "새 기회로 나타나 준비 자세로 안정.",
+      "key_poses": "공중 작은 웅크림→내려앉음→무릎 충격 흡수→낮은 전투 준비. 그림 자체는 이동 계산 없음.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "attack_heavy_up",
+      "frame_count": 16,
+      "expected_action": "지상에서 먼 RIGHT 한 팔을 아래에서 위로 한 번 올려쳐 띄우는 단타 어퍼.",
+      "key_poses": "준비 F0..4: 낮은 가드→먼팔 아래로, 판정 F5..8: 동일 먼팔 위로 단1회, 회복 F9..15: 천천히 회수→가드. 가까운 LEFT는 몸앞 유지.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "attack_air_light",
+      "frame_count": 16,
+      "expected_action": "공중에서 가까운 LEFT로 오른쪽 앞을 한 번 길게 할퀴는 단타.",
+      "key_poses": "준비 F0..3 공중 웅크림/왼팔 당김, 판정 F4..7 한 번 전방 긁기, 회복 F8..15 회수→공중 균형. 착지 그림 없음.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "attack_air_heavy",
+      "frame_count": 16,
+      "expected_action": "공중에서 동일한 먼 RIGHT 한 팔을 아래에서 위로 한 번 올려치는 단타.",
+      "key_poses": "준비 F0..4 공중 팔아래, 판정 F5..8 동일 먼팔 위로 단1회, 회복 F9..15 회수→공중 균형. 가까운 팔 가드, 스스로 낙하/착지 안함.",
+      "source_grid": [
+        4,
+        4
+      ],
+      "user_approval": "pending"
+    },
+    {
+      "motion": "special_side",
+      "frame_count": 32,
+      "expected_action": "낮은 오른쪽 전진 돌파→첫 적 뒤에서 돌아서 단 한 번 뒤쪽 할퀴기→정지.",
+      "key_poses": "준비 F0..5 낮아짐, 판정 F6..21: 낮은 달리기 F6..13→몸을 왼쪽으로 돌림 F14..16→단 한 번 왼쪽 할퀴기 F17..20→멈춤 F21, 회복 F22..31: 왼쪽 대상을 향한 가드로 정지. F6..21은 최대24tick 이내. 그림 안 이동 복제 없이 같은 셀 중심. 전투 코드는 이동/방향 계산 소유.",
+      "source_grid": [
+        4,
+        8
+      ],
+      "user_approval": "pending"
+    }
+  ]
+}

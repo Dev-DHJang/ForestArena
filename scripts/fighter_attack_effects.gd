@@ -58,8 +58,12 @@ func current_frame_anchors() -> Dictionary:
 			if row.has("scarf_tips"):
 				var tips: Variant = row.scarf_tips
 				if not tips is Array or tips.size() != 2: return {}
+				var visible_tips := 0
 				for tip: Variant in tips:
+					if tip == null: continue
 					if not _valid_pixel_point(tip): return {}
+					visible_tips += 1
+				if visible_tips == 0: return {}
 			return row
 	# These coordinates were inspected on the old 16-frame sheets only. Never
 	# clamp a 24/32-frame drawing to frame 15 of a different pose sequence.
@@ -105,6 +109,7 @@ func _draw() -> void:
 			if preparing or not anchors.has("scarf_root") or not anchors.has("scarf_tips"): return
 			root_point = _anchor(_pixel_point(anchors.scarf_root))
 			for tail: int in 2:
+				if anchors.scarf_tips[tail] == null: continue
 				var painted_tip := _anchor(_pixel_point(anchors.scarf_tips[tail]))
 				var direction := painted_tip-root_point
 				var up_pose := sprite.frame in [3,8,9,12] if frame_anchors.is_empty() else direction.y < -absf(direction.x) * 0.6

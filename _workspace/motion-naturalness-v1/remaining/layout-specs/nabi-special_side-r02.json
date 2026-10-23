@@ -1,0 +1,38 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "special_side",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partA-r02.png",
+    "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partB-r02.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.32,
+  "presentation_scale": 1.0,
+  "source_baseline_y": 290,
+  "target_baseline_y": 104,
+  "fps": 24,
+  "loop": false,
+  "expected_action": "전용 낮은 이동 자세로 전진→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+  "version": "r02",
+  "phase_frame_ranges": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      24
+    ],
+    [
+      24,
+      32
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    10,
+    24,
+    20
+  ]
+}

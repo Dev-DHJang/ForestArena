@@ -7,6 +7,7 @@ var catalog_path := "res://_workspace/motion-naturalness-v1/candidate-catalog.js
 var output := "res://_workspace/motion-naturalness-v1/review/live-pilot"
 var character_filter := ""
 var scenario_filter := ""
+var capture_stride := 1
 var flipped := false
 var small := false
 var state_only := false
@@ -27,7 +28,7 @@ func arguments() -> void:
 	var index := 0
 	while index < args.size():
 		match args[index]:
-			"--catalog", "--output", "--character", "--scenario":
+			"--catalog", "--output", "--character", "--scenario", "--capture-stride":
 				if index + 1 >= args.size():
 					errors.append("missing value for " + args[index]); return
 				match args[index]:
@@ -35,6 +36,7 @@ func arguments() -> void:
 					"--output": output = args[index+1]
 					"--character": character_filter = args[index+1]
 					"--scenario": scenario_filter = args[index+1]
+					"--capture-stride": capture_stride = int(args[index+1])
 				index += 2
 				continue
 			"--flip": flipped = true
@@ -43,7 +45,8 @@ func arguments() -> void:
 			_: errors.append("unknown argument: " + args[index])
 		index += 1
 	if character_filter not in ["", "ja-hyun", "nabi"]: errors.append("unknown character filter")
-	if scenario_filter not in ["", "run-stop", "jump-land", "full-combo"]: errors.append("unknown scenario filter")
+	if scenario_filter not in ["", "run-stop", "jump-land", "full-combo", "heavy-ground", "special", "air-heavy", "air-light"]: errors.append("unknown scenario filter")
+	if capture_stride < 1 or capture_stride > 4: errors.append("capture stride must be 1–4")
 	if not catalog_path.is_absolute_path(): catalog_path = "res://"+catalog_path
 	if not output.is_absolute_path(): output = "res://"+output
 
@@ -108,7 +111,7 @@ func run_clip(cid: String, scenario: String) -> Dictionary:
 	controller.loadout_catalog = catalog
 	var stage := controller.stage_data.duplicate(true) as StageData
 	var sign_x := -1.0 if flipped else 1.0
-	var target_distance := 80.0 if scenario == "full-combo" else 400.0
+	var target_distance := 160.0 if scenario == "special" else (80.0 if scenario in ["full-combo", "heavy-ground", "air-heavy", "air-light"] else 400.0)
 	stage.spawn_points[0] = Vector2(600,572)
 	stage.spawn_points[1] = Vector2(600+target_distance*sign_x,572)
 	controller.stage_data = stage
@@ -177,6 +180,15 @@ func run_clip(cid: String, scenario: String) -> Dictionary:
 			if fighter.active_attack != null and not fighter.active_attack.is_finisher and fighter.state == FighterController.State.ATTACK_ACTIVE and fighter.attack_phase_tick >= fighter.active_attack.active_ticks-2 and not queued_activations.has(fighter.activation_serial):
 				queue_input(controller,&"attack_light",CombatIntent.Direction.NEUTRAL,CombatIntent.Edge.PRESS,inputs,frame)
 				queued_activations[fighter.activation_serial] = true
+		elif scenario == "heavy-ground" and frame == 12:
+			queue_input(controller,&"attack_heavy",CombatIntent.Direction.NEUTRAL,CombatIntent.Edge.PRESS,inputs,frame)
+		elif scenario == "heavy-ground" and frame == 14:
+			queue_input(controller,&"attack_heavy",CombatIntent.Direction.NEUTRAL,CombatIntent.Edge.RELEASE,inputs,frame)
+		elif scenario == "special" and frame == 12:
+			queue_input(controller,&"attack_special",CombatIntent.Direction.NEUTRAL,CombatIntent.Edge.PRESS,inputs,frame)
+		elif scenario in ["air-heavy", "air-light"]:
+			if frame == 12: queue_input(controller,&"jump",CombatIntent.Direction.NEUTRAL,CombatIntent.Edge.PRESS,inputs,frame)
+			elif frame == 30: queue_input(controller,&"attack_heavy" if scenario == "air-heavy" else &"attack_light",CombatIntent.Direction.NEUTRAL,CombatIntent.Edge.PRESS,inputs,frame)
 		controller.step_fixed_tick(false)
 		check(not controller.paused,cid+" "+scenario+": match is advancing")
 		var before := controller.snapshot()
@@ -202,7 +214,7 @@ func run_clip(cid: String, scenario: String) -> Dictionary:
 			drawn.append({"fighter_id":String(fighter.fighter_id),"requested_motion":String(visual.requested_motion),"shown_motion":String(visual.sprite.animation),"frame":visual.sprite.frame,"frame_count":visual.sprite.sprite_frames.get_frame_count(visual.sprite.animation),"missing_motion":String(visual.missing_motion),"scale":[visual.sprite.scale.x,visual.sprite.scale.y],"sprite_position":[visual.sprite.position.x,visual.sprite.position.y],"flip_h":visual.sprite.flip_h})
 		states.append({"frame":frame,"time_seconds":float(frame)/60.0,"match":controller.network_snapshot(),"drawn":drawn,"snapshot_unchanged":before==controller.snapshot()})
 		caption.text="승인 전 실제 입력 검토 · %s / %s · %s · %.2f초\n%s · 그림 %d/%d · 줌 %.2f%s" % [cid,scenario,FighterController.State.keys()[player.state],float(frame)/60.0,String(presentation.sprite.animation),presentation.sprite.frame+1,presentation.sprite.sprite_frames.get_frame_count(presentation.sprite.animation),camera.fixed_zoom," · 좌우 반전" if flipped else ""]
-		if not state_only:
+		if not state_only and frame % capture_stride == 0:
 			await process_frame
 			await RenderingServer.frame_post_draw
 			check(root.get_texture().get_image().save_png(folder.path_join("frame-%03d.png"%frame))==OK,"save actual rendered frame")
@@ -212,11 +224,15 @@ func run_clip(cid: String, scenario: String) -> Dictionary:
 	elif scenario == "jump-land":
 		check(had_airborne and returned_to_ground,cid+": actual jump leaves and returns to terrain")
 		check(controller.player.state==FighterController.State.IDLE and controller.player.is_on_floor(),cid+": actual landing completes before clip end")
-	else:
+	elif scenario == "full-combo":
 		check(attacks_seen.size()==(4 if cid=="ja-hyun" else 3),cid+": input buffer executes the complete authored combo")
 		check(controller.player.active_attack==null and controller.player.state==FighterController.State.IDLE,cid+": complete combo returns to idle")
 		check(controller.training_dummy.current_hp<controller.training_dummy.runtime_profile.stats.max_hp,cid+": real hit resolution damages the nearby target")
-	var result := {"name":name_key,"character_id":cid,"scenario":scenario,"frame_count":frame_count,"fps":60,"actual_fixed_tick":true,"synthetic_phases":false,"camera_zoom":camera.fixed_zoom,"flipped":flipped,"small":small,"state_only":state_only,"inputs":inputs,"attacks_seen":attacks_seen,"states":states}
+	else:
+		check(attacks_seen.size()==1,cid+" "+scenario+": one real attack activates")
+		check(controller.player.active_attack==null,cid+" "+scenario+": attack completes")
+		if scenario in ["air-heavy", "air-light"]: check(had_airborne,cid+" "+scenario+": air context was reached")
+	var result := {"name":name_key,"character_id":cid,"scenario":scenario,"frame_count":frame_count,"fps":60,"capture_stride":capture_stride,"actual_fixed_tick":true,"synthetic_phases":false,"camera_zoom":camera.fixed_zoom,"flipped":flipped,"small":small,"state_only":state_only,"inputs":inputs,"attacks_seen":attacks_seen,"states":states}
 	scene.queue_free()
 	await process_frame
 	return result
@@ -247,7 +263,7 @@ func run() -> void:
 	var rows: Array[Dictionary] = []
 	for cid: String in ["ja-hyun","nabi"]:
 		if not character_filter.is_empty() and cid != character_filter: continue
-		for scenario: String in ["run-stop","jump-land","full-combo"]:
+		for scenario: String in ["run-stop","jump-land","full-combo","heavy-ground","special","air-heavy","air-light"]:
 			if not scenario_filter.is_empty() and scenario != scenario_filter: continue
 			var row: Dictionary = await run_clip(cid,scenario)
 			check(row.has("states") and row.get("states", []).size()==int(row.get("frame_count",-1)),cid+" "+scenario+": complete clip captured")

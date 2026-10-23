@@ -234,7 +234,7 @@ class MotionLayoutTest(unittest.TestCase):
         row = {"frame_count":24, "atlas_columns":12, "frame_durations":[1.0]*23+[2.0],
                "phase_frame_ranges":[[0,8],[8,12],[12,24]],
                "jump_frame_ranges":{"ascent":[0,6],"apex":[6,10],"descent":[10,16],"landing":[16,24]},
-               "run_stride_px":96, "frame_anchors":[{"body_root":[63.25,124],"scarf_root":[40,60],"scarf_hand":[65,70],"scarf_tips":[[10,50],[20,55]]} for _ in range(24)]}
+               "run_stride_px":96, "frame_anchors":[{"body_root":[63.25,124],"scarf_root":[40,60],"scarf_hand":[65,70],"scarf_tips":[[10,50],[20,55]],"claw_hand":[72,66],"claw_tip":[88,53]} for _ in range(24)]}
         before=copy.deepcopy(row)
         spec=layout(row)
         self.assertEqual(spec["sheet_size"],(1536,256))
@@ -242,6 +242,8 @@ class MotionLayoutTest(unittest.TestCase):
         self.assertEqual(frame_box(23,spec),(1408,128,1536,256))
         self.assertEqual(row,before)
         self.assertEqual(layout({"frame_count":32})["sheet_size"],(2048,256))
+        row["frame_anchors"][0]["scarf_tips"] = [[10,50],None]
+        self.assertEqual(layout(row)["frame_count"],24)
 
     def test_reject_invalid_counts_atlases_durations_ranges_and_anchors(self):
         from motion_layout import layout
@@ -253,7 +255,9 @@ class MotionLayoutTest(unittest.TestCase):
                     {"jump_frame_ranges":{"ascent":[0,6]}},{"run_stride_px":0},
                     {"descent_frame_range":[10,17]},{"frame_anchors":[{}]*15},
                     {"frame_anchors":[{"scarf_root":[129,2]}]*16},{"frame_anchors":[{"scarf_tips":[[1,2]]}]*16},
-                    {"frame_anchors":[{"body_root":[129,124]}]*16}, {"frame_anchors":[{"body_root":[63,float("inf")]}]*16}]
+                    {"frame_anchors":[{"body_root":[129,124]}]*16}, {"frame_anchors":[{"body_root":[63,float("inf")]}]*16},
+                    {"frame_anchors":[{"claw_hand":[129,2]}]*16}, {"frame_anchors":[{"claw_tip":[float("nan"),2]}]*16},
+                    {"frame_anchors":[{"scarf_tips":[None,None]}]*16}]
         for row in invalid:
             with self.subTest(row=row), self.assertRaises(ValueError): layout(row)
 

@@ -77,3 +77,11 @@
 등록 후 `qa/verify-installed-r04.log`의 전체 `verify.sh`는 통과했다. 같은 변경 버전으로 LAN 실제 루프백 연결·재접속·결과 전달과 Android QA용 격리 서버 검사까지 실행했다. 오래된 모션 계약 테스트는 이전 그림의 설명을 manifest 변경 이력에서 확인하고, 현재 그림은 승인된 후보 목록의 해시와 행위 설명에서 확인하도록 바꿨다. 표시 테스트는 현재 24장 점프의 프레임 구간과 그림별 부착점을 검사한다. `qa/verify-docs-installed-r03.log`와 `qa/resources-installed-r02.log`도 통과했다. 이들은 실제 Android 기기 검사 결과가 아니다.
 
 이전에 만든 `review/final-pilot-r01/index.html`은 승인 당시의 동일한 12개 영상을 보존하면서 현재 대표10종의 승인·등록 상태를 표시하도록 갱신했다. 남은26종의 승인 상태까지 확대하지 않는다.
+
+## 2026-10-23 남은 26종 후보와 실제 입력 검사
+
+대표10종 승인·등록 뒤 자현과 나비의 남은 각13종 원화를 검토용으로 포장했다. 후보 전체26종은 `remaining-candidate-catalog.json`과 그 해시를 고정한 `remaining-candidate-scope.json`에 있으며, PNG·SpriteFrames는 `_workspace/motion-naturalness-v1/candidates/remaining/` 밖으로 내보내지 않았다. 원본은 `remaining/`에 보존한다. 자현의 새 목도리 부착점은 실제 원화 기준으로 기록했으며, 가려진 한쪽 천 끝은 효과도 한쪽만 그리게 했다. 나비의32장 특수는 새 이동 자세가 경기 중 표시되도록 했고 기존 승인16장 특수는 달리기 표시를 유지한다.
+
+`03_qa_remaining_candidate_preflight_r02.md`에26종 후보 시간표, 최신 코드·목록의 실제 입력14개 장면·7,173개 상태 검사, 같은 그림의 이전 목록으로 찍은 네 장면 무손실 화면 표본174장과 미확인 사항을 기록했다. 설명 필드 하나를 정리한 뒤 현재 후보의 시간표와 상태 검사를 다시 통과시켰다. `qa/verify-remaining-candidate-r01.log`의 전체 `verify.sh`는 통과했고 Godot 리소스·문서·LAN 검사가 포함됐다. 이 통과는 새26종의 동작 품질 독립 판정이나 사용자 승인을 뜻하지 않는다. 최신 검토 페이지 `qa/remaining-candidate-review-r03/index.html`의26종은 모두 `blocked` 상태이며, 특히 나비 새 손·발톱 좌표와 모든 모션의 정상/느린 속도·반전·작은 표시 검토를 마쳐야 한다.
+
+따라서 새26종의 런타임 등록, 전체36종 완료, 최종 PR 검토·병합은 아직 진행하지 않는다. Android 실기기 검사는 미실행이며 실제 기기 통과로 기록하지 않는다.

@@ -166,7 +166,11 @@ func sync_visual(delta: float) -> void:
 	if fighter.active_attack != null:
 		requested_motion = fighter.active_attack.visual_state_id
 		if fighter.active_attack.attack_movement == 1 and fighter.attack_travel_active:
-			requested_motion = &"run"
+			# The authored 32-frame special includes its own travel poses.
+			# Older approved 16-frame specials continue to use the run cycle.
+			var travel_frames: SpriteFrames = _motions.get(requested_motion)
+			if requested_motion != &"special_side" or travel_frames == null or travel_frames.get_frame_count(requested_motion) != 32:
+				requested_motion = &"run"
 	missing_motion = &"" if _motions.has(requested_motion) else requested_motion
 	var shown := requested_motion if missing_motion.is_empty() else &"idle"
 	if not _motions.has(shown):
