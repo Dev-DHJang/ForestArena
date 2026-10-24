@@ -1,0 +1,23 @@
+{
+  "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png",
+  "source_sha256": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+  "dimensions": [
+    1177,
+    1337
+  ],
+  "method": "built-in image_gen edit",
+  "edit_target": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r01-edit-reference.png",
+  "edit_target_sha256": "4e64ca50dd58fdefabc239ef2a63811e9af9260ddf3f62ce733719e406ca5e87",
+  "original_sheet": "barrage-b-r01.png",
+  "global_frame_index": 18,
+  "prompt_path": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.prompt.txt",
+  "status": "candidate; fixes arm/grip continuity only; no user approval or runtime registration",
+  "rights_note": "Derivative of approved concept and own generated frame19; no external image/audio copied",
+  "observations": [
+    "Near foreground shoulder/arm now crosses chest up to one raised scarf-gripping hand.",
+    "Far hand is bent down in front of chest and does not grip cloth.",
+    "Foreground forearm hides part of face and neck junction; one eye and two mouse ears remain readable.",
+    "Primary scarf tip retains a small6px alpha>=180 margin at top/right; no pixels were cropped or padded after generation.",
+    "The whole canvas remains original1177x1337 RGBA; only review diagnostic and anchor overlays are derived."
+  ]
+}

@@ -133,7 +133,12 @@ if source_anchors:
                 assert key in ("scarf_root", "scarf_hand", "claw_hand", "claw_tip", "body_root")
                 converted[key] = packed_point(value, source_index)
         frames_anchors.append(converted)
-folder = base / "candidates" / "remaining" / character
+output_directory = spec.get("candidate_output_directory")
+if output_directory is None:
+    folder = base / "candidates" / "remaining" / character
+else:
+    folder = (root / output_directory).resolve()
+    assert folder.is_relative_to(root / "_workspace"), "review candidates must stay inside _workspace"
 folder.mkdir(parents=True, exist_ok=True)
 version = spec.get("version", "r01")
 png = folder / f"{motion}_{count}f_{version}.png"

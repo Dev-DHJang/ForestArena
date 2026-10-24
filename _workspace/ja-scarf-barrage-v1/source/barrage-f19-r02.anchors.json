@@ -1,0 +1,60 @@
+{
+  "character_id": "ja-hyun",
+  "motion": "special_scarf_sweep",
+  "global_frame_index": 18,
+  "source_frame_index": 0,
+  "source_grid": [
+    1,
+    1
+  ],
+  "source_cell_origin": [
+    0,
+    0
+  ],
+  "source_cell_size": [
+    1177,
+    1337
+  ],
+  "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png",
+  "source_sha256": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+  "coordinate_space": "original generated single-pose canvas pixels; no crop or resize applied",
+  "status": "candidate manual anchors; independent QA pending",
+  "scarf_root": [
+    519,
+    600
+  ],
+  "scarf_hand": [
+    846,
+    350
+  ],
+  "scarf_tips": [
+    [
+      1164,
+      12
+    ],
+    null
+  ],
+  "body_root": [
+    569,
+    1260
+  ],
+  "foot_contacts": [
+    [
+      250,
+      1260
+    ],
+    [
+      888,
+      1256
+    ]
+  ],
+  "neck_visibility": "under foreground attacking forearm/collar; anatomically inferred",
+  "other_scarf_tip_visibility": "unused tail visible behind body but endpoint intentionally unassigned",
+  "scale_proposal": {
+    "source_to_previous_source_scale": 0.215,
+    "comparison_source": "barrage-f19-r01-edit-reference.png",
+    "comparison_method": "sole-aligned direct visual comparison at0.215 and0.225;0.215 gives similar ear/hair silhouette and stance height. Use prior per-pose source-to-atlas scale multiplied by0.215, then independently inspect F17–21 for head-unit and stance continuity.",
+    "diagnostic": "barrage-f19-r02-scale-diagnostic.jpg",
+    "not_verified": "runtime head-unit scale and transition continuity remain independent QA work"
+  }
+}

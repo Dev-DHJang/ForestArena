@@ -10,6 +10,10 @@ const EffectData = preload("res://scripts/data/combat_effect_data.gd")
 ## Fixed-tick Phase 1 fighter. Geometry and visual state mirror the authority
 ## state for debugging, but physics overlap and animation never decide hits.
 signal presentation_event(event_id: StringName, payload: Dictionary)
+## Local observation only; resets drawing clocks without adding combat state.
+signal presentation_reset
+## Local drawing notification after an effective hit sets its reaction.
+signal hit_reaction_started
 
 enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED }
 
@@ -111,6 +115,7 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 	_clear_attack_travel()
 	state = State.IDLE
 	set_physics_process(true)
+	presentation_reset.emit()
 	return true
 
 
@@ -143,6 +148,7 @@ func reset_for_match(rules: CombatRules) -> void:
 	attack_landed = false
 	state = State.IDLE
 	_sync_debug_hitbox()
+	presentation_reset.emit()
 
 
 func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
@@ -354,6 +360,7 @@ func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int,
 			state = State.LAUNCH
 		_:
 			state = State.HITSTUN
+	hit_reaction_started.emit()
 	return false
 
 

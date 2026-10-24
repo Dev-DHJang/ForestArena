@@ -20,6 +20,7 @@ var fighter: FighterController
 var sprite: AnimatedSprite2D
 # Supplied by the read-only presentation for the exact hashed artwork entry.
 var frame_anchors: Array = []
+var phase_frame_ranges: Array = []
 var artwork_sha256 := ""
 var _scarf: Texture2D
 # Canvas commands hold RIDs: retain mesh resources until the next redraw.
@@ -82,7 +83,142 @@ static func _valid_pixel_point(value: Variant) -> bool:
 	if not value is Array or value.size() != 2: return false
 	for coordinate: Variant in value:
 		if not (coordinate is float or coordinate is int) or not is_finite(float(coordinate)): return false
+		if float(coordinate) < 0.0 or float(coordinate) > 128.0: return false
 	return true
+
+func held_scarf_path(anchors: Dictionary, reach_factor := 1.0, previous_heading: Dictionary = {}) -> Dictionary:
+	# The source drawing supplies a continuous collar -> grip -> held tail.
+	# Extend that held tail from its real grip; the other worn tail stays painted.
+	if not anchors.has("scarf_root") or not anchors.has("scarf_hand") or not anchors.has("scarf_tips"): return {}
+	var tips: Variant = anchors.scarf_tips
+	if not tips is Array or tips.size() != 2 or tips[0] == null: return {}
+	for point: Variant in [anchors.scarf_root, anchors.scarf_hand, tips[0]]:
+		if not _valid_pixel_point(point): return {}
+	var collar := _anchor(_pixel_point(anchors.scarf_root))
+	var grip := _anchor(_pixel_point(anchors.scarf_hand))
+	var painted_tip := _anchor(_pixel_point(tips[0]))
+	var direction := painted_tip - grip
+	if direction.length_squared() < 4.0: return {}
+	var heading := direction
+	if not previous_heading.is_empty():
+		var old_tips: Variant = previous_heading.get("scarf_tips", [])
+		if not old_tips is Array or old_tips.size() != 2 or not _valid_pixel_point(old_tips[0]) or not _valid_pixel_point(previous_heading.get("scarf_hand")): return {}
+		heading = _anchor(_pixel_point(old_tips[0])) - _anchor(_pixel_point(previous_heading.scarf_hand))
+		if heading.length_squared() < 4.0: return {}
+	var outward := heading.normalized()
+	var radius := lerpf(226.0, 235.0, absf(outward.y))
+	var extension := clampf(reach_factor, 0.0, 1.0)
+	var end := painted_tip.lerp(collar + outward * radius, extension)
+	return {"start": grip, "control": grip + direction.lerp(heading, extension) * 1.4, "tip": end}
+
+func scarf_afterimages() -> Array[Dictionary]:
+	# Read only authored poses: no random direction, elapsed wall clock or combat
+	# mutation. Three rapidly fading traces suggest speed rather than a solid tail.
+	var traces: Array[Dictionary] = []
+	if fighter == null or sprite == null or phase_frame_ranges.size() != 3: return traces
+	if fighter.state not in [FighterController.State.ATTACK_ACTIVE, FighterController.State.ATTACK_RECOVERY]: return traces
+	var first := int(phase_frame_ranges[1][0])
+	var last := int(phase_frame_ranges[1][1]) - 1
+	if first < 0 or last < first or last >= frame_anchors.size(): return traces
+	var recovering := fighter.state == FighterController.State.ATTACK_RECOVERY
+	var frame := last if recovering else sprite.frame
+	if frame < first or frame > last: return traces
+	var fade := maxf(0.0, 1.0 - float(fighter.attack_phase_tick) / 5.0) if recovering else 1.0
+	if fade <= 0.0: return traces
+	for age: int in 3:
+		var index := frame - age
+		if index < first: continue
+		if not frame_anchors[index] is Dictionary: continue
+		var path := held_scarf_path(frame_anchors[index])
+		if path.is_empty(): continue
+		var pulse := float(posmod(fighter.attack_phase_tick + age, 3)) / 2.0
+		path["opacity"] = [0.48, 0.29, 0.14][age] * fade
+		path["width"] = 6.0 - float(age)
+		path["from"] = 0.08 + pulse * 0.12
+		path["to"] = 0.94 - pulse * 0.06
+		traces.append(path)
+	# The user's sketch wraps broad broken sweeps above and beside the body.
+	# They are residual paths of the held scarf, never a second solid fabric.
+	var current: Variant = frame_anchors[frame]
+	if not current is Dictionary or held_scarf_path(current).is_empty(): return traces
+	var collar := _anchor(_pixel_point(current.scarf_root))
+	var grip := _anchor(_pixel_point(current.scarf_hand))
+	var sign_x := -1.0 if sprite.flip_h else 1.0
+	var sweep_tick := fighter.active_attack.active_ticks - 1 if recovering else fighter.attack_phase_tick
+	var sweep_step := int(sweep_tick / 6)
+	# Start/end and two controls in local world space, relative to the collar.
+	# Lower sweeps stay above the feet; overhead sweeps reach the upper field.
+	var wraps := [
+		[Vector2(-155,-25),Vector2(-245,-100),Vector2(210,-115),Vector2(175,-55)],
+		[Vector2(155,-80),Vector2(220,-160),Vector2(-160,-170),Vector2(-130,-100)],
+		[Vector2(-150,20),Vector2(-215,-35),Vector2(180,-55),Vector2(160,-5)],
+		[Vector2(-115,-40),Vector2(20,-165),Vector2(175,-200),Vector2(85,-190)],
+		[Vector2(145,15),Vector2(20,-45),Vector2(-195,-155),Vector2(-145,-140)],
+		[Vector2(-105,35),Vector2(-185,-10),Vector2(160,-25),Vector2(110,25)],
+	]
+	for index: int in wraps.size():
+		var knots: Array = wraps[index]
+		var points: Array[Vector2] = []
+		var angle := deg_to_rad([-10.0,7.0,-4.0,11.0][posmod(sweep_step + index, 4)])
+		for knot: Vector2 in knots:
+			var moving := knot.rotated(angle)
+			# Keep the lowest residual above the original lower sweep limit.
+			moving.y = minf(moving.y, 35.0)
+			points.append(collar + Vector2(moving.x * sign_x, moving.y))
+		# A short leading segment travels across each path in six ticks. Nothing
+		# leaves the complete underlying curve visible as a stationary cage.
+		var age := posmod(sweep_tick + index * 2, 6)
+		var head := 0.18 + float(age) / 5.0 * 0.82
+		var tail := maxf(0.0, head - 0.34)
+		if index % 2 == 1:
+			var reverse_head := 1.0 - tail
+			tail = 1.0 - head
+			head = reverse_head
+		var opacity: float = [0.40,0.70,0.80,0.65,0.40,0.18][age] * fade
+		traces.append({"start":grip.lerp(points[0],0.90),"control":points[1],"control2":points[2],"tip":points[3],
+			"opacity":opacity,"width":7.0 + float(index % 2) * 1.5,
+			"from":tail,"to":head})
+	return traces
+
+func _scarf_afterimage(trace: Dictionary) -> void:
+	# An indexed strip also renders tight bends without asking the polygon
+	# triangulator to infer a self-crossing soft outline.
+	for halo: int in 3:
+		var mesh := afterimage_mesh(trace, halo)
+		_meshes.append(mesh)
+		draw_mesh(mesh, null)
+
+static func afterimage_mesh(trace: Dictionary, halo: int) -> ArrayMesh:
+	var vertices := PackedVector2Array()
+	var colors := PackedColorArray()
+	var indices := PackedInt32Array()
+	for index: int in 25:
+		var u := float(index) / 24.0
+		var t := lerpf(float(trace.from), float(trace.to), u)
+		var control2: Vector2 = trace.get("control2", trace.control.lerp(trace.tip, 0.65))
+		var center: Vector2 = trace.start.bezier_interpolate(trace.control, control2, trace.tip, t)
+		var before: Vector2 = trace.start.bezier_interpolate(trace.control, control2, trace.tip, maxf(t - 0.005,0.0))
+		var after: Vector2 = trace.start.bezier_interpolate(trace.control, control2, trace.tip, minf(t + 0.005,1.0))
+		var normal := (after-before).normalized().orthogonal()
+		var taper := pow(maxf(0.0, sin(u * PI)), 0.8)
+		var width: float = float(trace.width) * [1.8,0.8,0.22][halo] * taper
+		vertices.append(center + normal * width)
+		vertices.append(center - normal * width)
+		var color := Color(0.10,0.26,0.95) if halo < 2 else Color(0.52,0.73,1.0)
+		color.a = float(trace.opacity) * [0.25,0.90,0.52][halo] * taper
+		colors.append(color)
+		colors.append(color)
+		if index > 0:
+			var v := index * 2
+			indices.append_array(PackedInt32Array([v-2,v,v+1,v-2,v+1,v-1]))
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = vertices
+	arrays[Mesh.ARRAY_COLOR] = colors
+	arrays[Mesh.ARRAY_INDEX] = indices
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	return mesh
 
 func _draw() -> void:
 	_meshes.clear()
@@ -107,6 +243,10 @@ func _draw() -> void:
 			# Extend the two worn tails along their current painted pose, rather than
 			# adding independent ribbons. Preparation uses the original cloth alone.
 			if preparing or not anchors.has("scarf_root") or not anchors.has("scarf_tips"): return
+			if anchors.has("scarf_hand"):
+				for trace: Dictionary in scarf_afterimages():
+					_scarf_afterimage(trace)
+				return
 			root_point = _anchor(_pixel_point(anchors.scarf_root))
 			for tail: int in 2:
 				if anchors.scarf_tips[tail] == null: continue
@@ -143,9 +283,17 @@ func _draw() -> void:
 				strike_progress = clampf(float(fighter.attack_phase_tick - (attack.active_ticks - 4)) / 3.0,0.0,1.0) if not recovering else 1.0
 			_slash(Vector2(38*sign_x,-48), strike_progress, envelope.y)
 
-func _cloth(start: Vector2, control: Vector2, tip: Vector2, opacity: float, width_scale: float) -> void:
+static func cloth_center(start: Vector2, control: Vector2, tip: Vector2, t: float, wave_axis: Vector2, phase: float, wave_strength: float) -> Vector2:
+	var center := start.bezier_interpolate(control, control.lerp(tip,0.65), tip,t)
+	# Fixed endpoints keep the real grip and the authored direction attached.
+	# Travelling folds distinguish flexible worn fabric from a rigid blade.
+	return center + wave_axis * sin(t * TAU * 1.25 - phase) * sin(t * PI) * wave_strength
+
+func _cloth(start: Vector2, control: Vector2, tip: Vector2, opacity: float, width_scale: float, wave_strength := 0.0, flat_end := false) -> void:
 	if _scarf == null: return
 	var texture_size := _scarf.get_size()
+	var wave_axis := (tip-start).normalized().orthogonal() * float(fighter.facing)
+	var wave_phase := float(fighter.attack_phase_tick) * 0.45
 	var vertices := PackedVector2Array()
 	var uvs := PackedVector2Array()
 	var colors := PackedColorArray()
@@ -154,15 +302,15 @@ func _cloth(start: Vector2, control: Vector2, tip: Vector2, opacity: float, widt
 	var right_edge := PackedVector2Array()
 	for index: int in 33:
 		var t := float(index) / 32.0
-		var center := start.bezier_interpolate(control, control.lerp(tip,0.65), tip,t)
+		var center := cloth_center(start,control,tip,t,wave_axis,wave_phase,wave_strength)
 		var next_t := minf(1.0,t+0.01)
 		var previous_t := maxf(0.0,t-0.01)
-		var tangent := start.bezier_interpolate(control,control.lerp(tip,0.65),tip,next_t) - start.bezier_interpolate(control,control.lerp(tip,0.65),tip,previous_t)
+		var tangent := cloth_center(start,control,tip,next_t,wave_axis,wave_phase,wave_strength) - cloth_center(start,control,tip,previous_t,wave_axis,wave_phase,wave_strength)
 		var normal := tangent.normalized().orthogonal()
 		# Flat fabric with broad belly, twisting folds and a sharply cut cloth end.
 		var width := (4.0 + 7.5 * sin(t*PI*0.88)) * width_scale
 		width *= 0.62 + 0.38 * absf(cos(t*PI*1.6 + fighter.attack_phase_tick*0.10))
-		if t > 0.92: width *= (1.0-t)/0.08
+		if not flat_end and t > 0.92: width *= (1.0-t)/0.08
 		var l := center + normal * width
 		var r := center - normal * width
 		var section := minf(t*5,4.9999)

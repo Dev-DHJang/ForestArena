@@ -7,3 +7,11 @@ assets/ui/forestlight-polish-v04/*.svg whitespace=-blank-at-eol
 _workspace/motion-naturalness-v1/review/** linguist-generated=true
 _workspace/motion-naturalness-v1/qa/*.json linguist-generated=true
 _workspace/motion-naturalness-v1/qa/*.log linguist-generated=true
+
+# Generated motion capture evidence and source snapshots; QA findings stay visible.
+_workspace/ja-scarf-barrage-v1/qa/** linguist-generated=true
+_workspace/hit-reaction-restart-v1/qa/** linguist-generated=true
+_workspace/hit-reaction-restart-v1/*.draft.gd linguist-generated=true
+
+# Preserve this historical, aborted capture log byte-for-byte.
+_workspace/ja-scarf-barrage-v1/qa/live-mirror-small-r02.log whitespace=-blank-at-eof

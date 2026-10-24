@@ -1,0 +1,4028 @@
+{
+  "schema_version": 1,
+  "reviewer": "",
+  "sources": {
+    "_workspace/ja-scarf-barrage-v1/00_request.md": "f5ca036aa68b00ae235131864461c3d8f285e07092fcc2ebac14491c80751445",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_heavy_16f_r01.png": "f228afe9b9080c81b42b7a99a3cb1a8857bb3e05dac95106343ea0109c669a40",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_heavy_r01.tres": "aac89982727f8bc40df1a0f666c6ddb7e47c58640ab847fd74356b4f1f932d80",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_light_16f_r01.png": "43e78ae43b82c4dfaa3f1697397768722ce13d79d384e3254aafe6b4bf1918fd",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_light_r01.tres": "5ebaef4267b2ed1d3ea8ac6a94128288cc1a9e18ec5740a174318a1aa5454d72",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/death_16f_r04-ground.png": "4d4049440f8b26e6775323aa4a20a85f50500fdc814ef1053e2b8f140f53ceff",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/death_r04-ground.tres": "ebd0d74490b4171aeabb69257fca2ca183ddfc2fa0edea670b6d7e5fad1f560d",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/guard_16f_r01.png": "32971c3214b23ffd2c346bf0cbfea3142fceeb3df54828b28782431c665b7826",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/guard_r01.tres": "655b06e42a9a09a2ff8a4e7df5d7a6f408503cbc810b8b399d04784fb2f5f970",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/hitstun_16f_r01.png": "5a6693ff984b7053a7c828005b578abde0592d1b9c14683141714dd49bd7d7ec",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/hitstun_r01.tres": "663013404cfbe9dde74d694ecba5a3f0087dcec69f665f9023a543c6a84544ec",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/idle_16f_r02.png": "dd58ca2cdf014730a364308025a3c05754b8e9c0cc0923b2c523192692361292",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/idle_r02.tres": "97425f2b2707710d52f817270fa468ed18a318b5d340a85f831a122d04275251",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/knock_down_16f_r04-ground.png": "27a7a06ef2de54b5f752b3f84c544d26fe360c4156bb95f236ce0c56d1d305c0",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/knock_down_r04-ground.tres": "608a67bb31d85d020dc61b021ee20389baced36136124fbf00a86deddfafc2ed",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_16f_r01.png": "ca9b9df8bbf8fa20796ef701795a116f7ab435521fac7808dd56a1e3a9220cda",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_r01.tres": "6e56f4e491fc88c006a84322c97071ffc606cb32f0c488c1aec0652259ecb0c8",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/ring_out_16f_r01.png": "68448f0e952a8ec57caaba0dbc9e08fd6112949bca4af05b32f7e99e2cb4a72f",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/ring_out_r01.tres": "eee241997f88bf89118b5322253735fda49afa66e6c346c420d5921fcd33ec7d",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/spawn_16f_r01.png": "84f63223ac3368c7a9c639f75a858fc23ecfaea92f8762817256b532496e2425",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/spawn_r01.tres": "1270fe2acf323fa7c0dd3d36b8ab2be338d63148830bfc0888e377b3a3d037d2",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/special_neutral_16f_r02.png": "5a622c8ddfde90eb77882ab9bfe033816de967e0dd7562b39b9aa51b9daaa9df",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/special_neutral_r02.tres": "0c8a0f677214870612fdde99cf7cd6bbacfe53ed5d34d10b9674ac5a82989e4d",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/wake_up_16f_r01.png": "e588274432cbeeb400862cb5c39b96290556d75e7f04a794821bcb0b3929f9e6",
+    "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/wake_up_r01.tres": "bc55abe0b3bef6b5e9b9c8b308bc95b3774bb770ff0770be4dc8effa7acb14b7",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_16f_r02.png": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_r02.tres": "10bf36ff89a1a6674441737ab7bf8713d9138aaf7a8977b6bb775f1a79583835",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_16f_r01.png": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_r01.tres": "4e2275b1e939fc029d5c4e485dc00d48c3d88e1ee7dd97cb16166a3c7b4da49f",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_16f_r02.png": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_r02.tres": "d35cfd3dbbef6c71fe0974a8217738852f2d30eb08360552d561404ad20a3a8e",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/death_16f_r04-ground.png": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/death_r04-ground.tres": "1320e8a7b7e7d3fdf140e397e86e064b83f9b30c9611dba72828a44b4289a235",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/guard_16f_r01.png": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/guard_r01.tres": "209920ff404007ae67dcb8113478250af42a21e06133de6f8a0a46f0d09926f4",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/hitstun_16f_r01.png": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/hitstun_r01.tres": "9170cf8064b93729a7f0519726c0ed7a3194e15cc9a45f6754a99c6bb651af71",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_16f_r02.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_r02.tres": "256b30d372f9f1b06555e1bd67413b24f6d883c964dce0a2881fcc20f1782f8b",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_16f_r04-ground.png": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_r04-ground.tres": "6622cf5aa437df8d2331e53ebc1fe19b802095791b0abd61e7a8020cd608f50b",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/launch_16f_r01.png": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/launch_r01.tres": "899bce5496ab550264d614565a5ead6ab73957f53d0732d64ed287355afcbe4d",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/ring_out_16f_r02.png": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/ring_out_r02.tres": "db241da24edb2fd47c35acb9ed17116f0641417b7af9d8d055b3314afb420188",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/spawn_16f_r01.png": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/spawn_r01.tres": "9ad81f6bc124ca07f09b33dca512cf4cd3f4e074ca367111a9f7f65558acca4b",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_32f_r02.png": "9bea9a6a179c44f5ff511fabd277d5581ea8c485795f5ccbf5c109ef28b4cd42",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_r02.tres": "032305296ef8ab1e7d7567b08bb597ceffccac72f493f32c7bc4bbecf9244c20",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/wake_up_16f_r04-ground.png": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+    "_workspace/motion-naturalness-v1/candidates/remaining/nabi/wake_up_r04-ground.tres": "fdc69813d4c7e8c959545668bb62656816eb25996a94ffeddd334b7b93a6f681",
+    "_workspace/motion-naturalness-v1/remaining-candidate-catalog-r05.json": "59553c9dcd5ba6df0a7b2ae1cd90f696bc4bf9bf620c2f774363c617cbdecbc1",
+    "_workspace/motion-naturalness-v1/remaining-candidate-scope-r05.json": "d8fd82f9d7b6354a27e08eca318147364316792520b3e505818b8f810c68e5e1",
+    "_workspace/motion-naturalness-v1/remaining-motion-brief.json": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "35d5851096e2ffa85b4d111fc2dbc5025dba7b5307fd538195c7c7826cf93428",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "2c1b674a84788e1ee675142c11165cd6890f8c0f3818d817be35f399c31641f2",
+    "scripts/fighter_controller.gd": "63dc815dfbd5abdce3646f7386e15b25459f3b123e511a11084c3438a546d48c",
+    "scripts/local_fighter_presentation.gd": "d7377e05868905d06264d42c965070648fccd67f1eaaeffa802cdc66d5aedfe9",
+    "tools/forest_arena/motion_layout.py": "9e5b18acd46f71dc3eb2ae197c8388edf6e22fef85761a782f2ded54aaf66b12",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "e35e22e81f6cd4d52465c86fd425bbb3a69cc7d8b923789ad8d270ab15802a52",
+    "tools/forest_arena/motion_review_timeline.gd": "372c23cafae74982789332e8f24bfa477f05565f4e042c99b6a8b48ca97f701e",
+    "tools/forest_arena/review_motion_actions.py": "db889da63d69137a5f41588a2464cd72badb333a0f5af42dc0793ec84e8288cd"
+  },
+  "timeline_sha256": "e511addc83c8bd6a0a153d2855023e41eee33d234e216ad41dc73ff518a9c6be",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_heavy",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_heavy_16f_r01.png",
+      "sha256": "f228afe9b9080c81b42b7a99a3cb1a8857bb3e05dac95106343ea0109c669a40",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_heavy_r01.tres",
+      "sprite_frames_sha256": "aac89982727f8bc40df1a0f666c6ddb7e47c58640ab847fd74356b4f1f932d80",
+      "expected_action": "공중에서 목도리를 머리 위에서 아래로 내려치는 단타. 시전자는 공중에 남고 피해자가 급강하한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__attack_air_heavy.jpg": "dd0ed0f758fbe9886babf95fe9622d393b922b3848bd00e41b9869885585bf39",
+        "sheets/ja-hyun__attack_air_heavy.png": "f228afe9b9080c81b42b7a99a3cb1a8857bb3e05dac95106343ea0109c669a40"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-air-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              6,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_light",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_light_16f_r01.png",
+      "sha256": "43e78ae43b82c4dfaa3f1697397768722ce13d79d384e3254aafe6b4bf1918fd",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_light_r01.tres",
+      "sprite_frames_sha256": "5ebaef4267b2ed1d3ea8ac6a94128288cc1a9e18ec5740a174318a1aa5454d72",
+      "expected_action": "발을 딛지 않은 공중 단타 펀치와 긴 목도리 리치. 새 점프·공격 잠금은 피해자에게 적용한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__attack_air_light.jpg": "fc57aba25b43edfd93a756debd88094347111ec1b5183aa3f6bd1a02256194b6",
+        "sheets/ja-hyun__attack_air_light.png": "43e78ae43b82c4dfaa3f1697397768722ce13d79d384e3254aafe6b4bf1918fd"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-air-light",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              7,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "death",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/death_16f_r04-ground.png",
+      "sha256": "4d4049440f8b26e6775323aa4a20a85f50500fdc814ef1053e2b8f140f53ceff",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/death_r04-ground.tres",
+      "sprite_frames_sha256": "ebd0d74490b4171aeabb69257fca2ca183ddfc2fa0edea670b6d7e5fad1f560d",
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__death.jpg": "358a53ae5b2eec582b3f60497d55fd779f71323e07362576d09a61f77ccfa135",
+        "sheets/ja-hyun__death.png": "4d4049440f8b26e6775323aa4a20a85f50500fdc814ef1053e2b8f140f53ceff"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:death",
+          "sequence": [
+            [
+              0,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              1,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              2,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              3,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              4,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              5,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              6,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              7,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              8,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              9,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              10,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              11,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              12,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              13,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              14,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              15,
+              "death",
+              "death",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "guard",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/guard_16f_r01.png",
+      "sha256": "32971c3214b23ffd2c346bf0cbfea3142fceeb3df54828b28782431c665b7826",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/guard_r01.tres",
+      "sprite_frames_sha256": "655b06e42a9a09a2ff8a4e7df5d7a6f408503cbc810b8b399d04784fb2f5f970",
+      "expected_action": "두 손으로 몸 앞을 방어하고 공격 자세로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__guard.jpg": "bf780b71d31716e45a660a317c2940a0716a37893b119a046727d2ffb4d7d74e",
+        "sheets/ja-hyun__guard.png": "32971c3214b23ffd2c346bf0cbfea3142fceeb3df54828b28782431c665b7826"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:guard",
+          "sequence": [
+            [
+              0,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              1,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              2,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              3,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              4,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              5,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              6,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              7,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              8,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              9,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              10,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              11,
+              "guard",
+              "guard",
+              1550.0000000000055
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "hitstun",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/hitstun_16f_r01.png",
+      "sha256": "5a6693ff984b7053a7c828005b578abde0592d1b9c14683141714dd49bd7d7ec",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/hitstun_r01.tres",
+      "sprite_frames_sha256": "663013404cfbe9dde74d694ecba5a3f0087dcec69f665f9023a543c6a84544ec",
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__hitstun.jpg": "fba4f3b82a65540402fa6c32246183e43c87c1eaf9ee9f317eedd3a7e8a5baf4",
+        "sheets/ja-hyun__hitstun.png": "5a6693ff984b7053a7c828005b578abde0592d1b9c14683141714dd49bd7d7ec"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:hitstun",
+          "sequence": [
+            [
+              0,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              1,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              2,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              3,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              4,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              5,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              6,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              7,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              8,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              9,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              10,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              11,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              12,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              13,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              14,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              15,
+              "hitstun",
+              "hitstun",
+              1383.333333333338
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "idle",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/idle_16f_r02.png",
+      "sha256": "dd58ca2cdf014730a364308025a3c05754b8e9c0cc0923b2c523192692361292",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/idle_r02.tres",
+      "sprite_frames_sha256": "97425f2b2707710d52f817270fa468ed18a318b5d340a85f831a122d04275251",
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__idle.jpg": "65ba81f21d5daaf8bd623f9042f21d2eced59d7da356deaf5e477eb1d1e641fd",
+        "sheets/ja-hyun__idle.png": "dd58ca2cdf014730a364308025a3c05754b8e9c0cc0923b2c523192692361292"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:idle",
+          "sequence": [
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "knock_down",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/knock_down_16f_r04-ground.png",
+      "sha256": "27a7a06ef2de54b5f752b3f84c544d26fe360c4156bb95f236ce0c56d1d305c0",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/knock_down_r04-ground.tres",
+      "sprite_frames_sha256": "608a67bb31d85d020dc61b021ee20389baced36136124fbf00a86deddfafc2ed",
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__knock_down.jpg": "82be793ea1e678ce734702a6c198145b0fed5ac58c8e319ca73c7c4a7c7811e6",
+        "sheets/ja-hyun__knock_down.png": "27a7a06ef2de54b5f752b3f84c544d26fe360c4156bb95f236ce0c56d1d305c0"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:knock_down",
+          "sequence": [
+            [
+              0,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              1,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              2,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              3,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              4,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              5,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              6,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              7,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              8,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              9,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              10,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              11,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:landing-down-18",
+          "sequence": [
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "launch",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_16f_r01.png",
+      "sha256": "ca9b9df8bbf8fa20796ef701795a116f7ab435521fac7808dd56a1e3a9220cda",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_r01.tres",
+      "sprite_frames_sha256": "6e56f4e491fc88c006a84322c97071ffc606cb32f0c488c1aec0652259ecb0c8",
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__launch.jpg": "4ddf9a37480e6ae8cd50a796a1eb5544f977ecc6c4ca105ccbe19eeecd8c3148",
+        "sheets/ja-hyun__launch.png": "ca9b9df8bbf8fa20796ef701795a116f7ab435521fac7808dd56a1e3a9220cda"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:launch",
+          "sequence": [
+            [
+              0,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              1,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              2,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              3,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              4,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              5,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              6,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              7,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              8,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              9,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              10,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              11,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              12,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              13,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              14,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              15,
+              "launch",
+              "launch",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "ring_out",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/ring_out_16f_r01.png",
+      "sha256": "68448f0e952a8ec57caaba0dbc9e08fd6112949bca4af05b32f7e99e2cb4a72f",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/ring_out_r01.tres",
+      "sprite_frames_sha256": "eee241997f88bf89118b5322253735fda49afa66e6c346c420d5921fcd33ec7d",
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__ring_out.jpg": "9d503e592a682dcc0f2bcc25e0dfcf14f03e3b1f4ca92394a80d35130e1400cc",
+        "sheets/ja-hyun__ring_out.png": "68448f0e952a8ec57caaba0dbc9e08fd6112949bca4af05b32f7e99e2cb4a72f"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:ring_out",
+          "sequence": [
+            [
+              0,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              1,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              2,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              3,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              5,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              6,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              7,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              8,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              9,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              10,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              11,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              12,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              13,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              14,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              15,
+              "ring_out",
+              "ring_out",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "spawn",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/spawn_16f_r01.png",
+      "sha256": "84f63223ac3368c7a9c639f75a858fc23ecfaea92f8762817256b532496e2425",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/spawn_r01.tres",
+      "sprite_frames_sha256": "1270fe2acf323fa7c0dd3d36b8ab2be338d63148830bfc0888e377b3a3d037d2",
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__spawn.jpg": "46d8896c96ed8484cf40104b80d766ba0ace3d63f9ebf10939de91b95d240445",
+        "sheets/ja-hyun__spawn.png": "84f63223ac3368c7a9c639f75a858fc23ecfaea92f8762817256b532496e2425"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:spawn",
+          "sequence": [
+            [
+              0,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              1,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              2,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              3,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              4,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              5,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              6,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              7,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              8,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              9,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              10,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              11,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              12,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              13,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              14,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              15,
+              "spawn",
+              "spawn",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_neutral",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/special_neutral_16f_r02.png",
+      "sha256": "5a622c8ddfde90eb77882ab9bfe033816de967e0dd7562b39b9aa51b9daaa9df",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/special_neutral_r02.tres",
+      "sprite_frames_sha256": "0c8a0f677214870612fdde99cf7cd6bbacfe53ed5d34d10b9674ac5a82989e4d",
+      "expected_action": "긴 목도리를 전방으로 내민 뒤 당기는 단타 강공격. 착용 중인 목도리 천을 연결한 효과로180 리치와 끌기를 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__special_neutral.jpg": "b06e74a1ae84bfbeabf780e98d026d92ad30e1f32af95132eea734559ae456f2",
+        "sheets/ja-hyun__special_neutral.png": "5a622c8ddfde90eb77882ab9bfe033816de967e0dd7562b39b9aa51b9daaa9df"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_neutral",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "special_neutral",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              6,
+              "active",
+              "special_neutral",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "special_neutral",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "special_neutral",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "special_neutral",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "special_neutral",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "special_neutral",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_scarf_sweep",
+      "path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png",
+      "sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+      "sprite_frames_path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres",
+      "sprite_frames_sha256": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+      "expected_action": "넓은 지지 자세에서 실제 착용 목도리를 같은 공격 손으로 좌·우·위로 빠르게 교차하여 연속 쳐낸다. 준비4장→연타24장→회복4장. 1초10회 타격과 끌기 뒤 밀기는 전투가 계산한다.",
+      "action_source": "_workspace/ja-scarf-barrage-v1/00_request.md",
+      "action_source_sha256": "f5ca036aa68b00ae235131864461c3d8f285e07092fcc2ebac14491c80751445",
+      "materials": {
+        "boards/ja-hyun__special_scarf_sweep.jpg": "31ac8639436db6ce3a5a00d33fb9c6b4b2e4914cc1241b330f6bf62a3d8b0166",
+        "sheets/ja-hyun__special_scarf_sweep.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              2,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              3,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              6,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              7,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              8,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              9,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              10,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              11,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              12,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              13,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              14,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              15,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              16,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              17,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              18,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              19,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              20,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              21,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              22,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              23,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              24,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              25,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              26,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              27,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              28,
+              "recovery",
+              "special_scarf_sweep",
+              100.0000000000002
+            ],
+            [
+              29,
+              "recovery",
+              "special_scarf_sweep",
+              100.0000000000002
+            ],
+            [
+              30,
+              "recovery",
+              "special_scarf_sweep",
+              100.0000000000002
+            ],
+            [
+              31,
+              "recovery",
+              "special_scarf_sweep",
+              100.0000000000002
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "wake_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/wake_up_16f_r01.png",
+      "sha256": "e588274432cbeeb400862cb5c39b96290556d75e7f04a794821bcb0b3929f9e6",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/wake_up_r01.tres",
+      "sprite_frames_sha256": "bc55abe0b3bef6b5e9b9c8b308bc95b3774bb770ff0770be4dc8effa7acb14b7",
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/ja-hyun__wake_up.jpg": "901572b505c4e4070d31c7b4a1f797faa86de101d435fe78d6344def22301e6f",
+        "sheets/ja-hyun__wake_up.png": "e588274432cbeeb400862cb5c39b96290556d75e7f04a794821bcb0b3929f9e6"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:wake_up",
+          "sequence": [
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              6,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              9,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              1816.6666666666733
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:wakeup-protection-12",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_heavy",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_16f_r02.png",
+      "sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_r02.tres",
+      "sprite_frames_sha256": "10bf36ff89a1a6674441737ab7bf8713d9138aaf7a8977b6bb775f1a79583835",
+      "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__attack_air_heavy.jpg": "73e207360e739eb3c9375b299ab3ada83ac32f90180df7767b2bb173889754c1",
+        "sheets/nabi__attack_air_heavy.png": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-air-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              6,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_light",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_16f_r01.png",
+      "sha256": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_r01.tres",
+      "sprite_frames_sha256": "4e2275b1e939fc029d5c4e485dc00d48c3d88e1ee7dd97cb16166a3c7b4da49f",
+      "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__attack_air_light.jpg": "444715ec3c1e02f18173868c1447aa7c5ec2d2b9cea09a94fcd7312eb322ec5a",
+        "sheets/nabi__attack_air_light.png": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-air-light",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              7,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_heavy_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_16f_r02.png",
+      "sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_r02.tres",
+      "sprite_frames_sha256": "d35cfd3dbbef6c71fe0974a8217738852f2d30eb08360552d561404ad20a3a8e",
+      "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__attack_heavy_up.jpg": "6b9ede6fd635d18774a1ab5d2db5309194751caaf485de0d30d8d316c78e1692",
+        "sheets/nabi__attack_heavy_up.png": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              6,
+              "active",
+              "attack_heavy_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "death",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/death_16f_r04-ground.png",
+      "sha256": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/death_r04-ground.tres",
+      "sprite_frames_sha256": "1320e8a7b7e7d3fdf140e397e86e064b83f9b30c9611dba72828a44b4289a235",
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__death.jpg": "869a241debd57d2b548eb2a5a099be6504555443d042f70ce815879cd548ae36",
+        "sheets/nabi__death.png": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:death",
+          "sequence": [
+            [
+              0,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              1,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              2,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              3,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              4,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              5,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              6,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              7,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              8,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              9,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              10,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              11,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              12,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              13,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              14,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              15,
+              "death",
+              "death",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "guard",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/guard_16f_r01.png",
+      "sha256": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/guard_r01.tres",
+      "sprite_frames_sha256": "209920ff404007ae67dcb8113478250af42a21e06133de6f8a0a46f0d09926f4",
+      "expected_action": "두 손의 발톱을 몸 앞에 모아 방어하고 공격 자세로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__guard.jpg": "9bf31466ee96e39156f9491777c172193d0ade81dfd75bf49f3def7a905bb47d",
+        "sheets/nabi__guard.png": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:guard",
+          "sequence": [
+            [
+              0,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              1,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              2,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              3,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              4,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              5,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              6,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              7,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              8,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              9,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              10,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              11,
+              "guard",
+              "guard",
+              1550.0000000000055
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "hitstun",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/hitstun_16f_r01.png",
+      "sha256": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/hitstun_r01.tres",
+      "sprite_frames_sha256": "9170cf8064b93729a7f0519726c0ed7a3194e15cc9a45f6754a99c6bb651af71",
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__hitstun.jpg": "78417257e2c1bc945c938183403f18ec761dc342deda813f413eb9180ae64652",
+        "sheets/nabi__hitstun.png": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:hitstun",
+          "sequence": [
+            [
+              0,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              1,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              2,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              3,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              4,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              5,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              6,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              7,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              8,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              9,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              10,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              11,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              12,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              13,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              14,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              15,
+              "hitstun",
+              "hitstun",
+              1383.333333333338
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "idle",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_16f_r02.png",
+      "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_r02.tres",
+      "sprite_frames_sha256": "256b30d372f9f1b06555e1bd67413b24f6d883c964dce0a2881fcc20f1782f8b",
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__idle.jpg": "6e3cbf0152a1d30b0b644ec861865499a81944812c86dd9e0c9f6e39f6ed45c8",
+        "sheets/nabi__idle.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:idle",
+          "sequence": [
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "knock_down",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_16f_r04-ground.png",
+      "sha256": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_r04-ground.tres",
+      "sprite_frames_sha256": "6622cf5aa437df8d2331e53ebc1fe19b802095791b0abd61e7a8020cd608f50b",
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__knock_down.jpg": "33a99d6f25d3cb4b3f158e175d7b23a9470030a322922b2e49e2a06d0a5dd79f",
+        "sheets/nabi__knock_down.png": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:knock_down",
+          "sequence": [
+            [
+              0,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              1,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              2,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              3,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              4,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              5,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              6,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              7,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              8,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              9,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              10,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              11,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:landing-down-18",
+          "sequence": [
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "launch",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/launch_16f_r01.png",
+      "sha256": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/launch_r01.tres",
+      "sprite_frames_sha256": "899bce5496ab550264d614565a5ead6ab73957f53d0732d64ed287355afcbe4d",
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__launch.jpg": "5a7a09e8adec30e90ecbe9054b6624eb7a77d140f666090cbbffbedbd09cb6f7",
+        "sheets/nabi__launch.png": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:launch",
+          "sequence": [
+            [
+              0,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              1,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              2,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              3,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              4,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              5,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              6,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              7,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              8,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              9,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              10,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              11,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              12,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              13,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              14,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              15,
+              "launch",
+              "launch",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "ring_out",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/ring_out_16f_r02.png",
+      "sha256": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/ring_out_r02.tres",
+      "sprite_frames_sha256": "db241da24edb2fd47c35acb9ed17116f0641417b7af9d8d055b3314afb420188",
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__ring_out.jpg": "eaf5dc275c73aecfe63789a2468de938178cd7d1842fcc9631d03d28ba1bb4d5",
+        "sheets/nabi__ring_out.png": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:ring_out",
+          "sequence": [
+            [
+              0,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              1,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              2,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              3,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              5,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              6,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              7,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              8,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              9,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              10,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              11,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              12,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              13,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              14,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              15,
+              "ring_out",
+              "ring_out",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "spawn",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/spawn_16f_r01.png",
+      "sha256": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/spawn_r01.tres",
+      "sprite_frames_sha256": "9ad81f6bc124ca07f09b33dca512cf4cd3f4e074ca367111a9f7f65558acca4b",
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__spawn.jpg": "18190ce25e6aa8988a950121d979a149da25ae4d5ad9538fd90a3899fd3db3bb",
+        "sheets/nabi__spawn.png": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:spawn",
+          "sequence": [
+            [
+              0,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              1,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              2,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              3,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              4,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              5,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              6,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              7,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              8,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              9,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              10,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              11,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              12,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              13,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              14,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              15,
+              "spawn",
+              "spawn",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "special_side",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_32f_r02.png",
+      "sha256": "9bea9a6a179c44f5ff511fabd277d5581ea8c485795f5ccbf5c109ef28b4cd42",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_r02.tres",
+      "sprite_frames_sha256": "032305296ef8ab1e7d7567b08bb597ceffccac72f493f32c7bc4bbecf9244c20",
+      "expected_action": "전용 낮은 이동 자세로 전진→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__special_side.jpg": "00a6106514ffd6f4ca3f26df8477d8a31454b42b1a55583e5534333dddafc655",
+        "sheets/nabi__special_side.png": "9bea9a6a179c44f5ff511fabd277d5581ea8c485795f5ccbf5c109ef28b4cd42"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              10,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              11,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              12,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              13,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              14,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              15,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              16,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              17,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              18,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              19,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              20,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              21,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              22,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              23,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              24,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              25,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              26,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              27,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              28,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              29,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              30,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              31,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "wake_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/wake_up_16f_r04-ground.png",
+      "sha256": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/wake_up_r04-ground.tres",
+      "sprite_frames_sha256": "fdc69813d4c7e8c959545668bb62656816eb25996a94ffeddd334b7b93a6f681",
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__wake_up.jpg": "e270bcd1bb04775f6a2b38f932e13393a6238ca4b5f8bc86dbe26a38297c27d9",
+        "sheets/nabi__wake_up.png": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:wake_up",
+          "sequence": [
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              6,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              9,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              1816.6666666666733
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:wakeup-protection-12",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/motion-naturalness-v1/remaining-candidate-catalog-r05.json",
+    "catalog_sha256": "59553c9dcd5ba6df0a7b2ae1cd90f696bc4bf9bf620c2f774363c617cbdecbc1",
+    "scope_path": "_workspace/motion-naturalness-v1/remaining-candidate-scope-r05.json",
+    "scope_sha256": "d8fd82f9d7b6354a27e08eca318147364316792520b3e505818b8f810c68e5e1",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "212c089c84fb2cf7bad2522e28177ac8aa889651b8667a233ece03f107fac9ad",
+    "timeline.json": "e511addc83c8bd6a0a153d2855023e41eee33d234e216ad41dc73ff518a9c6be"
+  }
+}

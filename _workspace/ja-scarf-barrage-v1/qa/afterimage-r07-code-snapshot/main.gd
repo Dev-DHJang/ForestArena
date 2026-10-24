@@ -1,0 +1,161 @@
+extends Node2D
+
+const SEMANTIC_ACTIONS: Array[StringName] = [&"move_left", &"move_right", &"move_up", &"move_down", &"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]
+const HUD_PANEL_ID := "fa.ui.forestlight.panel.default"
+const RESTART_NORMAL_ID := "fa.ui.forestlight.secondary.default"
+const RESTART_PRESSED_ID := "fa.ui.forestlight.secondary.pressed"
+const RESTART_DISABLED_ID := "fa.ui.forestlight.secondary.disabled"
+const ForestlightHudScript := preload("res://scripts/forestlight_match_hud.gd")
+const CombatAudioScript := preload("res://scripts/combat_audio.gd")
+
+@onready var match_controller: MatchController = $MatchController
+@onready var arena_visual = $ArenaVisual
+@onready var touch: Control = $Interface/TouchCommandSource
+@onready var readout: Label = $Interface/MatchReadout
+@onready var restart: Button = $Interface/Restart
+@onready var debug_readout: Label = $Interface/DebugReadout
+@onready var hud_panel: NinePatchRect = $Interface/HudPanel
+@onready var minimap: BattleMinimap = $Interface/BattleMinimap
+@onready var resource_warnings: Label = $Interface/ResourceWarnings
+
+var _missing_resource_ids: PackedStringArray = []
+var app_shell_mode := false
+var _text_scale := 1.0
+var combat_audio: CombatAudio
+var forestlight_hud: Control
+
+
+func _ready() -> void:
+	_apply_resource_ui()
+	forestlight_hud = ForestlightHudScript.new()
+	forestlight_hud.name = "ForestlightMatchHud"
+	$Interface.add_child(forestlight_hud)
+	readout.hide()
+	hud_panel.hide()
+	$Interface/PhaseLabel.hide()
+	match_controller.snapshot_changed.connect(_render_snapshot)
+	match_controller.presentation_event.connect(arena_visual.play_combat_event)
+	match_controller.presentation_event.connect(_present_fighter_event)
+	combat_audio = CombatAudioScript.new()
+	combat_audio.local_fighter_id = match_controller.player.fighter_id
+	combat_audio.suppress_results = app_shell_mode
+	add_child(combat_audio)
+	if not app_shell_mode and not OS.has_feature("dedicated_server") and DisplayServer.get_name() != "headless": ForestArenaAudio.begin_match()
+	match_controller.presentation_event.connect(combat_audio.play_combat_event)
+	restart.pressed.connect(func() -> void:
+		match_controller.reset_match()
+		ForestArenaAudio.begin_match())
+	var participants := {}
+	for fighter: FighterController in match_controller.call("_fighters"):
+		participants[fighter.fighter_id] = {"nickname": String(fighter.fighter_id), "character_id": fighter.character_data.character_id, "team_id": ""}
+	configure_minimap(participants, match_controller.player.fighter_id, false, minimap.settings)
+	_render_snapshot(match_controller.snapshot())
+	debug_readout.visible = OS.is_debug_build() and not app_shell_mode
+	debug_readout.position = Vector2(24, 180)
+
+
+func _apply_resource_ui() -> void:
+	hud_panel.texture = _resource_texture(HUD_PANEL_ID, Vector2i(16, 9))
+	restart.add_theme_color_override("font_color", Color("3b2818"))
+	restart.add_theme_color_override("font_hover_color", Color("3b2818"))
+	restart.add_theme_color_override("font_pressed_color", Color("24170f"))
+	restart.add_theme_color_override("font_focus_color", Color("24170f"))
+	restart.add_theme_color_override("font_disabled_color", Color("756a5d"))
+	restart.add_theme_font_size_override("font_size", 18)
+	restart.add_theme_stylebox_override("normal", _button_style(RESTART_NORMAL_ID))
+	restart.add_theme_stylebox_override("hover", _button_style(RESTART_NORMAL_ID))
+	restart.add_theme_stylebox_override("pressed", _button_style(RESTART_PRESSED_ID))
+	restart.add_theme_stylebox_override("focus", _button_style(RESTART_PRESSED_ID))
+	restart.add_theme_stylebox_override("disabled", _button_style(RESTART_DISABLED_ID))
+
+
+## Presentation settings only. They never participate in the fixed-tick snapshot.
+func apply_accessibility(settings: Dictionary) -> void:
+	_text_scale = float(settings.get("text_scale", 1.0))
+	arena_visual.apply_accessibility(settings)
+	combat_audio.apply_accessibility(settings)
+	touch.apply_accessibility(settings)
+	readout.add_theme_font_size_override("font_size", roundi(22 * _text_scale))
+	if forestlight_hud != null: forestlight_hud.configure(forestlight_hud.identities, _text_scale, minimap.local_id, minimap.team_mode)
+	debug_readout.add_theme_font_size_override("font_size", roundi(16 * _text_scale))
+	restart.add_theme_font_size_override("font_size", roundi(18 * _text_scale))
+
+
+func configure_minimap(participants: Dictionary, local_id: StringName, team_mode: bool, settings: Dictionary) -> void:
+	minimap.configure(match_controller.stage_data, participants, local_id, team_mode)
+	if forestlight_hud != null:
+		var identities := participants.duplicate(true)
+		for id: Variant in identities:
+			var fighter := match_controller.call("_fighter_by_id", StringName(id)) as FighterController
+			if fighter != null and fighter.character_data != null: identities[id]["character_name"] = fighter.character_data.display_name
+		forestlight_hud.configure(identities, _text_scale, local_id, team_mode)
+		touch.local_fighter_id = local_id
+		forestlight_hud.update_snapshot(match_controller.snapshot())
+	touch.update_snapshot(match_controller.snapshot())
+	minimap.apply_settings(settings, _text_scale)
+	minimap.update_snapshot(match_controller.snapshot())
+
+
+func _button_style(logical_id: String) -> StyleBoxTexture:
+	var style := StyleBoxTexture.new()
+	style.texture = _resource_texture(logical_id, Vector2i(16, 9))
+	for side: int in [SIDE_LEFT, SIDE_TOP, SIDE_RIGHT, SIDE_BOTTOM]:
+		style.set_texture_margin(side, 42.0)
+	return style
+
+
+func _resource_texture(logical_id: String, fallback_size: Vector2i) -> Texture2D:
+	var texture := ForestArenaResources.load_texture(logical_id)
+	if texture != null:
+		return texture
+	if logical_id not in _missing_resource_ids:
+		_missing_resource_ids.append(logical_id)
+	resource_warnings.text = "MISSING RESOURCE: %s" % ", ".join(_missing_resource_ids)
+	var image := Image.create_empty(fallback_size.x, fallback_size.y, false, Image.FORMAT_RGBA8)
+	image.fill(Color("a22654"))
+	return ImageTexture.create_from_image(image)
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch or event is InputEventScreenDrag or event is InputEventMouseButton or event is InputEventMouseMotion:
+		touch.handle_pointer_event(event)
+
+
+func _notification(what: int) -> void:
+	if not is_node_ready() or not is_instance_valid(touch) or not is_instance_valid(match_controller):
+		return
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT or what == NOTIFICATION_APPLICATION_PAUSED:
+		_release_semantic_actions()
+		touch.release_all_touches()
+		match_controller.pause_match(true)
+		print("FOREST_ARENA_INPUT_RESET reason=pause")
+	elif what == NOTIFICATION_APPLICATION_FOCUS_IN or what == NOTIFICATION_APPLICATION_RESUMED:
+		if not app_shell_mode: match_controller.pause_match(false)
+
+
+func _release_semantic_actions() -> void:
+	for action: StringName in SEMANTIC_ACTIONS:
+		Input.action_release(action)
+
+
+func _present_fighter_event(event_id: StringName, payload: Dictionary) -> void:
+	for fighter: FighterController in match_controller.call("_fighters"):
+		var visual := fighter.get_node_or_null("Presentation")
+		if visual != null and visual.has_method("play_combat_event"):
+			visual.play_combat_event(event_id, payload)
+
+
+func _render_snapshot(snapshot: Dictionary) -> void:
+	minimap.update_snapshot(snapshot)
+	touch.update_snapshot(snapshot)
+	if forestlight_hud != null: forestlight_hud.update_snapshot(snapshot)
+	var fighters: Array = snapshot.get("fighters", [])
+	if fighters.size() < 2:
+		return
+	var first: Dictionary = fighters[0]
+	var second: Dictionary = fighters[1]
+	debug_readout.text = "tick %d  %s:%s  %s:%s" % [snapshot.tick, first.state, first.attack_id, second.state, second.attack_id]
+
+
+func _exit_tree() -> void:
+	if not app_shell_mode: ForestArenaAudio.shutdown()

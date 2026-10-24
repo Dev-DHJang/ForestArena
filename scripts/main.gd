@@ -35,6 +35,7 @@ func _ready() -> void:
 	$Interface/PhaseLabel.hide()
 	match_controller.snapshot_changed.connect(_render_snapshot)
 	match_controller.presentation_event.connect(arena_visual.play_combat_event)
+	match_controller.presentation_event.connect(_present_fighter_event)
 	combat_audio = CombatAudioScript.new()
 	combat_audio.local_fighter_id = match_controller.player.fighter_id
 	combat_audio.suppress_results = app_shell_mode
@@ -135,6 +136,13 @@ func _notification(what: int) -> void:
 func _release_semantic_actions() -> void:
 	for action: StringName in SEMANTIC_ACTIONS:
 		Input.action_release(action)
+
+
+func _present_fighter_event(event_id: StringName, payload: Dictionary) -> void:
+	for fighter: FighterController in match_controller.call("_fighters"):
+		var visual := fighter.get_node_or_null("Presentation")
+		if visual != null and visual.has_method("play_combat_event"):
+			visual.play_combat_event(event_id, payload)
 
 
 func _render_snapshot(snapshot: Dictionary) -> void:

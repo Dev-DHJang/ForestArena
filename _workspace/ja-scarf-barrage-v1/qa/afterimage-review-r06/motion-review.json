@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "reviewer": "afterimage_qa",
+  "sources": {
+    "_workspace/ja-scarf-barrage-v1/00_request.md": "22d1247ed992c9fbb7f9009591206f14934f714f398a959e7c09578f8f0deda0",
+    "_workspace/ja-scarf-barrage-v1/candidate-catalog-r03.json": "0705c69406f5820aeb6a7a3ce812469050b5738824036ccf7b22ced33c43a71c",
+    "_workspace/ja-scarf-barrage-v1/candidate-scope-r03.json": "ba724f1f8de594ed8b86298bf5a4247300566a04716a9b83f3a8e4507c4df138",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "35d5851096e2ffa85b4d111fc2dbc5025dba7b5307fd538195c7c7826cf93428",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "88186b49af4dde154a3681d43e568cd69553ef25517f528504736a82956752a9",
+    "scripts/fighter_controller.gd": "63dc815dfbd5abdce3646f7386e15b25459f3b123e511a11084c3438a546d48c",
+    "scripts/local_fighter_presentation.gd": "63d1294fe5c09cd8cadd21eb9ce19b711f8d79c0aff1d3afcede3447eaff524c",
+    "tools/forest_arena/motion_layout.py": "9e5b18acd46f71dc3eb2ae197c8388edf6e22fef85761a782f2ded54aaf66b12",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "e35e22e81f6cd4d52465c86fd425bbb3a69cc7d8b923789ad8d270ab15802a52",
+    "tools/forest_arena/motion_review_timeline.gd": "372c23cafae74982789332e8f24bfa477f05565f4e042c99b6a8b48ca97f701e",
+    "tools/forest_arena/review_motion_actions.py": "db889da63d69137a5f41588a2464cd72badb333a0f5af42dc0793ec84e8288cd"
+  },
+  "timeline_sha256": "ff153796cdc60ab1918713d4564418c7fa05641b60b00e984d8ff77bcbcc9609",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_scarf_sweep",
+      "path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png",
+      "sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+      "sprite_frames_path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres",
+      "sprite_frames_sha256": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+      "expected_action": "넓은 지지 자세에서 실제 착용 목도리를 같은 공격 손으로 좌·우·위로 빠르게 교차하여 연속 쳐낸다. 준비4장→연타23장(마지막F27바깥휘두르기)→회복5장. 1초10회 타격과 끌기 뒤 밀기는 전투가 계산한다.",
+      "action_source": "_workspace/ja-scarf-barrage-v1/00_request.md",
+      "action_source_sha256": "22d1247ed992c9fbb7f9009591206f14934f714f398a959e7c09578f8f0deda0",
+      "materials": {
+        "boards/ja-hyun__special_scarf_sweep.jpg": "31ac8639436db6ce3a5a00d33fb9c6b4b2e4914cc1241b330f6bf62a3d8b0166",
+        "sheets/ja-hyun__special_scarf_sweep.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              2,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              3,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              6,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              7,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              8,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              9,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              10,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              11,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              12,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              13,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              14,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              15,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              16,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              17,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              18,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              19,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              20,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              21,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              22,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              23,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              24,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              25,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              26,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              27,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              28,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              29,
+              "recovery",
+              "special_scarf_sweep",
+              66.6666666666668
+            ],
+            [
+              30,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              31,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "fix",
+      "observations": "원화32장 전체와 정상1.50/반전소형0.75 실제240틱을 빠짐없이 비교판으로 확인했다. QuickTime의 정식 로컬파일 열기에서 정상 재생과0.5배속의 표본 화면을 관찰했다. 긴 천무늬 연장은 사라지고 잡은손 방향의 가는 푸른 잔상만 남으며 준비에는 효과가 없고 회복83틱부터 약해져88틱에는 사라진다. 그러나 공격30·44·64·82틱에서 잔상이 배경에 묻혀 선명한 짧은 원화 목도리가 주도하고, 반전소형에서 좌우상단 교차 방향이 충분히 읽히지 않는다. 전체240틱 비교판 검토와 도구호출 사이 표본 재생 관찰을 구분한다.",
+      "issues": [
+        {
+          "reason": "숲/수면 배경에서 잔상의 대비와 폭이 부족하여 빠른 다방향 교차가 약하다. 반전소형0.75에서는 특히 희미해 짧은 원화 목도리만 보인다.",
+          "frames": [
+            5,
+            7,
+            13,
+            20,
+            27
+          ],
+          "time_ms": [
+            500,
+            733,
+            1067,
+            1367
+          ],
+          "required_change": "원화32장과 실제 착용 연결은 보존하되 흐린 궤적의 폭·명도·대비를 조정하고 짧은 교차 흔적을 충분히 보이게 한다. 무늬·딱딱한 끝을 되살리지 말고 정상/반전소형의 좌우위 방향을 재촬영하여 확인한다."
+        }
+      ],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false,
+      "runtime_evidence": {
+        "receipt_path": "_workspace/ja-scarf-barrage-v1/qa/afterimage-independent-r06/independent-capture-check.json",
+        "receipt_sha256": "df5967c6988dd907dfc3f2a22cec24a303e542f330d6ee63fb5ec484df0de5f0",
+        "android_device_test": false,
+        "approval_status": "pending"
+      }
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/ja-scarf-barrage-v1/candidate-catalog-r03.json",
+    "catalog_sha256": "0705c69406f5820aeb6a7a3ce812469050b5738824036ccf7b22ced33c43a71c",
+    "scope_path": "_workspace/ja-scarf-barrage-v1/candidate-scope-r03.json",
+    "scope_sha256": "ba724f1f8de594ed8b86298bf5a4247300566a04716a9b83f3a8e4507c4df138",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "qa",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "514246f7a9b02aae2535e7c173749096d40ed68f4682eb05e87d073bd3b9e61a",
+    "timeline.json": "ff153796cdc60ab1918713d4564418c7fa05641b60b00e984d8ff77bcbcc9609"
+  }
+}

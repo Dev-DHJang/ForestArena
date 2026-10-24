@@ -1,0 +1,706 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "ja-hyun",
+  "motion": "special_scarf_sweep",
+  "source_paths": [
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.3353,
+  "presentation_scale": 0.85,
+  "source_baseline_y": 310,
+  "target_baseline_y": 104,
+  "fps": 24,
+  "loop": false,
+  "expected_action": "넓은 지지 자세에서 실제 착용 목도리를 같은 공격 손으로 좌·우·위로 빠르게 교차하여 연속 쳐낸다. 준비4장→연타24장→회복4장. 1초10회 타격과 끌기 뒤 밀기는 전투가 계산한다.",
+  "action_source": "_workspace/ja-scarf-barrage-v1/00_request.md",
+  "version": "barrage-r01",
+  "phase_frame_ranges": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      28
+    ],
+    [
+      28,
+      32
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    60,
+    24
+  ],
+  "source_frame_anchors": [
+    {
+      "scarf_root": [
+        175.0,
+        197.0
+      ],
+      "scarf_hand": [
+        181.0,
+        205.0
+      ],
+      "scarf_tips": [
+        [
+          196.0,
+          266.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        308.0
+      ]
+    },
+    {
+      "scarf_root": [
+        172.5,
+        201.0
+      ],
+      "scarf_hand": [
+        164.5,
+        211.0
+      ],
+      "scarf_tips": [
+        [
+          180.5,
+          275.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        308.0
+      ]
+    },
+    {
+      "scarf_root": [
+        162.0,
+        196.0
+      ],
+      "scarf_hand": [
+        118.0,
+        183.0
+      ],
+      "scarf_tips": [
+        [
+          122.0,
+          280.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        308.0
+      ]
+    },
+    {
+      "scarf_root": [
+        172.5,
+        205.0
+      ],
+      "scarf_hand": [
+        129.5,
+        189.0
+      ],
+      "scarf_tips": [
+        [
+          23.5,
+          179.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        308.0
+      ]
+    },
+    {
+      "scarf_root": [
+        220.0,
+        188.5
+      ],
+      "scarf_hand": [
+        158.0,
+        109.5
+      ],
+      "scarf_tips": [
+        [
+          65.0,
+          94.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        302.5
+      ]
+    },
+    {
+      "scarf_root": [
+        203.5,
+        197.5
+      ],
+      "scarf_hand": [
+        180.5,
+        209.5
+      ],
+      "scarf_tips": [
+        [
+          54.5,
+          178.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        302.5
+      ]
+    },
+    {
+      "scarf_root": [
+        182.0,
+        198.5
+      ],
+      "scarf_hand": [
+        215.0,
+        196.5
+      ],
+      "scarf_tips": [
+        [
+          368.0,
+          198.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        302.5
+      ]
+    },
+    {
+      "scarf_root": [
+        187.5,
+        192.5
+      ],
+      "scarf_hand": [
+        176.5,
+        241.5
+      ],
+      "scarf_tips": [
+        [
+          285.5,
+          186.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        302.5
+      ]
+    },
+    {
+      "scarf_root": [
+        167.0,
+        174.0
+      ],
+      "scarf_hand": [
+        248.0,
+        110.0
+      ],
+      "scarf_tips": [
+        [
+          202.0,
+          43.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        282.0
+      ]
+    },
+    {
+      "scarf_root": [
+        187.5,
+        186.0
+      ],
+      "scarf_hand": [
+        163.5,
+        166.0
+      ],
+      "scarf_tips": [
+        [
+          46.5,
+          135.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        281.0
+      ]
+    },
+    {
+      "scarf_root": [
+        178.0,
+        180.0
+      ],
+      "scarf_hand": [
+        210.0,
+        178.0
+      ],
+      "scarf_tips": [
+        [
+          370.0,
+          159.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        281.0
+      ]
+    },
+    {
+      "scarf_root": [
+        171.5,
+        191.0
+      ],
+      "scarf_hand": [
+        152.5,
+        226.0
+      ],
+      "scarf_tips": [
+        [
+          281.5,
+          184.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        279.0
+      ]
+    },
+    {
+      "scarf_root": [
+        216.0,
+        156.5
+      ],
+      "scarf_hand": [
+        154.0,
+        73.5
+      ],
+      "scarf_tips": [
+        [
+          63.0,
+          45.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        247.5
+      ]
+    },
+    {
+      "scarf_root": [
+        197.5,
+        164.5
+      ],
+      "scarf_hand": [
+        237.5,
+        158.5
+      ],
+      "scarf_tips": [
+        [
+          74.5,
+          126.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        247.5
+      ]
+    },
+    {
+      "scarf_root": [
+        171.0,
+        164.5
+      ],
+      "scarf_hand": [
+        223.0,
+        95.5
+      ],
+      "scarf_tips": [
+        [
+          282.0,
+          16.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        247.5
+      ]
+    },
+    {
+      "scarf_root": [
+        170.5,
+        169.5
+      ],
+      "scarf_hand": [
+        173.5,
+        166.5
+      ],
+      "scarf_tips": [
+        [
+          102.5,
+          136.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        247.5
+      ]
+    },
+    {
+      "scarf_root": [
+        183.0,
+        206.0
+      ],
+      "scarf_hand": [
+        210.0,
+        226.0
+      ],
+      "scarf_tips": [
+        [
+          31.0,
+          251.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        326.0
+      ]
+    },
+    {
+      "scarf_root": [
+        206.5,
+        210.0
+      ],
+      "scarf_hand": [
+        203.5,
+        138.0
+      ],
+      "scarf_tips": [
+        [
+          75.5,
+          88.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        326.0
+      ]
+    },
+    {
+      "scarf_root": [
+        190.0,
+        215.0
+      ],
+      "scarf_hand": [
+        225.0,
+        147.0
+      ],
+      "scarf_tips": [
+        [
+          279.0,
+          61.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        326.0
+      ]
+    },
+    {
+      "scarf_root": [
+        170.5,
+        215.0
+      ],
+      "scarf_hand": [
+        130.5,
+        254.0
+      ],
+      "scarf_tips": [
+        [
+          280.5,
+          247.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        326.0
+      ]
+    },
+    {
+      "scarf_root": [
+        183.0,
+        201.5
+      ],
+      "scarf_hand": [
+        221.0,
+        208.5
+      ],
+      "scarf_tips": [
+        [
+          402.0,
+          207.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        325.5
+      ]
+    },
+    {
+      "scarf_root": [
+        193.5,
+        209.5
+      ],
+      "scarf_hand": [
+        214.5,
+        225.5
+      ],
+      "scarf_tips": [
+        [
+          92.5,
+          247.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        325.5
+      ]
+    },
+    {
+      "scarf_root": [
+        187.0,
+        208.5
+      ],
+      "scarf_hand": [
+        139.0,
+        131.5
+      ],
+      "scarf_tips": [
+        [
+          41.0,
+          67.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        325.5
+      ]
+    },
+    {
+      "scarf_root": [
+        184.5,
+        220.5
+      ],
+      "scarf_hand": [
+        141.5,
+        262.5
+      ],
+      "scarf_tips": [
+        [
+          282.5,
+          191.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        325.5
+      ]
+    },
+    {
+      "scarf_root": [
+        187.0,
+        211.0
+      ],
+      "scarf_hand": [
+        196.0,
+        112.0
+      ],
+      "scarf_tips": [
+        [
+          151.0,
+          45.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        322.0
+      ]
+    },
+    {
+      "scarf_root": [
+        190.5,
+        207.0
+      ],
+      "scarf_hand": [
+        182.5,
+        211.0
+      ],
+      "scarf_tips": [
+        [
+          5.5,
+          151.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        323.0
+      ]
+    },
+    {
+      "scarf_root": [
+        183.0,
+        209.0
+      ],
+      "scarf_hand": [
+        228.0,
+        211.0
+      ],
+      "scarf_tips": [
+        [
+          377.0,
+          166.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        324.0
+      ]
+    },
+    {
+      "scarf_root": [
+        184.5,
+        213.0
+      ],
+      "scarf_hand": [
+        170.5,
+        220.0
+      ],
+      "scarf_tips": [
+        [
+          282.5,
+          267.0
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        324.0
+      ]
+    },
+    {
+      "scarf_root": [
+        181.0,
+        167.5
+      ],
+      "scarf_hand": [
+        188.0,
+        173.5
+      ],
+      "scarf_tips": [
+        [
+          212.0,
+          249.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        280.5
+      ]
+    },
+    {
+      "scarf_root": [
+        184.5,
+        171.5
+      ],
+      "scarf_hand": [
+        176.5,
+        202.5
+      ],
+      "scarf_tips": [
+        [
+          201.5,
+          268.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        280.5
+      ]
+    },
+    {
+      "scarf_root": [
+        181.0,
+        171.5
+      ],
+      "scarf_tips": [
+        [
+          175.0,
+          243.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        280.5
+      ]
+    },
+    {
+      "scarf_root": [
+        172.5,
+        175.5
+      ],
+      "scarf_tips": [
+        [
+          167.5,
+          244.5
+        ],
+        null
+      ],
+      "body_root": [
+        156.75,
+        280.5
+      ]
+    }
+  ],
+  "candidate_output_directory": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun"
+}
