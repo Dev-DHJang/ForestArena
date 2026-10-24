@@ -32,6 +32,8 @@
 
 캐릭터 콘셉트의 출처와 권리 기록은 자산 목록인 `assets/character/manifest.json`에 둔다. 각 캐릭터의 이미지, 설정, 능력치와 기술 자리는 해당 `character.tres`에서 함께 관리한다. `user-provided final asset` 표시는 사용자가 파일을 제공했다는 뜻일 뿐, 외부 이용 권리까지 확인됐다는 뜻은 아니다.
 
+자현·묘령·나비·유란의 추가 비전투 개성 콘셉트는 `concept-variant` / `personality`로 구분한다. 각 `concept/personality-v01.md`에서 사용하며 기존 대표 `concept` 네 장과 `CharacterData`·UI·모션 참조는 바꾸지 않는다. 외형 계약의 `non_combat_pose_policy`는 명시된 추가 정지 이미지 네 장의 전투 자세만 제외하며 신체·종 특징·의상·금지 외형과 기존 전투 이미지 규칙은 유지한다. 승인·파일 확인값과 제작 기록은 `_workspace/character-personality-concepts/`에 둔다.
+
 사용자가 승인한 콘셉트와 아직 화면에 연결하지 않은 애니메이션 묶음은 전투 개발 전에 자산 목록과 `CharacterData` 형식을 확인하기 위해 먼저 등록할 수 있다. 등록됐다는 사실만으로 전투 화면에 연결됐거나 그 이미지가 공격 적중을 정한다는 뜻은 아니다.
 
 ## Android 성능 한도와 오디오

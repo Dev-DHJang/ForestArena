@@ -10,7 +10,20 @@
     "body_form_policy": "Human face, hands, feet, and body construction remain primary. Animal anatomy may appear only where the character entry explicitly permits it.",
     "motif_policy": "Do not automatically add ears, tails, fur, paws, muzzles, animal legs, or other animal anatomy when an entry does not explicitly permit them.",
     "originality_policy": "Exact animal-emblem geometry is never a required identity anchor. Future assets use original, unbranded abstract species motifs and do not reproduce a trademark or another character's identifiable symbol.",
-    "presentation_authority": "Concept art, animation, portraits, icons, and UI may consume this contract but remain non-authoritative for combat outcomes."
+    "presentation_authority": "Concept art, animation, portraits, icons, and UI may consume this contract but remain non-authoritative for combat outcomes.",
+    "non_combat_pose_policy": {
+      "scope": {"type": "concept-variant", "variant": "personality"},
+      "allowed_asset_ids": ["ja-hyun-concept-personality-v01", "myo-ryung-concept-personality-v01", "nabi-concept-personality-v01", "yu-ran-concept-personality-v01"],
+      "meaning": "Only the listed approved additional static concepts may use calm personality poses instead of combat posture anchors. Canonical concepts and all animations keep their existing combat posture requirements.",
+      "posture_exceptions": {
+        "ja-hyun": ["low balanced fighting stance", "low spacing stance"],
+        "myo-ryung": ["raised kick or aerial-entry stance", "kick-led fighting posture", "kick and aerial-entry posture"],
+        "nabi": ["forward lavender claw guards", "low forward-entry stance", "forward lavender claws", "low pressure stance"],
+        "yu-ran": ["wide tail-ready stance"]
+      },
+      "preserved_rules": ["adult gender presentation", "body_form", "animal_motif", "palette", "outfit", "non-posture silhouette anchors", "non-posture must_keep", "angle_conditional", "may_vary", "must_not_add"],
+      "approval_record": "_workspace/character-personality-concepts/approval.json"
+    }
   },
   "characters": [
     {

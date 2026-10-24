@@ -36,8 +36,10 @@ def check():
     current = json.loads(MANIFEST.read_text())
     changed = {r['character_id']:r for r in receipt['records'] if r['source_sha256'] != r['output_sha256']}
     assert current['schema_version'] == before['schema_version']
-    assert len(current['assets']) == len(before['assets'])
-    for old, entry in zip(before['assets'],current['assets']):
+    from install_personality_concepts import without_personality_variants
+    existing_assets = without_personality_variants(current['assets'], ROOT)
+    assert len(existing_assets) == len(before['assets'])
+    for old, entry in zip(before['assets'],existing_assets):
         cid = entry.get('character_id')
         if entry.get('type') != 'concept' or cid not in changed:
             assert entry == old, entry.get('asset_id')
