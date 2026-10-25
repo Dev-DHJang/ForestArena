@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "registration": "one explicitly user-approved Ja-hyun special only",
+  "files": [
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/special_scarf_sweep.tres",
+      "matches_planned_output": true
+    },
+    {
+      "path": "assets/character/ja-hyun/animation/runtime/special_scarf_sweep_32f_barrage-v01.png",
+      "matches_planned_output": true
+    },
+    {
+      "path": "assets/character/manifest.json",
+      "matches_planned_output": true
+    }
+  ],
+  "previous_manifest_entries_unchanged": 125,
+  "new_entries": 1,
+  "runtime_consumer": "installed-consumer-r03.json",
+  "source_png_equals_approved_candidate": true,
+  "render_comparison": "240 full RGBA frames equal after the same declared Godot alpha-border import process; raw pre-import r09 is not pixel-identical",
+  "pixel_equivalence_record": "installation-import-normalised-equivalence-r02.json",
+  "verify_sh_after_install": "PASS",
+  "verify_log_sha256": "f8c34726810e2328655890e2d902e72a21c35eded08afa38173f2058bb071320",
+  "physical_android_test": false
+}

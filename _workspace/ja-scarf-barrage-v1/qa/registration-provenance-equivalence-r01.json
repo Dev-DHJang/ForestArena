@@ -1,0 +1,34 @@
+{
+  "source_catalog": "_workspace/ja-scarf-barrage-v1/candidate-catalog-r03.json",
+  "new_catalog": "_workspace/ja-scarf-barrage-v1/candidate-catalog-r04.json",
+  "added_fields": [
+    "creation",
+    "rights",
+    "source_path",
+    "source_sheet_sha256"
+  ],
+  "changed_provenance_fields": [
+    "source_sha256"
+  ],
+  "all_non_provenance_fields_equal": true,
+  "old_source_hash_array_preserved_as": "source_sheet_sha256",
+  "pixels_spriteframes_layout_timing_code_unchanged": true,
+  "png_sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+  "source_inputs": [
+    {
+      "path": "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png",
+      "sha256": "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+      "role": "frames 1-16"
+    },
+    {
+      "path": "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png",
+      "sha256": "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+      "role": "frames 17-32 before F19 correction"
+    },
+    {
+      "path": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png",
+      "sha256": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+      "role": "frame 19 replacement"
+    }
+  ]
+}

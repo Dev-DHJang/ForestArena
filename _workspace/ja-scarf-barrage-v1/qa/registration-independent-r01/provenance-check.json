@@ -1,0 +1,60 @@
+{
+  "reviewer": "afterimage_final_r09",
+  "status": "PASS",
+  "old_catalog_sha256": "0705c69406f5820aeb6a7a3ce812469050b5738824036ccf7b22ced33c43a71c",
+  "new_catalog_sha256": "73b4f91a8f97501ab0261960d127b4d0ca8f3cf7f18e786688382e828ed00c9b",
+  "added_fields": [
+    "creation",
+    "rights",
+    "source_path",
+    "source_sheet_sha256"
+  ],
+  "changed_fields": [
+    "source_sha256"
+  ],
+  "all_other_fields_equal": true,
+  "original_source_hash_array_preserved": true,
+  "source_input_roles_verified": true,
+  "F19_cell_exactly_reconstructs_from_declared_source": true,
+  "only_changed_base_cell": [
+    18
+  ],
+  "motion_timelines_exactly_equal": true,
+  "review_materials_and_sequences_equal": true,
+  "same_product_and_tool_hashes": {
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "4243e78a83083aeeb723379c449cb57e1955dc53f62faa5237aed2a6a3d1e3f4",
+    "scripts/fighter_controller.gd": "bf232c6a3869bb5aa2b2df7705a1bfd9aff989a641e3af78fdb773669a62e4a7",
+    "scripts/local_fighter_presentation.gd": "35a8fddfacd956e55b2f5ae4a9b443ff46cca7ba778d54574c95887ae0e80b33",
+    "tools/forest_arena/motion_layout.py": "9e5b18acd46f71dc3eb2ae197c8388edf6e22fef85761a782f2ded54aaf66b12",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "e35e22e81f6cd4d52465c86fd425bbb3a69cc7d8b923789ad8d270ab15802a52",
+    "tools/forest_arena/motion_review_timeline.gd": "372c23cafae74982789332e8f24bfa477f05565f4e042c99b6a8b48ca97f701e",
+    "tools/forest_arena/review_motion_actions.py": "db889da63d69137a5f41588a2464cd72badb333a0f5af42dc0793ec84e8288cd",
+    "scenes/main.tscn": "61ce864245b997adc64821fa833e887d7e4fb539acbbee5a512570ca8ff38a38",
+    "scripts/arena_visual.gd": "b3eb9fae3cab8338b36c6ce21eeec490b7022b98fe8ca8de70ff57679b13d1a7",
+    "scripts/combat_camera.gd": "65c9e71c47f01ad6b334769aa1e80f1093d40a519a2de993d7c36bf0972f6e53",
+    "scripts/combo_controller.gd": "540bcdb6313f326f18efe4529763debae755f8a6f406ac2310b65325916b96ce",
+    "scripts/main.gd": "c91ff46790ad6af75fce1eb06a0835915ba7066290b7369affe73de14ba7a343",
+    "scripts/match_controller.gd": "29c8adb8522903efa67899fbe789143835ad870ea09771836800f199f834fa77",
+    "scripts/stage_controller.gd": "64bcc7ce9ab5b2ebb321e04157d5c19d192e25498e4ee7676e9ca015b8f6703c"
+  },
+  "source_files": {
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png": "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.json": "e685d739c607b22bba99a8c0bebad8a229a9a550e35870f660674fed501d89c6",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.prompt.txt": "f54bf52583c8cedd041f66f722afae2835868074816e808633c1d4089a3a4b6f",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png": "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.json": "74077b276a91b66d58902aa7aff9535e75ac919adb535e36acda161661ab7eff",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.prompt.txt": "6907421751d0eb18c73af84b8373f9881010542105adc221b0bcd6c7a79fc135",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.json": "e58004308f409fe82b59044cfb34ea8867f8654a08fafc3e4b188f27f995fae6",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.prompt.txt": "cb1895807e1aed007b19817ff06d67fb12229d66c50f89d8d8210e5d8476467b",
+    "_workspace/ja-scarf-barrage-v1/layout-r02.json": "073765c6714f144bb69aa74ae7c9936c5afeb4eeb487d93a3bc9b7de34cc5ea4",
+    "_workspace/ja-scarf-barrage-v1/layout-r01.json": "46f5ed138a180e9a03cf8aff3a73ebcb5fcb5a72add039cbd1b3659d48896586",
+    "_workspace/ja-scarf-barrage-v1/pack-revision.py": "ff75522cfe19ed4f812b479669b974d6290cc23679e631b6d39791968f475b7d",
+    "assets/character/ja-hyun/concept/ja-hyun-concept-v01.png": "a4dcff0f9fdeb592ee86a209603c5dc97ca059f2a461b7f61576b1acf3ce3311"
+  },
+  "approval_status": "pending",
+  "runtime_installation": false
+}
