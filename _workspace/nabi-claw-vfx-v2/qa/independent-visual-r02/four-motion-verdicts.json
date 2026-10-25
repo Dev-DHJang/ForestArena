@@ -1,0 +1,87 @@
+{
+  "reviewer": "afterimage_final_r09 / independent visual qa r11",
+  "reviewer_role": "qa",
+  "catalog_path": "_workspace/motion-naturalness-v1/remaining-candidate-catalog-r10.json",
+  "catalog_sha256": "005960d9a5ec54d29a7ca637905eaee64b33ecb6308a527debc53d46bfbed324",
+  "approval_status": "pending",
+  "capture_root": "_workspace/motion-naturalness-v1/qa/remaining-live-r11",
+  "motions": [
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_heavy",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_16f_r07-head.png",
+      "sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_r07-head.tres",
+      "sprite_frames_sha256": "d8e645dc673e6335cd14588fc14aaebe4bade7b2a483863730b0068ea8a4382b",
+      "status": "pass",
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "observations": "현재 원화16장 및 실제120틱×2방향을 새로 확인했다. 점프 후 준비30~40틱, ACTIVE41~45틱의 F5~7에서 같은 한 팔을 아래에서 위로 올려치고 반대팔은 몸 앞을 지킨다. F8부터 팔을 회수해 낙하/착지 후 idle로 연결된다. 보라 궤적은 올린 손끝 바깥에서 작게 따라가며 반전 소형에서도 팔과 분리되어 보이지 않는다. 정상/0.5 전체 릴 재생 완료와 화면 표본을 확인했고, 원화 및 매틱 비교판에서 얼굴/머리 크기 변화나 셀 잘림을 발견하지 않았다. 공통 근거: 독립 원화80장 및 전체960틱 정적 전수, 무손실 RGBA 일치 검사, QuickTime 정상/반전 릴 각각1x·0.5x의0→8초 전체 재생 완료와 회차당5개 직접 화면 표본. 이전 r07 pass를 복사하지 않았다. UI의 매 프레임 연속 시각 관찰·사용자 승인·등록·Android 통과는 이 판정에 포함하지 않는다. 자세한 범위는 03_qa_visual_r02.md와 playback-observations.json.",
+      "issues": []
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_light",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_16f_r07-head.png",
+      "sha256": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_r07-head.tres",
+      "sprite_frames_sha256": "2fb84fd6df6894c52406df0a0ffd96f5ab5e2e6ca616d232157007c71b3d4574",
+      "status": "pass",
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "observations": "현재 원화16장 및 실제120틱×2방향을 새로 확인했다. 점프 뒤 준비30~36틱, ACTIVE37~40틱 F4~6에서 앞쪽으로 한 번 할퀴고 41틱 F7부터 거둔다. 59틱 낙하, 60틱 이후 착지/idle로 연결된다. 손끝에 붙은 작은 궤적, 접힌 무릎과 일정한 머리 비율을 정상/반전 소형에서 확인했다. 이 촬영의 상대는 아래에 있어 피해가 발생하지 않았으므로 적중 성공 검사로 주장하지 않는다. 정상/0.5 전체 재생 완료와 표본, 원화/매틱 정적 관찰의 범위를 구분했다. 공통 근거: 독립 원화80장 및 전체960틱 정적 전수, 무손실 RGBA 일치 검사, QuickTime 정상/반전 릴 각각1x·0.5x의0→8초 전체 재생 완료와 회차당5개 직접 화면 표본. 이전 r07 pass를 복사하지 않았다. UI의 매 프레임 연속 시각 관찰·사용자 승인·등록·Android 통과는 이 판정에 포함하지 않는다. 자세한 범위는 03_qa_visual_r02.md와 playback-observations.json.",
+      "issues": []
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_heavy_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_16f_r08-hit-window.png",
+      "sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_r08-hit-window.tres",
+      "sprite_frames_sha256": "c3dd4a8feba2e88d6686044acdf88a7489732efb0ca2c874ef926d63a08b5778",
+      "status": "pass",
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "observations": "현재 r10/r11에서 원화16장·전체120틱×2방향을 새로 확인했다. 실제 첫 피해 tick23은 F7(0-based), ATTACK_ACTIVE이며 상대HP105→95와 펼친 발톱·상향 휘두름이 같은 틱에 보인다. 이전 r07의 타격 자세 지연은 이번 자료에서 해소됐다. [0,7)/[7,9)/[9,16) 배분의 준비-한 번 올려치기-팔 회수 연결이 읽히고, 정상 및 반전 소형에서 발톱 궤적이 손끝과 함께 움직인다. 외형·얼굴 비율·의상·한 꼬리 유지, 셀 잘림이나 떠 있는 큰 이펙트는 발견하지 않았다. 공통 근거: 독립 원화80장 및 전체960틱 정적 전수, 무손실 RGBA 일치 검사, QuickTime 정상/반전 릴 각각1x·0.5x의0→8초 전체 재생 완료와 회차당5개 직접 화면 표본. 이전 r07 pass를 복사하지 않았다. UI의 매 프레임 연속 시각 관찰·사용자 승인·등록·Android 통과는 이 판정에 포함하지 않는다. 자세한 범위는 03_qa_visual_r02.md와 playback-observations.json.",
+      "issues": []
+    },
+    {
+      "character_id": "nabi",
+      "motion": "special_side",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_32f_r07-head.png",
+      "sha256": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_r07-head.tres",
+      "sprite_frames_sha256": "763f99f9d1bad7c10e537861a1ec070ca147dac4f3215da766436be0d68619f0",
+      "status": "pass",
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "observations": "현재 원화32장과 실제120틱×2방향을 새로 확인했다. 준비12~20틱 후 21~31틱에 이동하며 이동 구간에는 큰 참격이 나오지 않는다. 32틱에 상대 뒤에서 방향을 바꾼 F21의 한 번 할퀴기와 피해HP105→93이 나타나며 F22~23 뒤 F24부터 팔을 거둬56틱 idle로 돌아간다. 한 꼬리/사람형 손발/의상과 얼굴 비율을 유지하고 짧은 궤적은 손끝 근처에 있다. 실제 입력 촬영이 선택한 원화는 F0~12와 F21~31의24장이다. 실제 촬영에서 쓰이지 않은 F13~20도 원화와 전체32장 비교판/제어 시간표로 따로 확인했으며 실제입력에서 재생됐다고 주장하지 않는다. 공통 근거: 독립 원화80장 및 전체960틱 정적 전수, 무손실 RGBA 일치 검사, QuickTime 정상/반전 릴 각각1x·0.5x의0→8초 전체 재생 완료와 회차당5개 직접 화면 표본. 이전 r07 pass를 복사하지 않았다. UI의 매 프레임 연속 시각 관찰·사용자 승인·등록·Android 통과는 이 판정에 포함하지 않는다. 자세한 범위는 03_qa_visual_r02.md와 playback-observations.json.",
+      "issues": []
+    }
+  ],
+  "formal_review": "_workspace/nabi-claw-vfx-v2/qa/independent-visual-r02/formal-review/motion-review.json"
+}

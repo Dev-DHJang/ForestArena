@@ -1,0 +1,1107 @@
+{
+  "status": "pass for read-only plan consistency",
+  "reviewer": "afterimage_final_r09 / independent qa",
+  "plan_path": "_workspace/motion-naturalness-v1/remaining-registration-plan-r10.json",
+  "plan_file_sha256": "fb828409b9ef45b1bbfadc89cd671ea0f24fa89f842d0d0a290eb7b7d8011552",
+  "plan_sha256": "e66bfcf150d8b8c9aa1c174709aa5f4322ba6caffde351321566079d8c6baa88",
+  "checks_count": 217,
+  "checks": [
+    {
+      "check": "read only wrapper",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "approval missing explicitly",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "canonical plan SHA256",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "plan schema",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "plan pins current catalog",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "plan pins current scope",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "plan pins current qa_review",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "plan pins current registration_targets",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "pins exact final25 review",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "pins current registrar and layout",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "approval path same target",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "exact unique25 plan targets",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "25 replacements only",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "51 unique future output paths",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_heavy') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_heavy') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_heavy') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_heavy') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_heavy') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_heavy') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_light') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_light') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_light') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_light') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_light') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'attack_air_light') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'death') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'death') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'death') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'death') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'death') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'death') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'guard') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'guard') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'guard') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'guard') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'guard') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'guard') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'hitstun') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'hitstun') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'hitstun') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'hitstun') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'hitstun') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'hitstun') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'idle') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'idle') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'idle') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'idle') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'idle') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'idle') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'knock_down') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'knock_down') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'knock_down') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'knock_down') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'knock_down') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'knock_down') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'launch') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'launch') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'launch') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'launch') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'launch') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'launch') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'ring_out') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'ring_out') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'ring_out') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'ring_out') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'ring_out') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'ring_out') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'spawn') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'spawn') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'spawn') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'spawn') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'spawn') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'spawn') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'special_neutral') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'special_neutral') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'special_neutral') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'special_neutral') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'special_neutral') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'special_neutral') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'wake_up') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'wake_up') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'wake_up') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'wake_up') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'wake_up') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('ja-hyun', 'wake_up') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_heavy') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_heavy') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_heavy') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_heavy') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_heavy') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_heavy') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_light') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_light') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_light') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_light') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_light') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_air_light') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_heavy_up') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_heavy_up') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_heavy_up') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_heavy_up') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_heavy_up') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'attack_heavy_up') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'death') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'death') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'death') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'death') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'death') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'death') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'guard') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'guard') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'guard') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'guard') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'guard') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'guard') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'hitstun') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'hitstun') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'hitstun') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'hitstun') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'hitstun') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'hitstun') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'idle') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'idle') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'idle') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'idle') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'idle') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'idle') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'knock_down') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'knock_down') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'knock_down') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'knock_down') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'knock_down') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'knock_down') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'launch') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'launch') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'launch') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'launch') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'launch') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'launch') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'ring_out') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'ring_out') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'ring_out') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'ring_out') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'ring_out') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'ring_out') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'spawn') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'spawn') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'spawn') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'spawn') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'spawn') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'spawn') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'special_side') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'special_side') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'special_side') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'special_side') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'special_side') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'special_side') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'wake_up') target identity exact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'wake_up') unchanged candidate PNG SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'wake_up') unchanged candidate TRES SHA",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'wake_up') exactly one candidate texture reference",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'wake_up') prospective TRES only retargets PNG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "('nabi', 'wake_up') output afterSHA matches motion plan",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "no extra future output files",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/attack_air_heavy_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/attack_air_light_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/death_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/guard_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/hitstun_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/idle.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/idle_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/knock_down_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/launch_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/death.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/guard.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/hitstun.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/knock_down.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/launch.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/ring_out.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/spawn.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/special_neutral.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/local_ai_v01/wake_up.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/ring_out_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/spawn_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/special_neutral_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/ja-hyun/animation/runtime/wake_up_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/manifest.json",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/attack_air_heavy_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/attack_air_light_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/attack_heavy_up_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/death_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/guard_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/hitstun_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/idle.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/idle_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/knock_down_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/launch_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/death.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/guard.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/launch.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/ring_out_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/spawn_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/special_side_32f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "output remains at beforeSHA assets/character/nabi/animation/runtime/wake_up_16f_natural-v03.png",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "check": "existing production manifest unchanged",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "writes": false,
+  "outputs": {
+    "new_png": 25,
+    "existing_tres_future_replacements": 25,
+    "future_manifest": 1,
+    "all_current_files_still_at_before_sha256": true
+  },
+  "approval_record_exists": false,
+  "approval_status": "explicit per-motion human approval record is missing",
+  "registrar_invoked_by_this_checker": false,
+  "install_called": false,
+  "ready_to_install": false
+}

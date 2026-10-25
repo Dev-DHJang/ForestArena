@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/jdh/.codex/worktrees/match-playtest-fixes/ForestArena/_workspace/motion-naturalness-v1/qa/final-review-independent-r01/check-merge.py", line 31, in <module>
+    ck('top-level fields unchanged except reviewer and provenance',{k:v for k,v in a.items() if k!='reviewer'}=={k:v for k,v in f.items() if k not in ['reviewer','independent_review_merge']})
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jdh/.codex/worktrees/match-playtest-fixes/ForestArena/_workspace/motion-naturalness-v1/qa/final-review-independent-r01/check-merge.py", line 9, in ck
+    def ck(n,ok,d=None):checks.append({'check':n,'pass':bool(ok),'detail':d});assert ok,(n,d)
+                                                                                     ^^
+AssertionError: ('top-level fields unchanged except reviewer and provenance', None)

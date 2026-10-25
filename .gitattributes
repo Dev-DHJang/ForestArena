@@ -19,5 +19,11 @@ _workspace/ja-scarf-barrage-v1/qa/live-mirror-small-r02.log whitespace=-blank-at
 # Generated claw captures, boundary probes and nested motion evidence.
 _workspace/nabi-claw-vfx-v2/qa/** linguist-generated=true
 _workspace/motion-naturalness-v1/qa/** linguist-generated=true
+
+# Keep manually written requests, handoffs and QA findings visible in review.
+_workspace/motion-naturalness-v1/qa/**/00_request.md linguist-generated=false
+_workspace/motion-naturalness-v1/qa/**/02_*.md linguist-generated=false
+_workspace/motion-naturalness-v1/qa/**/03_qa*.md linguist-generated=false
+_workspace/motion-naturalness-v1/qa/**/04_closeout.md linguist-generated=false
 _workspace/motion-naturalness-v1/qa/launch-release-prototype-r01/*.patch -whitespace linguist-generated=true
 _workspace/motion-naturalness-v1/qa/launch-release-prototype-r04/*.patch -whitespace linguist-generated=true
