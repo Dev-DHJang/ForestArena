@@ -1,0 +1,19 @@
+{
+  "status": "fix",
+  "cases": [
+    {
+      "mode": "natural",
+      "client_exit_code": 0,
+      "report_valid": false,
+      "log_valid": true,
+      "checks": 0,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "6222476afe3ca29a5e6844c6e95d1b4af09b4e295f85c47133c3c2ee9676624c"
+    }
+  ],
+  "source_files_unchanged": true,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "presentation_source": "res://scripts/local_fighter_presentation.gd",
+  "output": "_workspace/motion-naturalness-v1/qa/lan-launch-release-runner-r02/mock-only-independent-efw1i_jb/zero-checks",
+  "scope": "actual localhost sockets; selected presentation; candidate artwork/release metadata remain process-local; no device or rendered-pixel claim"
+}

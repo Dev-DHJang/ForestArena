@@ -1,0 +1,29 @@
+--- _workspace/motion-naturalness-v1/qa/launch-release-prototype-r01/release-clock.gd
++++ _workspace/motion-naturalness-v1/qa/launch-release-prototype-r04/release-clock.gd
+@@ -10,15 +10,23 @@
+ var previous := {}
+ var started_count := 0
+ 
++static func integral_number(value: Variant) -> bool:
++	# JSON.parse_string produces floats, even for integer-valued tokens.
++	# bool is deliberately excluded before any numeric conversion.
++	if not (value is int or value is float): return false
++	var number := float(value)
++	return is_finite(number) and number == floor(number)
++
+ static func validated(entry: Dictionary, count: int) -> Dictionary:
+ 	if String(entry.get("sha256", "")).is_empty(): return {}
+ 	var span: Variant = entry.get("launch_release_frame_range")
+ 	var ticks: Variant = entry.get("launch_release_ticks")
+-	if not span is Array or span.size() != 2 or not ticks is int: return {}
+-	if not span[0] is int or not span[1] is int: return {}
++	if not span is Array or span.size() != 2 or not integral_number(ticks): return {}
++	if not integral_number(span[0]) or not integral_number(span[1]): return {}
++	# Check bounds before narrowing floats to int, including huge finite input.
+ 	if span[0] < 0 or span[0] >= span[1] or span[1] > count: return {}
+ 	if ticks < 1 or ticks > 12 or ticks < span[1]-span[0]: return {}
+-	return {"begin":span[0], "end":span[1], "ticks":ticks}
++	return {"begin":int(span[0]), "end":int(span[1]), "ticks":int(ticks)}
+ 
+ func reset() -> void:
+ 	active = false

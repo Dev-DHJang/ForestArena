@@ -67,6 +67,7 @@ godot --headless --path . --script res://tests/local_ai_soak.gd
 godot --headless --path . --script res://tests/local_fighter_presentation.gd
 godot --headless --path . --script res://tests/motion_lifecycle_presentation.gd
 godot --headless --path . --script res://tests/hit_reaction_presentation.gd
+godot --headless --path . --script res://tests/launch_release_presentation.gd
 godot --headless --path . --script res://tests/title_loading_flow.gd
 godot --headless --path . --script res://tests/local_ai_app_flow.gd
 godot --headless --path . --script res://tests/forestlight_runtime.gd

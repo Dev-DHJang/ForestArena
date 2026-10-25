@@ -1,5 +1,6 @@
 extends SceneTree
-const Draft := preload("res://scripts/fighter_attack_effects.gd")
+const Presentation := preload("res://scripts/local_fighter_presentation.gd")
+const Effects := preload("res://scripts/fighter_attack_effects.gd")
 class Observed extends "res://scripts/fighter_attack_effects.gd":
 	var traces: Array[Dictionary] = []
 	var legacy := 0
@@ -46,6 +47,9 @@ func run() -> void:
 		for attack: AttackData in fighter.runtime_profile.move_set.attacks():
 			if String(attack.visual_state_id)==motion: fighter.active_attack=attack
 		check(fighter.active_attack!=null and String(fighter.active_attack.visual_state_id)==motion,"authored move selected")
+		if motion != "special_side":
+			var first_active_frame := Presentation.attack_frame(fighter.active_attack,FighterController.State.ATTACK_ACTIVE,0,row.frame_count,row.phase_frame_ranges,row.frame_durations)
+			check(row.frame_anchors[first_active_frame].has("claw_tip"),"first actual active tick already shows the authored claw strike pose")
 		for flipped: bool in [false,true]:
 			sprite.flip_h=flipped
 			fighter.facing=-1 if flipped else 1
@@ -69,7 +73,7 @@ func run() -> void:
 						var tip := Vector2(float(row.frame_anchors[frame].claw_tip[0]),float(row.frame_anchors[frame].claw_tip[1]))
 						check(effect.traces[1].tip.is_equal_approx(effect._anchor(tip)),"central trace ends on actual displayed claw after scale/position/mirror")
 						for halo: int in 3:
-							var mesh := Draft.claw_mesh(effect.traces[1],halo)
+							var mesh := Effects.claw_mesh(effect.traces[1],halo)
 							var arrays := mesh.surface_get_arrays(0)
 							check(arrays[Mesh.ARRAY_VERTEX].size()==50 and arrays[Mesh.ARRAY_INDEX].size()==144,"explicit triangle strip avoids outline triangulation")
 		fighter.state=FighterController.State.ATTACK_ACTIVE

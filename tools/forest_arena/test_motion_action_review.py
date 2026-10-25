@@ -1,5 +1,6 @@
 """Review integrity regressions; these tests do not judge artwork semantics."""
 import tempfile
+import json
 import unittest
 from pathlib import Path
 
@@ -260,6 +261,33 @@ class MotionLayoutTest(unittest.TestCase):
                     {"frame_anchors":[{"scarf_tips":[None,None]}]*16}]
         for row in invalid:
             with self.subTest(row=row), self.assertRaises(ValueError): layout(row)
+
+    def test_launch_release_json_numbers_are_valid_and_do_not_mutate_input(self):
+        from motion_layout import layout
+        import copy
+        for count in [16,24,32]:
+            row={"visual_state_id":"launch","frame_count":count,
+                 "launch_release_frame_range":[float(count-4),float(count)],"launch_release_ticks":4.0}
+            before=copy.deepcopy(row)
+            self.assertEqual(layout(row)["frame_count"],count)
+            self.assertEqual(row,before)
+
+    def test_invalid_release_pairs_ranges_durations_and_state_timers_are_rejected(self):
+        from motion_layout import layout
+        valid={"visual_state_id":"launch","launch_release_frame_range":[12,16],"launch_release_ticks":4}
+        cases=[{"launch_release_frame_range":[12,16]}, {"launch_release_ticks":4},
+               {**valid,"visual_state_id":"guard"}, {**valid,"launch_release_ticks":3},
+               {**valid,"launch_release_frame_range":[12,17]}, {**valid,"launch_release_frame_range":[16,16]}]
+        for invalid in [True,False,0,-1,13,4.5,float("nan"),float("inf"),"4"]:
+            cases.append({**valid,"launch_release_ticks":invalid})
+        for invalid in [True,12.5,float("nan"),float("inf"),"12"]:
+            cases.append({**valid,"launch_release_frame_range":[invalid,16]})
+        for invalid in [True,0,-1,1.5,float("nan"),float("inf"),"12"]:
+            cases.append({"state_duration_ticks":invalid})
+        cases += [{"landing_down_frame_range":[12,17]}, {"landing_down_frame_range":[True,16]},
+                  {"state_hold_frame":16}, {"state_hold_frame":-1}, {"state_hold_frame":True}]
+        for row in cases:
+            with self.subTest(row=row),self.assertRaises(ValueError):layout(row)
 
     def test_board_uses_declared_rows_not_horizontal_strip(self):
         from motion_layout import layout
@@ -614,13 +642,13 @@ class MotionRegistrationTest(unittest.TestCase):
         self.fixture.update_catalog(lambda doc: doc["assets"][0].update(self.provenance))
         self.prepare_art(24)
 
-    def prepare_art(self,count):
+    def prepare_art(self,count,motion="guard"):
         from motion_review_candidates import load_selection
         columns=12 if count==24 else 16
         Image.new("RGBA",(columns*128,((count+columns-1)//columns)*128),(30,50,70,180)).save(self.fixture.sheet)
-        self.fixture.update_catalog(lambda doc: doc["assets"][0].update(visual_state_id="guard",frame_count=count,atlas_columns=columns,sha256=sha(self.fixture.sheet)))
+        self.fixture.update_catalog(lambda doc: doc["assets"][0].update(visual_state_id=motion,frame_count=count,atlas_columns=columns,sha256=sha(self.fixture.sheet)))
         scope=read(self.fixture.scope)
-        scope["motions"]=[{"character_id":"test","motion":"guard"}]
+        scope["motions"]=[{"character_id":"test","motion":motion}]
         write(self.fixture.scope,scope)
         self.scope_hash=sha(self.fixture.scope)
         selection=load_selection(self.root,self.fixture.catalog,self.fixture.scope,self.scope_hash)
@@ -628,8 +656,8 @@ class MotionRegistrationTest(unittest.TestCase):
         timeline["candidate_selection"]=selection["candidate_selection"]
         timeline["sources"].update({source:sha(self.root/source) for source in selection["required_sources"]})
         row=timeline["motions"][0]
-        row.update(motion="guard",sheet_sha256=sha(self.fixture.sheet),required_variant_ids=["state:guard"])
-        row["variants"]=[{"attack_id":"state:guard","samples":[{"frame":i%count,"shown":"guard","phase":"guard","duration_ms":1000/60} for i in range(120)]}]
+        row.update(motion=motion,sheet_sha256=sha(self.fixture.sheet),required_variant_ids=["state:"+motion])
+        row["variants"]=[{"attack_id":"state:"+motion,"samples":[{"frame":i%count,"shown":motion,"phase":motion,"duration_ms":1000/60} for i in range(120)]}]
         write(self.fixture.timeline,timeline)
         output=self.work/("registration-review-"+str(len(list(self.work.glob("registration-review-*")))))
         prepare(self.root,self.fixture.timeline,output,self.fixture.catalog,self.fixture.scope,self.scope_hash)
@@ -638,7 +666,7 @@ class MotionRegistrationTest(unittest.TestCase):
         review.update(reviewer="independent QA fixture only",reviewer_role="qa")
         review["motions"][0].update(status="pass",observations="Temporary artificial fixture only; no real user approval",checks=dict.fromkeys(CHECKS,True))
         write(self.review,review)
-        self.config["motions"][0]["png_path"]="assets/character/test/animation/runtime/guard_%df_v02.png" % count
+        self.config["motions"][0].update(motion=motion,asset_id="test-"+motion.replace("_","-")+"-stable-v01",png_path=f"assets/character/test/animation/runtime/{motion}_{count}f_v02.png",sprite_frames_path=f"res://assets/character/test/animation/runtime/{motion}.tres")
         write(self.targets,self.config)
 
     def plan(self):
@@ -668,6 +696,35 @@ class MotionRegistrationTest(unittest.TestCase):
             self.assertNotIn(b"_workspace/",rendered)
             self.assertIn(row["png_path"].encode(),rendered)
             self.assertEqual(digest(rendered),row["registered_sprite_frames_sha256"])
+
+    def test_launch_release_metadata_survives_planning_and_approved_fixture_install(self):
+        from register_motion_candidates import install
+        fields={"launch_release_frame_range":[12,16],"launch_release_ticks":4}
+        self.fixture.update_catalog(lambda doc:doc["assets"][0].update(visual_state_id="launch",**fields))
+        self.prepare_art(16,"launch")
+        before=self.snapshot();plan,pending=self.plan()
+        self.assertEqual(before,self.snapshot())
+        updated=json.loads(pending["assets/character/manifest.json"])
+        row=next(row for row in updated["assets"] if row.get("visual_state_id")=="launch")
+        self.assertEqual({key:row[key] for key in fields},fields)
+        with self.assertRaisesRegex(ValueError,"human approval.*missing"):
+            install(self.root,plan,pending,self.backup)
+        self.assertEqual(before,self.snapshot())
+        self.fixture_approval(plan)  # Synthetic temporary fixture decision only.
+        install(self.root,plan,pending,self.backup)
+        result=read(self.fixture.fixture.manifest)
+        row=next(row for row in result["assets"] if row.get("visual_state_id")=="launch")
+        self.assertEqual({key:row[key] for key in fields},fields)
+
+    def test_existing_state_display_metadata_is_preserved_in_registration_plan(self):
+        fields={"state_duration_ticks":18,"landing_down_frame_range":[12,16],"state_hold_frame":15}
+        self.fixture.update_catalog(lambda doc:doc["assets"][0].update(visual_state_id="knock_down",**fields))
+        self.prepare_art(16,"knock_down")
+        before=self.snapshot();plan,pending=self.plan()
+        self.assertEqual(before,self.snapshot())
+        updated=json.loads(pending["assets/character/manifest.json"])
+        row=next(row for row in updated["assets"] if row.get("visual_state_id")=="knock_down")
+        self.assertEqual({key:row[key] for key in fields},fields)
 
     def test_missing_approval_refuses_before_any_write_or_backup(self):
         from register_motion_candidates import install

@@ -64,6 +64,25 @@ func run() -> void:
 			fighter.step_tick(controller.rules)
 			observe(visual,fighter,1.0/60.0)
 			check(fighter.state == FighterController.State.IDLE and visual.requested_motion == &"idle", "real stun expiry immediately returns to idle")
+		# LAUNCH must reach its final authored pose within the actual local stun.
+		for duration: int in [6,16,22,30]:
+			fighter.reset_for_match(controller.rules)
+			fighter.position = Vector2(600,300)
+			observe(visual,fighter,0)
+			fighter.apply_hit(attack,Vector2(0,-180),duration,controller.rules,AttackData.HitReaction.LAUNCH)
+			observe(visual,fighter,0)
+			check(visual.requested_motion == &"launch" and visual.sprite.frame == 0,"launch starts from first pose")
+			var seen := {visual.sprite.frame:true}
+			for tick: int in range(1,duration):
+				fighter.step_tick(controller.rules)
+				observe(visual,fighter,1.0/60.0)
+				seen[visual.sprite.frame] = true
+				check(fighter.state == FighterController.State.LAUNCH,"presentation never shortens launch stun")
+			check(visual.sprite.frame == visual.sprite.sprite_frames.get_frame_count(&"launch")-1,"last local launch tick shows final pose before falling")
+			if duration>=16: check(seen.size()==16,"ordinary launch window displays all sixteen authored poses")
+			fighter.step_tick(controller.rules)
+			observe(visual,fighter,1.0/60.0)
+			check(fighter.hitstun_ticks == 0 and visual.requested_motion != &"launch","stun expiry immediately uses the real new state")
 		# A forwarded local event describes the same hit and must not restart twice.
 		fighter.reset_for_match(controller.rules)
 		observe(visual,fighter,0)
@@ -122,8 +141,11 @@ func run() -> void:
 			fighter.reset_for_match(controller.rules)
 			observe(visual,fighter,0)
 			fighter.apply_hit(attack,Vector2.ZERO,30,controller.rules,reaction)
-			observe(visual,fighter,0.3)
-			check(visual.sprite.frame > 0,"airborne or down reaction advances")
+			observe(visual,fighter,0)
+			for tick: int in 6:
+				fighter.step_tick(controller.rules)
+				observe(visual,fighter,1.0/60.0)
+			check(visual.sprite.frame > 0,"airborne or down reaction advances with actual combat ticks")
 			fighter.apply_hit(attack,Vector2.ZERO,30,controller.rules,reaction)
 			observe(visual,fighter,0)
 			check(visual.sprite.frame == 0,"repeated launch or down hit also restarts immediately")

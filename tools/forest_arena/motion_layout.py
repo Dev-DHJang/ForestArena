@@ -22,6 +22,25 @@ def _positive(value, label: str) -> float:
     return float(value)
 
 
+def _integer(value, label: str) -> int:
+    # Godot JSON writers can serialize integer-valued numbers as floats.
+    # Keep the source row unchanged; narrow only after checking finite values.
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or (
+        isinstance(value, float) and (not math.isfinite(value) or not value.is_integer())
+    ):
+        raise ValueError(f"{label} must be a finite integer value")
+    return int(value)
+
+
+def _frame_range(value, count: int, label: str) -> tuple[int, int]:
+    if not isinstance(value, list) or len(value) != 2:
+        raise ValueError(f"{label} must be a valid frame range")
+    begin, end = (_integer(number, label) for number in value)
+    if not 0 <= begin < end <= count:
+        raise ValueError(f"{label} must be a valid frame range")
+    return begin, end
+
+
 def _ranges(value, count: int, label: str, length: int):
     if not isinstance(value, list) or len(value) != length:
         raise ValueError(f"{label} must contain {length} ranges")
@@ -61,6 +80,23 @@ def layout(row: dict) -> dict:
             pair = row[field]
             if not isinstance(pair, list) or len(pair) != 2 or any(isinstance(n, bool) or not isinstance(n, int) for n in pair) or not 0 <= pair[0] < pair[1] <= count:
                 raise ValueError(f"{field} must be a valid frame range")
+    if "landing_down_frame_range" in row:
+        _frame_range(row["landing_down_frame_range"], count, "landing_down_frame_range")
+    if "state_duration_ticks" in row and _integer(row["state_duration_ticks"], "state_duration_ticks") <= 0:
+        raise ValueError("state_duration_ticks must be positive")
+    if "state_hold_frame" in row and not 0 <= _integer(row["state_hold_frame"], "state_hold_frame") < count:
+        raise ValueError("state_hold_frame must be inside the declared frame count")
+    release_fields = ("launch_release_frame_range", "launch_release_ticks")
+    if any(field in row for field in release_fields):
+        if not all(field in row for field in release_fields):
+            raise ValueError("launch_release_frame_range and launch_release_ticks must be provided together")
+        declared_motion = row.get("visual_state_id") or (motion_id(row) if isinstance(row.get("path"), str) else None)
+        if declared_motion != "launch":
+            raise ValueError("launch_release metadata is allowed only for launch")
+        begin, end = _frame_range(row["launch_release_frame_range"], count, "launch_release_frame_range")
+        ticks = _integer(row["launch_release_ticks"], "launch_release_ticks")
+        if not 1 <= ticks <= 12 or ticks < end - begin:
+            raise ValueError("launch_release_ticks must be 1..12 and cover each release drawing")
     if "run_stride_px" in row:
         _positive(row["run_stride_px"], "run_stride_px")
     if "frame_anchors" in row:

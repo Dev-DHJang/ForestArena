@@ -1,0 +1,12 @@
+{
+  "status": "fix",
+  "cases": [
+    {
+      "mode": "natural",
+      "client_exit_code": 1
+    }
+  ],
+  "source_files_unchanged": true,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "scope": "actual localhost socket QA with unchanged production auth fixture/server; presentation clone in clients only"
+}

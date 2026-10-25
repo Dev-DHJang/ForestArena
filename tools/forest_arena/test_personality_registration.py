@@ -34,14 +34,15 @@ class RegistrationTest(unittest.TestCase):
             subject.without_personality_variants(self.assets+[self.assets[-1]])
 
     def test_unknown_or_partial_variant_rejected(self):
-        for assets in (self.assets[:-1], self.assets+[{'asset_id':'unknown', 'type':'concept-variant'}]):
+        variant_id = next(e['asset_id'] for e in self.assets if e.get('type') == 'concept-variant')
+        for assets in ([e for e in self.assets if e['asset_id'] != variant_id], self.assets+[{'asset_id':'unknown', 'type':'concept-variant'}]):
             with self.subTest(count=len(assets)), self.assertRaises(AssertionError):
                 subject.without_personality_variants(assets)
 
     def test_modified_metadata_reference_or_hash_rejected(self):
         for field, value in [('sha256','0'*64), ('variant','other'), ('reference_concept_asset_id','nabi-concept-v01'), ('consumer_path','other.md')]:
             assets = copy.deepcopy(self.assets)
-            assets[-1][field] = value
+            next(e for e in assets if e.get('type') == 'concept-variant')[field] = value
             with self.subTest(field=field), self.assertRaises(AssertionError):
                 subject.without_personality_variants(assets)
 
@@ -58,7 +59,7 @@ class RegistrationTest(unittest.TestCase):
 
     def test_changed_installed_png_rejected(self):
         original_sha = subject.sha
-        target = self.assets[-1]['path']
+        target = next(e['path'] for e in self.assets if e.get('type') == 'concept-variant')
         def altered(path):
             return '0'*64 if str(path).endswith(target) else original_sha(path)
         with patch.object(subject, 'sha', side_effect=altered), self.assertRaises(AssertionError):

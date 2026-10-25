@@ -1,0 +1,6 @@
+{
+  "changed_line_before": "OUT = Path(requested).resolve() if requested else BASE/'runs'/str(time.time_ns())",
+  "changed_line_after": "OUT = (Path(requested) if requested else BASE/'runs'/str(time.time_ns())).resolve()",
+  "client_fixture_byte_equal": true,
+  "scope": "output normalization only; actual product-r04 supplied an explicit absolute output path"
+}

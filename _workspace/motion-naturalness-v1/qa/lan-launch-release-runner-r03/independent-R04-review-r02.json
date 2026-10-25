@@ -1,0 +1,181 @@
+{
+  "scope": "independent read-only review of root actual R04; no socket execution by this review",
+  "checks_total": 4759,
+  "cases": [
+    {
+      "mode": "natural",
+      "checks": 1581,
+      "mode_correct": true,
+      "errors_empty": true,
+      "catalog_correct": true,
+      "product_presentation": true,
+      "report_SHA_correct": true,
+      "slots": [
+        {
+          "slot": 1,
+          "owned": false,
+          "release_frames": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "first_followup": null,
+          "all_followup_samples_immediately_match": null,
+          "all_stun_and_duration_zero": true
+        },
+        {
+          "slot": 2,
+          "owned": true,
+          "release_frames": [
+            12,
+            13,
+            14,
+            15
+          ],
+          "first_followup": null,
+          "all_followup_samples_immediately_match": null,
+          "all_stun_and_duration_zero": true
+        }
+      ]
+    },
+    {
+      "mode": "attack",
+      "checks": 1591,
+      "mode_correct": true,
+      "errors_empty": true,
+      "catalog_correct": true,
+      "product_presentation": true,
+      "report_SHA_correct": true,
+      "slots": [
+        {
+          "slot": 1,
+          "owned": false,
+          "release_frames": [
+            12,
+            13,
+            14
+          ],
+          "first_followup": {
+            "air_jumps": 1,
+            "attack_id": "ja-hyun-air-light",
+            "client_slot": 1,
+            "display_duration": 0,
+            "fighter_id": "lan_guest",
+            "frame_zero_based": 1,
+            "motion": "attack_air_light",
+            "owned": false,
+            "release_active": false,
+            "release_elapsed": 0.0333333333333333,
+            "release_started_count": 1,
+            "remaining_stun_local": 0,
+            "render_tick": 359,
+            "server_tick": 333,
+            "state": "ATTACK_STARTUP"
+          },
+          "all_followup_samples_immediately_match": true,
+          "all_stun_and_duration_zero": true
+        },
+        {
+          "slot": 2,
+          "owned": true,
+          "release_frames": [
+            12,
+            13,
+            14
+          ],
+          "first_followup": {
+            "air_jumps": 1,
+            "attack_id": "ja-hyun-air-light",
+            "client_slot": 2,
+            "display_duration": 0,
+            "fighter_id": "lan_guest",
+            "frame_zero_based": 1,
+            "motion": "attack_air_light",
+            "owned": true,
+            "release_active": false,
+            "release_elapsed": 0.0333333333333333,
+            "release_started_count": 1,
+            "remaining_stun_local": 0,
+            "render_tick": 359,
+            "server_tick": 333,
+            "state": "ATTACK_STARTUP"
+          },
+          "all_followup_samples_immediately_match": true,
+          "all_stun_and_duration_zero": true
+        }
+      ]
+    },
+    {
+      "mode": "jump",
+      "checks": 1587,
+      "mode_correct": true,
+      "errors_empty": true,
+      "catalog_correct": true,
+      "product_presentation": true,
+      "report_SHA_correct": true,
+      "slots": [
+        {
+          "slot": 1,
+          "owned": false,
+          "release_frames": [
+            12,
+            13,
+            14
+          ],
+          "first_followup": {
+            "air_jumps": 0,
+            "attack_id": "",
+            "client_slot": 1,
+            "display_duration": 0,
+            "fighter_id": "lan_guest",
+            "frame_zero_based": 0,
+            "motion": "jump",
+            "owned": false,
+            "release_active": false,
+            "release_elapsed": 0.0333333333333333,
+            "release_started_count": 1,
+            "remaining_stun_local": 0,
+            "render_tick": 358,
+            "server_tick": 336,
+            "state": "JUMP"
+          },
+          "all_followup_samples_immediately_match": true,
+          "all_stun_and_duration_zero": true
+        },
+        {
+          "slot": 2,
+          "owned": true,
+          "release_frames": [
+            12,
+            13,
+            14
+          ],
+          "first_followup": {
+            "air_jumps": 0,
+            "attack_id": "",
+            "client_slot": 2,
+            "display_duration": 0,
+            "fighter_id": "lan_guest",
+            "frame_zero_based": 0,
+            "motion": "jump",
+            "owned": true,
+            "release_active": false,
+            "release_elapsed": 0.0333333333333333,
+            "release_started_count": 1,
+            "remaining_stun_local": 0,
+            "render_tick": 358,
+            "server_tick": 336,
+            "state": "JUMP"
+          },
+          "all_followup_samples_immediately_match": true,
+          "all_stun_and_duration_zero": true
+        }
+      ]
+    }
+  ],
+  "all_logs_clean": true,
+  "source_count": 156,
+  "before_after_equal": true,
+  "run_report_SHA256": "b32024a8b99a21c6dc3cdafd7aa72f44c9d6d0f657fad3d65d9a3e00af0f03d9"
+}

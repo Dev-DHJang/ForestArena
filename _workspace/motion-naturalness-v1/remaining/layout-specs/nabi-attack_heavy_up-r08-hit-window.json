@@ -1,0 +1,183 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "attack_heavy_up",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.32,
+  "presentation_scale": 0.9648936803416513,
+  "source_baseline_y": 285.9,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+  "version": "r08-hit-window",
+  "phase_frame_ranges": [
+    [
+      0,
+      7
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      9,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    5,
+    20
+  ],
+  "source_frame_anchors": [
+    {
+      "claw_hand": [
+        272,
+        128
+      ]
+    },
+    {
+      "claw_hand": [
+        211,
+        151
+      ]
+    },
+    {
+      "claw_hand": [
+        240,
+        194
+      ]
+    },
+    {
+      "claw_hand": [
+        226,
+        186
+      ]
+    },
+    {
+      "claw_hand": [
+        278,
+        136
+      ]
+    },
+    {
+      "claw_hand": [
+        265,
+        124
+      ]
+    },
+    {
+      "claw_hand": [
+        271,
+        107
+      ]
+    },
+    {
+      "claw_hand": [
+        253,
+        39
+      ],
+      "claw_tip": [
+        291,
+        8
+      ]
+    },
+    {
+      "claw_hand": [
+        283,
+        67
+      ],
+      "claw_tip": [
+        313,
+        28
+      ]
+    },
+    {
+      "claw_hand": [
+        281,
+        101
+      ]
+    },
+    {
+      "claw_hand": [
+        267,
+        116
+      ]
+    },
+    {
+      "claw_hand": [
+        261,
+        137
+      ]
+    },
+    {
+      "claw_hand": [
+        266,
+        129
+      ]
+    },
+    {
+      "claw_hand": [
+        208,
+        151
+      ]
+    },
+    {
+      "claw_hand": [
+        250,
+        188
+      ]
+    },
+    {
+      "claw_hand": [
+        225,
+        176
+      ]
+    }
+  ],
+  "source_anchor_review": {
+    "handoff": "_workspace/motion-naturalness-v1/remaining/nabi/02_anchor_handoff.md",
+    "sidecars": [
+      "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.anchors.json"
+    ],
+    "meaning": "visible attack hand and central long claw tip only; omitted occluded tips stay absent"
+  },
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "attack_heavy_up-r02.png",
+        "source_sha256": "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034",
+        "frame_index": 0,
+        "source_size": [
+          1350,
+          1165
+        ],
+        "raw_cell_size": [
+          337.5,
+          291.25
+        ],
+        "near_ear_tip_cell": [
+          174,
+          9
+        ],
+        "chin_cell": [
+          218,
+          136
+        ],
+        "source_head_unit_pixels": 134.406,
+        "recommended_uniform_source_to_world_scale": 0.3088,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

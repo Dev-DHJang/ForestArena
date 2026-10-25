@@ -1,0 +1,312 @@
+{
+	"action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+	"atlas_columns": 16.0,
+	"cell_size": 128.0,
+	"character_id": "ja-hyun",
+	"conversion": {
+		"method": "F1–12 exact prior RGBA; F13–15 new r02 original poses, uniform whole-figure 0.16 scale + translation; F16 whole approved jump F11 shared neutral boundary pose, exact RGBA",
+		"new_pose_placements": [
+			{
+				"alpha_ge_12_beyond_5px_core": 0.0,
+				"alpha_max_beyond_5px_core": 1.0,
+				"body_root": [
+					64.0,
+					104.0
+				],
+				"box": [
+					129.0,
+					0.0,
+					724.0,
+					515.0
+				],
+				"chin": [
+					224.0,
+					197.0
+				],
+				"chin_cell": [
+					65.84,
+					56.52
+				],
+				"ear": [
+					62.0,
+					37.0
+				],
+				"ear_cell": [
+					39.92,
+					30.92
+				],
+				"ear_to_chin_world_px": 30.9662174635521,
+				"frame": 13.0,
+				"paste": [
+					30.0,
+					25.0
+				],
+				"resized_size": [
+					95.0,
+					82.0
+				],
+				"uniform_scale": 0.16
+			},
+			{
+				"alpha_ge_12_beyond_5px_core": 0.0,
+				"alpha_max_beyond_5px_core": 0.0,
+				"body_root": [
+					64.0,
+					104.0
+				],
+				"box": [
+					779.0,
+					0.0,
+					1445.0,
+					523.0
+				],
+				"chin": [
+					348.0,
+					218.0
+				],
+				"chin_cell": [
+					68.68,
+					62.88
+				],
+				"ear": [
+					215.0,
+					31.0
+				],
+				"ear_cell": [
+					47.4,
+					32.96
+				],
+				"ear_to_chin_world_px": 31.2083701593018,
+				"frame": 14.0,
+				"paste": [
+					13.0,
+					28.0
+				],
+				"resized_size": [
+					107.0,
+					84.0
+				],
+				"uniform_scale": 0.16
+			},
+			{
+				"alpha_ge_12_beyond_5px_core": 0.0,
+				"alpha_max_beyond_5px_core": 0.0,
+				"body_root": [
+					64.0,
+					104.0
+				],
+				"box": [
+					112.0,
+					513.0,
+					682.0,
+					1012.0
+				],
+				"chin": [
+					425.0,
+					226.0
+				],
+				"chin_cell": [
+					78.0,
+					69.16
+				],
+				"ear": [
+					301.0,
+					19.0
+				],
+				"ear_cell": [
+					58.16,
+					36.04
+				],
+				"ear_to_chin_world_px": 32.8166055526771,
+				"frame": 15.0,
+				"paste": [
+					10.0,
+					33.0
+				],
+				"resized_size": [
+					91.0,
+					80.0
+				],
+				"uniform_scale": 0.16
+			}
+		],
+		"preserved_first_twelve": {
+			"all_rgba_equal": true,
+			"source": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_16f_r01.png",
+			"source_sha256": "ca9b9df8bbf8fa20796ef701795a116f7ab435521fac7808dd56a1e3a9220cda"
+		},
+		"shared_boundary_pose": {
+			"body_root": [
+				64.0,
+				117.0
+			],
+			"source": "assets/character/ja-hyun/animation/runtime/jump_24f_natural-v02.png",
+			"source_frame_one_based": 11.0,
+			"source_sha256": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1"
+		}
+	},
+	"creation": {
+		"method": "OpenAI built-in image_gen new F13–15 poses; existing F1–12 exact pixel preservation; approved jump F11 whole-pose boundary sharing",
+		"prompt_path": "_workspace/motion-naturalness-v1/remaining/ja-hyun/launch-neutral-r09/neutral-four-source-r02.prompt.txt",
+		"provider": "OpenAI built-in image generation",
+		"source_roles": [
+			{
+				"path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_16f_r01.png",
+				"role": "preserved F1–12",
+				"sha256": "ca9b9df8bbf8fa20796ef701795a116f7ab435521fac7808dd56a1e3a9220cda"
+			},
+			{
+				"path": "_workspace/motion-naturalness-v1/remaining/ja-hyun/launch-neutral-r09/neutral-four-source-r02.png",
+				"role": "new F13–15 drawings",
+				"sha256": "4b0a4556116a922d480256715f401ae5f933720b044569d5d7180d29b432ee17"
+			},
+			{
+				"path": "assets/character/ja-hyun/animation/runtime/jump_24f_natural-v02.png",
+				"role": "shared boundary F16 from approved jump F11",
+				"sha256": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1"
+			}
+		],
+		"version": "launch-neutral-r09"
+	},
+	"expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+	"foot_pivot_y": 104.0,
+	"fps": 12.0,
+	"frame_anchors": [
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				104.0
+			]
+		},
+		{
+			"body_root": [
+				64.0,
+				117.0
+			]
+		}
+	],
+	"frame_count": 16.0,
+	"frame_durations": [
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0,
+		1.0
+	],
+	"launch_release_frame_range": [
+		12,
+		16
+	],
+	"launch_release_ticks": 4,
+	"loop": false,
+	"path": "_workspace/motion-naturalness-v1/remaining/ja-hyun/launch-neutral-r09/launch_16f_neutral-r09.png",
+	"presentation_scale": 0.85,
+	"rights": {
+		"approval": "pending independent visual QA and explicit per-motion user approval",
+		"status": "project candidate derived from previously approved Ja-Hyun appearance references; new poses generated with built-in image_gen; no separate legal verification asserted"
+	},
+	"sha256": "4c3380e121410a9d812b223ea694f35c9f591a451356e18e1c1a80ced6e0f74f",
+	"source_paths": [
+		"_workspace/motion-naturalness-v1/remaining/ja-hyun/launch-neutral-r09/neutral-four-source-r02.png"
+	],
+	"source_sha256": "4b0a4556116a922d480256715f401ae5f933720b044569d5d7180d29b432ee17",
+	"sprite_frames_path": "res://_workspace/motion-naturalness-v1/remaining/ja-hyun/launch-neutral-r09/launch_neutral-r09.tres",
+	"status": "unapproved-workspace-only",
+	"type": "animation-candidate",
+	"visual_state_id": "launch"
+}
