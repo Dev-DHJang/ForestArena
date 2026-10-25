@@ -1,0 +1,191 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "attack_air_light",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.33,
+  "presentation_scale": 0.8727043931518571,
+  "source_baseline_y": 272.5,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+  "version": "r07-head",
+  "phase_frame_ranges": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      7,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    8,
+    4,
+    18
+  ],
+  "source_frame_anchors": [
+    {
+      "claw_hand": [
+        207,
+        163
+      ]
+    },
+    {
+      "claw_hand": [
+        194,
+        158
+      ]
+    },
+    {
+      "claw_hand": [
+        218,
+        160
+      ]
+    },
+    {
+      "claw_hand": [
+        138,
+        87
+      ]
+    },
+    {
+      "claw_hand": [
+        331,
+        160
+      ],
+      "claw_tip": [
+        370,
+        182
+      ]
+    },
+    {
+      "claw_hand": [
+        350,
+        165
+      ],
+      "claw_tip": [
+        395,
+        176
+      ]
+    },
+    {
+      "claw_hand": [
+        362,
+        166
+      ],
+      "claw_tip": [
+        402,
+        181
+      ]
+    },
+    {
+      "claw_hand": [
+        294,
+        182
+      ],
+      "claw_tip": [
+        339,
+        204
+      ]
+    },
+    {
+      "claw_hand": [
+        223,
+        165
+      ]
+    },
+    {
+      "claw_hand": [
+        233,
+        157
+      ]
+    },
+    {
+      "claw_hand": [
+        226,
+        169
+      ]
+    },
+    {
+      "claw_hand": [
+        217,
+        167
+      ]
+    },
+    {
+      "claw_hand": [
+        221,
+        152
+      ]
+    },
+    {
+      "claw_hand": [
+        222,
+        155
+      ]
+    },
+    {
+      "claw_hand": [
+        234,
+        155
+      ]
+    },
+    {
+      "claw_hand": [
+        226,
+        160
+      ]
+    }
+  ],
+  "source_anchor_review": {
+    "handoff": "_workspace/motion-naturalness-v1/remaining/nabi/02_anchor_handoff.md",
+    "sidecars": [
+      "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.anchors.json"
+    ],
+    "meaning": "visible attack hand and central long claw tip only; omitted occluded tips stay absent"
+  },
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "attack_air_light-r01.png",
+        "source_sha256": "cca665f674d9ece4179f1d67aacc6faed76d883d26147104aaf4674982ff36f5",
+        "frame_index": 0,
+        "source_size": [
+          1448,
+          1086
+        ],
+        "raw_cell_size": [
+          362.0,
+          271.5
+        ],
+        "near_ear_tip_cell": [
+          232,
+          6
+        ],
+        "chin_cell": [
+          270,
+          145
+        ],
+        "source_head_unit_pixels": 144.101,
+        "recommended_uniform_source_to_world_scale": 0.288,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

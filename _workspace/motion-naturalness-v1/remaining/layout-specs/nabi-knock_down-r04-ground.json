@@ -1,0 +1,87 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "knock_down",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/knock_down-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.33,
+  "presentation_scale": 1.0,
+  "source_baseline_y": 298.0,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+  "version": "r04-ground",
+  "state_hold_frame": 15,
+  "frame_anchors": [
+    {
+      "body_root": [
+        64,
+        101
+      ]
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "body_root": [
+        64,
+        96
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        95
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        100
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        100
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        84
+      ]
+    }
+  ],
+  "ground_contact_review": {
+    "source": "_workspace/motion-naturalness-v1/qa/remaining-independent-r01/ground-contact-proposals.json",
+    "reviewed_by": "remaining_motion_qa; root directly checked contact proposal boards",
+    "method": "whole-frame Y display alignment only; airborne knock-down poses remain unaligned"
+  }
+}

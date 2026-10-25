@@ -1,0 +1,158 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "attack_air_heavy",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_heavy-r02.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.32,
+  "presentation_scale": 1.0,
+  "source_baseline_y": 300,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+  "version": "r06-claw",
+  "phase_frame_ranges": [
+    [
+      0,
+      5
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      8,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    5,
+    22
+  ],
+  "source_frame_anchors": [
+    {
+      "claw_hand": [
+        267,
+        144
+      ]
+    },
+    {
+      "claw_hand": [
+        293,
+        201
+      ]
+    },
+    {
+      "claw_hand": [
+        283,
+        198
+      ]
+    },
+    {
+      "claw_hand": [
+        270,
+        213
+      ]
+    },
+    {
+      "claw_hand": [
+        283,
+        63
+      ],
+      "claw_tip": [
+        309,
+        36
+      ]
+    },
+    {
+      "claw_hand": [
+        268,
+        30
+      ],
+      "claw_tip": [
+        294,
+        7
+      ]
+    },
+    {
+      "claw_hand": [
+        267,
+        45
+      ],
+      "claw_tip": [
+        304,
+        20
+      ]
+    },
+    {
+      "claw_hand": [
+        255,
+        34
+      ],
+      "claw_tip": [
+        286,
+        12
+      ]
+    },
+    {
+      "claw_hand": [
+        271,
+        102
+      ]
+    },
+    {
+      "claw_hand": [
+        273,
+        127
+      ]
+    },
+    {
+      "claw_hand": [
+        267,
+        130
+      ]
+    },
+    {
+      "claw_hand": [
+        258,
+        175
+      ]
+    },
+    {
+      "claw_hand": [
+        271,
+        139
+      ]
+    },
+    {
+      "claw_hand": [
+        285,
+        154
+      ]
+    },
+    {
+      "claw_hand": [
+        267,
+        166
+      ]
+    },
+    {
+      "claw_hand": [
+        263,
+        202
+      ]
+    }
+  ],
+  "source_anchor_review": {
+    "handoff": "_workspace/motion-naturalness-v1/remaining/nabi/02_anchor_handoff.md",
+    "sidecars": [
+      "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_heavy-r02.anchors.json"
+    ],
+    "meaning": "visible attack hand and central long claw tip only; omitted occluded tips stay absent"
+  }
+}

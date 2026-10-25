@@ -1,0 +1,24 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+ERROR: Fighter scene requires CharacterData: draft-nabi
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/fighter_controller.gd:91)
+       [1] run (res://_workspace/nabi-claw-vfx-v2/check_consumer.gd:18)
+ERROR: Animation 'default' doesn't exist.
+   at: get_frame_count (scene/resources/sprite_frames.cpp:72)
+   GDScript backtrace (most recent call first):
+       [0] run (res://_workspace/nabi-claw-vfx-v2/check_consumer.gd:85)
+ERROR: Animation 'default' doesn't exist.
+   at: get_frame_count (scene/resources/sprite_frames.cpp:72)
+   GDScript backtrace (most recent call first):
+       [0] run (res://_workspace/nabi-claw-vfx-v2/check_consumer.gd:85)
+ERROR: Animation 'default' doesn't exist.
+   at: get_frame_count (scene/resources/sprite_frames.cpp:72)
+   GDScript backtrace (most recent call first):
+       [0] run (res://_workspace/nabi-claw-vfx-v2/check_consumer.gd:85)
+ERROR: Animation 'default' doesn't exist.
+   at: get_frame_count (scene/resources/sprite_frames.cpp:72)
+   GDScript backtrace (most recent call first):
+       [0] run (res://_workspace/nabi-claw-vfx-v2/check_consumer.gd:85)
+NABI_CLAW_CONSUMER_DRAFT: PASS (2150 checks)

@@ -1,0 +1,97 @@
+{
+  "status": "PASS",
+  "scope": "Process-local prototype versus shared production consumer; candidate r07 only, no runtime asset registration.",
+  "note": "Raw report dictionaries differ: prototype alone records trail_count. Only this named diagnostic is omitted; combat snapshots and all common display fields match.",
+  "comparisons": [
+    {
+      "before": "_workspace/nabi-claw-vfx-v2/qa/live-calibrated-normal-r04",
+      "after": "_workspace/nabi-claw-vfx-v2/qa/production-normal-r01",
+      "before_report_sha256": "d4f1fc9e5736ba22d7518962c99ba070cbe285678792ba948e92335695ee84b8",
+      "after_report_sha256": "adbe300fd6e19b0a881875404ba67bb8d241b3998b715bbd9755988c5191c5c8",
+      "before_archive_receipt_sha256": "a833cc2fb60c29e6e8e19c128c9d73381215caacb0cd548a1b5773f7381ceb19",
+      "after_archive_receipt_sha256": "5cb3d77ab61083f5a06c18ad31b08bedbb169a38e1ca08643637b47ec6332027",
+      "excluded_diagnostic_fields": [
+        "drawn[].trail_count"
+      ],
+      "clips": [
+        {
+          "clip": "nabi__heavy-ground",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        },
+        {
+          "clip": "nabi__air-heavy",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        },
+        {
+          "clip": "nabi__air-light",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        },
+        {
+          "clip": "nabi__special",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        }
+      ]
+    },
+    {
+      "before": "_workspace/nabi-claw-vfx-v2/qa/live-calibrated-mirror-small-r04",
+      "after": "_workspace/nabi-claw-vfx-v2/qa/production-mirror-small-r01",
+      "before_report_sha256": "4684b457675e757427be09fa756819b3eaa47f1bbcdfb1968efe766e3fad7acd",
+      "after_report_sha256": "97dae3938b39febcc9e56025e0144165f0f881d59557f35c364d33a5db2fd3f0",
+      "before_archive_receipt_sha256": "6abbe7aea6a4079b1879b1856d0cf72ff9513c15b221226830ebeea8808608f4",
+      "after_archive_receipt_sha256": "3945bda494b7753a914aac2256ae6c2d4c784b6250b20c0dc1325e68d55384aa",
+      "excluded_diagnostic_fields": [
+        "drawn[].trail_count"
+      ],
+      "clips": [
+        {
+          "clip": "nabi__heavy-ground",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        },
+        {
+          "clip": "nabi__air-heavy",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        },
+        {
+          "clip": "nabi__air-light",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        },
+        {
+          "clip": "nabi__special",
+          "ticks": 120,
+          "raw_states_equal": false,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        }
+      ]
+    }
+  ]
+}

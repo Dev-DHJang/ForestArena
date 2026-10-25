@@ -1,0 +1,367 @@
+{
+  "kind": "presentation-only source head-unit scale proposal",
+  "reference": "승인 idle의 가까운 귀 끝(56,37)→턱(72,76)은 약42.2px. 승인 run 원화(440,42)→(539,280)에 기존 균일배율0.157706을 적용하면 약40.7px. 두 승인 표시 사이 기준41.5px를 초기 목표로 쓴다.",
+  "reference_preview": [
+    "anchor-diagnostics/approved-idle-native.png",
+    "anchor-diagnostics/approved-run-source.png"
+  ],
+  "method": "각 모션 전체에 하나의 균일 배율을 사용한다. 모든 자세의 전체 키를 idle 높이로 맞추지 않는다. 귀-턱 직선거리를 써서 기울어진 머리를 수직 키로 잘못 줄이지 않는다.",
+  "limitations": [
+    "손으로 선택한 한 프레임 기준이므로 전 프레임 머리 크기 안정성 검증과 실제 전환 검증을 대신하지 않는다.",
+    "웨이크업은 누운 첫 그림보다 비교 가능한 마지막 준비자세 F15를 측정했다.",
+    "특수 PART A/B는 원시 해상도와 머리 단위가 달라 각각 균일 배율을 제안한다. 두 부분 연결이 자연스러운지 실제 게임에서 확인해야 한다.",
+    "카메라 줌과 SpriteFrames 표시 배율을 이중 적용하지 않는다. 기존 포장 배율과 presentation_scale을 곱한 실제 source→world 배율과 비교한다."
+  ],
+  "sources": [
+    {
+      "source_png": "idle-r02.png",
+      "source_sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+      "frame_index": 0,
+      "source_size": [
+        1448,
+        1086
+      ],
+      "raw_cell_size": [
+        362.0,
+        271.5
+      ],
+      "near_ear_tip_cell": [
+        214,
+        12
+      ],
+      "chin_cell": [
+        252,
+        146
+      ],
+      "source_head_unit_pixels": 139.284,
+      "recommended_uniform_source_to_world_scale": 0.298,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "guard-r01.png",
+      "source_sha256": "62f6c6bb37581716ecb54bdb63558dc41747d25478b83feb62d3b2290b449150",
+      "frame_index": 0,
+      "source_size": [
+        1254,
+        1254
+      ],
+      "raw_cell_size": [
+        313.5,
+        313.5
+      ],
+      "near_ear_tip_cell": [
+        169,
+        26
+      ],
+      "chin_cell": [
+        205,
+        143
+      ],
+      "source_head_unit_pixels": 122.413,
+      "recommended_uniform_source_to_world_scale": 0.339,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "hitstun-r01.png",
+      "source_sha256": "c31506714d1656c240f1e4ece1ef3d39b6890dd0b9e946ad7b7f3b8810327af8",
+      "frame_index": 0,
+      "source_size": [
+        1254,
+        1254
+      ],
+      "raw_cell_size": [
+        313.5,
+        313.5
+      ],
+      "near_ear_tip_cell": [
+        55,
+        126
+      ],
+      "chin_cell": [
+        164,
+        174
+      ],
+      "source_head_unit_pixels": 119.101,
+      "recommended_uniform_source_to_world_scale": 0.3484,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "launch-r01.png",
+      "source_sha256": "63b87aeddd1ac6e3b296685d2e323a634d9f312038a3c24b7263f76abb9b69fe",
+      "frame_index": 0,
+      "source_size": [
+        1448,
+        1086
+      ],
+      "raw_cell_size": [
+        362.0,
+        271.5
+      ],
+      "near_ear_tip_cell": [
+        149,
+        69
+      ],
+      "chin_cell": [
+        210,
+        163
+      ],
+      "source_head_unit_pixels": 112.058,
+      "recommended_uniform_source_to_world_scale": 0.3703,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "knock_down-r01.png",
+      "source_sha256": "4fa0450aa78e04cb9cbd8a3796041d696b0d81fe0a91855ab80aafadd5223fc5",
+      "frame_index": 0,
+      "source_size": [
+        1448,
+        1086
+      ],
+      "raw_cell_size": [
+        362.0,
+        271.5
+      ],
+      "near_ear_tip_cell": [
+        108,
+        43
+      ],
+      "chin_cell": [
+        192,
+        137
+      ],
+      "source_head_unit_pixels": 126.063,
+      "recommended_uniform_source_to_world_scale": 0.3292,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "wake_up-r01.png",
+      "source_sha256": "35aa9852c243f7612d3680f3d49c219f2addfcecce7d3af986af48cab12c0c98",
+      "frame_index": 15,
+      "source_size": [
+        1254,
+        1254
+      ],
+      "raw_cell_size": [
+        313.5,
+        313.5
+      ],
+      "near_ear_tip_cell": [
+        171,
+        51
+      ],
+      "chin_cell": [
+        210,
+        165
+      ],
+      "source_head_unit_pixels": 120.487,
+      "recommended_uniform_source_to_world_scale": 0.3444,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "death-r02.png",
+      "source_sha256": "1409bd6ac193e1e6e685b1aa969c891ef6053f32cd249352767cbfba5908ad9e",
+      "frame_index": 0,
+      "source_size": [
+        1448,
+        1086
+      ],
+      "raw_cell_size": [
+        362.0,
+        271.5
+      ],
+      "near_ear_tip_cell": [
+        215,
+        51
+      ],
+      "chin_cell": [
+        262,
+        169
+      ],
+      "source_head_unit_pixels": 127.016,
+      "recommended_uniform_source_to_world_scale": 0.3267,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "ring_out-r02.png",
+      "source_sha256": "bdbb8ea619f72ea1cd1c63e0c26e45ed29ef20345d4be5ed7b18a824810d5d8d",
+      "frame_index": 0,
+      "source_size": [
+        1254,
+        1254
+      ],
+      "raw_cell_size": [
+        313.5,
+        313.5
+      ],
+      "near_ear_tip_cell": [
+        106,
+        69
+      ],
+      "chin_cell": [
+        183,
+        165
+      ],
+      "source_head_unit_pixels": 123.065,
+      "recommended_uniform_source_to_world_scale": 0.3372,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "spawn-r01.png",
+      "source_sha256": "f8330aeeefeb7e2f1523bae6d9827b4cff9cbb4f3b36d3e68329e68c6b1d50f0",
+      "frame_index": 0,
+      "source_size": [
+        1448,
+        1086
+      ],
+      "raw_cell_size": [
+        362.0,
+        271.5
+      ],
+      "near_ear_tip_cell": [
+        215,
+        12
+      ],
+      "chin_cell": [
+        248,
+        131
+      ],
+      "source_head_unit_pixels": 123.491,
+      "recommended_uniform_source_to_world_scale": 0.3361,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "attack_heavy_up-r02.png",
+      "source_sha256": "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034",
+      "frame_index": 0,
+      "source_size": [
+        1350,
+        1165
+      ],
+      "raw_cell_size": [
+        337.5,
+        291.25
+      ],
+      "near_ear_tip_cell": [
+        174,
+        9
+      ],
+      "chin_cell": [
+        218,
+        136
+      ],
+      "source_head_unit_pixels": 134.406,
+      "recommended_uniform_source_to_world_scale": 0.3088,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "attack_air_light-r01.png",
+      "source_sha256": "cca665f674d9ece4179f1d67aacc6faed76d883d26147104aaf4674982ff36f5",
+      "frame_index": 0,
+      "source_size": [
+        1448,
+        1086
+      ],
+      "raw_cell_size": [
+        362.0,
+        271.5
+      ],
+      "near_ear_tip_cell": [
+        232,
+        6
+      ],
+      "chin_cell": [
+        270,
+        145
+      ],
+      "source_head_unit_pixels": 144.101,
+      "recommended_uniform_source_to_world_scale": 0.288,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "attack_air_heavy-r02.png",
+      "source_sha256": "16e98a8be5af4ec0ae025184e1e4ead2717a65747f1e9a72ecd6dc7f4327d498",
+      "frame_index": 0,
+      "source_size": [
+        1313,
+        1198
+      ],
+      "raw_cell_size": [
+        328.25,
+        299.5
+      ],
+      "near_ear_tip_cell": [
+        184,
+        13
+      ],
+      "chin_cell": [
+        236,
+        136
+      ],
+      "source_head_unit_pixels": 133.54,
+      "recommended_uniform_source_to_world_scale": 0.3108,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "special_side-partA-r02.png",
+      "source_sha256": "864706d7c5fcc93b283c7aa6cf4e6b7963d65d6ab0ae71b0c4e4a6395d8fdba8",
+      "frame_index": 0,
+      "source_size": [
+        1378,
+        1142
+      ],
+      "raw_cell_size": [
+        344.5,
+        285.5
+      ],
+      "near_ear_tip_cell": [
+        235,
+        23
+      ],
+      "chin_cell": [
+        280,
+        149
+      ],
+      "source_head_unit_pixels": 133.795,
+      "recommended_uniform_source_to_world_scale": 0.3102,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    },
+    {
+      "source_png": "special_side-partB-r02.png",
+      "source_sha256": "3555b9512d55f93e4ef0656de29fb0522b6267506a08952715cf0541fbc64222",
+      "frame_index": 0,
+      "source_size": [
+        1377,
+        1142
+      ],
+      "raw_cell_size": [
+        344.25,
+        285.5
+      ],
+      "near_ear_tip_cell": [
+        282,
+        43
+      ],
+      "chin_cell": [
+        322,
+        160
+      ],
+      "source_head_unit_pixels": 123.649,
+      "recommended_uniform_source_to_world_scale": 0.3356,
+      "target_head_unit_world_pixels": 41.5,
+      "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+    }
+  ]
+}

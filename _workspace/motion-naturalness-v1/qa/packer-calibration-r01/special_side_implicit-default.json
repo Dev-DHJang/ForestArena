@@ -1,0 +1,497 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "special_side",
+  "path": "_workspace/motion-naturalness-v1/qa/packer-calibration-r01/special_side_32f_implicit-default.png",
+  "sprite_frames_path": "res://_workspace/motion-naturalness-v1/qa/packer-calibration-r01/special_side_implicit-default.tres",
+  "sha256": "9bea9a6a179c44f5ff511fabd277d5581ea8c485795f5ccbf5c109ef28b4cd42",
+  "frame_count": 32,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 24.0,
+  "loop": false,
+  "presentation_scale": 1.0558730158730159,
+  "foot_pivot_y": 104.0,
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partA-r02.png",
+    "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partB-r02.png"
+  ],
+  "source_sha256": [
+    "864706d7c5fcc93b283c7aa6cf4e6b7963d65d6ab0ae71b0c4e4a6395d8fdba8",
+    "3555b9512d55f93e4ef0656de29fb0522b6267506a08952715cf0541fbc64222"
+  ],
+  "expected_action": "전용 낮은 이동 자세로 전진→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+  "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+  "conversion": {
+    "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+    "uniform_scale": 0.30306674684305474,
+    "per_source_uniform_scales": [
+      0.30306674684305474,
+      0.30306674684305474
+    ],
+    "source_scale_multipliers": [
+      1.0,
+      1.0
+    ],
+    "reference_scale": 0.32,
+    "presentation_scale": 1.0558730158730159,
+    "source_baseline_y": 290.0,
+    "target_baseline_y": 104.0,
+    "frame_bounds": [
+      [
+        23,
+        25,
+        117,
+        103
+      ],
+      [
+        24,
+        28,
+        108,
+        103
+      ],
+      [
+        21,
+        29,
+        108,
+        105
+      ],
+      [
+        28,
+        29,
+        113,
+        104
+      ],
+      [
+        26,
+        23,
+        125,
+        103
+      ],
+      [
+        23,
+        25,
+        120,
+        101
+      ],
+      [
+        25,
+        25,
+        120,
+        102
+      ],
+      [
+        22,
+        24,
+        115,
+        102
+      ],
+      [
+        21,
+        22,
+        117,
+        102
+      ],
+      [
+        22,
+        20,
+        120,
+        102
+      ],
+      [
+        21,
+        19,
+        116,
+        101
+      ],
+      [
+        20,
+        22,
+        112,
+        102
+      ],
+      [
+        21,
+        21,
+        118,
+        98
+      ],
+      [
+        22,
+        22,
+        117,
+        98
+      ],
+      [
+        18,
+        22,
+        112,
+        98
+      ],
+      [
+        20,
+        21,
+        115,
+        97
+      ],
+      [
+        19,
+        24,
+        127,
+        105
+      ],
+      [
+        24,
+        26,
+        122,
+        107
+      ],
+      [
+        19,
+        27,
+        116,
+        105
+      ],
+      [
+        23,
+        28,
+        114,
+        105
+      ],
+      [
+        18,
+        24,
+        110,
+        105
+      ],
+      [
+        17,
+        25,
+        119,
+        106
+      ],
+      [
+        20,
+        26,
+        123,
+        106
+      ],
+      [
+        21,
+        26,
+        110,
+        108
+      ],
+      [
+        22,
+        23,
+        117,
+        105
+      ],
+      [
+        23,
+        24,
+        117,
+        107
+      ],
+      [
+        21,
+        23,
+        111,
+        105
+      ],
+      [
+        19,
+        25,
+        109,
+        107
+      ],
+      [
+        22,
+        20,
+        113,
+        99
+      ],
+      [
+        25,
+        21,
+        114,
+        99
+      ],
+      [
+        24,
+        22,
+        111,
+        99
+      ],
+      [
+        17,
+        23,
+        110,
+        100
+      ]
+    ],
+    "unassigned_small_regions": [],
+    "spec_path": "_workspace/motion-naturalness-v1/qa/packer-calibration-r01/implicit-default.json",
+    "spec_sha256": "94757503052c4c2e9c1743c4583eeefde93196639de99a458f71c14771202531"
+  },
+  "phase_frame_ranges": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      24
+    ],
+    [
+      24,
+      32
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    10,
+    24,
+    20
+  ],
+  "frame_anchors": [
+    {
+      "claw_hand": [
+        58.47,
+        67.94
+      ]
+    },
+    {
+      "claw_hand": [
+        77.87,
+        71.87
+      ]
+    },
+    {
+      "claw_hand": [
+        74.83,
+        72.48
+      ]
+    },
+    {
+      "claw_hand": [
+        77.56,
+        74.91
+      ]
+    },
+    {
+      "claw_hand": [
+        61.2,
+        57.93
+      ]
+    },
+    {
+      "claw_hand": [
+        59.38,
+        60.96
+      ]
+    },
+    {
+      "claw_hand": [
+        101.5,
+        67.33
+      ]
+    },
+    {
+      "claw_hand": [
+        56.95,
+        62.48
+      ]
+    },
+    {
+      "claw_hand": [
+        100.29,
+        61.87
+      ]
+    },
+    {
+      "claw_hand": [
+        86.35,
+        61.87
+      ]
+    },
+    {
+      "claw_hand": [
+        55.74,
+        61.57
+      ]
+    },
+    {
+      "claw_hand": [
+        88.17,
+        67.63
+      ]
+    },
+    {
+      "claw_hand": [
+        55.44,
+        57.02
+      ]
+    },
+    {
+      "claw_hand": [
+        56.35,
+        55.51
+      ]
+    },
+    {
+      "claw_hand": [
+        81.81,
+        63.39
+      ]
+    },
+    {
+      "claw_hand": [
+        55.74,
+        57.02
+      ]
+    },
+    {
+      "claw_hand": [
+        63.05,
+        61.57
+      ]
+    },
+    {
+      "claw_hand": [
+        57.29,
+        65.51
+      ]
+    },
+    {
+      "claw_hand": [
+        77.3,
+        60.66
+      ]
+    },
+    {
+      "claw_hand": [
+        73.05,
+        65.51
+      ]
+    },
+    {
+      "claw_hand": [
+        67.3,
+        52.18
+      ]
+    },
+    {
+      "claw_hand": [
+        105.18,
+        69.15
+      ],
+      "claw_tip": [
+        118.21,
+        68.84
+      ]
+    },
+    {
+      "claw_hand": [
+        113.36,
+        67.03
+      ],
+      "claw_tip": [
+        121.54,
+        70.06
+      ]
+    },
+    {
+      "claw_hand": [
+        92.15,
+        70.66
+      ],
+      "claw_tip": [
+        103.06,
+        73.09
+      ]
+    },
+    {
+      "claw_hand": [
+        79.72,
+        64.9
+      ]
+    },
+    {
+      "claw_hand": [
+        83.66,
+        66.12
+      ]
+    },
+    {
+      "claw_hand": [
+        78.81,
+        68.84
+      ]
+    },
+    {
+      "claw_hand": [
+        77.3,
+        68.54
+      ]
+    },
+    {
+      "claw_hand": [
+        81.54,
+        63.69
+      ]
+    },
+    {
+      "claw_hand": [
+        79.72,
+        64.6
+      ]
+    },
+    {
+      "claw_hand": [
+        80.33,
+        64.3
+      ]
+    },
+    {
+      "claw_hand": [
+        80.02,
+        67.03
+      ]
+    }
+  ]
+}

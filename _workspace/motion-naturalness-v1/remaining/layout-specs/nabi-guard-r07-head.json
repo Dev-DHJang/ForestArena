@@ -1,0 +1,52 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "guard",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/guard-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.3,
+  "presentation_scale": 1.1300542698351754,
+  "source_baseline_y": 311,
+  "target_baseline_y": 123,
+  "fps": 24,
+  "loop": false,
+  "state_hold_frame": 11,
+  "expected_action": "두 손의 발톱을 몸 앞에 모아 방어하고 공격 자세로 보이지 않는다.",
+  "version": "r07-head",
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "guard-r01.png",
+        "source_sha256": "62f6c6bb37581716ecb54bdb63558dc41747d25478b83feb62d3b2290b449150",
+        "frame_index": 0,
+        "source_size": [
+          1254,
+          1254
+        ],
+        "raw_cell_size": [
+          313.5,
+          313.5
+        ],
+        "near_ear_tip_cell": [
+          169,
+          26
+        ],
+        "chin_cell": [
+          205,
+          143
+        ],
+        "source_head_unit_pixels": 122.413,
+        "recommended_uniform_source_to_world_scale": 0.339,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

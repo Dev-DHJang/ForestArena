@@ -1,0 +1,51 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "hitstun",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/hitstun-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.3,
+  "presentation_scale": 1.16147919272998,
+  "source_baseline_y": 301.0,
+  "target_baseline_y": 104,
+  "fps": 24,
+  "loop": false,
+  "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+  "version": "r07-head",
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "hitstun-r01.png",
+        "source_sha256": "c31506714d1656c240f1e4ece1ef3d39b6890dd0b9e946ad7b7f3b8810327af8",
+        "frame_index": 0,
+        "source_size": [
+          1254,
+          1254
+        ],
+        "raw_cell_size": [
+          313.5,
+          313.5
+        ],
+        "near_ear_tip_cell": [
+          55,
+          126
+        ],
+        "chin_cell": [
+          164,
+          174
+        ],
+        "source_head_unit_pixels": 119.101,
+        "recommended_uniform_source_to_world_scale": 0.3484,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

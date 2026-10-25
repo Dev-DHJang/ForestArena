@@ -1,0 +1,51 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "idle",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.33,
+  "presentation_scale": 0.9028860153181683,
+  "source_baseline_y": 278,
+  "target_baseline_y": 123,
+  "fps": 8,
+  "loop": true,
+  "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+  "version": "r07-head",
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "idle-r02.png",
+        "source_sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+        "frame_index": 0,
+        "source_size": [
+          1448,
+          1086
+        ],
+        "raw_cell_size": [
+          362.0,
+          271.5
+        ],
+        "near_ear_tip_cell": [
+          214,
+          12
+        ],
+        "chin_cell": [
+          252,
+          146
+        ],
+        "source_head_unit_pixels": 139.284,
+        "recommended_uniform_source_to_world_scale": 0.298,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

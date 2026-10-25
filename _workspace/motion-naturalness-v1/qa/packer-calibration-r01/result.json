@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "case": "implicit-default",
+      "status": "PASS",
+      "all_32_pose_pixels_and_anchors_preserved": true
+    },
+    {
+      "case": "explicit-default",
+      "status": "PASS",
+      "all_32_pose_pixels_and_anchors_preserved": true
+    },
+    {
+      "case": "wrong-length",
+      "status": "PASS",
+      "invalid_input_rejected_before_png_write": true
+    },
+    {
+      "case": "nonpositive",
+      "status": "PASS",
+      "invalid_input_rejected_before_png_write": true
+    },
+    {
+      "case": "oversized",
+      "status": "PASS",
+      "invalid_input_rejected_before_png_write": true
+    }
+  ]
+}

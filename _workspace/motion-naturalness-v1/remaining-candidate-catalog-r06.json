@@ -1,0 +1,6264 @@
+{
+  "schema_version": 1,
+  "kind": "motion-candidates",
+  "approval_status": "pending",
+  "attack_sources": [
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  ],
+  "character_movesets": {
+    "ja-hyun": "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "nabi": "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  },
+  "assets": [
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_air_heavy",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_heavy_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_heavy_r01.tres",
+      "sha256": "f228afe9b9080c81b42b7a99a3cb1a8857bb3e05dac95106343ea0109c669a40",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/attack_air_heavy-r01.png"
+      ],
+      "source_sha256": [
+        "9ddcbe8a2fc6ee0cc158ff8268064d079e2d10798cc89d88c39f533509305445"
+      ],
+      "expected_action": "공중에서 목도리를 머리 위에서 아래로 내려치는 단타. 시전자는 공중에 남고 피해자가 급강하한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 299.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            26,
+            21,
+            102,
+            107
+          ],
+          [
+            25,
+            22,
+            112,
+            106
+          ],
+          [
+            35,
+            7,
+            109,
+            109
+          ],
+          [
+            19,
+            7,
+            100,
+            108
+          ],
+          [
+            33,
+            11,
+            117,
+            97
+          ],
+          [
+            25,
+            11,
+            114,
+            105
+          ],
+          [
+            20,
+            27,
+            112,
+            107
+          ],
+          [
+            19,
+            24,
+            111,
+            106
+          ],
+          [
+            18,
+            24,
+            121,
+            98
+          ],
+          [
+            24,
+            23,
+            123,
+            104
+          ],
+          [
+            26,
+            8,
+            119,
+            104
+          ],
+          [
+            29,
+            10,
+            111,
+            104
+          ],
+          [
+            33,
+            7,
+            113,
+            98
+          ],
+          [
+            32,
+            16,
+            111,
+            100
+          ],
+          [
+            24,
+            19,
+            105,
+            102
+          ],
+          [
+            20,
+            18,
+            102,
+            102
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-attack_air_heavy-r01.json",
+        "spec_sha256": "24c2afb3a0c294ca7fc03fdc7392286dc5bb9979df9e67b3fc3829f9aeef29a0"
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        12,
+        5,
+        22
+      ],
+      "frame_anchors": [
+        {
+          "scarf_hand": [
+            52.35,
+            36.77
+          ]
+        },
+        {
+          "scarf_hand": [
+            62.24,
+            31.41
+          ]
+        },
+        {
+          "scarf_hand": [
+            79.84,
+            31.07
+          ]
+        },
+        {
+          "scarf_hand": [
+            66.6,
+            27.05
+          ]
+        },
+        {
+          "scarf_hand": [
+            68.44,
+            42.3
+          ]
+        },
+        {
+          "scarf_hand": [
+            72.97,
+            42.98
+          ]
+        },
+        {
+          "scarf_hand": [
+            86.21,
+            89.25
+          ]
+        },
+        {
+          "scarf_hand": [
+            81.02,
+            88.91
+          ]
+        },
+        {
+          "scarf_hand": [
+            85.54,
+            81.7
+          ]
+        },
+        {
+          "scarf_hand": [
+            85.71,
+            63.6
+          ]
+        },
+        {
+          "scarf_hand": [
+            86.21,
+            59.91
+          ]
+        },
+        {
+          "scarf_hand": [
+            69.62,
+            28.39
+          ]
+        },
+        {
+          "scarf_hand": [
+            76.83,
+            20.17
+          ]
+        },
+        {
+          "scarf_hand": [
+            67.94,
+            21.85
+          ]
+        },
+        {},
+        {}
+      ]
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_air_light",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_light_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/attack_air_light_r01.tres",
+      "sha256": "43e78ae43b82c4dfaa3f1697397768722ce13d79d384e3254aafe6b4bf1918fd",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/attack_air_light-r01.png"
+      ],
+      "source_sha256": [
+        "0ee8ff3d9e206e8abdb58afbc84e3bec6f6551b17aa05eecc7880d0475367763"
+      ],
+      "expected_action": "발을 딛지 않은 공중 단타 펀치와 긴 목도리 리치. 새 점프·공격 잠금은 피해자에게 적용한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 292.8,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            23,
+            14,
+            111,
+            108
+          ],
+          [
+            28,
+            15,
+            114,
+            101
+          ],
+          [
+            23,
+            15,
+            114,
+            101
+          ],
+          [
+            27,
+            16,
+            111,
+            104
+          ],
+          [
+            23,
+            13,
+            119,
+            105
+          ],
+          [
+            26,
+            13,
+            125,
+            106
+          ],
+          [
+            29,
+            13,
+            119,
+            105
+          ],
+          [
+            23,
+            13,
+            108,
+            106
+          ],
+          [
+            26,
+            12,
+            119,
+            103
+          ],
+          [
+            24,
+            14,
+            115,
+            105
+          ],
+          [
+            23,
+            12,
+            108,
+            108
+          ],
+          [
+            24,
+            12,
+            106,
+            108
+          ],
+          [
+            18,
+            10,
+            95,
+            102
+          ],
+          [
+            22,
+            11,
+            103,
+            102
+          ],
+          [
+            23,
+            11,
+            104,
+            104
+          ],
+          [
+            28,
+            12,
+            108,
+            103
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-attack_air_light-r01.json",
+        "spec_sha256": "dd36d47caf5934f68ad503742bbe91ee668d254551c2a668506a5fc77970cff7"
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        8,
+        4,
+        18
+      ],
+      "frame_anchors": [
+        {
+          "scarf_root": [
+            75.82,
+            52.1
+          ]
+        },
+        {
+          "scarf_root": [
+            80.35,
+            52.43
+          ]
+        },
+        {
+          "scarf_root": [
+            81.18,
+            55.45
+          ]
+        },
+        {
+          "scarf_root": [
+            79.0,
+            57.46
+          ]
+        },
+        {
+          "scarf_root": [
+            77.83,
+            50.59
+          ]
+        },
+        {
+          "scarf_root": [
+            78.33,
+            51.59
+          ]
+        },
+        {
+          "scarf_root": [
+            78.17,
+            52.6
+          ]
+        },
+        {
+          "scarf_root": [
+            77.66,
+            49.92
+          ]
+        },
+        {
+          "scarf_root": [
+            74.48,
+            54.44
+          ]
+        },
+        {
+          "scarf_root": [
+            76.32,
+            55.45
+          ]
+        },
+        {
+          "scarf_root": [
+            77.16,
+            55.78
+          ]
+        },
+        {
+          "scarf_root": [
+            78.0,
+            55.78
+          ]
+        },
+        {
+          "scarf_root": [
+            67.44,
+            53.94
+          ]
+        },
+        {
+          "scarf_root": [
+            72.63,
+            55.28
+          ]
+        },
+        {
+          "scarf_root": [
+            73.81,
+            55.62
+          ]
+        },
+        {
+          "scarf_root": [
+            76.66,
+            55.28
+          ]
+        }
+      ]
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "death",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/death_16f_r04-ground.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/death_r04-ground.tres",
+      "sha256": "4d4049440f8b26e6775323aa4a20a85f50500fdc814ef1053e2b8f140f53ceff",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/death-r01.png"
+      ],
+      "source_sha256": [
+        "58df107d4ad6cb4b45e17cd86463f2eeb64f44e386aab189ce2d7d9570d749d7"
+      ],
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 361.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            26,
+            14,
+            105,
+            107
+          ],
+          [
+            28,
+            17,
+            107,
+            106
+          ],
+          [
+            28,
+            20,
+            106,
+            106
+          ],
+          [
+            27,
+            22,
+            103,
+            107
+          ],
+          [
+            29,
+            30,
+            109,
+            112
+          ],
+          [
+            27,
+            34,
+            106,
+            110
+          ],
+          [
+            24,
+            45,
+            108,
+            112
+          ],
+          [
+            18,
+            42,
+            111,
+            113
+          ],
+          [
+            16,
+            34,
+            112,
+            101
+          ],
+          [
+            19,
+            42,
+            112,
+            96
+          ],
+          [
+            16,
+            53,
+            112,
+            99
+          ],
+          [
+            14,
+            61,
+            113,
+            98
+          ],
+          [
+            16,
+            34,
+            116,
+            71
+          ],
+          [
+            16,
+            33,
+            116,
+            71
+          ],
+          [
+            15,
+            35,
+            114,
+            70
+          ],
+          [
+            14,
+            34,
+            113,
+            70
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-death-r04-ground.json",
+        "spec_sha256": "7d0c1db78ea9561a2cf3e393ff0987030e7131626ec38058851e1d1e013a16f4"
+      },
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            103
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            103
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            104
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            104
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            108
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            108
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            110
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            110
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            100
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            94
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            97
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            70
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            70
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            69
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            69
+          ]
+        }
+      ],
+      "state_hold_frame": 15
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "guard",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/guard_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/guard_r01.tres",
+      "sha256": "32971c3214b23ffd2c346bf0cbfea3142fceeb3df54828b28782431c665b7826",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 124.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/guard-r01.png"
+      ],
+      "source_sha256": [
+        "eaf996bbf067deac8a8fae343eba3b371cf944e6d9e9ba88fa0d6d108b5655dd"
+      ],
+      "expected_action": "두 손으로 몸 앞을 방어하고 공격 자세로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 308.0,
+        "target_baseline_y": 124.0,
+        "frame_bounds": [
+          [
+            24,
+            31,
+            108,
+            121
+          ],
+          [
+            20,
+            29,
+            109,
+            121
+          ],
+          [
+            24,
+            28,
+            111,
+            122
+          ],
+          [
+            24,
+            26,
+            106,
+            121
+          ],
+          [
+            21,
+            25,
+            110,
+            121
+          ],
+          [
+            18,
+            26,
+            111,
+            121
+          ],
+          [
+            20,
+            29,
+            110,
+            122
+          ],
+          [
+            21,
+            29,
+            109,
+            121
+          ],
+          [
+            21,
+            27,
+            114,
+            121
+          ],
+          [
+            25,
+            27,
+            115,
+            122
+          ],
+          [
+            21,
+            29,
+            113,
+            122
+          ],
+          [
+            25,
+            27,
+            109,
+            121
+          ],
+          [
+            24,
+            24,
+            109,
+            120
+          ],
+          [
+            20,
+            25,
+            109,
+            121
+          ],
+          [
+            22,
+            27,
+            107,
+            121
+          ],
+          [
+            25,
+            29,
+            108,
+            121
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-guard-r01.json",
+        "spec_sha256": "9db6540023df60345a51f4a881a4772e1a7ba4ca3ec71de8a51b895b70ecbd65"
+      },
+      "state_hold_frame": 11
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "hitstun",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/hitstun_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/hitstun_r01.tres",
+      "sha256": "5a6693ff984b7053a7c828005b578abde0592d1b9c14683141714dd49bd7d7ec",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/hitstun-r01.png"
+      ],
+      "source_sha256": [
+        "d075e6239d788d359df92d8d5d9f450bb5cc5b6406860b9410258eb3f030f42a"
+      ],
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 312.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            21,
+            12,
+            105,
+            107
+          ],
+          [
+            26,
+            11,
+            117,
+            107
+          ],
+          [
+            21,
+            12,
+            112,
+            108
+          ],
+          [
+            16,
+            11,
+            108,
+            107
+          ],
+          [
+            22,
+            12,
+            123,
+            108
+          ],
+          [
+            29,
+            10,
+            119,
+            108
+          ],
+          [
+            18,
+            15,
+            104,
+            107
+          ],
+          [
+            14,
+            18,
+            103,
+            108
+          ],
+          [
+            24,
+            13,
+            111,
+            101
+          ],
+          [
+            26,
+            11,
+            117,
+            100
+          ],
+          [
+            19,
+            12,
+            107,
+            101
+          ],
+          [
+            17,
+            12,
+            105,
+            102
+          ],
+          [
+            22,
+            5,
+            112,
+            99
+          ],
+          [
+            21,
+            3,
+            107,
+            99
+          ],
+          [
+            20,
+            5,
+            109,
+            100
+          ],
+          [
+            20,
+            5,
+            106,
+            99
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-hitstun-r01.json",
+        "spec_sha256": "3e6fad50a24b252b3c944f6a5301c2072acadfc1db244469cc64caceb42a952f"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "idle",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/idle_16f_r02.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/idle_r02.tres",
+      "sha256": "dd58ca2cdf014730a364308025a3c05754b8e9c0cc0923b2c523192692361292",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 8.0,
+      "loop": true,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 124.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/idle-r02.png"
+      ],
+      "source_sha256": [
+        "c6cb5afb1e0da4920c6a41f3ed35f3ead67c3c1ca185c0bcfb9636611c66f080"
+      ],
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 295.0,
+        "target_baseline_y": 124.0,
+        "frame_bounds": [
+          [
+            22,
+            37,
+            98,
+            124
+          ],
+          [
+            20,
+            34,
+            101,
+            124
+          ],
+          [
+            19,
+            31,
+            98,
+            123
+          ],
+          [
+            18,
+            33,
+            101,
+            124
+          ],
+          [
+            19,
+            32,
+            103,
+            124
+          ],
+          [
+            20,
+            32,
+            103,
+            123
+          ],
+          [
+            21,
+            33,
+            104,
+            124
+          ],
+          [
+            20,
+            32,
+            102,
+            124
+          ],
+          [
+            19,
+            32,
+            102,
+            124
+          ],
+          [
+            20,
+            32,
+            103,
+            123
+          ],
+          [
+            20,
+            33,
+            103,
+            123
+          ],
+          [
+            18,
+            33,
+            102,
+            123
+          ],
+          [
+            22,
+            32,
+            103,
+            123
+          ],
+          [
+            19,
+            33,
+            101,
+            124
+          ],
+          [
+            19,
+            33,
+            101,
+            124
+          ],
+          [
+            19,
+            33,
+            101,
+            123
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-idle-r02.json",
+        "spec_sha256": "3dfc467a30fa8701fc86c5bab46325c937d6c18aaa420bb24e34bfe28c512bf6"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "knock_down",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/knock_down_16f_r04-ground.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/knock_down_r04-ground.tres",
+      "sha256": "27a7a06ef2de54b5f752b3f84c544d26fe360c4156bb95f236ce0c56d1d305c0",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/knock_down-r01.png"
+      ],
+      "source_sha256": [
+        "0e66faf6d28023f4c5aa48526dccb7074d4032286a01b0c19f1cf1ca81891071"
+      ],
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 322.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            28,
+            20,
+            104,
+            112
+          ],
+          [
+            23,
+            19,
+            109,
+            111
+          ],
+          [
+            18,
+            22,
+            110,
+            110
+          ],
+          [
+            13,
+            24,
+            109,
+            107
+          ],
+          [
+            23,
+            31,
+            117,
+            112
+          ],
+          [
+            18,
+            39,
+            113,
+            111
+          ],
+          [
+            14,
+            46,
+            109,
+            114
+          ],
+          [
+            10,
+            51,
+            110,
+            109
+          ],
+          [
+            19,
+            43,
+            118,
+            99
+          ],
+          [
+            19,
+            49,
+            116,
+            101
+          ],
+          [
+            16,
+            48,
+            111,
+            101
+          ],
+          [
+            14,
+            57,
+            110,
+            98
+          ],
+          [
+            25,
+            37,
+            117,
+            82
+          ],
+          [
+            20,
+            37,
+            115,
+            80
+          ],
+          [
+            16,
+            41,
+            113,
+            80
+          ],
+          [
+            15,
+            40,
+            110,
+            81
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-knock_down-r04-ground.json",
+        "spec_sha256": "7504ef8efec22961095dfb1fdd24440f7cbd819392b3e87d4a09e51b4f2a586a"
+      },
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            109
+          ]
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            98
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            77
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            76
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            78
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            77
+          ]
+        }
+      ],
+      "state_hold_frame": 15
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "launch",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/launch_r01.tres",
+      "sha256": "ca9b9df8bbf8fa20796ef701795a116f7ab435521fac7808dd56a1e3a9220cda",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/launch-r01.png"
+      ],
+      "source_sha256": [
+        "0a527ad99d2c511ebb70e652f9a07fbcea039c275ee5fbbc537535c23f8155ee"
+      ],
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 294.25,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            28,
+            10,
+            105,
+            107
+          ],
+          [
+            21,
+            13,
+            115,
+            108
+          ],
+          [
+            18,
+            12,
+            116,
+            103
+          ],
+          [
+            25,
+            10,
+            113,
+            105
+          ],
+          [
+            16,
+            10,
+            120,
+            104
+          ],
+          [
+            18,
+            12,
+            118,
+            103
+          ],
+          [
+            18,
+            11,
+            116,
+            104
+          ],
+          [
+            17,
+            14,
+            117,
+            100
+          ],
+          [
+            16,
+            14,
+            123,
+            97
+          ],
+          [
+            18,
+            10,
+            125,
+            98
+          ],
+          [
+            15,
+            13,
+            123,
+            100
+          ],
+          [
+            21,
+            13,
+            115,
+            105
+          ],
+          [
+            20,
+            13,
+            116,
+            102
+          ],
+          [
+            21,
+            14,
+            116,
+            106
+          ],
+          [
+            19,
+            16,
+            116,
+            104
+          ],
+          [
+            24,
+            18,
+            115,
+            107
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-launch-r01.json",
+        "spec_sha256": "4fffc96311ebeee627b3cafc9a2b0c607bb53212a9716b74255f22a615b22e5d"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "ring_out",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/ring_out_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/ring_out_r01.tres",
+      "sha256": "68448f0e952a8ec57caaba0dbc9e08fd6112949bca4af05b32f7e99e2cb4a72f",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/ring_out-r01.png"
+      ],
+      "source_sha256": [
+        "935646dfeea1d8f9da8ecb27bec39c954386e06bf48337c9b5ac574261c1ffbb"
+      ],
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 326.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            22,
+            21,
+            119,
+            111
+          ],
+          [
+            21,
+            19,
+            118,
+            110
+          ],
+          [
+            14,
+            23,
+            114,
+            112
+          ],
+          [
+            15,
+            28,
+            110,
+            104
+          ],
+          [
+            21,
+            23,
+            117,
+            104
+          ],
+          [
+            22,
+            22,
+            123,
+            104
+          ],
+          [
+            24,
+            27,
+            117,
+            105
+          ],
+          [
+            16,
+            37,
+            109,
+            108
+          ],
+          [
+            25,
+            25,
+            120,
+            97
+          ],
+          [
+            22,
+            28,
+            119,
+            101
+          ],
+          [
+            17,
+            27,
+            115,
+            103
+          ],
+          [
+            14,
+            36,
+            112,
+            108
+          ],
+          [
+            19,
+            19,
+            119,
+            86
+          ],
+          [
+            22,
+            19,
+            119,
+            86
+          ],
+          [
+            17,
+            24,
+            115,
+            88
+          ],
+          [
+            14,
+            26,
+            110,
+            89
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-ring_out-r01.json",
+        "spec_sha256": "8c4b255caa78eb1e7fe499bb832946ad470ba20db19805e95a88a45c61bcd661"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "spawn",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/spawn_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/spawn_r01.tres",
+      "sha256": "84f63223ac3368c7a9c639f75a858fc23ecfaea92f8762817256b532496e2425",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/spawn-r01.png"
+      ],
+      "source_sha256": [
+        "315d2fdbdc0c5c49904f8dffe81692e4809c24f3a4f5eb82001f09f677278dc4"
+      ],
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 331.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            23,
+            4,
+            104,
+            102
+          ],
+          [
+            29,
+            11,
+            110,
+            104
+          ],
+          [
+            29,
+            20,
+            109,
+            110
+          ],
+          [
+            23,
+            29,
+            108,
+            110
+          ],
+          [
+            22,
+            31,
+            110,
+            116
+          ],
+          [
+            24,
+            34,
+            113,
+            115
+          ],
+          [
+            22,
+            41,
+            111,
+            114
+          ],
+          [
+            18,
+            43,
+            112,
+            115
+          ],
+          [
+            22,
+            25,
+            113,
+            104
+          ],
+          [
+            29,
+            24,
+            110,
+            104
+          ],
+          [
+            24,
+            24,
+            106,
+            104
+          ],
+          [
+            25,
+            22,
+            106,
+            104
+          ],
+          [
+            24,
+            8,
+            105,
+            89
+          ],
+          [
+            27,
+            8,
+            109,
+            89
+          ],
+          [
+            26,
+            7,
+            106,
+            89
+          ],
+          [
+            24,
+            7,
+            105,
+            89
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-spawn-r01.json",
+        "spec_sha256": "e43ba197befbba7e1c4a17e81effc8dc554712660d300ed3605db51036e5fb83"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_neutral",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/special_neutral_16f_r02.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/special_neutral_r02.tres",
+      "sha256": "5a622c8ddfde90eb77882ab9bfe033816de967e0dd7562b39b9aa51b9daaa9df",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.859538888888889,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/special_neutral-r02-combined.png"
+      ],
+      "source_sha256": [
+        "dd0b3a9f5bbcbef005c04080450e17357ce61e6777e94bfbfd2934b512c2d867"
+      ],
+      "expected_action": "긴 목도리를 전방으로 내민 뒤 당기는 단타 강공격. 착용 중인 목도리 천을 연결한 효과로180 리치와 끌기를 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.33157894736842103,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.859538888888889,
+        "source_baseline_y": 370.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            25,
+            23,
+            103,
+            104
+          ],
+          [
+            23,
+            23,
+            105,
+            104
+          ],
+          [
+            23,
+            21,
+            106,
+            104
+          ],
+          [
+            18,
+            21,
+            110,
+            104
+          ],
+          [
+            13,
+            21,
+            116,
+            104
+          ],
+          [
+            12,
+            22,
+            116,
+            104
+          ],
+          [
+            1,
+            22,
+            127,
+            104
+          ],
+          [
+            19,
+            22,
+            109,
+            104
+          ],
+          [
+            24,
+            23,
+            104,
+            104
+          ],
+          [
+            15,
+            21,
+            112,
+            104
+          ],
+          [
+            19,
+            15,
+            110,
+            104
+          ],
+          [
+            20,
+            19,
+            107,
+            104
+          ],
+          [
+            23,
+            20,
+            105,
+            104
+          ],
+          [
+            23,
+            15,
+            105,
+            104
+          ],
+          [
+            23,
+            20,
+            105,
+            104
+          ],
+          [
+            26,
+            20,
+            103,
+            104
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-special_neutral-r02.json",
+        "spec_sha256": "2e89fc32dadd33e225ce95e160c224336841ace8add81c15deee56c661ebedc0"
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        12,
+        5,
+        20
+      ],
+      "frame_anchors": [
+        {
+          "scarf_root": [
+            78.59,
+            59.9
+          ]
+        },
+        {
+          "scarf_root": [
+            78.92,
+            59.9
+          ]
+        },
+        {
+          "scarf_root": [
+            81.24,
+            60.89
+          ]
+        },
+        {
+          "scarf_root": [
+            77.26,
+            60.23
+          ]
+        },
+        {
+          "scarf_root": [
+            66.84,
+            56.74
+          ]
+        },
+        {
+          "scarf_root": [
+            66.81,
+            57.35
+          ]
+        },
+        {
+          "scarf_root": [
+            50.04,
+            59.16
+          ]
+        },
+        {
+          "scarf_root": [
+            67.37,
+            60.76
+          ]
+        },
+        {
+          "scarf_root": [
+            68.31,
+            57.91
+          ]
+        },
+        {
+          "scarf_root": [
+            56.37,
+            56.58
+          ]
+        },
+        {
+          "scarf_root": [
+            75.61,
+            60.89
+          ]
+        },
+        {
+          "scarf_root": [
+            77.93,
+            60.89
+          ]
+        },
+        {
+          "scarf_root": [
+            63.67,
+            58.57
+          ]
+        },
+        {
+          "scarf_root": [
+            76.93,
+            58.57
+          ]
+        },
+        {
+          "scarf_root": [
+            78.92,
+            59.24
+          ]
+        },
+        {
+          "scarf_root": [
+            78.59,
+            58.57
+          ]
+        }
+      ]
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "wake_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/wake_up_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/ja-hyun/wake_up_r01.tres",
+      "sha256": "e588274432cbeeb400862cb5c39b96290556d75e7f04a794821bcb0b3929f9e6",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.8500000000000001,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/ja-hyun/wake_up-r01.png"
+      ],
+      "source_sha256": [
+        "d5a8758becddcca26fbd190240c0924ecca8c6c6c987dabd3bafb58af8596ccc"
+      ],
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3353,
+        "reference_scale": 0.3353,
+        "presentation_scale": 0.8500000000000001,
+        "source_baseline_y": 288.75,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            19,
+            52,
+            118,
+            102
+          ],
+          [
+            19,
+            52,
+            121,
+            104
+          ],
+          [
+            20,
+            51,
+            113,
+            104
+          ],
+          [
+            15,
+            50,
+            106,
+            104
+          ],
+          [
+            27,
+            46,
+            118,
+            102
+          ],
+          [
+            22,
+            39,
+            120,
+            103
+          ],
+          [
+            26,
+            27,
+            113,
+            103
+          ],
+          [
+            15,
+            16,
+            104,
+            104
+          ],
+          [
+            25,
+            20,
+            116,
+            103
+          ],
+          [
+            25,
+            20,
+            118,
+            104
+          ],
+          [
+            23,
+            14,
+            110,
+            104
+          ],
+          [
+            17,
+            14,
+            108,
+            107
+          ],
+          [
+            24,
+            16,
+            117,
+            108
+          ],
+          [
+            23,
+            16,
+            112,
+            108
+          ],
+          [
+            24,
+            17,
+            112,
+            108
+          ],
+          [
+            19,
+            15,
+            104,
+            107
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/ja-hyun-wake_up-r01.json",
+        "spec_sha256": "ca702cc08d63788d1606510cd80a7544cf04453161a963e29734cf6791405ff1"
+      },
+      "state_duration_ticks": 12
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_air_heavy",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_16f_r06-claw.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_r06-claw.tres",
+      "sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_heavy-r02.png"
+      ],
+      "source_sha256": [
+        "16e98a8be5af4ec0ae025184e1e4ead2717a65747f1e9a72ecd6dc7f4327d498"
+      ],
+      "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.32,
+        "reference_scale": 0.32,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 300.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            21,
+            11,
+            108,
+            100
+          ],
+          [
+            25,
+            10,
+            112,
+            100
+          ],
+          [
+            23,
+            11,
+            111,
+            104
+          ],
+          [
+            19,
+            11,
+            104,
+            104
+          ],
+          [
+            25,
+            15,
+            112,
+            105
+          ],
+          [
+            24,
+            6,
+            110,
+            105
+          ],
+          [
+            19,
+            10,
+            111,
+            106
+          ],
+          [
+            13,
+            7,
+            105,
+            106
+          ],
+          [
+            24,
+            14,
+            107,
+            100
+          ],
+          [
+            23,
+            16,
+            107,
+            105
+          ],
+          [
+            22,
+            19,
+            107,
+            107
+          ],
+          [
+            15,
+            17,
+            102,
+            107
+          ],
+          [
+            25,
+            9,
+            109,
+            97
+          ],
+          [
+            23,
+            12,
+            109,
+            99
+          ],
+          [
+            24,
+            14,
+            110,
+            101
+          ],
+          [
+            18,
+            15,
+            103,
+            99
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_air_heavy-r06-claw.json",
+        "spec_sha256": "98ae4738c18b7526bd1c9edf869d1cf1ef1489e7e81f1fd39079adfc3344524f"
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        12,
+        5,
+        22
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            96.92,
+            54.08
+          ]
+        },
+        {
+          "claw_hand": [
+            105.24,
+            72.32
+          ]
+        },
+        {
+          "claw_hand": [
+            102.04,
+            71.36
+          ]
+        },
+        {
+          "claw_hand": [
+            97.88,
+            76.16
+          ]
+        },
+        {
+          "claw_hand": [
+            102.04,
+            28.16
+          ],
+          "claw_tip": [
+            110.36,
+            19.52
+          ]
+        },
+        {
+          "claw_hand": [
+            97.24,
+            17.6
+          ],
+          "claw_tip": [
+            105.56,
+            10.24
+          ]
+        },
+        {
+          "claw_hand": [
+            96.92,
+            22.4
+          ],
+          "claw_tip": [
+            108.76,
+            14.4
+          ]
+        },
+        {
+          "claw_hand": [
+            93.08,
+            18.88
+          ],
+          "claw_tip": [
+            103.0,
+            11.84
+          ]
+        },
+        {
+          "claw_hand": [
+            98.2,
+            40.64
+          ]
+        },
+        {
+          "claw_hand": [
+            98.84,
+            48.64
+          ]
+        },
+        {
+          "claw_hand": [
+            96.92,
+            49.6
+          ]
+        },
+        {
+          "claw_hand": [
+            94.04,
+            64.0
+          ]
+        },
+        {
+          "claw_hand": [
+            98.2,
+            52.48
+          ]
+        },
+        {
+          "claw_hand": [
+            102.68,
+            57.28
+          ]
+        },
+        {
+          "claw_hand": [
+            96.92,
+            61.12
+          ]
+        },
+        {
+          "claw_hand": [
+            95.64,
+            72.64
+          ]
+        }
+      ]
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_air_light",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_16f_r06-claw.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_light_r06-claw.tres",
+      "sha256": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.1680952380952383,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.png"
+      ],
+      "source_sha256": [
+        "cca665f674d9ece4179f1d67aacc6faed76d883d26147104aaf4674982ff36f5"
+      ],
+      "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.2825112107623318,
+        "reference_scale": 0.33,
+        "presentation_scale": 1.1680952380952383,
+        "source_baseline_y": 272.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            25,
+            29,
+            113,
+            104
+          ],
+          [
+            24,
+            28,
+            107,
+            103
+          ],
+          [
+            24,
+            29,
+            108,
+            105
+          ],
+          [
+            22,
+            29,
+            108,
+            103
+          ],
+          [
+            18,
+            29,
+            119,
+            105
+          ],
+          [
+            26,
+            31,
+            125,
+            107
+          ],
+          [
+            24,
+            30,
+            127,
+            107
+          ],
+          [
+            26,
+            31,
+            114,
+            105
+          ],
+          [
+            22,
+            30,
+            109,
+            105
+          ],
+          [
+            26,
+            30,
+            115,
+            105
+          ],
+          [
+            26,
+            30,
+            114,
+            104
+          ],
+          [
+            24,
+            30,
+            110,
+            103
+          ],
+          [
+            25,
+            29,
+            110,
+            102
+          ],
+          [
+            27,
+            28,
+            111,
+            101
+          ],
+          [
+            27,
+            28,
+            114,
+            100
+          ],
+          [
+            24,
+            30,
+            110,
+            101
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_air_light-r06-claw.json",
+        "spec_sha256": "82e79a20c6fb14b6e8963d96f6031318ccb689576ac8f8c155211eda7b1692dd"
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        8,
+        4,
+        18
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            71.35,
+            73.07
+          ]
+        },
+        {
+          "claw_hand": [
+            67.67,
+            71.65
+          ]
+        },
+        {
+          "claw_hand": [
+            74.45,
+            72.22
+          ]
+        },
+        {
+          "claw_hand": [
+            51.85,
+            51.59
+          ]
+        },
+        {
+          "claw_hand": [
+            106.38,
+            72.22
+          ],
+          "claw_tip": [
+            117.39,
+            78.43
+          ]
+        },
+        {
+          "claw_hand": [
+            111.74,
+            73.63
+          ],
+          "claw_tip": [
+            124.46,
+            76.74
+          ]
+        },
+        {
+          "claw_hand": [
+            115.13,
+            73.91
+          ],
+          "claw_tip": [
+            126.43,
+            78.15
+          ]
+        },
+        {
+          "claw_hand": [
+            95.92,
+            78.43
+          ],
+          "claw_tip": [
+            108.64,
+            84.65
+          ]
+        },
+        {
+          "claw_hand": [
+            75.87,
+            73.63
+          ]
+        },
+        {
+          "claw_hand": [
+            78.69,
+            71.37
+          ]
+        },
+        {
+          "claw_hand": [
+            76.71,
+            74.76
+          ]
+        },
+        {
+          "claw_hand": [
+            74.17,
+            74.2
+          ]
+        },
+        {
+          "claw_hand": [
+            75.3,
+            69.96
+          ]
+        },
+        {
+          "claw_hand": [
+            75.58,
+            70.8
+          ]
+        },
+        {
+          "claw_hand": [
+            78.97,
+            70.8
+          ]
+        },
+        {
+          "claw_hand": [
+            76.71,
+            72.22
+          ]
+        }
+      ]
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_heavy_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_16f_r06-claw.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_r06-claw.tres",
+      "sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png"
+      ],
+      "source_sha256": [
+        "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034"
+      ],
+      "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.32,
+        "reference_scale": 0.32,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 285.9,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            23,
+            14,
+            108,
+            103
+          ],
+          [
+            15,
+            14,
+            99,
+            102
+          ],
+          [
+            17,
+            14,
+            101,
+            102
+          ],
+          [
+            17,
+            14,
+            102,
+            102
+          ],
+          [
+            22,
+            15,
+            108,
+            105
+          ],
+          [
+            18,
+            15,
+            109,
+            105
+          ],
+          [
+            18,
+            15,
+            107,
+            105
+          ],
+          [
+            11,
+            11,
+            105,
+            106
+          ],
+          [
+            22,
+            17,
+            115,
+            106
+          ],
+          [
+            18,
+            16,
+            110,
+            106
+          ],
+          [
+            19,
+            16,
+            110,
+            105
+          ],
+          [
+            19,
+            16,
+            109,
+            106
+          ],
+          [
+            24,
+            14,
+            113,
+            102
+          ],
+          [
+            16,
+            15,
+            107,
+            103
+          ],
+          [
+            17,
+            15,
+            105,
+            103
+          ],
+          [
+            20,
+            15,
+            107,
+            103
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_heavy_up-r06-claw.json",
+        "spec_sha256": "182da1ab2b5814a7f77445fa58ad6337f31efec4eddd1f96f2493d43c102777e"
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        12,
+        5,
+        20
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            97.04,
+            53.47
+          ]
+        },
+        {
+          "claw_hand": [
+            77.52,
+            60.83
+          ]
+        },
+        {
+          "claw_hand": [
+            86.8,
+            74.59
+          ]
+        },
+        {
+          "claw_hand": [
+            82.32,
+            72.03
+          ]
+        },
+        {
+          "claw_hand": [
+            98.96,
+            56.03
+          ]
+        },
+        {
+          "claw_hand": [
+            94.8,
+            52.19
+          ]
+        },
+        {
+          "claw_hand": [
+            96.72,
+            46.75
+          ]
+        },
+        {
+          "claw_hand": [
+            90.96,
+            24.99
+          ],
+          "claw_tip": [
+            103.12,
+            15.07
+          ]
+        },
+        {
+          "claw_hand": [
+            100.56,
+            33.95
+          ],
+          "claw_tip": [
+            110.16,
+            21.47
+          ]
+        },
+        {
+          "claw_hand": [
+            99.92,
+            44.83
+          ]
+        },
+        {
+          "claw_hand": [
+            95.44,
+            49.63
+          ]
+        },
+        {
+          "claw_hand": [
+            93.52,
+            56.35
+          ]
+        },
+        {
+          "claw_hand": [
+            95.12,
+            53.79
+          ]
+        },
+        {
+          "claw_hand": [
+            76.56,
+            60.83
+          ]
+        },
+        {
+          "claw_hand": [
+            90.0,
+            72.67
+          ]
+        },
+        {
+          "claw_hand": [
+            82.0,
+            68.83
+          ]
+        }
+      ]
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "death",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/death_16f_r04-ground.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/death_r04-ground.tres",
+      "sha256": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/death-r02.png"
+      ],
+      "source_sha256": [
+        "1409bd6ac193e1e6e685b1aa969c891ef6053f32cd249352767cbfba5908ad9e"
+      ],
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.33,
+        "reference_scale": 0.33,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 308.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            23,
+            13,
+            116,
+            107
+          ],
+          [
+            23,
+            20,
+            119,
+            107
+          ],
+          [
+            15,
+            26,
+            113,
+            108
+          ],
+          [
+            15,
+            28,
+            116,
+            108
+          ],
+          [
+            15,
+            36,
+            118,
+            112
+          ],
+          [
+            14,
+            40,
+            118,
+            110
+          ],
+          [
+            14,
+            41,
+            117,
+            111
+          ],
+          [
+            9,
+            54,
+            123,
+            111
+          ],
+          [
+            12,
+            49,
+            125,
+            100
+          ],
+          [
+            12,
+            50,
+            126,
+            98
+          ],
+          [
+            9,
+            53,
+            124,
+            99
+          ],
+          [
+            10,
+            56,
+            122,
+            101
+          ],
+          [
+            12,
+            37,
+            126,
+            82
+          ],
+          [
+            14,
+            38,
+            126,
+            82
+          ],
+          [
+            13,
+            36,
+            120,
+            80
+          ],
+          [
+            11,
+            39,
+            118,
+            80
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-death-r04-ground.json",
+        "spec_sha256": "a3b8dec1636aeaaac3fd5eb89d42ef2e70793209045a14a36b6e8bc2e62fe5cb"
+      },
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            106
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            106
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            109
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            109
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            99
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            98
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            79
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            78
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            77
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            77
+          ]
+        }
+      ],
+      "state_hold_frame": 15
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "guard",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/guard_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/guard_r01.tres",
+      "sha256": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 123.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/guard-r01.png"
+      ],
+      "source_sha256": [
+        "62f6c6bb37581716ecb54bdb63558dc41747d25478b83feb62d3b2290b449150"
+      ],
+      "expected_action": "두 손의 발톱을 몸 앞에 모아 방어하고 공격 자세로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3,
+        "reference_scale": 0.3,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 311.0,
+        "target_baseline_y": 123.0,
+        "frame_bounds": [
+          [
+            26,
+            37,
+            101,
+            123
+          ],
+          [
+            26,
+            37,
+            101,
+            123
+          ],
+          [
+            25,
+            38,
+            100,
+            123
+          ],
+          [
+            25,
+            36,
+            100,
+            122
+          ],
+          [
+            26,
+            38,
+            102,
+            123
+          ],
+          [
+            26,
+            39,
+            103,
+            123
+          ],
+          [
+            26,
+            39,
+            102,
+            122
+          ],
+          [
+            26,
+            40,
+            102,
+            123
+          ],
+          [
+            26,
+            41,
+            103,
+            123
+          ],
+          [
+            26,
+            42,
+            103,
+            123
+          ],
+          [
+            26,
+            42,
+            102,
+            123
+          ],
+          [
+            26,
+            42,
+            103,
+            123
+          ],
+          [
+            26,
+            41,
+            104,
+            122
+          ],
+          [
+            26,
+            41,
+            104,
+            122
+          ],
+          [
+            26,
+            39,
+            102,
+            121
+          ],
+          [
+            26,
+            39,
+            102,
+            122
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-guard-r01.json",
+        "spec_sha256": "3ef6628fc8994d480fce825c84afd7d29e54e147e217060c2c28b38995c34275"
+      },
+      "state_hold_frame": 11
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "hitstun",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/hitstun_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/hitstun_r01.tres",
+      "sha256": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/hitstun-r01.png"
+      ],
+      "source_sha256": [
+        "c31506714d1656c240f1e4ece1ef3d39b6890dd0b9e946ad7b7f3b8810327af8"
+      ],
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3,
+        "reference_scale": 0.3,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 301.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            30,
+            28,
+            105,
+            106
+          ],
+          [
+            33,
+            29,
+            107,
+            106
+          ],
+          [
+            29,
+            30,
+            108,
+            105
+          ],
+          [
+            26,
+            36,
+            97,
+            105
+          ],
+          [
+            29,
+            29,
+            105,
+            107
+          ],
+          [
+            32,
+            34,
+            112,
+            107
+          ],
+          [
+            23,
+            33,
+            108,
+            107
+          ],
+          [
+            24,
+            38,
+            104,
+            106
+          ],
+          [
+            29,
+            29,
+            105,
+            103
+          ],
+          [
+            30,
+            25,
+            105,
+            102
+          ],
+          [
+            27,
+            28,
+            97,
+            102
+          ],
+          [
+            25,
+            28,
+            96,
+            102
+          ],
+          [
+            30,
+            19,
+            105,
+            97
+          ],
+          [
+            29,
+            23,
+            105,
+            97
+          ],
+          [
+            28,
+            24,
+            104,
+            97
+          ],
+          [
+            26,
+            20,
+            98,
+            96
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-hitstun-r01.json",
+        "spec_sha256": "3bf96a602916c14d835d76ffe288e095c909b8b28b6490f15e76f5e994c3db56"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "idle",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_16f_r02.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_r02.tres",
+      "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 8.0,
+      "loop": true,
+      "presentation_scale": 1.0947619047619048,
+      "foot_pivot_y": 123.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png"
+      ],
+      "source_sha256": [
+        "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56"
+      ],
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3014354066985646,
+        "reference_scale": 0.33,
+        "presentation_scale": 1.0947619047619048,
+        "source_baseline_y": 278.0,
+        "target_baseline_y": 123.0,
+        "frame_bounds": [
+          [
+            31,
+            43,
+            113,
+            123
+          ],
+          [
+            21,
+            42,
+            102,
+            122
+          ],
+          [
+            12,
+            42,
+            91,
+            123
+          ],
+          [
+            2,
+            42,
+            81,
+            123
+          ],
+          [
+            31,
+            41,
+            115,
+            127
+          ],
+          [
+            21,
+            40,
+            104,
+            126
+          ],
+          [
+            11,
+            40,
+            94,
+            126
+          ],
+          [
+            1,
+            40,
+            84,
+            127
+          ],
+          [
+            33,
+            44,
+            115,
+            125
+          ],
+          [
+            22,
+            43,
+            106,
+            125
+          ],
+          [
+            11,
+            44,
+            96,
+            125
+          ],
+          [
+            2,
+            44,
+            86,
+            126
+          ],
+          [
+            31,
+            43,
+            113,
+            121
+          ],
+          [
+            21,
+            43,
+            104,
+            121
+          ],
+          [
+            11,
+            43,
+            94,
+            121
+          ],
+          [
+            3,
+            43,
+            86,
+            121
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-idle-r02.json",
+        "spec_sha256": "bde1d5c6a05dd9a610fdf1b822b54a2d212da8794b305e48125b6f6896ace36c"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "knock_down",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_16f_r04-ground.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_r04-ground.tres",
+      "sha256": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/knock_down-r01.png"
+      ],
+      "source_sha256": [
+        "4fa0450aa78e04cb9cbd8a3796041d696b0d81fe0a91855ab80aafadd5223fc5"
+      ],
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.33,
+        "reference_scale": 0.33,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 298.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            12,
+            14,
+            107,
+            105
+          ],
+          [
+            17,
+            18,
+            118,
+            107
+          ],
+          [
+            3,
+            20,
+            106,
+            107
+          ],
+          [
+            3,
+            22,
+            103,
+            107
+          ],
+          [
+            16,
+            29,
+            109,
+            112
+          ],
+          [
+            21,
+            33,
+            115,
+            106
+          ],
+          [
+            12,
+            34,
+            115,
+            107
+          ],
+          [
+            13,
+            37,
+            112,
+            108
+          ],
+          [
+            11,
+            41,
+            119,
+            99
+          ],
+          [
+            6,
+            43,
+            113,
+            97
+          ],
+          [
+            3,
+            41,
+            116,
+            103
+          ],
+          [
+            4,
+            43,
+            118,
+            103
+          ],
+          [
+            12,
+            34,
+            119,
+            85
+          ],
+          [
+            8,
+            36,
+            120,
+            85
+          ],
+          [
+            9,
+            39,
+            122,
+            84
+          ],
+          [
+            7,
+            36,
+            118,
+            86
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-knock_down-r04-ground.json",
+        "spec_sha256": "0ebe85fc757d99b2a9596c5b2f0c85f7768819c7ab9fdd31205f99229637b4df"
+      },
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            101
+          ]
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            100
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            100
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            84
+          ]
+        }
+      ],
+      "state_hold_frame": 15
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "launch",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/launch_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/launch_r01.tres",
+      "sha256": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/launch-r01.png"
+      ],
+      "source_sha256": [
+        "63b87aeddd1ac6e3b296685d2e323a634d9f312038a3c24b7263f76abb9b69fe"
+      ],
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.33,
+        "reference_scale": 0.33,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 278.25,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            22,
+            29,
+            106,
+            100
+          ],
+          [
+            14,
+            26,
+            110,
+            108
+          ],
+          [
+            18,
+            26,
+            121,
+            106
+          ],
+          [
+            23,
+            24,
+            119,
+            108
+          ],
+          [
+            26,
+            20,
+            116,
+            106
+          ],
+          [
+            21,
+            21,
+            114,
+            107
+          ],
+          [
+            21,
+            20,
+            115,
+            111
+          ],
+          [
+            21,
+            22,
+            109,
+            110
+          ],
+          [
+            25,
+            25,
+            115,
+            111
+          ],
+          [
+            32,
+            28,
+            111,
+            101
+          ],
+          [
+            38,
+            29,
+            118,
+            102
+          ],
+          [
+            28,
+            28,
+            102,
+            102
+          ],
+          [
+            30,
+            24,
+            108,
+            92
+          ],
+          [
+            34,
+            21,
+            107,
+            94
+          ],
+          [
+            31,
+            23,
+            104,
+            94
+          ],
+          [
+            21,
+            21,
+            97,
+            94
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-launch-r01.json",
+        "spec_sha256": "af793cbb5ba15e461cbf56e428618be16838001aafc2b0924ce0c5247241dca4"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "ring_out",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/ring_out_16f_r02.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/ring_out_r02.tres",
+      "sha256": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/ring_out-r02.png"
+      ],
+      "source_sha256": [
+        "bdbb8ea619f72ea1cd1c63e0c26e45ed29ef20345d4be5ed7b18a824810d5d8d"
+      ],
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3,
+        "reference_scale": 0.3,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 323.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            25,
+            22,
+            116,
+            104
+          ],
+          [
+            23,
+            22,
+            112,
+            104
+          ],
+          [
+            21,
+            19,
+            115,
+            101
+          ],
+          [
+            20,
+            23,
+            107,
+            105
+          ],
+          [
+            26,
+            17,
+            123,
+            101
+          ],
+          [
+            32,
+            15,
+            119,
+            104
+          ],
+          [
+            31,
+            17,
+            116,
+            108
+          ],
+          [
+            28,
+            19,
+            104,
+            115
+          ],
+          [
+            30,
+            18,
+            106,
+            104
+          ],
+          [
+            33,
+            17,
+            107,
+            106
+          ],
+          [
+            33,
+            18,
+            102,
+            105
+          ],
+          [
+            33,
+            17,
+            103,
+            104
+          ],
+          [
+            37,
+            12,
+            110,
+            95
+          ],
+          [
+            39,
+            14,
+            111,
+            95
+          ],
+          [
+            39,
+            13,
+            113,
+            96
+          ],
+          [
+            40,
+            14,
+            109,
+            96
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-ring_out-r02.json",
+        "spec_sha256": "9bcd63ded6c3058e74542e6bf7ce597a61ade826c001b2dc6755cea17d5b5457"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "spawn",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/spawn_16f_r01.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/spawn_r01.tres",
+      "sha256": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/spawn-r01.png"
+      ],
+      "source_sha256": [
+        "f8330aeeefeb7e2f1523bae6d9827b4cff9cbb4f3b36d3e68329e68c6b1d50f0"
+      ],
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.33,
+        "reference_scale": 0.33,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 273.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            31,
+            18,
+            108,
+            91
+          ],
+          [
+            25,
+            19,
+            107,
+            101
+          ],
+          [
+            21,
+            18,
+            108,
+            102
+          ],
+          [
+            22,
+            19,
+            108,
+            108
+          ],
+          [
+            19,
+            21,
+            109,
+            110
+          ],
+          [
+            21,
+            29,
+            112,
+            106
+          ],
+          [
+            20,
+            30,
+            112,
+            106
+          ],
+          [
+            24,
+            36,
+            116,
+            106
+          ],
+          [
+            24,
+            27,
+            110,
+            104
+          ],
+          [
+            23,
+            27,
+            110,
+            105
+          ],
+          [
+            23,
+            25,
+            105,
+            104
+          ],
+          [
+            23,
+            25,
+            105,
+            105
+          ],
+          [
+            20,
+            22,
+            107,
+            99
+          ],
+          [
+            21,
+            24,
+            108,
+            100
+          ],
+          [
+            21,
+            23,
+            108,
+            99
+          ],
+          [
+            21,
+            24,
+            107,
+            99
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-spawn-r01.json",
+        "spec_sha256": "a3e82900445d112b74aa35c2d31a4a6c9c85c311a84f9bb26a17016ef72ced3c"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "special_side",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_32f_r06-claw.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_r06-claw.tres",
+      "sha256": "9bea9a6a179c44f5ff511fabd277d5581ea8c485795f5ccbf5c109ef28b4cd42",
+      "frame_count": 32,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 1.0558730158730159,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partA-r02.png",
+        "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partB-r02.png"
+      ],
+      "source_sha256": [
+        "864706d7c5fcc93b283c7aa6cf4e6b7963d65d6ab0ae71b0c4e4a6395d8fdba8",
+        "3555b9512d55f93e4ef0656de29fb0522b6267506a08952715cf0541fbc64222"
+      ],
+      "expected_action": "전용 낮은 이동 자세로 전진→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.30306674684305474,
+        "reference_scale": 0.32,
+        "presentation_scale": 1.0558730158730159,
+        "source_baseline_y": 290.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            23,
+            25,
+            117,
+            103
+          ],
+          [
+            24,
+            28,
+            108,
+            103
+          ],
+          [
+            21,
+            29,
+            108,
+            105
+          ],
+          [
+            28,
+            29,
+            113,
+            104
+          ],
+          [
+            26,
+            23,
+            125,
+            103
+          ],
+          [
+            23,
+            25,
+            120,
+            101
+          ],
+          [
+            25,
+            25,
+            120,
+            102
+          ],
+          [
+            22,
+            24,
+            115,
+            102
+          ],
+          [
+            21,
+            22,
+            117,
+            102
+          ],
+          [
+            22,
+            20,
+            120,
+            102
+          ],
+          [
+            21,
+            19,
+            116,
+            101
+          ],
+          [
+            20,
+            22,
+            112,
+            102
+          ],
+          [
+            21,
+            21,
+            118,
+            98
+          ],
+          [
+            22,
+            22,
+            117,
+            98
+          ],
+          [
+            18,
+            22,
+            112,
+            98
+          ],
+          [
+            20,
+            21,
+            115,
+            97
+          ],
+          [
+            19,
+            24,
+            127,
+            105
+          ],
+          [
+            24,
+            26,
+            122,
+            107
+          ],
+          [
+            19,
+            27,
+            116,
+            105
+          ],
+          [
+            23,
+            28,
+            114,
+            105
+          ],
+          [
+            18,
+            24,
+            110,
+            105
+          ],
+          [
+            17,
+            25,
+            119,
+            106
+          ],
+          [
+            20,
+            26,
+            123,
+            106
+          ],
+          [
+            21,
+            26,
+            110,
+            108
+          ],
+          [
+            22,
+            23,
+            117,
+            105
+          ],
+          [
+            23,
+            24,
+            117,
+            107
+          ],
+          [
+            21,
+            23,
+            111,
+            105
+          ],
+          [
+            19,
+            25,
+            109,
+            107
+          ],
+          [
+            22,
+            20,
+            113,
+            99
+          ],
+          [
+            25,
+            21,
+            114,
+            99
+          ],
+          [
+            24,
+            22,
+            111,
+            99
+          ],
+          [
+            17,
+            23,
+            110,
+            100
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-special_side-r06-claw.json",
+        "spec_sha256": "233bb2727508f2fc1d4b21bfc1e9af5155434c8d8796b56b9d4a36db5d5cd75c"
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          24
+        ],
+        [
+          24,
+          32
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        10,
+        24,
+        20
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            58.47,
+            67.94
+          ]
+        },
+        {
+          "claw_hand": [
+            77.87,
+            71.87
+          ]
+        },
+        {
+          "claw_hand": [
+            74.83,
+            72.48
+          ]
+        },
+        {
+          "claw_hand": [
+            77.56,
+            74.91
+          ]
+        },
+        {
+          "claw_hand": [
+            61.2,
+            57.93
+          ]
+        },
+        {
+          "claw_hand": [
+            59.38,
+            60.96
+          ]
+        },
+        {
+          "claw_hand": [
+            101.5,
+            67.33
+          ]
+        },
+        {
+          "claw_hand": [
+            56.95,
+            62.48
+          ]
+        },
+        {
+          "claw_hand": [
+            100.29,
+            61.87
+          ]
+        },
+        {
+          "claw_hand": [
+            86.35,
+            61.87
+          ]
+        },
+        {
+          "claw_hand": [
+            55.74,
+            61.57
+          ]
+        },
+        {
+          "claw_hand": [
+            88.17,
+            67.63
+          ]
+        },
+        {
+          "claw_hand": [
+            55.44,
+            57.02
+          ]
+        },
+        {
+          "claw_hand": [
+            56.35,
+            55.51
+          ]
+        },
+        {
+          "claw_hand": [
+            81.81,
+            63.39
+          ]
+        },
+        {
+          "claw_hand": [
+            55.74,
+            57.02
+          ]
+        },
+        {
+          "claw_hand": [
+            63.05,
+            61.57
+          ]
+        },
+        {
+          "claw_hand": [
+            57.29,
+            65.51
+          ]
+        },
+        {
+          "claw_hand": [
+            77.3,
+            60.66
+          ]
+        },
+        {
+          "claw_hand": [
+            73.05,
+            65.51
+          ]
+        },
+        {
+          "claw_hand": [
+            67.3,
+            52.18
+          ]
+        },
+        {
+          "claw_hand": [
+            105.18,
+            69.15
+          ],
+          "claw_tip": [
+            118.21,
+            68.84
+          ]
+        },
+        {
+          "claw_hand": [
+            113.36,
+            67.03
+          ],
+          "claw_tip": [
+            121.54,
+            70.06
+          ]
+        },
+        {
+          "claw_hand": [
+            92.15,
+            70.66
+          ],
+          "claw_tip": [
+            103.06,
+            73.09
+          ]
+        },
+        {
+          "claw_hand": [
+            79.72,
+            64.9
+          ]
+        },
+        {
+          "claw_hand": [
+            83.66,
+            66.12
+          ]
+        },
+        {
+          "claw_hand": [
+            78.81,
+            68.84
+          ]
+        },
+        {
+          "claw_hand": [
+            77.3,
+            68.54
+          ]
+        },
+        {
+          "claw_hand": [
+            81.54,
+            63.69
+          ]
+        },
+        {
+          "claw_hand": [
+            79.72,
+            64.6
+          ]
+        },
+        {
+          "claw_hand": [
+            80.33,
+            64.3
+          ]
+        },
+        {
+          "claw_hand": [
+            80.02,
+            67.03
+          ]
+        }
+      ]
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "wake_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/wake_up_16f_r04-ground.png",
+      "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/wake_up_r04-ground.tres",
+      "sha256": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.0,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/wake_up-r01.png"
+      ],
+      "source_sha256": [
+        "35aa9852c243f7612d3680f3d49c219f2addfcecce7d3af986af48cab12c0c98"
+      ],
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.3,
+        "reference_scale": 0.3,
+        "presentation_scale": 1.0,
+        "source_baseline_y": 360.75,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            21,
+            77,
+            114,
+            121
+          ],
+          [
+            21,
+            71,
+            117,
+            121
+          ],
+          [
+            32,
+            61,
+            111,
+            123
+          ],
+          [
+            20,
+            56,
+            103,
+            123
+          ],
+          [
+            22,
+            47,
+            121,
+            112
+          ],
+          [
+            26,
+            45,
+            112,
+            113
+          ],
+          [
+            24,
+            44,
+            100,
+            113
+          ],
+          [
+            20,
+            40,
+            106,
+            116
+          ],
+          [
+            26,
+            30,
+            114,
+            96
+          ],
+          [
+            35,
+            29,
+            115,
+            95
+          ],
+          [
+            25,
+            29,
+            110,
+            96
+          ],
+          [
+            26,
+            28,
+            107,
+            95
+          ],
+          [
+            26,
+            9,
+            110,
+            84
+          ],
+          [
+            23,
+            8,
+            109,
+            86
+          ],
+          [
+            25,
+            9,
+            111,
+            87
+          ],
+          [
+            18,
+            9,
+            101,
+            85
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-wake_up-r04-ground.json",
+        "spec_sha256": "d71f7f3aaa2e32a20676a477926bf3ccac0f0eaf7add8242975dcc3cedb1aa68"
+      },
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            120
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            119
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            111
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            111
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            111
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            115
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            94
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            94
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            85
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            86
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            84
+          ]
+        }
+      ],
+      "state_duration_ticks": 12
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_scarf_sweep",
+      "path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png",
+      "sprite_frames_path": "res://_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres",
+      "sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+      "frame_count": 32,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 1.159246527777778,
+      "foot_pivot_y": 104.0,
+      "source_paths": [
+        "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png",
+        "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png",
+        "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png"
+      ],
+      "source_sha256": [
+        "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+        "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+        "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539"
+      ],
+      "expected_action": "넓은 지지 자세에서 실제 착용 목도리를 같은 공격 손으로 좌·우·위로 빠르게 교차하여 연속 쳐낸다. 준비4장→연타23장(마지막F27바깥휘두르기)→회복5장. 1초10회 타격과 끌기 뒤 밀기는 전투가 계산한다.",
+      "action_source": "_workspace/ja-scarf-barrage-v1/00_request.md",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.24585365853658536,
+        "reference_scale": 0.3353,
+        "presentation_scale": 1.159246527777778,
+        "source_baseline_y": 310.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            41,
+            47,
+            88,
+            104
+          ],
+          [
+            38,
+            47,
+            88,
+            104
+          ],
+          [
+            40,
+            46,
+            88,
+            103
+          ],
+          [
+            30,
+            48,
+            89,
+            104
+          ],
+          [
+            38,
+            41,
+            100,
+            102
+          ],
+          [
+            38,
+            46,
+            92,
+            102
+          ],
+          [
+            40,
+            47,
+            120,
+            102
+          ],
+          [
+            41,
+            47,
+            97,
+            102
+          ],
+          [
+            38,
+            34,
+            93,
+            97
+          ],
+          [
+            36,
+            42,
+            93,
+            97
+          ],
+          [
+            39,
+            42,
+            119,
+            97
+          ],
+          [
+            37,
+            44,
+            97,
+            97
+          ],
+          [
+            38,
+            33,
+            101,
+            89
+          ],
+          [
+            40,
+            36,
+            95,
+            89
+          ],
+          [
+            43,
+            31,
+            96,
+            89
+          ],
+          [
+            42,
+            36,
+            90,
+            89
+          ],
+          [
+            32,
+            47,
+            96,
+            108
+          ],
+          [
+            41,
+            47,
+            98,
+            108
+          ],
+          [
+            37,
+            37,
+            96,
+            104
+          ],
+          [
+            37,
+            49,
+            96,
+            108
+          ],
+          [
+            38,
+            46,
+            127,
+            108
+          ],
+          [
+            40,
+            48,
+            98,
+            108
+          ],
+          [
+            33,
+            42,
+            93,
+            108
+          ],
+          [
+            37,
+            49,
+            97,
+            108
+          ],
+          [
+            38,
+            33,
+            94,
+            107
+          ],
+          [
+            27,
+            48,
+            97,
+            108
+          ],
+          [
+            36,
+            50,
+            124,
+            108
+          ],
+          [
+            36,
+            48,
+            96,
+            108
+          ],
+          [
+            40,
+            38,
+            97,
+            97
+          ],
+          [
+            41,
+            38,
+            96,
+            97
+          ],
+          [
+            38,
+            38,
+            92,
+            97
+          ],
+          [
+            36,
+            38,
+            91,
+            97
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/ja-scarf-barrage-v1/layout-r02.json",
+        "spec_sha256": "073765c6714f144bb69aa74ae7c9936c5afeb4eeb487d93a3bc9b7de34cc5ea4",
+        "base_layout_spec_path": "_workspace/ja-scarf-barrage-v1/layout-r01.json",
+        "base_layout_spec_sha256": "46f5ed138a180e9a03cf8aff3a73ebcb5fcb5a72add039cbd1b3659d48896586",
+        "single_pose_revision": {
+          "kind": "single-generated-pose-revision",
+          "base_candidate_record": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r01.json",
+          "base_record_sha256": "dc43e294bb8fe3f2ee9f6efa30f481cd231a407fc0bd8f98b507d9d43d601082",
+          "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png",
+          "source_sha256": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+          "frame_index": 18,
+          "uniform_scale_before_pixel_rounding": 0.05285853658536585,
+          "canvas_size": [
+            62,
+            71
+          ],
+          "placement": [
+            34,
+            37
+          ],
+          "body_root": [
+            63.97,
+            103.91
+          ],
+          "method": "new image_gen pose; uniform resize and whole-pose placement only; other31 cells unchanged"
+        },
+        "display_phase_revision": {
+          "kind": "display-phase-revision",
+          "base_candidate_record": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.json",
+          "png_sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+          "phase_frame_ranges": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              27
+            ],
+            [
+              27,
+              32
+            ]
+          ],
+          "reason": "F28 already retracts the held tail; final active F27 remains the outward swing. Recovery follows last active heading and returns to the short painted tail.",
+          "actual_attack_timings_60hz": [
+            12,
+            60,
+            24
+          ]
+        }
+      },
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          27
+        ],
+        [
+          27,
+          32
+        ]
+      ],
+      "actual_attack_timings_60hz": [
+        12,
+        60,
+        24
+      ],
+      "frame_anchors": [
+        {
+          "scarf_root": [
+            68.49,
+            76.22
+          ],
+          "scarf_hand": [
+            69.96,
+            78.19
+          ],
+          "scarf_tips": [
+            [
+              73.65,
+              93.18
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            67.87,
+            77.2
+          ],
+          "scarf_hand": [
+            65.91,
+            79.66
+          ],
+          "scarf_tips": [
+            [
+              69.84,
+              95.4
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            65.29,
+            75.97
+          ],
+          "scarf_hand": [
+            54.47,
+            72.78
+          ],
+          "scarf_tips": [
+            [
+              55.46,
+              96.62
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            67.87,
+            78.19
+          ],
+          "scarf_hand": [
+            57.3,
+            74.25
+          ],
+          "scarf_tips": [
+            [
+              31.24,
+              71.79
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            79.55,
+            74.13
+          ],
+          "scarf_hand": [
+            64.31,
+            54.71
+          ],
+          "scarf_tips": [
+            [
+              41.44,
+              51.02
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            75.49,
+            76.34
+          ],
+          "scarf_hand": [
+            69.84,
+            79.29
+          ],
+          "scarf_tips": [
+            [
+              38.86,
+              71.67
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            70.21,
+            76.59
+          ],
+          "scarf_hand": [
+            78.32,
+            76.1
+          ],
+          "scarf_tips": [
+            [
+              115.94,
+              76.59
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            71.56,
+            75.11
+          ],
+          "scarf_hand": [
+            68.86,
+            87.16
+          ],
+          "scarf_tips": [
+            [
+              95.65,
+              73.64
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            66.52,
+            70.56
+          ],
+          "scarf_hand": [
+            86.43,
+            54.83
+          ],
+          "scarf_tips": [
+            [
+              75.12,
+              38.36
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            97.12
+          ]
+        },
+        {
+          "scarf_root": [
+            71.56,
+            73.51
+          ],
+          "scarf_hand": [
+            65.66,
+            68.6
+          ],
+          "scarf_tips": [
+            [
+              36.89,
+              60.98
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.87
+          ]
+        },
+        {
+          "scarf_root": [
+            69.22,
+            72.04
+          ],
+          "scarf_hand": [
+            77.09,
+            71.55
+          ],
+          "scarf_tips": [
+            [
+              116.43,
+              66.88
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.87
+          ]
+        },
+        {
+          "scarf_root": [
+            67.63,
+            74.74
+          ],
+          "scarf_hand": [
+            62.96,
+            83.35
+          ],
+          "scarf_tips": [
+            [
+              94.67,
+              73.02
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.38
+          ]
+        },
+        {
+          "scarf_root": [
+            78.57,
+            66.26
+          ],
+          "scarf_hand": [
+            63.32,
+            45.86
+          ],
+          "scarf_tips": [
+            [
+              40.95,
+              38.97
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            74.02,
+            68.23
+          ],
+          "scarf_hand": [
+            83.85,
+            66.75
+          ],
+          "scarf_tips": [
+            [
+              43.78,
+              58.89
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            67.5,
+            68.23
+          ],
+          "scarf_hand": [
+            80.29,
+            51.26
+          ],
+          "scarf_tips": [
+            [
+              94.79,
+              31.84
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            67.38,
+            69.46
+          ],
+          "scarf_hand": [
+            68.12,
+            68.72
+          ],
+          "scarf_tips": [
+            [
+              50.66,
+              61.34
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            70.45,
+            78.43
+          ],
+          "scarf_hand": [
+            77.09,
+            83.35
+          ],
+          "scarf_tips": [
+            [
+              33.08,
+              89.49
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.93
+          ]
+        },
+        {
+          "scarf_root": [
+            76.23,
+            79.41
+          ],
+          "scarf_hand": [
+            75.49,
+            61.71
+          ],
+          "scarf_tips": [
+            [
+              44.02,
+              49.42
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.93
+          ]
+        },
+        {
+          "scarf_root": [
+            61.34,
+            68.86
+          ],
+          "scarf_hand": [
+            78.56,
+            55.59
+          ],
+          "body_root": [
+            63.97,
+            103.91
+          ],
+          "scarf_tips": [
+            [
+              95.32,
+              37.64
+            ],
+            null
+          ]
+        },
+        {
+          "scarf_root": [
+            67.38,
+            80.64
+          ],
+          "scarf_hand": [
+            57.55,
+            90.23
+          ],
+          "scarf_tips": [
+            [
+              94.42,
+              88.51
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.93
+          ]
+        },
+        {
+          "scarf_root": [
+            70.45,
+            77.32
+          ],
+          "scarf_hand": [
+            79.8,
+            79.05
+          ],
+          "scarf_tips": [
+            [
+              124.3,
+              78.8
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            73.04,
+            79.29
+          ],
+          "scarf_hand": [
+            78.2,
+            83.23
+          ],
+          "scarf_tips": [
+            [
+              48.2,
+              88.63
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            71.44,
+            79.05
+          ],
+          "scarf_hand": [
+            59.64,
+            60.12
+          ],
+          "scarf_tips": [
+            [
+              35.54,
+              44.38
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            70.82,
+            82.0
+          ],
+          "scarf_hand": [
+            60.25,
+            92.32
+          ],
+          "scarf_tips": [
+            [
+              94.92,
+              74.87
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            71.44,
+            79.66
+          ],
+          "scarf_hand": [
+            73.65,
+            55.32
+          ],
+          "scarf_tips": [
+            [
+              62.59,
+              38.85
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            106.95
+          ]
+        },
+        {
+          "scarf_root": [
+            72.3,
+            78.68
+          ],
+          "scarf_hand": [
+            70.33,
+            79.66
+          ],
+          "scarf_tips": [
+            [
+              26.81,
+              64.91
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.2
+          ]
+        },
+        {
+          "scarf_root": [
+            70.45,
+            79.17
+          ],
+          "scarf_hand": [
+            81.52,
+            79.66
+          ],
+          "scarf_tips": [
+            [
+              118.15,
+              68.6
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.44
+          ]
+        },
+        {
+          "scarf_root": [
+            70.82,
+            80.15
+          ],
+          "scarf_hand": [
+            67.38,
+            81.87
+          ],
+          "scarf_tips": [
+            [
+              94.92,
+              93.43
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.44
+          ]
+        },
+        {
+          "scarf_root": [
+            69.96,
+            68.97
+          ],
+          "scarf_hand": [
+            71.68,
+            70.44
+          ],
+          "scarf_tips": [
+            [
+              77.58,
+              89.13
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        },
+        {
+          "scarf_root": [
+            70.82,
+            69.95
+          ],
+          "scarf_hand": [
+            68.86,
+            77.57
+          ],
+          "scarf_tips": [
+            [
+              75.0,
+              93.8
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        },
+        {
+          "scarf_root": [
+            69.96,
+            69.95
+          ],
+          "scarf_tips": [
+            [
+              68.49,
+              87.65
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        },
+        {
+          "scarf_root": [
+            67.87,
+            70.93
+          ],
+          "scarf_tips": [
+            [
+              66.64,
+              87.9
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        }
+      ]
+    }
+  ]
+}

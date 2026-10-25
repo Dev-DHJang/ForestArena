@@ -1,0 +1,497 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "special_side",
+  "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_32f_r07-head.png",
+  "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/special_side_r07-head.tres",
+  "sha256": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+  "frame_count": 32,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 24.0,
+  "loop": false,
+  "presentation_scale": 1.1074374377959526,
+  "foot_pivot_y": 104.0,
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partA-r02.png",
+    "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partB-r02.png"
+  ],
+  "source_sha256": [
+    "864706d7c5fcc93b283c7aa6cf4e6b7963d65d6ab0ae71b0c4e4a6395d8fdba8",
+    "3555b9512d55f93e4ef0656de29fb0522b6267506a08952715cf0541fbc64222"
+  ],
+  "expected_action": "전용 낮은 이동 자세로 전진→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+  "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+  "conversion": {
+    "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+    "uniform_scale": 0.28895537488498796,
+    "per_source_uniform_scales": [
+      0.2800844589139869,
+      0.30306674684305474
+    ],
+    "source_scale_multipliers": [
+      0.9693000485817856,
+      1.0488358175157098
+    ],
+    "reference_scale": 0.32,
+    "presentation_scale": 1.1074374377959526,
+    "source_baseline_y": 290.0,
+    "target_baseline_y": 104.0,
+    "frame_bounds": [
+      [
+        26,
+        31,
+        113,
+        104
+      ],
+      [
+        27,
+        34,
+        104,
+        103
+      ],
+      [
+        25,
+        34,
+        106,
+        104
+      ],
+      [
+        31,
+        35,
+        109,
+        104
+      ],
+      [
+        29,
+        29,
+        121,
+        103
+      ],
+      [
+        26,
+        31,
+        116,
+        102
+      ],
+      [
+        28,
+        31,
+        116,
+        102
+      ],
+      [
+        25,
+        30,
+        111,
+        102
+      ],
+      [
+        24,
+        28,
+        113,
+        102
+      ],
+      [
+        25,
+        26,
+        115,
+        102
+      ],
+      [
+        24,
+        26,
+        112,
+        102
+      ],
+      [
+        24,
+        28,
+        109,
+        102
+      ],
+      [
+        24,
+        27,
+        113,
+        98
+      ],
+      [
+        25,
+        28,
+        113,
+        98
+      ],
+      [
+        22,
+        29,
+        109,
+        99
+      ],
+      [
+        23,
+        27,
+        110,
+        98
+      ],
+      [
+        19,
+        24,
+        127,
+        105
+      ],
+      [
+        24,
+        26,
+        122,
+        107
+      ],
+      [
+        19,
+        27,
+        116,
+        105
+      ],
+      [
+        23,
+        28,
+        114,
+        105
+      ],
+      [
+        18,
+        24,
+        110,
+        105
+      ],
+      [
+        17,
+        25,
+        119,
+        106
+      ],
+      [
+        20,
+        26,
+        123,
+        106
+      ],
+      [
+        21,
+        26,
+        110,
+        108
+      ],
+      [
+        22,
+        23,
+        117,
+        105
+      ],
+      [
+        23,
+        24,
+        117,
+        107
+      ],
+      [
+        21,
+        23,
+        111,
+        105
+      ],
+      [
+        19,
+        25,
+        109,
+        107
+      ],
+      [
+        22,
+        20,
+        113,
+        99
+      ],
+      [
+        25,
+        21,
+        114,
+        99
+      ],
+      [
+        24,
+        22,
+        111,
+        99
+      ],
+      [
+        17,
+        23,
+        110,
+        100
+      ]
+    ],
+    "unassigned_small_regions": [],
+    "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-special_side-r07-head.json",
+    "spec_sha256": "b337e04b7c67840a1239efcde8e02d6084158697b3d748a7e0b1abb14ac10768"
+  },
+  "phase_frame_ranges": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      24
+    ],
+    [
+      24,
+      32
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    10,
+    24,
+    20
+  ],
+  "frame_anchors": [
+    {
+      "claw_hand": [
+        58.89,
+        70.67
+      ]
+    },
+    {
+      "claw_hand": [
+        76.81,
+        74.31
+      ]
+    },
+    {
+      "claw_hand": [
+        74.01,
+        74.87
+      ]
+    },
+    {
+      "claw_hand": [
+        76.53,
+        77.11
+      ]
+    },
+    {
+      "claw_hand": [
+        61.41,
+        61.43
+      ]
+    },
+    {
+      "claw_hand": [
+        59.73,
+        64.23
+      ]
+    },
+    {
+      "claw_hand": [
+        98.66,
+        70.11
+      ]
+    },
+    {
+      "claw_hand": [
+        57.49,
+        65.63
+      ]
+    },
+    {
+      "claw_hand": [
+        97.54,
+        65.07
+      ]
+    },
+    {
+      "claw_hand": [
+        84.66,
+        65.07
+      ]
+    },
+    {
+      "claw_hand": [
+        56.37,
+        64.79
+      ]
+    },
+    {
+      "claw_hand": [
+        86.34,
+        70.39
+      ]
+    },
+    {
+      "claw_hand": [
+        56.09,
+        60.59
+      ]
+    },
+    {
+      "claw_hand": [
+        56.93,
+        59.19
+      ]
+    },
+    {
+      "claw_hand": [
+        80.45,
+        66.47
+      ]
+    },
+    {
+      "claw_hand": [
+        56.37,
+        60.59
+      ]
+    },
+    {
+      "claw_hand": [
+        63.05,
+        61.57
+      ]
+    },
+    {
+      "claw_hand": [
+        57.29,
+        65.51
+      ]
+    },
+    {
+      "claw_hand": [
+        77.3,
+        60.66
+      ]
+    },
+    {
+      "claw_hand": [
+        73.05,
+        65.51
+      ]
+    },
+    {
+      "claw_hand": [
+        67.3,
+        52.18
+      ]
+    },
+    {
+      "claw_hand": [
+        105.18,
+        69.15
+      ],
+      "claw_tip": [
+        118.21,
+        68.84
+      ]
+    },
+    {
+      "claw_hand": [
+        113.36,
+        67.03
+      ],
+      "claw_tip": [
+        121.54,
+        70.06
+      ]
+    },
+    {
+      "claw_hand": [
+        92.15,
+        70.66
+      ],
+      "claw_tip": [
+        103.06,
+        73.09
+      ]
+    },
+    {
+      "claw_hand": [
+        79.72,
+        64.9
+      ]
+    },
+    {
+      "claw_hand": [
+        83.66,
+        66.12
+      ]
+    },
+    {
+      "claw_hand": [
+        78.81,
+        68.84
+      ]
+    },
+    {
+      "claw_hand": [
+        77.3,
+        68.54
+      ]
+    },
+    {
+      "claw_hand": [
+        81.54,
+        63.69
+      ]
+    },
+    {
+      "claw_hand": [
+        79.72,
+        64.6
+      ]
+    },
+    {
+      "claw_hand": [
+        80.33,
+        64.3
+      ]
+    },
+    {
+      "claw_hand": [
+        80.02,
+        67.03
+      ]
+    }
+  ]
+}

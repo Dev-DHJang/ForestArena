@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "scope": "Approved installed Ja special before and after shared Nabi claw consumer addition.",
+  "comparisons": [
+    {
+      "before": "_workspace/ja-scarf-barrage-v1/qa/installed-normal-r01",
+      "after": "_workspace/ja-scarf-barrage-v1/qa/claw-consumer-normal-r01",
+      "before_report_sha256": "422a515337fb319348f1ee87cc98e7320c42376382b7ae5a871d20ff214718b8",
+      "after_report_sha256": "c5c23d42dbe2fb266d3c03dba012dd72fa3ea733c6b110c9cb201f7f4df44399",
+      "before_archive_receipt_sha256": "bce2193c992deddd8c2503f11fbe51d135182ac0b9866df085e8de959c5c26ca",
+      "after_archive_receipt_sha256": "4a277de1f25e018214311bf7448fd6775584bc9103edf430b13c5362737f741f",
+      "excluded_diagnostic_fields": [],
+      "clips": [
+        {
+          "clip": "ja-hyun__special",
+          "ticks": 120,
+          "raw_states_equal": true,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        }
+      ]
+    },
+    {
+      "before": "_workspace/ja-scarf-barrage-v1/qa/installed-mirror-small-r01",
+      "after": "_workspace/ja-scarf-barrage-v1/qa/claw-consumer-mirror-small-r01",
+      "before_report_sha256": "d2a67b48971e07bbd57045b428eece61bce0259474f3481dc1dff53bee9feae6",
+      "after_report_sha256": "8ea14f72fc305c4ac2ae2f68425c8e22ffa80f17a183fd85affd7276ced61c1e",
+      "before_archive_receipt_sha256": "ffd6434099748959f3818b23f0734224bc6f046af7b1d6c28aa1c0984957119d",
+      "after_archive_receipt_sha256": "3429959e6d0256d228279da86e9c679cc05dbfbb2111b2b808263490d423d001",
+      "excluded_diagnostic_fields": [],
+      "clips": [
+        {
+          "clip": "ja-hyun__special",
+          "ticks": 120,
+          "raw_states_equal": true,
+          "combat_snapshots_equal": true,
+          "common_display_and_state_fields_equal": true,
+          "all_rgba_frames_equal": true
+        }
+      ]
+    }
+  ]
+}
