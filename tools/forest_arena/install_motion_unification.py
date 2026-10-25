@@ -54,7 +54,9 @@ def verify_installed(manifest, report, receipt):
     previous = json.loads((WORK/'05_before_install/manifest.json').read_text())
     originals = {e['asset_id']:e for e in previous['assets']}
     replaced = {entry['asset_id'] for _,entry,_,_ in records}
-    assert len(manifest['assets']) == len(previous['assets'])
+    from install_personality_concepts import without_personality_variants
+    existing_assets = without_personality_variants(manifest['assets'], ROOT)
+    assert len(existing_assets) == len(previous['assets'])
     changed_fields = {'sha256','verified_on','creation','rights','modifications','motion_unification','foot_pivot_y','visual_state_id'}
     concept_baseline = {}
     if (ROOT/'_workspace/character-concept-transparency/installation.json').exists():
@@ -62,7 +64,7 @@ def verify_installed(manifest, report, receipt):
         check_concept_transparency()
         concept_before = json.loads((ROOT/'_workspace/character-concept-transparency/03_backup/manifest.json').read_text())
         concept_baseline = {e['asset_id']:e for e in concept_before['assets'] if e.get('type') == 'concept'}
-    for entry in manifest['assets']:
+    for entry in existing_assets:
         original = originals[entry['asset_id']]
         if entry['asset_id'] not in replaced:
             # A later separately approved alpha-only concept edit is validated above.

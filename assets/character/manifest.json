@@ -12160,6 +12160,222 @@
           }
         }
       }
+    },
+    {
+      "asset_id": "ja-hyun-concept-personality-v01",
+      "character_id": "ja-hyun",
+      "type": "concept-variant",
+      "variant": "personality",
+      "reference_concept_asset_id": "ja-hyun-concept-v01",
+      "reference_sha256": "a4dcff0f9fdeb592ee86a209603c5dc97ca059f2a461b7f61576b1acf3ce3311",
+      "path": "assets/character/ja-hyun/concept/ja-hyun-concept-personality-v01.png",
+      "sha256": "d05bc864b97fde740af736b0b32f03ec4bc8cd39e31c37c328d2d68fcdc3da9e",
+      "creation": {
+        "method": "built-in image generation using approved concept identity; user-approved local alpha cleanup and aspect-preserving placement",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "personality-v01"
+      },
+      "rights": {
+        "status": "derived from approved project character concept; user explicitly approved this additional final image; external license verification not asserted",
+        "references": [
+          "ja-hyun-concept-v01"
+        ]
+      },
+      "verified_on": "2026-10-24",
+      "modifications": [
+        "Removed alpha below 8; aspect-preserving downscale only when needed; centered on transparent 1024x1536 canvas with at least 48px clear margin. No repaint or upscale."
+      ],
+      "consumer_path": "assets/character/ja-hyun/concept/personality-v01.md",
+      "personality_review": {
+        "report_sha256": "65e21cdfade2232ac7cba52876a3252066f4ef6a6b72e1d151ca95e197bb0129",
+        "approval_record": "_workspace/character-personality-concepts/approval.json",
+        "candidate_path": "_workspace/character-personality-concepts/05_normalized/ja-hyun-concept-personality-v01.png",
+        "raw_source_path": "_workspace/character-personality-concepts/03_drafts/ja-hyun-r02.png",
+        "raw_source_sha256": "bc40ea0466bf29e043b1494bbddc2059447fc2d57016f22d818d5a105566c286",
+        "normalization": {
+          "policy": {
+            "alpha_threshold": 8,
+            "transparent_margin": 48,
+            "allow_upscale": false,
+            "preserve_aspect_ratio": true,
+            "repaint": false
+          },
+          "source_alpha_bbox": [
+            161,
+            173,
+            853,
+            1347
+          ],
+          "uniform_scale": 1.0,
+          "offset": [
+            166,
+            181
+          ],
+          "dropped_faint_pixels": 23499
+        }
+      }
+    },
+    {
+      "asset_id": "myo-ryung-concept-personality-v01",
+      "character_id": "myo-ryung",
+      "type": "concept-variant",
+      "variant": "personality",
+      "reference_concept_asset_id": "myo-ryung-concept-v01",
+      "reference_sha256": "1343a179f48057ded029947a2290e59fae37e2c954b0cf5e8bd86553479b192b",
+      "path": "assets/character/myo-ryung/concept/myo-ryung-concept-personality-v01.png",
+      "sha256": "078189c635b7b06246250ba48865e33d4df5008a8d6791bc8e7ea7f6f1c4b8fa",
+      "creation": {
+        "method": "built-in image generation using approved concept identity; user-approved local alpha cleanup and aspect-preserving placement",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "personality-v01"
+      },
+      "rights": {
+        "status": "derived from approved project character concept; user explicitly approved this additional final image; external license verification not asserted",
+        "references": [
+          "myo-ryung-concept-v01"
+        ]
+      },
+      "verified_on": "2026-10-24",
+      "modifications": [
+        "Removed alpha below 8; aspect-preserving downscale only when needed; centered on transparent 1024x1536 canvas with at least 48px clear margin. No repaint or upscale."
+      ],
+      "consumer_path": "assets/character/myo-ryung/concept/personality-v01.md",
+      "personality_review": {
+        "report_sha256": "65e21cdfade2232ac7cba52876a3252066f4ef6a6b72e1d151ca95e197bb0129",
+        "approval_record": "_workspace/character-personality-concepts/approval.json",
+        "candidate_path": "_workspace/character-personality-concepts/05_normalized/myo-ryung-concept-personality-v01.png",
+        "raw_source_path": "_workspace/character-personality-concepts/03_drafts/myo-ryung-r02.png",
+        "raw_source_sha256": "24747f8dfd200b69cd99189516566abeab7ae9ea86f8c9a040de9772da17f8b0",
+        "normalization": {
+          "policy": {
+            "alpha_threshold": 8,
+            "transparent_margin": 48,
+            "allow_upscale": false,
+            "preserve_aspect_ratio": true,
+            "repaint": false
+          },
+          "source_alpha_bbox": [
+            237,
+            23,
+            925,
+            1504
+          ],
+          "uniform_scale": 0.9669142471303174,
+          "offset": [
+            179,
+            52
+          ],
+          "dropped_faint_pixels": 41834
+        }
+      }
+    },
+    {
+      "asset_id": "nabi-concept-personality-v01",
+      "character_id": "nabi",
+      "type": "concept-variant",
+      "variant": "personality",
+      "reference_concept_asset_id": "nabi-concept-v01",
+      "reference_sha256": "03fd70fd5cd09a9e426f6c0de4b3df27345f1b41ade6d006ca88f2626d4d56b4",
+      "path": "assets/character/nabi/concept/nabi-concept-personality-v01.png",
+      "sha256": "2e2b8ad595cf5a815c76b9884052df284a3eaefa582483be126389b9e64951ed",
+      "creation": {
+        "method": "built-in image generation using approved concept identity; user-approved local alpha cleanup and aspect-preserving placement",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "personality-v01"
+      },
+      "rights": {
+        "status": "derived from approved project character concept; user explicitly approved this additional final image; external license verification not asserted",
+        "references": [
+          "nabi-concept-v01"
+        ]
+      },
+      "verified_on": "2026-10-24",
+      "modifications": [
+        "Removed alpha below 8; aspect-preserving downscale only when needed; centered on transparent 1024x1536 canvas with at least 48px clear margin. No repaint or upscale."
+      ],
+      "consumer_path": "assets/character/nabi/concept/personality-v01.md",
+      "personality_review": {
+        "report_sha256": "65e21cdfade2232ac7cba52876a3252066f4ef6a6b72e1d151ca95e197bb0129",
+        "approval_record": "_workspace/character-personality-concepts/approval.json",
+        "candidate_path": "_workspace/character-personality-concepts/05_normalized/nabi-concept-personality-v01.png",
+        "raw_source_path": "_workspace/character-personality-concepts/03_drafts/nabi-r01.png",
+        "raw_source_sha256": "c195f557e8117b38eb6a95d7238a8c816727f22b9e97f6eb74d278c51d37bc14",
+        "normalization": {
+          "policy": {
+            "alpha_threshold": 8,
+            "transparent_margin": 48,
+            "allow_upscale": false,
+            "preserve_aspect_ratio": true,
+            "repaint": false
+          },
+          "source_alpha_bbox": [
+            49,
+            12,
+            961,
+            1505
+          ],
+          "uniform_scale": 0.9591426657736102,
+          "offset": [
+            75,
+            52
+          ],
+          "dropped_faint_pixels": 31991
+        }
+      }
+    },
+    {
+      "asset_id": "yu-ran-concept-personality-v01",
+      "character_id": "yu-ran",
+      "type": "concept-variant",
+      "variant": "personality",
+      "reference_concept_asset_id": "yu-ran-concept-v01",
+      "reference_sha256": "9dac313952d970164a843f32d7ebafdbdb78955891bd123a807543c55d0ddfa6",
+      "path": "assets/character/yu-ran/concept/yu-ran-concept-personality-v01.png",
+      "sha256": "aee6cf8dc63bf9b7e3396cc4000ca5db7404ed7d4edbad918c3ace1f8f8fbdd3",
+      "creation": {
+        "method": "built-in image generation using approved concept identity; user-approved local alpha cleanup and aspect-preserving placement",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "personality-v01"
+      },
+      "rights": {
+        "status": "derived from approved project character concept; user explicitly approved this additional final image; external license verification not asserted",
+        "references": [
+          "yu-ran-concept-v01"
+        ]
+      },
+      "verified_on": "2026-10-24",
+      "modifications": [
+        "Removed alpha below 8; aspect-preserving downscale only when needed; centered on transparent 1024x1536 canvas with at least 48px clear margin. No repaint or upscale."
+      ],
+      "consumer_path": "assets/character/yu-ran/concept/personality-v01.md",
+      "personality_review": {
+        "report_sha256": "65e21cdfade2232ac7cba52876a3252066f4ef6a6b72e1d151ca95e197bb0129",
+        "approval_record": "_workspace/character-personality-concepts/approval.json",
+        "candidate_path": "_workspace/character-personality-concepts/05_normalized/yu-ran-concept-personality-v01.png",
+        "raw_source_path": "_workspace/character-personality-concepts/03_drafts/yu-ran-r01.png",
+        "raw_source_sha256": "25296a035547901da6c9e3c18a3d527ac941993eaee697f2ef2691b926edb682",
+        "normalization": {
+          "policy": {
+            "alpha_threshold": 8,
+            "transparent_margin": 48,
+            "allow_upscale": false,
+            "preserve_aspect_ratio": true,
+            "repaint": false
+          },
+          "source_alpha_bbox": [
+            95,
+            162,
+            912,
+            1483
+          ],
+          "uniform_scale": 1.0,
+          "offset": [
+            103,
+            107
+          ],
+          "dropped_faint_pixels": 37014
+        }
+      }
     }
   ]
 }

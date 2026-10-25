@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/jdh/.codex/worktrees/match-playtest-fixes/ForestArena/tools/forest_arena/install_personality_concepts.py", line 152, in <module>
+    install() if args.install else check()
+                                   ~~~~~^^
+  File "/Users/jdh/.codex/worktrees/match-playtest-fixes/ForestArena/tools/forest_arena/install_personality_concepts.py", line 109, in check
+    assert without_personality_variants(current['assets'], root) == before['assets'], 'Existing manifest entries changed'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Existing manifest entries changed

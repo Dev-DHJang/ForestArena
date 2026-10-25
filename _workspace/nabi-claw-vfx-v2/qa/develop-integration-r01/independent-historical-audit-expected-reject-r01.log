@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/Users/jdh/.codex/worktrees/match-playtest-fixes/ForestArena/tools/forest_arena/install_personality_concepts.py", line 166, in <module>
+    install() if args.install else check(preserve_install_snapshot=args.verify_installation_snapshot)
+                                   ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/jdh/.codex/worktrees/match-playtest-fixes/ForestArena/tools/forest_arena/install_personality_concepts.py", line 122, in check
+    assert existing == before['assets'], 'Existing manifest entries changed during installation'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Existing manifest entries changed during installation

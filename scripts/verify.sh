@@ -1,6 +1,11 @@
 #!/bin/sh
 set -eu
 
+python3 tools/forest_arena/test_personality_concepts.py
+python3 tools/forest_arena/test_personality_normalization.py
+python3 tools/forest_arena/test_personality_registration.py
+python3 tools/forest_arena/install_personality_concepts.py
+
 python3 tools/forest_arena/test_recover_codex_session.py
 python3 tools/forest_arena/test_motion_action_review.py
 python3 tools/forest_arena/test_android_fleet.py
@@ -41,6 +46,7 @@ godot --headless --path . --script res://tests/android_audio_store.gd
 godot --headless --path . --script res://tests/combat_overhaul_contract.gd
 godot --headless --path . --script res://tests/character_data_contract.gd
 godot --headless --path . --script res://tests/character_appearance_contract.gd
+godot --headless --path . --script res://tests/character_personality_concept_contract.gd
 godot --headless --path . --script res://tests/character_motion_contract.gd
 godot --headless --path . --script res://tests/character_attack_motion_contract.gd
 godot --headless --path . --script res://tests/combat_concept_contract.gd

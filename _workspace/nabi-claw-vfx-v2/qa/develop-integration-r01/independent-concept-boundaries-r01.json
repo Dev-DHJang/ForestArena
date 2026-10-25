@@ -1,0 +1,103 @@
+{
+  "status": "pass",
+  "checks": 16,
+  "rows": [
+    {
+      "case": "current checkout with later registered motions",
+      "expected": "accept",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "canonical removed",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Canonical concept entries changed"
+    },
+    {
+      "case": "canonical reference changed",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Canonical concept entries changed"
+    },
+    {
+      "case": "unknown canonical added",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Canonical concept entries changed"
+    },
+    {
+      "case": "duplicate canonical ID",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Duplicate manifest ID"
+    },
+    {
+      "case": "one approved variant missing",
+      "expected": "reject",
+      "pass": true,
+      "detail": "All four approved additions must remain installed"
+    },
+    {
+      "case": "unknown variant added",
+      "expected": "reject",
+      "pass": true,
+      "detail": "All four approved additions must remain installed"
+    },
+    {
+      "case": "motion data belongs to separate motion validation",
+      "expected": "accept",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "appearance characters still protected",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Existing appearance profiles changed"
+    },
+    {
+      "case": "installation audit positive baseline",
+      "expected": "accept",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "case": "installation audit rejects changed assets",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Existing asset, UI, combat or data file changed during installation: assets/app_icon.svg"
+    },
+    {
+      "case": "installation audit rejects changed scripts",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Existing asset, UI, combat or data file changed during installation: scripts/verify-android-emulator.sh"
+    },
+    {
+      "case": "installation audit rejects changed scenes",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Existing asset, UI, combat or data file changed during installation: scenes/main.tscn"
+    },
+    {
+      "case": "installation audit rejects changed forest_arena",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Existing asset, UI, combat or data file changed during installation: forest_arena/scripts/forest_arena_resource_manager.gd"
+    },
+    {
+      "case": "installation audit retains exact old entry comparison",
+      "expected": "reject",
+      "pass": true,
+      "detail": "Canonical concept entries changed"
+    },
+    {
+      "case": "install explicitly calls strict preservation mode",
+      "expected": "strict call",
+      "pass": true,
+      "detail": "AST read-only inspection"
+    }
+  ],
+  "scope": "in-memory mutations only; no install, PNG or product write"
+}
