@@ -1,0 +1,567 @@
+{
+  "status": "pass",
+  "scope": "saved public-presentation real-socket fixture; independent bytes/markers/source/clock/barrier checks, not app HUD/device QA",
+  "source_pins_equal_before_after_current": 2828,
+  "total_checks": 10136,
+  "total_native_pngs": 306,
+  "cases": [
+    {
+      "case": "ja-hyun-normal",
+      "checks": 2561,
+      "barriers": [
+        {
+          "label": "initial movement release precedes target facing press",
+          "last_observed_tick_at_input": 321,
+          "received_ticks_after": [
+            324,
+            324
+          ],
+          "required_tick": 323,
+          "success": true
+        },
+        {
+          "label": "target facing release precedes host re-approach",
+          "last_observed_tick_at_input": 327,
+          "received_ticks_after": [
+            330,
+            330
+          ],
+          "required_tick": 329,
+          "success": true
+        },
+        {
+          "label": "host release precedes heavy attack",
+          "last_observed_tick_at_input": 333,
+          "received_ticks_after": [
+            336,
+            336
+          ],
+          "required_tick": 335,
+          "success": true
+        }
+      ],
+      "slots": [
+        {
+          "slot": 1,
+          "owned": false,
+          "frames": 37,
+          "source_boards": [
+            "ja-hyun-normal-client-1-board-1.png",
+            "ja-hyun-normal-client-1-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0166666666666667,
+            0.0333333333333333,
+            0.05
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.0666666666666667,
+          "release_start_to_jump_post_draw_seconds": 0.067816
+        },
+        {
+          "slot": 2,
+          "owned": true,
+          "frames": 37,
+          "source_boards": [
+            "ja-hyun-normal-client-2-board-1.png",
+            "ja-hyun-normal-client-2-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0166666666666667,
+            0.0333333333333333,
+            0.05
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.0666666666666667,
+          "release_start_to_jump_post_draw_seconds": 0.067812
+        }
+      ],
+      "vfr_movie": "ja-hyun-normal-actual-vfr.mp4",
+      "vfr_sample_count": 37,
+      "actual_first_to_last_seconds": 0.633035,
+      "vfr_pts_matches_capture_within_microseconds": 2,
+      "terminal_preview_tail_seconds": 1e-06,
+      "vfr_time_source": "client1 post_draw_usec; both clients matched by same sync stamp"
+    },
+    {
+      "case": "ja-hyun-mirror",
+      "checks": 2567,
+      "barriers": [
+        {
+          "label": "initial movement release precedes target facing press",
+          "last_observed_tick_at_input": 321,
+          "received_ticks_after": [
+            324,
+            324
+          ],
+          "required_tick": 323,
+          "success": true
+        },
+        {
+          "label": "target facing release precedes host re-approach",
+          "last_observed_tick_at_input": 327,
+          "received_ticks_after": [
+            330,
+            330
+          ],
+          "required_tick": 329,
+          "success": true
+        },
+        {
+          "label": "host release precedes heavy attack",
+          "last_observed_tick_at_input": 333,
+          "received_ticks_after": [
+            336,
+            336
+          ],
+          "required_tick": 335,
+          "success": true
+        }
+      ],
+      "slots": [
+        {
+          "slot": 1,
+          "owned": false,
+          "frames": 37,
+          "source_boards": [
+            "ja-hyun-mirror-client-1-board-1.png",
+            "ja-hyun-mirror-client-1-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0166666666666667,
+            0.0333333333333333,
+            0.05
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.0666666666666667,
+          "release_start_to_jump_post_draw_seconds": 0.066561
+        },
+        {
+          "slot": 2,
+          "owned": true,
+          "frames": 37,
+          "source_boards": [
+            "ja-hyun-mirror-client-2-board-1.png",
+            "ja-hyun-mirror-client-2-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0166666666666667,
+            0.0333333333333333,
+            0.05
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.0666666666666667,
+          "release_start_to_jump_post_draw_seconds": 0.066573
+        }
+      ],
+      "vfr_movie": "ja-hyun-mirror-actual-vfr.mp4",
+      "vfr_sample_count": 37,
+      "actual_first_to_last_seconds": 0.630197,
+      "vfr_pts_matches_capture_within_microseconds": 2,
+      "terminal_preview_tail_seconds": 1e-06,
+      "vfr_time_source": "client1 post_draw_usec; both clients matched by same sync stamp"
+    },
+    {
+      "case": "nabi-normal",
+      "checks": 2509,
+      "barriers": [
+        {
+          "label": "initial movement release precedes target facing press",
+          "last_observed_tick_at_input": 306,
+          "received_ticks_after": [
+            309,
+            309
+          ],
+          "required_tick": 308,
+          "success": true
+        },
+        {
+          "label": "target facing release precedes host re-approach",
+          "last_observed_tick_at_input": 312,
+          "received_ticks_after": [
+            315,
+            315
+          ],
+          "required_tick": 314,
+          "success": true
+        },
+        {
+          "label": "host release precedes heavy attack",
+          "last_observed_tick_at_input": 318,
+          "received_ticks_after": [
+            321,
+            321
+          ],
+          "required_tick": 320,
+          "success": true
+        }
+      ],
+      "slots": [
+        {
+          "slot": 1,
+          "owned": false,
+          "frames": 40,
+          "source_boards": [
+            "nabi-normal-client-1-board-1.png",
+            "nabi-normal-client-1-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            15,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0180555555555556,
+            0.0347222222222222,
+            0.0485381111111111,
+            0.0652047777777778
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.0818714444444444,
+          "release_start_to_jump_post_draw_seconds": 0.070574
+        },
+        {
+          "slot": 2,
+          "owned": true,
+          "frames": 40,
+          "source_boards": [
+            "nabi-normal-client-2-board-1.png",
+            "nabi-normal-client-2-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            15,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0180555555555556,
+            0.0347222222222222,
+            0.0485381111111111,
+            0.0652047777777778
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.0818714444444444,
+          "release_start_to_jump_post_draw_seconds": 0.070569
+        }
+      ],
+      "vfr_movie": "nabi-normal-actual-vfr.mp4",
+      "vfr_sample_count": 40,
+      "actual_first_to_last_seconds": 0.673095,
+      "vfr_pts_matches_capture_within_microseconds": 2,
+      "terminal_preview_tail_seconds": 1e-06,
+      "vfr_time_source": "client1 post_draw_usec; both clients matched by same sync stamp"
+    },
+    {
+      "case": "nabi-mirror",
+      "checks": 2499,
+      "barriers": [
+        {
+          "label": "initial movement release precedes target facing press",
+          "last_observed_tick_at_input": 306,
+          "received_ticks_after": [
+            309,
+            309
+          ],
+          "required_tick": 308,
+          "success": true
+        },
+        {
+          "label": "target facing release precedes host re-approach",
+          "last_observed_tick_at_input": 312,
+          "received_ticks_after": [
+            315,
+            315
+          ],
+          "required_tick": 314,
+          "success": true
+        },
+        {
+          "label": "host release precedes heavy attack",
+          "last_observed_tick_at_input": 318,
+          "received_ticks_after": [
+            321,
+            321
+          ],
+          "required_tick": 320,
+          "success": true
+        }
+      ],
+      "slots": [
+        {
+          "slot": 1,
+          "owned": false,
+          "frames": 39,
+          "source_boards": [
+            "nabi-mirror-client-1-board-1.png",
+            "nabi-mirror-client-1-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            14,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0166666666666667,
+            0.0319444444444444,
+            0.0479436666666667,
+            0.0646103333333333
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.081277,
+          "release_start_to_jump_post_draw_seconds": 0.091593
+        },
+        {
+          "slot": 2,
+          "owned": true,
+          "frames": 39,
+          "source_boards": [
+            "nabi-mirror-client-2-board-1.png",
+            "nabi-mirror-client-2-board-2.png"
+          ],
+          "launch_frames_before_release": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            4,
+            4,
+            4,
+            4,
+            4,
+            5,
+            5,
+            5,
+            5,
+            5
+          ],
+          "release_drawn_frames": [
+            13,
+            14,
+            14,
+            15,
+            16
+          ],
+          "release_elapsed": [
+            0.0,
+            0.0166666666666667,
+            0.0319444444444444,
+            0.0479436666666667,
+            0.0646103333333333
+          ],
+          "first_jump_frame": 15,
+          "next_elapsed": 0.081277,
+          "release_start_to_jump_post_draw_seconds": 0.091625
+        }
+      ],
+      "vfr_movie": "nabi-mirror-actual-vfr.mp4",
+      "vfr_sample_count": 39,
+      "actual_first_to_last_seconds": 0.659195,
+      "vfr_pts_matches_capture_within_microseconds": 2,
+      "terminal_preview_tail_seconds": 1e-06,
+      "vfr_time_source": "client1 post_draw_usec; both clients matched by same sync stamp"
+    }
+  ]
+}

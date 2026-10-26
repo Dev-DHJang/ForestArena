@@ -1,0 +1,57 @@
+{
+  "scope": "Four native-capture VFR derivatives, both clients side by side; full-image contact boards cover all306. UI playback sampled mid-run and stopped-at-end; no claim that every continuously played frame was individually seen.",
+  "normal_and_half_speed_whole_clip_playback": [
+    {
+      "case": "ja-hyun-normal",
+      "start": 0,
+      "end": 0.633036,
+      "speeds": [
+        1,
+        0.5
+      ],
+      "completion": "QuickTime playback off at exact end after starting at0 at each speed"
+    },
+    {
+      "case": "ja-hyun-mirror",
+      "start": 0,
+      "end": 0.630198,
+      "speeds": [
+        1,
+        0.5
+      ],
+      "completion": "QuickTime playback off at exact end after starting at0 at each speed"
+    },
+    {
+      "case": "nabi-normal",
+      "start": 0,
+      "end": 0.673096,
+      "speeds": [
+        1,
+        0.5
+      ],
+      "completion": "QuickTime playback off at exact end after starting at0 at each speed"
+    },
+    {
+      "case": "nabi-mirror",
+      "start": 0,
+      "end": 0.659196,
+      "speeds": [
+        1,
+        0.5
+      ],
+      "completion": "QuickTime playback off at exact end after starting at0 at each speed"
+    }
+  ],
+  "all_native_pngs_directly_seen_on_contact_boards": 306,
+  "native_transition_crops_directly_seen": {
+    "cases": 4,
+    "client_rows": 8,
+    "sequence": "last unbridged LAUNCH F5, first actual F13/F14/F15/F16, first actual JUMP F15"
+  },
+  "observations": {
+    "ja-hyun": "F5 to F13 retains reclined torso; F14-F16 tucks legs and brings trunk forward, then actual JUMP F15 continues recovery. Same body and scarf remain readable in normal/mirror and owned/remote.",
+    "nabi": "F5 to F13 visibly changes from reclined to knees tucked; F16 to actual JUMP F15 opens knees/face. This posture change is stronger than Ja but reads as short airborne recovery in 1x/0.5x, without an intervening idle frame, clipping or wholesale scale replacement.",
+    "difference_from_local_full_motion": "LAN snapshots omit remaining stun: actual unbridged drawings only reach F5 before FALL. This result does not claim F6-F12 were drawn. Full16 source/local review is separate."
+  },
+  "verdict": "pass for these four real-socket public-presentation fixture transitions; not app HUD/device QA"
+}
