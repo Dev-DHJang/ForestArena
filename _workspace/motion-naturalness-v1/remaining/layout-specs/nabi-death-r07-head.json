@@ -1,0 +1,155 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "death",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/death-r02.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.33,
+  "presentation_scale": 0.9900923958995382,
+  "source_baseline_y": 308.5,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+  "version": "r07-head",
+  "state_hold_frame": 15,
+  "frame_anchors": [
+    {
+      "body_root": [
+        64,
+        106
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        106
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        107
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        107
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        109
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        109
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        107
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        107
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        99
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        96
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        96
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        98
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        79
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        78
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        77
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        77
+      ]
+    }
+  ],
+  "ground_contact_review": {
+    "source": "_workspace/motion-naturalness-v1/qa/remaining-independent-r01/ground-contact-proposals.json",
+    "reviewed_by": "remaining_motion_qa; root directly checked contact proposal boards",
+    "method": "whole-frame Y display alignment only; airborne knock-down poses remain unaligned"
+  },
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "death-r02.png",
+        "source_sha256": "1409bd6ac193e1e6e685b1aa969c891ef6053f32cd249352767cbfba5908ad9e",
+        "frame_index": 0,
+        "source_size": [
+          1448,
+          1086
+        ],
+        "raw_cell_size": [
+          362.0,
+          271.5
+        ],
+        "near_ear_tip_cell": [
+          215,
+          51
+        ],
+        "chin_cell": [
+          262,
+          169
+        ],
+        "source_head_unit_pixels": 127.016,
+        "recommended_uniform_source_to_world_scale": 0.3267,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

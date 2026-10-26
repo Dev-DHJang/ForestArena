@@ -1,0 +1,305 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "attack_heavy_up",
+  "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_16f_r08-hit-window.png",
+  "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_heavy_up_r08-hit-window.tres",
+  "sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+  "frame_count": 16,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 12.0,
+  "loop": false,
+  "presentation_scale": 0.9648936803416513,
+  "foot_pivot_y": 104.0,
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png"
+  ],
+  "source_sha256": "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034",
+  "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+  "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+  "conversion": {
+    "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+    "uniform_scale": 0.32,
+    "per_source_uniform_scales": [
+      0.32
+    ],
+    "source_scale_multipliers": [
+      1.0
+    ],
+    "reference_scale": 0.32,
+    "presentation_scale": 0.9648936803416513,
+    "source_baseline_y": 285.9,
+    "target_baseline_y": 104.0,
+    "frame_bounds": [
+      [
+        23,
+        14,
+        108,
+        103
+      ],
+      [
+        15,
+        14,
+        99,
+        102
+      ],
+      [
+        17,
+        14,
+        101,
+        102
+      ],
+      [
+        17,
+        14,
+        102,
+        102
+      ],
+      [
+        22,
+        15,
+        108,
+        105
+      ],
+      [
+        18,
+        15,
+        109,
+        105
+      ],
+      [
+        18,
+        15,
+        107,
+        105
+      ],
+      [
+        11,
+        11,
+        105,
+        106
+      ],
+      [
+        22,
+        17,
+        115,
+        106
+      ],
+      [
+        18,
+        16,
+        110,
+        106
+      ],
+      [
+        19,
+        16,
+        110,
+        105
+      ],
+      [
+        19,
+        16,
+        109,
+        106
+      ],
+      [
+        24,
+        14,
+        113,
+        102
+      ],
+      [
+        16,
+        15,
+        107,
+        103
+      ],
+      [
+        17,
+        15,
+        105,
+        103
+      ],
+      [
+        20,
+        15,
+        107,
+        103
+      ]
+    ],
+    "unassigned_small_regions": [],
+    "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_heavy_up-r08-hit-window.json",
+    "spec_sha256": "f131461e26083c1565633621bbc05f1472b42f6e31db2faf5976f27a70282fa7"
+  },
+  "phase_frame_ranges": [
+    [
+      0,
+      7
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      9,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    5,
+    20
+  ],
+  "frame_anchors": [
+    {
+      "claw_hand": [
+        97.04,
+        53.47
+      ]
+    },
+    {
+      "claw_hand": [
+        77.52,
+        60.83
+      ]
+    },
+    {
+      "claw_hand": [
+        86.8,
+        74.59
+      ]
+    },
+    {
+      "claw_hand": [
+        82.32,
+        72.03
+      ]
+    },
+    {
+      "claw_hand": [
+        98.96,
+        56.03
+      ]
+    },
+    {
+      "claw_hand": [
+        94.8,
+        52.19
+      ]
+    },
+    {
+      "claw_hand": [
+        96.72,
+        46.75
+      ]
+    },
+    {
+      "claw_hand": [
+        90.96,
+        24.99
+      ],
+      "claw_tip": [
+        103.12,
+        15.07
+      ]
+    },
+    {
+      "claw_hand": [
+        100.56,
+        33.95
+      ],
+      "claw_tip": [
+        110.16,
+        21.47
+      ]
+    },
+    {
+      "claw_hand": [
+        99.92,
+        44.83
+      ]
+    },
+    {
+      "claw_hand": [
+        95.44,
+        49.63
+      ]
+    },
+    {
+      "claw_hand": [
+        93.52,
+        56.35
+      ]
+    },
+    {
+      "claw_hand": [
+        95.12,
+        53.79
+      ]
+    },
+    {
+      "claw_hand": [
+        76.56,
+        60.83
+      ]
+    },
+    {
+      "claw_hand": [
+        90.0,
+        72.67
+      ]
+    },
+    {
+      "claw_hand": [
+        82.0,
+        68.83
+      ]
+    }
+  ],
+  "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png",
+  "source_sheet_sha256": [
+    "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034"
+  ],
+  "creation": {
+    "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+    "provider": "OpenAI built-in image generation",
+    "version": "remaining-motion-r08-hit-window",
+    "source_inputs": [
+      {
+        "path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png",
+        "sha256": "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034",
+        "frame_range": [
+          0,
+          16
+        ]
+      }
+    ]
+  },
+  "rights": {
+    "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+    "references": [
+      "assets/character/manifest.json",
+      "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+    ]
+  }
+}

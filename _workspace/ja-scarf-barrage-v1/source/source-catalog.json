@@ -1,0 +1,91 @@
+{
+  "motion": "special_scarf_sweep",
+  "character_id": "ja-hyun",
+  "frame_count": 32,
+  "source_frames_per_sheet": 16,
+  "source_grid": [
+    4,
+    4
+  ],
+  "phase_frame_ranges": {
+    "startup": [
+      0,
+      4
+    ],
+    "active": [
+      4,
+      27
+    ],
+    "recovery": [
+      27,
+      32
+    ]
+  },
+  "combat_ticks": {
+    "startup": 12,
+    "active": 60,
+    "recovery": 24
+  },
+  "registered": false,
+  "user_motion_approval": false,
+  "sources": [
+    {
+      "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-a-r01.png",
+      "source_sha256": "e5f25191941ba84be27f5f8f64545366582ede15df4e9d74751c06d6c51af9cd",
+      "dimensions": [
+        1263,
+        1246
+      ],
+      "mode": "RGBA",
+      "method": "built-in image_gen",
+      "status": "rejected-layout",
+      "role": "initial first16",
+      "prompt_path": "_workspace/ja-scarf-barrage-v1/source/barrage-a-r01.prompt.txt",
+      "references": [
+        "assets/character/ja-hyun/concept/ja-hyun-concept-v01.png"
+      ],
+      "external_asset_used": false,
+      "rights_note": "Generated derivative of user-approved concept. User-described choreography reference only; no video frame or audio copied. No additional external license verification asserted."
+    },
+    {
+      "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png",
+      "source_sha256": "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "method": "built-in image_gen",
+      "status": "candidate",
+      "role": "frames01-16",
+      "prompt_path": "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.prompt.txt",
+      "references": [
+        "assets/character/ja-hyun/concept/ja-hyun-concept-v01.png",
+        "_workspace/ja-scarf-barrage-v1/source/barrage-a-r01.png"
+      ],
+      "external_asset_used": false,
+      "rights_note": "Generated derivative of user-approved concept. User-described choreography reference only; no video frame or audio copied. No additional external license verification asserted."
+    },
+    {
+      "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png",
+      "source_sha256": "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "method": "built-in image_gen",
+      "status": "candidate",
+      "role": "frames17-32",
+      "prompt_path": "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.prompt.txt",
+      "references": [
+        "assets/character/ja-hyun/concept/ja-hyun-concept-v01.png",
+        "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png"
+      ],
+      "external_asset_used": false,
+      "rights_note": "Generated derivative of user-approved concept. User-described choreography reference only; no video frame or audio copied. No additional external license verification asserted."
+    }
+  ],
+  "range_end": "exclusive",
+  "timing_revision": "_workspace/ja-scarf-barrage-v1/layout-r03.json"
+}

@@ -1,0 +1,59 @@
+Godot Engine v4.7.1.stable.official.a13da4feb - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Too few arguments for "draw_mesh()" call. Expected at least 2 but received 1.
+          at: GDScript::reload (res://scripts/fighter_attack_effects.gd:189)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://scripts/local_fighter_presentation.gd:0)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+          at: GDScript::reload (res://_workspace/hit-reaction-restart-v1/render-live.gd:0)
+ERROR: Failed to load script "res://_workspace/hit-reaction-restart-v1/render-live.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _ready (res://scripts/local_fighter_presentation.gd:63)
+          GDScript backtrace (most recent call first):
+              [0] _ready (res://scripts/local_fighter_presentation.gd:63)
+              [1] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:130)
+              [2] run (res://_workspace/hit-reaction-restart-v1/render-live.gd:292)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _ready (res://scripts/local_fighter_presentation.gd:63)
+          GDScript backtrace (most recent call first):
+              [0] _ready (res://scripts/local_fighter_presentation.gd:63)
+              [1] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:130)
+              [2] run (res://_workspace/hit-reaction-restart-v1/render-live.gd:292)
+SCRIPT ERROR: Invalid call. Nonexistent function 'queue_redraw' in base 'Nil'.
+          at: run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+          GDScript backtrace (most recent call first):
+              [0] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _ready (res://scripts/local_fighter_presentation.gd:63)
+          GDScript backtrace (most recent call first):
+              [0] _ready (res://scripts/local_fighter_presentation.gd:63)
+              [1] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:130)
+              [2] run (res://_workspace/hit-reaction-restart-v1/render-live.gd:292)
+              [3] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+SCRIPT ERROR: Invalid call. Nonexistent function 'new' in base 'GDScript'.
+          at: _ready (res://scripts/local_fighter_presentation.gd:63)
+          GDScript backtrace (most recent call first):
+              [0] _ready (res://scripts/local_fighter_presentation.gd:63)
+              [1] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:130)
+              [2] run (res://_workspace/hit-reaction-restart-v1/render-live.gd:292)
+              [3] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+SCRIPT ERROR: Invalid call. Nonexistent function 'queue_redraw' in base 'Nil'.
+          at: run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+          GDScript backtrace (most recent call first):
+              [0] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+ERROR: ja-hyun repeat-hit: complete clip captured
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://_workspace/hit-reaction-restart-v1/render-live.gd:300)
+       [1] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+ERROR: nabi repeat-hit: complete clip captured
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] run (res://_workspace/hit-reaction-restart-v1/render-live.gd:300)
+       [1] run_clip (res://_workspace/hit-reaction-restart-v1/render-live.gd:212)
+PILOT_LIVE_RENDER: FAIL (14 checks, 2 clips)
+WARNING: 3 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

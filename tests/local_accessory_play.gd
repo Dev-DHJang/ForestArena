@@ -5,6 +5,7 @@ var app: Node
 var controller: MatchController
 var hit_events: Array[Dictionary] = []
 var case_label := ""
+var legacy_catalog := LocalPlayCatalog.new(false)
 
 func _initialize() -> void:
 	call_deferred("run")
@@ -19,11 +20,21 @@ func ticks(count: int) -> void:
 
 func start_case(character_id: StringName, accessory_id: StringName) -> void:
 	case_label = "%s/%s" % [character_id, accessory_id]
-	check(app.store.select(String(character_id), String(accessory_id), "ja-hyun"), "owned selection")
-	app.start_match()
-	controller = app.match_controller
+	if is_instance_valid(app):
+		app.queue_free()
+		await process_frame
+	app = (load("res://scenes/main.tscn") as PackedScene).instantiate()
+	controller = app.get_node("MatchController")
+	root.add_child(app)
+	await process_frame
+	controller.loadout_catalog = legacy_catalog.combat
+	var selection := LoadoutSelection.new()
+	selection.character_id = character_id
+	selection.accessory_id = accessory_id
+	var built := LoadoutBuilder.build(selection, legacy_catalog.combat)
+	check(built.succeeded() and controller.player.configure_profile(built.profile), "legacy fixture profile")
 	controller.set_physics_process(false)
-	check(controller.bot_source != null, "normal app builds AI opponent")
+
 	# Freeze only the opponent command producer so the effect measurement is
 	# reproducible; attacks still use ordinary intents, physics and hit resolution.
 	controller.bot_source = null
@@ -52,19 +63,9 @@ func strike(source: FighterController) -> AttackData:
 	return attack
 
 func run() -> void:
-	app = (load("res://scenes/local_ai_app.tscn") as PackedScene).instantiate()
-	var path := "user://qa/accessory-play-%d/profile.json" % Time.get_ticks_usec()
-	DirAccess.make_dir_recursive_absolute(path.get_base_dir())
-	app.save_path = path
-	app.db_session_path = path + ".session"
-	app.demo_guest_session_path = path + ".demo-session"
-	root.add_child(app)
-	await process_frame
-	check(app.store.grant_first("nabi"), "first grant")
-	for item: Dictionary in app.catalog.products:
-		if not app.store.owns(item.id): check(app.store.purchase(item.id), "free purchase " + item.id)
-	for character: CharacterData in app.catalog.combat.characters:
-		for accessory: AccessoryData in app.catalog.combat.accessories:
+	# Retained accessory mechanics are fixtures, excluded from the active product.
+	for character: CharacterData in legacy_catalog.combat.characters:
+		for accessory: AccessoryData in legacy_catalog.combat.accessories:
 			await start_case(character.character_id, accessory.accessory_id)
 			var player := controller.player
 			var enemy := controller.training_dummy
@@ -110,16 +111,12 @@ func run() -> void:
 					await strike(enemy)
 					check(player.stocks == 0 and not player.runtime_state.revive_used, label + " no accessory revival")
 					check(controller.winner_id == enemy.fighter_id, label + " final lethal hit ends match")
-			app.start_match()
-			controller = app.match_controller
-			controller.set_physics_process(false)
+			controller.reset_match()
 			check(controller.player.stocks == 3 and controller.player.current_hp == character.base_stats.max_hp, label + " rematch restores HP and stocks")
 			check(not controller.player.runtime_state.revive_used and controller.player.runtime_state.ultimate_gauge == 0, label + " rematch resets resources")
 			check(character.base_stats.max_hp == player_hp, label + " source max HP unchanged")
 	app.queue_free()
 	await process_frame
-	for suffix: String in ["", ".bak", ".tmp"]:
-		if FileAccess.file_exists(path + suffix): DirAccess.remove_absolute(path + suffix)
 	for failure: String in failures: push_error(failure)
 	print("LOCAL_ACCESSORY_PLAY: " + ("PASS" if failures.is_empty() else "FAIL"))
 	quit(0 if failures.is_empty() else 1)

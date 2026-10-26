@@ -1,0 +1,40 @@
+{
+  "status": "pass",
+  "cases": [
+    {
+      "variant": "valid",
+      "accepted": true,
+      "expected_accepted": true,
+      "pass": true
+    },
+    {
+      "variant": "stale_pixels",
+      "accepted": false,
+      "expected_accepted": false,
+      "pass": true
+    },
+    {
+      "variant": "wrong_trace_frame",
+      "accepted": false,
+      "expected_accepted": false,
+      "pass": true
+    },
+    {
+      "variant": "missing_pose14",
+      "accepted": false,
+      "expected_accepted": false,
+      "pass": true
+    },
+    {
+      "variant": "mutated_snapshot",
+      "accepted": false,
+      "expected_accepted": false,
+      "pass": true
+    }
+  ],
+  "function_source": "input-r01/run.py:verify_and_archive + file_sha only",
+  "synthetic_records": true,
+  "no_gui_no_ports": true,
+  "temporary_fixture_files_removed": true,
+  "scope": "Isolated archive guards, not real LAN/pixels or visual quality evidence."
+}

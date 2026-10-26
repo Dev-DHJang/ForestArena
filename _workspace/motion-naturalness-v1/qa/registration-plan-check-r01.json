@@ -1,0 +1,31 @@
+{
+  "kind": "read-only-registration-plan-check",
+  "plan_sha256": "24877d86d3de0d531da75509f2ab1802521dc17653107be95569721846854669",
+  "same_inputs_same_plan": true,
+  "protected_files_unchanged": 246,
+  "operations": {
+    "replace": 9,
+    "add": 1
+  },
+  "outputs": 21,
+  "runtime_writes": false,
+  "user_approval_record_created": false,
+  "missing_approval_refused": true,
+  "remaining_scope_exact": true,
+  "command": [
+    "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+    "tools/forest_arena/register_motion_candidates.py",
+    "--project-root",
+    ".",
+    "--catalog",
+    "_workspace/motion-naturalness-v1/candidate-catalog.json",
+    "--scope",
+    "_workspace/motion-naturalness-v1/candidate-scope.json",
+    "--scope-sha256",
+    "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+    "--review",
+    "_workspace/motion-naturalness-v1/review/pilot-r04/motion-review.json",
+    "--targets",
+    "_workspace/motion-naturalness-v1/registration-targets.json"
+  ]
+}

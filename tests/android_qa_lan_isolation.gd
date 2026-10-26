@@ -23,7 +23,7 @@ func _run() -> void:
 		var created := await _message(host, "room_created")
 		if failed: return
 		var guest := await _open(url)
-		_send(guest, {"type": "join_room", "access_token": OS.get_environment(prefix + "GUEST"), "room_code": created.room_code, "selection": _selection("yu-ran")})
+		_send(guest, {"type": "join_room", "access_token": OS.get_environment(prefix + "GUEST"), "room_code": created.room_code, "selection": _selection("ja-hyun")})
 		await _message(host, "match_start")
 		await _message(guest, "match_start")
 		hosts.append(host)
@@ -77,7 +77,7 @@ func _open(url: String) -> Dictionary:
 	_check(client.peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED, "connection opens")
 	return client
 func _send(client: Dictionary, value: Dictionary) -> void:
-	value.protocol_version = 2
+	value.protocol_version = 3
 	_check(client.peer.put_packet(JSON.stringify(value).to_utf8_buffer()) == OK, "normal LAN v2 message sends")
 func _message(client: Dictionary, kind: String) -> Dictionary:
 	var deadline := Time.get_ticks_msec() + TIMEOUT_MSEC

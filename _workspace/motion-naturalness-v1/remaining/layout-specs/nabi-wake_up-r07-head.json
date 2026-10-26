@@ -1,0 +1,155 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "wake_up",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/wake_up-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.3,
+  "presentation_scale": 1.1481183308849365,
+  "source_baseline_y": 360.75,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+  "version": "r07-head",
+  "state_duration_ticks": 12,
+  "frame_anchors": [
+    {
+      "body_root": [
+        64,
+        120
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        119
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        121
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        121
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        111
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        111
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        111
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        115
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        95
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        94
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        95
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        94
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        85
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        86
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        84
+      ]
+    }
+  ],
+  "ground_contact_review": {
+    "source": "_workspace/motion-naturalness-v1/qa/remaining-independent-r01/ground-contact-proposals.json",
+    "reviewed_by": "remaining_motion_qa; root directly checked contact proposal boards",
+    "method": "whole-frame Y display alignment only; airborne knock-down poses remain unaligned"
+  },
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "wake_up-r01.png",
+        "source_sha256": "35aa9852c243f7612d3680f3d49c219f2addfcecce7d3af986af48cab12c0c98",
+        "frame_index": 15,
+        "source_size": [
+          1254,
+          1254
+        ],
+        "raw_cell_size": [
+          313.5,
+          313.5
+        ],
+        "near_ear_tip_cell": [
+          171,
+          51
+        ],
+        "chin_cell": [
+          210,
+          165
+        ],
+        "source_head_unit_pixels": 120.487,
+        "recommended_uniform_source_to_world_scale": 0.3444,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

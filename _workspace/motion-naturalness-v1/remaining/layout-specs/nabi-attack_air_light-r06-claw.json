@@ -1,0 +1,158 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "attack_air_light",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.33,
+  "presentation_scale": 1.0,
+  "source_baseline_y": 272.5,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+  "version": "r06-claw",
+  "phase_frame_ranges": [
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      7,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    8,
+    4,
+    18
+  ],
+  "source_frame_anchors": [
+    {
+      "claw_hand": [
+        207,
+        163
+      ]
+    },
+    {
+      "claw_hand": [
+        194,
+        158
+      ]
+    },
+    {
+      "claw_hand": [
+        218,
+        160
+      ]
+    },
+    {
+      "claw_hand": [
+        138,
+        87
+      ]
+    },
+    {
+      "claw_hand": [
+        331,
+        160
+      ],
+      "claw_tip": [
+        370,
+        182
+      ]
+    },
+    {
+      "claw_hand": [
+        350,
+        165
+      ],
+      "claw_tip": [
+        395,
+        176
+      ]
+    },
+    {
+      "claw_hand": [
+        362,
+        166
+      ],
+      "claw_tip": [
+        402,
+        181
+      ]
+    },
+    {
+      "claw_hand": [
+        294,
+        182
+      ],
+      "claw_tip": [
+        339,
+        204
+      ]
+    },
+    {
+      "claw_hand": [
+        223,
+        165
+      ]
+    },
+    {
+      "claw_hand": [
+        233,
+        157
+      ]
+    },
+    {
+      "claw_hand": [
+        226,
+        169
+      ]
+    },
+    {
+      "claw_hand": [
+        217,
+        167
+      ]
+    },
+    {
+      "claw_hand": [
+        221,
+        152
+      ]
+    },
+    {
+      "claw_hand": [
+        222,
+        155
+      ]
+    },
+    {
+      "claw_hand": [
+        234,
+        155
+      ]
+    },
+    {
+      "claw_hand": [
+        226,
+        160
+      ]
+    }
+  ],
+  "source_anchor_review": {
+    "handoff": "_workspace/motion-naturalness-v1/remaining/nabi/02_anchor_handoff.md",
+    "sidecars": [
+      "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.anchors.json"
+    ],
+    "meaning": "visible attack hand and central long claw tip only; omitted occluded tips stay absent"
+  }
+}

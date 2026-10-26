@@ -1,0 +1,135 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "ja-hyun",
+  "motion": "attack_air_heavy",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/ja-hyun/attack_air_heavy-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.3353,
+  "presentation_scale": 0.85,
+  "source_baseline_y": 299.5,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "공중에서 목도리를 머리 위에서 아래로 내려치는 단타. 시전자는 공중에 남고 피해자가 급강하한다.",
+  "version": "r01",
+  "phase_frame_ranges": [
+    [
+      0,
+      5
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      8,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    5,
+    22
+  ],
+  "source_frame_anchors": [
+    {
+      "scarf_hand": [
+        122.0,
+        99.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        151.5,
+        83.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        204.0,
+        82.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        164.5,
+        70.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        170.0,
+        115.5
+      ]
+    },
+    {
+      "scarf_hand": [
+        183.5,
+        117.5
+      ]
+    },
+    {
+      "scarf_hand": [
+        223.0,
+        255.5
+      ]
+    },
+    {
+      "scarf_hand": [
+        207.5,
+        254.5
+      ]
+    },
+    {
+      "scarf_hand": [
+        221.0,
+        233.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        221.5,
+        179.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        223.0,
+        168.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        173.5,
+        74.0
+      ]
+    },
+    {
+      "scarf_hand": [
+        195.0,
+        49.5
+      ]
+    },
+    {
+      "scarf_hand": [
+        168.5,
+        54.5
+      ]
+    },
+    {},
+    {}
+  ],
+  "unresolved_source_anchor_frames": [
+    {
+      "frame": 14,
+      "key": "scarf_hand"
+    },
+    {
+      "frame": 15,
+      "key": "scarf_hand"
+    }
+  ]
+}

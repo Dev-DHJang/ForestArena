@@ -1,0 +1,1736 @@
+{
+  "schema_version": 1,
+  "reviewer": "",
+  "sources": {
+    "_workspace/motion-naturalness-v1/02_expectations.md": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+    "_workspace/motion-naturalness-v1/candidate-catalog.json": "50e2e6519b142a01f404f82293e1a013a9e9c650ed18cc55e0db218d2e2f5907",
+    "_workspace/motion-naturalness-v1/candidate-scope.json": "dce23d6831eef16190e4005a2b27eeaaf65a0600de5923421581551ffe04811f",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_01_16f_r03.png": "7fc8bcb8e3de49ab25cde2e0184fee53d99525803fc408849120db8caf887982",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_01_r03.tres": "cc552e3c847f7e959fe16e30900ad9dbd45afc6cf564fbe49a88792766069dfd",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_02_16f_r03.png": "c9a885dabc3cbc2daa732f0043d46bd3fcf32f93a7c0dc7ee9b7d656bf1651fd",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_02_r03.tres": "04dbcc03280f36643755c55b7e85de7ab940c0f79b0f0c950d8fd3d90c7543f2",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_04_16f_r04.png": "2e6bc588f6025a501a27d1a759a0a25541346b9489ec314a2f8efbbc78623f9c",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_04_r04.tres": "1ae371fb3ec607ef46ddd42d49e4d799fc6b54dcd29538ef4d5b2d94e39d715a",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/jump_24f_r03.png": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/jump_r03.tres": "67775f8e07ee03535b1facbe369e324e0daf38f5ea46111458fd39986e0d87dc",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/run_16f_r06.png": "08a3faa2609ff87aebf8623b95a40fcfacedb88cc8c9cc85d1f2f8b148d80cf3",
+    "_workspace/motion-naturalness-v1/candidates/ja-hyun/run_r06.tres": "cd99deb20f903c65fc3012ad6a6a9a1803f7beffbd90d754315e2bc9f6ac2eee",
+    "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_01_16f_r02.png": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+    "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_01_r02.tres": "dab9e55d1a0678f175bba947a92e836858f776e3fcbeccc8e4ca63501f86f0a5",
+    "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_02_16f_r03.png": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+    "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_02_r03.tres": "16366888f01c9eb370c2a40581faf47c38c6e98f4b8c06b81aa38a614f02eb31",
+    "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_up_16f_r03.png": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+    "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_up_r03.tres": "b53192bb83c8eaed6c95ef36bd955783903f6d97af857602ee0acb7f95efceca",
+    "_workspace/motion-naturalness-v1/candidates/nabi/jump_24f_r03.png": "8e5c530cc6eea933f9f4a7c8b0e8b01c1427efc3e002343f575b87352c60cf5d",
+    "_workspace/motion-naturalness-v1/candidates/nabi/jump_r03.tres": "764058d0d8d3dcd6cb432b3193ece9966963acc6eb508514f03bc150ad4e4815",
+    "_workspace/motion-naturalness-v1/candidates/nabi/run_16f_r05.png": "25b18202ccbad8a557735256d576f890fffbb3ec4e1dc20d4215c490d28a5ef8",
+    "_workspace/motion-naturalness-v1/candidates/nabi/run_r05.tres": "1dff19f0854515f57b19da6170d27d224cb5dd581f37c37e975e6b3a2d57a91c",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "b7441e081bf90f6b7a3e79e1a909b837f8b6fab108e6acf1e33dec2041ab910b",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "2a071bf3ad20aef8a4ae62b27de2f1f3b20843aa3dba1c9f55e6a4e40b3b23d6",
+    "scripts/fighter_controller.gd": "998ac7f8d89deb5b9d8435a983589389b952abb42c117cfba066a816a7c5772a",
+    "scripts/local_fighter_presentation.gd": "d3bb2f5fd41a7bc06416d05e590d34b0f89891e7522940a5799e628f72ede22a",
+    "tools/forest_arena/motion_layout.py": "9186353ea51f94f01d9cae3175cd5c5c1b554b836a785ea9d6f4842e7a4648c5",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "e35e22e81f6cd4d52465c86fd425bbb3a69cc7d8b923789ad8d270ab15802a52",
+    "tools/forest_arena/motion_review_timeline.gd": "abf664a942bed9da3d37445a1bf70420750abc3e271bbf37f7deaca8a77c93b4",
+    "tools/forest_arena/review_motion_actions.py": "a8154e49f1989dbedf15410138a24da14e3c2fb2dfc667ae3fac7df3f5694e23"
+  },
+  "timeline_sha256": "366f2116b6f99ac3359570b807a317612241f252c5ac35d28e4702bca45394ec",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_light_combo_01",
+      "path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_01_16f_r03.png",
+      "sha256": "7fc8bcb8e3de49ab25cde2e0184fee53d99525803fc408849120db8caf887982",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_01_r03.tres",
+      "sprite_frames_sha256": "cc552e3c847f7e959fe16e30900ad9dbd45afc6cf564fbe49a88792766069dfd",
+      "expected_action": "왼손 전방 펀치. 지상 약1과 약3은 같은 손이다. 준비→전방 단타→회복.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/ja-hyun__attack_light_combo_01.jpg": "d24552fef8fe10e48ae683d0171f2736f4e0bb340df402b0ce46f658910ff2f2",
+        "sheets/ja-hyun__attack_light_combo_01.png": "7fc8bcb8e3de49ab25cde2e0184fee53d99525803fc408849120db8caf887982"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-light-01",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ]
+          ]
+        },
+        {
+          "attack_id": "ja-hyun-light-03",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_light_combo_02",
+      "path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_02_16f_r03.png",
+      "sha256": "c9a885dabc3cbc2daa732f0043d46bd3fcf32f93a7c0dc7ee9b7d656bf1651fd",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_02_r03.tres",
+      "sprite_frames_sha256": "04dbcc03280f36643755c55b7e85de7ab940c0f79b0f0c950d8fd3d90c7543f2",
+      "expected_action": "반대 오른손 전방 펀치. 왼손 첫타와 사용 손을 구분한다.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/ja-hyun__attack_light_combo_02.jpg": "6d84c50efd785fbcca8fcc4538cd4f89255d450b3e6f8491c5db3d22a4c6ae8a",
+        "sheets/ja-hyun__attack_light_combo_02.png": "c9a885dabc3cbc2daa732f0043d46bd3fcf32f93a7c0dc7ee9b7d656bf1651fd"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-light-02",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_light_combo_04",
+      "path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_04_16f_r04.png",
+      "sha256": "2e6bc588f6025a501a27d1a759a0a25541346b9489ec314a2f8efbbc78623f9c",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/attack_light_combo_04_r04.tres",
+      "sprite_frames_sha256": "1ae371fb3ec607ef46ddd42d49e4d799fc6b54dcd29538ef4d5b2d94e39d715a",
+      "expected_action": "한 발로 버티고 다른 발을 전방으로 펼치는 강한 킥. 목도리 공격이 아닌 약4 다운 마무리.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/ja-hyun__attack_light_combo_04.jpg": "aee90116c2e2bd7f893421f59b2b140de6ea726692dd8fbb535d07a2c0d5abb0",
+        "sheets/ja-hyun__attack_light_combo_04.png": "2e6bc588f6025a501a27d1a759a0a25541346b9489ec314a2f8efbbc78623f9c"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-light-04",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "jump",
+      "path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/jump_24f_r03.png",
+      "sha256": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/jump_r03.tres",
+      "sprite_frames_sha256": "67775f8e07ee03535b1facbe369e324e0daf38f5ea46111458fd39986e0d87dc",
+      "expected_action": "상승·정점·하강을 구분한다. 실제 착지 전에는 지면을 딛는 착지 자세를 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/ja-hyun__jump.jpg": "ad42d9f1cb8ac01863f99108c3c0fb009d04abd0484dd2e18ae9b8c08cf6507e",
+        "sheets/ja-hyun__jump.png": "7b417ed37f113b828c1e0d67b1be00258a8756d4c2bf7a5cbcc9e0ed5f625ac1"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:jump",
+          "sequence": [
+            [
+              0,
+              "ascent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              1,
+              "ascent",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              2,
+              "ascent",
+              "jump",
+              100.0000000000002
+            ],
+            [
+              3,
+              "ascent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ascent",
+              "jump",
+              16.6666666666667
+            ],
+            [
+              6,
+              "apex",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              7,
+              "apex",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              8,
+              "apex",
+              "jump",
+              50.0000000000001
+            ],
+            [
+              10,
+              "descent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              11,
+              "descent",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              12,
+              "descent",
+              "jump",
+              100.0000000000002
+            ],
+            [
+              13,
+              "descent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              14,
+              "descent",
+              "jump",
+              16.6666666666667
+            ],
+            [
+              16,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              17,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              18,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              19,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              20,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              21,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              22,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              23,
+              "landing",
+              "jump",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "run",
+      "path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/run_16f_r06.png",
+      "sha256": "08a3faa2609ff87aebf8623b95a40fcfacedb88cc8c9cc85d1f2f8b148d80cf3",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/ja-hyun/run_r06.tres",
+      "sprite_frames_sha256": "cd99deb20f903c65fc3012ad6a6a9a1803f7beffbd90d754315e2bc9f6ac2eee",
+      "expected_action": "전진 달리기. 발 교대와 체중 이동이 이어지고 루프가 튀지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/ja-hyun__run.jpg": "b96a01d3f01313575feae1e0127d07b47d61dcb374f10fa4d4018e11d2398784",
+        "sheets/ja-hyun__run.png": "08a3faa2609ff87aebf8623b95a40fcfacedb88cc8c9cc85d1f2f8b148d80cf3"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:run",
+          "sequence": [
+            [
+              0,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              1,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              2,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              3,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              4,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              7,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              8,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              11,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              0,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              1,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              2,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              3,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              4,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              11,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              12,
+              "run",
+              "run",
+              100.0000000000002
+            ],
+            [
+              13,
+              "run",
+              "run",
+              66.6666666666668
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_combo_01",
+      "path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_01_16f_r02.png",
+      "sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_01_r02.tres",
+      "sprite_frames_sha256": "dab9e55d1a0678f175bba947a92e836858f776e3fcbeccc8e4ca63501f86f0a5",
+      "expected_action": "왼손으로 전방 할퀴기. 첫 약공격 준비→앞으로 단타→회복.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/nabi__attack_light_combo_01.jpg": "5600398a17ddbc8e037a366cbd4f9b42ea2bff2840ac037acf85834871d7cd74",
+        "sheets/nabi__attack_light_combo_01.png": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-01",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_combo_02",
+      "path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_02_16f_r03.png",
+      "sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_combo_02_r03.tres",
+      "sprite_frames_sha256": "16366888f01c9eb370c2a40581faf47c38c6e98f4b8c06b81aa38a614f02eb31",
+      "expected_action": "두 손을 교차한 뒤 양쪽으로 벌려 X자 할퀴는 약3 다운 마무리.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/nabi__attack_light_combo_02.jpg": "db25ae49743480bf378945b1a48ee4589fb46bf366408a9e8d679085bf647848",
+        "sheets/nabi__attack_light_combo_02.png": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-03",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_up",
+      "path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_up_16f_r03.png",
+      "sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/nabi/attack_light_up_r03.tres",
+      "sprite_frames_sha256": "b53192bb83c8eaed6c95ef36bd955783903f6d97af857602ee0acb7f95efceca",
+      "expected_action": "오른손을 아래에서 위로 할퀴는 지상 약2. 반대손은 방어하고 양손X나점프어퍼와구별한다.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/nabi__attack_light_up.jpg": "15538b38f34ae4dc33d69a6d9b0cef549290cdfe8dc1a959d3edcd6e9fdc96a0",
+        "sheets/nabi__attack_light_up.png": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-02",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_up",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_up",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "jump",
+      "path": "_workspace/motion-naturalness-v1/candidates/nabi/jump_24f_r03.png",
+      "sha256": "8e5c530cc6eea933f9f4a7c8b0e8b01c1427efc3e002343f575b87352c60cf5d",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/nabi/jump_r03.tres",
+      "sprite_frames_sha256": "764058d0d8d3dcd6cb432b3193ece9966963acc6eb508514f03bc150ad4e4815",
+      "expected_action": "상승·정점·하강을 구분한다. 실제 착지 전에는 지면을 딛는 착지 자세를 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/nabi__jump.jpg": "1e483174151e7fbd1101556059b3fd079b6bb405681916c94d41ef0b02d4d6c9",
+        "sheets/nabi__jump.png": "8e5c530cc6eea933f9f4a7c8b0e8b01c1427efc3e002343f575b87352c60cf5d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:jump",
+          "sequence": [
+            [
+              0,
+              "ascent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              1,
+              "ascent",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              2,
+              "ascent",
+              "jump",
+              100.0000000000002
+            ],
+            [
+              3,
+              "ascent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ascent",
+              "jump",
+              16.6666666666667
+            ],
+            [
+              6,
+              "apex",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              7,
+              "apex",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              8,
+              "apex",
+              "jump",
+              50.0000000000001
+            ],
+            [
+              10,
+              "descent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              11,
+              "descent",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              12,
+              "descent",
+              "jump",
+              100.0000000000002
+            ],
+            [
+              13,
+              "descent",
+              "jump",
+              66.6666666666668
+            ],
+            [
+              14,
+              "descent",
+              "jump",
+              16.6666666666667
+            ],
+            [
+              16,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              17,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              18,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              19,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              20,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              21,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              22,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              23,
+              "landing",
+              "jump",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "run",
+      "path": "_workspace/motion-naturalness-v1/candidates/nabi/run_16f_r05.png",
+      "sha256": "25b18202ccbad8a557735256d576f890fffbb3ec4e1dc20d4215c490d28a5ef8",
+      "sprite_frames_path": "_workspace/motion-naturalness-v1/candidates/nabi/run_r05.tres",
+      "sprite_frames_sha256": "1dff19f0854515f57b19da6170d27d224cb5dd581f37c37e975e6b3a2d57a91c",
+      "expected_action": "전진 달리기. 발 교대와 체중 이동이 이어지고 루프가 튀지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "9a077e9c4cdff7961963b5abd9c68f19e8e474f4b56f03c186a08d8ef29c4ef5",
+      "materials": {
+        "boards/nabi__run.jpg": "6371f8f36ae27e9a1bc534f6d556776136a6f09af7a814d2c409ddf850290e8b",
+        "sheets/nabi__run.png": "25b18202ccbad8a557735256d576f890fffbb3ec4e1dc20d4215c490d28a5ef8"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:run",
+          "sequence": [
+            [
+              0,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              1,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              2,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              3,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              0,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              1,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              2,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              3,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/motion-naturalness-v1/candidate-catalog.json",
+    "catalog_sha256": "50e2e6519b142a01f404f82293e1a013a9e9c650ed18cc55e0db218d2e2f5907",
+    "scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+    "scope_sha256": "dce23d6831eef16190e4005a2b27eeaaf65a0600de5923421581551ffe04811f",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "ca1065bff3a701a5d89b2433e074f21eeee19b30fc4d849023b12962cfd8a0bc",
+    "timeline.json": "366f2116b6f99ac3359570b807a317612241f252c5ac35d28e4702bca45394ec"
+  }
+}

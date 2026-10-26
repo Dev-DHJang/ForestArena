@@ -1,0 +1,21 @@
+{
+  "status": "fix",
+  "cases": [
+    {
+      "mode": "natural",
+      "client_exit_code": 0,
+      "report_valid": false,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "4f28347f2517063730cbafa3d1839e48ee567e1412a7f2db0a179a5cd8a01bf9",
+      "server_log_valid": true
+    }
+  ],
+  "source_files_unchanged": true,
+  "auth_log_valid": true,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "presentation_source": "res://scripts/local_fighter_presentation.gd",
+  "output": "_workspace/motion-naturalness-v1/qa/lan-launch-release-runner-r04/mock-only-independent-tkspa5gd/missing-catalog",
+  "scope": "actual localhost sockets; selected presentation; candidate artwork/release metadata remain process-local; no device or rendered-pixel claim"
+}

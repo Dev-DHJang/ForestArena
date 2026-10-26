@@ -1,0 +1,220 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "knock_down",
+  "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_16f_r07-head.png",
+  "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/knock_down_r07-head.tres",
+  "sha256": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+  "frame_count": 16,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 12.0,
+  "loop": false,
+  "presentation_scale": 0.9975772094712624,
+  "foot_pivot_y": 104.0,
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/knock_down-r01.png"
+  ],
+  "source_sha256": [
+    "4fa0450aa78e04cb9cbd8a3796041d696b0d81fe0a91855ab80aafadd5223fc5"
+  ],
+  "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+  "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+  "conversion": {
+    "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+    "uniform_scale": 0.33,
+    "per_source_uniform_scales": [
+      0.33
+    ],
+    "source_scale_multipliers": [
+      1.0
+    ],
+    "reference_scale": 0.33,
+    "presentation_scale": 0.9975772094712624,
+    "source_baseline_y": 298.0,
+    "target_baseline_y": 104.0,
+    "frame_bounds": [
+      [
+        12,
+        14,
+        107,
+        105
+      ],
+      [
+        17,
+        18,
+        118,
+        107
+      ],
+      [
+        3,
+        20,
+        106,
+        107
+      ],
+      [
+        3,
+        22,
+        103,
+        107
+      ],
+      [
+        16,
+        29,
+        109,
+        112
+      ],
+      [
+        21,
+        33,
+        115,
+        106
+      ],
+      [
+        12,
+        34,
+        115,
+        107
+      ],
+      [
+        13,
+        37,
+        112,
+        108
+      ],
+      [
+        11,
+        41,
+        119,
+        99
+      ],
+      [
+        6,
+        43,
+        113,
+        97
+      ],
+      [
+        3,
+        41,
+        116,
+        103
+      ],
+      [
+        4,
+        43,
+        118,
+        103
+      ],
+      [
+        12,
+        34,
+        119,
+        85
+      ],
+      [
+        8,
+        36,
+        120,
+        85
+      ],
+      [
+        9,
+        39,
+        122,
+        84
+      ],
+      [
+        7,
+        36,
+        118,
+        86
+      ]
+    ],
+    "unassigned_small_regions": [],
+    "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-knock_down-r07-head.json",
+    "spec_sha256": "ce069aedceaab0b471049a3539d9602768717129ad08fbc95064619dba6971fb"
+  },
+  "frame_anchors": [
+    {
+      "body_root": [
+        64,
+        101
+      ]
+    },
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {
+      "body_root": [
+        64,
+        96
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        95
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        100
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        100
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        84
+      ]
+    }
+  ],
+  "state_hold_frame": 15
+}

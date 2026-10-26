@@ -1,0 +1,78 @@
+{
+  "reviewer": "afterimage_final_r09 / independent qa",
+  "method": "QuickTime Player 공식 로컬 파일 열기. 각 릴을 0초부터 8초 끝까지 seek 없이 재생하고 끝에서 재생 off 확인. 화면 출력은 회차당 5개 표본을 직접 관찰했다. UI의 모든 60fps 프레임을 연속 시각 관찰했다고 주장하지 않는다. 별도로 원화80장과 전체960틱 비교판을 전수 관찰했다.",
+  "completion_note": "중단 전 mirror-small 두 회차 완료 기록을 보존하고, 재개 후 normal 두 회차를 전체 재생하여 마쳤다. 이전 normal의 부분 seek 표본은 전체 완주 근거로 사용하지 않았다.",
+  "runs": [
+    {
+      "reel": "_workspace/nabi-claw-vfx-v2/qa/independent-visual-r02/normal-reel.mp4",
+      "sha256": "85d9be8424e2c8c26ce96ac83844e1a80060ce15199878da1a1e083352047f8b",
+      "speed": 1,
+      "uninterrupted_start_seconds": 0,
+      "uninterrupted_end_seconds": 8,
+      "end_player_toggle": "off",
+      "full_reel_completed": true,
+      "direct_ui_screenshot_count": 5,
+      "direct_ui_sample_seconds_approx": [
+        0.5601750547,
+        2.6958424508,
+        4.6389496718,
+        6.5470459519,
+        8
+      ]
+    },
+    {
+      "reel": "_workspace/nabi-claw-vfx-v2/qa/independent-visual-r02/normal-reel.mp4",
+      "sha256": "85d9be8424e2c8c26ce96ac83844e1a80060ce15199878da1a1e083352047f8b",
+      "speed": 0.5,
+      "uninterrupted_start_seconds": 0,
+      "uninterrupted_end_seconds": 8,
+      "end_player_toggle": "off",
+      "full_reel_completed": true,
+      "direct_ui_screenshot_count": 5,
+      "direct_ui_sample_seconds_approx": [
+        0.3676148796,
+        2.6958424508,
+        4.6214442013,
+        6.5470459519,
+        8
+      ]
+    },
+    {
+      "reel": "_workspace/nabi-claw-vfx-v2/qa/independent-visual-r02/mirror-small-reel.mp4",
+      "sha256": "a35936219015b565dddb56a0ca63df3bd8e026f5400630fb04fbdd9338d721e2",
+      "speed": 1,
+      "uninterrupted_start_seconds": 0,
+      "uninterrupted_end_seconds": 8,
+      "end_player_toggle": "off",
+      "full_reel_completed": true,
+      "direct_ui_screenshot_count": 5,
+      "direct_ui_sample_seconds_approx": [
+        0.595,
+        2.731,
+        4.656,
+        6.6,
+        8
+      ]
+    },
+    {
+      "reel": "_workspace/nabi-claw-vfx-v2/qa/independent-visual-r02/mirror-small-reel.mp4",
+      "sha256": "a35936219015b565dddb56a0ca63df3bd8e026f5400630fb04fbdd9338d721e2",
+      "speed": 0.5,
+      "uninterrupted_start_seconds": 0,
+      "uninterrupted_end_seconds": 8,
+      "end_player_toggle": "off",
+      "full_reel_completed": true,
+      "direct_ui_screenshot_count": 5,
+      "direct_ui_sample_seconds_approx": [
+        0.385,
+        2.678,
+        4.639,
+        6.53,
+        8
+      ]
+    }
+  ],
+  "static_source_poses_directly_viewed": 80,
+  "static_actual_rgba_ticks_directly_viewed": 960,
+  "android_tested": false
+}

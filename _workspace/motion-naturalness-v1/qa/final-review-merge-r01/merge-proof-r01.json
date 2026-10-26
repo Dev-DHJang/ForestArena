@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "total": 25,
+  "original_pass": 21,
+  "exact_copied_pass": 4,
+  "all_pass": true,
+  "sources_unchanged": true,
+  "review_sha256": "f1fa2b12da11abf14e09db5e25a96d3b5b07a0fa96c8e871a1bd5ff80d4fd4c1",
+  "merge": {
+    "first_review": "_workspace/motion-naturalness-v1/qa/remaining-candidate-review-r10-current/motion-review.json",
+    "first_review_sha256": "b5fd95d431640d446032949a6ee3c135ea8f93598e7740c4d8439ce3aa99c734",
+    "second_review": "_workspace/nabi-claw-vfx-v2/qa/independent-visual-r02/formal-review/motion-review.json",
+    "second_review_sha256": "500bc6e21145e9fb31d7d6315a8f955df39f8bda8fe2c266328002882698ef3a",
+    "second_verdicts": "_workspace/nabi-claw-vfx-v2/qa/independent-visual-r02/four-motion-verdicts.json",
+    "second_verdicts_sha256": "243034f53f0481584f50a72b7d04fdd2cd3f9c850732f27ae21be48f7624112a",
+    "copied_motion_decisions": [
+      "nabi/attack_air_heavy",
+      "nabi/attack_air_light",
+      "nabi/attack_heavy_up",
+      "nabi/special_side"
+    ],
+    "scope": "only four existing independent decisions copied; no new visual verdict, artwork, code or registration"
+  },
+  "runtime_manifest_sha256": "2503ccf0b0b32c3626c047818559d213b1184d1e8017076e4c9968cc0800674c",
+  "approval_status": "pending"
+}

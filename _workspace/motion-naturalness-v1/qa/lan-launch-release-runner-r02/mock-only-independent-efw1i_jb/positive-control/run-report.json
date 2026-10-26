@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "cases": [
+    {
+      "mode": "natural",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "4f28347f2517063730cbafa3d1839e48ee567e1412a7f2db0a179a5cd8a01bf9"
+    },
+    {
+      "mode": "attack",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "5c1730c6044b5b6ed237e479054ff2d32f5ae0247cb4ecc1237d0da5a7c4cb82"
+    },
+    {
+      "mode": "jump",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "c563824381de432a4277bb883f25613731a703eb1e2abb501e64797116138974"
+    }
+  ],
+  "source_files_unchanged": true,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "presentation_source": "res://scripts/local_fighter_presentation.gd",
+  "output": "_workspace/motion-naturalness-v1/qa/lan-launch-release-runner-r02/mock-only-independent-efw1i_jb/positive-control",
+  "scope": "actual localhost sockets; selected presentation; candidate artwork/release metadata remain process-local; no device or rendered-pixel claim"
+}

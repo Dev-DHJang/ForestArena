@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/character_data.gd" id="1_data"]
+[ext_resource type="Resource" path="res://assets/combat/movesets/nabi_moveset.tres" id="1_ys87v"]
+[ext_resource type="Script" path="res://scripts/data/character_stats.gd" id="2_stats"]
+[ext_resource type="Texture2D" path="res://assets/character/nabi/concept/nabi-concept-v01.png" id="3_image"]
+
+[sub_resource type="Resource" id="CharacterStats_nabi"]
+script = ExtResource("2_stats")
+schema_version = 2
+max_hp = 100.0
+weight = 0.92
+ground_speed = 335.0
+air_speed = 315.0
+jump_velocity = 550.0
+gravity = 1380.0
+dash_speed = 545.0
+dash_duration_seconds = 0.17
+
+[resource]
+script = ExtResource("1_data")
+character_id = &"nabi"
+display_name = "나비"
+concept_asset_id = &"nabi-concept-v01"
+concept_image = ExtResource("3_image")
+concept_summary = "백은발·흰 고양이 귀·긴 흰 꼬리와 검정·보라·흰 스트리트 파이터 의상을 갖춘 3등신 성인 여성 인간형 근접 격투가. 짧은 라벤더 발톱 가드와 낮은 진입 자세로 공격 의도를 읽힌다."
+background_setting = "숲 마을의 야간 순찰대였던 나비는 꼬리와 후드가 만드는 큰 실루엣으로 적의 시선을 끌고 동료가 빠져나갈 길을 만든다."
+combat_role = "기동형 근접 압박가"
+tags = Array[StringName]([&"cat-theme", &"striker", &"mobile", &"white-tail"])
+move_slot_ids = Array[StringName]([&"nabi-claw-jab", &"nabi-pounce-slash", &"nabi-guard-rake"])
+passive_description = "빠른 진입 뒤 짧은 거리에서 압박을 이어가는 것을 지향한다. 실제 효과는 향후 PassiveData에서 정의한다."
+base_stats = SubResource("CharacterStats_nabi")
+base_move_set = ExtResource("1_ys87v")

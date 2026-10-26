@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "reviewer": "",
+  "sources": {
+    "_workspace/ja-scarf-barrage-v1/00_request.md": "6100b77800437d630a7a502565de7014e45fc7ebfc50d56900c98045fa3106fe",
+    "_workspace/ja-scarf-barrage-v1/candidate-catalog-r03.json": "0705c69406f5820aeb6a7a3ce812469050b5738824036ccf7b22ced33c43a71c",
+    "_workspace/ja-scarf-barrage-v1/candidate-scope-r03.json": "ba724f1f8de594ed8b86298bf5a4247300566a04716a9b83f3a8e4507c4df138",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "35d5851096e2ffa85b4d111fc2dbc5025dba7b5307fd538195c7c7826cf93428",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "ea2027d669224a4964e29eec19989fb372012729660fd35227c9f6a498d6db73",
+    "scripts/fighter_controller.gd": "bf232c6a3869bb5aa2b2df7705a1bfd9aff989a641e3af78fdb773669a62e4a7",
+    "scripts/local_fighter_presentation.gd": "35a8fddfacd956e55b2f5ae4a9b443ff46cca7ba778d54574c95887ae0e80b33",
+    "tools/forest_arena/motion_layout.py": "9e5b18acd46f71dc3eb2ae197c8388edf6e22fef85761a782f2ded54aaf66b12",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "e35e22e81f6cd4d52465c86fd425bbb3a69cc7d8b923789ad8d270ab15802a52",
+    "tools/forest_arena/motion_review_timeline.gd": "372c23cafae74982789332e8f24bfa477f05565f4e042c99b6a8b48ca97f701e",
+    "tools/forest_arena/review_motion_actions.py": "db889da63d69137a5f41588a2464cd72badb333a0f5af42dc0793ec84e8288cd"
+  },
+  "timeline_sha256": "392b6388d2a8f41b4f18222737a8056aacc9327e0ecb545a399ca4db33e4b3a4",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_scarf_sweep",
+      "path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png",
+      "sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+      "sprite_frames_path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres",
+      "sprite_frames_sha256": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+      "expected_action": "넓은 지지 자세에서 실제 착용 목도리를 같은 공격 손으로 좌·우·위로 빠르게 교차하여 연속 쳐낸다. 준비4장→연타23장(마지막F27바깥휘두르기)→회복5장. 1초10회 타격과 끌기 뒤 밀기는 전투가 계산한다.",
+      "action_source": "_workspace/ja-scarf-barrage-v1/00_request.md",
+      "action_source_sha256": "6100b77800437d630a7a502565de7014e45fc7ebfc50d56900c98045fa3106fe",
+      "materials": {
+        "boards/ja-hyun__special_scarf_sweep.jpg": "31ac8639436db6ce3a5a00d33fb9c6b4b2e4914cc1241b330f6bf62a3d8b0166",
+        "sheets/ja-hyun__special_scarf_sweep.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              2,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              3,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              6,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              7,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              8,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              9,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              10,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              11,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              12,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              13,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              14,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              15,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              16,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              17,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              18,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              19,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              20,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              21,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              22,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              23,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              24,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              25,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              26,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              27,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              28,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              29,
+              "recovery",
+              "special_scarf_sweep",
+              66.6666666666668
+            ],
+            [
+              30,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              31,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": false,
+        "normal_playback": false,
+        "slow_playback": false,
+        "runtime_timing": false,
+        "mirrored": false,
+        "small_scale": false
+      },
+      "status": "blocked",
+      "observations": "",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/ja-scarf-barrage-v1/candidate-catalog-r03.json",
+    "catalog_sha256": "0705c69406f5820aeb6a7a3ce812469050b5738824036ccf7b22ced33c43a71c",
+    "scope_path": "_workspace/ja-scarf-barrage-v1/candidate-scope-r03.json",
+    "scope_sha256": "ba724f1f8de594ed8b86298bf5a4247300566a04716a9b83f3a8e4507c4df138",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "514246f7a9b02aae2535e7c173749096d40ed68f4682eb05e87d073bd3b9e61a",
+    "timeline.json": "392b6388d2a8f41b4f18222737a8056aacc9327e0ecb545a399ca4db33e4b3a4"
+  }
+}

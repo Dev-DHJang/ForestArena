@@ -1,0 +1,101 @@
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.210s
+
+OK
+F....................................................
+======================================================================
+FAIL: test_candidate_timeline_uses_explicit_new_movesets_not_legacy_base (__main__.CandidateFramesGodotTest.test_candidate_timeline_uses_explicit_new_movesets_not_legacy_base)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/jdh/.codex/worktrees/match-playtest-fixes/ForestArena/tools/forest_arena/test_motion_action_review.py", line 496, in test_candidate_timeline_uses_explicit_new_movesets_not_legacy_base
+    self.assertEqual(variants["nabi-special"]["phase_ticks"], [10, 24, 24])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [10, 24, 20] != [10, 24, 24]
+
+First differing element 2:
+20
+24
+
+- [10, 24, 20]
+?           ^
+
++ [10, 24, 24]
+?           ^
+
+
+----------------------------------------------------------------------
+Ran 53 tests in 3.015s
+
+FAILED (failures=1)
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpx40sgaeq/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpx40sgaeq/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpq17kz4zo/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpq17kz4zo/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp7wuc9d5j/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp7wuc9d5j/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpx46_5frl/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpx46_5frl/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpsnejdn20/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpsnejdn20/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpiipzf175/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpiipzf175/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpmi8nvr03/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpmi8nvr03/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp8k0iucwy/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp8k0iucwy/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpwpu9inaz/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpwpu9inaz/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmphq1dqhhl/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmphq1dqhhl/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpa5apoj31/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpa5apoj31/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpq12npx36/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpq12npx36/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpbjageynz/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpbjageynz/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpswucoaqe/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpswucoaqe/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpysizmq3x/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpysizmq3x/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpkfyhx0ut/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpkfyhx0ut/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp8gu2hfqw/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp8gu2hfqw/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp47vv7nca/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp47vv7nca/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpktf_jxxc/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpktf_jxxc/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpwhh5pazn/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpwhh5pazn/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp6lta2cg_/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp6lta2cg_/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpozbqx_lr/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpozbqx_lr/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpsywpc3vd/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpsywpc3vd/_workspace/candidate-test/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpg8p872pz/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpcre0bb8w/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpc2fz_f7n/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpxhjp3_9k/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpjdt17iou/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpwsnianx1/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp71g4neok/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp5j7io9oy/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp49q1noq2/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp7lzjsmxo/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpzmjeuihh/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpwc_6o0yk/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmptrpsowj6/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpp3j17gtx/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpjjnpn4ik/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp97_kunqu/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpe79m5f2u/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpt79z6drp/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp23wy72md/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpodmds0k8/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpgkn9yqw7/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpiiwwfseh/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmper5lw4ed/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmp_35qcbfk/review/index.html
+prepared 1 motions: /var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/tmpc3fe7pll/review/index.html

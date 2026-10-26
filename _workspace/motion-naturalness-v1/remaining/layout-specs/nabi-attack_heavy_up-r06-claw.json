@@ -1,0 +1,150 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "attack_heavy_up",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.32,
+  "presentation_scale": 1.0,
+  "source_baseline_y": 285.9,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+  "version": "r06-claw",
+  "phase_frame_ranges": [
+    [
+      0,
+      5
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      8,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    5,
+    20
+  ],
+  "source_frame_anchors": [
+    {
+      "claw_hand": [
+        272,
+        128
+      ]
+    },
+    {
+      "claw_hand": [
+        211,
+        151
+      ]
+    },
+    {
+      "claw_hand": [
+        240,
+        194
+      ]
+    },
+    {
+      "claw_hand": [
+        226,
+        186
+      ]
+    },
+    {
+      "claw_hand": [
+        278,
+        136
+      ]
+    },
+    {
+      "claw_hand": [
+        265,
+        124
+      ]
+    },
+    {
+      "claw_hand": [
+        271,
+        107
+      ]
+    },
+    {
+      "claw_hand": [
+        253,
+        39
+      ],
+      "claw_tip": [
+        291,
+        8
+      ]
+    },
+    {
+      "claw_hand": [
+        283,
+        67
+      ],
+      "claw_tip": [
+        313,
+        28
+      ]
+    },
+    {
+      "claw_hand": [
+        281,
+        101
+      ]
+    },
+    {
+      "claw_hand": [
+        267,
+        116
+      ]
+    },
+    {
+      "claw_hand": [
+        261,
+        137
+      ]
+    },
+    {
+      "claw_hand": [
+        266,
+        129
+      ]
+    },
+    {
+      "claw_hand": [
+        208,
+        151
+      ]
+    },
+    {
+      "claw_hand": [
+        250,
+        188
+      ]
+    },
+    {
+      "claw_hand": [
+        225,
+        176
+      ]
+    }
+  ],
+  "source_anchor_review": {
+    "handoff": "_workspace/motion-naturalness-v1/remaining/nabi/02_anchor_handoff.md",
+    "sidecars": [
+      "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.anchors.json"
+    ],
+    "meaning": "visible attack hand and central long claw tip only; omitted occluded tips stay absent"
+  }
+}

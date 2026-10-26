@@ -1,0 +1,122 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "wake_up",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/wake_up-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.3,
+  "presentation_scale": 1.0,
+  "source_baseline_y": 360.75,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+  "version": "r04-ground",
+  "state_duration_ticks": 12,
+  "frame_anchors": [
+    {
+      "body_root": [
+        64,
+        120
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        119
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        121
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        121
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        111
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        111
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        111
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        115
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        95
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        94
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        95
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        94
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        85
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        86
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        84
+      ]
+    }
+  ],
+  "ground_contact_review": {
+    "source": "_workspace/motion-naturalness-v1/qa/remaining-independent-r01/ground-contact-proposals.json",
+    "reviewed_by": "remaining_motion_qa; root directly checked contact proposal boards",
+    "method": "whole-frame Y display alignment only; airborne knock-down poses remain unaligned"
+  }
+}

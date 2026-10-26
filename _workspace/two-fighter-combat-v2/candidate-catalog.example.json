@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "kind": "motion-candidates",
+  "approval_status": "pending",
+  "attack_sources": [
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres"
+  ],
+  "assets": [
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_01",
+      "path": "_workspace/two-fighter-combat-v2/candidates/v01/ja-hyun/attack_light_combo_01_16f.png",
+      "sprite_frames_path": "res://_workspace/two-fighter-combat-v2/candidates/v01/ja-hyun/attack_light_combo_01.tres",
+      "fps": 12,
+      "loop": false,
+      "expected_action": "왼손 준비 → 왼손 단타를 오른쪽 전방으로 뻗음 → 왼손을 회수; 오른손·킥과 구별한다. 준비/적중/회복은 새 AttackData와 대조한다.",
+      "action_source": "_workspace/two-fighter-combat-v2/00_request.md",
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          10,
+          15
+        ]
+      ]
+    },
+    {
+      "type": "animation-runtime",
+      "character_id": "ja-hyun",
+      "visual_state_id": "idle",
+      "path": "assets/character/ja-hyun/animation/runtime/idle_16f.png",
+      "sprite_frames_path": "res://assets/character/ja-hyun/animation/runtime/idle.tres",
+      "fps": 8,
+      "loop": true,
+      "reuse_approved_runtime": true,
+      "expected_action": "기존 승인 대기의 호흡과 전투 준비 자세를 새 표시 코드에서 확인한다.",
+      "action_source": "docs/content/motion-action-review.md"
+    }
+  ],
+  "character_movesets": {
+    "ja-hyun": "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres"
+  }
+}

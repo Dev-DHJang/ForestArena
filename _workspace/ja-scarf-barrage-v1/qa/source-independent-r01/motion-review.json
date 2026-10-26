@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "reviewer": "remaining_motion_qa 독립 QA",
+  "status": "fix",
+  "approval_status": "pending",
+  "catalog_sha256": "0f52388aa2233a727664e31037565a01bdb6a764be4ada87fe7dd86196f9f48f",
+  "character_id": "ja-hyun",
+  "motion": "special_scarf_sweep",
+  "expected_action": "넓은 지지 자세에서 실제 착용 목도리를 같은 공격 손으로 좌·우·위로 빠르게 교차하여 연속 쳐낸다. 준비4장→연타24장→회복4장. 1초10회 타격과 끌기 뒤 밀기는 전투가 계산한다.",
+  "sources": {
+    "_workspace/ja-scarf-barrage-v1/candidate-catalog-r01.json": "0f52388aa2233a727664e31037565a01bdb6a764be4ada87fe7dd86196f9f48f",
+    "_workspace/ja-scarf-barrage-v1/candidate-scope-r01.json": "a2588c9f092abc0b5bdcdd11eabd85e332b3d98b0880cfe7bb45f8c4bb474398",
+    "_workspace/ja-scarf-barrage-v1/qa/timeline-r01.json": "af11848f3d868227759a93738ef1df779757f8cbd4f2f727b5ecd1bb44afe485",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r01.png": "1de32a46090e6bcf11a4a900a23e61ce187ced77d9f37065f3459f7469a70c8e",
+    "scripts/local_fighter_presentation.gd": "79e420c952552d87b88a7c48f21d96e7fb45740d60b534db0f7a103f2dc96544",
+    "scripts/fighter_attack_effects.gd": "936a66c1a688d3f635d7816019669b3851f716d299f616d63f3d44cb553de713",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png": "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png": "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.anchors.json": "f95c9a8d9bfb63b736cc3879bc3a2e9882b79e07a5b792e4eb6697a0d5fdcab9",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.anchors.json": "57464308e4aace66ebb7f44233a43c62d63ccad7b96987d0ebc1b025c8af0115"
+  },
+  "checks": {
+    "all32_source_frames": true,
+    "all32_candidate_frames": true,
+    "mirrored96px_fixed_ground": true,
+    "actual_presentation_timeline": true,
+    "complete_normal_game_playback": false,
+    "complete_slow_game_playback": false,
+    "effects_connection_in_game": false
+  },
+  "observations": [
+    "넓은 발 디딤에서 좌우·상단으로 천끝을 자주 바꾸며 한 방향 회전으로 읽히지 않는다.",
+    "F1–4 준비, F5–28 연타, F29–32 손 풀기/가드 회복이 읽힌다. 실제 시간표는12/60/24틱이며 공격24장은33/50ms 교대로 표시된다.",
+    "A9/F9·A15/F15는 가까운 팔이 얼굴 앞을 가로지르는 것으로도 읽혀 반대팔로 교체된다고 확정하지 않았다.",
+    "F19/B3는 두 손이 천 쪽에 모이고, 가까운 팔은 가슴 앞 아래에 남은 채 반대편 팔이 위에서 천을 잡는 것으로 읽힌다. 같은 공격 손으로 계속 쳐내는 규칙의 연결이 끊긴다.",
+    "목 접점 일부는 칼라 뒤에 가려져 추정이다. 원화에서 목에 착용된 천은 보이지만 목→손→천끝의 전 구간 연결은 실제 효과 화면으로 확인해야 한다.",
+    "F30의 펼친 손으로 힘 풀기가 읽히며 F31–32는 가드로 돌아온다. 이 마지막2장에 없는 손 좌표를 만들어 효과를 붙이지 않은 것은 타당하다.",
+    "body_root에 따라 바닥을 맞춘96px 반전32장 비교에서 앞선 상태 원화의 행별 접지 상승은 보이지 않았다.",
+    "동일 배율의 남은idle과 새특수 F1/F17/F32를 비교했다. 준비의 더 낮은 무게중심이 보인다. 실제 idle→특수 전환의 외형·크기 튐은 경기 영상 대기다."
+  ],
+  "issues": [
+    {
+      "status": "fix",
+      "frames": [
+        19
+      ],
+      "material": "hand-continuity-detail.jpg",
+      "description": "F19의 높은 손과 낮은 손이 모두 천을 잡는 자세로 읽혀 기존 공격 팔에서 반대 팔로 바뀐다. 가까운 공격 팔이 위로 교차하고 반대 팔이 가드하는 한 가지 연결로 명확히 그려야 한다.",
+      "required": "수정 원화/부착점의 새해시와 F17–21 연결 재검토"
+    }
+  ],
+  "limitations": [
+    "참고영상은 통합 담당자가 직접 확인한 분석과00_request.md를 기준으로 삼았다. 독립 QA가 유튜브 구간을 직접 보았다고 기록하지 않는다.",
+    "원화/후보/표시 시간표 선행 검토이며 전체 실제 경기 정상·느린 재생/효과의 통과가 아니다.",
+    "Android 미실행. 후보·런타임 수정하지 않음."
+  ]
+}

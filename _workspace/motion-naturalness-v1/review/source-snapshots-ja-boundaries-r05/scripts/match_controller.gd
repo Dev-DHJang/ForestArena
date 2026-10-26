@@ -1,0 +1,388 @@
+class_name MatchController
+extends Node
+
+const CommandResolverScript = preload("res://scripts/command_resolver.gd")
+const EffectControllerScript = preload("res://scripts/effect_controller.gd")
+const EffectData = preload("res://scripts/data/combat_effect_data.gd")
+const PushboxResolverScript = preload("res://scripts/pushbox_resolver.gd")
+
+signal snapshot_changed(snapshot: Dictionary)
+signal match_ended(winner_id: StringName)
+signal presentation_event(event_id: StringName, payload: Dictionary)
+
+@export var rules: CombatRules
+@export var stage_data: StageData
+@export var player: FighterController
+@export var training_dummy: FighterController
+## Additional local participants are appended after the legacy 1v1 pair.
+## They use the same fixed-tick path, hit resolver and stock rules.
+@export var additional_fighters: Array[FighterController] = []
+@export var loadout_catalog: LoadoutCatalog
+@export var player_selection: LoadoutSelection
+@export var training_dummy_selection: LoadoutSelection
+## Development-only match shells can inject already-built profiles after their
+## fighters exist. Normal scenes keep the Resource-driven startup path.
+@export var configure_profiles_on_ready := true
+
+var presentation_epoch := 0
+var presentation_sequence := 0
+var tick := 0
+var paused := false
+var winner_id: StringName
+var sudden_death_round := 0
+var is_draw := false
+var winner_team_id: StringName
+var local_match_mode: int = LocalMatchConfig.Mode.AI
+var team_by_fighter_id: Dictionary = {}
+## Optional local opponent; emits the same intents as human controls.
+var bot_source: RefCounted
+var bot_sources: Array[RefCounted] = []
+var _queued_intents: Array[CombatIntent] = []
+var _hit_counts: Dictionary = {}
+## A fighter may remain in DEAD while another participant still has stock.
+## Death-triggered effects must therefore run once per actual death, not every tick.
+var _death_effects_dispatched: Dictionary = {}
+var _last_player_direction: CombatIntent.Direction = CombatIntent.Direction.NEUTRAL
+
+
+func _ready() -> void:
+	if player == null: player = get_node("../World/Player") as FighterController
+	if training_dummy == null: training_dummy = get_node("../World/TrainingDummy") as FighterController
+	if configure_profiles_on_ready and not _configure_fighters():
+		paused = true
+		push_error("Match did not start because loadout construction failed.")
+		return
+	if configure_profiles_on_ready:
+		_apply_stage_spawns()
+		reset_match()
+
+
+func _physics_process(_delta: float) -> void:
+	if not paused: step_fixed_tick()
+
+
+func submit_intent(intent: CombatIntent) -> void:
+	_queued_intents.append(intent)
+
+
+func step_fixed_tick(poll_local_input := true) -> void:
+	if paused or not winner_id.is_empty() or is_draw: return
+	tick += 1
+	if poll_local_input: _poll_player_input()
+	if bot_source != null:
+		for intent: CombatIntent in bot_source.commands_for_tick(tick, snapshot()):
+			submit_intent(intent)
+	for source: RefCounted in bot_sources:
+		for intent: CombatIntent in source.commands_for_tick(tick, snapshot()):
+			submit_intent(intent)
+	_process_intents()
+	for fighter: FighterController in _fighters():
+		fighter.step_tick(rules)
+	for fighter: FighterController in _fighters():
+		var enemies: Array[FighterController] = []
+		for target: FighterController in _fighters():
+			if target != fighter and not _are_allies(fighter, target): enemies.append(target)
+		fighter.advance_attack_travel(enemies, rules, _fighters())
+	PushboxResolverScript.resolve(_fighters())
+	_resolve_hits()
+	_resolve_ring_outs()
+	snapshot_changed.emit(snapshot())
+
+
+func reset_match() -> void:
+	if has_meta("menu_forfeit"): remove_meta("menu_forfeit")
+	if has_meta("menu_offline_event_id"): remove_meta("menu_offline_event_id")
+	presentation_epoch += 1
+	presentation_sequence = 0
+	for fighter: FighterController in _fighters():
+		var callback := _on_fighter_presentation.bind(fighter)
+		if not fighter.presentation_event.is_connected(callback): fighter.presentation_event.connect(callback)
+	tick = 0
+	paused = false
+	winner_id = &""
+	winner_team_id = &""
+	sudden_death_round = 0
+	is_draw = false
+	_queued_intents.clear()
+	_hit_counts.clear()
+	_death_effects_dispatched.clear()
+	_last_player_direction = CombatIntent.Direction.NEUTRAL
+	if bot_source != null: bot_source.reset()
+	for source: RefCounted in bot_sources: source.reset()
+	for fighter: FighterController in _fighters():
+		fighter.reset_for_match(rules)
+	snapshot_changed.emit(snapshot())
+
+
+func _configure_fighters() -> bool:
+	if loadout_catalog == null or player_selection == null or training_dummy_selection == null:
+		push_error("Match requires a LoadoutCatalog and two LoadoutSelections.")
+		return false
+	var player_result := LoadoutBuilder.build(player_selection, loadout_catalog)
+	var dummy_result := LoadoutBuilder.build(training_dummy_selection, loadout_catalog)
+	if not player_result.succeeded() or not dummy_result.succeeded():
+		push_error("Loadout build failed: player=%s dummy=%s" % [player_result.error_codes, dummy_result.error_codes])
+		return false
+	if not player.configure_profile(player_result.profile) or not training_dummy.configure_profile(dummy_result.profile):
+		push_error("Loadout build produced a profile for the wrong fighter.")
+		return false
+	return true
+
+
+func pause_match(value: bool) -> void:
+	paused = value
+	if value:
+		_queued_intents.clear()
+		_last_player_direction = CombatIntent.Direction.NEUTRAL
+		for fighter: FighterController in _fighters():
+			fighter.input_direction = CombatIntent.Direction.NEUTRAL
+			fighter.buffered_intent = null
+
+
+func snapshot() -> Dictionary:
+	var fighters: Array[Dictionary] = []
+	for fighter: FighterController in _fighters():
+		var entry := fighter.snapshot()
+		entry["on_floor"] = fighter.is_on_floor()
+		entry["team_id"] = team_by_fighter_id.get(fighter.fighter_id, &"")
+		fighters.append(entry)
+	return {"tick": tick, "paused": paused, "winner_id": winner_id, "winner_team_id": winner_team_id, "is_draw": is_draw, "mode": local_match_mode, "simplified_combat": rules.simplified_combat, "guard_max": rules.guard_max_durability, "ultimate_gauge_max": rules.ultimate_gauge_max, "fighters": fighters}
+
+
+func snapshot_hash() -> String:
+	return JSON.stringify(snapshot(), "", true).sha256_text()
+
+
+func network_snapshot() -> Dictionary:
+	var value := snapshot()
+	var network_fighters: Array[Dictionary] = []
+	for fighter_value: Dictionary in value.fighters:
+		var item := fighter_value.duplicate(true)
+		var position_value: Vector2 = item.position
+		var velocity_value: Vector2 = item.velocity
+		item.position = {"x": position_value.x, "y": position_value.y}
+		item.velocity = {"x": velocity_value.x, "y": velocity_value.y}
+		network_fighters.append(item)
+	value.fighters = network_fighters
+	return value
+
+
+func release_fighter_input(fighter_id: StringName) -> void:
+	var fighter := _fighter_by_id(fighter_id)
+	if fighter == null: return
+	fighter.input_direction = CombatIntent.Direction.NEUTRAL
+	fighter.buffered_intent = null
+	fighter.runtime_state.guarding = false
+
+
+func finish_forfeit(loser_id: StringName) -> void:
+	if not winner_id.is_empty() or is_draw: return
+	var loser := _fighter_by_id(loser_id)
+	if loser == null: return
+	set_meta("menu_forfeit", true)
+	winner_id = training_dummy.fighter_id if loser == player else player.fighter_id
+	player.state = FighterController.State.MATCH_ENDED
+	training_dummy.state = FighterController.State.MATCH_ENDED
+	match_ended.emit(winner_id)
+
+
+func _poll_player_input() -> void:
+	var direction := _current_direction()
+	if direction != _last_player_direction:
+		if _last_player_direction != CombatIntent.Direction.NEUTRAL:
+			submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", _last_player_direction, CombatIntent.Edge.RELEASE, _context_for(player)))
+		if direction != CombatIntent.Direction.NEUTRAL:
+			submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.PRESS, _context_for(player)))
+		_last_player_direction = direction
+	elif direction != CombatIntent.Direction.NEUTRAL:
+		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
+	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]:
+		if rules.simplified_combat and action in [&"dash", &"evade", &"ultimate"]: continue
+		# Ultimate has one slot, not directional variants. Keep movement separate.
+		var action_direction := CombatIntent.Direction.NEUTRAL if action == &"ultimate" else direction
+		if Input.is_action_just_pressed(action):
+			submit_intent(CombatIntent.new(tick, player.fighter_id, action, action_direction, CombatIntent.Edge.PRESS, _context_for(player)))
+		elif not rules.simplified_combat and Input.is_action_just_released(action):
+			submit_intent(CombatIntent.new(tick, player.fighter_id, action, action_direction, CombatIntent.Edge.RELEASE, _context_for(player)))
+
+
+func _process_intents() -> void:
+	var due: Array[CombatIntent] = []
+	for intent: CombatIntent in _queued_intents:
+		if intent.tick <= tick: due.append(intent)
+	for intent: CombatIntent in due: _queued_intents.erase(intent)
+	due.sort_custom(func(a: CombatIntent, b: CombatIntent) -> bool:
+		var left := "%010d:%s:%s:%d" % [a.tick, a.fighter_id, a.action_id, a.edge]
+		var right := "%010d:%s:%s:%d" % [b.tick, b.fighter_id, b.action_id, b.edge]
+		return left < right
+	)
+	for intent: CombatIntent in CommandResolverScript.resolve(due):
+		var fighter := _fighter_by_id(intent.fighter_id)
+		if fighter != null: fighter.consume_intent(intent, rules)
+
+
+func _resolve_hits() -> void:
+	var candidates: Array[Dictionary] = []
+	for source: FighterController in _fighters():
+		for target: FighterController in _fighters():
+			if source == target or _are_allies(source, target) or source.active_attack == null or source.state != FighterController.State.ATTACK_ACTIVE: continue
+			if source.active_attack.hit_target_only and source.attack_target_id != target.fighter_id: continue
+			for window: Dictionary in source.attack_hit_windows():
+				var overlaps := false
+				for box: Rect2 in window.boxes:
+					if box.intersects(target.get_hurtbox_rect()): overlaps = true
+				if not overlaps: continue
+				var key := "%s:%d:%s" % [source.fighter_id, source.activation_serial, target.fighter_id]
+				var response: AttackData = window.attack
+				var max_hits := response.max_hits_per_target
+				if int(window.index) >= 0:
+					key += ":pulse:%d" % int(window.index)
+					max_hits = 1
+				var count: int = _hit_counts.get(key, 0)
+				if count >= max_hits: continue
+				var last_tick: int = _hit_counts.get("%s:last" % key, -999)
+				if count > 0 and tick - last_tick < response.rehit_interval_ticks: continue
+				if target.state in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
+				candidates.append({"source": source, "target": target, "attack": response, "key": key})
+	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return "%s:%s:%s" % [a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%s:%s:%s" % [b.source.fighter_id, b.target.fighter_id, b.attack.attack_id]
+	)
+	for hit: Dictionary in candidates:
+		var attack: AttackData = hit.attack
+		var target: FighterController = hit.target
+		var context := HitContext.new(tick, hit.source, target, attack)
+		context.source_position = hit.source.global_position
+		context.target_position = target.global_position
+		context.source_facing = hit.source.locked_facing
+		context.source_direction = hit.source.locked_direction
+		var guard_before := target.runtime_state.guard_durability
+		var result := HitResolver.resolve(context, rules)
+		_emit_presentation(&"hit_resolved", {"tick": tick, "attacker_id": hit.source.fighter_id, "defender_id": target.fighter_id, "attack_id": attack.attack_id, "result": HitResult.Type.keys()[result.type], "reaction": result.reaction, "action_id": attack.action_id, "character_id": hit.source.character_data.character_id, "activation_serial": hit.source.activation_serial})
+		if result.type == HitResult.Type.BLOCK and guard_before > 0.0 and target.runtime_state.guard_durability <= 0.0:
+			_emit_presentation(&"guard_break", {"tick": tick, "fighter_id": target.fighter_id})
+		if result.landed(): hit.source.register_landed_hit(attack)
+		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
+		_hit_counts["%s:last" % hit.key] = tick
+	_resolve_final_losses()
+
+
+func _resolve_ring_outs() -> void:
+	if stage_data == null or not stage_data.is_valid_definition():
+		push_error("MatchController requires valid StageData for ring-out resolution")
+		return
+	var ring_outs: Array[FighterController] = []
+	for fighter: FighterController in _fighters():
+		var point := fighter.global_position
+		if fighter.state not in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED] and not stage_data.ring_bounds.has_point(point):
+			ring_outs.append(fighter)
+	if ring_outs.is_empty(): return
+	for fighter: FighterController in ring_outs: fighter.ring_out(rules)
+	for fighter: FighterController in ring_outs:
+		_emit_presentation(&"ring_out", {"tick": tick, "fighter_id": fighter.fighter_id})
+	_resolve_final_losses()
+
+
+func _resolve_final_losses() -> void:
+	for fighter: FighterController in _fighters():
+		if fighter.state == FighterController.State.DEAD and not _death_effects_dispatched.has(fighter.fighter_id):
+			_death_effects_dispatched[fighter.fighter_id] = true
+			EffectControllerScript.dispatch(EffectData.Trigger.ON_DEATH, fighter, _nearest_opponent(fighter), rules)
+	var survivors: Array[FighterController] = []
+	for fighter: FighterController in _fighters():
+		if fighter.state not in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED]:
+			survivors.append(fighter)
+	if survivors.is_empty():
+		is_draw = true
+		_emit_presentation(&"match_draw", {"tick": tick})
+		match_ended.emit(&"DRAW")
+		return
+	if local_match_mode == LocalMatchConfig.Mode.TEAM:
+		var surviving_teams: Dictionary = {}
+		for fighter: FighterController in survivors:
+			var team_id := StringName(team_by_fighter_id.get(fighter.fighter_id, &""))
+			if not team_id.is_empty(): surviving_teams[team_id] = true
+		if surviving_teams.size() != 1: return
+		winner_team_id = surviving_teams.keys()[0]
+		winner_id = survivors[0].fighter_id
+		_finish_match({"tick": tick, "winner_id": winner_id, "winner_team_id": winner_team_id})
+		return
+	if survivors.size() == 1:
+		winner_id = survivors[0].fighter_id
+		_finish_match({"tick": tick, "winner_id": winner_id})
+
+
+func _finish_match(payload: Dictionary) -> void:
+	_emit_presentation(&"match_end", payload)
+	for fighter: FighterController in _fighters():
+		fighter.state = FighterController.State.MATCH_ENDED
+	match_ended.emit(winner_id)
+
+
+func _current_direction() -> CombatIntent.Direction:
+	var horizontal := Input.get_axis(&"move_left", &"move_right")
+	var vertical := Input.get_axis(&"move_up", &"move_down")
+	if absf(horizontal) >= absf(vertical) and not is_zero_approx(horizontal):
+		return CombatIntent.Direction.RIGHT if horizontal > 0.0 else CombatIntent.Direction.LEFT
+	if not is_zero_approx(vertical): return CombatIntent.Direction.DOWN if vertical > 0.0 else CombatIntent.Direction.UP
+	return CombatIntent.Direction.NEUTRAL
+
+
+func _context_for(fighter: FighterController) -> CombatIntent.Context:
+	return CombatIntent.Context.GROUND if fighter.is_on_floor() else CombatIntent.Context.AIR
+
+
+func _fighter_by_id(id: StringName) -> FighterController:
+	for fighter: FighterController in _fighters():
+		if fighter.fighter_id == id: return fighter
+	return null
+
+
+func _fighters() -> Array[FighterController]:
+	var fighters: Array[FighterController] = [player, training_dummy]
+	for fighter: FighterController in additional_fighters:
+		if fighter != null and not fighters.has(fighter): fighters.append(fighter)
+	return fighters
+
+
+func _are_allies(first: FighterController, second: FighterController) -> bool:
+	if local_match_mode != LocalMatchConfig.Mode.TEAM: return false
+	var first_team := StringName(team_by_fighter_id.get(first.fighter_id, &""))
+	return not first_team.is_empty() and first_team == StringName(team_by_fighter_id.get(second.fighter_id, &""))
+
+
+func _nearest_opponent(fighter: FighterController) -> FighterController:
+	var nearest: FighterController
+	var best_distance := INF
+	for candidate: FighterController in _fighters():
+		if candidate == fighter or candidate.state in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED] or _are_allies(fighter, candidate): continue
+		var distance := fighter.global_position.distance_squared_to(candidate.global_position)
+		if distance < best_distance or (is_equal_approx(distance, best_distance) and (nearest == null or candidate.fighter_id < nearest.fighter_id)):
+			nearest = candidate
+			best_distance = distance
+	return nearest
+
+
+func _apply_stage_spawns() -> void:
+	if stage_data == null or not stage_data.is_valid_definition():
+		push_error("MatchController requires valid StageData")
+		return
+	var fighters := _fighters()
+	for index: int in mini(fighters.size(), stage_data.spawn_points.size()):
+		fighters[index].spawn_position = stage_data.spawn_points[index]
+		fighters[index].global_position = stage_data.spawn_points[index]
+
+
+func _emit_presentation(event_id: StringName, payload: Dictionary) -> void:
+	presentation_sequence += 1
+	payload = payload.duplicate()
+	payload["epoch"] = presentation_epoch
+	payload["event_seq"] = presentation_sequence
+	presentation_event.emit(event_id, payload)
+
+
+func _on_fighter_presentation(event_id: StringName, payload: Dictionary, fighter: FighterController) -> void:
+	payload = payload.duplicate()
+	payload["tick"] = tick
+	payload["fighter_id"] = fighter.fighter_id
+	payload["character_id"] = fighter.character_data.character_id
+	_emit_presentation(event_id, payload)

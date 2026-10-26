@@ -1,0 +1,116 @@
+{
+  "reviewer": "afterimage_qa",
+  "sources": {
+    "_workspace/ja-scarf-barrage-v1/candidate-catalog-r03.json": "0705c69406f5820aeb6a7a3ce812469050b5738824036ccf7b22ced33c43a71c",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+    "_workspace/ja-scarf-barrage-v1/render-live.gd": "1fe944640584c3db9c4b0af9c318f5a6cd96e4ac762669f1a79cdcc4306a4183",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "assets/combat/stages/forest_ledge_stage.tres": "e59fb407d80ea294a082b32d176ace8445f3dd065939fef35c4b6c6821c9fc4c",
+    "assets/combat/two_fighter_combat_rules.tres": "3bb8661f32db742beebdf4a25369f0dc72abbac9c05131ac34a1352d323f470a",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scenes/main.tscn": "61ce864245b997adc64821fa833e887d7e4fb539acbbee5a512570ca8ff38a38",
+    "scripts/arena_visual.gd": "b3eb9fae3cab8338b36c6ce21eeec490b7022b98fe8ca8de70ff57679b13d1a7",
+    "scripts/combat_camera.gd": "65c9e71c47f01ad6b334769aa1e80f1093d40a519a2de993d7c36bf0972f6e53",
+    "scripts/combo_controller.gd": "540bcdb6313f326f18efe4529763debae755f8a6f406ac2310b65325916b96ce",
+    "scripts/fighter_attack_effects.gd": "4b24e5cca1b5c654f17b163c10d64b9b45b030cefdebf10a68e2d90811fe884d",
+    "scripts/fighter_controller.gd": "63dc815dfbd5abdce3646f7386e15b25459f3b123e511a11084c3438a546d48c",
+    "scripts/local_fighter_presentation.gd": "63d1294fe5c09cd8cadd21eb9ce19b711f8d79c0aff1d3afcede3447eaff524c",
+    "scripts/main.gd": "9471fd5ad019451417f6d730e4578d07b41e86fb6586050ab5455ce28925d94b",
+    "scripts/match_controller.gd": "29c8adb8522903efa67899fbe789143835ad870ea09771836800f199f834fa77",
+    "scripts/stage_controller.gd": "64bcc7ce9ab5b2ebb321e04157d5c19d192e25498e4ee7676e9ca015b8f6703c",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4"
+  },
+  "clips": [
+    {
+      "folder": "_workspace/ja-scarf-barrage-v1/qa/afterimage-normal-r07",
+      "state_report_sha256": "0db96b4809a7d14caba4abd084e749e248935ded44d2a75c0d5be8776c7d8219",
+      "archive_sha256": "f5b12b1b32418f820e56846c6439b38d4e2e6174e3b6fb7008c39df5daecd01b",
+      "mp4_sha256": "afe4e421cc5824d4aae1e7e887bab41135655917f7a07772cd6338f44da171ea",
+      "checks": 728,
+      "errors": [],
+      "ticks": 120,
+      "all_rgba_md5_equal": true,
+      "raw_rgba_sha256_equal": true,
+      "source_mismatches": [],
+      "state_transitions": [
+        {
+          "capture_tick": 0,
+          "state": "IDLE",
+          "attack_phase_tick": 0
+        },
+        {
+          "capture_tick": 12,
+          "state": "ATTACK_STARTUP",
+          "attack_phase_tick": 1
+        },
+        {
+          "capture_tick": 23,
+          "state": "ATTACK_ACTIVE",
+          "attack_phase_tick": 0
+        },
+        {
+          "capture_tick": 83,
+          "state": "ATTACK_RECOVERY",
+          "attack_phase_tick": 0
+        },
+        {
+          "capture_tick": 107,
+          "state": "IDLE",
+          "attack_phase_tick": 24
+        }
+      ]
+    },
+    {
+      "folder": "_workspace/ja-scarf-barrage-v1/qa/afterimage-mirror-small-r07",
+      "state_report_sha256": "5ed44b0ffdfe85b32c6f2df4900ee3f7b38f057500f0536d076145cbd33136f1",
+      "archive_sha256": "280e4114a1346e68efab03d4aa4fb206e0bca2bbe6c378a8e6a6ae7e4c532013",
+      "mp4_sha256": "189521cf9c800b5f8ad77733cc38a2cc4773d934a506b6fac0d165cba1d6804c",
+      "checks": 728,
+      "errors": [],
+      "ticks": 120,
+      "all_rgba_md5_equal": true,
+      "raw_rgba_sha256_equal": true,
+      "source_mismatches": [],
+      "state_transitions": [
+        {
+          "capture_tick": 0,
+          "state": "IDLE",
+          "attack_phase_tick": 0
+        },
+        {
+          "capture_tick": 12,
+          "state": "ATTACK_STARTUP",
+          "attack_phase_tick": 1
+        },
+        {
+          "capture_tick": 23,
+          "state": "ATTACK_ACTIVE",
+          "attack_phase_tick": 0
+        },
+        {
+          "capture_tick": 83,
+          "state": "ATTACK_RECOVERY",
+          "attack_phase_tick": 0
+        },
+        {
+          "capture_tick": 107,
+          "state": "IDLE",
+          "attack_phase_tick": 24
+        }
+      ]
+    }
+  ],
+  "scope": "all 32 source poses, all 240 actual capture ticks, native normal/0.5 speed playback sampled observations; no Android or user approval claim",
+  "inspection_materials": {
+    "_workspace/ja-scarf-barrage-v1/qa/afterimage-independent-r07/normal-all-p3.jpg": "aae1e27cfa5542718b6453a475683ad15a6d5bd8c4e7adf0cd0901953f906f1e",
+    "_workspace/ja-scarf-barrage-v1/qa/afterimage-independent-r07/normal-all-p2.jpg": "0e130f2926ae801fd5ae50e0b42e71a428161519b18e333cbce661ed9e4ab996",
+    "_workspace/ja-scarf-barrage-v1/qa/afterimage-independent-r07/normal-all-p1.jpg": "7a64079853f23d629d9388e06ebd95aec8c05ab6a44e3dabf853bac36422d42a",
+    "_workspace/ja-scarf-barrage-v1/qa/afterimage-independent-r07/mirror-small-all-p2.jpg": "337ece930be2450f2252eaf4c16c5fb8d94e6e03aba6f8e4454fdaaf58c66e8c",
+    "_workspace/ja-scarf-barrage-v1/qa/afterimage-independent-r07/mirror-small-all-p3.jpg": "13cdae384be5d57edb614cdde74601766f0ac9eb2eccf06b8b387371e10556ea",
+    "_workspace/ja-scarf-barrage-v1/qa/afterimage-independent-r07/mirror-small-all-p1.jpg": "8c9913d3197d81e8835b0a912aa02334df76ff20370d499effda4609070c9e78"
+  }
+}

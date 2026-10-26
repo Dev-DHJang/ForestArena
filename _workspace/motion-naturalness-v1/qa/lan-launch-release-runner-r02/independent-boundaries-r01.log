@@ -1,0 +1,24 @@
+{
+  "checks": 17,
+  "passed_expectations": 15,
+  "findings": [
+    {
+      "case": "wrong-mode",
+      "expected_pass": false,
+      "actual_pass": true,
+      "expectation_met": false,
+      "exit": 0,
+      "runner_status": "pass",
+      "mock_only": true
+    },
+    {
+      "case": "server-error",
+      "expected_pass": false,
+      "actual_pass": true,
+      "expectation_met": false,
+      "exit": 0,
+      "runner_status": "pass",
+      "mock_only": true
+    }
+  ]
+}

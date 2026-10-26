@@ -1,0 +1,41 @@
+{
+  "status": "fix",
+  "cases": [
+    {
+      "mode": "natural",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "26c5f6f97ddf0581c5565bc2fe2c494d14390495a8ab21d33d18d95ff925af3a",
+      "server_log_valid": true
+    },
+    {
+      "mode": "attack",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "ae6c9dc266dc6853ab54d4586d522fa79b235f19fb89ad48d0a8adb9487fc97e",
+      "server_log_valid": true
+    },
+    {
+      "mode": "jump",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "649b72d03bc79831e8ce7e0fb966beecec97b2354daad02820bde811a704ce94",
+      "server_log_valid": true
+    }
+  ],
+  "source_files_unchanged": true,
+  "auth_log_valid": false,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "presentation_source": "res://scripts/local_fighter_presentation.gd",
+  "output": "_workspace/motion-naturalness-v1/qa/lan-launch-release-runner-r03/mock-only-independent-7gnt11_3/auth-error",
+  "scope": "actual localhost sockets; selected presentation; candidate artwork/release metadata remain process-local; no device or rendered-pixel claim"
+}

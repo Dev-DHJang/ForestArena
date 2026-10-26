@@ -1,0 +1,206 @@
+[gd_resource type="Resource" script_class="MoveSetData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/move_set_data.gd" id="1_moves"]
+[ext_resource type="Script" path="res://scripts/data/move_slot_data.gd" id="2_slot"]
+[ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="3_attack"]
+[ext_resource type="Script" path="res://scripts/data/combo_link_data.gd" id="4_link"]
+
+[sub_resource type="Resource" id="Attack_light_01"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"nabi-light-01"
+action_id = &"attack_light"
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 18
+damage = 4.0
+knockback = 120.0
+fixed_hitstun_ticks = 16
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_light_combo_01"
+
+[sub_resource type="Resource" id="Slot_light_01"]
+script = ExtResource("2_slot")
+slot_id = &"nabi-light-01"
+attack = SubResource("Attack_light_01")
+
+[sub_resource type="Resource" id="Link_1"]
+script = ExtResource("4_link")
+from_attack_id = &"nabi-light-01"
+input_action_id = &"attack_light"
+next_attack_id = &"nabi-light-02"
+
+[sub_resource type="Resource" id="Attack_light_02"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"nabi-light-02"
+action_id = &"attack_light"
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 18
+damage = 4.0
+knockback = 120.0
+fixed_hitstun_ticks = 16
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_light_up"
+
+[sub_resource type="Resource" id="Slot_light_02"]
+script = ExtResource("2_slot")
+slot_id = &"nabi-light-02"
+attack = SubResource("Attack_light_02")
+
+[sub_resource type="Resource" id="Link_2"]
+script = ExtResource("4_link")
+from_attack_id = &"nabi-light-02"
+input_action_id = &"attack_light"
+next_attack_id = &"nabi-light-03"
+
+[sub_resource type="Resource" id="Attack_light_03"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"nabi-light-03"
+action_id = &"attack_light"
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 22
+damage = 7.0
+knockback = 210.0
+fixed_hitstun_ticks = 18
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_light_combo_02"
+hit_reaction = 4
+is_finisher = true
+launch_vector = Vector2(0.4, 0.65)
+
+[sub_resource type="Resource" id="Slot_light_03"]
+script = ExtResource("2_slot")
+slot_id = &"nabi-light-03"
+attack = SubResource("Attack_light_03")
+
+[sub_resource type="Resource" id="Attack_heavy"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"nabi-heavy"
+action_id = &"attack_heavy"
+startup_ticks = 12
+active_ticks = 5
+recovery_ticks = 20
+damage = 10.0
+knockback = 360.0
+fixed_hitstun_ticks = 22
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_heavy_up"
+launch_vector = Vector2(0.25, -1)
+hit_reaction = 5
+is_launcher = true
+
+[sub_resource type="Resource" id="Slot_heavy"]
+script = ExtResource("2_slot")
+slot_id = &"nabi-heavy"
+attack = SubResource("Attack_heavy")
+
+[sub_resource type="Resource" id="Attack_air_light"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"nabi-air-light"
+action_id = &"attack_light"
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 18
+damage = 5.0
+knockback = 150.0
+fixed_hitstun_ticks = 16
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_air_light"
+activation_context = 1
+input_direction = 5
+hitbox_size = Vector2(140, 58)
+hitbox_offset = Vector2(94, -35)
+air_lock = 1
+
+[sub_resource type="Resource" id="Slot_air_light"]
+script = ExtResource("2_slot")
+slot_id = &"nabi-air-light"
+attack = SubResource("Attack_air_light")
+
+[sub_resource type="Resource" id="Attack_air_heavy"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"nabi-air-heavy"
+action_id = &"attack_heavy"
+startup_ticks = 12
+active_ticks = 5
+recovery_ticks = 22
+damage = 9.0
+knockback = 380.0
+fixed_hitstun_ticks = 22
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_air_heavy"
+activation_context = 1
+input_direction = 5
+launch_vector = Vector2(0.2, -1)
+hit_reaction = 5
+hitbox_size = Vector2(116, 132)
+hitbox_offset = Vector2(48, -20)
+air_lock = 2
+landing_knockdown = true
+is_finisher = true
+
+[sub_resource type="Resource" id="Slot_air_heavy"]
+script = ExtResource("2_slot")
+slot_id = &"nabi-air-heavy"
+attack = SubResource("Attack_air_heavy")
+
+[sub_resource type="Resource" id="Attack_special"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"nabi-special"
+action_id = &"attack_special"
+startup_ticks = 10
+active_ticks = 24
+recovery_ticks = 20
+damage = 12.0
+knockback = 280.0
+fixed_hitstun_ticks = 22
+guard_damage = 12.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"special_side"
+ground_only = true
+launch_mode = 0
+max_hits_per_target = 1
+rehit_interval_ticks = 0
+pull_ticks = 0
+attack_movement = 1
+travel_distance = 320.0
+travel_speed = 1200.0
+behind_distance = 64.0
+hit_target_only = true
+hitbox_size = Vector2(100, 70)
+hitbox_offset = Vector2(45, -30)
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+
+[sub_resource type="Resource" id="Slot_special"]
+script = ExtResource("2_slot")
+slot_id = &"nabi-special"
+attack = SubResource("Attack_special")
+
+[resource]
+script = ExtResource("1_moves")
+move_set_id = &"two-fighter-nabi-v2"
+combo_count = 3
+opening_attack_ids = Array[StringName]([&"nabi-light-01"])
+slots = Array[ExtResource("2_slot")]([SubResource("Slot_light_01"), SubResource("Slot_light_02"), SubResource("Slot_light_03"), SubResource("Slot_heavy"), SubResource("Slot_air_light"), SubResource("Slot_air_heavy"), SubResource("Slot_special")])
+combo_links = Array[ExtResource("4_link")]([SubResource("Link_1"), SubResource("Link_2")])

@@ -1,0 +1,529 @@
+{
+  "schema_version": 1,
+  "kind": "remaining-motion-production-brief",
+  "pilot_approval_status": "pending",
+  "full_scope_path": "_workspace/two-fighter-combat-v2/candidate-scope.json",
+  "full_scope_sha256": "6935ac1ed76aa30ca4cd0ab38ff407c6784f0786a30a4102f33a62fb476baf3b",
+  "pilot_scope_path": "_workspace/motion-naturalness-v1/candidate-scope.json",
+  "pilot_scope_sha256": "f90a5e6b41e7a00db84a702edea30e54399e30d7b1b02c50de920e37ab40c18a",
+  "actual_attack_sources": {
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75"
+  },
+  "scarf_rule": "캐릭터가 실제 메고 있는 목도리의 승인 천을 사용한다. 별도 리본이나 새 목도리로 대체하지 않는다.",
+  "timing_rule": "그림 수와 표시 가중치는 실제 준비·판정·회복 시간을 바꾸지 않는다. 판정 틱보다 많은 새 공격 그림을 배정하지 않는다.",
+  "scope_counts": {
+    "full": 36,
+    "pilot": 10,
+    "remaining": 26
+  },
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_heavy",
+      "expected_action": "공중에서 목도리를 머리 위에서 아래로 내려치는 단타. 시전자는 공중에 남고 피해자가 급강하한다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": true,
+      "required_anchor_keys": [
+        "scarf_hand"
+      ],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "ja-hyun-air-heavy",
+          "startup_ticks": 12,
+          "active_ticks": 5,
+          "recovery_ticks": 22
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_light",
+      "expected_action": "발을 딛지 않은 공중 단타 펀치와 긴 목도리 리치. 새 점프·공격 잠금은 피해자에게 적용한다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": true,
+      "required_anchor_keys": [
+        "scarf_hand"
+      ],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "ja-hyun-air-light",
+          "startup_ticks": 8,
+          "active_ticks": 4,
+          "recovery_ticks": 18
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "death",
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "guard",
+      "expected_action": "두 손 또는 팔로 몸 앞을 방어한다. 공격·피하기로 보이지 않는다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "hitstun",
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "idle",
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "knock_down",
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "launch",
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "ring_out",
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "spawn",
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_neutral",
+      "expected_action": "긴 목도리를 전방으로 내민 뒤 당기는 단타 강공격. 착용 중인 목도리 천을 연결한 효과로180 리치와 끌기를 표현한다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": true,
+      "required_anchor_keys": [
+        "scarf_root"
+      ],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "ja-hyun-heavy",
+          "startup_ticks": 12,
+          "active_ticks": 5,
+          "recovery_ticks": 20
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_scarf_sweep",
+      "expected_action": "좌·우·위 세 방향 목도리 휘두르기1초. 전역6tick마다10회이며 앞9회끌기·마지막밀기. 착용 중인 목도리 천을 연결한 효과와 대조한다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": true,
+      "required_anchor_keys": [
+        "scarf_root",
+        "scarf_tips"
+      ],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "ja-hyun-special",
+          "startup_ticks": 12,
+          "active_ticks": 60,
+          "recovery_ticks": 24
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "wake_up",
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_heavy",
+      "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "nabi-air-heavy",
+          "startup_ticks": 12,
+          "active_ticks": 5,
+          "recovery_ticks": 22
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_light",
+      "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "nabi-air-light",
+          "startup_ticks": 8,
+          "active_ticks": 4,
+          "recovery_ticks": 18
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_heavy_up",
+      "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "nabi-heavy",
+          "startup_ticks": 12,
+          "active_ticks": 5,
+          "recovery_ticks": 20
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "death",
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "guard",
+      "expected_action": "두 손 또는 팔로 몸 앞을 방어한다. 공격·피하기로 보이지 않는다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "hitstun",
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "idle",
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "knock_down",
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "launch",
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "ring_out",
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "spawn",
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "special_side",
+      "expected_action": "전용 낮은 이동 자세로 전진→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+      "category": "attack",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [
+        {
+          "attack_id": "nabi-special",
+          "startup_ticks": 10,
+          "active_ticks": 24,
+          "recovery_ticks": 20
+        }
+      ],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "wake_up",
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "category": "state",
+      "status": "waiting for pilot user review before new artwork",
+      "frame_count": null,
+      "allowed_frame_counts": [
+        16,
+        24,
+        32
+      ],
+      "requires_worn_scarf_anchors": false,
+      "required_anchor_keys": [],
+      "actual_attack_timings_60hz": [],
+      "next_review": "full frames, normal/slow actual transitions, mirror, small scale"
+    }
+  ]
+}

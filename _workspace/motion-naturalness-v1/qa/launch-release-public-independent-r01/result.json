@@ -1,0 +1,26 @@
+{
+  "status": "pass",
+  "checks": 680,
+  "public_helper_byte_equal_prototype_r04": true,
+  "public_presentation_equal_after_only_preload_comment_normalization": true,
+  "test_workspace_references": 0,
+  "verify_single_fail_fast_call": true,
+  "runtime_launch_png_manifest_and_code_hashes_unchanged": true,
+  "pid_user_json_leftovers_unchanged": true,
+  "user_dir_checked": "/Users/jdh/Library/Application Support/Godot/app_userdata/Forest Arena",
+  "sources": {
+    "assets/character/manifest.json": "2503ccf0b0b32c3626c047818559d213b1184d1e8017076e4c9968cc0800674c",
+    "scripts/local_fighter_presentation.gd": "3ae1d44a81dbacb010cb836c609b8de5e1d826793dc81ca263b08621e1741e84",
+    "scripts/launch_release_clock.gd": "b95123f945341896926b6af8a651fcc4267de0597f0a7e9377ec01ca614ef947",
+    "tests/launch_release_presentation.gd": "57aac87b2326643383039eb4f30c183f44df7981c1d4d38ba7c5f329581ec9b4",
+    "scripts/verify.sh": "59ab9b7472fa2ad9d1883a190cba5aef29d266ce7b1e6d34b6d0dd028b7d4a90",
+    "assets/character/yu-ran/animation/runtime/local_ai_v01/launch_16f.png": "de7a82ff3e381d5ab7a958ea423fbfae7d75e5b0589bb287ba9aeeab28d556e7",
+    "assets/character/ja-hyun/animation/runtime/local_ai_v01/launch_16f.png": "a496c489a17e154650ea6ed675b9b9c97d5817fe3d20fcdedaf8d2d7d9d95b5d",
+    "assets/character/myo-ryung/animation/runtime/local_ai_v01/launch_16f.png": "dd03338e3db1ac06bb959c01bddc3cbd7cb3f6d6739d16badc68b581043bdf67",
+    "assets/character/nabi/animation/runtime/local_ai_v01/launch_16f.png": "1eea5e9be6db877de2d45e6675ddb97418700b1fa8794c0c26b09e6c04f19c0d"
+  },
+  "limitations": [
+    "public baseline is a second current Presentation instance with optional pair absent; historical unchanged behavior also relies on r04 code equivalence and prior 30906 boundary run",
+    "not network roundtrip, pixel-quality or new-art approval"
+  ]
+}

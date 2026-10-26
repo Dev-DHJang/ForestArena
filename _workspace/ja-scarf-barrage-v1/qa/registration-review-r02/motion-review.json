@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "reviewer": "afterimage_final_r09 / registration-provenance-r01",
+  "sources": {
+    "_workspace/ja-scarf-barrage-v1/00_request.md": "6100b77800437d630a7a502565de7014e45fc7ebfc50d56900c98045fa3106fe",
+    "_workspace/ja-scarf-barrage-v1/candidate-catalog-r04.json": "73b4f91a8f97501ab0261960d127b4d0ca8f3cf7f18e786688382e828ed00c9b",
+    "_workspace/ja-scarf-barrage-v1/candidate-scope-r04.json": "248c13188e57ae430dc62c952301b38bcd6a468ca0134d1e06130e6797bed731",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "35d5851096e2ffa85b4d111fc2dbc5025dba7b5307fd538195c7c7826cf93428",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "a9379a26c212d4e3549ed69dacd098e4278f7dde7d1f49c1b9ea6e5953d5072b",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "4243e78a83083aeeb723379c449cb57e1955dc53f62faa5237aed2a6a3d1e3f4",
+    "scripts/fighter_controller.gd": "bf232c6a3869bb5aa2b2df7705a1bfd9aff989a641e3af78fdb773669a62e4a7",
+    "scripts/local_fighter_presentation.gd": "35a8fddfacd956e55b2f5ae4a9b443ff46cca7ba778d54574c95887ae0e80b33",
+    "tools/forest_arena/motion_layout.py": "9e5b18acd46f71dc3eb2ae197c8388edf6e22fef85761a782f2ded54aaf66b12",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "e35e22e81f6cd4d52465c86fd425bbb3a69cc7d8b923789ad8d270ab15802a52",
+    "tools/forest_arena/motion_review_timeline.gd": "372c23cafae74982789332e8f24bfa477f05565f4e042c99b6a8b48ca97f701e",
+    "tools/forest_arena/review_motion_actions.py": "db889da63d69137a5f41588a2464cd72badb333a0f5af42dc0793ec84e8288cd",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png": "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.json": "e685d739c607b22bba99a8c0bebad8a229a9a550e35870f660674fed501d89c6",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.prompt.txt": "f54bf52583c8cedd041f66f722afae2835868074816e808633c1d4089a3a4b6f",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png": "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.json": "74077b276a91b66d58902aa7aff9535e75ac919adb535e36acda161661ab7eff",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.prompt.txt": "6907421751d0eb18c73af84b8373f9881010542105adc221b0bcd6c7a79fc135",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.json": "e58004308f409fe82b59044cfb34ea8867f8654a08fafc3e4b188f27f995fae6",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.prompt.txt": "cb1895807e1aed007b19817ff06d67fb12229d66c50f89d8d8210e5d8476467b",
+    "_workspace/ja-scarf-barrage-v1/layout-r02.json": "073765c6714f144bb69aa74ae7c9936c5afeb4eeb487d93a3bc9b7de34cc5ea4",
+    "_workspace/ja-scarf-barrage-v1/layout-r01.json": "46f5ed138a180e9a03cf8aff3a73ebcb5fcb5a72add039cbd1b3659d48896586",
+    "_workspace/ja-scarf-barrage-v1/pack-revision.py": "ff75522cfe19ed4f812b479669b974d6290cc23679e631b6d39791968f475b7d",
+    "assets/character/ja-hyun/concept/ja-hyun-concept-v01.png": "a4dcff0f9fdeb592ee86a209603c5dc97ca059f2a461b7f61576b1acf3ce3311",
+    "scenes/main.tscn": "61ce864245b997adc64821fa833e887d7e4fb539acbbee5a512570ca8ff38a38",
+    "scripts/arena_visual.gd": "b3eb9fae3cab8338b36c6ce21eeec490b7022b98fe8ca8de70ff57679b13d1a7",
+    "scripts/combat_camera.gd": "65c9e71c47f01ad6b334769aa1e80f1093d40a519a2de993d7c36bf0972f6e53",
+    "scripts/combo_controller.gd": "540bcdb6313f326f18efe4529763debae755f8a6f406ac2310b65325916b96ce",
+    "scripts/main.gd": "c91ff46790ad6af75fce1eb06a0835915ba7066290b7369affe73de14ba7a343",
+    "scripts/match_controller.gd": "29c8adb8522903efa67899fbe789143835ad870ea09771836800f199f834fa77",
+    "scripts/stage_controller.gd": "64bcc7ce9ab5b2ebb321e04157d5c19d192e25498e4ee7676e9ca015b8f6703c"
+  },
+  "timeline_sha256": "f2e2535d2dac9a99ef67e0db17a504aa040b0c45b6518666801a63da4b1ea82f",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_scarf_sweep",
+      "path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png",
+      "sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+      "sprite_frames_path": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres",
+      "sprite_frames_sha256": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+      "expected_action": "넓은 지지 자세에서 실제 착용 목도리를 같은 공격 손으로 좌·우·위로 빠르게 교차하여 연속 쳐낸다. 준비4장→연타23장(마지막F27바깥휘두르기)→회복5장. 1초10회 타격과 끌기 뒤 밀기는 전투가 계산한다.",
+      "action_source": "_workspace/ja-scarf-barrage-v1/00_request.md",
+      "action_source_sha256": "6100b77800437d630a7a502565de7014e45fc7ebfc50d56900c98045fa3106fe",
+      "materials": {
+        "boards/ja-hyun__special_scarf_sweep.jpg": "31ac8639436db6ce3a5a00d33fb9c6b4b2e4914cc1241b330f6bf62a3d8b0166",
+        "sheets/ja-hyun__special_scarf_sweep.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              2,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              3,
+              "startup",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              6,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              7,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              8,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              9,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              10,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              11,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              12,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              13,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              14,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              15,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              16,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              17,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              18,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              19,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              20,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              21,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              22,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              23,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              24,
+              "active",
+              "special_scarf_sweep",
+              33.3333333333334
+            ],
+            [
+              25,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              26,
+              "active",
+              "special_scarf_sweep",
+              50.0000000000001
+            ],
+            [
+              27,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              28,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              29,
+              "recovery",
+              "special_scarf_sweep",
+              66.6666666666668
+            ],
+            [
+              30,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ],
+            [
+              31,
+              "recovery",
+              "special_scarf_sweep",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "등록용 r04 출처 메타데이터를 새로 독립 검증했다. 원화A=1~16, B=17~32(수정 전), 단일F19=18번셀 교체의 실제PNG·source JSON·프롬프트·변환/보존기록을 직접 읽고 해시를 대조했다. F19셀을 선언 원본에서 다시 구성해 정확히 일치하고 다른31셀 보존도 대조했다. source_path/source_sha256는주원화A만가리키며32장전체원본을A하나라고주장하지않는다. 원래3개해시배열은source_sheet_sha256와creation.source_inputs에보존됐다. 승인콘셉트파생/영상픽셀미복사/추가외부라이선스검증미주장이라는권리설명은생성기록과일치한다. r03와비교해출처외모든필드·PNG/TRES·배율·부착점·준비4/공격23/회복5·12/60/24틱·공격sequence·현재표시/전투코드가동일함을독립확인했다. 따라서직접검토한동일32장과r09정상/반전240틱·정상/느린재생의시각근거가동일대상에유효함을확인한뒤판정했다. 새r04목록으로새영상을촬영했다고주장하지않으며,이전pass를변경된출처에자동복사하지않았다. 세원본PNG와생성기록해시는이양식sources에도추가고정했다. 자세한검토는03_qa_registration_r01.md 및qa/registration-independent-r01/provenance-check.json. 사용자승인/등록/Android통과아님.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/ja-scarf-barrage-v1/candidate-catalog-r04.json",
+    "catalog_sha256": "73b4f91a8f97501ab0261960d127b4d0ca8f3cf7f18e786688382e828ed00c9b",
+    "scope_path": "_workspace/ja-scarf-barrage-v1/candidate-scope-r04.json",
+    "scope_sha256": "248c13188e57ae430dc62c952301b38bcd6a468ca0134d1e06130e6797bed731",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "qa",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "514246f7a9b02aae2535e7c173749096d40ed68f4682eb05e87d073bd3b9e61a",
+    "timeline.json": "f2e2535d2dac9a99ef67e0db17a504aa040b0c45b6518666801a63da4b1ea82f"
+  }
+}

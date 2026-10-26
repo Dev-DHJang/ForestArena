@@ -6,12 +6,11 @@ const fresh = (): Profile => ({schema_version: 3, nickname: "플레이어", mini
 test("profile grants, free purchases, selection and accessibility preserve source", () => {
   const source = fresh();
   let p = applyAction(source, "grant_first", {id: "nabi"});
-  p = applyAction(p, "purchase", {id: "yu-ran"});
-  p = applyAction(p, "purchase", {id: "fixture-thorns"});
-  p = applyAction(p, "select", {character: "yu-ran", accessory: "fixture-thorns", opponent: "myo-ryung"});
+  p = applyAction(p, "purchase", {id: "ja-hyun"});
+  p = applyAction(p, "select", {character: "ja-hyun", accessory: "", opponent: "nabi"});
   p = applyAction(p, "accessibility", {text_scale: 1.3, reduce_visual_effects: true, haptics_enabled: false});
   assert.equal(source.first_granted, false);
-  assert.equal(p.selected_character, "yu-ran");
+  assert.equal(p.selected_character, "ja-hyun");
   assert.equal(p.accessibility.text_scale, 1.3);
   validateProfile(p);
 });
@@ -50,4 +49,20 @@ test("v2 migration preserves selection ownership and accessibility", () => {
   assert.deepEqual(old, copy);
   assert.deepEqual(migrateProfile(migrated), migrated);
   assert.throws(() => migrateProfile({...old, accessibility: null}));
+});
+
+
+test("two-fighter normalization retains historical ownership and rejects inactive new selections", () => {
+  const old: Profile = {...fresh(), first_granted:true, characters:["myo-ryung","yu-ran"], accessories:["fixture-boxing-gloves"], selected_character:"yu-ran", selected_accessory:"fixture-boxing-gloves", opponent_character:"myo-ryung"};
+  const copy=structuredClone(old);
+  const next=migrateProfile(old);
+  assert.deepEqual(old,copy);
+  assert.deepEqual(next.characters,["myo-ryung","yu-ran","ja-hyun"]);
+  assert.deepEqual(next.accessories,old.accessories);
+  assert.equal(next.selected_character,"ja-hyun");
+  assert.equal(next.selected_accessory,"");
+  assert.equal(next.opponent_character,"ja-hyun");
+  assert.deepEqual(migrateProfile(next),next);
+  for(const id of ["myo-ryung","yu-ran","fixture-boxing-gloves"]) assert.throws(()=>applyAction(next,"purchase",{id}));
+  assert.throws(()=>applyAction(next,"select",{character:"ja-hyun",accessory:"fixture-boxing-gloves",opponent:"nabi"}));
 });

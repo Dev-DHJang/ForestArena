@@ -1,0 +1,253 @@
+{
+  "status": "pass",
+  "cases": [
+    {
+      "mode": "ja-hyun-normal",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "archive_valid": true,
+      "log_valid": true,
+      "checks": 2561,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "a29aa9ca395c08fcb6cc2de3da523ce3328e43eb0f50e34bbc9c56cbab55377d",
+      "server_log_valid": true
+    },
+    {
+      "mode": "ja-hyun-mirror",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "archive_valid": true,
+      "log_valid": true,
+      "checks": 2567,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "4a8fee030722a489ce055a449dcbdc264c8111c996426730953d2da544fea16c",
+      "server_log_valid": true
+    },
+    {
+      "mode": "nabi-normal",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "archive_valid": true,
+      "log_valid": true,
+      "checks": 2509,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "2d5e907499d0affec5dbdec19b359b9129f14bd8d0df160a82734d100e0b247d",
+      "server_log_valid": true
+    },
+    {
+      "mode": "nabi-mirror",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "archive_valid": true,
+      "log_valid": true,
+      "checks": 2499,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "c9d9a0ae96bb325b058d791118476844be29961185095bded735b1b8d3f96c39",
+      "server_log_valid": true
+    }
+  ],
+  "rgba_archives": [
+    {
+      "case": "normal",
+      "client_slot": 1,
+      "frames": 37,
+      "archive": "ja-hyun-normal/normal-client-1.rgba.gz",
+      "target_character": "ja-hyun",
+      "archive_sha256": "e6e5a0c1e7b89293407c562583776f8a5dfe4c2e987543e58c6b73232c01e462",
+      "raw_sha256": "ec88635e56d2bc93603f6c51e63a16c2790bf201598a6f4e72599c31be86c114",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "normal-client-1-png",
+      "actual_release_samples": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "case": "normal",
+      "client_slot": 2,
+      "frames": 37,
+      "archive": "ja-hyun-normal/normal-client-2.rgba.gz",
+      "target_character": "ja-hyun",
+      "archive_sha256": "bdf475b81f116ea402ecbddcc8a02a511c4c2b4d5bbc771f71751dc36f7335da",
+      "raw_sha256": "2c32d580c4a16be24b17a6fd3054e9d3a03953485057eeb13669af83d817c6df",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "normal-client-2-png",
+      "actual_release_samples": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "case": "mirror",
+      "client_slot": 1,
+      "frames": 37,
+      "archive": "ja-hyun-mirror/mirror-client-1.rgba.gz",
+      "target_character": "ja-hyun",
+      "archive_sha256": "e89b7241544a22d4e84d9d58a1fdde728d9541110b256369c57252462bdac6f8",
+      "raw_sha256": "b1855a8b0d0cbad657bcb9b516af189cb8b3ae7093d7bbc7d824da4f9b8a091c",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "mirror-client-1-png",
+      "actual_release_samples": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "case": "mirror",
+      "client_slot": 2,
+      "frames": 37,
+      "archive": "ja-hyun-mirror/mirror-client-2.rgba.gz",
+      "target_character": "ja-hyun",
+      "archive_sha256": "eaba46573765e26aea075909a027e1a8b00f1ab0b546c1157fc37b61b0d95cab",
+      "raw_sha256": "18c9f838fbbea2932671d1653bb5d72417231d726bf3c39974f1e4e920ada361",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "mirror-client-2-png",
+      "actual_release_samples": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "case": "normal",
+      "client_slot": 1,
+      "frames": 40,
+      "archive": "nabi-normal/normal-client-1.rgba.gz",
+      "target_character": "nabi",
+      "archive_sha256": "91d69c0b6c0dd5462b80a42d6e52780d9281b30ec1991c2e7ba9cb3d53b12c11",
+      "raw_sha256": "c2120cf84c6ac46274006391ed0346dc1b554f7499d4bb25059689958a91ad2a",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "normal-client-1-png",
+      "actual_release_samples": [
+        12,
+        13,
+        14,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "case": "normal",
+      "client_slot": 2,
+      "frames": 40,
+      "archive": "nabi-normal/normal-client-2.rgba.gz",
+      "target_character": "nabi",
+      "archive_sha256": "970bd4427953c0e4923059dfd4219586544576e4d58362b6e67671d5d9eb2c64",
+      "raw_sha256": "e5c81a6f7b8c2c2454d4f1c8c8f368c397f4610e7c125f5e87b7e898a13df11b",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "normal-client-2-png",
+      "actual_release_samples": [
+        12,
+        13,
+        14,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "case": "mirror",
+      "client_slot": 1,
+      "frames": 39,
+      "archive": "nabi-mirror/mirror-client-1.rgba.gz",
+      "target_character": "nabi",
+      "archive_sha256": "572b9b01450143aeab7c98554c037f462b29d1307e606dc9cd793f7b7c78dfa0",
+      "raw_sha256": "08e186c844dcd0909b4405234fbb7e50a4bd28f7e8173c62387115c60cbba9ec",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "mirror-client-1-png",
+      "actual_release_samples": [
+        12,
+        13,
+        13,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "case": "mirror",
+      "client_slot": 2,
+      "frames": 39,
+      "archive": "nabi-mirror/mirror-client-2.rgba.gz",
+      "target_character": "nabi",
+      "archive_sha256": "8f3e44f2112523b26729c8e86f3ef3084823d05f5a2a2e02c65b4d13f5adf830",
+      "raw_sha256": "3fed263f06fc4568a4cbc4dd781fb8ab6d794993d0f839a566cd29c9d5e2c791",
+      "byte_exact_rgba_verified": true,
+      "png_pixels_equal_raw": true,
+      "png_directory": "mirror-client-2-png",
+      "actual_release_samples": [
+        12,
+        13,
+        13,
+        14,
+        15
+      ],
+      "consecutive_release_pose_order": [
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  ],
+  "source_files_unchanged": true,
+  "auth_log_valid": true,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "presentation_source": "res://scripts/local_fighter_presentation.gd",
+  "output": "_workspace/motion-naturalness-v1/qa/lan-launch-release-capture-r02",
+  "scope": "real-socket public-presentation fixture, not actual app HUD footage; native Sprite.draw marker and frame_post_draw RGBA pose pairing, immediate receive apply with sync/draw states logged; lossless archive verified separately from semantic/device QA"
+}

@@ -1,0 +1,15 @@
+{
+  "checks": 21,
+  "passed_expectations": 20,
+  "findings": [
+    {
+      "case": "default-output-symlink-escape-refused",
+      "expectation_met": false,
+      "resolved_mkdir_target": [
+        "/private/var/folders/8r/kyrbk_v94slgd36ggm3rrz9h0000gn/T/forest-lan-boundary-outside-8pd76g01/12345678901234567890"
+      ],
+      "no_outside_write": true,
+      "mock_only": true
+    }
+  ]
+}

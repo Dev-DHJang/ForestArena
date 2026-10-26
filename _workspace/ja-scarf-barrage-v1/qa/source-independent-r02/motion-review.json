@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "reviewer": "remaining_motion_qa 독립 QA",
+  "status": "blocked",
+  "source_issue_F19": "resolved",
+  "catalog_sha256": "8f342f783010fa13e03f9c1d9ceb347f7a974d33ae757f7e4994e18eacb371d4",
+  "sources": {
+    "_workspace/ja-scarf-barrage-v1/candidate-catalog-r02.json": "8f342f783010fa13e03f9c1d9ceb347f7a974d33ae757f7e4994e18eacb371d4",
+    "_workspace/ja-scarf-barrage-v1/candidate-scope-r02.json": "db4f1308bf788a7425b1ce19bfc8e1c0a211a738802607b5cea9da350c024f3e",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_32f_barrage-r02.png": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+    "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.tres": "3f0312942c300ebab2194acae4b8fa2f62f531393af8640ea722c9ca1e0729bc",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+    "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.anchors.json": "1e69cef693efb2a4b3656c5106d7aabdb7c1f4c71e9c24cb4211620cd906cfcd",
+    "_workspace/ja-scarf-barrage-v1/qa/review-r02/timeline.json": "721734ea630e313978f1e2428e45ef4566a67b16d5b02e518198247382725336",
+    "scripts/local_fighter_presentation.gd": "d7377e05868905d06264d42c965070648fccd67f1eaaeffa802cdc66d5aedfe9",
+    "scripts/fighter_attack_effects.gd": "936a66c1a688d3f635d7816019669b3851f716d299f616d63f3d44cb553de713"
+  },
+  "checks": {
+    "full32_candidate_board": true,
+    "new_F19_source_and_anchors": true,
+    "F17_21_normal_and_mirror_fixed_ground": true,
+    "other31_cells_independently_identical": true,
+    "actual96tick_presentation_timeline": true,
+    "complete_actual_normal_playback": false,
+    "complete_actual_slow_playback": false,
+    "effects_connection_in_game": false
+  },
+  "observations": [
+    "가까운 팔이 얼굴 앞을 교차해 위로 천을 잡고 반대 손은 가슴 앞 가드. r01의 손 연결 문제 해결.",
+    "F17–21의 좌→위→반대 위→아래→수평 방향과 신발 접지가 정지 비교에서 읽힘.",
+    "새 F19는33.33ms이며 전체96틱(12/60/24) 유지."
+  ],
+  "issues": [],
+  "pending": [
+    "전체 정상/느린 실제 경기와 효과 연결 시각 검토",
+    "Android 실제 기기 미실행"
+  ],
+  "approval_status": "pending"
+}

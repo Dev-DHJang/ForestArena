@@ -97,7 +97,13 @@ def without_personality_variants(assets, root=ROOT):
     return [e for e in assets if e.get('type') != 'concept-variant']
 
 
-def check(root=ROOT):
+def check(root=ROOT, *, preserve_install_snapshot=False):
+    """Validate the installed static variants; optionally audit the installation moment.
+
+    Ongoing development may legitimately add approved motions and change gameplay
+    code. Only an installation audit freezes every pre-install file. The current
+    check always protects the four variants, their approvals and canonical sources.
+    """
     work = root/TOPIC
     receipt = read(work/'installation.json')
     current = read(root/'assets/character/manifest.json')
@@ -106,14 +112,21 @@ def check(root=ROOT):
     before = read(before_path)
     assert current['schema_version'] == before['schema_version'] == 1
     assert [e for e in current['assets'] if e.get('type') == 'concept-variant'] == expected_entries(root), 'All four approved additions must remain installed'
-    assert without_personality_variants(current['assets'], root) == before['assets'], 'Existing manifest entries changed'
-    for path, digest in receipt['preserved_files'].items():
-        assert sha(root/path) == digest, f'Existing asset, UI, combat or data file changed: {path}'
+    existing = without_personality_variants(current['assets'], root)
+    old_concepts = {e['asset_id']: e for e in before['assets'] if e.get('type') == 'concept'}
+    current_concepts = {e['asset_id']: e for e in existing if e.get('type') == 'concept'}
+    assert current_concepts == old_concepts, 'Canonical concept entries changed'
+    for entry in old_concepts.values():
+        assert sha(root/entry['path']) == entry['sha256'], f"Canonical concept image changed: {entry['asset_id']}"
+    if preserve_install_snapshot:
+        assert existing == before['assets'], 'Existing manifest entries changed during installation'
+        for path, digest in receipt['preserved_files'].items():
+            assert sha(root/path) == digest, f'Existing asset, UI, combat or data file changed during installation: {path}'
     appearance = read(root/'docs/contracts/character-appearance-v01.json')
     old_appearance = read(work/'07_before_install/appearance.json')
     assert appearance['characters'] == old_appearance['characters'], 'Existing appearance profiles changed'
     assert receipt['report_sha256'] == REPORT_HASH
-    print('PERSONALITY_CONCEPT_INSTALL: PASS (4 approved additions; existing manifest/assets/data/UI/motions preserved)')
+    print('PERSONALITY_CONCEPT_INSTALL: PASS (4 approved static variants; canonical sources unchanged%s)' % ('; installation snapshot preserved' if preserve_install_snapshot else ''))
 
 
 def install(root=ROOT):
@@ -142,11 +155,12 @@ def install(root=ROOT):
     write(manifest_path, {**manifest, 'assets': manifest['assets']+entries})
     write(work/'installation.json', {'report_sha256': REPORT_HASH,
           'before_manifest_sha256': sha(backup/'manifest.json'), 'preserved_files': preserved})
-    check(root)
+    check(root, preserve_install_snapshot=True)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--install', action='store_true')
+    parser.add_argument('--verify-installation-snapshot', action='store_true', help='Also require every pre-install file and entry to remain unchanged; use for the original installation audit, not ongoing development')
     args = parser.parse_args()
-    install() if args.install else check()
+    install() if args.install else check(preserve_install_snapshot=args.verify_installation_snapshot)

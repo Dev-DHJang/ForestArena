@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "cases": [
+    {
+      "mode": "natural",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1581,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "f10b483aec39fb7ae519412c9a9c333d04d1752d8981ac25b7d545b470b17106",
+      "server_log_valid": true
+    },
+    {
+      "mode": "attack",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1591,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "dd4f5c2553ceb076e81b3198435a9e7b70cd4f1a4a26d6d82e828c0b43a535de",
+      "server_log_valid": true
+    },
+    {
+      "mode": "jump",
+      "client_exit_code": 0,
+      "report_valid": true,
+      "log_valid": true,
+      "checks": 1587,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "508a652b17a2d6ab616b4662aa6d54da218373aaf80c94355ab2a81a0dd6768b",
+      "server_log_valid": true
+    }
+  ],
+  "source_files_unchanged": true,
+  "auth_log_valid": true,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "presentation_source": "res://scripts/local_fighter_presentation.gd",
+  "output": "_workspace/motion-naturalness-v1/qa/lan-launch-release-product-r04",
+  "scope": "actual localhost sockets; selected presentation; candidate artwork/release metadata remain process-local; no device or rendered-pixel claim"
+}

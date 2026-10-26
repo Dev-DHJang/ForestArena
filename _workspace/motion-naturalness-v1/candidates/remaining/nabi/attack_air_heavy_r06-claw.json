@@ -1,0 +1,283 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "attack_air_heavy",
+  "path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_16f_r06-claw.png",
+  "sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/attack_air_heavy_r06-claw.tres",
+  "sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+  "frame_count": 16,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 12.0,
+  "loop": false,
+  "presentation_scale": 1.0,
+  "foot_pivot_y": 104.0,
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_heavy-r02.png"
+  ],
+  "source_sha256": [
+    "16e98a8be5af4ec0ae025184e1e4ead2717a65747f1e9a72ecd6dc7f4327d498"
+  ],
+  "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+  "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+  "conversion": {
+    "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+    "uniform_scale": 0.32,
+    "reference_scale": 0.32,
+    "presentation_scale": 1.0,
+    "source_baseline_y": 300.0,
+    "target_baseline_y": 104.0,
+    "frame_bounds": [
+      [
+        21,
+        11,
+        108,
+        100
+      ],
+      [
+        25,
+        10,
+        112,
+        100
+      ],
+      [
+        23,
+        11,
+        111,
+        104
+      ],
+      [
+        19,
+        11,
+        104,
+        104
+      ],
+      [
+        25,
+        15,
+        112,
+        105
+      ],
+      [
+        24,
+        6,
+        110,
+        105
+      ],
+      [
+        19,
+        10,
+        111,
+        106
+      ],
+      [
+        13,
+        7,
+        105,
+        106
+      ],
+      [
+        24,
+        14,
+        107,
+        100
+      ],
+      [
+        23,
+        16,
+        107,
+        105
+      ],
+      [
+        22,
+        19,
+        107,
+        107
+      ],
+      [
+        15,
+        17,
+        102,
+        107
+      ],
+      [
+        25,
+        9,
+        109,
+        97
+      ],
+      [
+        23,
+        12,
+        109,
+        99
+      ],
+      [
+        24,
+        14,
+        110,
+        101
+      ],
+      [
+        18,
+        15,
+        103,
+        99
+      ]
+    ],
+    "unassigned_small_regions": [],
+    "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_air_heavy-r06-claw.json",
+    "spec_sha256": "98ae4738c18b7526bd1c9edf869d1cf1ef1489e7e81f1fd39079adfc3344524f"
+  },
+  "phase_frame_ranges": [
+    [
+      0,
+      5
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      8,
+      16
+    ]
+  ],
+  "actual_attack_timings_60hz": [
+    12,
+    5,
+    22
+  ],
+  "frame_anchors": [
+    {
+      "claw_hand": [
+        96.92,
+        54.08
+      ]
+    },
+    {
+      "claw_hand": [
+        105.24,
+        72.32
+      ]
+    },
+    {
+      "claw_hand": [
+        102.04,
+        71.36
+      ]
+    },
+    {
+      "claw_hand": [
+        97.88,
+        76.16
+      ]
+    },
+    {
+      "claw_hand": [
+        102.04,
+        28.16
+      ],
+      "claw_tip": [
+        110.36,
+        19.52
+      ]
+    },
+    {
+      "claw_hand": [
+        97.24,
+        17.6
+      ],
+      "claw_tip": [
+        105.56,
+        10.24
+      ]
+    },
+    {
+      "claw_hand": [
+        96.92,
+        22.4
+      ],
+      "claw_tip": [
+        108.76,
+        14.4
+      ]
+    },
+    {
+      "claw_hand": [
+        93.08,
+        18.88
+      ],
+      "claw_tip": [
+        103.0,
+        11.84
+      ]
+    },
+    {
+      "claw_hand": [
+        98.2,
+        40.64
+      ]
+    },
+    {
+      "claw_hand": [
+        98.84,
+        48.64
+      ]
+    },
+    {
+      "claw_hand": [
+        96.92,
+        49.6
+      ]
+    },
+    {
+      "claw_hand": [
+        94.04,
+        64.0
+      ]
+    },
+    {
+      "claw_hand": [
+        98.2,
+        52.48
+      ]
+    },
+    {
+      "claw_hand": [
+        102.68,
+        57.28
+      ]
+    },
+    {
+      "claw_hand": [
+        96.92,
+        61.12
+      ]
+    },
+    {
+      "claw_hand": [
+        95.64,
+        72.64
+      ]
+    }
+  ]
+}

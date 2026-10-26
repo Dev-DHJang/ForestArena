@@ -1,0 +1,103 @@
+{
+	"all_snapshots_omit_stun": true,
+	"catalog_sha256": "93b94a776411ee94f03bcd0ca9130ab6b92f5a1432115a45844e62642270860c",
+	"checks": 1336,
+	"errors": [
+		"timeout: actual movement to uppercut range",
+		"each real-socket client shows exactly four60Hz release samples",
+		"release observed for owned and remote Ja",
+		"each real-socket client shows exactly four60Hz release samples",
+		"release observed for owned and remote Ja",
+		"actual server HIT event received",
+		"client 1: connection_lost"
+	],
+	"events": [
+		{
+			"client_slot": 1,
+			"event_id": "land",
+			"payload": {
+				"character_id": "ja-hyun",
+				"epoch": 1.0,
+				"event_seq": 1.0,
+				"fighter_id": "lan_guest",
+				"tick": 25.0
+			}
+		},
+		{
+			"client_slot": 2,
+			"event_id": "land",
+			"payload": {
+				"character_id": "ja-hyun",
+				"epoch": 1.0,
+				"event_seq": 1.0,
+				"fighter_id": "lan_guest",
+				"tick": 25.0
+			}
+		},
+		{
+			"client_slot": 1,
+			"event_id": "land",
+			"payload": {
+				"character_id": "nabi",
+				"epoch": 1.0,
+				"event_seq": 2.0,
+				"fighter_id": "lan_host",
+				"tick": 26.0
+			}
+		},
+		{
+			"client_slot": 2,
+			"event_id": "land",
+			"payload": {
+				"character_id": "nabi",
+				"epoch": 1.0,
+				"event_seq": 2.0,
+				"fighter_id": "lan_host",
+				"tick": 26.0
+			}
+		}
+	],
+	"inputs": [
+		{
+			"action": "move",
+			"direction": 2,
+			"edge": 0,
+			"observed_tick": 3,
+			"owned_fighter_id": "lan_host",
+			"slot": 1
+		},
+		{
+			"action": "move",
+			"direction": 1,
+			"edge": 0,
+			"observed_tick": 3,
+			"owned_fighter_id": "lan_guest",
+			"slot": 2
+		},
+		{
+			"action": "move",
+			"direction": 2,
+			"edge": 2,
+			"observed_tick": 303,
+			"owned_fighter_id": "lan_host",
+			"slot": 1
+		},
+		{
+			"action": "move",
+			"direction": 1,
+			"edge": 2,
+			"observed_tick": 303,
+			"owned_fighter_id": "lan_guest",
+			"slot": 2
+		}
+	],
+	"mode": "natural",
+	"owned_ids": {
+		"1": "lan_host",
+		"2": "lan_guest"
+	},
+	"presentation": "res://_workspace/motion-naturalness-v1/qa/launch-release-prototype-r04/presentation-prototype.gd",
+	"scope": "real authenticated localhost WebSocket server and two LanMatchClient nodes; received snapshots only; prototype presentation with process-local r09 candidates/release; code-only, no Android/pixel claim",
+	"status": "fix",
+	"trace": []
+}

@@ -11,6 +11,8 @@ export type Profile = {
   nickname: string; minimap: { transparency: number; marker_style: "face" | "dot"; show_names: boolean };
   accessibility: { text_scale: number; reduce_visual_effects: boolean; haptics_enabled: boolean };
 };
+export const PLAYABLE_CHARACTERS = ["ja-hyun", "nabi"] as const;
+const playable = (id: unknown): id is string => typeof id === "string" && (PLAYABLE_CHARACTERS as readonly string[]).includes(id);
 export type SavedProfile = { profile: Profile; revision: number };
 export class ProfileError extends Error {
   constructor(message: string, readonly status = 400) { super(message); }
@@ -34,6 +36,17 @@ export function migrateProfile(value: unknown): Profile {
     next.schema_version = 3; next.nickname = "플레이어"; next.minimap = defaultMinimap();
   }
   validateProfile(next);
+  return normalizeCombatSelection(next);
+}
+export function normalizeCombatSelection(profile: Profile): Profile {
+  const next = structuredClone(profile);
+  if (!playable(next.opponent_character)) next.opponent_character = "ja-hyun";
+  next.selected_accessory = "";
+  if (next.first_granted && !playable(next.selected_character)) {
+    const owned = next.characters.find(playable);
+    if (owned) next.selected_character = owned;
+    else { if (!next.characters.includes("ja-hyun")) next.characters.push("ja-hyun"); next.selected_character = "ja-hyun"; }
+  }
   return next;
 }
 export function validateProfile(value: unknown): asserts value is Profile {
@@ -57,19 +70,20 @@ export function validateProfile(value: unknown): asserts value is Profile {
 export function applyAction(profile: Profile, action: unknown, payload: unknown): Profile {
   validateProfile(profile);
   if (!object(payload)) throw new ProfileError("invalid_action");
-  const next = structuredClone(profile);
+  const next = normalizeCombatSelection(profile);
   switch (action) {
     case "grant_first":
-      if (next.first_granted || typeof payload.id !== "string" || !catalog.characters.includes(payload.id)) throw new ProfileError("invalid_grant");
+      if (next.first_granted || typeof payload.id !== "string" || !playable(payload.id)) throw new ProfileError("invalid_grant");
       next.first_granted = true; next.characters = [payload.id]; next.selected_character = payload.id;
       break;
     case "purchase": {
       if (!next.first_granted || typeof payload.id !== "string") throw new ProfileError("invalid_purchase");
-      const kind = catalog.characters.includes(payload.id) ? "characters" : catalog.accessories.includes(payload.id) ? "accessories" : undefined;
+      const kind = playable(payload.id) ? "characters" : undefined;
       if (!kind || next[kind].includes(payload.id)) throw new ProfileError("invalid_purchase");
       next[kind].push(payload.id); break;
     }
     case "select":
+      if (!playable(payload.character) || !playable(payload.opponent) || payload.accessory !== "") throw new ProfileError("inactive_combat_selection");
       next.selected_character = payload.character as string; next.selected_accessory = payload.accessory as string; next.opponent_character = payload.opponent as string; break;
     case "identity":
       next.nickname = normalizeNickname(payload.nickname); break;
@@ -95,8 +109,8 @@ export class Profiles {
       const saved=(await db.query<SavedProfile>("SELECT profile,revision FROM app.player_profiles WHERE player_id=$1",[playerId])).rows[0];
       if(!saved)return undefined;
       const migrated=migrateProfile(saved.profile);
-      if((saved.profile as {schema_version:number}).schema_version!==3) {
-        await db.query("UPDATE app.player_profiles SET profile=$2,updated_at=now() WHERE player_id=$1 AND revision=$3 AND profile->>'schema_version'='2'",[playerId,migrated,saved.revision]);
+      if(canonical(saved.profile)!==canonical(migrated)) {
+        await db.query("UPDATE app.player_profiles SET profile=$2,updated_at=now() WHERE player_id=$1 AND revision=$3",[playerId,migrated,saved.revision]);
         const latest=(await db.query<SavedProfile>("SELECT profile,revision FROM app.player_profiles WHERE player_id=$1",[playerId])).rows[0]!;
         return {...latest,profile:migrateProfile(latest.profile)};
       }
@@ -109,7 +123,9 @@ export class Profiles {
       playerId=await canonicalId(db,playerId);
       await db.query("INSERT INTO app.player_profiles (player_id, profile) VALUES ($1, $2) ON CONFLICT DO NOTHING", [playerId, profile]);
       const saved=(await db.query<SavedProfile>("SELECT profile,revision FROM app.player_profiles WHERE player_id=$1",[playerId])).rows[0]!;
-      return {...saved,profile:migrateProfile(saved.profile)};
+      const normalized = migrateProfile(saved.profile);
+      if (canonical(saved.profile) !== canonical(normalized)) await db.query("UPDATE app.player_profiles SET profile=$2,updated_at=now() WHERE player_id=$1 AND revision=$3", [playerId,normalized,saved.revision]);
+      return {...saved,profile:normalized};
     });
   }
   async action(playerId: string, input: Record<string, unknown>): Promise<SavedProfile> {

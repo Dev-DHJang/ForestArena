@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>자현 · 목도리 연속 쳐내기</title>
+<style>
+body{margin:0;background:#102d2c;color:#f4f4e8;font:17px/1.65 system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:26px 20px 64px}h1{font-size:29px;line-height:1.35}h2{font-size:21px}a{color:#c9e8b7}article{margin:24px 0;padding:18px;background:#21443f;border-radius:16px}video,img{display:block;width:100%;height:auto;border-radius:10px}button{padding:10px 16px;margin:5px 8px 5px 0;border:0;border-radius:9px;font:inherit;background:#deedc7;color:#17362b;cursor:pointer}.status{display:inline-block;background:#53442b;padding:6px 12px;border-radius:8px}.note{color:#d1dfd5;font-size:15px}nav{position:sticky;top:0;background:#102d2cf2;padding:10px 0;z-index:1}details{margin-top:16px}summary{cursor:pointer}
+</style>
+<main>
+<p class="status" id="qa-status">이동하는 교차 잔상 r09 · 사용자 승인 · 게임 등록 완료 · 설치 후 재생 확인</p>
+<h1>자현 · 목도리 연속 쳐내기</h1>
+<p>발을 넓게 디딘 채 실제 착용한 목도리 한쪽을 잡아 좌·우·위로 빠르게 교차합니다. 보내주신 스케치처럼 머리 위와 몸 양옆을 큰 푸른 곡선들이 교차합니다. 천의 형태 대신 짧은 궤적 조각들이 빠르게 지나가고 사라집니다.</p>
+<p>새 자세는 총32장입니다. 기존의 1초 동안10회 타격, 적을 끌어당긴 뒤 마지막에 튕겨내기,5초 대기 규칙을 유지합니다.</p>
+<nav><button onclick="speed(1)">정상 속도 1×</button><button onclick="speed(.25)">느리게 0.25×</button><a href="https://www.youtube.com/watch?v=TW9WGjl3e48&amp;t=259s" target="_blank" rel="noopener">참고한 동작 4:19~4:22</a></nav>
+<article>
+<h2>실제 경기 · 기본 표시</h2>
+<video controls loop muted playsinline preload="metadata" src="../qa/installed-normal-r01/ja-hyun__special.mp4"></video>
+<p class="note">실제 입력과60Hz 전투에서 준비→연속 공격→회복→대기까지 재생합니다. 화면 위의 자세 번호는 이 검토 영상에만 표시됩니다.</p>
+</article>
+<article>
+<h2>좌우 반전 · 작은 표시</h2>
+<video controls loop muted playsinline preload="metadata" src="../qa/installed-mirror-small-r01/ja-hyun__special.mp4"></video>
+<p class="note">목도리의 손 연결, 방향 전환과 몸·발의 연결을 작은 표시에서도 확인합니다.</p>
+</article>
+<details><summary>32장 전체 자세 보기</summary><p>준비1~4 · 연속 공격5~27 · 회복28~32. 손 연결을 고친19번 외 나머지31장은 원화 포장 뒤 픽셀을 유지했습니다.</p><img src="../qa/afterimage-review-r09/boards/ja-hyun__special_scarf_sweep.jpg" alt="자현 목도리 특수기 전체32장 자세"><p><a href="../qa/afterimage-review-r09/index.html">자세별 시간표와 비교 보기</a></p></details>
+<p class="note">등록 기록: candidate-catalog-r04 · 사용자 승인2026-10-25. 이 자료는 새 특수기1종의 검토용이며 나머지25종과 실제 Android 기기 검사는 별도로 진행합니다.</p>
+</main>
+<script>function speed(value){document.querySelectorAll('video').forEach(video=>{video.playbackRate=value;video.play()})}</script>
+</html>

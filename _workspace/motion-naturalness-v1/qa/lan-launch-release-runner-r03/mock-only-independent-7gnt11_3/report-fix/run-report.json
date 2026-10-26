@@ -1,0 +1,21 @@
+{
+  "status": "fix",
+  "cases": [
+    {
+      "mode": "natural",
+      "client_exit_code": 0,
+      "report_valid": false,
+      "log_valid": true,
+      "checks": 1,
+      "presentation": "res://scripts/local_fighter_presentation.gd",
+      "report_sha256": "0b920b8fa57bbf5061bffbcef45cbc798843141587876983ecf8708168e4f010",
+      "server_log_valid": true
+    }
+  ],
+  "source_files_unchanged": true,
+  "auth_log_valid": true,
+  "cleanup": "only child server/auth processes started by this runner were terminated",
+  "presentation_source": "res://scripts/local_fighter_presentation.gd",
+  "output": "_workspace/motion-naturalness-v1/qa/lan-launch-release-runner-r03/mock-only-independent-7gnt11_3/report-fix",
+  "scope": "actual localhost sockets; selected presentation; candidate artwork/release metadata remain process-local; no device or rendered-pixel claim"
+}

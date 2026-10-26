@@ -1,0 +1,79 @@
+--- scripts/local_fighter_presentation.gd
++++ _workspace/motion-naturalness-v1/qa/launch-release-prototype-r01/presentation-prototype.gd
+@@ -12,6 +12,10 @@
+ 	FighterController.State.DEAD: &"death", FighterController.State.RING_OUT: &"ring_out",
+ 	FighterController.State.SPAWNING: &"spawn",
+ }
++
++const ReleaseClock := preload("res://_workspace/motion-naturalness-v1/qa/launch-release-prototype-r01/release-clock.gd")
++var release_clock := ReleaseClock.new()
++var _release_selected_frame := -1
+ 
+ const AttackEffects := preload("res://scripts/fighter_attack_effects.gd")
+ 
+@@ -126,7 +130,7 @@
+ 	# values win over a matching calibration, so a candidate can revise timing or
+ 	# attachments even when the source PNG is intentionally unchanged.
+ 	if not String(entry.get("sha256", "")).is_empty():
+-		for field: String in ["frame_count", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors", "phase_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range"]:
++		for field: String in ["frame_count", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors", "phase_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range", "launch_release_frame_range", "launch_release_ticks"]:
+ 			if hash_matches and calibration.has(field): result[field] = calibration[field]
+ 			if entry.has(field): result[field] = entry[field]
+ 	return result
+@@ -137,6 +141,8 @@
+ 
+ 
+ func _reset_playback() -> void:
++	release_clock.reset()
++	_release_selected_frame = -1
+ 	_elapsed = 0.0
+ 	_last_motion = &""
+ 	_last_activation = -1
+@@ -157,6 +163,7 @@
+ 
+ 
+ func _on_hit_reaction_started() -> void:
++	release_clock.cancel()
+ 	# Observe the completed hit; never derive or extend its combat duration.
+ 	_reaction_restart_pending = true
+ 	_reaction_duration_ticks = maxi(fighter.hitstun_ticks, 1)
+@@ -182,6 +189,7 @@
+ 		_local_hit_events_pending -= 1
+ 		return
+ 	if fighter.state not in [FighterController.State.HITSTUN, FighterController.State.LAUNCH, FighterController.State.KNOCK_DOWN]: return
++	release_clock.cancel()
+ 	_reaction_restart_pending = true
+ 	# LAN3 has no remaining-hitstun field. Use authored drawing speed and obey
+ 	# the next received state; presentation must not calculate missing combat data.
+@@ -253,6 +261,11 @@
+ 				requested_motion = &"run"
+ 	if fighter.state == FighterController.State.MATCH_ENDED:
+ 		requested_motion = &"death" if fighter.stocks <= 0 else &"idle"
++	# Prototype-only optional release. Observe already-applied state/input results.
++	var launch_frames: SpriteFrames = _motions.get(&"launch")
++	var launch_count := launch_frames.get_frame_count(&"launch") if launch_frames != null else 0
++	_release_selected_frame = release_clock.select({"state":fighter.state,"attack":fighter.active_attack != null,"activation":fighter.activation_serial,"air_jumps":fighter.air_jumps_remaining,"launcher_jump":fighter.launcher_jump_available,"velocity_y":fighter.velocity.y},_motion_layouts.get(&"launch",{}),launch_count,delta)
++	if _release_selected_frame >= 0: requested_motion = &"launch"
+ 	missing_motion = &"" if _motions.has(requested_motion) else requested_motion
+ 	var shown := requested_motion if missing_motion.is_empty() else &"idle"
+ 	if not _motions.has(shown):
+@@ -297,7 +310,9 @@
+ 		effects.frame_anchors = drawing.get("frame_anchors", [])
+ 		effects.phase_frame_ranges = drawing.get("phase_frame_ranges", [])
+ 		effects.artwork_sha256 = _artwork_hash(layout)
+-	if shown in [&"hitstun", &"launch"] and _reaction_duration_ticks > 0:
++	if _release_selected_frame >= 0:
++		sprite.frame = _release_selected_frame
++	elif shown in [&"hitstun", &"launch"] and _reaction_duration_ticks > 0:
+ 		var elapsed_ticks := _reaction_duration_ticks - fighter.hitstun_ticks
+ 		sprite.frame = timed_frame(elapsed_ticks, _reaction_duration_ticks, 0, frames) if weights.is_empty() else weighted_frame(float(elapsed_ticks) / maxi(_reaction_duration_ticks - 1, 1), 0, frames, weights)
+ 	elif shown == &"knock_down" and fighter.landing_down_ticks > 0:
+@@ -348,6 +363,8 @@
+ 		if layout.has("state_hold_frame"):
+ 			index = mini(index, int(layout.state_hold_frame))
+ 		sprite.frame = index % frames if sprite.sprite_frames.get_animation_loop(shown) else mini(index, frames - 1)
++	if fighter.state == FighterController.State.LAUNCH and shown == &"launch":
++		release_clock.remember_actual_launch(sprite.frame)
+ 	_was_airborne = airborne
+ 	var frame_anchors: Array = drawing.get("frame_anchors", [])
+ 	if frame_anchors.size() == frames:

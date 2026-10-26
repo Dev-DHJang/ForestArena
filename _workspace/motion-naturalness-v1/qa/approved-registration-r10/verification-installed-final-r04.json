@@ -1,0 +1,42 @@
+{
+  "status": "pass",
+  "command": "./scripts/verify.sh, completed in preserved prefix and resumed suffixes",
+  "original_run_terminal": false,
+  "segments": [
+    {
+      "log": "verify-installed-r01.log",
+      "sha256": "0054b3973e595644ad48dc38abf40042c981bb13ab972f5a2f7c64466afd1dd9"
+    },
+    {
+      "log": "verify-installed-resume-r02.log",
+      "sha256": "f7f6fe361fe3d587cb25b72a3986a5eb5abd3760741c1c5b609f14d1b210c586"
+    },
+    {
+      "log": "verify-installed-resume-r03.log",
+      "sha256": "763337bfbdc004cdbc7a602e67e978c7a9842d5fd3fad96b5dce3259d624dd43"
+    },
+    {
+      "log": "local-fighter-presentation-updated-r03.log",
+      "sha256": "d7565d0203b520638d42ae42b682cec44c706ab7120672af030678a66f7a171b"
+    }
+  ],
+  "input_files": 3721,
+  "unchanged_files": 3720,
+  "intentional_test_update": {
+    "path": "tests/local_fighter_presentation.gd",
+    "before_sha256": "8db8512f0718892116af32decd9befce7dc842b2f5705ee9c6bb3d322a0df73c",
+    "after_sha256": "038281919f084828aadc76de67214172cfeb4b880f1f5f94b456a83a77cd7788",
+    "reason": "new registered spawn body-root anchors and 32-frame Nabi special require current-resource assertions; legacy124/16-frame checks retained"
+  },
+  "resolved_stale_expectation_errors": [
+    "ERROR: ja-hyun basic motion uses approved 124px contact point",
+    "ERROR: nabi basic motion uses approved 124px contact point",
+    "ERROR: approved 16-frame special still shows the run cycle during travel"
+  ],
+  "unexpected_errors": [],
+  "known_resource_exit_errors": 12,
+  "source_art_and_product_code_unchanged_during_resumption": true,
+  "docs_harness_resources_lan_online": "pass in resumed r03 terminal log",
+  "physical_android": "not run; explicit separate manual recheck",
+  "additional_gpu_recapture": "not required: original semantic visual QA plus independent installed416RGBA/layout equality and final limited review"
+}

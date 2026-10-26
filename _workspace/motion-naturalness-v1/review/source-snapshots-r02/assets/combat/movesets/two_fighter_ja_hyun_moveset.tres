@@ -1,0 +1,236 @@
+[gd_resource type="Resource" script_class="MoveSetData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/move_set_data.gd" id="1_moves"]
+[ext_resource type="Script" path="res://scripts/data/move_slot_data.gd" id="2_slot"]
+[ext_resource type="Script" path="res://scripts/data/attack_data.gd" id="3_attack"]
+[ext_resource type="Script" path="res://scripts/data/combo_link_data.gd" id="4_link"]
+
+[sub_resource type="Resource" id="Attack_light_01"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-light-01"
+action_id = &"attack_light"
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 18
+damage = 4.0
+knockback = 120.0
+fixed_hitstun_ticks = 16
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_light_combo_01"
+
+[sub_resource type="Resource" id="Slot_light_01"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-light-01"
+attack = SubResource("Attack_light_01")
+
+[sub_resource type="Resource" id="Link_1"]
+script = ExtResource("4_link")
+from_attack_id = &"ja-hyun-light-01"
+input_action_id = &"attack_light"
+next_attack_id = &"ja-hyun-light-02"
+
+[sub_resource type="Resource" id="Attack_light_02"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-light-02"
+action_id = &"attack_light"
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 18
+damage = 4.0
+knockback = 120.0
+fixed_hitstun_ticks = 16
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_light_combo_02"
+
+[sub_resource type="Resource" id="Slot_light_02"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-light-02"
+attack = SubResource("Attack_light_02")
+
+[sub_resource type="Resource" id="Link_2"]
+script = ExtResource("4_link")
+from_attack_id = &"ja-hyun-light-02"
+input_action_id = &"attack_light"
+next_attack_id = &"ja-hyun-light-03"
+
+[sub_resource type="Resource" id="Attack_light_03"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-light-03"
+action_id = &"attack_light"
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 18
+damage = 4.0
+knockback = 120.0
+fixed_hitstun_ticks = 16
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_light_combo_01"
+
+[sub_resource type="Resource" id="Slot_light_03"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-light-03"
+attack = SubResource("Attack_light_03")
+
+[sub_resource type="Resource" id="Link_3"]
+script = ExtResource("4_link")
+from_attack_id = &"ja-hyun-light-03"
+input_action_id = &"attack_light"
+next_attack_id = &"ja-hyun-light-04"
+
+[sub_resource type="Resource" id="Attack_light_04"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-light-04"
+action_id = &"attack_light"
+startup_ticks = 10
+active_ticks = 4
+recovery_ticks = 22
+damage = 7.0
+knockback = 210.0
+fixed_hitstun_ticks = 18
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_light_combo_04"
+hit_reaction = 4
+is_finisher = true
+launch_vector = Vector2(0.4, 0.65)
+
+[sub_resource type="Resource" id="Slot_light_04"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-light-04"
+attack = SubResource("Attack_light_04")
+
+[sub_resource type="Resource" id="Attack_heavy"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-heavy"
+action_id = &"attack_heavy"
+startup_ticks = 12
+active_ticks = 5
+recovery_ticks = 20
+damage = 10.0
+knockback = 600.0
+fixed_hitstun_ticks = 22
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"special_neutral"
+launch_mode = 1
+pull_ticks = 18
+pull_stop_distance = 64.0
+hitbox_size = Vector2(180, 64)
+hitbox_offset = Vector2(110, -30)
+
+[sub_resource type="Resource" id="Slot_heavy"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-heavy"
+attack = SubResource("Attack_heavy")
+
+[sub_resource type="Resource" id="Attack_air_light"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-air-light"
+action_id = &"attack_light"
+startup_ticks = 8
+active_ticks = 4
+recovery_ticks = 18
+damage = 5.0
+knockback = 150.0
+fixed_hitstun_ticks = 16
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_air_light"
+activation_context = 1
+input_direction = 5
+hitbox_size = Vector2(140, 58)
+hitbox_offset = Vector2(94, -35)
+air_lock = 1
+
+[sub_resource type="Resource" id="Slot_air_light"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-air-light"
+attack = SubResource("Attack_air_light")
+
+[sub_resource type="Resource" id="Attack_air_heavy"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-air-heavy"
+action_id = &"attack_heavy"
+startup_ticks = 12
+active_ticks = 5
+recovery_ticks = 22
+damage = 9.0
+knockback = 900.0
+fixed_hitstun_ticks = 22
+guard_damage = 4.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"attack_air_heavy"
+activation_context = 1
+input_direction = 5
+launch_vector = Vector2(0.1, 1)
+hit_reaction = 8
+hitbox_size = Vector2(116, 132)
+hitbox_offset = Vector2(48, -20)
+air_lock = 0
+landing_knockdown = true
+is_finisher = true
+
+[sub_resource type="Resource" id="Slot_air_heavy"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-air-heavy"
+attack = SubResource("Attack_air_heavy")
+
+[sub_resource type="Resource" id="Attack_special"]
+script = ExtResource("3_attack")
+schema_version = 4
+attack_id = &"ja-hyun-special"
+action_id = &"attack_special"
+startup_ticks = 12
+active_ticks = 60
+recovery_ticks = 24
+damage = 1.0
+knockback = 360.0
+fixed_hitstun_ticks = 12
+guard_damage = 1.0
+guard_hitstun_ticks = 3
+preserve_air_actions = true
+visual_state_id = &"special_scarf_sweep"
+ground_only = true
+launch_mode = 1
+max_hits_per_target = 10
+rehit_interval_ticks = 6
+pull_ticks = 6
+attack_movement = 0
+travel_distance = 0.0
+travel_speed = 0.0
+behind_distance = 64.0
+hit_target_only = false
+hitbox_size = Vector2(100, 70)
+hitbox_offset = Vector2(45, -30)
+tags = Array[StringName]([&"SPECIAL", &"MELEE"])
+hit_windows = Array[Dictionary]([{"tick": 6, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 12, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 18, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 24, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 30, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 36, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 42, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 48, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 54, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 1.0, "knockback": 360.0, "launch_mode": 1, "pull_ticks": 6}, {"tick": 60, "boxes": [Rect2(-250, -60, 225, 64), Rect2(25, -60, 225, 64), Rect2(-38, -280, 76, 230)], "damage": 5.0, "knockback": 320.0, "launch_mode": 2, "pull_ticks": 0}])
+
+[sub_resource type="Resource" id="Slot_special"]
+script = ExtResource("2_slot")
+slot_id = &"ja-hyun-special"
+attack = SubResource("Attack_special")
+
+[resource]
+script = ExtResource("1_moves")
+move_set_id = &"two-fighter-ja-hyun-v2"
+combo_count = 4
+opening_attack_ids = Array[StringName]([&"ja-hyun-light-01"])
+slots = Array[ExtResource("2_slot")]([SubResource("Slot_light_01"), SubResource("Slot_light_02"), SubResource("Slot_light_03"), SubResource("Slot_light_04"), SubResource("Slot_heavy"), SubResource("Slot_air_light"), SubResource("Slot_air_heavy"), SubResource("Slot_special")])
+combo_links = Array[ExtResource("4_link")]([SubResource("Link_1"), SubResource("Link_2"), SubResource("Link_3")])

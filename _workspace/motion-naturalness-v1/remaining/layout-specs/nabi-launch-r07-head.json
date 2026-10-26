@@ -1,0 +1,51 @@
+{
+  "kind": "remaining-motion-layout",
+  "character_id": "nabi",
+  "motion": "launch",
+  "source_paths": [
+    "_workspace/motion-naturalness-v1/remaining/nabi/launch-r01.png"
+  ],
+  "source_columns": 4,
+  "source_rows": 4,
+  "source_to_cell_scale": 0.33,
+  "presentation_scale": 1.1222543304143902,
+  "source_baseline_y": 278.25,
+  "target_baseline_y": 104,
+  "fps": 12,
+  "loop": false,
+  "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+  "version": "r07-head",
+  "head_unit_proposal": {
+    "target_world_pixels": 41.5,
+    "measurement_source": "_workspace/motion-naturalness-v1/remaining/nabi/head-unit-proposals.json",
+    "source_units": [
+      {
+        "source_png": "launch-r01.png",
+        "source_sha256": "63b87aeddd1ac6e3b296685d2e323a634d9f312038a3c24b7263f76abb9b69fe",
+        "frame_index": 0,
+        "source_size": [
+          1448,
+          1086
+        ],
+        "raw_cell_size": [
+          362.0,
+          271.5
+        ],
+        "near_ear_tip_cell": [
+          149,
+          69
+        ],
+        "chin_cell": [
+          210,
+          163
+        ],
+        "source_head_unit_pixels": 112.058,
+        "recommended_uniform_source_to_world_scale": 0.3703,
+        "target_head_unit_world_pixels": 41.5,
+        "precision": "원화 수동 눈금 판독 약 ±5px. 이 값은 표시 크기 초기 제안이고 실제 승인 이동/연계와 대조 전에는 확정하지 않는다."
+      }
+    ],
+    "status": "proposal; all-frame/link visual QA required",
+    "method": "one uniform scale per source sheet; common runtime display scale; no pose/body-part distortion"
+  }
+}

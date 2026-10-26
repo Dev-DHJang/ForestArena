@@ -1,0 +1,509 @@
+{
+  "schema_version": 1,
+  "character_id": "nabi",
+  "motion": "attack_heavy_up",
+  "source_png": "attack_heavy_up-r02.png",
+  "source_sha256": "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034",
+  "source_size": [
+    1350,
+    1165
+  ],
+  "raw_grid": {
+    "columns": 4,
+    "rows": 4,
+    "cell_width": 337.5,
+    "cell_height": 291.25
+  },
+  "frame_count": 16,
+  "motion_frame_count": 16,
+  "base_facing": "right",
+  "coordinate_system": "원시 PNG 4×4 격자 셀 왼쪽 위 기준 픽셀. x 오른쪽, y 아래. source_absolute=cell.origin+anchor. 셀을 넘는 온전한 손/발톱은 셀 폭을 넘는 좌표도 허용한다. 128셀 좌표가 아니다.",
+  "anchor_meaning": {
+    "claw_hand": "공격하는 팔에 연결된 실제 장갑 손/주먹의 손바닥 중심 부근. 몸통이나 효과 중심이 아니다.",
+    "claw_tip": "펼친 발톱 부채의 가운데 긴 보라색 발톱으로 읽히는 실제 바깥 끝. 그림만으로 해부학적 중지까지 확정한 좌표는 아니다. 확대판에서 끝을 구별할 수 있을 때만 기록하며 접힘/가림으로 불명확하면 키를 생략한다."
+  },
+  "annotation_method": "원화 전 그림을 셀 좌표 눈금이 있는 확대판으로 직접 확인한 제작자 시각 주석. 좌표는 수동 판독 근삿값이며 원화나 전투 판정을 바꾸지 않는다.",
+  "precision_limit": "수동 눈금 판독으로 원화 약 ±5px의 오차가 남을 수 있다. 포장 후 실제 소형 표시 및 손/발톱 효과 접속 검증이 필요하다.",
+  "source_review": {
+    "reviewer": "nabi_anchor_finish",
+    "reviewed_frame_count": 16,
+    "method": "80프레임 전체의 손 표시판 20장과 visible-claws-closeup 4장을 직접 눈으로 확인했다. 효과 연결이나 실제 게임 재생 통과를 의미하지 않는다.",
+    "visible_claw_closeups": [
+      "anchor-diagnostics/visible-claws-closeup-1.png",
+      "anchor-diagnostics/visible-claws-closeup-2.png",
+      "anchor-diagnostics/visible-claws-closeup-3.png",
+      "anchor-diagnostics/visible-claws-closeup-4.png"
+    ]
+  },
+  "review_status": "source annotation only; independent runtime VFX QA pending; explicit user approval pending",
+  "frames": [
+    {
+      "frame_index": 0,
+      "motion_frame_index": 0,
+      "phase": "startup",
+      "cell": {
+        "column": 0,
+        "row": 0,
+        "origin": [
+          0.0,
+          0.0
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          272,
+          128
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 먼 손을 아래로 준비하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f00-03.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f00-03.png"
+      ]
+    },
+    {
+      "frame_index": 1,
+      "motion_frame_index": 1,
+      "phase": "startup",
+      "cell": {
+        "column": 1,
+        "row": 0,
+        "origin": [
+          337.5,
+          0.0
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          211,
+          151
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 먼 손을 아래로 준비하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f00-03.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f00-03.png"
+      ]
+    },
+    {
+      "frame_index": 2,
+      "motion_frame_index": 2,
+      "phase": "startup",
+      "cell": {
+        "column": 2,
+        "row": 0,
+        "origin": [
+          675.0,
+          0.0
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          240,
+          194
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 먼 손을 아래로 준비하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f00-03.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f00-03.png"
+      ]
+    },
+    {
+      "frame_index": 3,
+      "motion_frame_index": 3,
+      "phase": "startup",
+      "cell": {
+        "column": 3,
+        "row": 0,
+        "origin": [
+          1012.5,
+          0.0
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          226,
+          186
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 먼 손을 아래로 준비하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f00-03.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f00-03.png"
+      ]
+    },
+    {
+      "frame_index": 4,
+      "motion_frame_index": 4,
+      "phase": "active",
+      "cell": {
+        "column": 0,
+        "row": 1,
+        "origin": [
+          0.0,
+          291.25
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          278,
+          136
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔이 위로 올라가는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f04-07.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f04-07.png"
+      ]
+    },
+    {
+      "frame_index": 5,
+      "motion_frame_index": 5,
+      "phase": "active",
+      "cell": {
+        "column": 1,
+        "row": 1,
+        "origin": [
+          337.5,
+          291.25
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          265,
+          124
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔이 위로 올라가는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f04-07.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f04-07.png"
+      ]
+    },
+    {
+      "frame_index": 6,
+      "motion_frame_index": 6,
+      "phase": "active",
+      "cell": {
+        "column": 2,
+        "row": 1,
+        "origin": [
+          675.0,
+          291.25
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          271,
+          107
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔이 위로 올라가는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f04-07.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f04-07.png"
+      ]
+    },
+    {
+      "frame_index": 7,
+      "motion_frame_index": 7,
+      "phase": "active",
+      "cell": {
+        "column": 3,
+        "row": 1,
+        "origin": [
+          1012.5,
+          291.25
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          253,
+          39
+        ],
+        "claw_tip": [
+          291,
+          8
+        ]
+      },
+      "omitted_anchors": {},
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔이 위로 올라가는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f04-07.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f04-07.png"
+      ]
+    },
+    {
+      "frame_index": 8,
+      "motion_frame_index": 8,
+      "phase": "recovery",
+      "cell": {
+        "column": 0,
+        "row": 2,
+        "origin": [
+          0.0,
+          582.5
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          283,
+          67
+        ],
+        "claw_tip": [
+          313,
+          28
+        ]
+      },
+      "omitted_anchors": {},
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f08-11.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f08-11.png"
+      ]
+    },
+    {
+      "frame_index": 9,
+      "motion_frame_index": 9,
+      "phase": "recovery",
+      "cell": {
+        "column": 1,
+        "row": 2,
+        "origin": [
+          337.5,
+          582.5
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          281,
+          101
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f08-11.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f08-11.png"
+      ]
+    },
+    {
+      "frame_index": 10,
+      "motion_frame_index": 10,
+      "phase": "recovery",
+      "cell": {
+        "column": 2,
+        "row": 2,
+        "origin": [
+          675.0,
+          582.5
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          267,
+          116
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f08-11.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f08-11.png"
+      ]
+    },
+    {
+      "frame_index": 11,
+      "motion_frame_index": 11,
+      "phase": "recovery",
+      "cell": {
+        "column": 3,
+        "row": 2,
+        "origin": [
+          1012.5,
+          582.5
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          261,
+          137
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f08-11.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f08-11.png"
+      ]
+    },
+    {
+      "frame_index": 12,
+      "motion_frame_index": 12,
+      "phase": "recovery",
+      "cell": {
+        "column": 0,
+        "row": 3,
+        "origin": [
+          0.0,
+          873.75
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          266,
+          129
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f12-15.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f12-15.png"
+      ]
+    },
+    {
+      "frame_index": 13,
+      "motion_frame_index": 13,
+      "phase": "recovery",
+      "cell": {
+        "column": 1,
+        "row": 3,
+        "origin": [
+          337.5,
+          873.75
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          208,
+          151
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f12-15.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f12-15.png"
+      ]
+    },
+    {
+      "frame_index": 14,
+      "motion_frame_index": 14,
+      "phase": "recovery",
+      "cell": {
+        "column": 2,
+        "row": 3,
+        "origin": [
+          675.0,
+          873.75
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          250,
+          188
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f12-15.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f12-15.png"
+      ]
+    },
+    {
+      "frame_index": 15,
+      "motion_frame_index": 15,
+      "phase": "recovery",
+      "cell": {
+        "column": 3,
+        "row": 3,
+        "origin": [
+          1012.5,
+          873.75
+        ],
+        "width": 337.5,
+        "height": 291.25
+      },
+      "anchors": {
+        "claw_hand": [
+          225,
+          176
+        ]
+      },
+      "omitted_anchors": {
+        "claw_tip": "금속 발톱이 접혀 있거나 주먹/다른 손가락과 겹쳐 중앙 발톱의 실제 끝을 구별할 수 없어 생략했다. 손 기준점으로 발톱 끝을 만들어 내지 않는다."
+      },
+      "visual_observation": "화면 오른쪽의 먼 X 소매 팔에 연결된 손을 표시했다. 가까운 흰 줄 소매 팔은 몸 앞 가드에 남는다. 같은 먼 팔을 접어 회수하는 구간이다.",
+      "reviewed_previews": [
+        "anchor-diagnostics/attack_heavy_up-r02-whole-f12-15.png",
+        "anchor-diagnostics/attack_heavy_up-r02-marked-f12-15.png"
+      ]
+    }
+  ]
+}

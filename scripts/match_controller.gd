@@ -78,6 +78,11 @@ func step_fixed_tick(poll_local_input := true) -> void:
 	_process_intents()
 	for fighter: FighterController in _fighters():
 		fighter.step_tick(rules)
+	for fighter: FighterController in _fighters():
+		var enemies: Array[FighterController] = []
+		for target: FighterController in _fighters():
+			if target != fighter and not _are_allies(fighter, target): enemies.append(target)
+		fighter.advance_attack_travel(enemies, rules, _fighters())
 	PushboxResolverScript.resolve(_fighters())
 	_resolve_hits()
 	_resolve_ring_outs()
@@ -141,7 +146,7 @@ func snapshot() -> Dictionary:
 		entry["on_floor"] = fighter.is_on_floor()
 		entry["team_id"] = team_by_fighter_id.get(fighter.fighter_id, &"")
 		fighters.append(entry)
-	return {"tick": tick, "paused": paused, "winner_id": winner_id, "winner_team_id": winner_team_id, "is_draw": is_draw, "mode": local_match_mode, "guard_max": rules.guard_max_durability, "ultimate_gauge_max": rules.ultimate_gauge_max, "fighters": fighters}
+	return {"tick": tick, "paused": paused, "winner_id": winner_id, "winner_team_id": winner_team_id, "is_draw": is_draw, "mode": local_match_mode, "simplified_combat": rules.simplified_combat, "guard_max": rules.guard_max_durability, "ultimate_gauge_max": rules.ultimate_gauge_max, "fighters": fighters}
 
 
 func snapshot_hash() -> String:
@@ -192,11 +197,12 @@ func _poll_player_input() -> void:
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
 	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]:
+		if rules.simplified_combat and action in [&"dash", &"evade", &"ultimate"]: continue
 		# Ultimate has one slot, not directional variants. Keep movement separate.
 		var action_direction := CombatIntent.Direction.NEUTRAL if action == &"ultimate" else direction
 		if Input.is_action_just_pressed(action):
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, action_direction, CombatIntent.Edge.PRESS, _context_for(player)))
-		elif Input.is_action_just_released(action):
+		elif not rules.simplified_combat and Input.is_action_just_released(action):
 			submit_intent(CombatIntent.new(tick, player.fighter_id, action, action_direction, CombatIntent.Edge.RELEASE, _context_for(player)))
 
 
@@ -220,18 +226,24 @@ func _resolve_hits() -> void:
 	for source: FighterController in _fighters():
 		for target: FighterController in _fighters():
 			if source == target or _are_allies(source, target) or source.active_attack == null or source.state != FighterController.State.ATTACK_ACTIVE: continue
-			if not source.get_hitbox_rect().intersects(target.get_hurtbox_rect()): continue
-			var key := "%s:%d:%s" % [source.fighter_id, source.activation_serial, target.fighter_id]
-			var count: int = _hit_counts.get(key, 0)
-			if count >= source.active_attack.max_hits_per_target: continue
-			var last_tick: int = _hit_counts.get("%s:last" % key, -999)
-			if count > 0 and tick - last_tick < source.active_attack.rehit_interval_ticks: continue
-			# Invulnerability remains a resolved IMMUNE result, so consumers can observe
-			# the fixed hit pipeline instead of silently losing the candidate here.
-			if target.state in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
-			candidates.append({
-				"source": source, "target": target, "attack": source.active_attack, "key": key,
-			})
+			if source.active_attack.hit_target_only and source.attack_target_id != target.fighter_id: continue
+			for window: Dictionary in source.attack_hit_windows():
+				var overlaps := false
+				for box: Rect2 in window.boxes:
+					if box.intersects(target.get_hurtbox_rect()): overlaps = true
+				if not overlaps: continue
+				var key := "%s:%d:%s" % [source.fighter_id, source.activation_serial, target.fighter_id]
+				var response: AttackData = window.attack
+				var max_hits := response.max_hits_per_target
+				if int(window.index) >= 0:
+					key += ":pulse:%d" % int(window.index)
+					max_hits = 1
+				var count: int = _hit_counts.get(key, 0)
+				if count >= max_hits: continue
+				var last_tick: int = _hit_counts.get("%s:last" % key, -999)
+				if count > 0 and tick - last_tick < response.rehit_interval_ticks: continue
+				if target.state in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
+				candidates.append({"source": source, "target": target, "attack": response, "key": key})
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return "%s:%s:%s" % [a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%s:%s:%s" % [b.source.fighter_id, b.target.fighter_id, b.attack.attack_id]
 	)

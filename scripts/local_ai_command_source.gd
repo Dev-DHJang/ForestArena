@@ -10,6 +10,8 @@ var team_id: StringName
 var match_seed: int
 var reaction_interval_ticks := 18
 var preferred_distance := 62.0
+var simplified_combat := false
+var heavy_range := 105.0
 var stage_data: StageData
 var _direction := CombatIntent.Direction.NEUTRAL
 var _heavy_release_tick := -1
@@ -30,6 +32,8 @@ func _init(id: StringName = &"", seed_value: int = 1, settings: Dictionary = {})
 	fighter_id = id
 	match_seed = seed_value
 	team_id = StringName(settings.get("team_id", &""))
+	simplified_combat = bool(settings.get("simplified_combat", false))
+	heavy_range = maxf(105, float(settings.get("heavy_range", 105)))
 	reaction_interval_ticks = maxi(1, int(settings.get("reaction_interval_ticks", 18)))
 	preferred_distance = clampf(float(settings.get("preferred_distance", 62.0)), 40.0, 100.0)
 	stage_data = settings.get("stage_data", DEFAULT_STAGE) as StageData
@@ -51,6 +55,8 @@ func reset() -> void:
 
 
 func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatIntent]:
+	var use_simplified := simplified_combat or bool(match_snapshot.get("simplified_combat", false))
+	if use_simplified: _heavy_release_tick = -1
 	var commands: Array[CombatIntent] = []
 	var actor: Dictionary = {}
 	var opponent: Dictionary = {}
@@ -94,7 +100,7 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 		if context == CombatIntent.Context.AIR and velocity.y > -60.0:
 			if int(actor.get("air_jumps", 0)) > 0:
 				action = &"jump"
-			elif actor.get("up_special", false) and int(actor.get("special_cooldown_ticks", 0)) == 0:
+			elif not use_simplified and actor.get("up_special", false) and int(actor.get("special_cooldown_ticks", 0)) == 0:
 				action = &"attack_special"
 				action_direction = CombatIntent.Direction.UP
 	elif opponent.is_empty():
@@ -148,7 +154,7 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 				direction = CombatIntent.Direction.NEUTRAL
 			Tactic.DEFEND:
 				direction = CombatIntent.Direction.DOWN if context == CombatIntent.Context.GROUND else CombatIntent.Direction.NEUTRAL
-				if threat and _rng.randi_range(0, 3) == 0 and _safe_retreat(position, away):
+				if not use_simplified and threat and _rng.randi_range(0, 3) == 0 and _safe_retreat(position, away):
 					direction = away
 					action = &"evade"
 					action_direction = away
@@ -159,18 +165,30 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 		if can_attack and action.is_empty():
 			direction = toward
 			var choice := _rng.randi_range(0, 11)
-			if float(actor.get("ultimate_gauge", 0.0)) >= float(match_snapshot.get("ultimate_gauge_max", 100.0)) and not actor.get("ultimate_used_this_stock", false):
+			if not use_simplified and float(actor.get("ultimate_gauge", 0.0)) >= float(match_snapshot.get("ultimate_gauge_max", 100.0)) and not actor.get("ultimate_used_this_stock", false):
 				action = &"ultimate"
 				action_direction = CombatIntent.Direction.NEUTRAL
-			elif choice == 8 and int(actor.get("special_cooldown_ticks", 0)) == 0:
+			elif choice == 8 and int(actor.get("special_cooldown_ticks", 0)) == 0 and (not use_simplified or context == CombatIntent.Context.GROUND):
 				action = &"attack_special"
 			elif choice == 9 and _heavy_release_tick < 0:
 				action = &"attack_heavy"
-				_heavy_release_tick = tick + reaction_interval_ticks
+				if not use_simplified: _heavy_release_tick = tick + reaction_interval_ticks
 			elif choice == 10 and context == CombatIntent.Context.GROUND and not counter:
 				action = &"jump"
 			elif choice < 11 or counter:
 				action = &"attack_light"
+	if use_simplified:
+		if context == CombatIntent.Context.GROUND and not opponent.is_empty() and absf(delta.y) < 80 and absf(delta.x) >= 105 and absf(delta.x) <= heavy_range and _tactic == Tactic.APPROACH:
+			action = &"attack_heavy"
+			direction = toward
+			action_direction = toward
+		if int(actor.get("air_lock", 0)) > 0:
+			action = &""
+			if int(actor.get("air_lock", 0)) == 2: direction = CombatIntent.Direction.NEUTRAL
+		if context == CombatIntent.Context.AIR:
+			if action == &"attack_special": action = &""
+			if action == &"attack_light" and actor.get("air_light_used", false): action = &"attack_heavy" if not actor.get("air_heavy_used", false) else &""
+			if action == &"attack_heavy" and actor.get("air_heavy_used", false): action = &"attack_light" if not actor.get("air_light_used", false) else &""
 	_set_direction(commands, tick, direction, context)
 	if not action.is_empty(): commands.append(_intent(tick, action, action_direction, context))
 	return commands

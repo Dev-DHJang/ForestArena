@@ -1,0 +1,20 @@
+{
+  "comparisons": [
+    {
+      "reference": "import-reference-normal-r01",
+      "installed": "installed-normal-r01",
+      "all_120_rgba_equal": true,
+      "whole_raw_sha_equal": true,
+      "all_match_and_display_states_equal": true
+    },
+    {
+      "reference": "import-reference-mirror-small-r01",
+      "installed": "installed-mirror-small-r01",
+      "all_120_rgba_equal": true,
+      "whole_raw_sha_equal": true,
+      "all_match_and_display_states_equal": true
+    }
+  ],
+  "all_equal": true,
+  "reference_preprocessing": "only Godot Image.fix_alpha_edges(), matching declared runtime import option; source PNG unchanged"
+}

@@ -3,6 +3,7 @@ extends Resource
 
 # Missing version means legacy/unknown data and must be rejected explicitly.
 @export var schema_version: int = 0
+@export var simplified_combat := false
 @export var physics_ticks_per_second: int = 60
 @export var stocks_per_fighter: int = 3
 @export var ground_acceleration: float = 3000.0
@@ -28,7 +29,7 @@ extends Resource
 
 
 func is_valid_definition() -> bool:
-	return schema_version == 4 \
+	return schema_version in [4, 5] \
 		and physics_ticks_per_second == 60 \
 		and stocks_per_fighter > 0 \
 		and ground_acceleration > 0.0 \

@@ -1,0 +1,175 @@
+{
+  "scope": "mock-only; subprocess and socket constructors replaced; no actual socket ports used",
+  "output_directory": "_workspace/motion-naturalness-v1/qa/lan-launch-release-runner-r02/mock-only-independent-efw1i_jb",
+  "checks": 17,
+  "passed_expectations": 15,
+  "findings": [
+    {
+      "case": "wrong-mode",
+      "expected_pass": false,
+      "actual_pass": true,
+      "expectation_met": false,
+      "exit": 0,
+      "runner_status": "pass",
+      "mock_only": true
+    },
+    {
+      "case": "server-error",
+      "expected_pass": false,
+      "actual_pass": true,
+      "expectation_met": false,
+      "exit": 0,
+      "runner_status": "pass",
+      "mock_only": true
+    }
+  ],
+  "cases": [
+    {
+      "case": "positive-control",
+      "expected_pass": true,
+      "actual_pass": true,
+      "expectation_met": true,
+      "exit": 0,
+      "runner_status": "pass",
+      "mock_only": true
+    },
+    {
+      "case": "missing-report",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "report-fix",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "report-errors",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "zero-checks",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "wrong-presentation",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "missing-pass-log",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "client-error",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "nonzero-client",
+      "expected_pass": false,
+      "actual_pass": false,
+      "expectation_met": true,
+      "exit": 1,
+      "runner_status": "fix",
+      "mock_only": true
+    },
+    {
+      "case": "wrong-mode",
+      "expected_pass": false,
+      "actual_pass": true,
+      "expectation_met": false,
+      "exit": 0,
+      "runner_status": "pass",
+      "mock_only": true
+    },
+    {
+      "case": "server-error",
+      "expected_pass": false,
+      "actual_pass": true,
+      "expectation_met": false,
+      "exit": 0,
+      "runner_status": "pass",
+      "mock_only": true
+    },
+    {
+      "case": "existing-output-refused",
+      "expectation_met": true,
+      "exit": "QA output already exists; choose a new versioned directory",
+      "before_after_equal": true,
+      "no_socket_or_process_call": true,
+      "mock_only": true
+    },
+    {
+      "case": "outside-workspace-refused",
+      "expectation_met": true,
+      "exit": "QA output must remain inside _workspace",
+      "before_after_equal": true,
+      "no_socket_or_process_call": true,
+      "mock_only": true
+    },
+    {
+      "case": "symlink-output-escape-refused",
+      "expectation_met": true,
+      "exit": "QA output must remain inside _workspace",
+      "before_after_equal": true,
+      "no_socket_or_process_call": true,
+      "mock_only": true
+    },
+    {
+      "case": "non-res-presentation-refused",
+      "expectation_met": true,
+      "exit": "Presentation must use a project-local res:// script",
+      "before_after_equal": true,
+      "no_socket_or_process_call": true,
+      "mock_only": true
+    },
+    {
+      "case": "traversal-presentation-refused",
+      "expectation_met": true,
+      "exit": "Presentation must resolve to an existing project-local GDScript",
+      "before_after_equal": true,
+      "no_socket_or_process_call": true,
+      "mock_only": true
+    },
+    {
+      "case": "missing-presentation-refused",
+      "expectation_met": true,
+      "exit": "Presentation must resolve to an existing project-local GDScript",
+      "before_after_equal": true,
+      "no_socket_or_process_call": true,
+      "mock_only": true
+    }
+  ]
+}
