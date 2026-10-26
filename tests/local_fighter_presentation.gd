@@ -62,7 +62,11 @@ func _run() -> void:
 		presentation.sync_visual(0.01)
 		_check(presentation.character_id == id, "appearance uses profile identity, not participant slot")
 		_check(presentation.sprite.visible, "%s has visible approved sprite" % id)
-		_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, fighter.ground_contact_offset_y()), "%s basic motion uses approved 124px contact point" % id)
+		# Newly registered spawn/idle drawings can use authored body roots instead
+		# of the legacy fixed 124px foot pivot. Check the selected real drawing.
+		_check_ground_anchor(presentation, fighter, "%s initial motion uses its approved attachment" % id)
+		if id in [&"myo-ryung", &"yu-ran"]:
+			_check(is_equal_approx(presentation.sprite.position.y + 60.0 * presentation.sprite.scale.y, fighter.ground_contact_offset_y()), "%s legacy basic motion retains the 124px contact point" % id)
 		_check(presentation.screen_bounds().has_area(), "%s exposes its actual visible screen bounds" % id)
 		for row: Dictionary in drawing_document.motions:
 			if row.character_id != String(id):
@@ -192,11 +196,12 @@ func _run() -> void:
 			else:
 				_check(presentation.missing_motion == attack.visual_state_id, "missing motion explicitly exposed")
 		if id == &"nabi":
-			var old_special: SpriteFrames = presentation._motions[&"special_side"]
+			var registered_special: SpriteFrames = presentation._motions[&"special_side"]
+			var registered_layout: Dictionary = presentation._motion_layouts[&"special_side"]
 			var authored_travel := SpriteFrames.new()
 			authored_travel.add_animation(&"special_side")
 			for index: int in 32:
-				authored_travel.add_frame(&"special_side", old_special.get_frame_texture(&"special_side", 0))
+				authored_travel.add_frame(&"special_side", registered_special.get_frame_texture(&"special_side", 0))
 			var travel_attack := AttackData.new()
 			travel_attack.visual_state_id = &"special_side"
 			travel_attack.attack_movement = 1
@@ -207,15 +212,32 @@ func _run() -> void:
 			fighter.state = FighterController.State.ATTACK_ACTIVE
 			fighter.attack_travel_active = true
 			fighter.attack_phase_tick = 10
+			var registered_before := fighter.snapshot()
+			presentation.sync_visual(1.0/60.0)
+			var registered_span: Array = registered_layout.phase_frame_ranges[1]
+			_check(registered_special.get_frame_count(&"special_side") == 32 and presentation.sprite.animation == &"special_side", "registered Nabi special uses its own 32-frame travel artwork")
+			_check(presentation.sprite.frame >= int(registered_span[0]) and presentation.sprite.frame < int(registered_span[1]), "registered Nabi travel stays in its authored active phase")
+			_check(registered_before == fighter.snapshot(), "registered Nabi travel display remains read-only")
 			presentation._motions[&"special_side"] = authored_travel
 			presentation._motion_layouts[&"special_side"] = {"phase_frame_ranges": [[0,4],[4,24],[24,32]]}
 			var travel_before := fighter.snapshot()
 			presentation.sync_visual(1.0/60.0)
 			_check(presentation.sprite.animation == &"special_side" and presentation.sprite.frame >= 4 and presentation.sprite.frame < 24, "authored 32-frame special displays travel poses")
 			_check(travel_before == fighter.snapshot(), "special travel display keeps combat data read-only")
-			presentation._motions[&"special_side"] = old_special
+			# Exercise the older 16-frame resource shape explicitly; the registered
+			# special is now 32 frames and must not stand in for that fixture.
+			var legacy_travel := SpriteFrames.new()
+			legacy_travel.add_animation(&"special_side")
+			for index: int in 16:
+				legacy_travel.add_frame(&"special_side", registered_special.get_frame_texture(&"special_side", index))
+			presentation._motions[&"special_side"] = legacy_travel
+			presentation._motion_layouts[&"special_side"] = {}
+			var legacy_before := fighter.snapshot()
 			presentation.sync_visual(1.0/60.0)
-			_check(presentation.sprite.animation == &"run", "approved 16-frame special still shows the run cycle during travel")
+			_check(presentation.sprite.animation == &"run", "legacy 16-frame special still uses the run cycle during travel")
+			_check(legacy_before == fighter.snapshot(), "legacy travel fallback remains read-only")
+			presentation._motions[&"special_side"] = registered_special
+			presentation._motion_layouts[&"special_side"] = registered_layout
 		fighter.free()
 	if failures.is_empty():
 		print("LOCAL_FIGHTER_PRESENTATION: PASS")

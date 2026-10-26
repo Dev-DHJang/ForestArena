@@ -1,0 +1,17 @@
+{
+  "kind": "post-registration-descriptive-metadata-cleanup",
+  "before_manifest_sha256": "21a3cc9860104cf1d8f8478eb4db744ef9a23cfb9a3f52a91bf6ac898868eaf0",
+  "after_manifest_sha256": "0af4d840475beb3d85f7d3844e1a923d80437c3d1b561a0d12c30a27fd86a155",
+  "initial_manifest_backup": "_workspace/motion-naturalness-v1/qa/approved-registration-independent-r01/initial-installed-manifest.json",
+  "changes": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "launch",
+      "removed_field": "status",
+      "previous_value": "unapproved-workspace-only",
+      "reason": "source candidate stage is obsolete after explicit approval; source catalog preserves the original declaration"
+    }
+  ],
+  "approval_record": "_workspace/motion-naturalness-v1/remaining-user-motion-registration-approval-r10.json",
+  "unchanged": "PNG/TRES/visual metadata/rights source declarations/approval/initial plan and receipt; only obsolete top-level candidate-stage field removed"
+}
