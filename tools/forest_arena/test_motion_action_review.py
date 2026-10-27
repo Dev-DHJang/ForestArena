@@ -289,6 +289,39 @@ class MotionLayoutTest(unittest.TestCase):
         for row in cases:
             with self.subTest(row=row),self.assertRaises(ValueError):layout(row)
 
+    def test_hit_reaction_lead_accepts_declared_hitstun_and_keeps_input_unchanged(self):
+        from motion_layout import layout
+        import copy
+        for count in [16, 24, 32]:
+            for identity in [{"visual_state_id":"hitstun"}, {"path":"hitstun_16f.png"}]:
+                row={**identity,"frame_count":count,"hit_reaction_lead_frame_range":[0.0,6.0],"hit_reaction_lead_ticks":6.0}
+                before=copy.deepcopy(row)
+                self.assertEqual(layout(row)["frame_count"],count)
+                self.assertEqual(row,before)
+        # Optional values must not change the canonical SpriteFrames durations.
+        self.assertEqual(layout({"visual_state_id":"hitstun","hit_reaction_lead_frame_range":[0,6],"hit_reaction_lead_ticks":6}), layout({}))
+
+    def test_hit_reaction_lead_rejects_partial_non_hitstun_and_invalid_numbers(self):
+        from motion_layout import layout
+        valid={"visual_state_id":"hitstun","hit_reaction_lead_frame_range":[0,6],"hit_reaction_lead_ticks":6}
+        cases=[{"hit_reaction_lead_frame_range":[0,6]}, {"hit_reaction_lead_ticks":6},
+               {**valid,"visual_state_id":"launch"}, {**valid,"visual_state_id":"guard"},
+               {**valid,"visual_state_id":"jump","path":"hitstun_16f.png"},
+               {**valid,"hit_reaction_lead_frame_range":[1,6]},
+               {**valid,"hit_reaction_lead_frame_range":[0,0]},
+               {**valid,"hit_reaction_lead_frame_range":[0,17]},
+               {**valid,"hit_reaction_lead_frame_range":[0,7]},
+               {**valid,"hit_reaction_lead_frame_range":[0]},
+               {**valid,"hit_reaction_lead_frame_range":"0,6"}]
+        for invalid in [True,False,0,-1,13,6.5,float("nan"),float("inf"),float("-inf"),"6"]:
+            cases.append({**valid,"hit_reaction_lead_ticks":invalid})
+        for invalid in [True,False,.5,float("nan"),float("inf"),"0"]:
+            cases.append({**valid,"hit_reaction_lead_frame_range":[invalid,6]})
+        for invalid in [True,False,6.5,float("nan"),float("inf"),"6"]:
+            cases.append({**valid,"hit_reaction_lead_frame_range":[0,invalid]})
+        for row in cases:
+            with self.subTest(row=row),self.assertRaises(ValueError):layout(row)
+
     def test_board_uses_declared_rows_not_horizontal_strip(self):
         from motion_layout import layout
         from review_motion_actions import make_board
@@ -714,6 +747,26 @@ class MotionRegistrationTest(unittest.TestCase):
         install(self.root,plan,pending,self.backup)
         result=read(self.fixture.fixture.manifest)
         row=next(row for row in result["assets"] if row.get("visual_state_id")=="launch")
+        self.assertEqual({key:row[key] for key in fields},fields)
+
+    def test_hit_reaction_lead_survives_readonly_plan_and_requires_approval_to_install(self):
+        from register_motion_candidates import install
+        fields={"hit_reaction_lead_frame_range":[0,6],"hit_reaction_lead_ticks":6}
+        self.fixture.update_catalog(lambda doc:doc["assets"][0].update(visual_state_id="hitstun",**fields))
+        self.prepare_art(16,"hitstun")
+        before=self.snapshot();plan,pending=self.plan()
+        self.assertEqual(before,self.snapshot())
+        updated=json.loads(pending["assets/character/manifest.json"])
+        row=next(row for row in updated["assets"] if row.get("visual_state_id")=="hitstun")
+        self.assertEqual({key:row[key] for key in fields},fields)
+        with self.assertRaisesRegex(ValueError,"human approval.*missing"):
+            install(self.root,plan,pending,self.backup)
+        self.assertEqual(before,self.snapshot())
+        self.assertFalse(self.backup.exists())
+        self.fixture_approval(plan)  # Synthetic temporary fixture decision only.
+        install(self.root,plan,pending,self.backup)
+        result=read(self.fixture.fixture.manifest)
+        row=next(row for row in result["assets"] if row.get("visual_state_id")=="hitstun")
         self.assertEqual({key:row[key] for key in fields},fields)
 
     def test_existing_state_display_metadata_is_preserved_in_registration_plan(self):

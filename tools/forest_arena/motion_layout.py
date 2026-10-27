@@ -97,6 +97,19 @@ def layout(row: dict) -> dict:
         ticks = _integer(row["launch_release_ticks"], "launch_release_ticks")
         if not 1 <= ticks <= 12 or ticks < end - begin:
             raise ValueError("launch_release_ticks must be 1..12 and cover each release drawing")
+    lead_fields = ("hit_reaction_lead_frame_range", "hit_reaction_lead_ticks")
+    if any(field in row for field in lead_fields):
+        if not all(field in row for field in lead_fields):
+            raise ValueError("hit_reaction_lead_frame_range and hit_reaction_lead_ticks must be provided together")
+        declared_motion = row.get("visual_state_id") or (motion_id(row) if isinstance(row.get("path"), str) else None)
+        if declared_motion != "hitstun":
+            raise ValueError("hit_reaction_lead metadata is allowed only for hitstun")
+        begin, end = _frame_range(row["hit_reaction_lead_frame_range"], count, "hit_reaction_lead_frame_range")
+        ticks = _integer(row["hit_reaction_lead_ticks"], "hit_reaction_lead_ticks")
+        if begin != 0:
+            raise ValueError("hit_reaction_lead_frame_range must start at the first drawing")
+        if not 1 <= ticks <= 12 or ticks < end - begin:
+            raise ValueError("hit_reaction_lead_ticks must be 1..12 and cover each lead drawing")
     if "run_stride_px" in row:
         _positive(row["run_stride_px"], "run_stride_px")
     if "frame_anchors" in row:

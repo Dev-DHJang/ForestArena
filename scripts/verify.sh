@@ -27,6 +27,7 @@ godot --headless --path . --script res://tests/two_fighter_combat_boundaries.gd
 godot --headless --path . --script res://tests/two_fighter_product.gd
 godot --headless --path . --script res://tests/two_fighter_presentation.gd
 godot --headless --path . --script res://tests/two_fighter_vfx.gd
+godot --headless --path . --script res://tests/scarf_path_continuity.gd
 godot --headless --path . --script res://tests/nabi_claw_presentation.gd
 godot --headless --path . --script res://tests/variable_motion_presentation.gd
 godot --headless --path . --script res://tests/two_fighter_ai.gd
@@ -67,6 +68,7 @@ godot --headless --path . --script res://tests/local_ai_soak.gd
 godot --headless --path . --script res://tests/local_fighter_presentation.gd
 godot --headless --path . --script res://tests/motion_lifecycle_presentation.gd
 godot --headless --path . --script res://tests/hit_reaction_presentation.gd
+godot --headless --path . --script res://tests/special_hit_presentation.gd
 godot --headless --path . --script res://tests/launch_release_presentation.gd
 godot --headless --path . --script res://tests/title_loading_flow.gd
 godot --headless --path . --script res://tests/local_ai_app_flow.gd

@@ -23,7 +23,8 @@ MANIFEST = "assets/character/manifest.json"
 DISPLAY_FIELDS = ("frame_count", "atlas_columns", "cell_size", "frame_durations", "fps", "loop",
                   "phase_frame_ranges", "jump_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range",
                   "run_stride_px", "frame_anchors", "presentation_scale", "foot_pivot_y", "state_hold_frame", "state_duration_ticks",
-                  "launch_release_frame_range", "launch_release_ticks")
+                  "launch_release_frame_range", "launch_release_ticks",
+                  "hit_reaction_lead_frame_range", "hit_reaction_lead_ticks")
 PROVENANCE_FIELDS = ("source_path", "source_sha256", "creation", "rights", "conversion")
 
 
