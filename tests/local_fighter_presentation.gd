@@ -118,7 +118,9 @@ func _run() -> void:
 		fighter.air_jumps_remaining = 1
 		fighter.velocity.y = -fighter.character_data.base_stats.jump_velocity + 20.0
 		presentation.sync_visual(0.2)
-		_check(presentation.sprite.frame == (2 if modern_jump else 5), "%s early ascent has advanced before air jump" % id)
+		# After 0.21s the approved 8 FPS Nabi clip shows F2, while 12 FPS shows F3.
+		var early_ascent_frame := (1 if id == &"nabi" else 2) if modern_jump else 5
+		_check(presentation.sprite.frame == early_ascent_frame, "%s early ascent has advanced before air jump" % id)
 		fighter._try_jump(CombatRules.new())
 		var early_jump_snapshot := fighter.snapshot()
 		presentation.sync_visual(0.01)

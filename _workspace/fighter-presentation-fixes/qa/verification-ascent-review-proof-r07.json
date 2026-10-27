@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "reviewer": "final_scope_review",
+  "file": "tests/local_fighter_presentation.gd",
+  "file_sha256": "eadca5458ef3b04752f78b10ec4815d6466c1add78b1e5033d0d14d6700c8788",
+  "only_difference": "modern 24-frame Nabi early-ascent expectation index2 toindex1, all other characters/legacy and reset/allowance/snapshot checks unchanged",
+  "approved_outputs_unchanged": true,
+  "resumed_commands_exact_verify_tail": true,
+  "resumed_script_sha256": "74dce6615d6afc84209654080e6074492a5a896582d991138ed84b7bde97c11b",
+  "verification_coverage": "r06 successful prefix plus r07 remaining original commands; no claim that one complete verify.sh invocation exited0",
+  "method": "read-only diff, source and output hashes; no duplicate full-suite execution",
+  "android": "root separately reports5device actionsPASS; this code review does not certify device HOME/resume"
+}
