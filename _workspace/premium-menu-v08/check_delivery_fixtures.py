@@ -6,7 +6,7 @@ import tempfile
 
 from PIL import Image
 
-from check_delivery import TASK, WIDE_TARGETS, check_delivery, digest, local_path, native_hashes, png_record, validate_manual, validate_outputs
+from check_delivery import TASK, WIDE_TARGETS, check_delivery, digest, local_path, native_hashes, png_record, scene_filename, validate_manual, validate_outputs
 from runtime_source_ids import registry_candidates, existing_runtime_ids
 
 
@@ -33,9 +33,9 @@ def main():
             return {'name':name,'id':'source-'+name,'filename':filename,'outputSize':list(size),'bytes':path.stat().st_size,'sha256':digest(path),'nativeSpecHash':'current'}
         for index,name in enumerate(WIDE_TARGETS):
             sources[name]={'id':'source-'+name,'prototypeId':'proto-'+name};hashes[name]='current'
-            large=record(name,f'native-{index}.png',(1920,1080));small=record(name,f'preview-{index}.png',(1280,720));small.update(sourceFilename=large['filename'],sourceSha256=large['sha256'],snapshotMediaId='media-'+name,resizeAlgorithm='Pillow 12 Image.Resampling.LANCZOS')
+            filename=scene_filename(name);large=record(name,filename.replace('-v08.png','-v08-1920.png'),(1920,1080));small=record(name,filename,(1280,720));small.update(sourceFilename=large['filename'],sourceSha256=large['sha256'],snapshotMediaId='media-'+name,resizeAlgorithm='Pillow 12 Image.Resampling.LANCZOS')
             records['designExports'].append(large);records['scenes'].append(small);graph[name]={'expectedSnapshotImageId':'media-'+name,'snapshotImageId':'media-'+name}
-            wide=record('CMP20 / MENU08 / '+name,f'wide-{index}.png',(1600,720));wide.update(comparisonSignature='native-center-v1:current');records['comparisons'].append(wide)
+            comparison_name='CMP20 / MENU08 / '+name;wide=record(comparison_name,scene_filename(comparison_name),(1600,720));wide.update(comparisonSignature='native-center-v1:current');records['comparisons'].append(wide)
         result=validate_outputs(task,{},hashes,sources,records,graph);assert result['native1920']==result['preview1280']==result['wide20x9']==5
         checks.append('all current native/preview/wide files independently decoded and SHA/identity/provenance checked')
         for label,mutate in [

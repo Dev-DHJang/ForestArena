@@ -7,8 +7,10 @@ TASK=Path(__file__).resolve().parent
 spec=json.loads((TASK/'scene-spec.json').read_text())
 old=json.loads((ROOT/'assets/ui/premium-menu-v07/manifest.json').read_text())
 assets=[]
+used_keys={element['key'] for scene in spec['scenes'] for element in scene['elements'] if element['kind'] in ('image','svg')}
 candidates=registry_candidates(ROOT);runtime_digest_cache={}
 for a in old['assets']:
+ if a['id'].split('.')[-1] not in used_keys:continue
  row={**a,'v08_usage':'reused without modifying original','runtime_registration_changed_by_v08':False}
  row.pop('runtime_registered',None)
  assert hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256']

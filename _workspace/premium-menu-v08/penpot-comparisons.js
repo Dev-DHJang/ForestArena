@@ -2,6 +2,22 @@ const N=storage.v08;
 N.comparisonTargets=['SCR_03_Lobby','SCR_05_CharacterDetail','SCR_19_Shop','SCR_22_Social','EXT_06_GeneralSettings'];
 N.comparisonPageName='21_Menu_Comparisons_v08';
 N.comparisons=N.comparisons||{};N.comparisonExportRecords=N.comparisonExportRecords||{};
+// Penpot may resolve auto-height text when its page is opened. Preserve the
+// source text box dimensions in the comparison without changing source text.
+N.alignComparisonText=(source,content)=>{
+ const originals=source.children.filter(s=>s.getPluginData('premium-menu-v08')==='true'),changed=[];
+ const visit=(s,c,path)=>{
+  if(!c||c.name!==s.name||c.type!==s.type)throw Error('Comparison structure differs at '+path);
+  if(s.type==='text'&&Math.abs(c.height-s.height)>.1){
+   if(c.characters!==s.characters||Math.abs(c.width-s.width)>.1)throw Error('Comparison text content differs at '+path);
+   const before=c.height;c.resize(s.width,s.height);c.growType='fixed';changed.push({path,name:c.name,before,after:c.height});
+  }
+  const a=s.children||[],b=c.children||[];if(a.length!==b.length)throw Error('Comparison child count differs at '+path);
+  a.forEach((child,i)=>visit(child,b[i],path+'/'+i));
+ };
+ if(originals.length!==content.children.length)throw Error('Comparison top-level child count differs');
+ originals.forEach((s,i)=>visit(s,content.children[i],String(i)));return changed;
+};
 N.makeComparisonNative=async name=>{
  N.ensureFlags();const index=N.comparisonTargets.indexOf(name);if(index<0)throw Error('Unknown 20:9 comparison '+name);
  const spec=N.spec.scenes.find(s=>s.name===name),source=N.boards[name];if(!spec||!source?.getPluginData('v08-ready'))throw Error('Native comparison source is not ready '+name);
@@ -24,6 +40,7 @@ N.makeComparisonNative=async name=>{
   const content=N.board(page,'1920 × 1080 unchanged center',0,0,1920,1080);content.fills=[];N.put(b,content,240,0);
   // Draw the same native spec; cross-page cloning is intentionally not used.
   N.draw(content,spec);
+  N.alignComparisonText(source,content);
   b.exports=[{type:'png',scale:2/3,suffix:'-v08'}];b.setPluginData('premium-menu-v08','comparison');b.setPluginData('v08-comparison-source',name);b.setPluginData('v08-comparison-ready',signature);N.comparisons[key]=b;
   return {name:key,id:b.id,page:page.name,width:2400,height:1080,centerX:240,sourceId:source.id,elements:content.children.length,savedVerified:false};
  }finally{penpot.history.undoBlockFinish(token);}

@@ -54,6 +54,17 @@ def native_hashes(spec_path):
     return json.loads(result.stdout)
 
 
+def scene_filename(name):
+    value=2166136261
+    for character in name:
+        point=ord(character)
+        unit=point if point<=0xffff else 0xd800+((point-0x10000)>>10)
+        value=((value^unit)*16777619)&0xffffffff
+    units=name.encode('utf-16-le')
+    ascii_name=''.join(chr(unit) if chr(unit) in 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-' else '_' for unit in (int.from_bytes(units[i:i+2],'little') for i in range(0,len(units),2)))
+    return ascii_name+'-'+format(value,'x')+'-v08.png'
+
+
 def controls_from_spec(spec):
     rows = []
     for scene in spec['scenes']:
@@ -89,6 +100,7 @@ def validate_outputs(task, spec, hashes, source, records, graph):
     require(len({row['filename'] for row in native.values()}) == len(native) and len({row['filename'] for row in small.values()}) == len(small), 'Different scene records share a single output filename')
     for name, item in source.items():
         large, preview = native[name], small[name]
+        require(preview['filename'] == scene_filename(name) and large['filename'] == scene_filename(name).replace('-v08.png','-v08-1920.png'), 'PNG filename differs from the preserved scene name mapping: '+name)
         for row in (large, preview):
             require(row.get('id') == item['id'] and row.get('nativeSpecHash') == hashes[name], 'PNG source ID or current spec hash differs: ' + name)
         png_record(task, large, (1920, 1080)); png_record(task, preview, (1280, 720))
@@ -101,6 +113,7 @@ def validate_outputs(task, spec, hashes, source, records, graph):
     require(len({row['filename'] for row in wide.values()}) == len(wide), 'Different comparisons share a single output filename')
     for name, row in wide.items():
         source_name = name.removeprefix('CMP20 / MENU08 / ')
+        require(row['filename'] == scene_filename(name), 'Comparison filename differs from scene mapping')
         require(row.get('id') and row.get('nativeSpecHash') == hashes[source_name] and row.get('comparisonSignature') == 'native-center-v1:' + hashes[source_name], '20:9 PNG uses a stale native source: ' + name)
         png_record(task, row, (1600, 720))
     return {'native1920': len(native), 'preview1280': len(small), 'wide20x9': len(wide)}
@@ -250,7 +263,7 @@ def check_delivery(root=ROOT, task=TASK):
         result=read_json(task/'verify-final-result.json')
         require(all(result.get(key) == 0 for key in ('exitCode','docsExitCode','resourceExitCode')), 'Required verify/docs/resource command failed or missing')
         require(result.get('logicalAssets') == 519 and result.get('qualityVariants') == 25, 'Godot resource verification totals differ')
-        require(result.get('verifyCommand') == './scripts/verify.sh' and result.get('docsCommand') == './scripts/verify-docs.sh' and 'verify_godot_resources.py' in result.get('resourceCommand',''), 'Verification command provenance missing')
+        require(result.get('verifyCommand') in ('./scripts/verify.sh', './scripts/verify.sh --full') and result.get('docsCommand') == './scripts/verify-docs.sh' and 'verify_godot_resources.py' in result.get('resourceCommand',''), 'Verification command provenance missing')
         require(local_path(task,result['log']).stat().st_size>0, 'Final verification log empty')
         return {'logicalGodotAssets':519,'qualityVariants':25}
     section('successful final verify/docs/Godot resource evidence', verification_check)

@@ -1,4 +1,15 @@
 const N=storage.v08;
+// Older snapshots omitted an absent fill image; the current reader emits null.
+// Compare structure rather than JSON property insertion order. Keep all real
+// colors, opacity, image IDs, geometry and child ordering in the comparison.
+N.auditComparableShape=value=>{
+ const shape={...value,fills:value.fills?.map(fill=>({...fill,color:fill.color??null,opacity:fill.opacity??null,image:fill.image??null}))};
+ const canonical=v=>Array.isArray(v)?v.map(canonical):v&&typeof v==='object'?Object.fromEntries(Object.keys(v).sort().map(key=>[key,canonical(v[key])])):v;
+ return JSON.stringify(canonical(shape));
+};
+// findShapes includes its root in newer utilities; the preserved baseline lists
+// descendants only. Exclude exactly that same root ID, never other children.
+N.auditDescendants=board=>penpotUtils.findShapes(()=>true,board).filter(shape=>shape.id!==board.id);
 N.readShape=(s)=>({id:s.id,name:s.name,type:s.type,x:s.x,y:s.y,w:s.width,h:s.height,hidden:s.hidden,opacity:s.opacity??null,text:s.characters||null,children:s.children?.map(c=>c.id)||null,fills:s.fills?.map(f=>({color:f.fillColor??null,opacity:f.fillOpacity??null,image:f.fillImage?.id??null})),interactions:(s.interactions||[]).map(i=>({trigger:i.trigger,type:i.action.type,dest:i.action.destination?.id||null}))});
 N.prototypeEffectiveHidden=(shape,board)=>{
  if(shape.hidden!==false)return true;
@@ -52,14 +63,14 @@ N.audit=async()=>{
   await N.post('audit-progress.json',{stage:'baseline',last:old.name,total:N.base.boards.length,at:new Date().toISOString()});N.ensureFlags();
   const edited=old.target||(old.name.startsWith('PROTO / ')&&N.spec.base.includes(old.name.slice(8)));
   const found=byId.get(old.id);if(!found){(edited?legacyChildIssues:outsideChanges).push({name:old.name,reason:'original board missing',id:old.id});continue;}
-  const b=found.b,actual=new Map(penpotUtils.findShapes(()=>true,b).map(s=>[s.id,s]));
+  const b=found.b,actual=new Map(N.auditDescendants(b).map(s=>[s.id,s]));
   if(found.p.name!==old.page)(edited?baseIdIssues:outsideChanges).push({name:old.name,id:b.id,reason:'original board page changed',expected:old.page,actual:found.p.name});
   if(b.name!==old.name||b.width!==old.width||b.height!==old.height)(edited?baseIdIssues:outsideChanges).push({name:old.name,id:b.id,reason:'board name or dimensions changed'});
   for(const previous of old.shapes){
    const now=actual.get(previous.id);if(!now){(edited?legacyChildIssues:outsideChanges).push({name:old.name,id:previous.id,reason:'original shape missing'});continue;}
    const value=N.readShape(now),expected={...previous};
    if(edited&&now.parent?.id===b.id)expected.hidden=true;
-   if(JSON.stringify(value)!==JSON.stringify(expected))(edited?legacyChildIssues:outsideChanges).push({name:old.name,id:previous.id,reason:'original shape properties changed',fields:Object.keys(expected).filter(k=>JSON.stringify(expected[k])!==JSON.stringify(value[k]))});
+   if(N.auditComparableShape(value)!==N.auditComparableShape(expected))(edited?legacyChildIssues:outsideChanges).push({name:old.name,id:previous.id,reason:'original shape properties changed',fields:Object.keys(expected).filter(k=>N.auditComparableShape({[k]:expected[k]})!==N.auditComparableShape({[k]:value[k]}))});
   }
   if(!edited&&actual.size!==old.shapes.length)outsideChanges.push({name:old.name,reason:'outside board descendant count changed',before:old.shapes.length,after:actual.size});
  }
