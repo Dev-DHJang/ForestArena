@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "review_kind": "scoped independent observations; not review_motion_actions.py generated schema",
+  "reviewer": "presentation_independent_qa",
+  "user_approval": false,
+  "source_code_sha256": {
+    "scripts/scarf_attack_paths.gd": "80694266f004648b36a515d52d4b1af8d5305535048cc8bdac6f03eb5cc4f965",
+    "scripts/fighter_attack_effects.gd": "bb3d20e00127829266169b0d0463333fafec5179d80da23e084c6a5a81876915",
+    "scripts/local_fighter_presentation.gd": "f6aa796e43333fb3b6b126ce55032d9a66b62149313c82064db4742dd3ce270c"
+  },
+  "source_artwork": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_neutral",
+      "runtime_png": "assets/character/ja-hyun/animation/runtime/special_neutral_16f_natural-v03.png",
+      "runtime_png_sha256": "5a622c8ddfde90eb77882ab9bfe033816de967e0dd7562b39b9aa51b9daaa9df",
+      "viewed_source_board": "_workspace/motion-naturalness-v1/qa/remaining-candidate-review-r10-final/boards/ja-hyun__special_neutral.jpg",
+      "source_board_sha256": "b06e74a1ae84bfbeabf780e98d026d92ad30e1f32af95132eea734559ae456f2",
+      "declared_frames": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_light",
+      "runtime_png": "assets/character/ja-hyun/animation/runtime/attack_air_light_16f_natural-v03.png",
+      "runtime_png_sha256": "43e78ae43b82c4dfaa3f1697397768722ce13d79d384e3254aafe6b4bf1918fd",
+      "viewed_source_board": "_workspace/motion-naturalness-v1/qa/remaining-candidate-review-r10-final/boards/ja-hyun__attack_air_light.jpg",
+      "source_board_sha256": "fc57aba25b43edfd93a756debd88094347111ec1b5183aa3f6bd1a02256194b6",
+      "declared_frames": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_heavy",
+      "runtime_png": "assets/character/ja-hyun/animation/runtime/attack_air_heavy_16f_natural-v03.png",
+      "runtime_png_sha256": "f228afe9b9080c81b42b7a99a3cb1a8857bb3e05dac95106343ea0109c669a40",
+      "viewed_source_board": "_workspace/motion-naturalness-v1/qa/remaining-candidate-review-r10-final/boards/ja-hyun__attack_air_heavy.jpg",
+      "source_board_sha256": "dd0ed0f758fbe9886babf95fe9622d393b922b3848bd00e41b9869885585bf39",
+      "declared_frames": 16
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "hitstun",
+      "runtime_png": "assets/character/ja-hyun/animation/runtime/hitstun_16f_natural-v03.png",
+      "runtime_png_sha256": "5a6693ff984b7053a7c828005b578abde0592d1b9c14683141714dd49bd7d7ec",
+      "viewed_source_board": "_workspace/motion-naturalness-v1/qa/remaining-candidate-review-r10-final/boards/ja-hyun__hitstun.jpg",
+      "source_board_sha256": "fba4f3b82a65540402fa6c32246183e43c87c1eaf9ee9f317eedd3a7e8a5baf4",
+      "declared_frames": 16
+    },
+    {
+      "character_id": "nabi",
+      "motion": "hitstun",
+      "runtime_png": "assets/character/nabi/animation/runtime/hitstun_16f_natural-v03.png",
+      "runtime_png_sha256": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+      "viewed_source_board": "_workspace/motion-naturalness-v1/qa/remaining-candidate-review-r10-final/boards/nabi__hitstun.jpg",
+      "source_board_sha256": "78417257e2c1bc945c938183403f18ec761dc342deda813f413eb9180ae64652",
+      "declared_frames": 16
+    }
+  ],
+  "motion_results": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "special_neutral",
+      "status": "pass",
+      "scope": "new cloth path with unchanged approved16 source poses",
+      "expected_action": "목의 실제 목도리를 전방으로 뻗어 상대를 끌어오고 회복 때 접는다.",
+      "observed": "정상/반전에서 준비 중 짧은 목도리가 위쪽으로 풀려 나와 타격 시 앞쪽으로 뻗는다. 상대가 끌려오는 동안 목 근처 시작점은 몸과 함께 움직이고, 회복 0~6틱에서 길이와 불투명도가 줄어 뒤의 원화 목도리로 이어진다. 준비→타격 경계에 별도 잔여 천이 순간 교체되는 모습은 보이지 않았다.",
+      "material": "normal/mirror-heavy-ground-all-attack-ticks.jpg; native full frame027 mirror; full playback"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_heavy",
+      "status": "pass",
+      "scope": "new cloth path with unchanged approved16 source poses",
+      "expected_action": "들고 있는 목도리 한 갈래를 위에서 아래로 휘두르고 회수한다.",
+      "observed": "준비에서 손 위로 천이 풀리고 타격에서 옆→아래로 꺾인다. 실제 F6→F7의 손 자세 변화는 여전히 빠르지만 시작점은 각 원화의 손에 붙어 있고, 긴 천이 손과 따로 떠 있는 구간은 관찰되지 않았다. 회복 초기 아래로 접히며 사라지고 후반에는 기존 짧은 목도리만 남는다.",
+      "material": "normal/mirror-air-heavy-all-attack-ticks.jpg; native frames043/044; full playback"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_air_light",
+      "status": "pass",
+      "scope": "new cloth path with unchanged approved16 source poses",
+      "expected_action": "공중에서 짧게 전방 목도리를 휘두르고 준비 자세로 회복한다.",
+      "observed": "목 근처에서 위·앞쪽으로 풀렸다가 전방의 낮은 곡선으로 이어지고 회복 초반에 줄어든다. 정상/반전에서 방향이 같이 바뀌며, 공격 후 다른 위치에 새 목도리가 남는 현상은 보이지 않았다. 이 실제 입력 촬영은 상대를 빗나가므로 적중 성공의 증거로 쓰지 않는다.",
+      "material": "normal/mirror-air-light-all-attack-ticks.jpg; full playback"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "hitstun",
+      "status": "pass",
+      "scope": "LAN-shaped20Hz proxy trace replay with lead[0,6]/6, not offline problem closure",
+      "expected_action": "6틱 연속 적중에서도 대기 유사 초반만 반복하지 않고 피격 핵심 자세를 읽을 수 있다.",
+      "observed": "같은 기록tick31의 기존 F2보다 후보 F5가 머리·몸통을 더 크게 뒤로 젖힌다. 1x와0.5x 연속 재생에서 첫 자세로 반복 진입하면서 젖힘이 보이고, 실제 상태 종료 후 대기로 돌아온다. 110틱 기록 뒤10표시샘플 유지가 있으며 새 전투나 실제소켓/기기 재현은 아니다.",
+      "material": "hit-lead-visual-r01/comparison.mp4; comparison-impact.png; replay-proof.json"
+    },
+    {
+      "character_id": "nabi",
+      "motion": "hitstun",
+      "status": "pass",
+      "scope": "LAN-shaped20Hz proxy trace replay with lead[0,6]/6, original body art not new body candidate",
+      "expected_action": "짧은 연타 중에도 피격 자세가 진행되고 다시 처음부터 반응한다.",
+      "observed": "기존 F2도 얼굴 표정과 뒤로 기운 몸으로 피격을 이미 표현한다. 후보는 굽히는 후반 F4/F5까지 빨리 보여 주므로 몸 반응 범위가 커진다. 기존 나비가 피격 모션에 진입하지 않았다고 말할 수는 없다. 후보의 짧은 반복 반응은 읽히지만 오프라인 기기 원인 해결을 입증하지 않는다.",
+      "material": "hit-lead-visual-r01/comparison.mp4; comparison-impact.png; replay-proof.json"
+    }
+  ],
+  "native_playback": [
+    {
+      "path": "_workspace/fighter-presentation-fixes/qa/independent-scarf-r01/six-attacks-actual.mp4",
+      "sha256": "6ce87f471600f75edda98bcb4cf4a76ddaaae2a97baeb5bbdd7e9c5ee48ec8bc",
+      "frames": 720,
+      "seconds": 12,
+      "rates_seen": [
+        1.0,
+        0.5
+      ],
+      "each_started_at": 0,
+      "ended_timeline": 12,
+      "ended_play_button": "off",
+      "observed_scope": "continuous playback completion plus intermediate UI samples, not every instant separately screenshotted"
+    },
+    {
+      "path": "_workspace/fighter-presentation-fixes/qa/hit-lead-visual-r01/comparison.mp4",
+      "sha256": "ada2442d5d998d9d7f9efdb38140d149eeb672c83f3ddeb542b471f1498ba70f",
+      "frames": 120,
+      "seconds": 2,
+      "rates_seen": [
+        1.0,
+        0.5
+      ],
+      "each_started_at": 0,
+      "ended_timeline": 2,
+      "ended_play_button": "off",
+      "observed_scope": "four panel recorded-proxy replay,110recordticks+10last-stateholds"
+    }
+  ],
+  "manual_frame_review": {
+    "source_cells": 80,
+    "native_attack_ticks_plus_edges_in_contact_boards": 218,
+    "contact_board_scope": "fixed visual crop; full native PNG also checked where cloth tip was beyond contact crop"
+  },
+  "not_proven": [
+    "Android offline reported hit-reaction failure cause/fix",
+    "Nabi body-proportion candidates",
+    "new actual socket/device run",
+    "all release regressions"
+  ]
+}

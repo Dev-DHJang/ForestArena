@@ -23,8 +23,7 @@ MANIFEST = "assets/character/manifest.json"
 DISPLAY_FIELDS = ("frame_count", "atlas_columns", "cell_size", "frame_durations", "fps", "loop",
                   "phase_frame_ranges", "jump_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range",
                   "run_stride_px", "frame_anchors", "presentation_scale", "foot_pivot_y", "state_hold_frame", "state_duration_ticks",
-                  "launch_release_frame_range", "launch_release_ticks",
-                  "hit_reaction_lead_frame_range", "hit_reaction_lead_ticks")
+                  "launch_release_frame_range", "launch_release_ticks")
 PROVENANCE_FIELDS = ("source_path", "source_sha256", "creation", "rights", "conversion")
 
 
@@ -142,13 +141,13 @@ def plan_registration(root: Path, catalog: Path, scope: Path, scope_sha256: str,
             # Keep old source/rights/approval records as history, not as the
             # current drawing's origin. Avoid recursively nesting that history.
             existing.clear()
-            existing.update({field: copy.deepcopy(value) for field, value in source.items() if field not in {"expected_action", "action_source", "reuse_approved_runtime", "registration_history", "motion_registration"}})
+            existing.update({field: copy.deepcopy(value) for field, value in source.items() if field not in {"expected_action", "action_source", "reuse_approved_runtime", "layout_only_from_asset_id", "registration_history", "motion_registration"}})
             existing["registration_history"] = history
             result = existing
         else:
             if asset_id in ids or sprite.exists() or "res://" + sprite_path in consumers:
                 raise ValueError("new motion asset ID/consumer path already exists")
-            result = {field: copy.deepcopy(value) for field, value in source.items() if field not in {"expected_action", "action_source", "reuse_approved_runtime", "registration_history", "motion_registration"}}
+            result = {field: copy.deepcopy(value) for field, value in source.items() if field not in {"expected_action", "action_source", "reuse_approved_runtime", "layout_only_from_asset_id", "registration_history", "motion_registration"}}
             updated["assets"].append(result)
             ids.add(asset_id)
             consumers.add("res://" + sprite_path)

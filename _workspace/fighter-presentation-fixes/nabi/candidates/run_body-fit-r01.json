@@ -1,0 +1,189 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "run",
+  "path": "_workspace/fighter-presentation-fixes/nabi/candidates/run_16f_body-fit-r01.png",
+  "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/run_body-fit-r01.tres",
+  "sha256": "2a8bd85a61bb05566330b00471e2db500e29c043dc42a45f4f575459919b189b",
+  "frame_count": 16,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 12.0,
+  "loop": true,
+  "presentation_scale": 0.7885714285714287,
+  "foot_pivot_y": 123.0,
+  "source_paths": [
+    "_workspace/fighter-presentation-fixes/nabi/run-r01-source.png"
+  ],
+  "source_sha256": "dd80d865c4854ac8c39d9c69fdd9b7244b855710f56cafcfb6d50f94496ef878",
+  "expected_action": "자현과 대응하는 낮은 전방 달리기 자세, 좌우 다리 교대와 반대 팔 스윙",
+  "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+  "conversion": {
+    "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+    "uniform_scale": 0.35,
+    "per_source_uniform_scales": [
+      0.35
+    ],
+    "source_scale_multipliers": [
+      1.0
+    ],
+    "reference_scale": 0.35,
+    "presentation_scale": 0.7885714285714287,
+    "source_baseline_y": 310.0,
+    "target_baseline_y": 123.0,
+    "frame_bounds": [
+      [
+        17,
+        34,
+        115,
+        123
+      ],
+      [
+        17,
+        33,
+        115,
+        124
+      ],
+      [
+        17,
+        33,
+        116,
+        124
+      ],
+      [
+        18,
+        34,
+        114,
+        124
+      ],
+      [
+        21,
+        29,
+        118,
+        124
+      ],
+      [
+        17,
+        29,
+        116,
+        123
+      ],
+      [
+        15,
+        30,
+        117,
+        123
+      ],
+      [
+        15,
+        29,
+        115,
+        123
+      ],
+      [
+        18,
+        30,
+        117,
+        120
+      ],
+      [
+        17,
+        27,
+        117,
+        120
+      ],
+      [
+        17,
+        27,
+        117,
+        120
+      ],
+      [
+        17,
+        26,
+        114,
+        120
+      ],
+      [
+        18,
+        20,
+        120,
+        115
+      ],
+      [
+        19,
+        20,
+        120,
+        113
+      ],
+      [
+        18,
+        20,
+        117,
+        114
+      ],
+      [
+        17,
+        22,
+        116,
+        113
+      ]
+    ],
+    "unassigned_small_regions": [],
+    "spec_path": "_workspace/fighter-presentation-fixes/nabi/run-layout-r01.json",
+    "spec_sha256": "83eaa6e1beb1ad092ed99210f666ad1e68216c6b4747d13373085cdc0fcbbc6b"
+  },
+  "run_stride_px": 96,
+  "source_path": "_workspace/fighter-presentation-fixes/nabi/run-r01-source.png",
+  "source_sheet_sha256": [
+    "dd80d865c4854ac8c39d9c69fdd9b7244b855710f56cafcfb6d50f94496ef878"
+  ],
+  "creation": {
+    "method": "built-in image_gen whole-figure new poses; deterministic connected-figure placement and one uniform whole-motion scale; no body-part warp",
+    "provider": "OpenAI built-in image generation",
+    "version": "nabi-body-fit-r01",
+    "source_inputs": [
+      {
+        "path": "_workspace/fighter-presentation-fixes/nabi/run-r01-source.png",
+        "sha256": "dd80d865c4854ac8c39d9c69fdd9b7244b855710f56cafcfb6d50f94496ef878"
+      }
+    ]
+  },
+  "rights": {
+    "status": "derivative of approved Nabi appearance; modified run/jump not yet user-approved for registration; no external license assertion",
+    "references": [
+      "docs/contracts/character-appearance-v01.json",
+      "assets/character/manifest.json",
+      "_workspace/fighter-presentation-fixes/00_request.md"
+    ]
+  },
+  "status": "unapproved-workspace-only",
+  "layout_revision": {
+    "kind": "new whole-figure motion candidate",
+    "source_runtime_png": "assets/character/nabi/animation/runtime/run_16f_natural-v02.png",
+    "source_runtime_png_sha256": "25b18202ccbad8a557735256d576f890fffbb3ec4e1dc20d4215c490d28a5ef8",
+    "source_runtime_tres": "res://assets/character/nabi/animation/runtime/run.tres",
+    "source_runtime_tres_sha256": "2306f85c8851328180d8cdf6a22880775f0f83399e627b6688590e8eca6607cb",
+    "figure_pixels_changed": true,
+    "intrinsic_body_proportion_assessment": "redrawn to a lower forward model for Ja-hyun comparison; independent visual/transition QA pending",
+    "source_composition_record": null
+  }
+}

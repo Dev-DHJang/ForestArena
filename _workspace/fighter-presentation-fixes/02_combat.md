@@ -22,3 +22,8 @@ LAN에 해당하는 공개 프록시 경로는 20Hz snapshot과 기존 hit_resol
 - r01~r05의 초기실험에서 시험용metadata키슬래시, 만료된 pull정보와 facing의 초기값 차이, 정확한 부동소수경계 기대값 때문에 실패한 기록은 삭제하지 않았다. 이를 제품결함이나 최종통과 근거로 쓰지 않는다. 새 fixture는 초기상태를 명시적으로 같게 만들고 clean red/green을 분리했다.
 
 전체verify·GPU클립·실기기·실제소켓 연결은 이 역할에서 실행하지 않았다. 원본 로그/수치 검사는 원화가 실제로 자연스럽게 보인다는 독립 시각 판정을 대신하지 않는다. `tests/special_hit_presentation.gd`를 전체검사에 연결하는 일과 PR/commit은 부모가 맡는다.
+
+
+## Android 오프라인 관측 환경 후속 확인
+
+사용자가관측환경을Android오프라인대전이라고명시했다. 기존LAN형초반표시수정은별도부분개선이며이오프라인증상의해결로주장하지않는다. AI가나중노드에서앞노드의Player를때리는실제native120tick/10HIT촬영1회와같은tick의sourceFX숨김9표본을확인했으나상대피격자세는읽혔고문제를재현하지못했다. sourceFX레이어코드는고치지않았다. 자세한한계와0~14.7%의sprite변화비율은 `qa/ai-hit-layer-r01/02_investigation.md`를따른다. Android실제앱의피격미진입은계속미해결로남긴다.

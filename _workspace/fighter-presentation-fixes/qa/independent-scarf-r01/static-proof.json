@@ -1,0 +1,188 @@
+{
+  "status": "pass",
+  "reports": [
+    {
+      "direction": "normal",
+      "report_sha256": "bce6140026f9ecb3b532c228ffe1d9764e54dd1c1a339621208a639ffd8fa79a",
+      "existing_source_files_sha_equal_now": 266,
+      "legacy_unused_missing_path_with_empty_recorded_hash": [
+        "tools/forest_arena/motion_review_runtime_frames.gd"
+      ],
+      "scenarios": [
+        {
+          "scenario": "heavy-ground",
+          "frames": 120,
+          "actual_input": [
+            {
+              "action": "attack_heavy",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 12,
+              "tick": 17
+            },
+            {
+              "action": "attack_heavy",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "RELEASE",
+              "fighter_id": "pilot-player",
+              "frame": 14,
+              "tick": 19
+            }
+          ],
+          "attacks_seen": [
+            "ja-hyun-heavy"
+          ]
+        },
+        {
+          "scenario": "air-heavy",
+          "frames": 120,
+          "actual_input": [
+            {
+              "action": "jump",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 12,
+              "tick": 17
+            },
+            {
+              "action": "attack_heavy",
+              "context": "AIR",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 30,
+              "tick": 35
+            }
+          ],
+          "attacks_seen": [
+            "ja-hyun-air-heavy"
+          ]
+        },
+        {
+          "scenario": "air-light",
+          "frames": 120,
+          "actual_input": [
+            {
+              "action": "jump",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 12,
+              "tick": 17
+            },
+            {
+              "action": "attack_light",
+              "context": "AIR",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 30,
+              "tick": 35
+            }
+          ],
+          "attacks_seen": [
+            "ja-hyun-air-light"
+          ]
+        }
+      ]
+    },
+    {
+      "direction": "mirror",
+      "report_sha256": "4bdc5c32046e30dd2073c552f4c1bdf81f9404e22efe722721aac697b1349e0a",
+      "existing_source_files_sha_equal_now": 266,
+      "legacy_unused_missing_path_with_empty_recorded_hash": [
+        "tools/forest_arena/motion_review_runtime_frames.gd"
+      ],
+      "scenarios": [
+        {
+          "scenario": "heavy-ground",
+          "frames": 120,
+          "actual_input": [
+            {
+              "action": "attack_heavy",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 12,
+              "tick": 17
+            },
+            {
+              "action": "attack_heavy",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "RELEASE",
+              "fighter_id": "pilot-player",
+              "frame": 14,
+              "tick": 19
+            }
+          ],
+          "attacks_seen": [
+            "ja-hyun-heavy"
+          ]
+        },
+        {
+          "scenario": "air-heavy",
+          "frames": 120,
+          "actual_input": [
+            {
+              "action": "jump",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 12,
+              "tick": 17
+            },
+            {
+              "action": "attack_heavy",
+              "context": "AIR",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 30,
+              "tick": 35
+            }
+          ],
+          "attacks_seen": [
+            "ja-hyun-air-heavy"
+          ]
+        },
+        {
+          "scenario": "air-light",
+          "frames": 120,
+          "actual_input": [
+            {
+              "action": "jump",
+              "context": "GROUND",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 12,
+              "tick": 17
+            },
+            {
+              "action": "attack_light",
+              "context": "AIR",
+              "direction": "NEUTRAL",
+              "edge": "PRESS",
+              "fighter_id": "pilot-player",
+              "frame": 30,
+              "tick": 35
+            }
+          ],
+          "attacks_seen": [
+            "ja-hyun-air-light"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitation": "static frame/time/resource checks; visual judgment recorded separately"
+}

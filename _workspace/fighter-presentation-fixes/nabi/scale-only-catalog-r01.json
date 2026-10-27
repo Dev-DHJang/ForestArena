@@ -1,0 +1,4358 @@
+{
+  "schema_version": 1,
+  "kind": "candidate-motion-layouts",
+  "source_manifest_sha256": "0af4d840475beb3d85f7d3844e1a923d80437c3d1b561a0d12c30a27fd86a155",
+  "assets": [
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "idle",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/idle_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/idle_body-fit-r01.tres",
+      "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png"
+      ],
+      "source_sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.3014354066985646,
+        "per_source_uniform_scales": [
+          0.3014354066985646
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 0.9884452139126042,
+        "source_baseline_y": 278.0,
+        "target_baseline_y": 123.0,
+        "frame_bounds": [
+          [
+            31,
+            43,
+            113,
+            123
+          ],
+          [
+            21,
+            42,
+            102,
+            122
+          ],
+          [
+            12,
+            42,
+            91,
+            123
+          ],
+          [
+            2,
+            42,
+            81,
+            123
+          ],
+          [
+            31,
+            41,
+            115,
+            127
+          ],
+          [
+            21,
+            40,
+            104,
+            126
+          ],
+          [
+            11,
+            40,
+            94,
+            126
+          ],
+          [
+            1,
+            40,
+            84,
+            127
+          ],
+          [
+            33,
+            44,
+            115,
+            125
+          ],
+          [
+            22,
+            43,
+            106,
+            125
+          ],
+          [
+            11,
+            44,
+            96,
+            125
+          ],
+          [
+            2,
+            44,
+            86,
+            126
+          ],
+          [
+            31,
+            43,
+            113,
+            121
+          ],
+          [
+            21,
+            43,
+            104,
+            121
+          ],
+          [
+            11,
+            43,
+            94,
+            121
+          ],
+          [
+            3,
+            43,
+            86,
+            121
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-idle-r07-head.json",
+        "spec_sha256": "10909d4b758c32089d275f5ac56c2a411e3492ff5b4e6926d7850bcc40322f90"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+      "source_sheet_sha256": [
+        "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+            "sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 8.0,
+      "loop": true,
+      "presentation_scale": 0.909369596799596,
+      "foot_pivot_y": 123.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/idle_16f_natural-v03.png",
+        "source_runtime_png_sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/idle.tres",
+        "source_runtime_tres_sha256": "4b3d28602c4b63edad764d38a087f98392c6b6b27674ebca94c4465978bcd869",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 0.9884452139126042,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_combo_01",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_01_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_01_body-fit-r01.tres",
+      "sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_01-r01.png",
+      "source_sha256": "f6908b0bea3ec0d8c981fdd211cbb63793b851b54bd64c64b5ae7904a4951473",
+      "conversion": {
+        "padding_shift_y": 0,
+        "uniform_scale": 0.36363636363636365,
+        "translation": [
+          17.454545454545453,
+          32.0
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            23,
+            36,
+            102,
+            124
+          ],
+          [
+            25,
+            35,
+            104,
+            124
+          ],
+          [
+            28,
+            36,
+            115,
+            124
+          ],
+          [
+            27,
+            36,
+            108,
+            124
+          ],
+          [
+            23,
+            35,
+            109,
+            124
+          ],
+          [
+            23,
+            36,
+            114,
+            124
+          ],
+          [
+            22,
+            36,
+            115,
+            124
+          ],
+          [
+            23,
+            36,
+            117,
+            124
+          ],
+          [
+            24,
+            36,
+            115,
+            124
+          ],
+          [
+            24,
+            36,
+            104,
+            124
+          ],
+          [
+            25,
+            36,
+            108,
+            124
+          ],
+          [
+            24,
+            36,
+            103,
+            124
+          ],
+          [
+            24,
+            36,
+            104,
+            124
+          ],
+          [
+            25,
+            36,
+            106,
+            124
+          ],
+          [
+            26,
+            36,
+            106,
+            123
+          ],
+          [
+            25,
+            36,
+            105,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          16,
+          17,
+          18,
+          20,
+          22,
+          23
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_root_calibration": {
+          "method": "entire sprite placement only; no pixel crop/warp; grounded shoe midpoint matches approved idle/up world offset -1.25px",
+          "sole_centers_in_128_cells": [
+            69.25,
+            69.75,
+            70.75,
+            71.0,
+            67.75,
+            68.75,
+            68.5,
+            69.5,
+            68.5,
+            69.25,
+            69.0,
+            69.0,
+            68.5,
+            69.75,
+            69.0,
+            69.0
+          ],
+          "reference_idle_sole_midpoint": 62.75,
+          "pixel_bytes_unchanged": true
+        }
+      },
+      "creation": {
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_01-r01.png",
+        "source_sha256": "f6908b0bea3ec0d8c981fdd211cbb63793b851b54bd64c64b5ae7904a4951473"
+      },
+      "rights": {
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "body_root": [
+            70.5,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            71.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.5,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            69.75,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            71.0,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            70.25,
+            124
+          ]
+        }
+      ],
+      "presentation_scale": 0.92,
+      "foot_pivot_y": 124,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f_natural-v02.png",
+        "source_runtime_png_sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+        "source_runtime_tres_sha256": "ef409429cf9915e4a30da5f5d5bf86d23efe4c212053524cc904331b8477074e",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.0,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_combo_02",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_02_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_02_body-fit-r01.tres",
+      "sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_02-r02.png",
+      "source_sha256": "e1b36b5b3103bf54412d67725bd3d7606bad1bf3e75bc5fdb7b21cb1f2f834b0",
+      "conversion": {
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.3499005964214712,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.3263157894736842,
+        "translation": [
+          1.3473684210526287,
+          38.01578947368421
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            25,
+            39,
+            110,
+            123
+          ],
+          [
+            18,
+            41,
+            103,
+            123
+          ],
+          [
+            20,
+            40,
+            102,
+            124
+          ],
+          [
+            11,
+            42,
+            95,
+            125
+          ],
+          [
+            22,
+            39,
+            111,
+            124
+          ],
+          [
+            10,
+            41,
+            123,
+            125
+          ],
+          [
+            7,
+            42,
+            126,
+            125
+          ],
+          [
+            13,
+            44,
+            119,
+            126
+          ],
+          [
+            21,
+            42,
+            116,
+            124
+          ],
+          [
+            18,
+            42,
+            111,
+            124
+          ],
+          [
+            16,
+            45,
+            106,
+            125
+          ],
+          [
+            11,
+            45,
+            97,
+            125
+          ],
+          [
+            24,
+            40,
+            112,
+            121
+          ],
+          [
+            22,
+            40,
+            106,
+            121
+          ],
+          [
+            19,
+            41,
+            100,
+            121
+          ],
+          [
+            16,
+            42,
+            101,
+            121
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_root_calibration": {
+          "method": "entire sprite placement only; no pixel crop/warp; grounded shoe midpoint matches approved idle/up world offset -1.25px",
+          "sole_centers_in_128_cells": [
+            74.25,
+            67.25,
+            67.25,
+            61.5,
+            74.25,
+            71.5,
+            70.75,
+            67.5,
+            74.75,
+            71,
+            69.25,
+            62,
+            76.75,
+            70.75,
+            66.25,
+            65.5
+          ],
+          "reference_idle_sole_midpoint": 62.75,
+          "pixel_bytes_unchanged": true
+        }
+      },
+      "creation": {
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_combo_02-r02.png",
+        "source_sha256": "e1b36b5b3103bf54412d67725bd3d7606bad1bf3e75bc5fdb7b21cb1f2f834b0"
+      },
+      "rights": {
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "body_root": [
+            75.41574461722487,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            68.41574461722487,
+            123
+          ]
+        },
+        {
+          "body_root": [
+            68.41574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.66574461722488,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            75.41574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.66574461722487,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            71.91574461722487,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            68.66574461722487,
+            126
+          ]
+        },
+        {
+          "body_root": [
+            75.91574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            72.16574461722487,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.41574461722487,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            63.16574461722488,
+            125
+          ]
+        },
+        {
+          "body_root": [
+            77.91574461722487,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            71.91574461722487,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            67.41574461722487,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            66.66574461722487,
+            121
+          ]
+        }
+      ],
+      "presentation_scale": 0.9864939395882768,
+      "foot_pivot_y": 124,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f_natural-v02.png",
+        "source_runtime_png_sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+        "source_runtime_tres_sha256": "16a74dd8b045fd70108d84a66ed580720fd53f3757b6e43a5bbdbde0f2ca9f5a",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.0722760212916052,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_air_heavy",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_heavy_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_heavy_body-fit-r01.tres",
+      "sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_heavy-r02.png"
+      ],
+      "source_sha256": "16e98a8be5af4ec0ae025184e1e4ead2717a65747f1e9a72ecd6dc7f4327d498",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.32,
+        "per_source_uniform_scales": [
+          0.32
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.32,
+        "presentation_scale": 0.9711509660026958,
+        "source_baseline_y": 300.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            21,
+            11,
+            108,
+            100
+          ],
+          [
+            25,
+            10,
+            112,
+            100
+          ],
+          [
+            23,
+            11,
+            111,
+            104
+          ],
+          [
+            19,
+            11,
+            104,
+            104
+          ],
+          [
+            25,
+            15,
+            112,
+            105
+          ],
+          [
+            24,
+            6,
+            110,
+            105
+          ],
+          [
+            19,
+            10,
+            111,
+            106
+          ],
+          [
+            13,
+            7,
+            105,
+            106
+          ],
+          [
+            24,
+            14,
+            107,
+            100
+          ],
+          [
+            23,
+            16,
+            107,
+            105
+          ],
+          [
+            22,
+            19,
+            107,
+            107
+          ],
+          [
+            15,
+            17,
+            102,
+            107
+          ],
+          [
+            25,
+            9,
+            109,
+            97
+          ],
+          [
+            23,
+            12,
+            109,
+            99
+          ],
+          [
+            24,
+            14,
+            110,
+            101
+          ],
+          [
+            18,
+            15,
+            103,
+            99
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_air_heavy-r07-head.json",
+        "spec_sha256": "911e14d54839ccd508452e02b6de124f1901cdc615998f685257cecca692bf0e"
+      },
+      "actual_attack_timings_60hz": [
+        12,
+        5,
+        22
+      ],
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_heavy-r02.png",
+      "source_sheet_sha256": [
+        "16e98a8be5af4ec0ae025184e1e4ead2717a65747f1e9a72ecd6dc7f4327d498"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_heavy-r02.png",
+            "sha256": "16e98a8be5af4ec0ae025184e1e4ead2717a65747f1e9a72ecd6dc7f4327d498",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            96.92,
+            54.08
+          ]
+        },
+        {
+          "claw_hand": [
+            105.24,
+            72.32
+          ]
+        },
+        {
+          "claw_hand": [
+            102.04,
+            71.36
+          ]
+        },
+        {
+          "claw_hand": [
+            97.88,
+            76.16
+          ]
+        },
+        {
+          "claw_hand": [
+            102.04,
+            28.16
+          ],
+          "claw_tip": [
+            110.36,
+            19.52
+          ]
+        },
+        {
+          "claw_hand": [
+            97.24,
+            17.6
+          ],
+          "claw_tip": [
+            105.56,
+            10.24
+          ]
+        },
+        {
+          "claw_hand": [
+            96.92,
+            22.4
+          ],
+          "claw_tip": [
+            108.76,
+            14.4
+          ]
+        },
+        {
+          "claw_hand": [
+            93.08,
+            18.88
+          ],
+          "claw_tip": [
+            103.0,
+            11.84
+          ]
+        },
+        {
+          "claw_hand": [
+            98.2,
+            40.64
+          ]
+        },
+        {
+          "claw_hand": [
+            98.84,
+            48.64
+          ]
+        },
+        {
+          "claw_hand": [
+            96.92,
+            49.6
+          ]
+        },
+        {
+          "claw_hand": [
+            94.04,
+            64.0
+          ]
+        },
+        {
+          "claw_hand": [
+            98.2,
+            52.48
+          ]
+        },
+        {
+          "claw_hand": [
+            102.68,
+            57.28
+          ]
+        },
+        {
+          "claw_hand": [
+            96.92,
+            61.12
+          ]
+        },
+        {
+          "claw_hand": [
+            95.64,
+            72.64
+          ]
+        }
+      ],
+      "presentation_scale": 0.8934588887224801,
+      "foot_pivot_y": 104.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/attack_air_heavy_16f_natural-v03.png",
+        "source_runtime_png_sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+        "source_runtime_tres_sha256": "e6e8fef6489a0c2374a424ed8514ed3e18459116e8a95dbefcad41f2e7b3b6f9",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 0.9711509660026958,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_air_light",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_light_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_light_body-fit-r01.tres",
+      "sha256": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.png"
+      ],
+      "source_sha256": "cca665f674d9ece4179f1d67aacc6faed76d883d26147104aaf4674982ff36f5",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.2825112107623318,
+        "per_source_uniform_scales": [
+          0.2825112107623318
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 1.0194018459054788,
+        "source_baseline_y": 272.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            25,
+            29,
+            113,
+            104
+          ],
+          [
+            24,
+            28,
+            107,
+            103
+          ],
+          [
+            24,
+            29,
+            108,
+            105
+          ],
+          [
+            22,
+            29,
+            108,
+            103
+          ],
+          [
+            18,
+            29,
+            119,
+            105
+          ],
+          [
+            26,
+            31,
+            125,
+            107
+          ],
+          [
+            24,
+            30,
+            127,
+            107
+          ],
+          [
+            26,
+            31,
+            114,
+            105
+          ],
+          [
+            22,
+            30,
+            109,
+            105
+          ],
+          [
+            26,
+            30,
+            115,
+            105
+          ],
+          [
+            26,
+            30,
+            114,
+            104
+          ],
+          [
+            24,
+            30,
+            110,
+            103
+          ],
+          [
+            25,
+            29,
+            110,
+            102
+          ],
+          [
+            27,
+            28,
+            111,
+            101
+          ],
+          [
+            27,
+            28,
+            114,
+            100
+          ],
+          [
+            24,
+            30,
+            110,
+            101
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_air_light-r07-head.json",
+        "spec_sha256": "c9c92a79fde8a5e2363b28e6ca4e4cad4e62e513eefe40fed4bd8af51461af35"
+      },
+      "actual_attack_timings_60hz": [
+        8,
+        4,
+        18
+      ],
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.png",
+      "source_sheet_sha256": [
+        "cca665f674d9ece4179f1d67aacc6faed76d883d26147104aaf4674982ff36f5"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_air_light-r01.png",
+            "sha256": "cca665f674d9ece4179f1d67aacc6faed76d883d26147104aaf4674982ff36f5",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          7,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            71.35,
+            73.07
+          ]
+        },
+        {
+          "claw_hand": [
+            67.67,
+            71.65
+          ]
+        },
+        {
+          "claw_hand": [
+            74.45,
+            72.22
+          ]
+        },
+        {
+          "claw_hand": [
+            51.85,
+            51.59
+          ]
+        },
+        {
+          "claw_hand": [
+            106.38,
+            72.22
+          ],
+          "claw_tip": [
+            117.39,
+            78.43
+          ]
+        },
+        {
+          "claw_hand": [
+            111.74,
+            73.63
+          ],
+          "claw_tip": [
+            124.46,
+            76.74
+          ]
+        },
+        {
+          "claw_hand": [
+            115.13,
+            73.91
+          ],
+          "claw_tip": [
+            126.43,
+            78.15
+          ]
+        },
+        {
+          "claw_hand": [
+            95.92,
+            78.43
+          ],
+          "claw_tip": [
+            108.64,
+            84.65
+          ]
+        },
+        {
+          "claw_hand": [
+            75.87,
+            73.63
+          ]
+        },
+        {
+          "claw_hand": [
+            78.69,
+            71.37
+          ]
+        },
+        {
+          "claw_hand": [
+            76.71,
+            74.76
+          ]
+        },
+        {
+          "claw_hand": [
+            74.17,
+            74.2
+          ]
+        },
+        {
+          "claw_hand": [
+            75.3,
+            69.96
+          ]
+        },
+        {
+          "claw_hand": [
+            75.58,
+            70.8
+          ]
+        },
+        {
+          "claw_hand": [
+            78.97,
+            70.8
+          ]
+        },
+        {
+          "claw_hand": [
+            76.71,
+            72.22
+          ]
+        }
+      ],
+      "presentation_scale": 0.9378496982330405,
+      "foot_pivot_y": 104.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/attack_air_light_16f_natural-v03.png",
+        "source_runtime_png_sha256": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres",
+        "source_runtime_tres_sha256": "8a93741389cea7e1caac2be08f93578be4199fd633dba3542e044f100323402c",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.0194018459054788,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_heavy_up",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_heavy_up_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/attack_heavy_up_body-fit-r01.tres",
+      "sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png"
+      ],
+      "source_sha256": "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.32,
+        "per_source_uniform_scales": [
+          0.32
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.32,
+        "presentation_scale": 0.9648936803416513,
+        "source_baseline_y": 285.9,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            23,
+            14,
+            108,
+            103
+          ],
+          [
+            15,
+            14,
+            99,
+            102
+          ],
+          [
+            17,
+            14,
+            101,
+            102
+          ],
+          [
+            17,
+            14,
+            102,
+            102
+          ],
+          [
+            22,
+            15,
+            108,
+            105
+          ],
+          [
+            18,
+            15,
+            109,
+            105
+          ],
+          [
+            18,
+            15,
+            107,
+            105
+          ],
+          [
+            11,
+            11,
+            105,
+            106
+          ],
+          [
+            22,
+            17,
+            115,
+            106
+          ],
+          [
+            18,
+            16,
+            110,
+            106
+          ],
+          [
+            19,
+            16,
+            110,
+            105
+          ],
+          [
+            19,
+            16,
+            109,
+            106
+          ],
+          [
+            24,
+            14,
+            113,
+            102
+          ],
+          [
+            16,
+            15,
+            107,
+            103
+          ],
+          [
+            17,
+            15,
+            105,
+            103
+          ],
+          [
+            20,
+            15,
+            107,
+            103
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-attack_heavy_up-r08-hit-window.json",
+        "spec_sha256": "f131461e26083c1565633621bbc05f1472b42f6e31db2faf5976f27a70282fa7"
+      },
+      "actual_attack_timings_60hz": [
+        12,
+        5,
+        20
+      ],
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png",
+      "source_sheet_sha256": [
+        "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r08-hit-window",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/attack_heavy_up-r02.png",
+            "sha256": "2146d529701ebca989d2d9438ea17985ec78b882ecd000715c3868cf34ede034",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          7
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          9,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            97.04,
+            53.47
+          ]
+        },
+        {
+          "claw_hand": [
+            77.52,
+            60.83
+          ]
+        },
+        {
+          "claw_hand": [
+            86.8,
+            74.59
+          ]
+        },
+        {
+          "claw_hand": [
+            82.32,
+            72.03
+          ]
+        },
+        {
+          "claw_hand": [
+            98.96,
+            56.03
+          ]
+        },
+        {
+          "claw_hand": [
+            94.8,
+            52.19
+          ]
+        },
+        {
+          "claw_hand": [
+            96.72,
+            46.75
+          ]
+        },
+        {
+          "claw_hand": [
+            90.96,
+            24.99
+          ],
+          "claw_tip": [
+            103.12,
+            15.07
+          ]
+        },
+        {
+          "claw_hand": [
+            100.56,
+            33.95
+          ],
+          "claw_tip": [
+            110.16,
+            21.47
+          ]
+        },
+        {
+          "claw_hand": [
+            99.92,
+            44.83
+          ]
+        },
+        {
+          "claw_hand": [
+            95.44,
+            49.63
+          ]
+        },
+        {
+          "claw_hand": [
+            93.52,
+            56.35
+          ]
+        },
+        {
+          "claw_hand": [
+            95.12,
+            53.79
+          ]
+        },
+        {
+          "claw_hand": [
+            76.56,
+            60.83
+          ]
+        },
+        {
+          "claw_hand": [
+            90.0,
+            72.67
+          ]
+        },
+        {
+          "claw_hand": [
+            82.0,
+            68.83
+          ]
+        }
+      ],
+      "presentation_scale": 0.8877021859143193,
+      "foot_pivot_y": 104.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/attack_heavy_up_16f_natural-v03.png",
+        "source_runtime_png_sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+        "source_runtime_tres_sha256": "f2d6f96242fe4615f9f89a83e245bd3fbd2ba8edb9595d8e8ce98e52f52bd55f",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 0.9648936803416513,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "attack_light_up",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_up_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_up_body-fit-r01.tres",
+      "sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_up-r03-combined.png",
+      "source_sha256": "f206fa839f6a16efbffda14eb38f8599cf652946143456fb658cfbdeb56a7c7e",
+      "conversion": {
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.36065573770491804,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.36065573770491804,
+        "translation": [
+          -5.245901639344268,
+          32.393442622950815
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            7,
+            36,
+            99,
+            125
+          ],
+          [
+            6,
+            37,
+            100,
+            125
+          ],
+          [
+            7,
+            36,
+            100,
+            124
+          ],
+          [
+            6,
+            36,
+            99,
+            125
+          ],
+          [
+            6,
+            36,
+            99,
+            124
+          ],
+          [
+            6,
+            39,
+            99,
+            124
+          ],
+          [
+            5,
+            34,
+            101,
+            124
+          ],
+          [
+            6,
+            32,
+            100,
+            124
+          ],
+          [
+            5,
+            33,
+            99,
+            124
+          ],
+          [
+            5,
+            36,
+            103,
+            123
+          ],
+          [
+            5,
+            37,
+            101,
+            124
+          ],
+          [
+            6,
+            37,
+            101,
+            124
+          ],
+          [
+            6,
+            36,
+            99,
+            124
+          ],
+          [
+            7,
+            36,
+            100,
+            124
+          ],
+          [
+            6,
+            35,
+            100,
+            124
+          ],
+          [
+            7,
+            37,
+            100,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting"
+      },
+      "creation": {
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/nabi/attack_light_up-r03-combined.png",
+        "source_sha256": "f206fa839f6a16efbffda14eb38f8599cf652946143456fb658cfbdeb56a7c7e"
+      },
+      "rights": {
+        "status": "derived from the previously approved nabi appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "presentation_scale": 0.92,
+      "foot_pivot_y": 124,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f_natural-v02.png",
+        "source_runtime_png_sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+        "source_runtime_tres_sha256": "72b278ff89bde5c6a5b4b10427fb970b2e4177c788a602a91ad502a72bc26402",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.0,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "death",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/death_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/death_body-fit-r01.tres",
+      "sha256": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/death-r02.png"
+      ],
+      "source_sha256": "1409bd6ac193e1e6e685b1aa969c891ef6053f32cd249352767cbfba5908ad9e",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.33,
+        "per_source_uniform_scales": [
+          0.33
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 0.9900923958995382,
+        "source_baseline_y": 308.5,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            23,
+            13,
+            116,
+            107
+          ],
+          [
+            23,
+            20,
+            119,
+            107
+          ],
+          [
+            15,
+            26,
+            113,
+            108
+          ],
+          [
+            15,
+            28,
+            116,
+            108
+          ],
+          [
+            15,
+            36,
+            118,
+            112
+          ],
+          [
+            14,
+            40,
+            118,
+            110
+          ],
+          [
+            14,
+            41,
+            117,
+            111
+          ],
+          [
+            9,
+            54,
+            123,
+            111
+          ],
+          [
+            12,
+            49,
+            125,
+            100
+          ],
+          [
+            12,
+            50,
+            126,
+            98
+          ],
+          [
+            9,
+            53,
+            124,
+            99
+          ],
+          [
+            10,
+            56,
+            122,
+            101
+          ],
+          [
+            12,
+            37,
+            126,
+            82
+          ],
+          [
+            14,
+            38,
+            126,
+            82
+          ],
+          [
+            13,
+            36,
+            120,
+            80
+          ],
+          [
+            11,
+            39,
+            118,
+            80
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-death-r07-head.json",
+        "spec_sha256": "57ff938e3926ef47f50408b8cb9927305becd0a4368e797471eb2b1a9813275f"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/death-r02.png",
+      "source_sheet_sha256": [
+        "1409bd6ac193e1e6e685b1aa969c891ef6053f32cd249352767cbfba5908ad9e"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/death-r02.png",
+            "sha256": "1409bd6ac193e1e6e685b1aa969c891ef6053f32cd249352767cbfba5908ad9e",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            106
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            106
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            109
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            109
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            107
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            99
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            98
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            79
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            78
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            77
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            77
+          ]
+        }
+      ],
+      "presentation_scale": 0.9108850042275752,
+      "foot_pivot_y": 104.0,
+      "state_hold_frame": 15,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/death_16f_natural-v03.png",
+        "source_runtime_png_sha256": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/death.tres",
+        "source_runtime_tres_sha256": "40950eead51f9626e58097fca7a4a211ea86a968067a3a888555667826826f44",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 0.9900923958995382,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "guard",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/guard_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/guard_body-fit-r01.tres",
+      "sha256": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/guard-r01.png"
+      ],
+      "source_sha256": "62f6c6bb37581716ecb54bdb63558dc41747d25478b83feb62d3b2290b449150",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.3,
+        "per_source_uniform_scales": [
+          0.3
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.3,
+        "presentation_scale": 1.1300542698351754,
+        "source_baseline_y": 311.0,
+        "target_baseline_y": 123.0,
+        "frame_bounds": [
+          [
+            26,
+            37,
+            101,
+            123
+          ],
+          [
+            26,
+            37,
+            101,
+            123
+          ],
+          [
+            25,
+            38,
+            100,
+            123
+          ],
+          [
+            25,
+            36,
+            100,
+            122
+          ],
+          [
+            26,
+            38,
+            102,
+            123
+          ],
+          [
+            26,
+            39,
+            103,
+            123
+          ],
+          [
+            26,
+            39,
+            102,
+            122
+          ],
+          [
+            26,
+            40,
+            102,
+            123
+          ],
+          [
+            26,
+            41,
+            103,
+            123
+          ],
+          [
+            26,
+            42,
+            103,
+            123
+          ],
+          [
+            26,
+            42,
+            102,
+            123
+          ],
+          [
+            26,
+            42,
+            103,
+            123
+          ],
+          [
+            26,
+            41,
+            104,
+            122
+          ],
+          [
+            26,
+            41,
+            104,
+            122
+          ],
+          [
+            26,
+            39,
+            102,
+            121
+          ],
+          [
+            26,
+            39,
+            102,
+            122
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-guard-r07-head.json",
+        "spec_sha256": "4a063d55ee8b019137742a7f471bba51bcb9b3586091eafef60ddd3e901bb8ac"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/guard-r01.png",
+      "source_sheet_sha256": [
+        "62f6c6bb37581716ecb54bdb63558dc41747d25478b83feb62d3b2290b449150"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/guard-r01.png",
+            "sha256": "62f6c6bb37581716ecb54bdb63558dc41747d25478b83feb62d3b2290b449150",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 1.0396499282483613,
+      "foot_pivot_y": 123.0,
+      "state_hold_frame": 11,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/guard_16f_natural-v03.png",
+        "source_runtime_png_sha256": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/guard.tres",
+        "source_runtime_tres_sha256": "fdf63d53e0e2db1b40de828a03d3b7c0fe320dcdb2ab45be7f4f093a3567b323",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.1300542698351754,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "hitstun",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/hitstun_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/hitstun_body-fit-r01.tres",
+      "sha256": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/hitstun-r01.png"
+      ],
+      "source_sha256": "c31506714d1656c240f1e4ece1ef3d39b6890dd0b9e946ad7b7f3b8810327af8",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.3,
+        "per_source_uniform_scales": [
+          0.3
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.3,
+        "presentation_scale": 1.16147919272998,
+        "source_baseline_y": 301.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            30,
+            28,
+            105,
+            106
+          ],
+          [
+            33,
+            29,
+            107,
+            106
+          ],
+          [
+            29,
+            30,
+            108,
+            105
+          ],
+          [
+            26,
+            36,
+            97,
+            105
+          ],
+          [
+            29,
+            29,
+            105,
+            107
+          ],
+          [
+            32,
+            34,
+            112,
+            107
+          ],
+          [
+            23,
+            33,
+            108,
+            107
+          ],
+          [
+            24,
+            38,
+            104,
+            106
+          ],
+          [
+            29,
+            29,
+            105,
+            103
+          ],
+          [
+            30,
+            25,
+            105,
+            102
+          ],
+          [
+            27,
+            28,
+            97,
+            102
+          ],
+          [
+            25,
+            28,
+            96,
+            102
+          ],
+          [
+            30,
+            19,
+            105,
+            97
+          ],
+          [
+            29,
+            23,
+            105,
+            97
+          ],
+          [
+            28,
+            24,
+            104,
+            97
+          ],
+          [
+            26,
+            20,
+            98,
+            96
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-hitstun-r07-head.json",
+        "spec_sha256": "f3151dc908010276c44b6facc2992e1b0e7a86eb150dae34bc1d6275a339ec28"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/hitstun-r01.png",
+      "source_sheet_sha256": [
+        "c31506714d1656c240f1e4ece1ef3d39b6890dd0b9e946ad7b7f3b8810327af8"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/hitstun-r01.png",
+            "sha256": "c31506714d1656c240f1e4ece1ef3d39b6890dd0b9e946ad7b7f3b8810327af8",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "presentation_scale": 1.0685608573115815,
+      "foot_pivot_y": 104.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/hitstun_16f_natural-v03.png",
+        "source_runtime_png_sha256": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres",
+        "source_runtime_tres_sha256": "67e049a9c151191aa236e5d62bca0f69e389e0a6ee1469be83843d8c194b992b",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.16147919272998,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      },
+      "hit_reaction_lead_frame_range": [
+        0,
+        6
+      ],
+      "hit_reaction_lead_ticks": 6
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "knock_down",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/knock_down_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/knock_down_body-fit-r01.tres",
+      "sha256": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/knock_down-r01.png"
+      ],
+      "source_sha256": "4fa0450aa78e04cb9cbd8a3796041d696b0d81fe0a91855ab80aafadd5223fc5",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.33,
+        "per_source_uniform_scales": [
+          0.33
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 0.9975772094712624,
+        "source_baseline_y": 298.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            12,
+            14,
+            107,
+            105
+          ],
+          [
+            17,
+            18,
+            118,
+            107
+          ],
+          [
+            3,
+            20,
+            106,
+            107
+          ],
+          [
+            3,
+            22,
+            103,
+            107
+          ],
+          [
+            16,
+            29,
+            109,
+            112
+          ],
+          [
+            21,
+            33,
+            115,
+            106
+          ],
+          [
+            12,
+            34,
+            115,
+            107
+          ],
+          [
+            13,
+            37,
+            112,
+            108
+          ],
+          [
+            11,
+            41,
+            119,
+            99
+          ],
+          [
+            6,
+            43,
+            113,
+            97
+          ],
+          [
+            3,
+            41,
+            116,
+            103
+          ],
+          [
+            4,
+            43,
+            118,
+            103
+          ],
+          [
+            12,
+            34,
+            119,
+            85
+          ],
+          [
+            8,
+            36,
+            120,
+            85
+          ],
+          [
+            9,
+            39,
+            122,
+            84
+          ],
+          [
+            7,
+            36,
+            118,
+            86
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-knock_down-r07-head.json",
+        "spec_sha256": "ce069aedceaab0b471049a3539d9602768717129ad08fbc95064619dba6971fb"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/knock_down-r01.png",
+      "source_sheet_sha256": [
+        "4fa0450aa78e04cb9cbd8a3796041d696b0d81fe0a91855ab80aafadd5223fc5"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/knock_down-r01.png",
+            "sha256": "4fa0450aa78e04cb9cbd8a3796041d696b0d81fe0a91855ab80aafadd5223fc5",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            101
+          ]
+        },
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {},
+        {
+          "body_root": [
+            64,
+            96
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            100
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            100
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            84
+          ]
+        }
+      ],
+      "presentation_scale": 0.9177710327135614,
+      "foot_pivot_y": 104.0,
+      "state_hold_frame": 15,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/knock_down_16f_natural-v03.png",
+        "source_runtime_png_sha256": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres",
+        "source_runtime_tres_sha256": "11a37377b22c9c43ec4d79c156dd54fa8a5d5475912632f36d07a5d6f9bbab81",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 0.9975772094712624,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "launch",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/launch_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/launch_body-fit-r01.tres",
+      "sha256": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/launch-r01.png"
+      ],
+      "source_sha256": "63b87aeddd1ac6e3b296685d2e323a634d9f312038a3c24b7263f76abb9b69fe",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.33,
+        "per_source_uniform_scales": [
+          0.33
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 1.1222543304143902,
+        "source_baseline_y": 278.25,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            22,
+            29,
+            106,
+            100
+          ],
+          [
+            14,
+            26,
+            110,
+            108
+          ],
+          [
+            18,
+            26,
+            121,
+            106
+          ],
+          [
+            23,
+            24,
+            119,
+            108
+          ],
+          [
+            26,
+            20,
+            116,
+            106
+          ],
+          [
+            21,
+            21,
+            114,
+            107
+          ],
+          [
+            21,
+            20,
+            115,
+            111
+          ],
+          [
+            21,
+            22,
+            109,
+            110
+          ],
+          [
+            25,
+            25,
+            115,
+            111
+          ],
+          [
+            32,
+            28,
+            111,
+            101
+          ],
+          [
+            38,
+            29,
+            118,
+            102
+          ],
+          [
+            28,
+            28,
+            102,
+            102
+          ],
+          [
+            30,
+            24,
+            108,
+            92
+          ],
+          [
+            34,
+            21,
+            107,
+            94
+          ],
+          [
+            31,
+            23,
+            104,
+            94
+          ],
+          [
+            21,
+            21,
+            97,
+            94
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-launch-r07-head.json",
+        "spec_sha256": "d92fa5e8bf48638c3d6088a69ba6e9b808329653d543db8133ec732a773f76d2"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/launch-r01.png",
+      "source_sheet_sha256": [
+        "63b87aeddd1ac6e3b296685d2e323a634d9f312038a3c24b7263f76abb9b69fe"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/launch-r01.png",
+            "sha256": "63b87aeddd1ac6e3b296685d2e323a634d9f312038a3c24b7263f76abb9b69fe",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.032473983981239,
+      "foot_pivot_y": 104.0,
+      "launch_release_frame_range": [
+        12,
+        16
+      ],
+      "launch_release_ticks": 4,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/launch_16f_natural-v03.png",
+        "source_runtime_png_sha256": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/launch.tres",
+        "source_runtime_tres_sha256": "c734d625903267fda13d88afd7dfc0d881fc78130dae03cb7e0e3f979b0cae0b",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.1222543304143902,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "ring_out",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/ring_out_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/ring_out_body-fit-r01.tres",
+      "sha256": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/ring_out-r02.png"
+      ],
+      "source_sha256": "bdbb8ea619f72ea1cd1c63e0c26e45ed29ef20345d4be5ed7b18a824810d5d8d",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.3,
+        "per_source_uniform_scales": [
+          0.3
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.3,
+        "presentation_scale": 1.1240672273459826,
+        "source_baseline_y": 323.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            25,
+            22,
+            116,
+            104
+          ],
+          [
+            23,
+            22,
+            112,
+            104
+          ],
+          [
+            21,
+            19,
+            115,
+            101
+          ],
+          [
+            20,
+            23,
+            107,
+            105
+          ],
+          [
+            26,
+            17,
+            123,
+            101
+          ],
+          [
+            32,
+            15,
+            119,
+            104
+          ],
+          [
+            31,
+            17,
+            116,
+            108
+          ],
+          [
+            28,
+            19,
+            104,
+            115
+          ],
+          [
+            30,
+            18,
+            106,
+            104
+          ],
+          [
+            33,
+            17,
+            107,
+            106
+          ],
+          [
+            33,
+            18,
+            102,
+            105
+          ],
+          [
+            33,
+            17,
+            103,
+            104
+          ],
+          [
+            37,
+            12,
+            110,
+            95
+          ],
+          [
+            39,
+            14,
+            111,
+            95
+          ],
+          [
+            39,
+            13,
+            113,
+            96
+          ],
+          [
+            40,
+            14,
+            109,
+            96
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-ring_out-r07-head.json",
+        "spec_sha256": "f0073a507f23bb6a06eda5e0984f7580714119602daffca3d1fe0603dede9f84"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/ring_out-r02.png",
+      "source_sheet_sha256": [
+        "bdbb8ea619f72ea1cd1c63e0c26e45ed29ef20345d4be5ed7b18a824810d5d8d"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/ring_out-r02.png",
+            "sha256": "bdbb8ea619f72ea1cd1c63e0c26e45ed29ef20345d4be5ed7b18a824810d5d8d",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 1.034141849158304,
+      "foot_pivot_y": 104.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/ring_out_16f_natural-v03.png",
+        "source_runtime_png_sha256": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres",
+        "source_runtime_tres_sha256": "941dbfba4e38c801e5b439456d21c72bf88e3d378168aa0e8d307b526727ae1f",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.1240672273459826,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "spawn",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/spawn_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/spawn_body-fit-r01.tres",
+      "sha256": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/spawn-r01.png"
+      ],
+      "source_sha256": "f8330aeeefeb7e2f1523bae6d9827b4cff9cbb4f3b36d3e68329e68c6b1d50f0",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.33,
+        "per_source_uniform_scales": [
+          0.33
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 1.0183541776937246,
+        "source_baseline_y": 273.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            31,
+            18,
+            108,
+            91
+          ],
+          [
+            25,
+            19,
+            107,
+            101
+          ],
+          [
+            21,
+            18,
+            108,
+            102
+          ],
+          [
+            22,
+            19,
+            108,
+            108
+          ],
+          [
+            19,
+            21,
+            109,
+            110
+          ],
+          [
+            21,
+            29,
+            112,
+            106
+          ],
+          [
+            20,
+            30,
+            112,
+            106
+          ],
+          [
+            24,
+            36,
+            116,
+            106
+          ],
+          [
+            24,
+            27,
+            110,
+            104
+          ],
+          [
+            23,
+            27,
+            110,
+            105
+          ],
+          [
+            23,
+            25,
+            105,
+            104
+          ],
+          [
+            23,
+            25,
+            105,
+            105
+          ],
+          [
+            20,
+            22,
+            107,
+            99
+          ],
+          [
+            21,
+            24,
+            108,
+            100
+          ],
+          [
+            21,
+            23,
+            108,
+            99
+          ],
+          [
+            21,
+            24,
+            107,
+            99
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-spawn-r07-head.json",
+        "spec_sha256": "10e595b4e29a09627a4b54cb375eea713ea747c1eb7b6b82b7fd00129eb9f63c"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/spawn-r01.png",
+      "source_sheet_sha256": [
+        "f8330aeeefeb7e2f1523bae6d9827b4cff9cbb4f3b36d3e68329e68c6b1d50f0"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/spawn-r01.png",
+            "sha256": "f8330aeeefeb7e2f1523bae6d9827b4cff9cbb4f3b36d3e68329e68c6b1d50f0",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "presentation_scale": 0.9368858434782267,
+      "foot_pivot_y": 104.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/spawn_16f_natural-v03.png",
+        "source_runtime_png_sha256": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres",
+        "source_runtime_tres_sha256": "9ec834358ad6c9c0e8cb09f66c83d377ced7f81064e7b40c8abed388c2825fac",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.0183541776937246,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "special_side",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/special_side_32f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/special_side_body-fit-r01.tres",
+      "sha256": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partA-r02.png",
+        "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partB-r02.png"
+      ],
+      "source_sha256": "864706d7c5fcc93b283c7aa6cf4e6b7963d65d6ab0ae71b0c4e4a6395d8fdba8",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.28895537488498796,
+        "per_source_uniform_scales": [
+          0.2800844589139869,
+          0.30306674684305474
+        ],
+        "source_scale_multipliers": [
+          0.9693000485817856,
+          1.0488358175157098
+        ],
+        "reference_scale": 0.32,
+        "presentation_scale": 1.1074374377959526,
+        "source_baseline_y": 290.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            26,
+            31,
+            113,
+            104
+          ],
+          [
+            27,
+            34,
+            104,
+            103
+          ],
+          [
+            25,
+            34,
+            106,
+            104
+          ],
+          [
+            31,
+            35,
+            109,
+            104
+          ],
+          [
+            29,
+            29,
+            121,
+            103
+          ],
+          [
+            26,
+            31,
+            116,
+            102
+          ],
+          [
+            28,
+            31,
+            116,
+            102
+          ],
+          [
+            25,
+            30,
+            111,
+            102
+          ],
+          [
+            24,
+            28,
+            113,
+            102
+          ],
+          [
+            25,
+            26,
+            115,
+            102
+          ],
+          [
+            24,
+            26,
+            112,
+            102
+          ],
+          [
+            24,
+            28,
+            109,
+            102
+          ],
+          [
+            24,
+            27,
+            113,
+            98
+          ],
+          [
+            25,
+            28,
+            113,
+            98
+          ],
+          [
+            22,
+            29,
+            109,
+            99
+          ],
+          [
+            23,
+            27,
+            110,
+            98
+          ],
+          [
+            19,
+            24,
+            127,
+            105
+          ],
+          [
+            24,
+            26,
+            122,
+            107
+          ],
+          [
+            19,
+            27,
+            116,
+            105
+          ],
+          [
+            23,
+            28,
+            114,
+            105
+          ],
+          [
+            18,
+            24,
+            110,
+            105
+          ],
+          [
+            17,
+            25,
+            119,
+            106
+          ],
+          [
+            20,
+            26,
+            123,
+            106
+          ],
+          [
+            21,
+            26,
+            110,
+            108
+          ],
+          [
+            22,
+            23,
+            117,
+            105
+          ],
+          [
+            23,
+            24,
+            117,
+            107
+          ],
+          [
+            21,
+            23,
+            111,
+            105
+          ],
+          [
+            19,
+            25,
+            109,
+            107
+          ],
+          [
+            22,
+            20,
+            113,
+            99
+          ],
+          [
+            25,
+            21,
+            114,
+            99
+          ],
+          [
+            24,
+            22,
+            111,
+            99
+          ],
+          [
+            17,
+            23,
+            110,
+            100
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-special_side-r07-head.json",
+        "spec_sha256": "b337e04b7c67840a1239efcde8e02d6084158697b3d748a7e0b1abb14ac10768"
+      },
+      "actual_attack_timings_60hz": [
+        10,
+        24,
+        20
+      ],
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partA-r02.png",
+      "source_sheet_sha256": [
+        "864706d7c5fcc93b283c7aa6cf4e6b7963d65d6ab0ae71b0c4e4a6395d8fdba8",
+        "3555b9512d55f93e4ef0656de29fb0522b6267506a08952715cf0541fbc64222"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partA-r02.png",
+            "sha256": "864706d7c5fcc93b283c7aa6cf4e6b7963d65d6ab0ae71b0c4e4a6395d8fdba8",
+            "frame_range": [
+              0,
+              16
+            ]
+          },
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/special_side-partB-r02.png",
+            "sha256": "3555b9512d55f93e4ef0656de29fb0522b6267506a08952715cf0541fbc64222",
+            "frame_range": [
+              16,
+              32
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 32,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          24
+        ],
+        [
+          24,
+          32
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "claw_hand": [
+            58.89,
+            70.67
+          ]
+        },
+        {
+          "claw_hand": [
+            76.81,
+            74.31
+          ]
+        },
+        {
+          "claw_hand": [
+            74.01,
+            74.87
+          ]
+        },
+        {
+          "claw_hand": [
+            76.53,
+            77.11
+          ]
+        },
+        {
+          "claw_hand": [
+            61.41,
+            61.43
+          ]
+        },
+        {
+          "claw_hand": [
+            59.73,
+            64.23
+          ]
+        },
+        {
+          "claw_hand": [
+            98.66,
+            70.11
+          ]
+        },
+        {
+          "claw_hand": [
+            57.49,
+            65.63
+          ]
+        },
+        {
+          "claw_hand": [
+            97.54,
+            65.07
+          ]
+        },
+        {
+          "claw_hand": [
+            84.66,
+            65.07
+          ]
+        },
+        {
+          "claw_hand": [
+            56.37,
+            64.79
+          ]
+        },
+        {
+          "claw_hand": [
+            86.34,
+            70.39
+          ]
+        },
+        {
+          "claw_hand": [
+            56.09,
+            60.59
+          ]
+        },
+        {
+          "claw_hand": [
+            56.93,
+            59.19
+          ]
+        },
+        {
+          "claw_hand": [
+            80.45,
+            66.47
+          ]
+        },
+        {
+          "claw_hand": [
+            56.37,
+            60.59
+          ]
+        },
+        {
+          "claw_hand": [
+            63.05,
+            61.57
+          ]
+        },
+        {
+          "claw_hand": [
+            57.29,
+            65.51
+          ]
+        },
+        {
+          "claw_hand": [
+            77.3,
+            60.66
+          ]
+        },
+        {
+          "claw_hand": [
+            73.05,
+            65.51
+          ]
+        },
+        {
+          "claw_hand": [
+            67.3,
+            52.18
+          ]
+        },
+        {
+          "claw_hand": [
+            105.18,
+            69.15
+          ],
+          "claw_tip": [
+            118.21,
+            68.84
+          ]
+        },
+        {
+          "claw_hand": [
+            113.36,
+            67.03
+          ],
+          "claw_tip": [
+            121.54,
+            70.06
+          ]
+        },
+        {
+          "claw_hand": [
+            92.15,
+            70.66
+          ],
+          "claw_tip": [
+            103.06,
+            73.09
+          ]
+        },
+        {
+          "claw_hand": [
+            79.72,
+            64.9
+          ]
+        },
+        {
+          "claw_hand": [
+            83.66,
+            66.12
+          ]
+        },
+        {
+          "claw_hand": [
+            78.81,
+            68.84
+          ]
+        },
+        {
+          "claw_hand": [
+            77.3,
+            68.54
+          ]
+        },
+        {
+          "claw_hand": [
+            81.54,
+            63.69
+          ]
+        },
+        {
+          "claw_hand": [
+            79.72,
+            64.6
+          ]
+        },
+        {
+          "claw_hand": [
+            80.33,
+            64.3
+          ]
+        },
+        {
+          "claw_hand": [
+            80.02,
+            67.03
+          ]
+        }
+      ],
+      "presentation_scale": 1.0188424427722764,
+      "foot_pivot_y": 104.0,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/special_side_32f_natural-v03.png",
+        "source_runtime_png_sha256": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres",
+        "source_runtime_tres_sha256": "bba41f59fd9f4dbdaa943ef0dfed64c4095cebe733d5d9eedf9e3405cc3db773",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.1074374377959526,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "wake_up",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/wake_up_16f_body-fit-r01.png",
+      "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/wake_up_body-fit-r01.tres",
+      "sha256": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/wake_up-r01.png"
+      ],
+      "source_sha256": "35aa9852c243f7612d3680f3d49c219f2addfcecce7d3af986af48cab12c0c98",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.3,
+        "per_source_uniform_scales": [
+          0.3
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.3,
+        "presentation_scale": 1.1481183308849365,
+        "source_baseline_y": 360.75,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            21,
+            77,
+            114,
+            121
+          ],
+          [
+            21,
+            71,
+            117,
+            121
+          ],
+          [
+            32,
+            61,
+            111,
+            123
+          ],
+          [
+            20,
+            56,
+            103,
+            123
+          ],
+          [
+            22,
+            47,
+            121,
+            112
+          ],
+          [
+            26,
+            45,
+            112,
+            113
+          ],
+          [
+            24,
+            44,
+            100,
+            113
+          ],
+          [
+            20,
+            40,
+            106,
+            116
+          ],
+          [
+            26,
+            30,
+            114,
+            96
+          ],
+          [
+            35,
+            29,
+            115,
+            95
+          ],
+          [
+            25,
+            29,
+            110,
+            96
+          ],
+          [
+            26,
+            28,
+            107,
+            95
+          ],
+          [
+            26,
+            9,
+            110,
+            84
+          ],
+          [
+            23,
+            8,
+            109,
+            86
+          ],
+          [
+            25,
+            9,
+            111,
+            87
+          ],
+          [
+            18,
+            9,
+            101,
+            85
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-wake_up-r07-head.json",
+        "spec_sha256": "7db9fd8eaca6d4b950aef32ad4838bf142684f12410150b281957546edb2b1e9"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/wake_up-r01.png",
+      "source_sheet_sha256": [
+        "35aa9852c243f7612d3680f3d49c219f2addfcecce7d3af986af48cab12c0c98"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/wake_up-r01.png",
+            "sha256": "35aa9852c243f7612d3680f3d49c219f2addfcecce7d3af986af48cab12c0c98",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "frame_anchors": [
+        {
+          "body_root": [
+            64,
+            120
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            119
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            121
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            111
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            111
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            111
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            115
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            94
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            95
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            94
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            83
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            85
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            86
+          ]
+        },
+        {
+          "body_root": [
+            64,
+            84
+          ]
+        }
+      ],
+      "presentation_scale": 1.0562688644141416,
+      "foot_pivot_y": 104.0,
+      "state_duration_ticks": 12,
+      "status": "unapproved-workspace-only",
+      "layout_revision": {
+        "kind": "whole-figure display-size candidate",
+        "source_runtime_png": "assets/character/nabi/animation/runtime/wake_up_16f_natural-v03.png",
+        "source_runtime_png_sha256": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+        "source_runtime_tres": "res://assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres",
+        "source_runtime_tres_sha256": "a6b631faf20daa49609041005f6ab405ec3b1cde68509625be08ee849edb1993",
+        "uniform_display_factor": 0.92,
+        "prior_display_scale": 1.1481183308849365,
+        "figure_pixels_changed": false,
+        "intrinsic_body_ratios_changed": false,
+        "assessment": "candidate; independent body-proportion and transition review pending"
+      }
+    }
+  ]
+}

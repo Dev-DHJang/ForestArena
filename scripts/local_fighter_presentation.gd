@@ -47,7 +47,6 @@ var _previous_state := -1
 var _spawn_elapsed := -1.0
 var _reaction_restart_pending := false
 var _reaction_duration_ticks := 0
-var _reaction_first_delta := 0.0
 var _local_hit_events_pending := 0
 var _last_event_epoch := -1
 var _last_event_sequence := -1
@@ -131,7 +130,7 @@ static func display_layout(entry: Dictionary) -> Dictionary:
 	# values win over a matching calibration, so a candidate can revise timing or
 	# attachments even when the source PNG is intentionally unchanged.
 	if not String(entry.get("sha256", "")).is_empty():
-		for field: String in ["frame_count", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors", "phase_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range", "launch_release_frame_range", "launch_release_ticks", "hit_reaction_lead_frame_range", "hit_reaction_lead_ticks"]:
+		for field: String in ["frame_count", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors", "phase_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range", "launch_release_frame_range", "launch_release_ticks"]:
 			if hash_matches and calibration.has(field): result[field] = calibration[field]
 			if entry.has(field): result[field] = entry[field]
 	return result
@@ -160,7 +159,6 @@ func _reset_playback() -> void:
 	_spawn_elapsed = -1.0
 	_reaction_restart_pending = false
 	_reaction_duration_ticks = 0
-	_reaction_first_delta = 0.0
 	_local_hit_events_pending = 0
 
 
@@ -297,7 +295,6 @@ func sync_visual(delta: float) -> void:
 		_reaction_duration_ticks = 0
 	if restarted_motion:
 		_elapsed = 0.0
-		_reaction_first_delta = maxf(delta, 0.0)
 		_run_distance = 0.0
 		_last_motion = shown
 		_last_activation = fighter.activation_serial
@@ -306,12 +303,6 @@ func sync_visual(delta: float) -> void:
 	_elapsed += delta
 	var frames := sprite.sprite_frames.get_frame_count(shown)
 	var weights: Array = drawing.get("frame_durations", [])
-	# A remote HIT may arrive every six ticks. At authored FPS, restarting
-	# can show only the opening poses and miss the visible impact. An authored lead is
-	# drawing time only; it never supplies LAN's missing combat-stun duration.
-	var lead_frame := -1
-	if shown == &"hitstun" and _reaction_duration_ticks <= 0:
-		lead_frame = hit_reaction_lead_frame(maxf(0.0, _elapsed - _reaction_first_delta), sprite.sprite_frames.get_animation_speed(shown), frames, drawing, weights)
 	var position_delta := fighter.global_position - _last_position if _position_known else Vector2.ZERO
 	_last_position = fighter.global_position
 	_position_known = true
@@ -324,8 +315,6 @@ func sync_visual(delta: float) -> void:
 	elif shown in [&"hitstun", &"launch"] and _reaction_duration_ticks > 0:
 		var elapsed_ticks := _reaction_duration_ticks - fighter.hitstun_ticks
 		sprite.frame = timed_frame(elapsed_ticks, _reaction_duration_ticks, 0, frames) if weights.is_empty() else weighted_frame(float(elapsed_ticks) / maxi(_reaction_duration_ticks - 1, 1), 0, frames, weights)
-	elif lead_frame >= 0:
-		sprite.frame = lead_frame
 	elif shown == &"knock_down" and fighter.landing_down_ticks > 0:
 		var span: Array = drawing.get("landing_down_frame_range", [12,16])
 		sprite.frame = timed_frame(18 - fighter.landing_down_ticks,18,int(span[0]),int(span[1])) if weights.is_empty() else weighted_frame(float(18-fighter.landing_down_ticks)/17.0,int(span[0]),int(span[1]),weights)
@@ -406,25 +395,6 @@ func _artwork_hash(entry: Dictionary) -> String:
 
 static func timed_frame(elapsed_ticks: int, duration_ticks: int, begin: int, end: int) -> int:
 	return clampi(begin + roundi(float(elapsed_ticks) / maxi(duration_ticks - 1,1) * (end - begin - 1)),begin,end-1)
-
-
-static func hit_reaction_lead_frame(elapsed: float, fps: float, count: int, layout: Dictionary, weights: Array = []) -> int:
-	# Optional, hash-bound display data. Invalid or absent pairs keep legacy FPS.
-	var span: Variant = layout.get("hit_reaction_lead_frame_range")
-	var ticks: Variant = layout.get("hit_reaction_lead_ticks")
-	if not span is Array or span.size() != 2: return -1
-	for value: Variant in [span[0], span[1], ticks]:
-		if not (value is int or value is float): return -1
-		if not is_finite(float(value)) or float(value) != floorf(float(value)): return -1
-	var begin := int(span[0])
-	var end := int(span[1])
-	var duration := int(ticks)
-	if begin != 0 or end <= begin or end > count or duration < end - begin or duration > 12: return -1
-	var lead_seconds := float(duration) / 60.0
-	if elapsed < lead_seconds:
-		return timed_frame(int(floorf(maxf(0.0, elapsed) * 60.0 + 0.000001)), duration, begin, end)
-	if end == count: return count - 1
-	return playback_frame(elapsed - lead_seconds, fps, end, count, weights)
 
 
 static func airborne_jump_frame(vertical_speed: float, stage_elapsed: float, descent: Array = []) -> int:

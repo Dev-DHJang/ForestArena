@@ -289,39 +289,6 @@ class MotionLayoutTest(unittest.TestCase):
         for row in cases:
             with self.subTest(row=row),self.assertRaises(ValueError):layout(row)
 
-    def test_hit_reaction_lead_accepts_declared_hitstun_and_keeps_input_unchanged(self):
-        from motion_layout import layout
-        import copy
-        for count in [16, 24, 32]:
-            for identity in [{"visual_state_id":"hitstun"}, {"path":"hitstun_16f.png"}]:
-                row={**identity,"frame_count":count,"hit_reaction_lead_frame_range":[0.0,6.0],"hit_reaction_lead_ticks":6.0}
-                before=copy.deepcopy(row)
-                self.assertEqual(layout(row)["frame_count"],count)
-                self.assertEqual(row,before)
-        # Optional values must not change the canonical SpriteFrames durations.
-        self.assertEqual(layout({"visual_state_id":"hitstun","hit_reaction_lead_frame_range":[0,6],"hit_reaction_lead_ticks":6}), layout({}))
-
-    def test_hit_reaction_lead_rejects_partial_non_hitstun_and_invalid_numbers(self):
-        from motion_layout import layout
-        valid={"visual_state_id":"hitstun","hit_reaction_lead_frame_range":[0,6],"hit_reaction_lead_ticks":6}
-        cases=[{"hit_reaction_lead_frame_range":[0,6]}, {"hit_reaction_lead_ticks":6},
-               {**valid,"visual_state_id":"launch"}, {**valid,"visual_state_id":"guard"},
-               {**valid,"visual_state_id":"jump","path":"hitstun_16f.png"},
-               {**valid,"hit_reaction_lead_frame_range":[1,6]},
-               {**valid,"hit_reaction_lead_frame_range":[0,0]},
-               {**valid,"hit_reaction_lead_frame_range":[0,17]},
-               {**valid,"hit_reaction_lead_frame_range":[0,7]},
-               {**valid,"hit_reaction_lead_frame_range":[0]},
-               {**valid,"hit_reaction_lead_frame_range":"0,6"}]
-        for invalid in [True,False,0,-1,13,6.5,float("nan"),float("inf"),float("-inf"),"6"]:
-            cases.append({**valid,"hit_reaction_lead_ticks":invalid})
-        for invalid in [True,False,.5,float("nan"),float("inf"),"0"]:
-            cases.append({**valid,"hit_reaction_lead_frame_range":[invalid,6]})
-        for invalid in [True,False,6.5,float("nan"),float("inf"),"6"]:
-            cases.append({**valid,"hit_reaction_lead_frame_range":[0,invalid]})
-        for row in cases:
-            with self.subTest(row=row),self.assertRaises(ValueError):layout(row)
-
     def test_board_uses_declared_rows_not_horizontal_strip(self):
         from motion_layout import layout
         from review_motion_actions import make_board
@@ -488,6 +455,60 @@ class CandidateMotionReviewTest(unittest.TestCase):
         write(self.catalog, catalog)
         self.scope_doc["catalog_sha256"] = sha(self.catalog)
         write(self.scope, self.scope_doc)
+
+    def make_layout_only(self, png_path="assets/character/run.png", sprite_path="assets/character/run.tres"):
+        row = read(self.catalog)["assets"][0]
+        approved = {**row, "type": "animation-runtime", "asset_id": "test-" + row["visual_state_id"].replace("_", "-") + "-stable-v01",
+                    "path": png_path, "sprite_frames_path": "res://" + sprite_path,
+                    "consumer_path": "res://" + sprite_path, "sha256": sha(self.sheet), "presentation_scale": 1.0}
+        for field in ("expected_action", "action_source", "layout_only_from_asset_id"):
+            approved.pop(field, None)
+        png, sprite = self.root / png_path, self.root / sprite_path
+        png.parent.mkdir(parents=True, exist_ok=True)
+        sprite.parent.mkdir(parents=True, exist_ok=True)
+        png.write_bytes(self.sheet.read_bytes())
+        sprite.write_text(self.sprite.read_text().replace("res://" + row["path"], "res://" + png_path))
+        write(self.fixture.manifest, {"assets": [approved]})
+        self.update_catalog(lambda doc: doc["assets"][0].update(layout_only_from_asset_id=approved["asset_id"],
+            sha256=sha(self.sheet), presentation_scale=0.92))
+        return approved
+
+    def test_layout_only_keeps_pending_row_and_pins_approved_sources(self):
+        before_png, before_tres = self.sheet.read_bytes(), self.sprite.read_bytes()
+        approved = self.make_layout_only()
+        selection = self.check_input()
+        row = selection["rows"][0]
+        self.assertEqual(row["type"], "animation-candidate")
+        self.assertFalse(row.get("reuse_approved_runtime", False))
+        self.assertEqual(row["presentation_scale"], 0.92)
+        self.assertIn(approved["path"], selection["required_sources"])
+        self.assertIn(approved["sprite_frames_path"].removeprefix("res://"), selection["required_sources"])
+        self.assertEqual((before_png, before_tres), (self.sheet.read_bytes(), self.sprite.read_bytes()))
+        self.update_catalog(lambda doc: doc["assets"][0].pop("layout_only_from_asset_id"))
+        with self.assertRaisesRegex(ValueError, "exposed in runtime"):
+            self.check_input()
+
+    def test_layout_only_rejects_wrong_identity_pixels_and_non_scale_changes(self):
+        approved = self.make_layout_only()
+        original = read(self.catalog)["assets"][0]
+        manifest = read(self.fixture.manifest)
+        manifest["assets"].append({"type": "concept", "character_id": "other"})
+        write(self.fixture.manifest, manifest)
+        changes = [{"layout_only_from_asset_id": "wrong-asset"}, {"character_id": "other"}, {"visual_state_id": "guard"}]
+        changes += [{"presentation_scale": value} for value in (0, -1, True, float("inf"), 1.0)]
+        changes += [{"frame_durations": [2.0] * 16}, {"foot_pivot_y": 120}, {"phase_frame_ranges": [[0,4],[4,8],[8,16]]}, {"state_hold_frame": 0}]
+        for change in changes:
+            with self.subTest(change=change):
+                self.update_catalog(lambda doc: doc.update(assets=[{**original, **change}]))
+                with self.assertRaises(ValueError): self.check_input()
+        self.update_catalog(lambda doc: doc.update(assets=[original]))
+        self.sheet.write_bytes(self.sheet.read_bytes() + b"changed")
+        with self.assertRaisesRegex(ValueError, "PNG bytes"):
+            self.check_input()
+        self.sheet.write_bytes((self.root / approved["path"]).read_bytes())
+        self.sprite.write_text(self.sprite.read_text() + "\n# different SpriteFrames")
+        with self.assertRaisesRegex(ValueError, "only in its PNG reference"):
+            self.check_input()
 
     def test_pending_candidate_is_blocked_not_automatically_passed(self):
         self.assertEqual(self.review["motions"][0]["status"], "blocked")
@@ -749,26 +770,6 @@ class MotionRegistrationTest(unittest.TestCase):
         row=next(row for row in result["assets"] if row.get("visual_state_id")=="launch")
         self.assertEqual({key:row[key] for key in fields},fields)
 
-    def test_hit_reaction_lead_survives_readonly_plan_and_requires_approval_to_install(self):
-        from register_motion_candidates import install
-        fields={"hit_reaction_lead_frame_range":[0,6],"hit_reaction_lead_ticks":6}
-        self.fixture.update_catalog(lambda doc:doc["assets"][0].update(visual_state_id="hitstun",**fields))
-        self.prepare_art(16,"hitstun")
-        before=self.snapshot();plan,pending=self.plan()
-        self.assertEqual(before,self.snapshot())
-        updated=json.loads(pending["assets/character/manifest.json"])
-        row=next(row for row in updated["assets"] if row.get("visual_state_id")=="hitstun")
-        self.assertEqual({key:row[key] for key in fields},fields)
-        with self.assertRaisesRegex(ValueError,"human approval.*missing"):
-            install(self.root,plan,pending,self.backup)
-        self.assertEqual(before,self.snapshot())
-        self.assertFalse(self.backup.exists())
-        self.fixture_approval(plan)  # Synthetic temporary fixture decision only.
-        install(self.root,plan,pending,self.backup)
-        result=read(self.fixture.fixture.manifest)
-        row=next(row for row in result["assets"] if row.get("visual_state_id")=="hitstun")
-        self.assertEqual({key:row[key] for key in fields},fields)
-
     def test_existing_state_display_metadata_is_preserved_in_registration_plan(self):
         fields={"state_duration_ticks":18,"landing_down_frame_range":[12,16],"state_hold_frame":15}
         self.fixture.update_catalog(lambda doc:doc["assets"][0].update(visual_state_id="knock_down",**fields))
@@ -778,6 +779,25 @@ class MotionRegistrationTest(unittest.TestCase):
         updated=json.loads(pending["assets/character/manifest.json"])
         row=next(row for row in updated["assets"] if row.get("visual_state_id")=="knock_down")
         self.assertEqual({key:row[key] for key in fields},fields)
+
+    def test_layout_only_plan_keeps_approval_gate_and_does_not_publish_catalog_flag(self):
+        from register_motion_candidates import install
+        self.fixture.make_layout_only("assets/character/test/animation/runtime/guard_24f_v01.png",
+                                    "assets/character/test/animation/runtime/guard.tres")
+        self.prepare_art(24)
+        before = self.snapshot()
+        plan, pending = self.plan()
+        self.assertEqual(before, self.snapshot())
+        self.assertEqual(len(plan["motions"]), 1)
+        self.assertEqual(plan["motions"][0]["operation"], "replace")
+        result = json.loads(pending["assets/character/manifest.json"])["assets"][0]
+        self.assertEqual(result["presentation_scale"], 0.92)
+        self.assertNotIn("layout_only_from_asset_id", result)
+        self.assertEqual(result["registration_history"][-1]["presentation_scale"], 1.0)
+        with self.assertRaisesRegex(ValueError, "human approval.*missing"):
+            install(self.root, plan, pending, self.backup)
+        self.assertEqual(before, self.snapshot())
+        self.assertFalse(self.backup.exists())
 
     def test_missing_approval_refuses_before_any_write_or_backup(self):
         from register_motion_candidates import install

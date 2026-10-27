@@ -1,0 +1,98 @@
+{
+  "role": "combat/presentation producer observation; not an independent approval of a new motion",
+  "baseline_apk_sha256": "5f4750169a5d91bc7ba71517c957b082fa4354bf16184c800be532a357948f86",
+  "baseline_code": "602b57c9 / develop merge ece8fe62",
+  "sources": {
+    "_workspace/fighter-presentation-fixes/qa/android-offline-a634695145aa48d59a8f6ff4fe6cc228/special.mp4": "0f5375e4634f5ca46591a0d0361eb80380159c39cbbe8e41b1be8acf3fa65c6b",
+    "_workspace/fighter-presentation-fixes/qa/android-offline-a634695145aa48d59a8f6ff4fe6cc228/samples.json": "6465c7f9bd4623f0b88d45957fc63488657809c2b861f04d33c86de449dba001",
+    "_workspace/fighter-presentation-fixes/qa/android-offline-a634695145aa48d59a8f6ff4fe6cc228/observation.json": "3f3aa977c6afe20f5f068f67f0e0a9b411544b627fcd38bf59f0f90b24007e46"
+  },
+  "native_playback": {
+    "app": "QuickTime Player",
+    "open_method": "formal Open File dialog",
+    "speeds": [
+      1.0,
+      0.5
+    ],
+    "from_seconds": 0,
+    "confirmed_stopped_at_end_seconds": 7.950688888888889,
+    "observed_playing_at_seconds": {
+      "1x": 0.4001440797471432,
+      "0.5x": 0.2087708242159008
+    },
+    "paused_visual_samples_seconds": [
+      0.6437100413323609,
+      0.6959027473863361,
+      0.7480954534403113,
+      1.043854121079504
+    ]
+  },
+  "observations": [
+    {
+      "seconds": 0.6437100413323609,
+      "target": "left Ja",
+      "pose": "upright, near neutral guard; target HP104"
+    },
+    {
+      "seconds": 0.6959027473863361,
+      "target": "left Ja",
+      "pose": "clear backward recoil with body and head leaning back; target HP104"
+    },
+    {
+      "seconds": 0.7480954534403113,
+      "target": "left Ja",
+      "pose": "upright near guard again at next hit; target HP103"
+    },
+    {
+      "seconds": 1.043854121079504,
+      "target": "left Ja",
+      "pose": "upright near guard while barrage continues; target HP100"
+    }
+  ],
+  "diagnosis": "Hit state and drawing do occur in this actual phone sample, but the large recoil is brief and near-neutral opening/recovery poses occupy much of each6-tick repeat. The native clip supports a readability adjustment, not a claim that combat HITSTUN never happens. Complete occlusion by source scarf is not observed.",
+  "minimal_candidate_opinion": {
+    "approach": "frame_durations only; existing PNG/TRES/runtime untouched until candidate QA/user approval; no new API or combat timing change",
+    "proposed_weights": [
+      0.25,
+      0.25,
+      0.25,
+      1.25,
+      1.5,
+      1.0,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "sum": 9.5,
+    "first_six_draw_indices_for_actual_ja_11_tick_stun": [
+      0,
+      3,
+      3,
+      4,
+      5,
+      6
+    ],
+    "first_six_draw_indices_for_nabi_13_tick_stun": [
+      0,
+      3,
+      3,
+      4,
+      4,
+      5
+    ],
+    "notes": "These are formula-based candidate expectations, not a new game/device execution. Local final frame must still finish within actual stun. LAN authored lead remains a separate change."
+  },
+  "actions_not_performed": [
+    "no new device capture",
+    "no new automated gameplay test",
+    "no product/code/manifest/TRES/PNG change"
+  ],
+  "scope_limit": "Playback completion, intermediate UI observation and paused-pose samples are distinguished; not every source frame was individually observed."
+}
