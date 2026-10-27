@@ -26,6 +26,7 @@ const REQUIRED_YU_RAN_ATTACKS := {
 
 func _initialize() -> void:
 	var failures: PackedStringArray = []
+	_validate_history_lookup(failures)
 	var manifest := _load_json(MANIFEST_PATH, failures)
 	var attack_system := _load_json(ATTACK_SYSTEM_PATH, failures)
 	var expected_moves := _ja_hyun_attack_moves(attack_system, failures)
@@ -108,11 +109,10 @@ func _validate_entry_against(visual_state_id: String, entry: Dictionary, expecte
 	var expected_move: Dictionary = expected_moves.get(visual_state_id, {})
 	var historical_entry: Dictionary = entry
 	if entry.has("motion_registration"):
-		var history: Array = entry.get("registration_history", [])
-		if history.is_empty() or not history.back() is Dictionary:
+		historical_entry = _legacy_combo_contract(entry)
+		if historical_entry.is_empty():
 			failures.append("registered motion lost its previous contract: %s" % visual_state_id)
 			return
-		historical_entry = history.back()
 		_validate_registered_action(visual_state_id, entry, String(entry.get("character_id", "")), "", failures)
 	if historical_entry.get("combo_index") != expected["combo_index"] or historical_entry.get("is_finisher") != expected["is_finisher"]:
 		failures.append("incorrect Ja-Hyun combo metadata: %s" % visual_state_id)
@@ -125,6 +125,25 @@ func _validate_entry_against(visual_state_id: String, entry: Dictionary, expecte
 		failures.append("runtime visual state differs: %s" % visual_state_id)
 	if entry.get("sprite_frames_path") != entry.get("consumer_path"):
 		failures.append("SpriteFrames consumer mismatch: %s" % visual_state_id)
+
+
+func _legacy_combo_contract(entry: Dictionary) -> Dictionary:
+	# Re-registration appends the previous artwork; legacy rules remain earlier.
+	var history: Array = entry.get("registration_history", [])
+	for index: int in range(history.size() - 1, -1, -1):
+		var previous: Variant = history[index]
+		if previous is Dictionary and previous.has("combo_index") and previous.has("is_finisher") and previous.has("acting_purpose"):
+			return previous
+	return {}
+
+
+func _validate_history_lookup(failures: PackedStringArray) -> void:
+	var original := {"combo_index": 1, "is_finisher": false, "acting_purpose": "original action"}
+	var previous := {"motion_registration": {"catalog_path": "prior-catalog.json"}}
+	if _legacy_combo_contract({"registration_history": [original]}) != original or _legacy_combo_contract({"registration_history": [original, previous]}) != original:
+		failures.append("legacy combo contract must survive repeated artwork registration")
+	if not _legacy_combo_contract({"registration_history": [previous]}).is_empty():
+		failures.append("missing legacy combo contract must remain a failure")
 
 
 func _validate_registered_action(visual_state_id: String, entry: Dictionary, character_id: String, required_word: String, failures: PackedStringArray) -> void:

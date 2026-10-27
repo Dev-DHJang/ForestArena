@@ -1,0 +1,2832 @@
+{
+  "schema_version": 1,
+  "reviewer": "nabi_final_qa; unchanged full-frame observations retained from presentation_independent_qa r01",
+  "sources": {
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_heavy_16f_body-fit-r01.png": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_heavy_body-fit-r01.tres": "634228d8bb40ef0a5155ef80c9832685ada5e08fc2a7fe9c1db54ca905d22d83",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_light_16f_body-fit-r01.png": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_light_body-fit-r01.tres": "0d2afebd04476be8aa63479bfdc90875224643290c7f2086e3a411b077bb1471",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_heavy_up_16f_body-fit-r01.png": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_heavy_up_body-fit-r01.tres": "cb7523e018814e5416f95ba5c2c432d3f903736363f125f6b4eb3f24310e5e03",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_01_16f_body-fit-r01.png": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_01_body-fit-r01.tres": "12910ceb758ab29b39c09c90b4d83b2f53cd09c295d31236633a1abce303baff",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_02_16f_body-fit-r01.png": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_02_body-fit-r01.tres": "ca3f5f80d488a2dfd7b817d722c1e2c67c80e81b76e2a80b7b81a66d36f1b288",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_up_16f_body-fit-r01.png": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_up_body-fit-r01.tres": "82127ecba12be1512de5022c2673ff5a87d4fb48da4e1eb1b4921e1b036f4107",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/death_16f_body-fit-r01.png": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/death_body-fit-r01.tres": "aa4b879a5e98594cc742ab3357c132092889621552f48d3688cd474a8322ab9d",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/guard_16f_body-fit-r01.png": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/guard_body-fit-r01.tres": "d45de456c9da9dafeb0f825e58ca920fe15faba84692e260cba610d6e52d2f66",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/hitstun_16f_body-fit-r01.png": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/hitstun_body-fit-r01.tres": "848ac007c75c177bcee9b7baa885ca41e099e4cbd1ff0be5343fe82aa10b1e59",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/idle_16f_body-fit-r01.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/idle_body-fit-r01.tres": "49f9b015c2089ea3ead21ac948b839374ec3d692fa203abcc0e9a470f265a8f6",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/jump_24f_body-boundary-r02.png": "99d94dfc47fe72a81b3bd5d4db6e7eeaa6d8f058b3718438ae2b0f983de12429",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/jump_body-boundary-r02.tres": "8e06eda0db7b634816d869a9a5b2f295ca2e41c98ebb8409dad06bcef1a96439",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/knock_down_16f_body-fit-r01.png": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/knock_down_body-fit-r01.tres": "744ca3dc3ac81a5ece952e58a9a38772d3ee3970d78c5b11359b2a8698969b62",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/launch_16f_body-fit-r01.png": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/launch_body-fit-r01.tres": "6e11f46e7a8534edc00c75c53a0bcff4296a93624acb5dd0f7b6b809bf5db1d7",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/ring_out_16f_body-fit-r01.png": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/ring_out_body-fit-r01.tres": "8efa9aee348493dd127fd3cb5bd80d94cef160a31db222bf9b8cfcdf85c3e9b6",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/run_16f_body-fit-r01.png": "2a8bd85a61bb05566330b00471e2db500e29c043dc42a45f4f575459919b189b",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/run_body-fit-r01.tres": "77076d84747b887cc7034abcb0d9ca3f12dbe8558aad2142362c54b80166753c",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/spawn_16f_body-fit-r01.png": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/spawn_body-fit-r01.tres": "d96e594751195ca2c65badd76a348c64c824090188625d2a0f1d799ce9199daf",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/special_side_32f_body-fit-r01.png": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/special_side_body-fit-r01.tres": "04089bb63a6a3d7a3c36d1fe0cfed6f37ec24410638f7265662b1a36c5a88021",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/wake_up_16f_body-fit-r01.png": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+    "_workspace/fighter-presentation-fixes/nabi/candidates/wake_up_body-fit-r01.tres": "3e060071fced27c693189fcd93801e8b5f5e0fdda70e80b53a5c605c369d4d2a",
+    "_workspace/fighter-presentation-fixes/nabi/registration-catalog-r03.json": "e1993020e578cc95df02847bed8db98ab92821029e53f361f158ab1fc2db6c4c",
+    "_workspace/fighter-presentation-fixes/nabi/registration-scope-r03.json": "eba2fe9096d3bc919702b0c0c413acd2c1a6d8fe72a611296b1684eb0aa3ae1d",
+    "_workspace/motion-naturalness-v1/02_expectations.md": "a414e332005ea7780c8f6406b6d228264c0c4808085631efab5b003f7a571a50",
+    "_workspace/motion-naturalness-v1/remaining-motion-brief.json": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+    "assets/character/manifest.json": "0af4d840475beb3d85f7d3844e1a923d80437c3d1b561a0d12c30a27fd86a155",
+    "assets/character/nabi/animation/runtime/attack_air_heavy_16f_natural-v03.png": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+    "assets/character/nabi/animation/runtime/attack_air_light_16f_natural-v03.png": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+    "assets/character/nabi/animation/runtime/attack_heavy_up_16f_natural-v03.png": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+    "assets/character/nabi/animation/runtime/death_16f_natural-v03.png": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+    "assets/character/nabi/animation/runtime/guard_16f_natural-v03.png": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+    "assets/character/nabi/animation/runtime/hitstun_16f_natural-v03.png": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+    "assets/character/nabi/animation/runtime/idle.tres": "4b3d28602c4b63edad764d38a087f98392c6b6b27674ebca94c4465978bcd869",
+    "assets/character/nabi/animation/runtime/idle_16f_natural-v03.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+    "assets/character/nabi/animation/runtime/knock_down_16f_natural-v03.png": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+    "assets/character/nabi/animation/runtime/launch_16f_natural-v03.png": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy.tres": "e6e8fef6489a0c2374a424ed8514ed3e18459116e8a95dbefcad41f2e7b3b6f9",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres": "8a93741389cea7e1caac2be08f93578be4199fd633dba3542e044f100323402c",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres": "f2d6f96242fe4615f9f89a83e245bd3fbd2ba8edb9595d8e8ce98e52f52bd55f",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres": "ef409429cf9915e4a30da5f5d5bf86d23efe4c212053524cc904331b8477074e",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f_natural-v02.png": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres": "16a74dd8b045fd70108d84a66ed580720fd53f3757b6e43a5bbdbde0f2ca9f5a",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f_natural-v02.png": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres": "72b278ff89bde5c6a5b4b10427fb970b2e4177c788a602a91ad502a72bc26402",
+    "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f_natural-v02.png": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+    "assets/character/nabi/animation/runtime/local_ai_v01/death.tres": "40950eead51f9626e58097fca7a4a211ea86a968067a3a888555667826826f44",
+    "assets/character/nabi/animation/runtime/local_ai_v01/guard.tres": "fdf63d53e0e2db1b40de828a03d3b7c0fe320dcdb2ab45be7f4f093a3567b323",
+    "assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres": "67e049a9c151191aa236e5d62bca0f69e389e0a6ee1469be83843d8c194b992b",
+    "assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres": "11a37377b22c9c43ec4d79c156dd54fa8a5d5475912632f36d07a5d6f9bbab81",
+    "assets/character/nabi/animation/runtime/local_ai_v01/launch.tres": "c734d625903267fda13d88afd7dfc0d881fc78130dae03cb7e0e3f979b0cae0b",
+    "assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres": "941dbfba4e38c801e5b439456d21c72bf88e3d378168aa0e8d307b526727ae1f",
+    "assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres": "9ec834358ad6c9c0e8cb09f66c83d377ced7f81064e7b40c8abed388c2825fac",
+    "assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres": "bba41f59fd9f4dbdaa943ef0dfed64c4095cebe733d5d9eedf9e3405cc3db773",
+    "assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres": "a6b631faf20daa49609041005f6ab405ec3b1cde68509625be08ee849edb1993",
+    "assets/character/nabi/animation/runtime/ring_out_16f_natural-v03.png": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+    "assets/character/nabi/animation/runtime/spawn_16f_natural-v03.png": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+    "assets/character/nabi/animation/runtime/special_side_32f_natural-v03.png": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+    "assets/character/nabi/animation/runtime/wake_up_16f_natural-v03.png": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "121a0da2a5d1985eedf646c21f339ef7c6ff79e0542565afe90f8acb73a80d75",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "4de41c371e3aaff594a835e8bdb95447439b574c5f26d7c92a8ed1491a1846ce",
+    "scripts/fighter_attack_effects.gd": "bb3d20e00127829266169b0d0463333fafec5179d80da23e084c6a5a81876915",
+    "scripts/fighter_controller.gd": "bf232c6a3869bb5aa2b2df7705a1bfd9aff989a641e3af78fdb773669a62e4a7",
+    "scripts/local_fighter_presentation.gd": "3ae1d44a81dbacb010cb836c609b8de5e1d826793dc81ca263b08621e1741e84",
+    "tools/forest_arena/motion_layout.py": "40bbbdd9c43c48a5740e171f2d877aef44e4ba9cf2ca84349a7507e1a8e2ab27",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "67f4f0a9fef7881c82bfe184f82cc644ffbc5227e1e23b4f8f7ef71a5483c586",
+    "tools/forest_arena/motion_review_timeline.gd": "372c23cafae74982789332e8f24bfa477f05565f4e042c99b6a8b48ca97f701e",
+    "tools/forest_arena/review_motion_actions.py": "db889da63d69137a5f41588a2464cd72badb333a0f5af42dc0793ec84e8288cd"
+  },
+  "timeline_sha256": "455e945891c2a871b8f27e5fec7a15561ab9787bed5bf7a585dc88c00c2e021e",
+  "motions": [
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_heavy",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_heavy_16f_body-fit-r01.png",
+      "sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_heavy_body-fit-r01.tres",
+      "sprite_frames_sha256": "634228d8bb40ef0a5155ef80c9832685ada5e08fc2a7fe9c1db54ca905d22d83",
+      "expected_action": "공중에서 동일한 한 팔을 아래에서 위로 올려치는 단타. 반대팔은 몸 앞에 유지하고 시전자는 스스로 낙하하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__attack_air_heavy.jpg": "73e207360e739eb3c9375b299ab3ada83ac32f90180df7767b2bb173889754c1",
+        "sheets/nabi__attack_air_heavy.png": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-air-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              5,
+              "active",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              6,
+              "active",
+              "attack_air_heavy",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_heavy",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_heavy",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "공중에서 한 팔을 낮게 거둔 뒤 위로 올리고 회복한다. 반대팔은 몸 앞에 남는다. 셀 원화와 단계 시간은 그대로이며, 0.92 배율에서도 올려치기 실루엣이 읽힌다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_air_light",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_light_16f_body-fit-r01.png",
+      "sha256": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_air_light_body-fit-r01.tres",
+      "sprite_frames_sha256": "0d2afebd04476be8aa63479bfdc90875224643290c7f2086e3a411b077bb1471",
+      "expected_action": "발을 딛지 않은 공중 단타 할퀴기. 긴 전방 리치와 피해자 추가 행동 제한을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__attack_air_light.jpg": "444715ec3c1e02f18173868c1447aa7c5ec2d2b9cea09a94fcd7312eb322ec5a",
+        "sheets/nabi__attack_air_light.png": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-air-light",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_air_light",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              7,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              9,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_air_light",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "공중에서 다리를 접은 채 앞 손으로 전방을 할퀴고 팔을 회수한다. 지상에 발을 딛는 동작으로 보이지 않으며 앞 방향과 회복이 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_heavy_up",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_heavy_up_16f_body-fit-r01.png",
+      "sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_heavy_up_body-fit-r01.tres",
+      "sprite_frames_sha256": "cb7523e018814e5416f95ba5c2c432d3f903736363f125f6b4eb3f24310e5e03",
+      "expected_action": "지상에서 한 팔 어퍼로 상대를 위로 띄우는 단타. 차지나 복수 타격이 아니다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__attack_heavy_up.jpg": "6b9ede6fd635d18774a1ab5d2db5309194751caaf485de0d30d8d316c78e1692",
+        "sheets/nabi__attack_heavy_up.png": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-heavy",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_heavy_up",
+              16.6666666666667
+            ],
+            [
+              3,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_heavy_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              6,
+              "startup",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              7,
+              "active",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              8,
+              "active",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              11,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_heavy_up",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              14,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_heavy_up",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "발을 벌려 지지하고 한 팔을 위로 올리는 어퍼다. 준비/위쪽 타격/회복이 구별되며 축소 뒤에도 방향이 읽힌다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_combo_01",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_01_16f_body-fit-r01.png",
+      "sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_01_body-fit-r01.tres",
+      "sprite_frames_sha256": "12910ceb758ab29b39c09c90b4d83b2f53cd09c295d31236633a1abce303baff",
+      "expected_action": "왼손으로 전방 할퀴기. 첫 약공격 준비→앞으로 단타→회복.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "a414e332005ea7780c8f6406b6d228264c0c4808085631efab5b003f7a571a50",
+      "materials": {
+        "boards/nabi__attack_light_combo_01.jpg": "5600398a17ddbc8e037a366cbd4f9b42ea2bff2840ac037acf85834871d7cd74",
+        "sheets/nabi__attack_light_combo_01.png": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-01",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_01",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_01",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_01",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "몸 앞에서 손을 거둔 뒤 앞쪽으로 내밀어 할퀴고 돌아온다. 첫 전방 약공격으로 읽힌다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_combo_02",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_02_16f_body-fit-r01.png",
+      "sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_combo_02_body-fit-r01.tres",
+      "sprite_frames_sha256": "ca3f5f80d488a2dfd7b817d722c1e2c67c80e81b76e2a80b7b81a66d36f1b288",
+      "expected_action": "두 손을 교차한 뒤 양쪽으로 벌려 X자 할퀴는 약3 다운 마무리.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "a414e332005ea7780c8f6406b6d228264c0c4808085631efab5b003f7a571a50",
+      "materials": {
+        "boards/nabi__attack_light_combo_02.jpg": "db25ae49743480bf378945b1a48ee4589fb46bf366408a9e8d679085bf647848",
+        "sheets/nabi__attack_light_combo_02.png": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-03",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              4,
+              "startup",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_02",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_02",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_02",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "앞에서 양팔을 모았다가 X자 궤도로 벌리고 마무리 자세로 돌아온다. 단일 전방 약공격과 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "attack_light_up",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_up_16f_body-fit-r01.png",
+      "sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/attack_light_up_body-fit-r01.tres",
+      "sprite_frames_sha256": "82127ecba12be1512de5022c2673ff5a87d4fb48da4e1eb1b4921e1b036f4107",
+      "expected_action": "오른손을 아래에서 위로 할퀴는 지상 약2. 반대손은 방어하고 양손X나점프어퍼와구별한다.",
+      "action_source": "_workspace/motion-naturalness-v1/02_expectations.md",
+      "action_source_sha256": "a414e332005ea7780c8f6406b6d228264c0c4808085631efab5b003f7a571a50",
+      "materials": {
+        "boards/nabi__attack_light_up.jpg": "15538b38f34ae4dc33d69a6d9b0cef549290cdfe8dc1a959d3edcd6e9fdc96a0",
+        "sheets/nabi__attack_light_up.png": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-light-02",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              4,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_up",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_up",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_up",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "한 손을 아래에서 위로 들어 할퀴며 반대손은 몸 앞에 남는다. 양손 X 마무리와 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "death",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/death_16f_body-fit-r01.png",
+      "sha256": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/death_body-fit-r01.tres",
+      "sprite_frames_sha256": "aa4b879a5e98594cc742ab3357c132092889621552f48d3688cd474a8322ab9d",
+      "expected_action": "마지막 기회 소진 시 사망·탈락을 표현한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__death.jpg": "869a241debd57d2b548eb2a5a099be6504555443d042f70ce815879cd548ae36",
+        "sheets/nabi__death.png": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:death",
+          "sequence": [
+            [
+              0,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              1,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              2,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              3,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              4,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              5,
+              "death",
+              "death",
+              100.0000000000002
+            ],
+            [
+              6,
+              "death",
+              "death",
+              66.6666666666668
+            ],
+            [
+              7,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              8,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              9,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              10,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              11,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              12,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              13,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              14,
+              "death",
+              "death",
+              83.3333333333335
+            ],
+            [
+              15,
+              "death",
+              "death",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "상체가 무너져 바닥에 누운 끝 자세로 이어진다. 준비한 공격이나 다시 일어나는 상태로 보이지 않는다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "guard",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/guard_16f_body-fit-r01.png",
+      "sha256": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/guard_body-fit-r01.tres",
+      "sprite_frames_sha256": "d45de456c9da9dafeb0f825e58ca920fe15faba84692e260cba610d6e52d2f66",
+      "expected_action": "두 손의 발톱을 몸 앞에 모아 방어하고 공격 자세로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__guard.jpg": "9bf31466ee96e39156f9491777c172193d0ade81dfd75bf49f3def7a905bb47d",
+        "sheets/nabi__guard.png": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:guard",
+          "sequence": [
+            [
+              0,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              1,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              2,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              3,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              4,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              5,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              6,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              7,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              8,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              9,
+              "guard",
+              "guard",
+              33.3333333333334
+            ],
+            [
+              10,
+              "guard",
+              "guard",
+              50.0000000000001
+            ],
+            [
+              11,
+              "guard",
+              "guard",
+              1550.0000000000055
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "두 손을 몸 앞에 모아 낮게 버티며 유지한다. 타격을 뻗는 공격과 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "hitstun",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/hitstun_16f_body-fit-r01.png",
+      "sha256": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/hitstun_body-fit-r01.tres",
+      "sprite_frames_sha256": "848ac007c75c177bcee9b7baa885ca41e099e4cbd1ff0be5343fe82aa10b1e59",
+      "expected_action": "맞은 순간 반응과 짧은 경직을 구분한다. 스스로 공격하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__hitstun.jpg": "78417257e2c1bc945c938183403f18ec761dc342deda813f413eb9180ae64652",
+        "sheets/nabi__hitstun.png": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:hitstun",
+          "sequence": [
+            [
+              0,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              1,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              2,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              3,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              4,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              5,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              6,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              7,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              8,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              9,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              10,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              11,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              12,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              13,
+              "hitstun",
+              "hitstun",
+              33.3333333333334
+            ],
+            [
+              14,
+              "hitstun",
+              "hitstun",
+              50.0000000000001
+            ],
+            [
+              15,
+              "hitstun",
+              "hitstun",
+              1383.333333333338
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "상체와 얼굴이 맞은 방향에서 물러난 뒤 경직 자세가 나온다. 자발적 공격과 구별된다. 시험용 lead pair는 제거됐고 그림·시간·배율은 동일하다. 사용자 해결 확인을 바탕으로 추가 피격 튜닝은 하지 않는다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "idle",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/idle_16f_body-fit-r01.png",
+      "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/idle_body-fit-r01.tres",
+      "sprite_frames_sha256": "49f9b015c2089ea3ead21ac948b839374ec3d692fa203abcc0e9a470f265a8f6",
+      "expected_action": "중립 대기 호흡과 작은 체중 이동. 공격·피격으로 보이지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__idle.jpg": "6e3cbf0152a1d30b0b644ec861865499a81944812c86dd9e0c9f6e39f6ed45c8",
+        "sheets/nabi__idle.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:idle",
+          "sequence": [
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "주먹을 몸 앞에 둔 준비 자세에 작은 몸/머리/꼬리 움직임이 이어진다. 뛰거나 공격하는 동작과 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "jump",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/jump_24f_body-boundary-r02.png",
+      "sha256": "99d94dfc47fe72a81b3bd5d4db6e7eeaa6d8f058b3718438ae2b0f983de12429",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/jump_body-boundary-r02.tres",
+      "sprite_frames_sha256": "8e06eda0db7b634816d869a9a5b2f295ca2e41c98ebb8409dad06bcef1a96439",
+      "expected_action": "상승0~5/정점6~9/하강10~15/첫접지16후착지회복23까지; 얼굴·몸 비율과 크기 유지",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__jump.jpg": "95bd8494ee983ed3ac5d38ebfe2435b7275df95ba33db5d8eb29ab4482c62fe9",
+        "sheets/nabi__jump.png": "99d94dfc47fe72a81b3bd5d4db6e7eeaa6d8f058b3718438ae2b0f983de12429"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:jump",
+          "sequence": [
+            [
+              0,
+              "ascent",
+              "jump",
+              116.6666666666669
+            ],
+            [
+              1,
+              "ascent",
+              "jump",
+              116.6666666666669
+            ],
+            [
+              2,
+              "ascent",
+              "jump",
+              100.0000000000002
+            ],
+            [
+              6,
+              "apex",
+              "jump",
+              116.6666666666669
+            ],
+            [
+              7,
+              "apex",
+              "jump",
+              83.3333333333335
+            ],
+            [
+              10,
+              "descent",
+              "jump",
+              116.6666666666669
+            ],
+            [
+              11,
+              "descent",
+              "jump",
+              116.6666666666669
+            ],
+            [
+              12,
+              "descent",
+              "jump",
+              100.0000000000002
+            ],
+            [
+              16,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              17,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              18,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              19,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              20,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              21,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              22,
+              "landing",
+              "jump",
+              33.3333333333334
+            ],
+            [
+              23,
+              "landing",
+              "jump",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "jump24 전 셀과 실제 정상/반전120틱씩을 확인했다. 상승에서 다리를 접고 하강 뒤 실제 접지에서 흡수/회복한다. frame74/75의F24에서frame76 idleF1로 넘어갈 때 전신이 커지던 기존 경계 문제는 사라졌다. F23→F24는 회복→가드 자세 차이가 남지만 같은 바닥에서 몸집 급교체로 보지는 않았다. QuickTime1x/0.5x각끝까지 확인했다. 전체 프레임 근거: r02 jump24 직접 관찰. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "knock_down",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/knock_down_16f_body-fit-r01.png",
+      "sha256": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/knock_down_body-fit-r01.tres",
+      "sprite_frames_sha256": "744ca3dc3ac81a5ece952e58a9a38772d3ee3970d78c5b11359b2a8698969b62",
+      "expected_action": "넘어져 쓰러진 피격자 자세를 유지한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__knock_down.jpg": "33a99d6f25d3cb4b3f158e175d7b23a9470030a322922b2e49e2a06d0a5dd79f",
+        "sheets/nabi__knock_down.png": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:knock_down",
+          "sequence": [
+            [
+              0,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              1,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              2,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              3,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              4,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              5,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              6,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              7,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              8,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              9,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              10,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              11,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:landing-down-18",
+          "sequence": [
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "상체가 뒤로 무너져 옆으로 누운 끝 자세에 머문다. 들어 올려지는 launch와 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "launch",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/launch_16f_body-fit-r01.png",
+      "sha256": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/launch_body-fit-r01.tres",
+      "sprite_frames_sha256": "6e11f46e7a8534edc00c75c53a0bcff4296a93624acb5dd0f7b6b809bf5db1d7",
+      "expected_action": "공중으로 밀려난 수동 피격 자세이며 도약 준비와 구별한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__launch.jpg": "5a7a09e8adec30e90ecbe9054b6624eb7a77d140f666090cbbffbedbd09cb6f7",
+        "sheets/nabi__launch.png": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:launch",
+          "sequence": [
+            [
+              0,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              1,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              2,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              3,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              4,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              5,
+              "launch",
+              "launch",
+              100.0000000000002
+            ],
+            [
+              6,
+              "launch",
+              "launch",
+              66.6666666666668
+            ],
+            [
+              7,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              8,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              9,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              10,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              11,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              12,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              13,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              14,
+              "launch",
+              "launch",
+              83.3333333333335
+            ],
+            [
+              15,
+              "launch",
+              "launch",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "스스로 발을 딛지 않고 상체와 팔다리가 뒤로 밀려나는 공중 피격이다. 도약의 준비 자세와 구별된다. 배율 외 구간/시간/연결 설정은 보존됐다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "ring_out",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/ring_out_16f_body-fit-r01.png",
+      "sha256": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/ring_out_body-fit-r01.tres",
+      "sprite_frames_sha256": "8efa9aee348493dd127fd3cb5bd80d94cef160a31db222bf9b8cfcdf85c3e9b6",
+      "expected_action": "경기장 밖으로 밀려난 장외 탈락으로 자발적 공격과 구분한다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__ring_out.jpg": "eaf5dc275c73aecfe63789a2468de938178cd7d1842fcc9631d03d28ba1bb4d5",
+        "sheets/nabi__ring_out.png": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:ring_out",
+          "sequence": [
+            [
+              0,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              1,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              2,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              3,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              4,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              5,
+              "ring_out",
+              "ring_out",
+              100.0000000000002
+            ],
+            [
+              6,
+              "ring_out",
+              "ring_out",
+              66.6666666666668
+            ],
+            [
+              7,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              8,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              9,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              10,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              11,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              12,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              13,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              14,
+              "ring_out",
+              "ring_out",
+              83.3333333333335
+            ],
+            [
+              15,
+              "ring_out",
+              "ring_out",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "허공에서 팔다리가 풀리며 몸이 기울어 탈락으로 읽힌다. 공격을 준비하거나 가드하는 동작과 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "run",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/run_16f_body-fit-r01.png",
+      "sha256": "2a8bd85a61bb05566330b00471e2db500e29c043dc42a45f4f575459919b189b",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/run_body-fit-r01.tres",
+      "sprite_frames_sha256": "77076d84747b887cc7034abcb0d9ca3f12dbe8558aad2142362c54b80166753c",
+      "expected_action": "자현과 대응하는 낮은 전방 달리기 자세, 좌우 다리 교대와 반대 팔 스윙",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__run.jpg": "8162ece71528795c339a916f540ac5545bf25d15034d2cdd804d96c66c6836a1",
+        "sheets/nabi__run.png": "2a8bd85a61bb05566330b00471e2db500e29c043dc42a45f4f575459919b189b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:run",
+          "sequence": [
+            [
+              0,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              1,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              2,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              3,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              0,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              1,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              2,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              3,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              4,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              5,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              6,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              7,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              8,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              9,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              10,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              11,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              12,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              13,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              14,
+              "run",
+              "run",
+              83.3333333333335
+            ],
+            [
+              15,
+              "run",
+              "run",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "새 run16은 낮은 앞 기울기와 다리 교대/반대팔 흐름을 유지한다. r01 실제 정상/반전 idle→run→idle 검토를 재사용한다. 이번 공식 페이지의 정상/느린 재생에서도 반복 이동 자세로 읽혔다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "spawn",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/spawn_16f_body-fit-r01.png",
+      "sha256": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/spawn_body-fit-r01.tres",
+      "sprite_frames_sha256": "d96e594751195ca2c65badd76a348c64c824090188625d2a0f1d799ce9199daf",
+      "expected_action": "새 기회로 등장한 뒤 준비 자세가 된다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__spawn.jpg": "18190ce25e6aa8988a950121d979a149da25ae4d5ad9538fd90a3899fd3db3bb",
+        "sheets/nabi__spawn.png": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:spawn",
+          "sequence": [
+            [
+              0,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              1,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              2,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              3,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              4,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              5,
+              "spawn",
+              "spawn",
+              100.0000000000002
+            ],
+            [
+              6,
+              "spawn",
+              "spawn",
+              66.6666666666668
+            ],
+            [
+              7,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              8,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              9,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              10,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              11,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              12,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              13,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              14,
+              "spawn",
+              "spawn",
+              83.3333333333335
+            ],
+            [
+              15,
+              "spawn",
+              "spawn",
+              766.6666666666686
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "무게를 낮춰 등장한 뒤 몸을 세워 준비 자세가 된다. 쓰러진 끝을 유지하는 death와 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "special_side",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/special_side_32f_body-fit-r01.png",
+      "sha256": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/special_side_body-fit-r01.tres",
+      "sprite_frames_sha256": "04089bb63a6a3d7a3c36d1fe0cfed6f37ec24410638f7265662b1a36c5a88021",
+      "expected_action": "전용 낮은 이동 자세로 전진→첫 적 뒤 고정 종점에서 상대를 향해 돌아서 단 한번 할퀴기→정지. 자동 추적하지 않는다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__special_side.jpg": "3538ccf69a1981d06de210e1243223490f00216fa49c6837f984ec1bf52270e4",
+        "sheets/nabi__special_side.png": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "nabi-special",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              5,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              8,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              9,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              10,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              11,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              12,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              13,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              14,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              15,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              16,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              17,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              18,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              19,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              20,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              21,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              22,
+              "active",
+              "special_side",
+              16.6666666666667
+            ],
+            [
+              23,
+              "active",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              24,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              25,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              26,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              27,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              28,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              29,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ],
+            [
+              30,
+              "recovery",
+              "special_side",
+              33.3333333333334
+            ],
+            [
+              31,
+              "recovery",
+              "special_side",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "낮은 이동 준비 뒤 몸 방향을 돌려 한번 할퀴고 회복하는 순서다. 원화/공격 단계는 동일하다. 고정 캔버스 검토로 실제 이동 거리/등뒤 명중을 새로 증명하지 않는다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "wake_up",
+      "path": "_workspace/fighter-presentation-fixes/nabi/candidates/wake_up_16f_body-fit-r01.png",
+      "sha256": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+      "sprite_frames_path": "_workspace/fighter-presentation-fixes/nabi/candidates/wake_up_body-fit-r01.tres",
+      "sprite_frames_sha256": "3e060071fced27c693189fcd93801e8b5f5e0fdda70e80b53a5c605c369d4d2a",
+      "expected_action": "쓰러짐에서 다시 몸을 세워 일어나는 회복이다.",
+      "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+      "action_source_sha256": "af813f5589603231924b9bdaf5d6dc0192ad016421024c5bcd2bdc43b59700ab",
+      "materials": {
+        "boards/nabi__wake_up.jpg": "e270bcd1bb04775f6a2b38f932e13393a6238ca4b5f8bc86dbe26a38297c27d9",
+        "sheets/nabi__wake_up.png": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:wake_up",
+          "sequence": [
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              6,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              9,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              1816.6666666666733
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:wakeup-protection-12",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "쓰러진 자세에서 팔/다리를 모아 몸을 일으켜 가드 준비로 돌아온다. 눕는 knock_down과 방향이 구별된다. 전체 프레임 근거: r01 독립 QA 전체 원화 관찰 및 현재 PNG 동일성 대조. 추가 현재 검토: 정식 r03 페이지18종 모아보기에서 게임 코드 시간 순서의1x 및0.25x 재생, 좌우 반전과 작은 크기를 직접 보았다. 비반복2초 강제 유지/반복2주기/단계별 점프라는 시험 조건이며 실제18종 모든 상태전환의 새 촬영이나 Android 통과는 아니다. 근거: 03_qa_nabi_r01.md, 03_qa_nabi_r02.md, qa/independent-nabi-body-r02/observations-r02.json 및 formal-playback-proof-r03.json.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/fighter-presentation-fixes/nabi/registration-catalog-r03.json",
+    "catalog_sha256": "e1993020e578cc95df02847bed8db98ab92821029e53f361f158ab1fc2db6c4c",
+    "scope_path": "_workspace/fighter-presentation-fixes/nabi/registration-scope-r03.json",
+    "scope_sha256": "eba2fe9096d3bc919702b0c0c413acd2c1a6d8fe72a611296b1684eb0aa3ae1d",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "qa",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "ef8833b424d671c7b7a025a24bd3b03be81309bc0bd6e0ee184b0aa0f6e44698",
+    "timeline.json": "455e945891c2a871b8f27e5fec7a15561ab9787bed5bf7a585dc88c00c2e021e"
+  }
+}

@@ -1,0 +1,324 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "jump",
+  "path": "_workspace/fighter-presentation-fixes/nabi/candidates/jump_24f_body-boundary-r02.png",
+  "sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/jump_body-boundary-r02.tres",
+  "sha256": "99d94dfc47fe72a81b3bd5d4db6e7eeaa6d8f058b3718438ae2b0f983de12429",
+  "frame_count": 24,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 8.0,
+  "loop": false,
+  "presentation_scale": 0.8488372093023255,
+  "foot_pivot_y": 104.0,
+  "source_paths": [
+    "_workspace/fighter-presentation-fixes/nabi/candidates/jump_24f_body-fit-r01.png",
+    "assets/character/nabi/animation/runtime/idle_16f_natural-v03.png"
+  ],
+  "source_sha256": "f1dad4f8d600bdb320e2a989a5c06c1dd0100021af08f665b96791d17708b6d7",
+  "expected_action": "상승0~5/정점6~9/하강10~15/첫접지16후착지회복23까지; 얼굴·몸 비율과 크기 유지",
+  "action_source": "_workspace/motion-naturalness-v1/remaining-motion-brief.json",
+  "conversion": {
+    "method": "whole-figure r01 atlas cells0..21 preserved, cell23 moved once, one approved idle whole-figure endpoint uniformly packed; no part warp or duplicate filler",
+    "parent_conversion": {
+      "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+      "uniform_scale": 0.43,
+      "per_source_uniform_scales": [
+        0.43
+      ],
+      "source_scale_multipliers": [
+        1.0
+      ],
+      "reference_scale": 0.43,
+      "presentation_scale": 0.8488372093023255,
+      "source_baseline_y": 350.0,
+      "target_baseline_y": 104.0,
+      "frame_bounds": [
+        [
+          11,
+          29,
+          98,
+          97
+        ],
+        [
+          4,
+          20,
+          112,
+          100
+        ],
+        [
+          5,
+          17,
+          100,
+          113
+        ],
+        [
+          10,
+          16,
+          101,
+          105
+        ],
+        [
+          15,
+          7,
+          101,
+          114
+        ],
+        [
+          16,
+          5,
+          105,
+          115
+        ],
+        [
+          9,
+          12,
+          98,
+          106
+        ],
+        [
+          4,
+          10,
+          97,
+          103
+        ],
+        [
+          4,
+          7,
+          97,
+          103
+        ],
+        [
+          8,
+          2,
+          99,
+          103
+        ],
+        [
+          12,
+          3,
+          105,
+          105
+        ],
+        [
+          17,
+          7,
+          106,
+          104
+        ],
+        [
+          14,
+          15,
+          95,
+          110
+        ],
+        [
+          17,
+          17,
+          97,
+          108
+        ],
+        [
+          18,
+          12,
+          100,
+          105
+        ],
+        [
+          26,
+          18,
+          101,
+          102
+        ],
+        [
+          18,
+          6,
+          109,
+          104
+        ],
+        [
+          17,
+          18,
+          112,
+          104
+        ],
+        [
+          22,
+          26,
+          106,
+          104
+        ],
+        [
+          21,
+          36,
+          108,
+          104
+        ],
+        [
+          21,
+          35,
+          108,
+          104
+        ],
+        [
+          18,
+          26,
+          110,
+          104
+        ],
+        [
+          25,
+          21,
+          103,
+          104
+        ],
+        [
+          21,
+          21,
+          106,
+          104
+        ]
+      ],
+      "unassigned_small_regions": [],
+      "spec_path": "_workspace/fighter-presentation-fixes/nabi/jump-layout-r01.json",
+      "spec_sha256": "24096d96957e68dce66fa1c35328896d83e9a0c7aa24e1b5e7aa5ee980e2fc02",
+      "source_composition_record": "_workspace/fighter-presentation-fixes/nabi/jump-r02-composition.json"
+    },
+    "uniform_source_atlas_scale": 1.0,
+    "uniform_shared_endpoint_fit": 1.0713121277365103,
+    "presentation_scale": 0.8488372093023255,
+    "source_composition_record": "_workspace/fighter-presentation-fixes/nabi/jump-boundary-proposal-r02.json"
+  },
+  "jump_frame_ranges": {
+    "ascent": [
+      0,
+      6
+    ],
+    "apex": [
+      6,
+      10
+    ],
+    "descent": [
+      10,
+      16
+    ],
+    "landing": [
+      16,
+      24
+    ]
+  },
+  "source_path": "_workspace/fighter-presentation-fixes/nabi/candidates/jump_24f_body-fit-r01.png",
+  "source_sheet_sha256": [
+    "f1dad4f8d600bdb320e2a989a5c06c1dd0100021af08f665b96791d17708b6d7",
+    "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450"
+  ],
+  "creation": {
+    "method": "built-in image_gen whole-figure source poses; existing final guard moved once plus approved idle whole-figure boundary reuse, no duplicated fillers or body-part warp",
+    "provider": "OpenAI built-in image generation",
+    "version": "nabi-jump-body-boundary-r02",
+    "source_inputs": [
+      {
+        "path": "_workspace/fighter-presentation-fixes/nabi/candidates/jump_24f_body-fit-r01.png",
+        "sha256": "f1dad4f8d600bdb320e2a989a5c06c1dd0100021af08f665b96791d17708b6d7"
+      },
+      {
+        "path": "assets/character/nabi/animation/runtime/idle_16f_natural-v03.png",
+        "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450"
+      }
+    ]
+  },
+  "rights": {
+    "status": "derivative of approved Nabi appearance; modified run/jump not yet user-approved for registration; no external license assertion",
+    "references": [
+      "docs/contracts/character-appearance-v01.json",
+      "assets/character/manifest.json",
+      "_workspace/fighter-presentation-fixes/00_request.md"
+    ]
+  },
+  "status": "unapproved-workspace-only",
+  "layout_revision": {
+    "kind": "new whole-figure motion candidate",
+    "source_runtime_png": "assets/character/nabi/animation/runtime/jump_24f_natural-v02.png",
+    "source_runtime_png_sha256": "8e5c530cc6eea933f9f4a7c8b0e8b01c1427efc3e002343f575b87352c60cf5d",
+    "source_runtime_tres": "res://assets/character/nabi/animation/runtime/jump.tres",
+    "source_runtime_tres_sha256": "1ac6908865d495bf6e46966318468f5e2258c7762788cae890565b2ba6ae3b29",
+    "figure_pixels_changed": true,
+    "intrinsic_body_proportion_assessment": "redrawn to a lower forward model for Ja-hyun comparison; independent visual/transition QA pending",
+    "source_composition_record": "_workspace/fighter-presentation-fixes/nabi/jump-r02-composition.json",
+    "boundary_revision": {
+      "r01_source_atlas": "_workspace/fighter-presentation-fixes/nabi/candidates/jump_24f_body-fit-r01.png",
+      "r01_source_atlas_sha256": "f1dad4f8d600bdb320e2a989a5c06c1dd0100021af08f665b96791d17708b6d7",
+      "uniform_full_motion_world_scale_before": 0.34,
+      "uniform_full_motion_world_scale_after": 0.365,
+      "frame_mapping": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        23,
+        "approved-Nabi-idle0 endpoint"
+      ],
+      "shared_endpoint_source_png": "assets/character/nabi/animation/runtime/idle_16f_natural-v03.png",
+      "shared_endpoint_source_png_sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "endpoint_whole_figure_fit": 1.0713121277365103,
+      "endpoint_target_world_scale": 0.909369596799596,
+      "no_body_part_warp": true,
+      "first22_atlas_cells_byte_preserved": true,
+      "intermediate_frame_duplication": false,
+      "note": "unapproved boundary proposal; native playback and independent QA required",
+      "source_figure_accounting": {
+        "initial_jump_generated_r01_figures_used": 21,
+        "repaired_landing_figures_used": 2,
+        "approved_idle_boundary_figures_used": 1,
+        "dropped_r01_atlas_frame": 22,
+        "moved_r01_atlas_frame": 23
+      },
+      "whole_motion_scale_selection": "0.365 keeps airborne body closer to Ja-hyun than0.38 and reduces final whole-body height gap to approx4.4%; target is visual correspondence, not alpha-bbox anatomy proof"
+    }
+  }
+}

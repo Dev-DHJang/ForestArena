@@ -1,6 +1,7 @@
 extends Node2D
 ## Read-only cloth and claw trails. Hit detection remains in FighterController.
 const ClawPaths := preload("res://scripts/claw_attack_paths.gd")
+const ScarfPaths := preload("res://scripts/scarf_attack_paths.gd")
 const SCARF_TEXTURE_ID := "fa.ui.menu.v07.character.ja-hyun"
 # The fallback coordinates below were inspected only on these exact drawings.
 const LEGACY_ANCHOR_HASHES := {
@@ -26,6 +27,7 @@ var artwork_sha256 := ""
 var _scarf: Texture2D
 # Canvas commands hold RIDs: retain mesh resources until the next redraw.
 var _meshes: Array[ArrayMesh] = []
+var _cloth_clock_ticks := -1.0
 
 func _process(_delta: float) -> void:
 	queue_redraw()
@@ -292,6 +294,7 @@ static func claw_mesh(trace: Dictionary, halo: int) -> ArrayMesh:
 
 func _draw() -> void:
 	_meshes.clear()
+	_cloth_clock_ticks = -1.0
 	if fighter == null or fighter.active_attack == null or fighter.runtime_profile == null: return
 	var attack := fighter.active_attack
 	if attack.schema_version < 4: return
@@ -309,6 +312,12 @@ func _draw() -> void:
 		var anchors := current_frame_anchors()
 		if anchors.is_empty(): return
 		var root_point := _anchor(_pixel_point(anchors.get("scarf_root", [54,88])))
+		if attack.visual_state_id in [&"special_neutral", &"attack_air_light", &"attack_air_heavy"]:
+			var path := continuous_scarf_path(anchors)
+			if path.is_empty() or float(path.opacity) <= 0.0: return
+			_cloth_clock_ticks = float(path.clock_ticks)
+			_cloth(path.start, path.control, path.tip, path.opacity, path.width, path.wave_strength, true)
+			return
 		if attack.action_id == &"attack_special":
 			# Extend the two worn tails along their current painted pose, rather than
 			# adding independent ribbons. Preparation uses the original cloth alone.
@@ -362,11 +371,29 @@ static func cloth_center(start: Vector2, control: Vector2, tip: Vector2, t: floa
 	# Travelling folds distinguish flexible worn fabric from a rigid blade.
 	return center + wave_axis * sin(t * TAU * 1.25 - phase) * sin(t * PI) * wave_strength
 
+
+func continuous_scarf_path(anchors: Dictionary) -> Dictionary:
+	if fighter == null or fighter.active_attack == null or sprite == null: return {}
+	var attack := fighter.active_attack
+	var phase := [FighterController.State.ATTACK_STARTUP, FighterController.State.ATTACK_ACTIVE, FighterController.State.ATTACK_RECOVERY].find(fighter.state)
+	var key := "scarf_hand" if attack.visual_state_id == &"attack_air_heavy" else "scarf_root"
+	if not _valid_pixel_point(anchors.get(key)): return {}
+	var relative := ScarfPaths.sample(attack.visual_state_id, phase, float(fighter.attack_phase_tick),
+		Vector3(attack.startup_ticks, attack.active_ticks, attack.recovery_ticks),
+		attack.hitbox_offset.x + attack.hitbox_size.x * 0.40, sprite.flip_h)
+	if relative.is_empty(): return {}
+	var start := _anchor(_pixel_point(anchors[key]))
+	relative["start"] = start
+	relative.control += start
+	relative.tip += start
+	return relative
+
 func _cloth(start: Vector2, control: Vector2, tip: Vector2, opacity: float, width_scale: float, wave_strength := 0.0, flat_end := false) -> void:
 	if _scarf == null: return
 	var texture_size := _scarf.get_size()
 	var wave_axis := (tip-start).normalized().orthogonal() * float(fighter.facing)
-	var wave_phase := float(fighter.attack_phase_tick) * 0.45
+	var cloth_tick := _cloth_clock_ticks if _cloth_clock_ticks >= 0.0 else float(fighter.attack_phase_tick)
+	var wave_phase := cloth_tick * 0.45
 	var vertices := PackedVector2Array()
 	var uvs := PackedVector2Array()
 	var colors := PackedColorArray()
@@ -382,7 +409,7 @@ func _cloth(start: Vector2, control: Vector2, tip: Vector2, opacity: float, widt
 		var normal := tangent.normalized().orthogonal()
 		# Flat fabric with broad belly, twisting folds and a sharply cut cloth end.
 		var width := (4.0 + 7.5 * sin(t*PI*0.88)) * width_scale
-		width *= 0.62 + 0.38 * absf(cos(t*PI*1.6 + fighter.attack_phase_tick*0.10))
+		width *= 0.62 + 0.38 * absf(cos(t*PI*1.6 + cloth_tick*0.10))
 		if not flat_end and t > 0.92: width *= (1.0-t)/0.08
 		var l := center + normal * width
 		var r := center - normal * width

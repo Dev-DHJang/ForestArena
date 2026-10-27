@@ -1,0 +1,37 @@
+{
+  "status": "pass",
+  "cause": "remote authored24FPS restarts every6ticks before impact frame4/5; local actual special already enters hitstun",
+  "before": {
+    "log": "qa/special-hit-red-r06.log",
+    "exit_code": 1,
+    "expected_readable_pose_failures": 18,
+    "checks": 3876
+  },
+  "after": {
+    "log": "qa/special_hit_presentation-r08.log",
+    "exit_code": 0,
+    "errors": 0,
+    "checks": 3967
+  },
+  "existing_related_tests": [
+    {
+      "name": "hit_reaction_presentation",
+      "checks": 688,
+      "exit_code": 0,
+      "errors": 0,
+      "log": "qa/hit_reaction_presentation-r07.log"
+    },
+    {
+      "name": "launch_release_presentation",
+      "checks": 680,
+      "exit_code": 0,
+      "errors": 0,
+      "log": "qa/launch_release_presentation-r07.log"
+    }
+  ],
+  "public_presentation_sha256": "f6aa796e43333fb3b6b126ce55032d9a66b62149313c82064db4742dd3ce270c",
+  "test_sha256": "662ba93f4f9086c875b97111d63dadb3c1e449fd2a70bbd5e7c33323921c02e7",
+  "runtime_manifest_modified": false,
+  "combat_modified": false,
+  "gpu_or_android_run": false
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "reviewer": "nabi_final_qa",
+  "date": "2026-10-28",
+  "catalog_sha256": "e1993020e578cc95df02847bed8db98ab92821029e53f361f158ab1fc2db6c4c",
+  "scope_sha256": "eba2fe9096d3bc919702b0c0c413acd2c1a6d8fe72a611296b1684eb0aa3ae1d",
+  "wrapper_proof": "_workspace/fighter-presentation-fixes/nabi/registration-wrapper-proof-r03.json",
+  "wrapper_proof_sha256": "e69db4afe0d69a31ca14ed9a44dab6824180cbc5d93b68cb88236d77fab751bc",
+  "timeline_sha256": "455e945891c2a871b8f27e5fec7a15561ab9787bed5bf7a585dc88c00c2e021e",
+  "page_sha256": "ef8833b424d671c7b7a025a24bd3b03be81309bc0bd6e0ee184b0aa0f6e44698",
+  "page": "http://127.0.0.1:18145/_workspace/fighter-presentation-fixes/nabi/formal-review-r03/index.html",
+  "ui": "Chrome through cua API",
+  "motif": "18 motions wall view",
+  "observed_settings": [
+    "default game-code timing 1x normal",
+    "all speed 0.25x",
+    "all mirrored",
+    "all small",
+    "returned to normal settings"
+  ],
+  "direct_observations": "All18 show distinct attack/idle/run/jump/hit/fall/death/get-up silhouettes; scale-only artwork/timing preserved. Small mirrored view keeps silhouettes and no clipping. New jump has separate native actual playback evidence.",
+  "evidence": {
+    "_workspace/fighter-presentation-fixes/qa/independent-nabi-body-r02/formal-wall-normal.png": "99fd99ba0a0bda8801cdb709af7b1e1c1cc59d6d6eb3f970f33c3d0f0e3cddfe",
+    "_workspace/fighter-presentation-fixes/qa/independent-nabi-body-r02/formal-wall-slow-small-mirror.png": "a30cc8b7e93179471e71be15c35fb37697513791d88ee199c8b110c1956bb56f"
+  },
+  "limits": [
+    "Looping formal page, not a finite video with start/end playback receipt",
+    "UI samples do not assert continuous per-instant image capture",
+    "Nonloop2sec held and loop2cycles are controlled presentation fixtures",
+    "All new jump native clips played1x/0.5x end2sec, separate observations-r02.json",
+    "No actual Android pass or user approval"
+  ]
+}

@@ -456,6 +456,60 @@ class CandidateMotionReviewTest(unittest.TestCase):
         self.scope_doc["catalog_sha256"] = sha(self.catalog)
         write(self.scope, self.scope_doc)
 
+    def make_layout_only(self, png_path="assets/character/run.png", sprite_path="assets/character/run.tres"):
+        row = read(self.catalog)["assets"][0]
+        approved = {**row, "type": "animation-runtime", "asset_id": "test-" + row["visual_state_id"].replace("_", "-") + "-stable-v01",
+                    "path": png_path, "sprite_frames_path": "res://" + sprite_path,
+                    "consumer_path": "res://" + sprite_path, "sha256": sha(self.sheet), "presentation_scale": 1.0}
+        for field in ("expected_action", "action_source", "layout_only_from_asset_id"):
+            approved.pop(field, None)
+        png, sprite = self.root / png_path, self.root / sprite_path
+        png.parent.mkdir(parents=True, exist_ok=True)
+        sprite.parent.mkdir(parents=True, exist_ok=True)
+        png.write_bytes(self.sheet.read_bytes())
+        sprite.write_text(self.sprite.read_text().replace("res://" + row["path"], "res://" + png_path))
+        write(self.fixture.manifest, {"assets": [approved]})
+        self.update_catalog(lambda doc: doc["assets"][0].update(layout_only_from_asset_id=approved["asset_id"],
+            sha256=sha(self.sheet), presentation_scale=0.92))
+        return approved
+
+    def test_layout_only_keeps_pending_row_and_pins_approved_sources(self):
+        before_png, before_tres = self.sheet.read_bytes(), self.sprite.read_bytes()
+        approved = self.make_layout_only()
+        selection = self.check_input()
+        row = selection["rows"][0]
+        self.assertEqual(row["type"], "animation-candidate")
+        self.assertFalse(row.get("reuse_approved_runtime", False))
+        self.assertEqual(row["presentation_scale"], 0.92)
+        self.assertIn(approved["path"], selection["required_sources"])
+        self.assertIn(approved["sprite_frames_path"].removeprefix("res://"), selection["required_sources"])
+        self.assertEqual((before_png, before_tres), (self.sheet.read_bytes(), self.sprite.read_bytes()))
+        self.update_catalog(lambda doc: doc["assets"][0].pop("layout_only_from_asset_id"))
+        with self.assertRaisesRegex(ValueError, "exposed in runtime"):
+            self.check_input()
+
+    def test_layout_only_rejects_wrong_identity_pixels_and_non_scale_changes(self):
+        approved = self.make_layout_only()
+        original = read(self.catalog)["assets"][0]
+        manifest = read(self.fixture.manifest)
+        manifest["assets"].append({"type": "concept", "character_id": "other"})
+        write(self.fixture.manifest, manifest)
+        changes = [{"layout_only_from_asset_id": "wrong-asset"}, {"character_id": "other"}, {"visual_state_id": "guard"}]
+        changes += [{"presentation_scale": value} for value in (0, -1, True, float("inf"), 1.0)]
+        changes += [{"frame_durations": [2.0] * 16}, {"foot_pivot_y": 120}, {"phase_frame_ranges": [[0,4],[4,8],[8,16]]}, {"state_hold_frame": 0}]
+        for change in changes:
+            with self.subTest(change=change):
+                self.update_catalog(lambda doc: doc.update(assets=[{**original, **change}]))
+                with self.assertRaises(ValueError): self.check_input()
+        self.update_catalog(lambda doc: doc.update(assets=[original]))
+        self.sheet.write_bytes(self.sheet.read_bytes() + b"changed")
+        with self.assertRaisesRegex(ValueError, "PNG bytes"):
+            self.check_input()
+        self.sheet.write_bytes((self.root / approved["path"]).read_bytes())
+        self.sprite.write_text(self.sprite.read_text() + "\n# different SpriteFrames")
+        with self.assertRaisesRegex(ValueError, "only in its PNG reference"):
+            self.check_input()
+
     def test_pending_candidate_is_blocked_not_automatically_passed(self):
         self.assertEqual(self.review["motions"][0]["status"], "blocked")
         self.assertEqual(self.check_review(), [])
@@ -725,6 +779,25 @@ class MotionRegistrationTest(unittest.TestCase):
         updated=json.loads(pending["assets/character/manifest.json"])
         row=next(row for row in updated["assets"] if row.get("visual_state_id")=="knock_down")
         self.assertEqual({key:row[key] for key in fields},fields)
+
+    def test_layout_only_plan_keeps_approval_gate_and_does_not_publish_catalog_flag(self):
+        from register_motion_candidates import install
+        self.fixture.make_layout_only("assets/character/test/animation/runtime/guard_24f_v01.png",
+                                    "assets/character/test/animation/runtime/guard.tres")
+        self.prepare_art(24)
+        before = self.snapshot()
+        plan, pending = self.plan()
+        self.assertEqual(before, self.snapshot())
+        self.assertEqual(len(plan["motions"]), 1)
+        self.assertEqual(plan["motions"][0]["operation"], "replace")
+        result = json.loads(pending["assets/character/manifest.json"])["assets"][0]
+        self.assertEqual(result["presentation_scale"], 0.92)
+        self.assertNotIn("layout_only_from_asset_id", result)
+        self.assertEqual(result["registration_history"][-1]["presentation_scale"], 1.0)
+        with self.assertRaisesRegex(ValueError, "human approval.*missing"):
+            install(self.root, plan, pending, self.backup)
+        self.assertEqual(before, self.snapshot())
+        self.assertFalse(self.backup.exists())
 
     def test_missing_approval_refuses_before_any_write_or_backup(self):
         from register_motion_candidates import install

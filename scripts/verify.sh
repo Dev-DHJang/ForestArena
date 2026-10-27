@@ -6,6 +6,9 @@ python3 tools/forest_arena/test_personality_normalization.py
 python3 tools/forest_arena/test_personality_registration.py
 python3 tools/forest_arena/install_personality_concepts.py
 
+# Import newly registered textures before the Python tests execute Godot timelines.
+godot --headless --path . --editor --quit
+
 python3 tools/forest_arena/test_recover_codex_session.py
 python3 tools/forest_arena/test_motion_action_review.py
 python3 tools/forest_arena/test_android_fleet.py
@@ -14,7 +17,6 @@ python3 tools/forest_arena/test_prepare_android_qa.py
 
 python3 tools/forest_arena/verify_forest_ledge_art.py
 python3 tools/forest_arena/verify_job_id_independence.py
-godot --headless --path . --editor --quit
 godot --headless --path . --script res://tests/phase0_smoke.gd
 godot --headless --path . --script res://tests/phase1_combat_contract.gd
 godot --headless --path . --script res://tests/phase1_combat_behavior.gd
@@ -27,6 +29,7 @@ godot --headless --path . --script res://tests/two_fighter_combat_boundaries.gd
 godot --headless --path . --script res://tests/two_fighter_product.gd
 godot --headless --path . --script res://tests/two_fighter_presentation.gd
 godot --headless --path . --script res://tests/two_fighter_vfx.gd
+godot --headless --path . --script res://tests/scarf_path_continuity.gd
 godot --headless --path . --script res://tests/nabi_claw_presentation.gd
 godot --headless --path . --script res://tests/variable_motion_presentation.gd
 godot --headless --path . --script res://tests/two_fighter_ai.gd

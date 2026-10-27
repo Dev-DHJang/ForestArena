@@ -4,6 +4,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 
@@ -29,6 +30,51 @@ def local_path(root: Path, value: str, *, candidate: bool = False) -> Path:
     return resolved
 
 
+
+# These fields affect the actual selected drawing, placement or playback. A
+# layout-only candidate may change only presentation_scale, never these values.
+LAYOUT_ONLY_FIXED_FIELDS = (
+    "frame_count", "atlas_columns", "cell_size", "frame_durations", "fps", "loop",
+    "phase_frame_ranges", "jump_frame_ranges", "descent_frame_range", "landing_frame_range",
+    "landing_down_frame_range", "run_stride_px", "frame_anchors", "foot_pivot_y",
+    "state_hold_frame", "state_duration_ticks", "launch_release_frame_range", "launch_release_ticks",
+)
+
+
+def layout_only_source(root: Path, row: dict, manifest: list[dict]) -> dict | None:
+    """Verify a copied approved drawing whose pending change is only its scale."""
+    if "layout_only_from_asset_id" not in row:
+        return None
+    identifier = row["layout_only_from_asset_id"]
+    sources = [entry for entry in manifest if entry.get("type") == "animation-runtime"
+               and entry.get("asset_id") == identifier]
+    if not isinstance(identifier, str) or not identifier or len(sources) != 1:
+        raise ValueError("layout-only candidate requires one exact registered asset ID")
+    source = sources[0]
+    if (row.get("type") != "animation-candidate" or row.get("reuse_approved_runtime")
+            or row.get("character_id") != source.get("character_id") or motion_id(row) != motion_id(source)):
+        raise ValueError("layout-only candidate must match its registered character and motion")
+    scale = row.get("presentation_scale")
+    if isinstance(scale, bool) or not isinstance(scale, (int, float)) or not math.isfinite(scale) or scale <= 0:
+        raise ValueError("layout-only presentation_scale must be finite and positive")
+    if scale == source.get("presentation_scale", 1.0):
+        raise ValueError("layout-only candidate must change presentation_scale")
+    if any(row.get(field) != source.get(field) for field in LAYOUT_ONLY_FIXED_FIELDS):
+        raise ValueError("layout-only candidate cannot change frame composition or playback metadata")
+    approved_png = local_path(root, source.get("path", ""))
+    candidate_png = local_path(root, row.get("path", ""), candidate=True)
+    png_sha = digest(approved_png)
+    if digest(candidate_png) != png_sha or row.get("sha256") != png_sha or source.get("sha256") != png_sha:
+        raise ValueError("layout-only PNG bytes must match the exact registered drawing")
+    approved_sprite = local_path(root, source.get("sprite_frames_path", "")).read_text()
+    candidate_sprite = local_path(root, row.get("sprite_frames_path", ""), candidate=True).read_text()
+    old_texture = 'path="res://' + str(source["path"]).removeprefix("res://") + '"'
+    new_texture = 'path="res://' + str(row["path"]).removeprefix("res://") + '"'
+    if approved_sprite.count(old_texture) != 1 or candidate_sprite != approved_sprite.replace(old_texture, new_texture, 1):
+        raise ValueError("layout-only SpriteFrames must differ only in its PNG reference")
+    return source
+
+
 def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | None = None) -> dict:
     root = root.resolve()
     for path in (catalog, scope):
@@ -52,7 +98,7 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
     manifest_path = root / "assets/character/manifest.json"
     manifest = json.loads(manifest_path.read_text())["assets"]
     known_characters = {row.get("character_id") for row in manifest if isinstance(row.get("character_id"), str)}
-    keys, paths, pending_paths = set(), set(), set()
+    keys, paths, pending_paths, layout_sources = set(), set(), set(), set()
     for row in rows:
         if not isinstance(row, dict):
             raise ValueError("candidate asset must be an object")
@@ -84,6 +130,9 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
         if not isinstance(row.get("expected_action"), str) or not row["expected_action"].strip():
             raise ValueError("candidate requires an explicit expected action")
         local_path(root, row.get("action_source", ""))
+        copied_source = layout_only_source(root, row, manifest)
+        if copied_source is not None:
+            layout_sources.update(str(copied_source[field]).removeprefix("res://") for field in ("path", "sprite_frames_path"))
         # A candidate cannot already be exposed through the approved manifest,
         # nor can a copy of its bytes be registered there under another name.
         for approved in ([] if reuse else manifest):
@@ -93,6 +142,8 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
                 published = root / str(approved.get(field, "")).removeprefix("res://")
                 candidate_path = local_path(root, row[field], candidate=True)
                 if published.is_file() and (published.resolve() == candidate_path or digest(published) == digest(candidate_path)):
+                    if copied_source is approved and field == "path" and published.resolve() != candidate_path:
+                        continue
                     raise ValueError("unapproved candidate is already exposed in runtime manifest")
     candidate_paths = {str(path.relative_to(root)) for path in pending_paths}
     for directory in ("scripts", "scenes", "assets", "forest_arena/data"):
@@ -131,7 +182,7 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
     mandatory = ["assets/character/manifest.json", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md", "tools/forest_arena/motion_review_timeline.gd", "tools/forest_arena/motion_review_candidate_frames.gd", "tools/forest_arena/motion_review_candidates.py", "tools/forest_arena/review_motion_actions.py", "tools/forest_arena/motion_layout.py"]
     for source in ("scripts/data/attack_data.gd", "scripts/data/combat_rules.gd", "scripts/fighter_attack_effects.gd"):
         if (root / source).is_file(): mandatory.append(source)
-    required = set(mandatory + attack_sources)
+    required = set(mandatory + attack_sources) | layout_sources
     for row in rows:
         required.update(str(row[field]).removeprefix("res://") for field in ("path", "sprite_frames_path", "action_source"))
     required.update(str(path.resolve().relative_to(root)) for path in (catalog, scope))
