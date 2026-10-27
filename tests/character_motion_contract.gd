@@ -11,7 +11,8 @@ const REQUIRED_MOTIONS := {
 	"myo-ryung/jump": {"fps": 12.0, "loop": false},
 	"nabi/idle": {"fps": 8.0, "loop": true},
 	"nabi/run": {"fps": 12.0, "loop": true},
-	"nabi/jump": {"fps": 12.0, "loop": false},
+	# The approved 24-frame clip uses 8 FPS; combat and jump physics remain at 60 Hz.
+	"nabi/jump": {"fps": 8.0, "loop": false},
 	"yu-ran/idle": {"fps": 8.0, "loop": true},
 	"yu-ran/run": {"fps": 12.0, "loop": true},
 	"yu-ran/jump": {"fps": 12.0, "loop": false},

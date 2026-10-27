@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "reviewer": "final_scope_review",
+  "kind": "independent-verification-update-review",
+  "files": {
+    "scripts/verify.sh": "f6f9561df7f5ba3a2d63273aa00c3f7d7629156c39c94cafa65f85a28af83436",
+    "tests/character_motion_contract.gd": "895244424ecbc26e2e92d8cfffc35619fb557e0f020351b15356558dd19a168e"
+  },
+  "checks": {
+    "single_import_before_python_godot_tests": true,
+    "all_existing_verify_commands_preserved": true,
+    "set_eu_retained": true,
+    "approved_plan_digest": true,
+    "approved_outputs_unchanged": true,
+    "contract_only_one_fps_expectation_changed": true,
+    "unchanged_from_base/scripts/fighter_controller.gd": true,
+    "unchanged_from_base/scripts/local_fighter_presentation.gd": true,
+    "unchanged_from_base/assets/combat/movesets/two_fighter_nabi_moveset.tres": true
+  },
+  "approved_catalog_sha256": "e1993020e578cc95df02847bed8db98ab92821029e53f361f158ab1fc2db6c4c",
+  "approved_plan_sha256": "3f8c56e6b2c75250e601eb45e211e4e6d539681bec048dab9a3cef6073ee56f6",
+  "method": "read-only source comparison and installed-output hash verification; no test rerun",
+  "android": "not tested"
+}

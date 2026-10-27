@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "reviewer": "final_scope_review",
+  "file": "tests/character_attack_motion_contract.gd",
+  "file_sha256": "b0c18a8a63d4aa75eb54639f978c2f4927879b688bb34a79bc042480cf64f142",
+  "scope": "read-only repeated-registration contract fallback review",
+  "current_nabi_legacy_lookup": [
+    {
+      "motion": "attack_light_combo_01",
+      "history_rows": 2,
+      "contract_index": 0,
+      "contract": {
+        "combo_index": 1,
+        "is_finisher": false,
+        "acting_purpose": "claw jab while off-hand guards"
+      },
+      "last_row_has_legacy_contract": false
+    },
+    {
+      "motion": "attack_light_combo_02",
+      "history_rows": 2,
+      "contract_index": 0,
+      "contract": {
+        "combo_index": 2,
+        "is_finisher": true,
+        "acting_purpose": "large crossed claw rake"
+      },
+      "last_row_has_legacy_contract": false
+    }
+  ],
+  "approved_outputs_unchanged": true,
+  "targeted_result": "CHARACTER_ATTACK_MOTION_CONTRACT: PASS",
+  "targeted_log": "_workspace/fighter-presentation-fixes/qa/attack-motion-contract-final-r06.log",
+  "targeted_log_sha256": "31fbc0af6f81face4a8ee3dadcc3322377f5d38f372665e01e51e88a7ce0f41e",
+  "test_execution": "producer targeted log read; no independent duplicate execution",
+  "android": "not tested"
+}

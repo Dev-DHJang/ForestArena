@@ -1,0 +1,1233 @@
+{
+  "schema_version": 1,
+  "reviewer": "final_scope_review",
+  "kind": "independent-installed-registration-check",
+  "plan_sha256": "3f8c56e6b2c75250e601eb45e211e4e6d539681bec048dab9a3cef6073ee56f6",
+  "approval_sha256": "8a44048ec9d62af6a2bd1cd00f0f1cdeaa2338346456e59273a92c6b1ea68058",
+  "total_checks": 228,
+  "passed": 228,
+  "checks": [
+    {
+      "check": "plan digest equals receipt",
+      "pass": true
+    },
+    {
+      "check": "approval actual bytes match receipt",
+      "pass": true
+    },
+    {
+      "check": "catalog_sha256",
+      "pass": true
+    },
+    {
+      "check": "scope_sha256",
+      "pass": true
+    },
+    {
+      "check": "qa_review_sha256",
+      "pass": true
+    },
+    {
+      "check": "registration_targets_sha256",
+      "pass": true
+    },
+    {
+      "check": "only18NabiRuntimeManifestEntriesChanged",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/display_fields",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_air_heavy/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/display_fields",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_air_light/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/display_fields",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_heavy_up/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/display_fields",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_01/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/display_fields",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_light_combo_02/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/display_fields",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "attack_light_up/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "death/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "death/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "death/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "death/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "death/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "death/display_fields",
+      "pass": true
+    },
+    {
+      "check": "death/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "death/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "death/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "death/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "guard/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "guard/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "guard/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "guard/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "guard/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "guard/display_fields",
+      "pass": true
+    },
+    {
+      "check": "guard/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "guard/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "guard/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "guard/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "hitstun/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "hitstun/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "hitstun/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "hitstun/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "hitstun/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "hitstun/display_fields",
+      "pass": true
+    },
+    {
+      "check": "hitstun/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "hitstun/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "hitstun/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "hitstun/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "idle/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "idle/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "idle/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "idle/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "idle/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "idle/display_fields",
+      "pass": true
+    },
+    {
+      "check": "idle/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "idle/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "idle/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "idle/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "jump/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "jump/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "jump/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "jump/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "jump/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "jump/display_fields",
+      "pass": true
+    },
+    {
+      "check": "jump/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "jump/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "jump/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "jump/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "knock_down/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "knock_down/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "knock_down/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "knock_down/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "knock_down/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "knock_down/display_fields",
+      "pass": true
+    },
+    {
+      "check": "knock_down/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "knock_down/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "knock_down/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "knock_down/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "launch/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "launch/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "launch/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "launch/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "launch/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "launch/display_fields",
+      "pass": true
+    },
+    {
+      "check": "launch/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "launch/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "launch/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "launch/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "ring_out/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "ring_out/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "ring_out/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "ring_out/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "ring_out/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "ring_out/display_fields",
+      "pass": true
+    },
+    {
+      "check": "ring_out/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "ring_out/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "ring_out/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "ring_out/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "run/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "run/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "run/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "run/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "run/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "run/display_fields",
+      "pass": true
+    },
+    {
+      "check": "run/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "run/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "run/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "run/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "spawn/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "spawn/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "spawn/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "spawn/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "spawn/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "spawn/display_fields",
+      "pass": true
+    },
+    {
+      "check": "spawn/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "spawn/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "spawn/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "spawn/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "special_side/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "special_side/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "special_side/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "special_side/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "special_side/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "special_side/display_fields",
+      "pass": true
+    },
+    {
+      "check": "special_side/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "special_side/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "special_side/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "special_side/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "wake_up/approved_png_hash",
+      "pass": true
+    },
+    {
+      "check": "wake_up/candidate_png_bytes",
+      "pass": true
+    },
+    {
+      "check": "wake_up/approved_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "wake_up/candidate_tres_hash",
+      "pass": true
+    },
+    {
+      "check": "wake_up/tres_only_candidate_path_retarget",
+      "pass": true
+    },
+    {
+      "check": "wake_up/display_fields",
+      "pass": true
+    },
+    {
+      "check": "wake_up/stable_id_consumer",
+      "pass": true
+    },
+    {
+      "check": "wake_up/old_png_preserved",
+      "pass": true
+    },
+    {
+      "check": "wake_up/history_preserved",
+      "pass": true
+    },
+    {
+      "check": "wake_up/catalog_flag_absent",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/manifest.json",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/attack_air_heavy_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/attack_air_light_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/attack_heavy_up_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/death_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/guard_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/hitstun_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/idle.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/idle_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/jump.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/jump_24f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/knock_down_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/launch_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_air_heavy.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_air_light.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_up.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_02_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/attack_light_up_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/death.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/guard.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/hitstun.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/knock_down.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/launch.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/ring_out.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/spawn.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/special_side.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/local_ai_v01/wake_up.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/ring_out_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/run.tres",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/run_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/spawn_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/special_side_32f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "output/assets/character/nabi/animation/runtime/wake_up_16f_body-fit-v01.png",
+      "pass": true
+    },
+    {
+      "check": "scarf_approved_code/scripts/fighter_attack_effects.gd",
+      "pass": true
+    },
+    {
+      "check": "scarf_approved_code/scripts/scarf_attack_paths.gd",
+      "pass": true
+    },
+    {
+      "check": "combat_LAN_contracts_unchanged",
+      "pass": true
+    },
+    {
+      "check": "prior_dirty_closeouts_not_staged",
+      "pass": true
+    }
+  ],
+  "motions": [
+    {
+      "motion": "attack_air_heavy",
+      "png_sha256": "549da8d57f944e090327f7f2a4f09590d9c0ce65091acf1895caa36208590a4b",
+      "tres_sha256": "697c4b26a2ea72dc9c649965b99f6bff8d02454d3903e49f5f4f1273ce9a23c6",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "attack_air_light",
+      "png_sha256": "711dbd5932fda8e72680caa74b19824598d6937be5682724372f02ad815bf19b",
+      "tres_sha256": "6df14294d3c878bd808b310d79d0eff12b8ca1d0cf7942ca2d7f7b4c7e58d1af",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "attack_heavy_up",
+      "png_sha256": "41b384851121001e38b21bd821d3a8bbc5ae8ad26607830f8a8be15c05cb4a89",
+      "tres_sha256": "4fb97e108cacb06b32947db8314bf1851f305c95fef255a766b5063fcfb174a5",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "attack_light_combo_01",
+      "png_sha256": "8758aa263ae6a48076234a7a672d00b911a441249d54afd5bbadc94e71612844",
+      "tres_sha256": "0163a5fbbb2a136a1a536798c783b50f2aafc9a63583a357a0b53d7d6089c985",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "attack_light_combo_02",
+      "png_sha256": "926bd0821bfba73877e6fb039a04df323fa5ff139311643fbb8c105394e97cd5",
+      "tres_sha256": "85585c331bc9904c213e71e3fe7909a74593214e85ee284015234e47274ae64a",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "attack_light_up",
+      "png_sha256": "6d0d74fdfecaf162838ee4222f57e81efe749878ed3fba946de30cbbde9c2b50",
+      "tres_sha256": "eb9362232f9854d31ae688b60065e9322cce4c8eef8204e097b8b1cb518899fd",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "death",
+      "png_sha256": "462b998a152cdea88dd328aceacd817b15233db0d01df0282c12a5497dccd724",
+      "tres_sha256": "6b1ace929f6f78ef9962d66081fd69b5e6dd5776f0ab641174d6af9384bde422",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "guard",
+      "png_sha256": "889bd15eceda7b4c3d86cc50f9aae37cdbd3b702d17ee024b2a50623f8c40e44",
+      "tres_sha256": "cac533f93ac8633bdecf07ffdeb57bdd9b53eb9312866c2819ca3e85c9bda0d3",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "hitstun",
+      "png_sha256": "84273961b7cc508bae3aeae788163a1f94bb4cd3bb2b62bb80fbc93948a0c45d",
+      "tres_sha256": "f07cacda7058e1fd9200c5e4430ecae7b2d4269cc37056da41fdf07f55000a1e",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "idle",
+      "png_sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "tres_sha256": "9bdb29eee528fef39506adaf10939b601f9829343e978adbe2b46e9ea4828315",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "jump",
+      "png_sha256": "99d94dfc47fe72a81b3bd5d4db6e7eeaa6d8f058b3718438ae2b0f983de12429",
+      "tres_sha256": "f39c34da25e4e2891a498d7c24b3fdba8a3af54fd25988741318357ce25bdffa",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "knock_down",
+      "png_sha256": "6a0b0464e3d495bda33ac4a02b294e5d63604508391f4bc570b90ac9ce5df5c7",
+      "tres_sha256": "cbf3c8f8526f0308d53e6817dc0cea003576633a9adfb36c5b8d1f090a7a8779",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "launch",
+      "png_sha256": "83c589f1a78602a7f7898bc084f4390fc73380e061329b058173700c2d791f7a",
+      "tres_sha256": "cdb816fc403c043ba4ea09afdceb848adbee07f56efabd7e8c27f5c601b52351",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "ring_out",
+      "png_sha256": "9086f5f396883bb7c33ee2bb6baa669e4ccdb595ce248cd224b31fe98cb283ef",
+      "tres_sha256": "119aa95e798bb284e65f2fb888e74b3920c2340adde73764e8520b6493d97559",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "run",
+      "png_sha256": "2a8bd85a61bb05566330b00471e2db500e29c043dc42a45f4f575459919b189b",
+      "tres_sha256": "11448007e6148da498e163d0d07ba91e5a94d94e9c0d6f5c0ae6c50dda1d8623",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "spawn",
+      "png_sha256": "e7de48aa848ef9d09273c2d678dccff8c25866ee76b8ab66a5817b21c3fb1a95",
+      "tres_sha256": "383bfcefe71297c913e33d8d9f2e1834d740e78fbf1c1302c4e399a3dc5c2dcc",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "special_side",
+      "png_sha256": "dc67bbc89cd142accd07d6ca622773d71fe0766c7f1438ba843c44458443c893",
+      "tres_sha256": "c0f45d6407a52c098f1839feb52b133e1eaa141e22be72963cae19cdd31bef3b",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    },
+    {
+      "motion": "wake_up",
+      "png_sha256": "a7489a437427cf46ab5e95862a8f276228eb818260c0a2bfd06269e24da9ba4e",
+      "tres_sha256": "6de0d2a32b47f32746fc04f96446e19a62a4bb71f6d3b8c31e038016dbed6289",
+      "checks": {
+        "approved_png_hash": true,
+        "candidate_png_bytes": true,
+        "approved_tres_hash": true,
+        "candidate_tres_hash": true,
+        "tres_only_candidate_path_retarget": true,
+        "display_fields": true,
+        "stable_id_consumer": true,
+        "old_png_preserved": true,
+        "history_preserved": true,
+        "catalog_flag_absent": true
+      }
+    }
+  ],
+  "android": "not tested; zero connected physical devices reported by root",
+  "scope": "read-only hash/byte/metadata/provenance checks; no test suite rerun or asset edits"
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "kind": "android-presentation-quick-check",
+  "tested_on": "2026-10-28",
+  "device": "physical Galaxy S23 Ultra SM-S918N, Android16",
+  "apk_sha256": "53b687cb1cb5fc138e9b15ef1269b830ca1cc940f189b25eaecb6294c6cd70d7",
+  "source_manifest_sha256": "8cc96f05ba1531a99eb91235273add7d43b5ae18244cee2a971be2bfba3b7fba",
+  "cases": [
+    {
+      "case": "ja-ground-heavy",
+      "status": "pass",
+      "scope": "actual touch and observed combat state; visual video review separately recorded"
+    },
+    {
+      "case": "ja-air-light",
+      "status": "pass",
+      "scope": "actual touch and observed combat state; visual video review separately recorded"
+    },
+    {
+      "case": "ja-air-heavy",
+      "status": "pass",
+      "scope": "actual touch and observed combat state; visual video review separately recorded"
+    },
+    {
+      "case": "nabi-real-run",
+      "status": "pass",
+      "scope": "actual touch and observed combat state; visual video review separately recorded"
+    },
+    {
+      "case": "nabi-jump-land-idle",
+      "status": "pass",
+      "scope": "actual touch and observed combat state; visual video review separately recorded"
+    },
+    {
+      "case": "HOME-resume-input-release",
+      "status": "blocked",
+      "reason": "ADB connection dropped in observation thread and HOME boot_id check did not preserve the observed process; successful resume/input release not proven; no further device retries"
+    }
+  ],
+  "store_preservation": true,
+  "stores_note": "Original store-file lists were empty before and after the isolated runs; unchanged checks passed. No personal store values were altered.",
+  "normal_app_restored": true,
+  "capture": "native Android screenrecord; Ja20s/Nabi12s, no injected combat states or damage",
+  "media": [
+    {
+      "path": "_workspace/fighter-presentation-fixes/qa/android-final-r05/ja-attacks.mp4",
+      "sha256": "93d5fb829d7342a9aa424f76f0ba1cb6989db453dbd35d78d7814d260d2e8d20"
+    },
+    {
+      "path": "_workspace/fighter-presentation-fixes/qa/android-final-r06/nabi-run-jump.mp4",
+      "sha256": "b20d2df05fbe335763dc64f1bce8147a337ef7ad5dcb5902b2d6b608050bf8ed"
+    }
+  ],
+  "attempt_history": [
+    {
+      "run": "r03",
+      "scope": "new APK installed; ground heavy observed; generic per-touch node lookup waited until landing and used ground light; air attack matcher also used wrong underscore IDs; helper failure retained"
+    },
+    {
+      "run": "r04",
+      "scope": "IP ADB connection disappeared; no game check passed in this run"
+    },
+    {
+      "run": "r05",
+      "scope": "Ja3 exact attacks passed; attempted switching isolated Ja-only ownership to Nabi correctly rejected by select_config; used separate first-choice Nabi run instead"
+    },
+    {
+      "run": "r06",
+      "scope": "Nabi run and jump/land passed; HOME process check failed during intermittent ADB connection; cleanup restored ordinary game"
+    }
+  ],
+  "visual_review": {
+    "reviewer": "android_final_smoke",
+    "method": "native QuickTime Player official CUA API; each MP4 played from beginning at1x to endpoint/off; separate actual-video extracted fixed crop boards directly viewed",
+    "ja_endpoint_seconds": 19.9515,
+    "nabi_endpoint_seconds": 11.9606,
+    "slow_playback": "not repeated in this short device check; prior independent PC semantic QA remains separate",
+    "observations": [
+      "Ja3 actual attack touch events confirmed; ground scarf extends forward, air light/air heavy attach while airborne and disappear after recovery; no detached remnant observed in the sampled actual video",
+      "Nabi run-stop and jump-fall-land-idle executed; figure uses new approved art; no return-to-idle whole-body size replacement was observed in the sampled device clip",
+      "Opponents remain off-screen in these practice placements; same-frame side-by-side Ja/Nabi anatomical proportion measurement is not claimed"
+    ]
+  },
+  "visual_proofs": [
+    {
+      "path": "_workspace/fighter-presentation-fixes/qa/android-final-r05/ja-observation-board.jpg",
+      "sha256": "75d2f76164bcea711aad52b67a00907c4bcd1c8b9696072e565d53691eda1a95"
+    },
+    {
+      "path": "_workspace/fighter-presentation-fixes/qa/android-final-r06/nabi-observation-board.jpg",
+      "sha256": "1a2581cd5eb4b9fbd0c7a8ff844c476ce63b0c3be40603f7dbb0b986f50cddf4"
+    }
+  ]
+}
