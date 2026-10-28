@@ -1,0 +1,161 @@
+{
+  "checkedAt": "2026-10-21T10:24:48.367742+00:00",
+  "reviewer": "independent physical_qa; local evidence only, no device manipulation",
+  "result": "PASS",
+  "scope": "동일 APK의 실제 런처 아이콘, 업데이트 후 첫 실행, 강제 종료 후 재실행, 타이틀 버튼 터치, HOME 중단·복귀",
+  "device": {
+    "model": "Samsung Galaxy S23 Ultra (SM-S918N)",
+    "android": "16",
+    "physical": true
+  },
+  "apkSha256": "5050b0021cc72159852275ce8024c0f04603f1fd662d70ad41a7db82dd632763",
+  "inputs": [
+    {
+      "file": "launcher-icon-actual.png",
+      "sha256": "d2303bc981bd1c31829ef7485b728f723b5684114214199763305b067668ff1a",
+      "localOnly": false
+    },
+    {
+      "file": "first-launch-actual.png",
+      "sha256": "667d0600c8d58217cf50acc3e218886e21eba77279008d2db10d3955788ee856",
+      "localOnly": false
+    },
+    {
+      "file": "relaunch-actual.png",
+      "sha256": "667d0600c8d58217cf50acc3e218886e21eba77279008d2db10d3955788ee856",
+      "localOnly": false
+    },
+    {
+      "file": "lobby-before-background.png",
+      "sha256": "cce7b8d7ed37335d83aa3ab0373e29dbd32b92e8d89a8958629652409426c61a",
+      "localOnly": false
+    },
+    {
+      "file": "lobby-after-resume.png",
+      "sha256": "cce7b8d7ed37335d83aa3ab0373e29dbd32b92e8d89a8958629652409426c61a",
+      "localOnly": false
+    },
+    {
+      "file": "app-first-launch-log.txt",
+      "sha256": "9dd03fdef0ea6d29865161fb3e7b2d010b76f543e4a35c2f097dde72f9166e55",
+      "localOnly": false
+    },
+    {
+      "file": "app-relaunch-log.txt",
+      "sha256": "7d3f19eb14923f8032e9df2d4fe9230b2ff40a14cfe67b2ae5d08cdf8acec2e3",
+      "localOnly": false
+    },
+    {
+      "file": "app-resume-log.txt",
+      "sha256": "d299754d67d092ec7265d5b55faec5f47d64a3a2b6faef6ab1a566eed6655d0c",
+      "localOnly": false
+    },
+    {
+      "file": "installed-apk-proof.json",
+      "sha256": "d246526f3f19db39c65473dca22cf59532a3918257a264f13708b54ba1c14ae6",
+      "localOnly": false
+    },
+    {
+      "file": "first-launch-raw.mp4",
+      "sha256": "1d0767f060c3f3a177f5f1c2202e1d3aefa39dd7da009fb25864667cdc1eabf0",
+      "localOnly": true
+    },
+    {
+      "file": "relaunch-raw.mp4",
+      "sha256": "070d859eb321764ce17789f6ea8ec336b39bd865b39afeee6e4f652eaac745a0",
+      "localOnly": true
+    }
+  ],
+  "appOnlyMedia": {
+    "first-launch": {
+      "sourceStartSeconds": 1.55,
+      "crop": [
+        0,
+        1208,
+        1440,
+        672
+      ],
+      "outputSize": [
+        1440,
+        672
+      ],
+      "fps": 30,
+      "audio": false,
+      "dataTracks": false,
+      "metadataRemoved": true
+    },
+    "relaunch": {
+      "sourceStartSeconds": 1.8,
+      "sourceSize": [
+        3088,
+        1440
+      ],
+      "outputSize": [
+        1440,
+        672
+      ],
+      "fps": 30,
+      "audio": false,
+      "dataTracks": false,
+      "metadataRemoved": true
+    }
+  },
+  "visualReview": {
+    "firstLaunchTransition": {
+      "nativeFrames": 176,
+      "sourceFromSeconds": 1.556665,
+      "sourceToSeconds": 4.193489,
+      "method": "ffmpeg showinfo PTS + fps_mode passthrough; all six contact sheets directly viewed",
+      "observed": "묘령 Android 시작 아이콘 → 검은 전환 → 자체 FOREST ARENA 로더 → 숲 타이틀",
+      "godotLogoObserved": false
+    },
+    "relaunchTransition": {
+      "nativeFrames": 207,
+      "sourceFromSeconds": 1.55312222,
+      "sourceToSeconds": 4.700689,
+      "method": "ffmpeg showinfo PTS + fps_mode passthrough; all six contact sheets directly viewed",
+      "observed": "묘령 Android 시작 아이콘 → 검은 전환 → 자체 FOREST ARENA 로더 → 숲 타이틀",
+      "godotLogoObserved": false
+    },
+    "lobbyBeforeAfter": {
+      "size": [
+        3088,
+        1440
+      ],
+      "rgbaPixelIdentical": true,
+      "differenceBoundingBox": null,
+      "observed": "자현, 장신구 미장착, 기기 저장, 플레이 버튼과 하단 메뉴가 동일하게 유지됨"
+    },
+    "launcherIcon": "흰 머리·분홍 눈의 묘령 얼굴에서 목·어깨·분홍/흰 의상으로 이어지는 구도와 Forest Arena 앱명이 실제 Samsung 런처에서 식별됨"
+  },
+  "outputs": [
+    {
+      "file": "first-launch-app-only.mp4",
+      "sha256": "452804598d64b17dea8ca1dacbab2acaccc538f06b4184305028775287484735",
+      "bytes": 821559
+    },
+    {
+      "file": "relaunch-app-only.mp4",
+      "sha256": "5bae4a659ea68923741676686a7910db7bf53bce34e0acde96162c8f11c997f2",
+      "bytes": 429409
+    },
+    {
+      "file": "first-launch-app-filmstrip.png",
+      "sha256": "117eacde0ac1b9df92f6aad8cb479384cd905a290de6f43cef6073d8f1e98bf1",
+      "bytes": 388413
+    },
+    {
+      "file": "relaunch-app-filmstrip.png",
+      "sha256": "e1edcaf79bbef16e9f6e486b275e546efbbb6038b328887e6ca22ff581d1081b",
+      "bytes": 366818
+    }
+  ],
+  "limitations": [
+    "업데이트 설치이며 앱 데이터 삭제·새 기기 최초 설치 검사는 수행하지 않음",
+    "확인한 단일 기기와 동일 APK에 한정함",
+    "821ms activity 시작 시간은 전체 타이틀 로딩 시간이 아님",
+    "Godot 메뉴 v08 런타임 배치 검증이 아님",
+    "오디오 청취·장시간 전투 성능·다른 기기 전수 검사는 미수행",
+    "로고 미출현 판정은 기록된 화면의 실제 관찰 결과이며 미기록 기기·실행까지 일반화하지 않음"
+  ]
+}

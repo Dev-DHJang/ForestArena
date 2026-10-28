@@ -1,0 +1,78 @@
+{
+  "checkedAt": "2026-10-21T10:26:44.263748+00:00",
+  "status": "PASS",
+  "package": "com.forestarena.welllbeing",
+  "apkSha256": "5050b0021cc72159852275ce8024c0f04603f1fd662d70ad41a7db82dd632763",
+  "device": {
+    "model": "SM-S918N",
+    "android": "16",
+    "physical": true
+  },
+  "tests": [
+    {
+      "id": "ICON-DEVICE-01",
+      "name": "Samsung 실제 런처 아이콘",
+      "observed": "검색된 Forest Arena 아이콘에 얼굴·목·어깨·의상이 연결되어 보임",
+      "evidence": "launcher-icon-actual.png",
+      "result": "PASS"
+    },
+    {
+      "id": "BOOT-DEVICE-01",
+      "name": "업데이트 후 런처 첫 실행",
+      "observed": "실제 런처 항목을 눌러 자체 FOREST ARENA 타이틀과 게임 시작 버튼 진입; 앱 로그 TITLE_READY",
+      "pid": 28597,
+      "evidence": [
+        "first-launch-actual.png",
+        "app-first-launch-log.txt"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "BOOT-DEVICE-02",
+      "name": "강제 종료 후 새 프로세스 재실행",
+      "observed": "am force-stop 후 am start -W, Status ok, LaunchState COLD; PID 28597→29636; TITLE_READY",
+      "activityTotalTimeMs": 821,
+      "activityWaitTimeMs": 828,
+      "fullTitleLoadTimeMs": null,
+      "evidence": [
+        "relaunch-actual.png",
+        "app-relaunch-log.txt"
+      ],
+      "result": "PASS"
+    },
+    {
+      "id": "TOUCH-DEVICE-01",
+      "name": "타이틀의 게임 시작 터치",
+      "observed": "실제 타이틀 버튼 중심을 눌러 기존 Godot 로비 진입; home 화면 버튼 진단 로그 확인",
+      "evidence": "lobby-before-background.png",
+      "result": "PASS"
+    },
+    {
+      "id": "LIFECYCLE-DEVICE-01",
+      "name": "홈으로 나가기·복귀",
+      "observed": "HOME 후 launcher topResumedActivity 확인; 앱 시작 시 기존 task를 앞으로 가져옴, Status ok, WaitTime25ms; PID29636 유지; 복귀 전후 로비 RGBA 픽셀 동일, OnPause→OnResume 로그 확인",
+      "evidence": "lobby-after-resume.png",
+      "result": "PASS"
+    },
+    {
+      "id": "BOOT-DEVICE-03",
+      "name": "Godot 시작 로고 숨김",
+      "result": "PASS",
+      "observed": "첫 실행176·재실행207 원본 전환 프레임 독립 검토에서 Godot 로고 미출현, Android 묘령 앱 아이콘→자체 로더→숲 타이틀 확인",
+      "evidence": [
+        "03_qa_r01.md",
+        "qa-evidence.json",
+        "first-launch-app-only.mp4",
+        "relaunch-app-only.mp4"
+      ]
+    }
+  ],
+  "limits": [
+    "기존 앱 데이터를 유지한 업데이트 설치이므로 새 기기 최초 설치 검사는 아니다.",
+    "Godot 메뉴 v08 배치를 변경한 APK가 아니다.",
+    "821ms는 Android activity 시작 시간이며 전체 타이틀 로딩 시간 측정이 아니다.",
+    "음향 출력·장시간 전투 성능·다른 Android 기기 전수 검사는 이번 확인에 포함하지 않았다."
+  ],
+  "independentQa": "03_qa_r01.md",
+  "physicalVerified": true
+}

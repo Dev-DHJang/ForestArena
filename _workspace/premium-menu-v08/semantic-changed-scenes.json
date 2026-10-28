@@ -1,0 +1,373 @@
+{
+  "basis": "214-scene persisted native design before settings value fix",
+  "algorithm": "SHA-256 of UTF-8 JSON, ensure_ascii=False, sort_keys=True, separators comma/colon",
+  "reason": "Persist applied settings values; restore actual runtime defaults as drafts; preserve floating modal return; correct character grammar; provide editable nickname input and example saved result",
+  "originalOrderPreserved": true,
+  "beforeScenes": 214,
+  "afterScenes": 263,
+  "changedExisting": [
+    {
+      "name": "EXT_06_GeneralSettings",
+      "beforeSha256": "bda7518bc9ead315043c3be3e6db3c20a8151b5bbba6beaf4f91e4dd40435b32",
+      "afterSha256": "f6b9eea470da4465a8d102d1a2d6655e0c2f95535f31e55e1252ae8c0a530af3"
+    },
+    {
+      "name": "MENU08 / SCR_05_CharacterDetail / char-3-tab-0-filter-전체",
+      "beforeSha256": "436c87bc7fc8b368f388ea04d024b45bf39cc038f9e83945d41fd6d2bddaedcd",
+      "afterSha256": "30c9a9ca768345217d5efaa2e47594b13e5f8504ea669eceb74665333273dfea"
+    },
+    {
+      "name": "MENU08 / SCR_05_CharacterDetail / char-3-tab-0-filter-견제",
+      "beforeSha256": "ab05b69fb4a0b88238ceab0e87eb884554a3f6058db62aa5b6ba9de183137dd4",
+      "afterSha256": "26063c766838b4ba0e27196081a5d2450800ac42f8333aae7046cede457ce963"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 소리-off",
+      "beforeSha256": "03ba4a2e9eb73176c2a91443a78e512563fe6442429b6b79467418b5df975030",
+      "afterSha256": "69be14e3f9f3aa01eede594f1ca4e19b59d5796d2fe269d698604efd3cf899d1"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 화면 효과",
+      "beforeSha256": "6ed3f9525ff5ee458ccad09f51290c00c07538394abbc1ffe3aa2b09a97e0897",
+      "afterSha256": "d8795bf08aac50476a5abaf68928cdc2541210f2c32c9c50a660c7472dd3deb5"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 화면 효과-off",
+      "beforeSha256": "3785c28c5014346ff76ab16e6328be8f87fff23db6327287975989256bf038b2",
+      "afterSha256": "bb2a429d104a9135d239b440675486022402724456b7cbcd5fc25dc35152cff0"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 접근성",
+      "beforeSha256": "001674f1713b1a8a6dd9e5b58e62793b070c5c77888b426f92e3c0c9d5d7a888",
+      "afterSha256": "7267e31c158810fc1609cb4c32c3f8c09a981926310c93bb42524e13aa3dc58e"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 접근성-off",
+      "beforeSha256": "58f785b8ea33a307f49c90525c49b50f879a1ab17f133b0808d7ef42527536eb",
+      "afterSha256": "3090ec2d9afd6cbd9ffb919b08f89d7a6fdb06d18114221648831b1a21b35605"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 미니맵",
+      "beforeSha256": "97235b79ffd3763f8b5cbecdb011814d3319f85461741c670beee74d12596cd9",
+      "afterSha256": "95439ac6c38a4e5faccbc124f38ec6b3952412cd39d54c67da38e9348b6cfcef"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 미니맵-off",
+      "beforeSha256": "a3956f88136d09a1dcd77e60c862b795ede85e01d1fd79fac385014b3780854f",
+      "afterSha256": "19a9481e45522011e5a371bad7a12c2ad5811b23c33bf3d2ca441731dd5519b4"
+    },
+    {
+      "name": "MENU08 / CBT_08_Settings / floating",
+      "beforeSha256": "81a839c1c21a9cd32af86d0da9a5a99d91eb0c4bf4e5806838935b537aa62f05",
+      "afterSha256": "aa1d11ebb25138b215d3640222272a09089aa12ce9c24b430f228fd2583657d6"
+    },
+    {
+      "name": "MENU08 / ControlsFloatingFromLobby",
+      "beforeSha256": "edffd36b94a37f8f5ac7455c3c633f3741c6330647d29292332be948364afce2",
+      "afterSha256": "abcebc8a5c3bcebf76cc73cd2c3dfc5a6e46f6cbce088b7fdec250a53a2a59f7"
+    },
+    {
+      "name": "MENU08 / SettingsResetGeneral",
+      "beforeSha256": "f525f4d7d0abb46e9180840b44d3a26faa140587e2e36359e2de40c1568318d2",
+      "afterSha256": "9dbc8b910f2b16b821565b9a4c23c2a8cb3d857970dc4a172a5e90544c44b4ac"
+    },
+    {
+      "name": "MENU08 / NicknameEdit",
+      "beforeSha256": "8767b45881889bf9bc00c0fd43af3efc8c8d5511063ecf6eeb695761dcd6062b",
+      "afterSha256": "928f57fe23a1f20b82d440ba28e0e0bfd8150c9d0974e5c5d18a3c0a41d338cf"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-소리",
+      "beforeSha256": "a8713d089f455f069b8a7eab4ce62c3780033bb0b5f24d170bcd71617c44f0ae",
+      "afterSha256": "abcfc5154fd959e64c853da36f104d962bdd595466b85c5383f880e8338bde03"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-소리",
+      "beforeSha256": "5a474ddd2b6d1192f31e29cf0706c02af094c17a8502dc89a45a0c403ed86eaf",
+      "afterSha256": "0f0060b1413b4d6715dd3d2c431ea0c3fdcf242a4cccda0fce45ca0c1a0554bd"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-화면 효과",
+      "beforeSha256": "b5ad625a93c8efe7591da8abf814522be671e5e7eeaf3541fdf5faaa4c8dbd47",
+      "afterSha256": "3b92fbb27366b160b2c3cd9a7581517bc4a2000a179e7d5446a6c39315b8c883"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-화면 효과",
+      "beforeSha256": "3bafc96a99866d38683078bdb54631cf4f4604df1da4441300132ce9f7783cad",
+      "afterSha256": "42f451e425f40f7180561a188b90c472ff6580b09c34f2afa7cb80606e317fca"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-접근성",
+      "beforeSha256": "606989812554ee010770fe02c02cc2b017d4db4fd72eb04eb5d943cde01e17f4",
+      "afterSha256": "fa2ba6499a99c2a752d3ff3f74a56608d59d58ffde845052fb5088bc2abecf7d"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성",
+      "beforeSha256": "36908b86194dec4ac8d58bd736cbaa5f129733f0bccebaeb5653e0d1d6baed0b",
+      "afterSha256": "8601a01154f0dbd52e59c12687ddbdab5d202039e6364e7e632f1e64352b47f3"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-미니맵",
+      "beforeSha256": "0a2639f6fc8f1fecbcae2b94e7b81501528b4e6fd12da4f1441234a08e20f79d",
+      "afterSha256": "7f5f4b6c9b929763a0ca3cfd7df0ada87133b0a8a4cf1ef1663cdeb72021eeef"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-미니맵",
+      "beforeSha256": "8c300e3753ead30a6a954bb3cad7998eee13354e98015dd657e2fe2f48665557",
+      "afterSha256": "ee4f613d9c70faa0ba8e1ad6dc93a9f43d0f43b2c79a8f730209e414988c8195"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / 접근성-large",
+      "beforeSha256": "35b980f2fc324120fa4bdd192b5e72b4ab6e692a1f3ee4bf6ea20ed9c42eff99",
+      "afterSha256": "87924c7d4a604f55648bb25673a1f68ef33ef75fdd49733a0af5fecc3bb74e44"
+    }
+  ],
+  "added": [
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-saved-소리",
+      "beforeSha256": null,
+      "afterSha256": "c2d7acda37816d48a9a879a32780dbf5bff3af84f17d4b9c9f7315db30a7b419"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-소리",
+      "beforeSha256": null,
+      "afterSha256": "86fd699a07fba37e0d0021f9956d75c9a16ca01ecda0f909b2458a31a03ea270"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-saved-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "b6803c54cf169bc4bb247f31cd77e08ef5c9c3091867184bee1d4b9ef5d9e49f"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-initial-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "b1b21098822cd37af373a22e4b40bea1d4431af64bff703b2896d6b35d1cf528"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+      "beforeSha256": null,
+      "afterSha256": "839b0fc3703828b72411cc89fc171e0bd1e9a073816ffcde647d6e6c58c0a347"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-소리",
+      "beforeSha256": null,
+      "afterSha256": "da75badb8adb1da5ec29e3847b8c478cce3f18bc87547e90236d01bd6b7b128a"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-소리",
+      "beforeSha256": null,
+      "afterSha256": "e6197cd160bd852ea88789a5aa4431465fce43b4359e2ffa925137ad4e065ec7"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-화면 효과",
+      "beforeSha256": null,
+      "afterSha256": "88725e52ce08a3b0a2b41c22ffd6c8a3e4e656fec1856597f79e100948e6fea1"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-화면 효과",
+      "beforeSha256": null,
+      "afterSha256": "23aa89b3d1b159892f60185bee256760df4e12ec706dc51e2aae3d49454cf0f4"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성",
+      "beforeSha256": null,
+      "afterSha256": "f3186a7523c097247c43c2d66be56f68d7e9974ef871ea254a30dd61ed9ba548"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성",
+      "beforeSha256": null,
+      "afterSha256": "b6498fa429d09cc177e29ea3c7e06caa3b159f262898487911cef092ca4a50ed"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "080e0078318802247f2fc60ec45098af6932d34ce351c3cb3907a5ac517aa5b2"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "f2a64c3738a7b4dcf09260b746c96dc1c7dd31cfc27089ec186bdfcf416c62b2"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / changed-from-default-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "c4caf45ce7ac7264e0384d5ac30e25c24ec725693c201e704a7ac1b2c0e78edb"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / saved-접근성-large",
+      "beforeSha256": null,
+      "afterSha256": "051e25feeac3335cc6a235a6703aeadffa681fcade3aa081082bc6a17153dcbf"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-접근성-large",
+      "beforeSha256": null,
+      "afterSha256": "966dbfba3ba7e03bd4b96279977222fd533f363d0c3961fe0aad96117e44ea13"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-소리",
+      "beforeSha256": null,
+      "afterSha256": "3b648aac931e71d27c4966b59945da2234220b282ee09da751a9bfb90556aff1"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+      "beforeSha256": null,
+      "afterSha256": "4ebf1632c8396a6a4364881d151966ce543b210d6e04c946c185c2baeeaa403e"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-소리",
+      "beforeSha256": null,
+      "afterSha256": "27b539573f03fc3db4c01b195c35968a882d62bee0f072847f480524aab2658d"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-화면 효과",
+      "beforeSha256": null,
+      "afterSha256": "13cfdfb9f15c3646393fa99bc30ece53aebfc36cbe022a617428ce6e8f7ba22c"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-화면 효과",
+      "beforeSha256": null,
+      "afterSha256": "2446d35d3f80e5d38542f820e3f8ab6335345d47bdfcab0747f50c249dab44cb"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성",
+      "beforeSha256": null,
+      "afterSha256": "1aa18457f4bb2712cb571afc9d317db018665bc373f6d935e7ec0f277647c833"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성",
+      "beforeSha256": null,
+      "afterSha256": "d12bc53468e405cf8bd1c1723e766a6a96ba6dea01e9c8efcf438571cd0b7db2"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "45cb95ca697ef81599e965795c8a7d3893aa5dca8d08adb22a7c2767aad4f489"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "9304583f932d085ee8ecb48a3ae15e305cb57eb3a44bf659559339806f88ff9e"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-from-default-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "8a49fdfb31b63c3d63a990cea0358b5f673a0752c23d9abd5013db485083397e"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-접근성-large",
+      "beforeSha256": null,
+      "afterSha256": "b494d598650ff116c10c831413b19ffc564504b88043c8709f86b8395a7329f9"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-changed-접근성-large",
+      "beforeSha256": null,
+      "afterSha256": "c40fd6ad3f73023e665fc3ce64b5748424f6d38341133ebdd0a9518a3ac64361"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / reset-saved-접근성-large",
+      "beforeSha256": null,
+      "afterSha256": "6e85643f39a09c3e2949607531cf34ee7a6e32faf44eb699b7c24d37ec175582"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-소리",
+      "beforeSha256": null,
+      "afterSha256": "c7c13bfba3f7668b40ad3b5407ef97d9e32774d06db88f018f79ec1c2b43cfb4"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-화면 효과",
+      "beforeSha256": null,
+      "afterSha256": "a0ccca09d6ca51264fbdf75652bc68cd0b0bc0e38289f248fc0a64c42bdc1099"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-접근성",
+      "beforeSha256": null,
+      "afterSha256": "6478a03b54cd0421bd8145ba1af3a66495553e5630c2199ebf4257cae749ad82"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / applied-default-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "46c4ebe8aef052e29d47ab9baa2c5484cda1508ba428ade1b3a20763b31ae46d"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-소리",
+      "beforeSha256": null,
+      "afterSha256": "bcd469b7d61c6bac4d98c876b022c1b4558d1921878b35a4a60f222797426f09"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-소리",
+      "beforeSha256": null,
+      "afterSha256": "637bd3868e74f2e408ddd3badf5c6246967e2c4d5b065548d5e65f056c8a29bf"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-화면 효과",
+      "beforeSha256": null,
+      "afterSha256": "28795cb03c351d742b7ae2a109a834de1e97d8cdde75f0c6d4a2c1a97f2c2334"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성",
+      "beforeSha256": null,
+      "afterSha256": "0787f9bd580730127a01d2b0fed85cf73f0949f67784153e29b38a42c3a5a505"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "f187edbca5d2b7f2ab97f67c1227e98caec5f22797b9be7ac49031ee4cf41711"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-changed-from-default-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "e4de2775a527701dee3cb4d8c7489cbc6d3dd7ceef00d1c8e869ff25e0ae832d"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-saved-접근성-large",
+      "beforeSha256": null,
+      "afterSha256": "28f3bc69536540f6c5af5ff3f989e286927eec56ea5a2781a799620b66a71d69"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-소리",
+      "beforeSha256": null,
+      "afterSha256": "ddbdfc81b783769b9287a4f3861d3e63df9b1e17446f0572e410e84c8b14c45e"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-default-draft-from-initial-미니맵",
+      "beforeSha256": null,
+      "afterSha256": "9cc31bd164898cb81d5c263ae85ef03cafb0a88553313627809bbbc71f32a3ec"
+    },
+    {
+      "name": "MENU08 / EXT_06_GeneralSettings / discard-draft-접근성-large",
+      "beforeSha256": null,
+      "afterSha256": "fe1576377b2ab2ba791a792538f6575498f7ef0c81e9ce63b97b9db23a8beeb1"
+    },
+    {
+      "name": "MENU08 / ControlsParametersFloatingLobby",
+      "beforeSha256": null,
+      "afterSha256": "043608c0346a5769e843e73afa4f43ed584ab5aa16e78f7fa552d03355c4caae"
+    },
+    {
+      "name": "MENU08 / SettingsResetFloatingLobby",
+      "beforeSha256": null,
+      "afterSha256": "c550ddf927d8e69dce74a698f4fac7511cb4659e945ac6f0df41dc09f65da0b9"
+    },
+    {
+      "name": "MENU08 / ControlsParametersFloating",
+      "beforeSha256": null,
+      "afterSha256": "dc1d23e1909c65acc0dcceb98daa335092337f9d6e708eef5314e152c3943c8b"
+    },
+    {
+      "name": "MENU08 / SettingsResetFloating",
+      "beforeSha256": null,
+      "afterSha256": "962c97a637843e67e25c349de44087efd0bde9e66a87380d954130401fbee410"
+    },
+    {
+      "name": "MENU08 / ProfileNicknameExample",
+      "beforeSha256": null,
+      "afterSha256": "fa2a96f4a8f18b04fc150e9b32b0b148954e693b28dc245b16bcd0e02be41629"
+    },
+    {
+      "name": "MENU08 / NicknameChangedExample",
+      "beforeSha256": null,
+      "afterSha256": "3fce75b79645daa8dea07186680146f69abc1f2eed99abfd44425f3105cf3942"
+    }
+  ],
+  "unchangedExisting": 191
+}

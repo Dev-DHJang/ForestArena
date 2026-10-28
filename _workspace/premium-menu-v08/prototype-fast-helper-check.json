@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "scenes": 214,
+  "activeControls": 1325,
+  "checks": [
+    "original 14 prototype IDs and legacy children/links preserved",
+    "all snapshot fills match exported media",
+    "all actual control metadata, geometry and destinations match the spec",
+    "disabled and modal-occluded controls omitted",
+    "all transitions dissolve for 200ms",
+    "base 14 wired before state links",
+    "same-active-page clone restriction",
+    "flags recover after await and simulated foreground context cleanup",
+    "replay makes zero mutations",
+    "incremental destination edit updates the existing hotspot"
+  ],
+  "operations": {
+    "rectangles": 205,
+    "boardClones": 181,
+    "childClones": 1391,
+    "linksAdded": 1339,
+    "linksChanged": 0,
+    "linksRemoved": 0,
+    "reorders": 0,
+    "metadata": 1632,
+    "position": 648,
+    "resize": 19,
+    "fills": 214
+  },
+  "fullRebuildRectangles": 1539,
+  "note": "Mock validates supported API usage and graph semantics. Actual Penpot save, reload, rendering and clicks remain to be verified."
+}

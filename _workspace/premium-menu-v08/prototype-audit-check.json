@@ -1,0 +1,166 @@
+{
+  "passed": true,
+  "validScenes": 214,
+  "validActiveHotspots": 1325,
+  "validSnapshots": 214,
+  "errorCases": 26,
+  "cases": [
+    {
+      "name": "누락된 활성 클릭 영역",
+      "detected": true,
+      "requiredReason": "expected active hotspot missing",
+      "issues": 2
+    },
+    {
+      "name": "동일 이름·좌표·크기의 중복 클릭 영역",
+      "detected": true,
+      "requiredReason": "duplicate actual hotspot",
+      "issues": 2
+    },
+    {
+      "name": "예상에 없는 클릭 영역",
+      "detected": true,
+      "requiredReason": "unexpected hotspot",
+      "issues": 2
+    },
+    {
+      "name": "숨겨진 예상 클릭 영역",
+      "detected": true,
+      "requiredReason": "hotspot is hidden or has a hidden ancestor",
+      "issues": 1
+    },
+    {
+      "name": "숨겨진 부모 안의 클릭 영역",
+      "detected": true,
+      "requiredReason": "hotspot is hidden or has a hidden ancestor",
+      "issues": 1
+    },
+    {
+      "name": "숨겨진 예상 밖 클릭 영역도 수집",
+      "detected": true,
+      "requiredReason": "unexpected hotspot",
+      "issues": 3
+    },
+    {
+      "name": "영역 너비 불일치",
+      "detected": true,
+      "requiredReason": "expected active hotspot missing",
+      "issues": 2
+    },
+    {
+      "name": "상호작용 없음",
+      "detected": true,
+      "requiredReason": "hotspot interaction count differs",
+      "issues": 1
+    },
+    {
+      "name": "상호작용 두 개",
+      "detected": true,
+      "requiredReason": "hotspot interaction count differs",
+      "issues": 1
+    },
+    {
+      "name": "click 대신 hover",
+      "detected": true,
+      "requiredReason": "hotspot trigger differs",
+      "issues": 1
+    },
+    {
+      "name": "navigate-to 대신 다른 행동",
+      "detected": true,
+      "requiredReason": "hotspot action type differs",
+      "issues": 1
+    },
+    {
+      "name": "잘못된 목적지",
+      "detected": true,
+      "requiredReason": "hotspot destination differs",
+      "issues": 1
+    },
+    {
+      "name": "200ms가 아닌 전환",
+      "detected": true,
+      "requiredReason": "hotspot transition differs",
+      "issues": 1
+    },
+    {
+      "name": "dissolve가 아닌 전환",
+      "detected": true,
+      "requiredReason": "hotspot transition differs",
+      "issues": 1
+    },
+    {
+      "name": "행동 정보 누락도 감사 중단 없이 보고",
+      "detected": true,
+      "requiredReason": "hotspot action type differs",
+      "issues": 3
+    },
+    {
+      "name": "모달 뒤 배경 버튼이 클릭 가능함",
+      "detected": true,
+      "requiredReason": "unexpected hotspot",
+      "issues": 2
+    },
+    {
+      "name": "사용 불가 버튼의 클릭 영역이 남음",
+      "detected": true,
+      "requiredReason": "unexpected hotspot",
+      "issues": 2
+    },
+    {
+      "name": "스냅샷 누락",
+      "detected": true,
+      "requiredReason": "snapshot count differs",
+      "issues": 1
+    },
+    {
+      "name": "숨겨진 중복 스냅샷",
+      "detected": true,
+      "requiredReason": "snapshot count differs",
+      "issues": 2
+    },
+    {
+      "name": "숨겨진 스냅샷",
+      "detected": true,
+      "requiredReason": "snapshot is hidden or has a hidden ancestor",
+      "issues": 1
+    },
+    {
+      "name": "스냅샷 위치 변경",
+      "detected": true,
+      "requiredReason": "snapshot geometry differs",
+      "issues": 1
+    },
+    {
+      "name": "스냅샷 크기 변경",
+      "detected": true,
+      "requiredReason": "snapshot geometry differs",
+      "issues": 1
+    },
+    {
+      "name": "다른 상태 또는 낡은 PNG",
+      "detected": true,
+      "requiredReason": "snapshot media differs",
+      "issues": 1
+    },
+    {
+      "name": "스냅샷 위 다른 fill이 추가됨",
+      "detected": true,
+      "requiredReason": "snapshot media differs",
+      "issues": 1
+    },
+    {
+      "name": "스냅샷 불투명도 0",
+      "detected": true,
+      "requiredReason": "snapshot opacity differs",
+      "issues": 1
+    },
+    {
+      "name": "스냅샷 fill 불투명도 감소",
+      "detected": true,
+      "requiredReason": "snapshot opacity differs",
+      "issues": 1
+    }
+  ],
+  "note": "Mock tests the audit protocol with intentional errors. It does not replace saved Penpot readback or actual prototype clicks."
+}

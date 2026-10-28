@@ -1,0 +1,67 @@
+{
+  "scope": "Local mock only; no API, browser, real rendering or save executed",
+  "passed": 15,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "complete",
+      "passed": true
+    },
+    {
+      "name": "stale-native-spec",
+      "passed": true
+    },
+    {
+      "name": "stale-small-spec",
+      "passed": true
+    },
+    {
+      "name": "wrong-source-sha",
+      "passed": true
+    },
+    {
+      "name": "wrong-provenance-source-sha",
+      "passed": true
+    },
+    {
+      "name": "wrong-media-id",
+      "passed": true
+    },
+    {
+      "name": "missing-native-ready",
+      "passed": true
+    },
+    {
+      "name": "malformed-provenance",
+      "passed": true
+    },
+    {
+      "name": "invalid-native-sha",
+      "passed": true
+    },
+    {
+      "name": "wrong-native-id",
+      "passed": true
+    },
+    {
+      "name": "wrong-1280-size",
+      "passed": true
+    },
+    {
+      "name": "extra-obsolete-records",
+      "passed": true
+    },
+    {
+      "name": "full-old-record-count-does-not-skip-stale-snapshot-import",
+      "passed": true
+    },
+    {
+      "name": "unchanged-import-refusal-cannot-report-done",
+      "passed": true
+    },
+    {
+      "name": "real-resize-source-file-error-stops-driver",
+      "passed": true
+    }
+  ]
+}
