@@ -1,6 +1,6 @@
 # 전투 조작·가드·장외 처리 개선
 
-2026-10-29. 구현·화면 확인과 커밋 기준 최종 전체 검사를 완료했다. PR116의 develop 병합과 실제 병합 정보 기록을 진행한다.
+2026-10-29. 요청한 다섯 개선과 LAN4 연결을 구현하고 독립 QA·최종 전체 검사를 통과했다. PR116을 develop에 병합했다. 실제 Android 검사는 사용자 요청대로 별도 진행한다.
 
 ## 구현
 
@@ -23,6 +23,10 @@
 
 ## Git·미확인
 
-기준 develop: 85459bf6bea0a89e808cca36f5576a5ef862360e. 작업 브랜치: codex/combat-input-ringout. 구현 커밋:5916be8524790d9b02cc948c7184ef6bcf6a5be3. PR: https://github.com/Dev-DHJang/ForestArena/pull/116. 병합 SHA·롤백 명령은 원격 통합 후 여기에 기록한다.
+기준 develop: 85459bf6bea0a89e808cca36f5576a5ef862360e. 작업 브랜치: codex/combat-input-ringout. 구현 커밋:5916be8524790d9b02cc948c7184ef6bcf6a5be3. PR: https://github.com/Dev-DHJang/ForestArena/pull/116. 구현 PR116 병합 SHA:024d2e01010abd5856f1445781390284fe6af804. 원격 develop과 병합한 코드·데이터43개 지문이 최종 검사 소스와 일치함을 확인했다. 이후 변경은 이 종료 기록뿐이다.
+
+되돌릴 때는 구현 병합 커밋을 `git revert -m 1 024d2e01010abd5856f1445781390284fe6af804`로 되돌린다. 전투·표시·LAN4 서버/클라이언트·도구를 한 묶음으로 되돌리고, 종료 기록 충돌이 나면 이 작업 폴더의 최신 요청·검증·병합 기록은 보존한다. 보유·DB 데이터와 승인 원본은 삭제하지 않는다.
+
+종료 기록은 codex/combat-input-ringout-closeout 브랜치의 문서 전용 PR로 develop에 반영한다. GitHub 추가 CI 검사·상태는 구현 PR의 마지막 head에서0개였고, 로컬 전체·독립 QA·문서/하네스 검증으로 확인했다.
 
 실제 Android의 엄지 조작·가독성·생명주기·성능과 물리 두 대 LAN 검사는 사용자가 추후 별도로 진행하도록 명시적으로 이연했다. 이번 결과는 실기기 통과를 뜻하지 않으며 APK 배포·스토어 출시는 수행하지 않았다.
