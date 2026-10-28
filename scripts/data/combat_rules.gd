@@ -12,6 +12,12 @@ extends Resource
 @export var max_fall_speed: float = 1000.0
 @export var hitstun_min_ticks: int = 10
 @export var hitstun_max_ticks: int = 36
+## Applied after the legacy weight/clamp calculation; old rule sets retain 1x.
+@export var hitstun_multiplier: int = 1
+@export var landing_down_ticks: int = 18
+@export var falling_ring_out := false
+@export var ring_out_hide_margin: float = 256.0
+@export var ring_out_confirm_ticks: int = 60
 @export var di_max_degrees: float = 10.0
 @export var respawn_delay_ticks: int = 45
 @export var respawn_invulnerability_ticks: int = 60
@@ -38,6 +44,8 @@ func is_valid_definition() -> bool:
 		and max_fall_speed > 0.0 \
 		and hitstun_min_ticks > 0 \
 		and hitstun_max_ticks >= hitstun_min_ticks \
+		and hitstun_multiplier > 0 and landing_down_ticks > 0 \
+		and ring_out_hide_margin >= 0.0 and ring_out_confirm_ticks > 0 \
 		and di_max_degrees >= 0.0 \
 		and respawn_delay_ticks > 0 \
 		and respawn_invulnerability_ticks > 0 \

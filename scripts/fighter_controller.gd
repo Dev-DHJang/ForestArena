@@ -15,7 +15,7 @@ signal presentation_reset
 ## Local drawing notification after an effective hit sets its reaction.
 signal hit_reaction_started
 
-enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED }
+enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED, FALLING_OUT }
 
 @export var fighter_id: StringName
 @export var character_data: CharacterData
@@ -71,6 +71,11 @@ var air_lock_ticks := 0
 var air_lock_expired := false
 var landing_knockdown_pending := false
 var landing_down_ticks := 0
+var landing_down_duration_ticks := 18
+var ring_out_hidden := false
+var ring_out_pending_ticks := 0
+var _network_debug_geometry: Dictionary = {}
+var _uses_network_geometry := false
 var wakeup_protection_ticks := 0
 var pull_ticks_remaining := 0
 var pull_anchor := Vector2.ZERO
@@ -113,6 +118,7 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 	attack_restart_lock_ticks = 0
 	_reset_air_status()
 	_clear_attack_travel()
+	_reset_ring_out_status()
 	state = State.IDLE
 	set_physics_process(true)
 	presentation_reset.emit()
@@ -121,6 +127,8 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 
 func reset_for_match(rules: CombatRules) -> void:
 	_simplified_combat = rules.simplified_combat
+	_reset_ring_out_status()
+	landing_down_duration_ticks = rules.landing_down_ticks
 	_reset_air_status()
 	_clear_attack_travel()
 	set_collision_mask_value(4, true)
@@ -157,12 +165,11 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		if intent.action_id in [&"dash", &"evade", &"ultimate"]: return
 		if (air_lock == 2 or landing_down_ticks > 0) and intent.action_id != &"move": return
 		if air_lock == 1 and intent.action_id in [&"jump", &"attack_light", &"attack_heavy", &"attack_special"]: return
-	if state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED]: return
+	if state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.FALLING_OUT]: return
 	if intent.action_id == &"move":
 		input_direction = CombatIntent.Direction.NEUTRAL if intent.edge == CombatIntent.Edge.RELEASE else intent.direction
-		if intent.edge == CombatIntent.Edge.RELEASE and state == State.GUARD:
-			runtime_state.guarding = false
-			state = State.IDLE if is_on_floor() else State.FALL
+		if state == State.GUARD and input_direction != CombatIntent.Direction.DOWN:
+			release_guard()
 		return
 	# Direction releases can still clear a held input, but no action (including
 	# ultimate or platform drop) may bypass an effective hit's action lock.
@@ -204,13 +211,45 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		return
 	if active_attack != null:
 		var linked := ComboControllerScript.linked_attack(runtime_profile.move_set, active_attack, intent, _combo_link_tick(), attack_landed)
-		if state in [State.ATTACK_ACTIVE, State.ATTACK_RECOVERY] and linked != null and buffered_intent == null:
+		if state in [State.ATTACK_STARTUP, State.ATTACK_ACTIVE, State.ATTACK_RECOVERY] and linked != null and buffered_intent == null:
 			buffered_intent = intent
 		return
 	var next := _select_attack(intent)
 	if next == null: return
 	if next.action_id == &"attack_special" and runtime_state.special_cooldown_ticks > 0: return
 	_start_attack(next, intent.direction, rules)
+
+
+func release_guard() -> void:
+	runtime_state.guarding = false
+	if state == State.GUARD:
+		state = State.IDLE if is_on_floor() else State.FALL
+
+
+func begin_falling_out() -> void:
+	if state in [State.FALLING_OUT, State.RING_OUT, State.DEAD, State.MATCH_ENDED]: return
+	_reset_air_status()
+	_clear_attack_travel()
+	release_guard()
+	active_attack = null
+	buffered_intent = null
+	charge_attack = null
+	runtime_state.charge_ticks = 0
+	runtime_state.evade_ticks = 0
+	dash_ticks = 0
+	hitstun_ticks = 0
+	attack_restart_lock_ticks = 0
+	input_direction = CombatIntent.Direction.NEUTRAL
+	launcher_jump_available = false
+	# Keep existing momentum and gravity; crossing the line never freezes the body.
+	state = State.FALLING_OUT
+
+
+func _reset_ring_out_status() -> void:
+	ring_out_hidden = false
+	ring_out_pending_ticks = 0
+	_network_debug_geometry.clear()
+	_uses_network_geometry = false
 
 
 func step_tick(rules: CombatRules) -> void:
@@ -244,6 +283,7 @@ func step_tick(rules: CombatRules) -> void:
 		if runtime_state.evade_ticks <= 0: state = State.IDLE if is_on_floor() else State.FALL
 		_finish_tick()
 		return
+	if state == State.GUARD and not is_on_floor(): release_guard()
 	if state == State.GUARD:
 		# Guard is sustained by a down hold. It does not become an ordinary run tick.
 		move_and_slide()
@@ -261,6 +301,11 @@ func step_tick(rules: CombatRules) -> void:
 	if state != State.GUARD:
 		runtime_state.guarding = false
 		runtime_state.guard_durability = minf(rules.guard_max_durability, runtime_state.guard_durability + rules.guard_regen_per_tick)
+	if state == State.FALLING_OUT:
+		velocity.y = minf(velocity.y + _stats().gravity / float(rules.physics_ticks_per_second), rules.max_fall_speed)
+		move_and_slide()
+		_finish_tick()
+		return
 	if state == State.RING_OUT:
 		respawn_ticks -= 1
 		if respawn_ticks <= 0:
@@ -268,7 +313,7 @@ func step_tick(rules: CombatRules) -> void:
 		_finish_tick()
 		return
 	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]:
-		hitstun_ticks -= 1
+		hitstun_ticks = maxi(0, hitstun_ticks - 1)
 		if landing_down_ticks > 0: landing_down_ticks = maxi(1, hitstun_ticks)
 		# Ordinary grounded stagger slows with the same fixed-tick ground drag.
 		# Launch/knock-down motion remains distinct and keeps its authored momentum.
@@ -313,6 +358,20 @@ func _legacy_hitbox_rect() -> Rect2:
 
 func get_hurtbox_rect() -> Rect2:
 	return Rect2(global_position + Vector2(-27.0, -82.0), Vector2(54.0, 96.0))
+
+
+func get_debug_geometry() -> Dictionary:
+	if state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.FALLING_OUT]:
+		return {"hurtbox": {}, "hitboxes": []}
+	if _uses_network_geometry: return _network_debug_geometry.duplicate(true)
+	var boxes: Array[Dictionary] = []
+	for window: Dictionary in attack_hit_windows():
+		for box: Rect2 in window.boxes: boxes.append(_debug_rect(box))
+	return {"hurtbox": _debug_rect(get_hurtbox_rect()), "hitboxes": boxes}
+
+
+static func _debug_rect(box: Rect2) -> Dictionary:
+	return {"x": box.position.x, "y": box.position.y, "w": box.size.x, "h": box.size.y}
 
 
 func get_pushbox_rect() -> Rect2:
@@ -413,6 +472,9 @@ func snapshot() -> Dictionary:
 		"air_light_used": air_light_used, "air_heavy_used": air_heavy_used,
 		"air_lock": air_lock, "air_lock_ticks": air_lock_ticks, "air_lock_expired": air_lock_expired,
 		"landing_knockdown_pending": landing_knockdown_pending, "landing_down_ticks": landing_down_ticks, "wakeup_protection_ticks": wakeup_protection_ticks,
+		"hitstun_ticks": hitstun_ticks, "landing_down_duration_ticks": landing_down_duration_ticks,
+		"ring_out_hidden": ring_out_hidden, "ring_out_pending_ticks": ring_out_pending_ticks,
+		"debug_geometry": get_debug_geometry(),
 		"pull_ticks_remaining": pull_ticks_remaining, "pull_anchor": {"x": pull_anchor.x, "y": pull_anchor.y}, "pull_speed": pull_speed, "pull_stop_distance": pull_stop_distance,
 		"attack_travel_active": attack_travel_active, "attack_target_id": String(attack_target_id), "attack_travel_end": {"x": attack_travel_end.x, "y": attack_travel_end.y},
 		"attack_strike_ready": attack_strike_ready, "attack_travel_failed": attack_travel_failed, "attack_movement_started": _attack_movement_started,
@@ -433,6 +495,12 @@ func snapshot() -> Dictionary:
 
 
 func apply_network_snapshot(value: Dictionary) -> void:
+	_uses_network_geometry = true
+	_network_debug_geometry = value.get("debug_geometry", {}).duplicate(true)
+	ring_out_hidden = bool(value.get("ring_out_hidden", false))
+	ring_out_pending_ticks = maxi(0, int(value.get("ring_out_pending_ticks", 0)))
+	hitstun_ticks = maxi(0, int(value.get("hitstun_ticks", 0)))
+	landing_down_duration_ticks = maxi(1, int(value.get("landing_down_duration_ticks", 18)))
 	for key: String in ["air_light_used", "air_heavy_used", "air_lock_expired", "landing_knockdown_pending", "attack_travel_active", "attack_strike_ready", "attack_travel_failed"]:
 		set(key, bool(value.get(key, false)))
 	for key: String in ["air_lock", "air_lock_ticks", "landing_down_ticks", "wakeup_protection_ticks", "pull_ticks_remaining"]:
@@ -570,6 +638,7 @@ func _select_attack(intent: CombatIntent) -> AttackData:
 
 func _start_attack(next: AttackData, direction: CombatIntent.Direction, rules: CombatRules = null, preserve_facing := false) -> void:
 	_clear_attack_travel()
+	release_guard()
 	wakeup_protection_ticks = 0
 	if is_on_floor() and not next.requires_dash:
 		if not preserve_facing: _face_ground_attack(direction)
@@ -662,6 +731,7 @@ func _apply_gravity(rules: CombatRules) -> void:
 
 
 func _respawn(rules: CombatRules) -> void:
+	_reset_ring_out_status()
 	_reset_air_status()
 	_clear_attack_travel()
 	attack_restart_lock_ticks = 0
@@ -797,6 +867,8 @@ func _horizontal_input() -> int:
 func _combo_link_tick() -> int:
 	if active_attack == null:
 		return -1000000
+	if state == State.ATTACK_STARTUP:
+		return attack_phase_tick - active_attack.startup_ticks - active_attack.active_ticks
 	if state == State.ATTACK_ACTIVE:
 		return attack_phase_tick - active_attack.active_ticks
 	if state == State.ATTACK_RECOVERY:
@@ -821,7 +893,7 @@ func _sync_debug_hitbox() -> void:
 
 func _finish_tick() -> void:
 	if _simplified_combat: _check_air_landing()
-	if is_on_floor() and not runtime_state.grounded and state not in [State.SPAWNING, State.DEAD, State.RING_OUT, State.MATCH_ENDED]:
+	if is_on_floor() and not runtime_state.grounded and state not in [State.SPAWNING, State.DEAD, State.RING_OUT, State.MATCH_ENDED, State.FALLING_OUT]:
 		presentation_event.emit(&"land", {})
 	runtime_state.state_id = State.keys()[state]
 	runtime_state.active_attack_id = &"" if active_attack == null else active_attack.attack_id
@@ -895,7 +967,7 @@ func _apply_air_status(attack: AttackData, rules: CombatRules) -> void:
 
 
 func _check_air_landing() -> void:
-	if not is_on_floor() or state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED]: return
+	if not is_on_floor() or state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.FALLING_OUT]: return
 	var landed := not runtime_state.grounded
 	var impact := landing_knockdown_pending and velocity.y >= 0.0
 	if not landed and not impact: return
@@ -912,8 +984,8 @@ func _check_air_landing() -> void:
 		active_attack = null
 		buffered_intent = null
 		velocity = Vector2.ZERO
-		hitstun_ticks = 18
-		landing_down_ticks = 18
+		hitstun_ticks = landing_down_duration_ticks
+		landing_down_ticks = landing_down_duration_ticks
 		state = State.KNOCK_DOWN
 
 
@@ -956,13 +1028,13 @@ func advance_attack_travel(targets: Array[FighterController], rules: CombatRules
 		var nearest := INF
 		var path := Rect2(Vector2(minf(global_position.x, attack_travel_end.x), global_position.y - 82.0), Vector2(active_attack.travel_distance, 96.0))
 		for target: FighterController in targets:
-			if target == self or target.state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED]: continue
+			if target == self or target.state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.FALLING_OUT]: continue
 			var box := target.get_hurtbox_rect()
 			var center_distance := (target.global_position.x - global_position.x) * locked_facing
 			if center_distance < 0.0 or center_distance > active_attack.travel_distance or not path.intersects(box): continue
 			var distance := (box.position.x - global_position.x) if locked_facing > 0 else (global_position.x - box.end.x)
 			distance = maxf(0.0, distance)
-			if distance < nearest or (is_equal_approx(distance, nearest) and (first == null or target.fighter_id < first.fighter_id)):
+			if distance < nearest or (is_equal_approx(distance, nearest) and (first == null or String(target.fighter_id) < String(first.fighter_id))):
 				first = target
 				nearest = distance
 		if first != null:
@@ -971,7 +1043,7 @@ func advance_attack_travel(targets: Array[FighterController], rules: CombatRules
 	if not attack_travel_active: return
 	var end_box := Rect2(attack_travel_end + Vector2(-27, -58), Vector2(54, 72))
 	for occupant: FighterController in occupants:
-		if occupant != self and occupant.state not in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED] and end_box.intersects(occupant.get_pushbox_rect()):
+		if occupant != self and occupant.state not in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.FALLING_OUT] and end_box.intersects(occupant.get_pushbox_rect()):
 			_finish_attack_travel(false)
 			return
 	# Reject terrain before crossing a body: restoring pushboxes while inside an
@@ -989,7 +1061,7 @@ func advance_attack_travel(targets: Array[FighterController], rules: CombatRules
 		attack_travel_active = false
 		attack_strike_ready = not attack_target_id.is_empty()
 		for target: FighterController in targets:
-			if target != self and target.state not in [State.DEAD, State.RING_OUT, State.MATCH_ENDED] and get_pushbox_rect().intersects(target.get_pushbox_rect()):
+			if target != self and target.state not in [State.DEAD, State.RING_OUT, State.MATCH_ENDED, State.FALLING_OUT] and get_pushbox_rect().intersects(target.get_pushbox_rect()):
 				attack_travel_failed = true
 				attack_strike_ready = false
 		if attack_strike_ready:

@@ -7,6 +7,7 @@ const RESTART_PRESSED_ID := "fa.ui.forestlight.secondary.pressed"
 const RESTART_DISABLED_ID := "fa.ui.forestlight.secondary.disabled"
 const ForestlightHudScript := preload("res://scripts/forestlight_match_hud.gd")
 const CombatAudioScript := preload("res://scripts/combat_audio.gd")
+const CombatDebugOverlayScript := preload("res://scripts/combat_debug_overlay.gd")
 
 @onready var match_controller: MatchController = $MatchController
 @onready var arena_visual = $ArenaVisual
@@ -23,10 +24,14 @@ var app_shell_mode := false
 var _text_scale := 1.0
 var combat_audio: CombatAudio
 var forestlight_hud: Control
+var combat_debug_overlay: Node2D
+var combat_debug_legend: RichTextLabel
+var combat_debug_enabled := false
 
 
 func _ready() -> void:
 	_apply_resource_ui()
+	_build_combat_debug_overlay()
 	forestlight_hud = ForestlightHudScript.new()
 	forestlight_hud.name = "ForestlightMatchHud"
 	$Interface.add_child(forestlight_hud)
@@ -54,6 +59,35 @@ func _ready() -> void:
 	debug_readout.position = Vector2(24, 180)
 
 
+func _build_combat_debug_overlay() -> void:
+	combat_debug_overlay = CombatDebugOverlayScript.new()
+	combat_debug_overlay.name = "CombatDebugOverlay"
+	combat_debug_overlay.controller = match_controller
+	add_child(combat_debug_overlay)
+	combat_debug_legend = RichTextLabel.new()
+	combat_debug_legend.name = "CombatDebugLegend"
+	combat_debug_legend.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	combat_debug_legend.bbcode_enabled = true
+	combat_debug_legend.fit_content = true
+	combat_debug_legend.scroll_active = false
+	combat_debug_legend.text = "[center][color=#ff5364]■ 타격 범위[/color]   [color=#48bfff]■ 피격 범위[/color][/center]"
+	combat_debug_legend.add_theme_color_override("font_outline_color", Color("122033"))
+	combat_debug_legend.add_theme_constant_override("outline_size", 5)
+	$Interface.add_child(combat_debug_legend)
+	combat_debug_legend.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP)
+	combat_debug_legend.offset_left = -220
+	combat_debug_legend.offset_right = 220
+	combat_debug_legend.offset_top = 152
+	combat_debug_legend.offset_bottom = 184
+	set_combat_debug_enabled(combat_debug_enabled)
+
+
+func set_combat_debug_enabled(enabled: bool) -> void:
+	combat_debug_enabled = enabled
+	if is_instance_valid(combat_debug_overlay): combat_debug_overlay.set_enabled(enabled)
+	if is_instance_valid(combat_debug_legend): combat_debug_legend.visible = enabled
+
+
 func _apply_resource_ui() -> void:
 	hud_panel.texture = _resource_texture(HUD_PANEL_ID, Vector2i(16, 9))
 	restart.add_theme_color_override("font_color", Color("3b2818"))
@@ -78,6 +112,7 @@ func apply_accessibility(settings: Dictionary) -> void:
 	readout.add_theme_font_size_override("font_size", roundi(22 * _text_scale))
 	if forestlight_hud != null: forestlight_hud.configure(forestlight_hud.identities, _text_scale, minimap.local_id, minimap.team_mode)
 	debug_readout.add_theme_font_size_override("font_size", roundi(16 * _text_scale))
+	if is_instance_valid(combat_debug_legend): combat_debug_legend.add_theme_font_size_override("normal_font_size", roundi(16 * _text_scale))
 	restart.add_theme_font_size_override("font_size", roundi(18 * _text_scale))
 
 

@@ -257,6 +257,7 @@ func _begin_settings() -> void:
 		"effects", "accessibility": _draft = app.store.data.accessibility.duplicate(true)
 		"minimap": _draft = app.store.data.minimap.duplicate(true)
 		"controls": _draft = app.menu_store.controls.duplicate(true)
+		"debug": _draft = {"show_combat_ranges": app.debug_hitboxes_enabled}
 	_baseline = _draft.duplicate(true)
 
 func _dirty() -> bool:
@@ -279,6 +280,7 @@ func _reset_draft() -> void:
 			_draft.haptics_enabled = true
 		"minimap": _draft = LocalPlayerStore.default_minimap()
 		"controls": _draft = {"joystick_mode": "fixed", "button_scale": 1.0, "button_transparency": 0}
+		"debug": _draft = {"show_combat_ranges": false}
 
 func _apply_settings() -> void:
 	busy = true
@@ -287,6 +289,9 @@ func _apply_settings() -> void:
 		"sound":
 			ok = ForestArenaAudio.set_levels(float(_draft.music), float(_draft.effects), bool(_draft.muted)) == OK
 			if not ok: ForestArenaAudio.set_levels(float(_baseline.music), float(_baseline.effects), bool(_baseline.muted), false)
+		"debug":
+			app.set_debug_hitboxes_enabled(bool(_draft.show_combat_ranges))
+			ok = true
 		"effects", "accessibility": ok = await app._change_profile("accessibility", _draft)
 		"minimap": ok = await app._change_profile("minimap", _draft)
 		"controls":
@@ -294,6 +299,7 @@ func _apply_settings() -> void:
 			if ok: app._apply_menu_control_settings()
 	busy = false
 	state.message = "설정을 적용했습니다." if ok else "설정을 저장하지 못했습니다. 다시 시도하세요."
+	if ok and _settings_category() == "debug": state.message = "현재 실행에 적용했습니다. 앱을 다시 실행하면 꺼집니다."
 	if ok: _baseline = _draft.duplicate(true)
 	_rebuild()
 

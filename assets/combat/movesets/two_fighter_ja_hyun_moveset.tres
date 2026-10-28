@@ -30,6 +30,8 @@ attack = SubResource("Attack_light_01")
 script = ExtResource("4_link")
 from_attack_id = &"ja-hyun-light-01"
 input_action_id = &"attack_light"
+window_start_tick = -12
+window_end_tick = 17
 next_attack_id = &"ja-hyun-light-02"
 
 [sub_resource type="Resource" id="Attack_light_02"]
@@ -57,6 +59,8 @@ attack = SubResource("Attack_light_02")
 script = ExtResource("4_link")
 from_attack_id = &"ja-hyun-light-02"
 input_action_id = &"attack_light"
+window_start_tick = -12
+window_end_tick = 17
 next_attack_id = &"ja-hyun-light-03"
 
 [sub_resource type="Resource" id="Attack_light_03"]
@@ -84,6 +88,8 @@ attack = SubResource("Attack_light_03")
 script = ExtResource("4_link")
 from_attack_id = &"ja-hyun-light-03"
 input_action_id = &"attack_light"
+window_start_tick = -12
+window_end_tick = 17
 next_attack_id = &"ja-hyun-light-04"
 
 [sub_resource type="Resource" id="Attack_light_04"]

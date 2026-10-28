@@ -731,8 +731,9 @@ func _stats_line(title: String, stats: Dictionary, parent: Node) -> void:
 
 func _settings() -> void:
 	var left := _scroll(main, Rect2(0, 0, 246, 456), "category_scroll")
+	left.add_theme_constant_override("separation", 4)
 	var category: String = "controls" if state.id == "controls" else String(state.category)
-	for entry: Array in [["소리", "sound"], ["화면 효과", "effects"], ["접근성", "accessibility"], ["미니맵", "minimap"], ["조작", "controls"]]:
+	for entry: Array in [["소리", "sound"], ["화면 효과", "effects"], ["접근성", "accessibility"], ["미니맵", "minimap"], ["조작", "controls"], ["디버깅", "debug"]]:
 		var node: Button
 		if entry[1] == "controls": node = _button(entry[0], "open", {"id": "controls"}, left, category == entry[1])
 		elif state.id == "controls": node = _button(entry[0], "open", {"id": "settings", "params": {"category": entry[1]}}, left)
@@ -761,6 +762,10 @@ func _settings() -> void:
 			_slider("미니맵 투명도", "transparency", float(draft.transparency), 0, 90, 1, body, 1, "%")
 			_choices("캐릭터 표시", "marker_style", [["얼굴", "face"], ["점", "dot"]], draft.marker_style, body)
 			_toggle("미니맵 이름 표시", "show_names", bool(draft.show_names), body)
+		"debug":
+			_label("디버깅 · 임시 기능", body, 28)
+			_toggle("타격·피격 범위 표시", "show_combat_ranges", bool(draft.show_combat_ranges), body)
+			_label("빨강: 타격 범위 · 파랑: 피격 범위\n현재 실행 중에만 유지하며, 앱을 다시 실행하면 꺼집니다.", body, 22, STYLE.MUTED)
 		"controls":
 			_label("조작 설정", body, 28)
 			_controls_sample(body)

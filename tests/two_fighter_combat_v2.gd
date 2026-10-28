@@ -183,8 +183,9 @@ func _test_air_budget_and_timeout() -> void:
 	target.global_position = Vector2(1900, 200)
 	target.air_light_used = true
 	var initial := target.air_lock_ticks
-	for ignored: int in 25: target.step_tick(controller.rules)
-	check(target.air_lock_ticks == initial - 25, "air control timeout uses fixed ticks")
+	var stun_wait := target.hitstun_ticks + 8
+	for ignored: int in stun_wait: target.step_tick(controller.rules)
+	check(target.air_lock_ticks == initial - stun_wait, "air control timeout uses fixed ticks")
 	target.consume_intent(intent(target, &"move", CombatIntent.Direction.LEFT), controller.rules)
 	target.step_tick(controller.rules)
 	check(target.velocity.x < 0, "after light hitstun, horizontal steering is possible")
@@ -238,12 +239,12 @@ func _test_slam_landing() -> void:
 			if target.landing_down_ticks > 0:
 				landed = true
 				break
-		check(landed and target.state == FighterController.State.KNOCK_DOWN and target.landing_down_ticks == 18, "%s landing begins the exact 18-tick down" % id)
+		check(landed and target.state == FighterController.State.KNOCK_DOWN and target.landing_down_ticks == 36, "%s landing begins the exact 36-tick down" % id)
 		target.consume_intent(intent(target, &"move", CombatIntent.Direction.LEFT), controller.rules)
 		target.consume_intent(intent(target, &"move", CombatIntent.Direction.LEFT, CombatIntent.Edge.RELEASE), controller.rules)
 		check(target.input_direction == CombatIntent.Direction.NEUTRAL, "down records movement release too")
 		check(target.air_lock == 0 and not target.air_light_used and not target.air_heavy_used, "%s real landing clears locks and restores one of each action" % id)
-		steps(18)
+		steps(36)
 		check(target.wakeup_protection_ticks == 12, "%s waking provides 12-tick protection" % id)
 		var hp := target.current_hp
 		var context := HitContext.new(controller.tick, source, target, attack_by_action(source, &"attack_light"))
@@ -418,7 +419,7 @@ func _test_simultaneous() -> void:
 		if reverse: targets.reverse()
 		source.advance_attack_travel(targets, controller.rules)
 		picked.append(source.attack_target_id)
-	check(picked == [&"a-first-tie", &"a-first-tie"], "equal path distance uses fighter ID rather than array order")
+	check(picked == [&"a-first-tie", &"a-first-tie"], "equal path distance uses lexical fighter ID rather than array or intern order: %s" % [picked])
 	other.queue_free()
 
 

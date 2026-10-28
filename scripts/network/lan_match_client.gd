@@ -14,7 +14,7 @@ signal result_sync_changed(match_id: String, state: String)
 signal rematch_changed(ready_slots: Array, closed: bool)
 signal failed(code: String)
 
-const PROTOCOL_VERSION := 3
+const PROTOCOL_VERSION := 4
 const RECONNECT_GRACE_MSEC := 60_000
 const ACTIONS: Array[StringName] = [&"jump", &"attack_light", &"attack_heavy", &"attack_special"]
 

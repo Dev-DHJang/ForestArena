@@ -85,7 +85,7 @@ func run() -> void:
 			check(command.action_id not in [&"dash",&"evade",&"ultimate"] and not (command.action_id == &"attack_heavy" and command.edge == CombatIntent.Edge.RELEASE), "AI never emits removed or charge-release commands")
 			seen[command.action_id] = true
 	check(seen.has(&"attack_heavy") and seen.has(&"attack_light"), "AI uses single heavy and light attacks")
-	check(LanInvite.PROTOCOL_VERSION == 3 and LanMatchClient.PROTOCOL_VERSION == 3, "LAN uses protocol three")
+	check(LanInvite.PROTOCOL_VERSION == 4 and LanMatchClient.PROTOCOL_VERSION == 4, "LAN uses protocol four")
 	var server: Node = load("res://server/game/lan_game_server.gd").new()
 	server.catalog = catalog.combat
 	for selection: Dictionary in [{"schema_version":1,"character_id":"myo-ryung","job_id":"","accessory_id":""},{"schema_version":1,"character_id":"nabi","job_id":"","accessory_id":"fixture-thorns"}]:

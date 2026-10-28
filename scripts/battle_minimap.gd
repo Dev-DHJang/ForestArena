@@ -92,7 +92,7 @@ func _rebuild_markers() -> void:
 		if not fighter_value is Dictionary: continue
 		var fighter: Dictionary = fighter_value
 		var id := StringName(fighter.get("id", ""))
-		if not participants.has(id) or int(fighter.get("stocks", 0)) <= 0: continue
+		if not participants.has(id) or int(fighter.get("stocks", 0)) <= 0 or String(fighter.get("state", "")) in ["FALLING_OUT", "RING_OUT", "DEAD"]: continue
 		var location: Variant = fighter.get("position", Vector2.ZERO)
 		var world := Vector2.ZERO
 		if location is Vector2: world = location

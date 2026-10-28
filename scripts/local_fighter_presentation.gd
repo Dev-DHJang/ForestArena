@@ -4,7 +4,7 @@ const MANIFEST_PATH := "res://assets/character/manifest.json"
 const DISPLAY_LAYOUT_PATH := "res://forest_arena/data/character_display_layout_v01.json"
 const STATE_MOTIONS := {
 	FighterController.State.RUN: &"run", FighterController.State.DASH: &"run",
-	FighterController.State.JUMP: &"jump", FighterController.State.FALL: &"jump",
+	FighterController.State.JUMP: &"jump", FighterController.State.FALL: &"jump", FighterController.State.FALLING_OUT: &"jump",
 	FighterController.State.GUARD: &"guard", FighterController.State.EVADE: &"evade",
 	FighterController.State.CHARGE: &"attack_heavy_charge",
 	FighterController.State.HITSTUN: &"hitstun", FighterController.State.LAUNCH: &"launch",
@@ -191,9 +191,8 @@ func play_combat_event(event_id: StringName, payload: Dictionary) -> void:
 	if fighter.state not in [FighterController.State.HITSTUN, FighterController.State.LAUNCH, FighterController.State.KNOCK_DOWN]: return
 	release_clock.cancel()
 	_reaction_restart_pending = true
-	# LAN3 has no remaining-hitstun field. Use authored drawing speed and obey
-	# the next received state; presentation must not calculate missing combat data.
-	_reaction_duration_ticks = 0
+	# LAN4 supplies remaining hitstun; obey the received state and duration.
+	_reaction_duration_ticks = maxi(0, fighter.hitstun_ticks)
 
 
 func sync_visual(delta: float) -> void:
@@ -218,7 +217,7 @@ func sync_visual(delta: float) -> void:
 		_spawn_elapsed = 0.0
 		_landing_elapsed = -1.0
 	_previous_state = fighter.state
-	var airborne := fighter.state in [FighterController.State.JUMP, FighterController.State.FALL]
+	var airborne := fighter.state in [FighterController.State.JUMP, FighterController.State.FALL, FighterController.State.FALLING_OUT]
 	if airborne:
 		_landing_elapsed = -1.0
 	elif _was_airborne and fighter.state == FighterController.State.IDLE and fighter.active_attack == null:
@@ -276,7 +275,8 @@ func sync_visual(delta: float) -> void:
 			effects.phase_frame_ranges = []
 			effects.artwork_sha256 = ""
 		return
-	sprite.visible = true
+	sprite.visible = not fighter.ring_out_hidden
+	if effects != null: effects.visible = not fighter.ring_out_hidden
 	var layout: Dictionary = _motion_layouts.get(shown, {})
 	var drawing := display_layout(layout)
 	var display_scale := float(drawing.scale)
@@ -317,7 +317,8 @@ func sync_visual(delta: float) -> void:
 		sprite.frame = timed_frame(elapsed_ticks, _reaction_duration_ticks, 0, frames) if weights.is_empty() else weighted_frame(float(elapsed_ticks) / maxi(_reaction_duration_ticks - 1, 1), 0, frames, weights)
 	elif shown == &"knock_down" and fighter.landing_down_ticks > 0:
 		var span: Array = drawing.get("landing_down_frame_range", [12,16])
-		sprite.frame = timed_frame(18 - fighter.landing_down_ticks,18,int(span[0]),int(span[1])) if weights.is_empty() else weighted_frame(float(18-fighter.landing_down_ticks)/17.0,int(span[0]),int(span[1]),weights)
+		var duration := maxi(1, fighter.landing_down_duration_ticks)
+		sprite.frame = timed_frame(duration - fighter.landing_down_ticks,duration,int(span[0]),int(span[1])) if weights.is_empty() else weighted_frame(float(duration-fighter.landing_down_ticks)/maxi(1,duration-1),int(span[0]),int(span[1]),weights)
 	elif shown == &"wake_up" and fighter.wakeup_protection_ticks > 0:
 		sprite.frame = timed_frame(12 - fighter.wakeup_protection_ticks,12,0,frames) if weights.is_empty() else weighted_frame(float(12-fighter.wakeup_protection_ticks)/11.0,0,frames,weights)
 	elif shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
@@ -343,6 +344,10 @@ func sync_visual(delta: float) -> void:
 			_landing_elapsed += delta
 	elif present_attack and missing_motion.is_empty() and shown != &"run":
 		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, drawing.get("phase_frame_ranges", layout.get("phase_frame_ranges", [])), weights)
+	elif shown == &"guard" and layout.has("state_hold_frame"):
+		# Stop before the approved sheet's release poses, regardless of looping flags.
+		var index := playback_frame(_elapsed, sprite.sprite_frames.get_animation_speed(shown), 0, frames, weights, false)
+		sprite.frame = mini(index, int(layout.state_hold_frame))
 	elif shown == &"run" and float(drawing.get("run_stride_px", 0.0)) > 0.0:
 		var stride := float(drawing.run_stride_px)
 		# Position is only observed. A teleport, respawn or fresh run starts a new

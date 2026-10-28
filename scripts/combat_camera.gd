@@ -15,3 +15,7 @@ func _process(_delta: float) -> void:
 	# Presentation follows the local player only. Ring-out and hit calculations never
 	# read this camera, so camera smoothing cannot change a fixed-tick result.
 	position = player.global_position
+	var controller := get_node_or_null("../MatchController") as MatchController
+	if controller != null and controller.rules.falling_ring_out and controller.stage_data != null:
+		var floor_surface := controller.stage_data.main_floor()
+		if floor_surface != null: position.y = minf(position.y, floor_surface.rect.position.y)

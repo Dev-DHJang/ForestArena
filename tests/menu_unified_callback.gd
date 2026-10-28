@@ -49,7 +49,7 @@ func run() -> void:
 	app.db_client.pending = {}
 	# A menu invite may never displace an existing game/room.
 	app.lan_client.active = true
-	check(not app.join_menu_invite("FA3|http://127.0.0.1:18888|ws://127.0.0.1:17777|ABC234|3"), "invitation cannot displace an active LAN session")
+	check(not app.join_menu_invite("FA4|http://127.0.0.1:18888|ws://127.0.0.1:17777|ABC234|4"), "invitation cannot displace an active LAN session")
 	app.lan_client.active = false
 	app.queue_free()
 	await process_frame

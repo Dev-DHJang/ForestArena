@@ -40,7 +40,7 @@ func _initialize() -> void:
 	opponent.state = FighterController.State.IDLE
 	PushboxResolverScript.resolve([opponent, player])
 	_check(not player.get_pushbox_rect().intersects(opponent.get_pushbox_rect()), "equal-center pushboxes remained overlapped")
-	_check((player.fighter_id < opponent.fighter_id) == (player.global_position.x < opponent.global_position.x), "fighter ID tie-break is not deterministic: %s=%s %s=%s" % [player.fighter_id, player.global_position.x, opponent.fighter_id, opponent.global_position.x])
+	_check((String(player.fighter_id) < String(opponent.fighter_id)) == (player.global_position.x < opponent.global_position.x), "fighter ID tie-break is not deterministic: %s=%s %s=%s" % [player.fighter_id, player.global_position.x, opponent.fighter_id, opponent.global_position.x])
 	var first_positions := [player.global_position, opponent.global_position]
 	player.global_position = Vector2(640, 572)
 	opponent.global_position = Vector2(640, 572)
