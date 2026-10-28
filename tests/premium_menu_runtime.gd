@@ -2,7 +2,7 @@ extends SceneTree
 
 # Independent contract checks exercise the native controls that ship in the app.
 # --ui-capture writes the real rendered viewport; never run it with --headless.
-const OUTPUT := "res://_workspace/two-fighter-combat-v2/qa/premium-menu-runtime"
+var OUTPUT := "user://forest-arena-qa/premium-menu-%d" % OS.get_process_id()
 const MENUS := {
 	"character_collection": "SCR_04_CharacterCollection", "character_detail": "SCR_05_CharacterDetail",
 	"accessory_collection": "SCR_06_AccessoryCollection", "accessory_detail": "SCR_07_AccessoryDetail",
@@ -20,6 +20,8 @@ var capture := "--ui-capture" in OS.get_cmdline_user_args()
 var qa_dir := "user://premium-menu-qa-%d" % Time.get_ticks_usec()
 
 func _initialize() -> void:
+	var run_output := OS.get_environment("FOREST_ARENA_VERIFY_OUTPUT")
+	if not run_output.is_empty(): OUTPUT = run_output.path_join("premium-menu-runtime")
 	call_deferred("run")
 
 func check(ok: bool, label: String) -> void:

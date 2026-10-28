@@ -34,4 +34,4 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         try: self.wfile.write(body)
         except BrokenPipeError: pass
-ThreadingHTTPServer(("127.0.0.1", 18081), Handler).serve_forever()
+ThreadingHTTPServer(("127.0.0.1", int(os.environ.get("FOREST_ARENA_LAN_TEST_API_PORT", "18081"))), Handler).serve_forever()

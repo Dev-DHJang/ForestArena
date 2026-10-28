@@ -2,6 +2,12 @@
 set -eu
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+# Direct invocations and the shared runner use the same worktree lock.
+SCRIPT_PATH="$ROOT/scripts/verify-online-server.sh"
+if [ "${FOREST_ARENA_LOCKED_SCRIPT:-}" != "$SCRIPT_PATH" ]; then
+  exec python3 "$ROOT/tools/forest_arena/workflow.py" --root "$ROOT" run -- \
+    env FOREST_ARENA_LOCKED_SCRIPT="$SCRIPT_PATH" sh "$SCRIPT_PATH" "$@"
+fi
 cd "$ROOT"
 
 fail() {
@@ -34,9 +40,11 @@ grep -qF "status IN ('matched', 'running', 'ended')" database/migrations/0002_lo
 
 sh -n scripts/server-dev.sh
 sh -n scripts/db-dev.sh
-npm --prefix server/api ci --prefer-offline --no-audit --no-fund
+python3 tools/forest_arena/workflow.py ensure-node
 npm --prefix server/api test
-godot --headless --path . --editor --quit
+if [ "${FOREST_ARENA_GODOT_IMPORTED:-}" != "1" ]; then
+  godot --headless --path . --editor --quit
+fi
 godot --headless --path . res://tests/online_contract.tscn
 
 echo "verify-online-server: PASS"

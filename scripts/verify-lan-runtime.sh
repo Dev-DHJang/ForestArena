@@ -2,7 +2,24 @@
 set -eu
 
 ROOT=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
-PORT=${FOREST_ARENA_LAN_TEST_PORT:-17777}
+# Direct invocations and the shared runner use the same worktree lock.
+SCRIPT_PATH="$ROOT/scripts/verify-lan-runtime.sh"
+if [ "${FOREST_ARENA_LOCKED_SCRIPT:-}" != "$SCRIPT_PATH" ]; then
+  exec python3 "$ROOT/tools/forest_arena/workflow.py" --root "$ROOT" run -- \
+    env FOREST_ARENA_LOCKED_SCRIPT="$SCRIPT_PATH" sh "$SCRIPT_PATH" "$@"
+fi
+# Select both ports together so independently checked-out jobs do not share 17777/18081.
+set -- $(python3 "$ROOT/tools/forest_arena/workflow.py" ports --count 2 \
+  --exclude "${FOREST_ARENA_LAN_TEST_PORT:-0}" --exclude "${FOREST_ARENA_LAN_TEST_API_PORT:-0}")
+PORT=${FOREST_ARENA_LAN_TEST_PORT:-$1}
+API_PORT=${FOREST_ARENA_LAN_TEST_API_PORT:-$2}
+if [ "$PORT" = "$API_PORT" ]; then
+  echo "LAN WebSocket and API test ports must be different" >&2
+  exit 1
+fi
+export FOREST_ARENA_LAN_TEST_API_PORT="$API_PORT"
+export FOREST_ARENA_LAN_TEST_API_URL="http://127.0.0.1:$API_PORT"
+export FOREST_ARENA_LAN_TEST_WS_URL="ws://127.0.0.1:$PORT"
 LOG_FILE=$(mktemp /tmp/forest-arena-lan-server-XXXXXX)
 RUNTIME_LOG=$(mktemp /tmp/forest-arena-lan-runtime-XXXXXX)
 APP_LOG=$(mktemp /tmp/forest-arena-lan-app-XXXXXX)
@@ -23,7 +40,7 @@ sleep 0.2
 kill -0 "$api_pid"
 
 FOREST_ARENA_LAN_OUTBOX_PATH="$QUEUE_DIR/outbox.json" \
-FOREST_ARENA_LAN_API_URL=http://127.0.0.1:18081 \
+FOREST_ARENA_LAN_API_URL="$FOREST_ARENA_LAN_TEST_API_URL" \
 FOREST_ARENA_SERVICE_TOKEN=lan-runtime-test-service \
 FOREST_ARENA_ALLOWED_CIDR=127.0.0.0/8 \
 FOREST_ARENA_LAN_BIND_HOST=127.0.0.1 \

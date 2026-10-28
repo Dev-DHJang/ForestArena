@@ -39,6 +39,7 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 
     godot --path . --editor
     ./scripts/verify.sh
+    ./scripts/verify.sh --full
     ./scripts/verify-lan-runtime.sh
     ./scripts/lan-host.sh start
     ./scripts/server-dev.sh up
@@ -54,13 +55,13 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
 실제 Android 기기를 무선으로 연결하는 방법은 [Android 무선 디버깅](docs/engineering/godot/android-wireless-debugging.md)을 참고한다.
 같은 Wi-Fi의 Android 사용자 두 명이 대전하는 방법은 [LAN 1대1 플레이](docs/gameplay/lan-1v1-play.md)를 참고한다.
 
-`./scripts/verify.sh`는 화면 없이 Godot 프로젝트 열기, 앱 기본 실행, 전투, 캐릭터·직업·장신구 조합, 로컬 온라인 계약, 데이터 형식과 문서 구조를 한 번에 확인하는 기본 검사다. `./scripts/server-dev.sh verify-runtime`은 실행 중인 로컬 스택에 실제 Godot 클라이언트 두 개를 붙여 매칭·입력·재접속·결과 저장을 확인한다. `./scripts/verify-docs.sh`는 문서 위치·링크·쉬운 문장 규칙을, `./scripts/verify-harness.sh`는 AI 역할·작업 배정 규칙을 빠르게 확인한다.
+`./scripts/verify.sh`는 변경 파일에 필요한 검사만 선택한다. `--list`는 선택 이유와 명령을 보여주고 `--suite <이름>`은 분야를 지정한다. 최종 통합·병합 전에는 `--full`로 전체 검사를 실행한다. 검사 목록은 `tools/forest_arena/verification.json`, 동시 작업·로그·파일 정리 기준은 [프로젝트 관리](docs/operations/project-maintenance.md)를 따른다. `./scripts/server-dev.sh verify-runtime`은 실행 중인 개발 서버에 실제 클라이언트를 연결하는 별도 검사다.
 
 관리자 웹의 최초 계정·실행·복구는 [로컬 관리자 웹](docs/engineering/admin-web.md)을 참고한다.
 
 ## 현재 상태
 
-- 2026-10-19 두 캐릭터 전투 개편: 코드·자동 검사와 승인 전 모션 시안을 진행한다. 모션별 승인과 실제 Android 확인 전에는 새 전투 완성으로 기록하지 않는다.
+- 자현·나비 전투와 승인 모션의 최신 구현·기기 확인 범위는 [현재 작업 상태](docs/operations/harness/operating-index.md)를 따른다.
 
 - 프리미엄 메뉴의 실제 기록·친구·순위와 통합 프로필은 [메뉴 기능 v01](docs/ui/menu-features-v01.md)을 따른다. 개발 서버 범위이며 보상·재화·채팅은 포함하지 않는다.
 
