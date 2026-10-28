@@ -1,0 +1,1383 @@
+{
+  "status": "pass",
+  "source_commit": "5916be8524790d9b02cc948c7184ef6bcf6a5be3",
+  "elapsed_seconds": 521.948,
+  "total_checks": 90,
+  "completed_checks": 90,
+  "checks": [
+    {
+      "id": "godot-import",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--editor",
+        "--quit"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 2.578,
+      "log_bytes": 1171,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "personality_concepts",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_personality_concepts.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.511,
+      "log_bytes": 104,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "personality_normalization",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_personality_normalization.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.616,
+      "log_bytes": 104,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "personality_registration",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_personality_registration.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 2.47,
+      "log_bytes": 297,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "install_personality_concepts",
+      "command": [
+        "python3",
+        "tools/forest_arena/install_personality_concepts.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.242,
+      "log_bytes": 92,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "recover_codex_session",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_recover_codex_session.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.187,
+      "log_bytes": 104,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "motion_action_review",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_motion_action_review.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 6.117,
+      "log_bytes": 18373,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "android_fleet",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_android_fleet.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.294,
+      "log_bytes": 789,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "android_touch",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_android_touch.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.616,
+      "log_bytes": 109,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "prepare_android_qa",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_prepare_android_qa.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.395,
+      "log_bytes": 106,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "verify_forest_ledge_art",
+      "command": [
+        "python3",
+        "tools/forest_arena/verify_forest_ledge_art.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.132,
+      "log_bytes": 74,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "verify_job_id_independence",
+      "command": [
+        "python3",
+        "tools/forest_arena/verify_job_id_independence.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.039,
+      "log_bytes": 79,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase0_smoke",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase0_smoke.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.555,
+      "log_bytes": 428,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase1_combat_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase1_combat_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.35,
+      "log_bytes": 102,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase1_combat_behavior",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase1_combat_behavior.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.454,
+      "log_bytes": 348,
+      "shutdown_diagnostics": [
+        "ERROR: 9 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "phase1_match_rules",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase1_match_rules.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.452,
+      "log_bytes": 344,
+      "shutdown_diagnostics": [
+        "ERROR: 4 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "phase1_determinism",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase1_determinism.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.675,
+      "log_bytes": 163,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "combat_feel_stage_v2",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_feel_stage_v2.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 1.198,
+      "log_bytes": 100,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "match_playtest_combat",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/match_playtest_combat.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 10.352,
+      "log_bytes": 313,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "two_fighter_combat_v2",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/two_fighter_combat_v2.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.77,
+      "log_bytes": 101,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "two_fighter_combat_boundaries",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/two_fighter_combat_boundaries.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.507,
+      "log_bytes": 348,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "two_fighter_product",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/two_fighter_product.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 2.13,
+      "log_bytes": 423,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "two_fighter_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/two_fighter_presentation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.769,
+      "log_bytes": 104,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "two_fighter_vfx",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/two_fighter_vfx.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.964,
+      "log_bytes": 95,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "scarf_path_continuity",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/scarf_path_continuity.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.566,
+      "log_bytes": 115,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "nabi_claw_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/nabi_claw_presentation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.46,
+      "log_bytes": 116,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "variable_motion_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/variable_motion_presentation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.505,
+      "log_bytes": 120,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "two_fighter_ai",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/two_fighter_ai.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 46.636,
+      "log_bytes": 444,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "android_device_combat_regression",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/android_device_combat_regression.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.677,
+      "log_bytes": 1292,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase1_input_ui",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase1_input_ui.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.678,
+      "log_bytes": 555,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase2_loadout_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase2_loadout_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.296,
+      "log_bytes": 106,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase2_runtime_wiring",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase2_runtime_wiring.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.453,
+      "log_bytes": 104,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase3_style_comparison",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase3_style_comparison.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.35,
+      "log_bytes": 103,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase3_style_playtest_entry",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase3_style_playtest_entry.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.729,
+      "log_bytes": 107,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase4_accessory_validation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase4_accessory_validation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.572,
+      "log_bytes": 107,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "accessory_policy",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/accessory_policy.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.351,
+      "log_bytes": 96,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase5_job_inheritance",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase5_job_inheritance.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.29,
+      "log_bytes": 102,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase6_local_mode_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase6_local_mode_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.293,
+      "log_bytes": 106,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "phase6_multifighter_match",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/phase6_multifighter_match.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.456,
+      "log_bytes": 350,
+      "shutdown_diagnostics": [
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "audio",
+      "command": [
+        "./scripts/verify-audio.sh"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 9.581,
+      "log_bytes": 1357,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "android_audio_store",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/android_audio_store.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.293,
+      "log_bytes": 99,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "combat_overhaul_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_overhaul_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.448,
+      "log_bytes": 349,
+      "shutdown_diagnostics": [
+        "ERROR: 3 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "character_data_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/character_data_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.35,
+      "log_bytes": 1967,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "character_appearance_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/character_appearance_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.353,
+      "log_bytes": 109,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "character_personality_concept_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/character_personality_concept_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.344,
+      "log_bytes": 175,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "character_motion_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/character_motion_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 1.169,
+      "log_bytes": 105,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "character_attack_motion_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/character_attack_motion_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.291,
+      "log_bytes": 112,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "combat_concept_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_concept_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.238,
+      "log_bytes": 103,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "ui_design_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/ui_design_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.24,
+      "log_bytes": 98,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "battle_minimap",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/battle_minimap.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.35,
+      "log_bytes": 94,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "battle_minimap_app_flow",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/battle_minimap_app_flow.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 2.404,
+      "log_bytes": 651,
+      "shutdown_diagnostics": [
+        "ERROR: 5 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "local_player_store",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/local_player_store.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.341,
+      "log_bytes": 98,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "menu_state_store",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/menu_state_store.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.349,
+      "log_bytes": 96,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "menu_feature_store_unit",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/menu_feature_store_unit.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.288,
+      "log_bytes": 115,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "menu_service_client_unit",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/menu_service_client_unit.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.67,
+      "log_bytes": 663,
+      "shutdown_diagnostics": [
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "menu_touch_controls",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/menu_touch_controls.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.287,
+      "log_bytes": 1889,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "premium_menu_touch_scroll",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/premium_menu_touch_scroll.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 2.302,
+      "log_bytes": 699,
+      "shutdown_diagnostics": [
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "premium_menu_runtime",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/premium_menu_runtime.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 105.129,
+      "log_bytes": 7347,
+      "shutdown_diagnostics": [
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "demo_guest_client",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/demo_guest_client.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.184,
+      "log_bytes": 97,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "profile_catalog",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tools/forest_arena/profile_catalog.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.242,
+      "log_bytes": 95,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "local_ai_behavior",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/local_ai_behavior.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 14.611,
+      "log_bytes": 342,
+      "shutdown_diagnostics": [
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "local_ai_soak",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/local_ai_soak.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 218.291,
+      "log_bytes": 1669,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "local_fighter_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/local_fighter_presentation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 1.081,
+      "log_bytes": 106,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "motion_lifecycle_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/motion_lifecycle_presentation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.66,
+      "log_bytes": 122,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "hit_reaction_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/hit_reaction_presentation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.793,
+      "log_bytes": 113,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "launch_release_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/launch_release_presentation.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.801,
+      "log_bytes": 120,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "title_loading_flow",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/title_loading_flow.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 5.007,
+      "log_bytes": 3789,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "local_ai_app_flow",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/local_ai_app_flow.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 5.24,
+      "log_bytes": 4845,
+      "shutdown_diagnostics": [
+        "ERROR: 4 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "forestlight_runtime",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/forestlight_runtime.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 1.773,
+      "log_bytes": 1762,
+      "shutdown_diagnostics": [
+        "ERROR: 5 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "local_accessory_play",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/local_accessory_play.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 20.521,
+      "log_bytes": 100,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "local_touch_controls",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/local_touch_controls.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 4.606,
+      "log_bytes": 2258,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "forestlight_touch_input",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/forestlight_touch_input.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.261,
+      "log_bytes": 581,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "match_playtest_ui",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/match_playtest_ui.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.759,
+      "log_bytes": 1057,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "android_qa_session",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/android_qa_session.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 1.234,
+      "log_bytes": 204,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "menu_unified_callback",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/menu_unified_callback.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.788,
+      "log_bytes": 660,
+      "shutdown_diagnostics": [
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ]
+    },
+    {
+      "id": "lan_result_outbox",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/lan_result_outbox.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.26,
+      "log_bytes": 421,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "lan_contract",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/lan_contract.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.376,
+      "log_bytes": 92,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "lan_resume_pending",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/lan_resume_pending.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.615,
+      "log_bytes": 143,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "lan-runtime",
+      "command": [
+        "./scripts/verify-lan-runtime.sh"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 15.174,
+      "log_bytes": 1539,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "android-qa-lan",
+      "command": [
+        "./scripts/verify-android-qa-lan.sh"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 3.66,
+      "log_bytes": 259,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "online-server",
+      "command": [
+        "./scripts/verify-online-server.sh"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 2.09,
+      "log_bytes": 3659,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "harness",
+      "command": [
+        "./scripts/verify-harness.sh"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.473,
+      "log_bytes": 355,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "docs",
+      "command": [
+        "./scripts/verify-docs.sh"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.085,
+      "log_bytes": 135,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "resources",
+      "command": [
+        "python3",
+        "tools/forest_arena/verify_godot_resources.py",
+        "--project-root",
+        "."
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.048,
+      "log_bytes": 70,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "branding",
+      "command": [
+        "python3",
+        "tools/forest_arena/verify_branding.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.15,
+      "log_bytes": 17,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "verify-runner",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_verify_runner.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 1.463,
+      "log_bytes": 114,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "workflow",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_workflow.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 2.529,
+      "log_bytes": 107,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "branding-tests",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_branding.py"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.143,
+      "log_bytes": 105,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "combat_input_ringout",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_input_ringout.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 0.956,
+      "log_bytes": 100,
+      "shutdown_diagnostics": []
+    },
+    {
+      "id": "combat_debug_settings",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_debug_settings.gd"
+      ],
+      "status": "pass",
+      "exit_code": 0,
+      "elapsed_seconds": 4.893,
+      "log_bytes": 756,
+      "shutdown_diagnostics": [
+        "ERROR: 2 resources still in use at exit (run with --verbose for details)."
+      ]
+    }
+  ]
+}

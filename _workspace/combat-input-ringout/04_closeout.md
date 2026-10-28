@@ -1,6 +1,6 @@
 # 전투 조작·가드·장외 처리 개선
 
-2026-10-29. 구현과 독립 경계 검토·화면 확인을 완료했다. 원격 PR과 최종 전체 명령의 정상 종료를 확인 중이며 실제 병합 정보는 완료 뒤 갱신한다.
+2026-10-29. 구현·화면 확인과 커밋 기준 최종 전체 검사를 완료했다. PR116의 develop 병합과 실제 병합 정보 기록을 진행한다.
 
 ## 구현
 
@@ -13,14 +13,16 @@
 
 ## 확인
 
-새 전투·설정 검사, 두 캐릭터 전체 조합, 기존17경기 AI 회귀, 실제 두 WebSocket 클라이언트·재접속·앱 흐름·등록/결과/재대전, 독립 loopback LAN 두 경기 검사가 통과했다. 전체89개 검사 중 앞84단계는 통과했고 부분 체크아웃에서 누락된 과거 아이콘 승인 PNG를 Git에서 복원해 남은6개(가져오기 포함7단계)도 통과했다. 새 전투 단위 검사는 실제 소켓을 열지 않으므로 검사 선택 분류를 combat/presentation으로 정합시켰다. 최종 단일 전체 실행 결과는 아래에 갱신한다.
+최종 `./scripts/verify.sh --full`은 소스 `5916be8524790d9b02cc948c7184ef6bcf6a5be3`에서 단일 실행 종료0으로 통과했다.89개 명령과 Godot 가져오기1회를 포함해90/90 PASS, 521.9초다. 전체 개별 결과는 [final-verification.json](final-verification.json)에 보존했다. 전투·설정 새 회귀, 두 캐릭터 전체 조합과 같은 입력 재현, 기존17경기 AI 회귀, 실제 두 WebSocket 클라이언트·재접속·앱 흐름·등록/결과/재대전, 독립 loopback LAN 두 경기를 포함한다.
 
-독립 QA는 경계 진입 tick 순서·배수 타입·0경직 음수·낙하 시계 문제를 찾아 모두 보완했다. [1회차](03_qa_r01.md), [전투 기록](02_combat.md), [UI 기록](02_ui.md), [LAN 기록](02_lan.md)을 따른다. 실제 앱 설정/경기4장과 두 캐릭터×두 비율×5상태20장을 확인했다. 대표8장은 evidence/, 전체 수치·장면 목록은 render-evidence.json에 보존했다. 검증한 실행 코드·데이터43개 지문은 source-fingerprints.json이다.
+초기 실행에서 부분 체크아웃으로 빠진 과거 아이콘 승인 PNG를 Git에서 복원했고, 새 순수 전투/snapshot 단위 검사를 실제 소켓 검사와 구분해 combat/presentation 분야에 등록했다. 이후 최종 전체 단일 실행을 완료했으며 통과한 제품 소스43개 지문도 다시 대조했다.
+
+독립 QA는 경계 진입 tick 순서·배수 타입·0경직 음수·낙하 시계 문제를 찾아 모두 보완했다. [1회차](03_qa_r01.md)와 [최종 QA pass](03_qa_r02.md), [전투 기록](02_combat.md), [UI 기록](02_ui.md), [LAN 기록](02_lan.md)을 따른다. 실제 앱 설정/경기4장과 두 캐릭터×두 비율×5상태20장을 확인했다. 대표8장은 evidence/, 전체 수치·장면 목록은 render-evidence.json에 보존했다. 검증한 실행 코드·데이터43개 지문은 source-fingerprints.json이다.
 
 긴 로그·전체 캡처는 이 전용 폴더의 build/verification/combat-input-ringout/ 및 실행별 build/verification/에 보존한다. 일부 기존 검사에는 종료 시 리소스 정리 진단이 있으며 스크립트·파싱·다른 엔진 오류는 통과시키지 않는다.
 
 ## Git·미확인
 
-기준 develop: 85459bf6bea0a89e808cca36f5576a5ef862360e. 작업 브랜치: codex/combat-input-ringout. PR·병합 SHA·롤백 명령은 원격 통합 후 여기에 기록한다.
+기준 develop: 85459bf6bea0a89e808cca36f5576a5ef862360e. 작업 브랜치: codex/combat-input-ringout. 구현 커밋:5916be8524790d9b02cc948c7184ef6bcf6a5be3. PR: https://github.com/Dev-DHJang/ForestArena/pull/116. 병합 SHA·롤백 명령은 원격 통합 후 여기에 기록한다.
 
 실제 Android의 엄지 조작·가독성·생명주기·성능과 물리 두 대 LAN 검사는 사용자가 추후 별도로 진행하도록 명시적으로 이연했다. 이번 결과는 실기기 통과를 뜻하지 않으며 APK 배포·스토어 출시는 수행하지 않았다.
