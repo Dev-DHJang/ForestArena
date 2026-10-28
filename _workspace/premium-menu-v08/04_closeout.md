@@ -25,3 +25,7 @@
 ## Git과 복구
 
 작업 브랜치는 `codex/premium-menu-v08`, 기존 PR은 https://github.com/Dev-DHJang/ForestArena/pull/108 이다. 기존7개 커밋과 이번 최종 확인 커밋을 최신 develop에 통합한다. 병합 커밋과 최종 전체 검사는 정비 담당자가 실제 결과를 받은 뒤 덧붙인다. 복구는 통합 PR의 병합 커밋을 `git revert -m 1`로 되돌리고, Penpot은 정비 전 저장 버전 `메뉴 v08 · 정비 전 저장본`을 참조한다.
+
+## 최신 통합 확인
+
+2026-10-28 PR108은 `955c2bf33eace33cb05986b310c89eabf5cbd09d`로develop에 병합했다. 최신 정비 후보의--full88/88검사와 새APK 실제아이콘/시작설정 검사를 통과했다. 최신APK의Android 실기기는 사용자 답변으로미실행이며2026-10-21의과거기록과구분한다. 정비PR/최종기본폴더 반영은 `../project-maintenance/04_closeout.md`를 따른다.
