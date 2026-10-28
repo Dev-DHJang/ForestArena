@@ -3674,28 +3674,18 @@
       "bytes": 1011,
       "reason": "Godot 자동 검색 제외 작업 기록의 재생성 메타데이터",
       "restore": "git show 70955230:_workspace/yu-ran-character/01_motion_drafts/base/run-r04-alpha-local.png.import"
-    },
-    {
-      "path": "assets/app_icon.svg",
-      "sha256": "c602ad2a68ab9c0e9e1598db4b84492fd33ce9832fb76ca72b648861fbe60c66",
-      "bytes": 666,
-      "reason": "현재 설정·코드·자산 목록에서 참조 없는 초기 SVG 아이콘",
-      "restore": "git show 70955230:assets/app_icon.svg"
-    },
-    {
-      "path": "assets/app_icon.svg.import",
-      "sha256": "210b9597371bf373b57491b1cfa8fdad9e5ec828bdd6129fac90912a2eb8ed38",
-      "bytes": 1032,
-      "reason": "현재 설정·코드·자산 목록에서 참조 없는 초기 SVG 아이콘",
-      "restore": "git show 70955230:assets/app_icon.svg.import"
     }
   ],
-  "count": 527,
-  "bytes": 535304,
+  "count": 525,
+  "bytes": 533606,
   "generated_apk_deleted": {
     "path": "build/android/ForestArena-LAN-debug.apk",
     "sha256": "4edbfdac5d6eee1553e107e31bd76d729bd4040fabf20a6d35f0a23b24abefc6",
     "bytes": 313008329,
     "reason": "2026-10-08 generated LAN APK superseded by newer debug/APK from PR112; source and device evidence retained"
-  }
+  },
+  "retained_after_dependency_check": [
+    "assets/app_icon.svg",
+    "assets/app_icon.svg.import"
+  ]
 }
