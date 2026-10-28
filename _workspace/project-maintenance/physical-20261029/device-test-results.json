@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "checked_at_utc": "2026-10-28T15:14:09.688707+00:00",
+  "model": "SM-S918N",
+  "android": "16",
+  "apk_sha256": "a26385bf684ff75cc4c42d9192e9f6e33599db259278af04b4e1568573545799",
+  "checks": [
+    {
+      "id": "APK-DEVICE-UPDATE",
+      "pass": true,
+      "evidence": "installed-apk-proof.json",
+      "observed": "install -r 성공; 기기 설치 APK와 정비 APK의 SHA-256 동일"
+    },
+    {
+      "id": "ICON-LAUNCHER",
+      "pass": true,
+      "evidence": "launcher-icon-actual.png",
+      "observed": "Samsung One UI Home 앱 서랍 검색의 실제 아이콘에서 목·어깨·분홍/흰 의상 연결을 직접 확인"
+    },
+    {
+      "id": "APP-LAUNCHER-START",
+      "pass": true,
+      "evidence": "first-launch-log.txt",
+      "observed": "실제 런처 아이콘 탭으로 앱 시작; 가로 타이틀 및 TITLE_READY 확인"
+    },
+    {
+      "id": "APP-HOME-RESUME",
+      "pass": true,
+      "evidence": "runtime-observations.json",
+      "observed": "HOME에서 런처로 이동 후 복귀; 동일 PID 유지"
+    },
+    {
+      "id": "APP-COLD-RELAUNCH",
+      "pass": true,
+      "evidence": "ready-title-actual.png",
+      "observed": "force-stop 뒤 새 PID로 시작; TITLE_READY와 게임 시작 표시 직접 확인"
+    },
+    {
+      "id": "APP-DATA-PRESERVATION",
+      "pass": true,
+      "evidence": "data-preservation.json",
+      "observed": "업데이트 설치 전후 기존 앱 파일 경로 87개 유지. 설치 후 첫 실행 전부터 재실행 뒤까지 JSON 59개 내용 지문 유지; 데이터 삭제 없음"
+    }
+  ],
+  "limits": [
+    "런처 검사는 앱 서랍 검색 결과이며 기본 홈 페이지에 새 바로가기를 추가하지 않았다.",
+    "설치 전에는 파일 경로만 확인했다. 파일 내용 지문은 업데이트 설치 후 첫 실행 전부터 비교했다.",
+    "일반 터치 전투·전체 모션·성능·사운드·두 물리 기기 LAN 검사는 이번 범위가 아니다.",
+    "독립 QA 재검토를 수행했다고 기록하지 않는다."
+  ],
+  "evidence_sha256": {
+    "launcher-icon-actual.png": "fdef88c56c1cc12042261e37a630c5f2a40dd4d2c4040aac0cbbe33921e4900d",
+    "ready-title-actual.png": "667d0600c8d58217cf50acc3e218886e21eba77279008d2db10d3955788ee856",
+    "installed-apk-proof.json": "9137b03611cdec1956d075f59d981dfb0bff168659b571f605a31d4e5be1c603",
+    "runtime-observations.json": "d6db43340db14944d1915cad218d163ab68f8cb5805b68e0cac44aa72533f60f",
+    "data-preservation.json": "4d883852bcf31818bd9862473c0a0855f318f897b31027d8d0764752edfacdf3"
+  }
+}
