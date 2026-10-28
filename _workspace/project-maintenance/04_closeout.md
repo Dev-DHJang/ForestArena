@@ -26,3 +26,11 @@
 정비 브랜치는 `codex/project-maintenance`다. 최종 PR·병합 결과는 아래 후속 기록에 적는다. 병합 커밋을 `git revert -m 1 <병합SHA>`로 되돌릴 수 있다. 로컬 백업의 manifest·원본 파일과 Git70955230에서 정리 이전 파일을 복구할 수 있다. 큰 백업과 새 전체 checkout을 동시에 만들지 않으며 APFS의 공간 절약 복제 방식을 사용한다.
 
 남은 확인은 실제 Android 연결 후 `Android 아이콘 업데이트 확인`이다. 사용자2026-10-28답변으로 지금 수행하지 않는다. 과거2026-10-21의 실기기 통과는 당시 아이콘APK에만 해당한다.
+
+## 최종 Git·기본 폴더 반영
+
+정비 PR은 https://github.com/Dev-DHJang/ForestArena/pull/113 이며 실제 develop 병합 커밋은 `2fe082cc273a33e03aadd31f85cd8badeb3b6982`다. 되돌리기는 `git revert -m 1 2fe082cc273a33e03aadd31f85cd8badeb3b6982`다. 메뉴 PR108 병합은955c2bf3, 캐릭터 PR112는70955230으로 구분한다.
+
+기본 `/Users/jdh/Desktop/workspace/ForestArena`를develop의 정비 통합 커밋으로 맞췄고13,198개 추적 파일의 차이가 없다. Godot 가져오기·이전feature브랜치423b1a89 보존·전체 검사와APK소스의 코드 동일을 실제 확인했다(`reference-sync.json`). APK와실행별로그는 기본 build경로에도 복사했다. 이 이후 병합·보관 증거를 적는 후속 변경은 문서와기록만이며 게임·검사 코드는 바꾸지 않는다.
+
+기본 폴더의 미추적 `_workspace/` 제작자료4,110개(1,414,975,284바이트)는 검증된 최신checkout에 없는 것을 확인한 뒤 `.forest-arena-backup/maintenance-20261028-070808/retained-local-evidence/`로 옮겼다. 삭제하지 않았으며 전체 원래경로·해시와복원 위치는 보관함의 `retained-local-evidence.json`과이 작업의 `archive-summary.json`에 있다. 이로써기본폴더 Git상태가깨끗하고 변경없음에서 기본검사선택0개임을 확인했다. 이전원본백업도함께보존한다.
