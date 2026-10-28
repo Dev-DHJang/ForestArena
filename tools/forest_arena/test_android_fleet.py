@@ -1291,11 +1291,11 @@ class RunnerTests(unittest.TestCase):
         with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata(manifest, '/tmp/other')
         with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata({**manifest, 'files': {}}, '/tmp/snapshot')
 
-    def test_explicit_project_and_lan_protocol_default_v3_preserves_v1(self):
+    def test_explicit_project_and_lan_protocol_default_v4_preserves_v1(self):
         args = fleet.parser().parse_args(['--project-root', '/tmp/snapshot', '--lan-protocol', '1'])
         self.assertEqual(args.project_root, Path('/tmp/snapshot'))
         self.assertEqual(args.lan_protocol, 1)
-        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 3)
+        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 4)
         v1 = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output, 'godot', 'run', '/tmp/snapshot', 1)
         self.assertEqual(v1.code, 'FAH1|ws://192.168.1.2:7777|1')
         self.assertEqual(v1.project_root, Path('/tmp/snapshot'))
@@ -1540,10 +1540,10 @@ class ProductV3Tests(unittest.TestCase):
     def ui():
         return [{'id': 'touch/'+action, 'kind': 'touch', 'visible': True} for action in ('move_up', 'move_down', 'move_left', 'move_right')+fleet.PRODUCT_ACTIONS]
 
-    def test_protocol_three_default_and_legacy_codes_preserved(self):
-        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 3)
-        self.assertEqual(self.device.protocol, 3)
-        for protocol in (1, 2, 3):
+    def test_protocol_four_default_and_legacy_codes_preserved(self):
+        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 4)
+        self.assertEqual(self.device.protocol, 4)
+        for protocol in (1, 2, 3, 4):
             server = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output/str(protocol), 'godot', 'run', protocol=protocol)
             expected = 'FAH1|ws://192.168.1.2:7777|1' if protocol == 1 else f'FAH{protocol}|http://192.168.1.2:8888|ws://192.168.1.2:7777|{protocol}'
             self.assertEqual(server.code, expected)
@@ -1649,7 +1649,7 @@ class ProductV3Tests(unittest.TestCase):
         d.state = {'ui': []}
         d.node.return_value = {'id': 'input'}
         with patch.object(fleet, '_menu'):
-            fleet._lan_login(d, 'join', 'FA3|http://192.168.1.2:8888|ws://192.168.1.2:7777|ABCDEFGH|3', 3)
+            fleet._lan_login(d, 'join', 'FA4|http://192.168.1.2:8888|ws://192.168.1.2:7777|ABCDEFGH|4', 4)
         self.assertIn(unittest.mock.call('demo_nickname'), d.screen.call_args_list)
         self.assertIn(unittest.mock.call('이 닉네임으로 계속'), d.tap.call_args_list)
 
@@ -1657,7 +1657,7 @@ class ProductV3Tests(unittest.TestCase):
         peer = Mock()
         peer.receive_until.side_effect = [{'type': 'joined', 'slot': 2}, {'type': 'match_start', 'slot': 2}, {'type': 'match_end'}]
         with patch.object(fleet, '_protocol_auth', return_value={'access_token': 'private'}), patch.object(fleet, 'ProtocolPeer', return_value=peer):
-            guest = fleet.CapacityGuest(Mock(protocol=3), 'FA3|http://127.0.0.1:1|ws://127.0.0.1:2|ABCDEFGH|3').start()
+            guest = fleet.CapacityGuest(Mock(protocol=4), 'FA4|http://127.0.0.1:1|ws://127.0.0.1:2|ABCDEFGH|4').start()
         self.assertEqual(peer.send.call_args.args[0]['room_code'], 'ABCDEFGH')
         self.assertEqual(peer.send.call_args.args[0]['selection']['accessory_id'], '')
         guest.close()

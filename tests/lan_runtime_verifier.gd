@@ -1,7 +1,7 @@
 extends Node
 
 const TIMEOUT_MSEC := 5000
-const PROTOCOL_VERSION := 3
+const PROTOCOL_VERSION := 4
 
 var websocket_url := "ws://127.0.0.1:17777"
 var clients: Array[Dictionary] = []
@@ -24,10 +24,11 @@ func _process(_delta: float) -> void:
 
 
 func _run() -> void:
-	var wrong_version := await _open_client()
-	_send_raw(wrong_version, {"type": "create_room", "protocol_version": 99, "selection": _selection("nabi", "")})
-	_require((await _wait_message(wrong_version, "error")).code == "unsupported_protocol", "version_rejected")
-	_close_client(wrong_version)
+	for rejected_version: int in [1, 2, 3, 99]:
+		var wrong_version := await _open_client()
+		_send_raw(wrong_version, {"type": "create_room", "protocol_version": rejected_version, "selection": _selection("nabi", "")})
+		_require((await _wait_message(wrong_version, "error")).code == "unsupported_protocol", "version_rejected_%d" % rejected_version)
+		_close_client(wrong_version)
 	for token: String in ["", "invalid", "expired", "unnamed"]:
 		var unauth := await _open_client()
 		_send(unauth, {"type": "create_room", "access_token": token, "selection": _selection("nabi", "")})
@@ -70,6 +71,10 @@ func _run() -> void:
 	await _wait_message(guest, "match_start")
 	var snapshot := await _wait_message(host, "snapshot")
 	_require(snapshot.state.fighters.size() == 2 and snapshot.state.fighters[0].id == "lan_host", "snapshot")
+	_require(int(snapshot.get("protocol_version", 0)) == 4, "snapshot protocol four")
+	_check_combat_fields(snapshot.state)
+	var guest_snapshot := await _wait_message(guest, "snapshot")
+	_check_combat_fields(guest_snapshot.state)
 	_send(host, {"type": "input", "seq": 1, "action_id": "move", "direction": CombatIntent.Direction.RIGHT, "edge": CombatIntent.Edge.PRESS})
 	_send(host, {"type": "input", "seq": 1, "action_id": "move", "direction": CombatIntent.Direction.LEFT, "edge": CombatIntent.Edge.PRESS})
 	_send(host, {"type": "input", "seq": 2, "action_id": "not_an_action", "direction": CombatIntent.Direction.NEUTRAL, "edge": CombatIntent.Edge.PRESS})
@@ -117,6 +122,20 @@ func _run() -> void:
 	if failed: return
 	print("LAN_RUNTIME: PASS")
 	get_tree().quit(0)
+
+
+func _check_combat_fields(state: Dictionary) -> void:
+	for fighter: Dictionary in state.get("fighters", []):
+		for field: String in ["hitstun_ticks", "landing_down_duration_ticks", "ring_out_hidden", "ring_out_pending_ticks", "debug_geometry"]:
+			_require(fighter.has(field), "LAN4 fighter field " + field)
+		_require(fighter.get("hitstun_ticks", -1) >= 0 and fighter.get("ring_out_pending_ticks", -1) >= 0, "nonnegative combat countdown")
+		_require(fighter.get("ring_out_hidden") is bool, "hidden flag type")
+		var geometry: Dictionary = fighter.get("debug_geometry", {})
+		_require(geometry.has("hurtbox") and geometry.has("hitboxes"), "authoritative geometry collections")
+		var boxes: Array = geometry.get("hitboxes", []).duplicate()
+		if not geometry.get("hurtbox", {}).is_empty(): boxes.append(geometry.hurtbox)
+		for box: Dictionary in boxes:
+			_require(box.has("x") and box.has("y") and box.has("w") and box.has("h") and float(box.w) > 0 and float(box.h) > 0, "world rectangle fields")
 
 
 func _selection(character_id: String, accessory_id: String) -> Dictionary:

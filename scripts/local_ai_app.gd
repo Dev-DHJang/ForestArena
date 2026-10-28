@@ -33,6 +33,8 @@ var page: Control
 var body: VBoxContainer
 var match_scene: Node2D
 var match_controller: MatchController
+## Temporary device-local visualization; deliberately never written to a profile.
+var debug_hitboxes_enabled := false
 var screen := ""
 var message := ""
 var last_back_request_msec := -BACK_REQUEST_DEBOUNCE_MSEC
@@ -367,7 +369,7 @@ func _show_lan_host() -> void:
 	screen = "lan_host"
 	_new_page("LAN 방 만들기")
 	_label("Mac 호스트 연결 코드", 18)
-	_line_input("FAH3|http://192.168.x.x:3001|ws://192.168.x.x:7778|3", lan_host_code, func(value: String) -> void: lan_host_code = value)
+	_line_input("FAH4|http://192.168.x.x:3001|ws://192.168.x.x:7778|4", lan_host_code, func(value: String) -> void: lan_host_code = value)
 	_button("연결 코드 붙여넣기", _paste_lan_host_code)
 	_lan_loadout_controls(_show_lan_host)
 	_button("방 생성", _begin_lan_host)
@@ -379,7 +381,7 @@ func _show_lan_join() -> void:
 	screen = "lan_join"
 	_new_page("LAN 방 참가")
 	_label("방장이 전달한 한 줄 초대 코드", 18)
-	_line_input("FA3|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|3", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
+	_line_input("FA4|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|4", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
 	_button("초대 코드 붙여넣기", _paste_lan_invite_code)
 	_lan_loadout_controls(_show_lan_join)
 	_button("방 참가", _begin_lan_join)
@@ -590,6 +592,7 @@ func _start_lan_match() -> void:
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
 	add_child(match_scene)
+	match_scene.set_combat_debug_enabled(debug_hitboxes_enabled)
 	_apply_menu_control_settings()
 	match_controller = match_scene.get_node("MatchController") as MatchController
 	match_controller.set_physics_process(false)
@@ -883,6 +886,11 @@ func join_menu_invite(code: String) -> bool:
 	_demo_login.call_deferred("join")
 	return true
 
+func set_debug_hitboxes_enabled(enabled: bool) -> void:
+	debug_hitboxes_enabled = enabled
+	if is_instance_valid(match_scene): match_scene.set_combat_debug_enabled(enabled)
+
+
 func _apply_menu_control_settings() -> void:
 	if is_instance_valid(match_scene):
 		match_scene.get_node("Interface/TouchCommandSource").apply_menu_controls(menu_store.controls)
@@ -1091,6 +1099,7 @@ func start_match() -> void:
 	match_scene.get_node("Interface/TouchCommandSource").extended_actions = true
 	match_scene.get_node("Interface/TouchCommandSource").forestlight_controls = true
 	add_child(match_scene)
+	match_scene.set_combat_debug_enabled(debug_hitboxes_enabled)
 	_apply_menu_control_settings()
 	match_scene.apply_accessibility(store.data.accessibility)
 	if OS.is_debug_build(): match_scene.add_child(load("res://scripts/local_performance_probe.gd").new())

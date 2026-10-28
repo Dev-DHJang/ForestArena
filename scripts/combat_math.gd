@@ -7,4 +7,4 @@ static func knockback_speed(attack: AttackData, defender_weight: float, profile_
 
 static func hitstun_ticks(attack: AttackData, defender_weight: float, rules: CombatRules) -> int:
 	var weighted := roundi(float(attack.fixed_hitstun_ticks) / maxf(defender_weight, 0.1))
-	return clampi(weighted, rules.hitstun_min_ticks, rules.hitstun_max_ticks)
+	return clampi(weighted, rules.hitstun_min_ticks, rules.hitstun_max_ticks) * rules.hitstun_multiplier

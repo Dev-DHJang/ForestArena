@@ -79,10 +79,10 @@ func _nearest_visible_enemy() -> FighterController:
 	var nearest: FighterController
 	var best_distance := INF
 	for candidate: FighterController in match_controller.call("_fighters"):
-		if candidate == player or candidate.state in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
+		if candidate == player or candidate.state in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED, FighterController.State.RING_OUT, FighterController.State.FALLING_OUT]: continue
 		if match_controller.call("_are_allies", player, candidate): continue
 		var distance := player.global_position.distance_squared_to(candidate.global_position)
-		if distance < best_distance or (is_equal_approx(distance, best_distance) and (nearest == null or candidate.fighter_id < nearest.fighter_id)):
+		if distance < best_distance or (is_equal_approx(distance, best_distance) and (nearest == null or String(candidate.fighter_id) < String(nearest.fighter_id))):
 			nearest = candidate
 			best_distance = distance
 	return nearest

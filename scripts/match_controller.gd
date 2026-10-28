@@ -68,6 +68,7 @@ func submit_intent(intent: CombatIntent) -> void:
 func step_fixed_tick(poll_local_input := true) -> void:
 	if paused or not winner_id.is_empty() or is_draw: return
 	tick += 1
+	_begin_falling_outs()
 	if poll_local_input: _poll_player_input()
 	if bot_source != null:
 		for intent: CombatIntent in bot_source.commands_for_tick(tick, snapshot()):
@@ -78,6 +79,7 @@ func step_fixed_tick(poll_local_input := true) -> void:
 	_process_intents()
 	for fighter: FighterController in _fighters():
 		fighter.step_tick(rules)
+	_begin_falling_outs()
 	for fighter: FighterController in _fighters():
 		var enemies: Array[FighterController] = []
 		for target: FighterController in _fighters():
@@ -137,6 +139,7 @@ func pause_match(value: bool) -> void:
 		for fighter: FighterController in _fighters():
 			fighter.input_direction = CombatIntent.Direction.NEUTRAL
 			fighter.buffered_intent = null
+			fighter.release_guard()
 
 
 func snapshot() -> Dictionary:
@@ -172,7 +175,7 @@ func release_fighter_input(fighter_id: StringName) -> void:
 	if fighter == null: return
 	fighter.input_direction = CombatIntent.Direction.NEUTRAL
 	fighter.buffered_intent = null
-	fighter.runtime_state.guarding = false
+	fighter.release_guard()
 
 
 func finish_forfeit(loser_id: StringName) -> void:
@@ -242,7 +245,7 @@ func _resolve_hits() -> void:
 				if count >= max_hits: continue
 				var last_tick: int = _hit_counts.get("%s:last" % key, -999)
 				if count > 0 and tick - last_tick < response.rehit_interval_ticks: continue
-				if target.state in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
+				if target.state in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED, FighterController.State.FALLING_OUT]: continue
 				candidates.append({"source": source, "target": target, "attack": response, "key": key})
 	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return "%s:%s:%s" % [a.source.fighter_id, a.target.fighter_id, a.attack.attack_id] < "%s:%s:%s" % [b.source.fighter_id, b.target.fighter_id, b.attack.attack_id]
@@ -263,19 +266,35 @@ func _resolve_hits() -> void:
 		if result.landed(): hit.source.register_landed_hit(attack)
 		_hit_counts[hit.key] = int(_hit_counts.get(hit.key, 0)) + 1
 		_hit_counts["%s:last" % hit.key] = tick
-	_resolve_final_losses()
+
+
+func _begin_falling_outs() -> void:
+	if not rules.falling_ring_out or stage_data == null: return
+	for fighter: FighterController in _fighters():
+		if fighter.global_position.y >= stage_data.ring_bounds.end.y:
+			fighter.begin_falling_out()
 
 
 func _resolve_ring_outs() -> void:
 	if stage_data == null or not stage_data.is_valid_definition():
 		push_error("MatchController requires valid StageData for ring-out resolution")
 		return
+	_begin_falling_outs()
 	var ring_outs: Array[FighterController] = []
 	for fighter: FighterController in _fighters():
-		var point := fighter.global_position
-		if fighter.state not in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED] and not stage_data.ring_bounds.has_point(point):
+		if fighter.state in [FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]: continue
+		if rules.falling_ring_out:
+			if fighter.state != FighterController.State.FALLING_OUT: continue
+			if not fighter.ring_out_hidden:
+				if fighter.global_position.y >= stage_data.ring_bounds.end.y + rules.ring_out_hide_margin:
+					fighter.ring_out_hidden = true
+					fighter.ring_out_pending_ticks = rules.ring_out_confirm_ticks
+				continue
+			fighter.ring_out_pending_ticks -= 1
+			if fighter.ring_out_pending_ticks <= 0: ring_outs.append(fighter)
+		elif not stage_data.ring_bounds.has_point(fighter.global_position):
 			ring_outs.append(fighter)
-	if ring_outs.is_empty(): return
+	# Apply every loss for the tick before deciding draw/team/survivor outcomes.
 	for fighter: FighterController in ring_outs: fighter.ring_out(rules)
 	for fighter: FighterController in ring_outs:
 		_emit_presentation(&"ring_out", {"tick": tick, "fighter_id": fighter.fighter_id})
@@ -354,9 +373,9 @@ func _nearest_opponent(fighter: FighterController) -> FighterController:
 	var nearest: FighterController
 	var best_distance := INF
 	for candidate: FighterController in _fighters():
-		if candidate == fighter or candidate.state in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED] or _are_allies(fighter, candidate): continue
+		if candidate == fighter or candidate.state in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED, FighterController.State.RING_OUT, FighterController.State.FALLING_OUT] or _are_allies(fighter, candidate): continue
 		var distance := fighter.global_position.distance_squared_to(candidate.global_position)
-		if distance < best_distance or (is_equal_approx(distance, best_distance) and (nearest == null or candidate.fighter_id < nearest.fighter_id)):
+		if distance < best_distance or (is_equal_approx(distance, best_distance) and (nearest == null or String(candidate.fighter_id) < String(nearest.fighter_id))):
 			nearest = candidate
 			best_distance = distance
 	return nearest

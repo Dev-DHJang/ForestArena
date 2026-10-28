@@ -34,11 +34,12 @@ func run() -> void:
 		visual.sync_visual(0.0)
 		check(visual.sprite.frame==23,"landing reaches the approved standing end within 0.25 seconds")
 		fighter.state=FighterController.State.KNOCK_DOWN
-		for remaining: int in range(18,0,-1):
+		fighter.landing_down_duration_ticks=36
+		for remaining: int in range(36,0,-1):
 			fighter.landing_down_ticks=remaining
 			var before:=fighter.snapshot()
 			visual.sync_visual(1.0/60)
-			check(visual.sprite.animation==&"knock_down" and visual.sprite.frame>=12,"18-tick landed down always uses grounded lying poses")
+			check(visual.sprite.animation==&"knock_down" and visual.sprite.frame>=12,"36-tick landed down always uses grounded lying poses")
 			check(before==fighter.snapshot(),"down presentation never changes combat timer")
 		check(visual.sprite.frame==15,"down ends at the last lying pose")
 		fighter.landing_down_ticks=0

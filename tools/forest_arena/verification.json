@@ -1264,6 +1264,39 @@
         "tooling"
       ],
       "godot": false
+    },
+    {
+      "id": "combat_input_ringout",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_input_ringout.gd"
+      ],
+      "suites": [
+        "combat",
+        "presentation"
+      ],
+      "godot": true
+    },
+    {
+      "id": "combat_debug_settings",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_debug_settings.gd"
+      ],
+      "suites": [
+        "ui",
+        "menu",
+        "battle-ui"
+      ],
+      "godot": true
     }
   ]
 }

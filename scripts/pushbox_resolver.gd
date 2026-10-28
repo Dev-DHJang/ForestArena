@@ -7,9 +7,9 @@ const PASSES_PER_FIGHTER := 4
 static func resolve(fighters: Array[FighterController]) -> void:
 	var active: Array[FighterController] = []
 	for fighter: FighterController in fighters:
-		if fighter != null and fighter.state not in [FighterController.State.SPAWNING, FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]:
+		if fighter != null and fighter.state not in [FighterController.State.SPAWNING, FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED, FighterController.State.FALLING_OUT]:
 			active.append(fighter)
-	active.sort_custom(func(a: FighterController, b: FighterController) -> bool: return a.fighter_id < b.fighter_id)
+	active.sort_custom(func(a: FighterController, b: FighterController) -> bool: return String(a.fighter_id) < String(b.fighter_id))
 	for ignored_pass: int in maxi(4, active.size() * PASSES_PER_FIGHTER):
 		var moved := false
 		for left_index: int in active.size():
@@ -30,7 +30,7 @@ static func _separate_pair(first: FighterController, second: FighterController) 
 		return false
 	var first_is_left := first_box.get_center().x < second_box.get_center().x
 	if is_equal_approx(first_box.get_center().x, second_box.get_center().x):
-		first_is_left = first.fighter_id < second.fighter_id
+		first_is_left = String(first.fighter_id) < String(second.fighter_id)
 	# A small fixed clearance prevents multi-fighter half-overlap relaxation from
 	# asymptotically leaving sub-pixel intersections.
 	var half := overlap * 0.5 + 0.5

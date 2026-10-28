@@ -76,7 +76,7 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 		return commands
 	if tick < _next_reaction_tick: return commands
 	_next_reaction_tick = tick + reaction_interval_ticks
-	if actor.state in ["DEAD", "MATCH_ENDED", "RING_OUT", "SPAWNING"]:
+	if actor.state in ["DEAD", "MATCH_ENDED", "RING_OUT", "SPAWNING", "FALLING_OUT"]:
 		_set_direction(commands, tick, CombatIntent.Direction.NEUTRAL, context)
 		return commands
 	var position: Vector2 = actor.position
@@ -195,7 +195,7 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 
 
 func _valid_target(candidate: Dictionary) -> bool:
-	return StringName(candidate.get("id", &"")) != fighter_id and int(candidate.get("stocks", 1)) > 0 and not String(candidate.get("state", "")) in ["DEAD", "MATCH_ENDED", "RING_OUT", "SPAWNING"] and (team_id.is_empty() or StringName(candidate.get("team_id", &"")) != team_id)
+	return StringName(candidate.get("id", &"")) != fighter_id and int(candidate.get("stocks", 1)) > 0 and not String(candidate.get("state", "")) in ["DEAD", "MATCH_ENDED", "RING_OUT", "SPAWNING", "FALLING_OUT"] and (team_id.is_empty() or StringName(candidate.get("team_id", &"")) != team_id)
 
 
 func _select_target(tick: int, actor: Dictionary, fighters: Array) -> Dictionary:

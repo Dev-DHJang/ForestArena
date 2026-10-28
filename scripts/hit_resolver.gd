@@ -6,7 +6,7 @@ const EffectData = preload("res://scripts/data/combat_effect_data.gd")
 
 static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 	var result := HitResult.new()
-	if context.attacker == null or context.defender == null or context.attack == null or context.attacker == context.defender:
+	if context.attacker == null or context.defender == null or context.attack == null or context.attacker == context.defender or context.defender.state in [FighterController.State.FALLING_OUT, FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED]:
 		return result
 	var attack := context.attack
 	var defender := context.defender
@@ -18,6 +18,7 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 		result.guard_damage = attack.guard_damage if attack.guard_damage > 0.0 else attack.damage
 		defender.runtime_state.guard_durability = maxf(0.0, defender.runtime_state.guard_durability - result.guard_damage)
 		if defender.runtime_state.guard_durability <= 0.0:
+			defender.runtime_state.guarding = false
 			defender.hitstun_ticks = rules.guard_break_ticks
 			defender.state = FighterController.State.HITSTUN
 		EffectControllerScript.dispatch(EffectData.Trigger.ON_BLOCKED, context.attacker, defender, rules, attack.attack_id, 0, attack.tags)

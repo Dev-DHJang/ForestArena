@@ -72,7 +72,7 @@ docs/
 
 | 파일 | 역할 | 주요 검사 |
 | --- | --- | --- |
-| [두 캐릭터 전투 형식](contracts/two-fighter-combat-v2.json) | 현재 활성 입력·AttackData v4·상태 기록과 LAN3 | `tests/two_fighter_combat_v2.gd`, `tests/two_fighter_product.gd` |
+| [두 캐릭터 전투 형식](contracts/two-fighter-combat-v2.json) | 현재 활성 입력·AttackData v4·상태 기록과 LAN4 | `tests/two_fighter_combat_v2.gd`, `tests/two_fighter_product.gd` |
 | [공격 데이터 형식](contracts/attack-system-v01.json) | 기술 입력, 공격 단계와 캐릭터별 공격 설계 | `tests/combat_concept_contract.gd` |
 | [캐릭터 외형 데이터](contracts/character-appearance-v01.json) | 승인 캐릭터의 필수·허용·금지 외형 | `tests/character_appearance_contract.gd` |
 | [비전투 화면 데이터](ui/non-combat-ui-v01.json) | 24개 화면과 이미지 자리 | `tests/ui_design_contract.gd` |

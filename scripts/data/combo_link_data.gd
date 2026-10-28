@@ -5,8 +5,8 @@ extends Resource
 @export var from_attack_id: StringName
 @export var input_action_id: StringName
 @export var next_attack_id: StringName
-## Tick relative to the start of recovery. Negative values are the final active
-## ticks, zero is the first recovery tick.
+## Tick relative to recovery start. Negative values may include startup/active;
+## zero is the first recovery tick. Each authored link decides its own window.
 @export var window_start_tick := -2
 @export var window_end_tick := 10
 @export var requires_hit := false

@@ -33,8 +33,8 @@ ACTIVE_CHARACTERS = ('ja-hyun', 'nabi')
 PRODUCT_ACTIONS = ('jump', 'attack_light', 'attack_heavy', 'attack_special')
 
 
-def product_policy(protocol=3):
-    if protocol not in (1, 2, 3):
+def product_policy(protocol=4):
+    if protocol not in (1, 2, 3, 4):
         raise ValueError('지원하지 않는 LAN 프로토콜입니다.')
     return {'id': 'two-fighter-no-accessories-v2' if protocol >= 3 else 'legacy-four-fighter-accessories',
             'characters': ACTIVE_CHARACTERS if protocol >= 3 else CHARACTERS,
@@ -80,7 +80,7 @@ def selected_serials(values):
     return serials
 
 
-def combination_jobs(device_count, protocol=3):
+def combination_jobs(device_count, protocol=4):
     if not 1 <= device_count <= 4:
         raise ValueError('device_count must be 1..4')
     jobs = [[] for _ in range(device_count)]
@@ -363,7 +363,7 @@ class ADB:
 
 
 class DeviceRun:
-    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None, current_policy=False, touch_helper=None, protocol=3):
+    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None, current_policy=False, touch_helper=None, protocol=4):
         self.adb, self.alias, self.run_id, self.output, self.activity = adb, alias, run_id, output, activity
         self.output.mkdir(parents=True, exist_ok=True)
         self.screen_timeout, self.match_timeout, self.stall_timeout = screen_timeout, match_timeout, stall_timeout
@@ -1293,7 +1293,7 @@ CASE_EXPECTATIONS = {
  'MANUAL-01': '실제 Wi-Fi 수동 끄기/켜기·동시 터치·소리·진동 확인',
 }
 
-def case_expectation(case_id, protocol=3):
+def case_expectation(case_id, protocol=4):
     product = {'UI-01': '활성 두 캐릭터 실제 첫 선택·0원 구매·저장 복원; 기존 보유 보존',
                'OFF-01': '자현·나비와 장신구 미장착의 실제 경기 반영',
                'INPUT-01': '방향패드·점프·약·강·특수 네 버튼 실제 누름/해제·전투 변화; 제거 행동 미노출',
@@ -1303,11 +1303,11 @@ def case_expectation(case_id, protocol=3):
 
 class LanServer:
     """Independent game process and in-memory guest fixture per device pair."""
-    def __init__(self, bind, cidr, port, api_port, output, godot, run_id, project_root=ROOT, protocol=3):
+    def __init__(self, bind, cidr, port, api_port, output, godot, run_id, project_root=ROOT, protocol=4):
         self.bind, self.cidr, self.port, self.api_port = bind, cidr, port, api_port
         self.output, self.godot, self.run_id = output, godot, run_id
         self.output.mkdir(parents=True, exist_ok=True)
-        require(protocol in (1, 2, 3), '지원하지 않는 LAN 프로토콜입니다.')
+        require(protocol in (1, 2, 3, 4), '지원하지 않는 LAN 프로토콜입니다.')
         self.project_root, self.protocol = Path(project_root), protocol
         self.fixture = self.process = self.stream = None
         self.code = f'FAH{protocol}|http://{bind}:{api_port}|ws://{bind}:{port}|{protocol}' if protocol >= 2 else f'FAH1|ws://{bind}:{port}|1'
@@ -1407,7 +1407,7 @@ def _menu(device):
     device.screen('lan_menu')
 
 
-def _lan_login(device, intent, code, protocol=3):
+def _lan_login(device, intent, code, protocol=4):
     _menu(device)
     device.tap('방 만들기' if intent == 'host' else '초대 코드로 참가')
     device.screen('lan_host' if intent == 'host' else 'lan_join')
@@ -1971,8 +1971,8 @@ def parser():
     parse.add_argument('--project-root', type=Path, default=ROOT, help='APK를 만든 소스와 LAN 서버의 프로젝트 경로')
     parse.add_argument('--source-manifest', type=Path, help='원본 코드·자산 복제 내역 JSON; 실행 증거에 보존')
     parse.add_argument('--touch-helper', type=Path, help='SDK로 컴파일한 실제 복수 터치 jar; 없으면 입력 검사에서 준비')
-    parse.add_argument('--current-policy', action='store_true', help='protocol1/2의 이전 장신구 계약 검사; protocol3에서는 미장착 새 정책만 검사')
-    parse.add_argument('--lan-protocol', type=int, choices=(1, 2, 3), default=3, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
+    parse.add_argument('--current-policy', action='store_true', help='protocol1/2의 이전 장신구 계약 검사; protocol3/4에서는 미장착 새 정책만 검사')
+    parse.add_argument('--lan-protocol', type=int, choices=(1, 2, 3, 4), default=4, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
     parse.add_argument('--apk', type=Path, default=ROOT / 'build/android/ForestArena-debug.apk')
     parse.add_argument('--serial', '--serials', action='append', default=[], help='ADB serial; 반복 또는 쉼표 목록. 자동 전체 선택 없음')
     parse.add_argument('--case', choices=('OFF-01', 'LIFE-01', 'MODE-01', 'LAN-01', 'SOAK-01'), help='선택·장신구, 생명주기, 모드, LAN-01/02/03 또는 반복 대전 독립 재검사; DEV-01/UI-01 준비 포함')
@@ -1997,7 +1997,7 @@ def write_summary(output, run_id, meta, devices, global_results):
     results = []
     for record in global_results+[r for device in devices for r in device.results]:
         defaults = {'schema_version': 1, 'run_id': run_id, 'device': '전체', 'step': 'preflight',
-                    'expected': case_expectation(record.get('case_id'), meta.get('lan_protocol', 3)), 'observed': {}}
+                    'expected': case_expectation(record.get('case_id'), meta.get('lan_protocol', 4)), 'observed': {}}
         results.append({**defaults, **record})
     summary = aggregate(results)
     if meta.get('selected_case'):
@@ -2007,7 +2007,7 @@ def write_summary(output, run_id, meta, devices, global_results):
         every_device_completed = bool(devices) and all(any(r['case_id'] == 'SOAK-01' and r['status'] == 'pass' for r in device.results) for device in devices)
         if not every_device_completed:
             summary['status'] = 'blocked'
-    policy = product_policy(meta.get('lan_protocol', 3))
+    policy = product_policy(meta.get('lan_protocol', 4))
     required = [(c, a) for c in policy['characters'] for a in policy['accessories']]
     summary['combat_policy'] = policy['id']
     completed = {(j['character'], j['accessory']) for d in devices for j in d.combos} & set(required)
