@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": [
+    "Both JSON/SHA validations run concurrently; invalid batch changes no metadata, records or recovered source digest",
+    "Both independent uploads settle before failure; failed upload batch changes no source metadata or records",
+    "Success preserves IDs, bytes, hashes and provenance; max two on one page; reactivates page after uploads; replay does no work; timing returned",
+    "metadata failure restores both source boards, in-memory snapshots, export records and source digest",
+    "persist failure restores both source boards, in-memory snapshots, export records and source digest",
+    "source ID mismatch rejected before upload or metadata",
+    "source SHA mismatch rejected before upload or metadata",
+    "target SHA mismatch rejected before upload or metadata",
+    "target PNG size mismatch rejected before upload or metadata",
+    "target bytes mismatch rejected before upload or metadata",
+    "path traversal mismatch rejected before upload or metadata",
+    "Duplicate scene rejected before IO",
+    "Progress-log failure returns warning without undoing an already committed complete batch"
+  ],
+  "note": "Offline mocks only. No Penpot or CUA API called. Cloud save and actual PNG inspection remain separate checks."
+}

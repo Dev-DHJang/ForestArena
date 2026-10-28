@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "comparisons": 5,
+  "page": "21_Menu_Comparisons_v08",
+  "checks": [
+    "foreground native redraw only; clone is rejected by the mock",
+    "2400x1080 frame with unchanged 1920x1080 center at x240",
+    "same element content, names, dimensions and relative positions as native sources",
+    "forest background keeps its original aspect ratio",
+    "replay keeps comparison IDs and creates no duplicate boards",
+    "flags restored after page and progress awaits"
+  ],
+  "note": "Mock checks native comparison composition; actual saved Penpot rendering and PNG inspection remain required."
+}

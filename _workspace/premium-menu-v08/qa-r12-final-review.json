@@ -1,0 +1,99 @@
+{
+  "status": "pass",
+  "scope": "메뉴 v08 Penpot 설계·출력·프로토타입 전달",
+  "reviewedAt": "2026-10-27T22:25:46.548043+00:00",
+  "independentReviewer": "menu_final_qa",
+  "stats": {
+    "nativeScreens": 263,
+    "previewScreens": 263,
+    "wideComparisons": 5,
+    "officialScreens": 24,
+    "originalComponentsPreserved": 561,
+    "controls": 3032,
+    "activeHotspots": 1593,
+    "reusedSourceAssets": 23,
+    "imageMappings": 947,
+    "manualCases": 19,
+    "manualSteps": 148,
+    "blockedClickCases": 2,
+    "currentContactSheetCells": 268,
+    "auditIssueArrays": 12,
+    "auditIssues": 0
+  },
+  "visualReview": {
+    "sheets": [
+      "base-14.png",
+      "wide-5.png",
+      "states-01.png",
+      "states-02.png",
+      "states-03.png",
+      "states-04.png",
+      "states-05.png",
+      "states-06.png",
+      "states-07.png",
+      "states-08.png",
+      "states-09.png",
+      "states-10.png",
+      "states-11.png",
+      "states-12.png",
+      "states-13.png"
+    ],
+    "method": "모든15개 모음판 직접 보기와268칸 최신PNG 픽셀 대조; 실제 브라우저 캡처 NAV-01-01, STATE-03-02, BLOCK-01, BLOCK-02 직접 보기",
+    "findings": []
+  },
+  "auditReview": {
+    "normalization": "없는 fill image와 null, JSON 키 순서, 검색 root ID 하나만 같은 값으로 처리",
+    "preservedFailureDetection": [
+      "색",
+      "투명도",
+      "이미지 ID",
+      "숨김",
+      "자식 순서",
+      "shape ID",
+      "예상 밖 자식",
+      "원본과 다른 비교 텍스트"
+    ],
+    "negativeCases": 12,
+    "sourceMutation": "비교 텍스트 박스 보정은 비교 화면만 바꾸며 원본 문자열·크기·자산을 바꾸지 않음"
+  },
+  "persistence": {
+    "reloadVerified": true,
+    "finalVersion": {
+      "label": "메뉴 v08 · 최종 263 원본·프로토타입 검증",
+      "createdAt": "2026-10-27T22:22:29.626Z"
+    },
+    "issueCounts": {
+      "officialIssues": 0,
+      "baseIdIssues": 0,
+      "legacyChildIssues": 0,
+      "outsideChanges": 0,
+      "componentIssues": 0,
+      "shapeIssues": 0,
+      "textIssues": 0,
+      "sourceControlIssues": 0,
+      "prototypeIssues": 0,
+      "touchIssues": 0,
+      "comparisonIssues": 0,
+      "statePageIssues": 0
+    }
+  },
+  "limits": [
+    "이 pass는 Penpot 전달 범위다. 현재 develop 통합본 전체 검사와 새 APK 실기기 검사는 포함하지 않는다.",
+    "verify-final-result.json의 전체 검사와 physical-20261021의 기기 검사는 과거 해당 코드·APK 결과이며 최신 통합본 통과로 재사용하지 않는다.",
+    "고정된 설계 프로토타입은 유한한 상태 예시다. 실제 서버·저장·입력 동작 구현을 검증한 것은 아니다."
+  ],
+  "evidenceSha256": {
+    "scene-spec.json": "62cbef087faf9a3c3a00dc52b001ba3243d2a4f82943e87ee33a43e02fc26ffd",
+    "final-audit.json": "bb61baa35510fd15bd341ec83ec8e98404d7565e9dd79e8c2f7ce83b74b66eb4",
+    "maintenance-final-save.json": "36025802ff8d639f13367929a467dfa67ffa2cbe0b24f8eb460d1bf07fd04320",
+    "maintenance-final-reload.json": "de4f2e3c52793b6cc59ec37c9c8029240723f37c0892446f9a4c2871439645ce",
+    "manual-click-results.json": "4e3277b20c36134e58aeb9674a3768557c246ccf86710f0cdcaf209e6bb571fe",
+    "manual-blocked-click-results.json": "854b05d9d1b6639f9665aeaf6ed9e14ec1cfcbd7f72fe1527a0225eb59561c9b",
+    "delivery-check.json": "24b695fda9fbd86888e471aad17ebbd2264358cd814da44b48999e530f73c94d",
+    "check-audit-preservation.cjs": "6deb47fe62cd24db69d2ca8203c8a977d4c4a11437ff971ada61dbaebb3f379b",
+    "penpot-audit.js": "0a9d6b9486f491eee60e929f053aee3b10e91259e3ccb3e7f1d73ad893f8f1cb",
+    "penpot-comparisons.js": "d416d919b45264b4fb04e665070bcbf43801ba6c077619553b2d59ba5ffc47c6",
+    "final-prototype-lobby.png": "1e4473a1ce85492c1499f02cfb64c6e2e97dfcc465bd34f3ee605352d77a9d94"
+  },
+  "requiredFixes": []
+}

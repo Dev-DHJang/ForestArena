@@ -1,0 +1,4070 @@
+{
+  "title": "메뉴 v08 실제 클릭 수동 검사 경로표",
+  "status": "PLAN_ONLY_NOT_RUN",
+  "specSha256": "62cbef087faf9a3c3a00dc52b001ba3243d2a4f82943e87ee33a43e02fc26ffd",
+  "specScenes": 263,
+  "coordinateSpace": {
+    "design": "1920×1080 보드 내부 좌표",
+    "preview": "1280×720 보드 내부 좌표, design×2/3",
+    "normalized": "보드 너비·높이 대비0–1",
+    "warning": "브라우저/앱 창의 절대 좌표가 아니다. 실제 프로토타입 보드 원점과 배율을 먼저 확인해 변환한다."
+  },
+  "executionRules": [
+    "각 case의 startScene을 프로토타입 시작점으로 직접 연다. 서로 다른 case의 편성/상태를 공유했다고 가정하지 않는다.",
+    "각 클릭 뒤200ms 전환이 끝날 때까지 기다리고 도착 장면과 문구·선택 표시를 확인한다.",
+    "모달이 열리면 뒤에 가려진 뒤로/전체 메뉴/목록을 눌러도 이동하지 않아야 한다.",
+    "일치하지 않으면 실제 도착 장면·보이는 값·PNG를 기록하고 FIX로 판정한다. 계획 단계의 NOT_RUN을 PASS로 바꾸지 않는다.",
+    "설정은 한 분류의 대표 값 변경·저장·복원 흐름을 검사한다. 여러 분류 저장 조합과 재진입은 유한 시안 한계로 런타임 동작을 대신하지 않는다.",
+    "설정은 한 분류의 대표 값 변경·저장·복원 흐름을 검사한다. 여러 분류 저장 조합과 재진입은 유한 시안 한계로 런타임 동작을 대신하지 않는다.",
+    "KNOWN 항목은 정적 수정만 확인했다. 실제 저장 PNG와 프로토타입 클릭 후에만 실행 결과를 기록한다."
+  ],
+  "knownFindings": [
+    {
+      "id": "KNOWN-01",
+      "status": "STATIC_FIXED_ACTUAL_NOT_RUN",
+      "finding": "한 분류의 적용·복원·취소 값과 이전 저장값 보존 검사 통과"
+    },
+    {
+      "id": "KNOWN-02",
+      "status": "STATIC_FIXED_ACTUAL_NOT_RUN",
+      "finding": "플로팅 안내/복원 취소의 출발 컨텍스트 보존 검사 통과"
+    },
+    {
+      "id": "FIX-08-01",
+      "status": "STATIC_FIXED_ACTUAL_NOT_RUN",
+      "finding": "닉네임 입력 예시와 확인 결과·바뀐 프로필 경로 검사 통과"
+    }
+  ],
+  "cases": [
+    {
+      "id": "NAV-01",
+      "title": "캐릭터 역할 필터·상세 탭·뒤로",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_04_CharacterCollection",
+        "SCR_05_CharacterDetail"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "캐릭터",
+          "controlName": "BUTTON / 캐릭터",
+          "center1920": [
+            192.0,
+            992.0
+          ],
+          "center1280": [
+            128.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.1,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_04_CharacterCollection",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "자현",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_04_CharacterCollection",
+          "clickLabel": "근접",
+          "controlName": "BUTTON / 근접",
+          "center1920": [
+            808.0,
+            236.0
+          ],
+          "center1280": [
+            538.667,
+            157.333
+          ],
+          "centerNormalized": [
+            0.420833,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_04_CharacterCollection / char-2-tab-0-filter-근접",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "나비",
+            "근접 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_04_CharacterCollection / char-2-tab-0-filter-근접",
+          "clickLabel": "상세 보기",
+          "controlName": "BUTTON / 상세 보기",
+          "center1920": [
+            1508.0,
+            992.0
+          ],
+          "center1280": [
+            1005.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.785417,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-0-filter-근접",
+          "visibleTextToCheck": [
+            "캐릭터 상세",
+            "나비",
+            "특징 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-0-filter-근접",
+          "clickLabel": "기술",
+          "controlName": "BUTTON / 기술",
+          "center1920": [
+            1488.0,
+            452.0
+          ],
+          "center1280": [
+            992.0,
+            301.333
+          ],
+          "centerNormalized": [
+            0.775,
+            0.418519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-1-filter-근접",
+          "visibleTextToCheck": [
+            "캐릭터 상세",
+            "나비",
+            "기술 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-1-filter-근접",
+          "clickLabel": "이야기",
+          "controlName": "BUTTON / 이야기",
+          "center1920": [
+            1688.0,
+            452.0
+          ],
+          "center1280": [
+            1125.333,
+            301.333
+          ],
+          "centerNormalized": [
+            0.879167,
+            0.418519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-2-filter-근접",
+          "visibleTextToCheck": [
+            "캐릭터 상세",
+            "나비",
+            "이야기 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-2-filter-근접",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_04_CharacterCollection / char-2-tab-0-filter-근접",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "나비",
+            "근접 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / SCR_04_CharacterCollection / char-2-tab-0-filter-근접",
+          "clickLabel": "전체",
+          "controlName": "BUTTON / 전체",
+          "center1920": [
+            196.0,
+            236.0
+          ],
+          "center1280": [
+            130.667,
+            157.333
+          ],
+          "centerNormalized": [
+            0.102083,
+            0.218519
+          ],
+          "expectedArrivalScene": "SCR_04_CharacterCollection",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "자현",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "SCR_04_CharacterCollection",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "필터 목록과 상세에서 나비가 선택되어야 한다. 상세 탭을 바꾼 뒤 뒤로 가도 근접 필터가 유지되는지 확인한다."
+    },
+    {
+      "id": "NAV-02",
+      "title": "장신구 이동 필터·선택·상세 비교",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_06_AccessoryCollection",
+        "SCR_07_AccessoryDetail"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "장신구",
+          "controlName": "BUTTON / 장신구",
+          "center1920": [
+            400.0,
+            992.0
+          ],
+          "center1280": [
+            266.667,
+            661.333
+          ],
+          "centerNormalized": [
+            0.208333,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_06_AccessoryCollection",
+          "visibleTextToCheck": [
+            "장신구",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_06_AccessoryCollection",
+          "clickLabel": "이동",
+          "controlName": "BUTTON / 이동",
+          "center1920": [
+            748.0,
+            236.0
+          ],
+          "center1280": [
+            498.667,
+            157.333
+          ],
+          "centerNormalized": [
+            0.389583,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_06_AccessoryCollection / item-0-filter-이동",
+          "visibleTextToCheck": [
+            "장신구",
+            "이동 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_06_AccessoryCollection / item-0-filter-이동",
+          "clickLabel": "도약 장갑",
+          "controlName": "SELECT / 도약 장갑",
+          "center1920": [
+            740.0,
+            440.0
+          ],
+          "center1280": [
+            493.333,
+            293.333
+          ],
+          "centerNormalized": [
+            0.385417,
+            0.407407
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-이동",
+          "visibleTextToCheck": [
+            "장신구",
+            "이동 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-이동",
+          "clickLabel": "상세 · 비교",
+          "controlName": "BUTTON / 상세 · 비교",
+          "center1920": [
+            1608.0,
+            992.0
+          ],
+          "center1280": [
+            1072.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.8375,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_07_AccessoryDetail / item-3-filter-이동",
+          "visibleTextToCheck": [
+            "장신구 상세",
+            "도약 장갑",
+            "효과와 장단점"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_07_AccessoryDetail / item-3-filter-이동",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-이동",
+          "visibleTextToCheck": [
+            "장신구",
+            "이동 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SCR_06_AccessoryCollection / item-3-filter-이동",
+          "clickLabel": "전체",
+          "controlName": "BUTTON / 전체",
+          "center1920": [
+            312.0,
+            236.0
+          ],
+          "center1280": [
+            208.0,
+            157.333
+          ],
+          "centerNormalized": [
+            0.1625,
+            0.218519
+          ],
+          "expectedArrivalScene": "SCR_06_AccessoryCollection",
+          "visibleTextToCheck": [
+            "장신구",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "SCR_06_AccessoryCollection",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "이동 필터에서 도약 장갑을 선택한 뒤 상세와 뒤로에서도 이동 필터·도약 장갑이 유지되어야 한다."
+    },
+    {
+      "id": "NAV-03",
+      "title": "빈 프리셋 저장·적용 검증",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_08_Preset"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "프리셋",
+          "controlName": "BUTTON / 프리셋",
+          "center1920": [
+            608.0,
+            992.0
+          ],
+          "center1280": [
+            405.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.316667,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_08_Preset",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "현재 사용하는 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_08_Preset",
+          "clickLabel": "편성 2",
+          "controlName": "SELECT / 편성 2",
+          "center1920": [
+            312.0,
+            452.0
+          ],
+          "center1280": [
+            208.0,
+            301.333
+          ],
+          "centerNormalized": [
+            0.1625,
+            0.418519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / slot-1",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "새로운 전투 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_08_Preset / slot-1",
+          "clickLabel": "저장",
+          "controlName": "BUTTON / 저장",
+          "center1920": [
+            1328.0,
+            992.0
+          ],
+          "center1280": [
+            885.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.691667,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SelectionRequired",
+          "visibleTextToCheck": [
+            "캐릭터를 먼저 선택하세요.",
+            "빈 편성에는 캐릭터가 필요합니다.\n보유한 캐릭터를 선택한 뒤 저장해 주세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SelectionRequired",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / slot-1",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "새로운 전투 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_08_Preset / slot-1",
+          "clickLabel": "편성 적용",
+          "controlName": "BUTTON / 편성 적용",
+          "center1920": [
+            1656.0,
+            992.0
+          ],
+          "center1280": [
+            1104.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.8625,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SelectionRequired",
+          "visibleTextToCheck": [
+            "캐릭터를 먼저 선택하세요.",
+            "빈 편성에는 캐릭터가 필요합니다.\n보유한 캐릭터를 선택한 뒤 저장해 주세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SelectionRequired",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / slot-1",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "새로운 전투 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / SCR_08_Preset / slot-1",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "캐릭터가 없는 편성은 저장/적용 성공을 표시하면 안 된다. 취소는 선택한 빈 슬롯으로 돌아가야 한다."
+    },
+    {
+      "id": "NAV-04",
+      "title": "상점 상품 상세·취소·획득 확인",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_19_Shop"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "상점",
+          "controlName": "BUTTON / 상점",
+          "center1920": [
+            1232.0,
+            992.0
+          ],
+          "center1280": [
+            821.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.641667,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_19_Shop",
+          "visibleTextToCheck": [
+            "상점",
+            "새로운 동료, 새로운 움직임",
+            "추천 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_19_Shop",
+          "clickLabel": "장신구",
+          "controlName": "BUTTON / 장신구",
+          "center1920": [
+            220.0,
+            344.0
+          ],
+          "center1280": [
+            146.667,
+            229.333
+          ],
+          "centerNormalized": [
+            0.114583,
+            0.318519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_19_Shop / category-장신구",
+          "visibleTextToCheck": [
+            "상점",
+            "장신구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_19_Shop / category-장신구",
+          "clickLabel": "복싱 글러브",
+          "controlName": "SELECT / 복싱 글러브",
+          "center1920": [
+            926.0,
+            440.0
+          ],
+          "center1280": [
+            617.333,
+            293.333
+          ],
+          "centerNormalized": [
+            0.482292,
+            0.407407
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_19_Shop / detail-1",
+          "visibleTextToCheck": [
+            "복싱 글러브",
+            "유란 기술 목록으로 교체\n속도 보너스 없음\n\n개발용 무료 상품 · 가격 0원\n보유 목록에 추가할까요?"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_19_Shop / detail-1",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_19_Shop",
+          "visibleTextToCheck": [
+            "상점",
+            "새로운 동료, 새로운 움직임",
+            "추천 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "SCR_19_Shop",
+          "clickLabel": "장신구",
+          "controlName": "BUTTON / 장신구",
+          "center1920": [
+            220.0,
+            344.0
+          ],
+          "center1280": [
+            146.667,
+            229.333
+          ],
+          "centerNormalized": [
+            0.114583,
+            0.318519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_19_Shop / category-장신구",
+          "visibleTextToCheck": [
+            "상점",
+            "장신구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SCR_19_Shop / category-장신구",
+          "clickLabel": "복싱 글러브",
+          "controlName": "SELECT / 복싱 글러브",
+          "center1920": [
+            926.0,
+            440.0
+          ],
+          "center1280": [
+            617.333,
+            293.333
+          ],
+          "centerNormalized": [
+            0.482292,
+            0.407407
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_19_Shop / detail-1",
+          "visibleTextToCheck": [
+            "복싱 글러브",
+            "유란 기술 목록으로 교체\n속도 보너스 없음\n\n개발용 무료 상품 · 가격 0원\n보유 목록에 추가할까요?"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / SCR_19_Shop / detail-1",
+          "clickLabel": "0원 · 획득 확인",
+          "controlName": "BUTTON / 0원 · 획득 확인",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / ShopAcquired",
+          "visibleTextToCheck": [
+            "보유 목록에 추가했습니다.",
+            "획득한 장신구를 도감에서 확인하거나\n장신구 메뉴에서 편성에 적용하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "MENU08 / ShopAcquired",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_19_Shop",
+          "visibleTextToCheck": [
+            "상점",
+            "새로운 동료, 새로운 움직임",
+            "추천 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 9,
+          "fromScene": "SCR_19_Shop",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "개발용 가격0원·유란 기술 목록 교체 설명과 획득 확인을 확인한다. 닫기 전까지 획득 성공을 표시하지 않아야 한다. 이 시안의 성공 안내 뒤 취소는 안내를 닫는 연결이며 실제 거래 취소 검사가 아니다."
+    },
+    {
+      "id": "NAV-05",
+      "title": "도감 분류·미보유·읽기 전용 상세",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_20_Collection"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "전체 메뉴",
+          "controlName": "BUTTON / 전체 메뉴",
+          "center1920": [
+            220.0,
+            784.0
+          ],
+          "center1280": [
+            146.667,
+            522.667
+          ],
+          "centerNormalized": [
+            0.114583,
+            0.725926
+          ],
+          "expectedArrivalScene": "MENU08 / AllMenus",
+          "visibleTextToCheck": [
+            "전체 메뉴"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "MENU08 / AllMenus",
+          "clickLabel": "도감",
+          "controlName": "BUTTON / 도감",
+          "center1920": [
+            956.0,
+            540.0
+          ],
+          "center1280": [
+            637.333,
+            360.0
+          ],
+          "centerNormalized": [
+            0.497917,
+            0.5
+          ],
+          "expectedArrivalScene": "SCR_20_Collection",
+          "visibleTextToCheck": [
+            "도감",
+            "캐릭터 선택",
+            "보유 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "SCR_20_Collection",
+          "clickLabel": "장신구",
+          "controlName": "BUTTON / 장신구",
+          "center1920": [
+            716.0,
+            236.0
+          ],
+          "center1280": [
+            477.333,
+            157.333
+          ],
+          "centerNormalized": [
+            0.372917,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_20_Collection / accessory",
+          "visibleTextToCheck": [
+            "도감",
+            "장신구 선택",
+            "보유 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_20_Collection / accessory",
+          "clickLabel": "미보유",
+          "controlName": "BUTTON / 미보유",
+          "center1920": [
+            1680.0,
+            236.0
+          ],
+          "center1280": [
+            1120.0,
+            157.333
+          ],
+          "centerNormalized": [
+            0.875,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_20_Collection / accessory-unowned",
+          "visibleTextToCheck": [
+            "도감",
+            "장신구 선택",
+            "미보유 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_20_Collection / accessory-unowned",
+          "clickLabel": "복싱 글러브",
+          "controlName": "SELECT / 복싱 글러브",
+          "center1920": [
+            300.0,
+            448.0
+          ],
+          "center1280": [
+            200.0,
+            298.667
+          ],
+          "centerNormalized": [
+            0.15625,
+            0.414815
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_20_Collection / accessory-1",
+          "visibleTextToCheck": [
+            "복싱 글러브",
+            "유란 기술 목록으로 교체\n속도 보너스 없음\n\n미보유 항목입니다.\n편성 변경은 캐릭터·장신구 메뉴에서 진행하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SCR_20_Collection / accessory-1",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_20_Collection / accessory",
+          "visibleTextToCheck": [
+            "도감",
+            "장신구 선택",
+            "보유 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / SCR_20_Collection / accessory",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "미보유 장신구5개와 선택 상세의 미보유 문구를 확인한다. 도감에 장착 행동이 없어야 한다. 현재 spec에서는 상세 닫기가 보유 장신구 탭으로 돌아간다."
+    },
+    {
+      "id": "NAV-06",
+      "title": "미션 주간 분류·상세·닫기",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_21_Mission"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "미션",
+          "controlName": "BUTTON / 미션",
+          "center1920": [
+            816.0,
+            992.0
+          ],
+          "center1280": [
+            544.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.425,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_21_Mission",
+          "visibleTextToCheck": [
+            "미션",
+            "한 판씩 쌓이는 경험",
+            "일일 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_21_Mission",
+          "clickLabel": "주간",
+          "controlName": "BUTTON / 주간",
+          "center1920": [
+            620.0,
+            236.0
+          ],
+          "center1280": [
+            413.333,
+            157.333
+          ],
+          "centerNormalized": [
+            0.322917,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_21_Mission / tab-1",
+          "visibleTextToCheck": [
+            "미션",
+            "한 판씩 쌓이는 경험",
+            "주간 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_21_Mission / tab-1",
+          "clickLabel": "한 주에 다섯 경기 완료",
+          "controlName": "SELECT / 한 주에 다섯 경기 완료",
+          "center1920": [
+            616.0,
+            396.0
+          ],
+          "center1280": [
+            410.667,
+            264.0
+          ],
+          "centerNormalized": [
+            0.320833,
+            0.366667
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_21_Mission / tab-1-detail-0",
+          "visibleTextToCheck": [
+            "한 주에 다섯 경기 완료",
+            "진행 0 / 5 · 미완료\n\n완료한 실제 경기로 진행합니다.\n연습 · Story · 포기는 제외하며 보상은 없습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_21_Mission / tab-1-detail-0",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_21_Mission / tab-1",
+          "visibleTextToCheck": [
+            "미션",
+            "한 판씩 쌓이는 경험",
+            "주간 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_21_Mission / tab-1",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "주간 상세는 진행0/5·완료 경기·연습/Story/포기 제외·보상 없음 문구를 확인한다."
+    },
+    {
+      "id": "NAV-07",
+      "title": "친구 검색 예시·요청 취소·연결 실패",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_22_Social"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "친구",
+          "controlName": "BUTTON / 친구",
+          "center1920": [
+            1024.0,
+            992.0
+          ],
+          "center1280": [
+            682.667,
+            661.333
+          ],
+          "centerNormalized": [
+            0.533333,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_22_Social",
+          "visibleTextToCheck": [
+            "친구",
+            "함께할 동료를 찾아보세요.",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_22_Social",
+          "clickLabel": "친구 찾기",
+          "controlName": "BUTTON / 친구 찾기",
+          "center1920": [
+            1512.0,
+            240.0
+          ],
+          "center1280": [
+            1008.0,
+            160.0
+          ],
+          "centerNormalized": [
+            0.7875,
+            0.222222
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / search-empty",
+          "visibleTextToCheck": [
+            "친구 찾기",
+            "닉네임을 정확히 입력하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_22_Social / search-empty",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_22_Social",
+          "visibleTextToCheck": [
+            "친구",
+            "함께할 동료를 찾아보세요.",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "SCR_22_Social",
+          "clickLabel": "친구 찾기",
+          "controlName": "BUTTON / 친구 찾기",
+          "center1920": [
+            1512.0,
+            240.0
+          ],
+          "center1280": [
+            1008.0,
+            160.0
+          ],
+          "centerNormalized": [
+            0.7875,
+            0.222222
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / search-empty",
+          "visibleTextToCheck": [
+            "친구 찾기",
+            "닉네임을 정확히 입력하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_22_Social / search-empty",
+          "clickLabel": "검색 예시 보기",
+          "controlName": "BUTTON / 계정 연결",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / FriendRequestResult",
+          "visibleTextToCheck": [
+            "친구 요청을 보낼까요?",
+            "닉네임 · 동료 A (시안 예시)\n이 플레이어에게 친구 요청을 보냅니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / FriendRequestResult",
+          "clickLabel": "요청 보내기",
+          "controlName": "BUTTON / 요청 보내기",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / FriendRequestSent",
+          "visibleTextToCheck": [
+            "친구 요청을 보냈습니다.",
+            "상대가 수락하면 친구 목록에 표시됩니다.\n요청은 취소할 수 있습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / FriendRequestSent",
+          "clickLabel": "요청 취소",
+          "controlName": "BUTTON / 요청 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_22_Social",
+          "visibleTextToCheck": [
+            "친구",
+            "함께할 동료를 찾아보세요.",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "SCR_22_Social",
+          "clickLabel": "다시 조회",
+          "controlName": "BUTTON / 다시 조회",
+          "center1920": [
+            596.0,
+            704.0
+          ],
+          "center1280": [
+            397.333,
+            469.333
+          ],
+          "centerNormalized": [
+            0.310417,
+            0.651852
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / connection-error",
+          "visibleTextToCheck": [
+            "연결을 확인할 수 없습니다.",
+            "친구 목록을 새로 읽지 못했습니다.\n이전 자료가 있으면 조회 시각을 함께 표시합니다.\n연결을 확인한 뒤 다시 시도하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 9,
+          "fromScene": "MENU08 / SCR_22_Social / connection-error",
+          "clickLabel": "다시 조회",
+          "controlName": "BUTTON / 다시 조회",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / FriendsLoading",
+          "visibleTextToCheck": [
+            "친구 목록을 읽고 있습니다.",
+            "잠시 기다려 주세요.\n화면을 나가면 친구 조회를 멈춥니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 10,
+          "fromScene": "MENU08 / FriendsLoading",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_22_Social",
+          "visibleTextToCheck": [
+            "친구",
+            "함께할 동료를 찾아보세요.",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 11,
+          "fromScene": "SCR_22_Social",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "프로토타입은 입력 가능한 실제 서버 검색이 아니라 이름 붙인 예시 결과다. 요청과 오류/조회 중 화면을 실제 서버 성공으로 해석하지 않는다."
+    },
+    {
+      "id": "NAV-08",
+      "title": "랭크 기간 필터·조회 중·닫기",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_23_Rank"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "전체 메뉴",
+          "controlName": "BUTTON / 전체 메뉴",
+          "center1920": [
+            220.0,
+            784.0
+          ],
+          "center1280": [
+            146.667,
+            522.667
+          ],
+          "centerNormalized": [
+            0.114583,
+            0.725926
+          ],
+          "expectedArrivalScene": "MENU08 / AllMenus",
+          "visibleTextToCheck": [
+            "전체 메뉴"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "MENU08 / AllMenus",
+          "clickLabel": "랭크",
+          "controlName": "BUTTON / 랭크",
+          "center1920": [
+            956.0,
+            700.0
+          ],
+          "center1280": [
+            637.333,
+            466.667
+          ],
+          "centerNormalized": [
+            0.497917,
+            0.648148
+          ],
+          "expectedArrivalScene": "SCR_23_Rank",
+          "visibleTextToCheck": [
+            "랭크",
+            "완료한 대전의 기록",
+            "순위 없음",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "SCR_23_Rank",
+          "clickLabel": "이번 달",
+          "controlName": "BUTTON / 이번 달",
+          "center1920": [
+            704.0,
+            236.0
+          ],
+          "center1280": [
+            469.333,
+            157.333
+          ],
+          "centerNormalized": [
+            0.366667,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_23_Rank / filter-1",
+          "visibleTextToCheck": [
+            "랭크",
+            "완료한 대전의 기록",
+            "순위 없음",
+            "이번 달 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_23_Rank / filter-1",
+          "clickLabel": "다시 조회",
+          "controlName": "BUTTON / 다시 조회",
+          "center1920": [
+            1664.0,
+            236.0
+          ],
+          "center1280": [
+            1109.333,
+            157.333
+          ],
+          "centerNormalized": [
+            0.866667,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / RankLoading",
+          "visibleTextToCheck": [
+            "순위를 읽고 있습니다.",
+            "서버가 집계한 정상 LAN 결과를 조회합니다.\n이전 자료를 표시하면 조회 시각을 함께 보여줍니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / RankLoading",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_23_Rank",
+          "visibleTextToCheck": [
+            "랭크",
+            "완료한 대전의 기록",
+            "순위 없음",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "SCR_23_Rank",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "이번 달 선택 표시와 정상 완료LAN만 집계·한국 시간 월 구분을 확인한다. 재조회 팝업 종료 뒤 현재 spec은 전체 분류로 돌아간다."
+    },
+    {
+      "id": "NAV-09",
+      "title": "프로필 닉네임 팝업·취소",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "SCR_24_Profile"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "프로필",
+          "controlName": "BUTTON / 프로필",
+          "center1920": [
+            1440.0,
+            88.0
+          ],
+          "center1280": [
+            960.0,
+            58.667
+          ],
+          "centerNormalized": [
+            0.75,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_24_Profile",
+          "visibleTextToCheck": [
+            "프로필",
+            "숲의 여행자",
+            "0",
+            "4",
+            "오프라인 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_24_Profile",
+          "clickLabel": "닉네임 변경",
+          "controlName": "BUTTON / 닉네임 변경",
+          "center1920": [
+            1696.0,
+            300.0
+          ],
+          "center1280": [
+            1130.667,
+            200.0
+          ],
+          "centerNormalized": [
+            0.883333,
+            0.277778
+          ],
+          "expectedArrivalScene": "MENU08 / NicknameEdit",
+          "visibleTextToCheck": [
+            "닉네임 변경",
+            "숲빛 여행자",
+            "닉네임 입력 시안입니다. 실제 입력은 앱에서 진행합니다.\n한글·영문 등 1–12자 · LAN 방이 열려 있으면 변경할 수 없습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / NicknameEdit",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_24_Profile",
+          "visibleTextToCheck": [
+            "프로필",
+            "숲의 여행자",
+            "0",
+            "4",
+            "오프라인 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "SCR_24_Profile",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "현재 편성은 묘령·철갑옷, 로컬 미연결과 오프라인/LAN 분리가 보여야 한다. 팝업 취소 뒤 닉네임이 바뀌지 않아야 한다."
+    },
+    {
+      "id": "NAV-10",
+      "title": "일반 설정 분류 왕복",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "EXT_06_GeneralSettings"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "설정",
+          "controlName": "BUTTON / 설정",
+          "center1920": [
+            1704.0,
+            88.0
+          ],
+          "center1280": [
+            1136.0,
+            58.667
+          ],
+          "centerNormalized": [
+            0.8875,
+            0.081481
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "화면 효과",
+          "controlName": "BUTTON / 화면 효과",
+          "center1920": [
+            248.0,
+            356.0
+          ],
+          "center1280": [
+            165.333,
+            237.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.32963
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / 화면 효과",
+          "visibleTextToCheck": [
+            "설정",
+            "화면 효과 설정",
+            "현재 설정이 적용되어 있습니다.",
+            "화면 효과 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / 화면 효과",
+          "clickLabel": "소리",
+          "controlName": "BUTTON / 소리",
+          "center1920": [
+            248.0,
+            244.0
+          ],
+          "center1280": [
+            165.333,
+            162.667
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.225926
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "접근성",
+          "controlName": "BUTTON / 접근성",
+          "center1920": [
+            248.0,
+            468.0
+          ],
+          "center1280": [
+            165.333,
+            312.0
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.433333
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / 접근성",
+          "visibleTextToCheck": [
+            "설정",
+            "접근성 설정",
+            "현재 설정이 적용되어 있습니다.",
+            "접근성 선택",
+            "기본 선택",
+            "켬 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / 접근성",
+          "clickLabel": "미니맵",
+          "controlName": "BUTTON / 미니맵",
+          "center1920": [
+            248.0,
+            580.0
+          ],
+          "center1280": [
+            165.333,
+            386.667
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.537037
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / 미니맵",
+          "visibleTextToCheck": [
+            "설정",
+            "미니맵 설정",
+            "20%",
+            "현재 설정이 적용되어 있습니다.",
+            "미니맵 선택",
+            "얼굴 선택",
+            "켬 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / 미니맵",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "분류 선택 표시와 설정 항목이 함께 바뀌고 변경 전 적용은 사용 불가인지 확인한다."
+    },
+    {
+      "id": "NAV-11",
+      "title": "로비 출발 조작 설정·플로팅 취소",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "CBT_08_Settings"
+      ],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "설정",
+          "controlName": "BUTTON / 설정",
+          "center1920": [
+            1704.0,
+            88.0
+          ],
+          "center1280": [
+            1136.0,
+            58.667
+          ],
+          "centerNormalized": [
+            0.8875,
+            0.081481
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "조작",
+          "controlName": "BUTTON / 조작",
+          "center1920": [
+            248.0,
+            692.0
+          ],
+          "center1280": [
+            165.333,
+            461.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.640741
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "고정 / 같은 위치에서 시작",
+            "방향 조이스틱",
+            "손을 떼면 손잡이가 중앙으로 돌아옵니다.\n조이스틱의 시작 위치는 유지됩니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "고정 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / ControlsFromLobby",
+          "clickLabel": "플로팅",
+          "controlName": "BUTTON / 플로팅",
+          "center1920": [
+            1672.0,
+            364.0
+          ],
+          "center1280": [
+            1114.667,
+            242.667
+          ],
+          "centerNormalized": [
+            0.870833,
+            0.337037
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFloatingFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / ControlsFloatingFromLobby",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            1432.0,
+            992.0
+          ],
+          "center1280": [
+            954.667,
+            661.333
+          ],
+          "centerNormalized": [
+            0.745833,
+            0.918519
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "로비 출발 변형 MENU08/ControlsFromLobby를 사용한다. 고정/플로팅 선택 문구와 설명·미리보기가 바뀌어야 하며 취소는 일반 설정으로 돌아가야 한다."
+    },
+    {
+      "id": "STATE-01",
+      "title": "나비 선택 전달·저장 취소·적용 취소·결과 반영",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "캐릭터",
+          "controlName": "BUTTON / 캐릭터",
+          "center1920": [
+            192.0,
+            992.0
+          ],
+          "center1280": [
+            128.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.1,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_04_CharacterCollection",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "자현",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_04_CharacterCollection",
+          "clickLabel": "근접",
+          "controlName": "BUTTON / 근접",
+          "center1920": [
+            808.0,
+            236.0
+          ],
+          "center1280": [
+            538.667,
+            157.333
+          ],
+          "centerNormalized": [
+            0.420833,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_04_CharacterCollection / char-2-tab-0-filter-근접",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "나비",
+            "근접 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_04_CharacterCollection / char-2-tab-0-filter-근접",
+          "clickLabel": "상세 보기",
+          "controlName": "BUTTON / 상세 보기",
+          "center1920": [
+            1508.0,
+            992.0
+          ],
+          "center1280": [
+            1005.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.785417,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-0-filter-근접",
+          "visibleTextToCheck": [
+            "캐릭터 상세",
+            "나비",
+            "특징 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_05_CharacterDetail / char-2-tab-0-filter-근접",
+          "clickLabel": "편성에 넣기",
+          "controlName": "BUTTON / 편성에 넣기",
+          "center1920": [
+            1656.0,
+            992.0
+          ],
+          "center1280": [
+            1104.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.8625,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / draft-nabi",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "편집 중인 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_08_Preset / draft-nabi",
+          "clickLabel": "저장",
+          "controlName": "BUTTON / 저장",
+          "center1920": [
+            1328.0,
+            992.0
+          ],
+          "center1280": [
+            885.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.691667,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / save-confirm-nabi",
+          "visibleTextToCheck": [
+            "이 편성을 저장할까요?",
+            "나비 · 철갑옷\n슬롯 01에 저장합니다.\n현재 사용하는 편성은 적용할 때 바뀝니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SCR_08_Preset / save-confirm-nabi",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / draft-nabi",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "편집 중인 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / SCR_08_Preset / draft-nabi",
+          "clickLabel": "저장",
+          "controlName": "BUTTON / 저장",
+          "center1920": [
+            1328.0,
+            992.0
+          ],
+          "center1280": [
+            885.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.691667,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / save-confirm-nabi",
+          "visibleTextToCheck": [
+            "이 편성을 저장할까요?",
+            "나비 · 철갑옷\n슬롯 01에 저장합니다.\n현재 사용하는 편성은 적용할 때 바뀝니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "MENU08 / SCR_08_Preset / save-confirm-nabi",
+          "clickLabel": "저장 확인",
+          "controlName": "BUTTON / 저장 확인",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / saved-nabi",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "저장한 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 9,
+          "fromScene": "MENU08 / SCR_08_Preset / saved-nabi",
+          "clickLabel": "편성 적용",
+          "controlName": "BUTTON / 편성 적용",
+          "center1920": [
+            1656.0,
+            992.0
+          ],
+          "center1280": [
+            1104.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.8625,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / apply-saved-confirm-nabi",
+          "visibleTextToCheck": [
+            "저장한 편성을 적용할까요?",
+            "나비 · 철갑옷\n저장한 조합을 현재 편성으로 바꿉니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 10,
+          "fromScene": "MENU08 / SCR_08_Preset / apply-saved-confirm-nabi",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / saved-nabi",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "저장한 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 11,
+          "fromScene": "MENU08 / SCR_08_Preset / saved-nabi",
+          "clickLabel": "편성 적용",
+          "controlName": "BUTTON / 편성 적용",
+          "center1920": [
+            1656.0,
+            992.0
+          ],
+          "center1280": [
+            1104.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.8625,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / apply-saved-confirm-nabi",
+          "visibleTextToCheck": [
+            "저장한 편성을 적용할까요?",
+            "나비 · 철갑옷\n저장한 조합을 현재 편성으로 바꿉니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 12,
+          "fromScene": "MENU08 / SCR_08_Preset / apply-saved-confirm-nabi",
+          "clickLabel": "적용 확인",
+          "controlName": "BUTTON / 적용 확인",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / applied-nabi",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "현재 사용하는 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 13,
+          "fromScene": "MENU08 / SCR_08_Preset / applied-nabi",
+          "clickLabel": "프로필",
+          "controlName": "BUTTON / 저장",
+          "center1920": [
+            1328.0,
+            992.0
+          ],
+          "center1280": [
+            885.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.691667,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_24_Profile / applied-nabi",
+          "visibleTextToCheck": [
+            "프로필",
+            "숲의 여행자",
+            "0",
+            "4",
+            "오프라인 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 14,
+          "fromScene": "MENU08 / SCR_24_Profile / applied-nabi",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_03_Lobby / applied-nabi",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "나비"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "MENU08 / SCR_03_Lobby / applied-nabi",
+      "note": "draft/saved/applied 모두 나비·철갑옷이어야 한다. 저장만으로 현재 로비 편성을 바꾸면 안 된다. 적용 확인 이후 프로필과 로비 모두 나비가 보여야 한다."
+    },
+    {
+      "id": "STATE-02",
+      "title": "유란 편성 편집 취소",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "캐릭터",
+          "controlName": "BUTTON / 캐릭터",
+          "center1920": [
+            192.0,
+            992.0
+          ],
+          "center1280": [
+            128.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.1,
+            0.918519
+          ],
+          "expectedArrivalScene": "SCR_04_CharacterCollection",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "자현",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_04_CharacterCollection",
+          "clickLabel": "견제",
+          "controlName": "BUTTON / 견제",
+          "center1920": [
+            1008.0,
+            236.0
+          ],
+          "center1280": [
+            672.0,
+            157.333
+          ],
+          "centerNormalized": [
+            0.525,
+            0.218519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_04_CharacterCollection / char-3-tab-0-filter-견제",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "유란",
+            "견제 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_04_CharacterCollection / char-3-tab-0-filter-견제",
+          "clickLabel": "상세 보기",
+          "controlName": "BUTTON / 상세 보기",
+          "center1920": [
+            1508.0,
+            992.0
+          ],
+          "center1280": [
+            1005.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.785417,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_05_CharacterDetail / char-3-tab-0-filter-견제",
+          "visibleTextToCheck": [
+            "캐릭터 상세",
+            "유란",
+            "특징 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_05_CharacterDetail / char-3-tab-0-filter-견제",
+          "clickLabel": "편성에 넣기",
+          "controlName": "BUTTON / 편성에 넣기",
+          "center1920": [
+            1656.0,
+            992.0
+          ],
+          "center1280": [
+            1104.0,
+            661.333
+          ],
+          "centerNormalized": [
+            0.8625,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_08_Preset / draft-yu-ran",
+          "visibleTextToCheck": [
+            "전투 편성",
+            "편집 중인 편성"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / SCR_08_Preset / draft-yu-ran",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            1028.0,
+            992.0
+          ],
+          "center1280": [
+            685.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.535417,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_05_CharacterDetail / char-3-tab-0-filter-전체",
+          "visibleTextToCheck": [
+            "캐릭터 상세",
+            "유란",
+            "특징 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SCR_05_CharacterDetail / char-3-tab-0-filter-전체",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_04_CharacterCollection / char-3-tab-0-filter-전체",
+          "visibleTextToCheck": [
+            "캐릭터",
+            "유란",
+            "전체 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / SCR_04_CharacterCollection / char-3-tab-0-filter-전체",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "유란 draft에서 취소하면 유란 상세로 돌아가며 원래 현재 편성 묘령은 바뀌지 않아야 한다. 본 검사는 새 시작점의 기본 로비에서 독립 실행한다."
+    },
+    {
+      "id": "STATE-03",
+      "title": "일반 설정 변경·다른 분류 이동 취소·버리기",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "설정",
+          "controlName": "BUTTON / 설정",
+          "center1920": [
+            1704.0,
+            88.0
+          ],
+          "center1280": [
+            1136.0,
+            58.667
+          ],
+          "centerNormalized": [
+            0.8875,
+            0.081481
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "음악 음량",
+          "controlName": "SELECT / 음악 음량",
+          "center1920": [
+            1616.0,
+            444.0
+          ],
+          "center1280": [
+            1077.333,
+            296.0
+          ],
+          "centerNormalized": [
+            0.841667,
+            0.411111
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / 소리-off",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "40%",
+            "저장하지 않은 변경 사항이 있습니다.",
+            "소리 선택",
+            "켬 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / 소리-off",
+          "clickLabel": "화면 효과",
+          "controlName": "BUTTON / 화면 효과",
+          "center1920": [
+            248.0,
+            356.0
+          ],
+          "center1280": [
+            165.333,
+            237.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.32963
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / discard-소리-to-화면 효과",
+          "visibleTextToCheck": [
+            "변경 내용을 버릴까요?",
+            "아직 적용하지 않은 설정이 있습니다.\n계속 조절하려면 취소를 선택하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / discard-소리-to-화면 효과",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / 소리-off",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "40%",
+            "저장하지 않은 변경 사항이 있습니다.",
+            "소리 선택",
+            "켬 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / 소리-off",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / discard-소리-to-로비",
+          "visibleTextToCheck": [
+            "변경 내용을 버릴까요?",
+            "아직 적용하지 않은 설정이 있습니다.\n계속 조절하려면 취소를 선택하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / discard-소리-to-로비",
+          "clickLabel": "변경 버리기",
+          "controlName": "BUTTON / 변경 버리기",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "변경 후 다른 분류/로비로 나갈 때 미적용 변경 확인이 나오고 취소는 변경 상태를 유지해야 한다. 변경 버리기는 원래 기본 로비로 돌아가야 한다."
+    },
+    {
+      "id": "STATE-04",
+      "title": "소리 변경 적용과 기본값 복원",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "설정",
+          "controlName": "BUTTON / 설정",
+          "center1920": [
+            1704.0,
+            88.0
+          ],
+          "center1280": [
+            1136.0,
+            58.667
+          ],
+          "centerNormalized": [
+            0.8875,
+            0.081481
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "음악 음량",
+          "controlName": "SELECT / 음악 음량",
+          "center1920": [
+            1616.0,
+            444.0
+          ],
+          "center1280": [
+            1077.333,
+            296.0
+          ],
+          "centerNormalized": [
+            0.841667,
+            0.411111
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / 소리-off",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "40%",
+            "저장하지 않은 변경 사항이 있습니다.",
+            "소리 선택",
+            "켬 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / 소리-off",
+          "clickLabel": "적용",
+          "controlName": "BUTTON / 적용",
+          "center1920": [
+            1696.0,
+            992.0
+          ],
+          "center1280": [
+            1130.667,
+            661.333
+          ],
+          "centerNormalized": [
+            0.883333,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / applied-소리",
+          "visibleTextToCheck": [
+            "설정을 적용했습니다.",
+            "소리 설정을 이 기기에 저장했습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / applied-소리",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "40%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택",
+            "켬 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+          "clickLabel": "기본값 복원",
+          "controlName": "BUTTON / 기본값 복원",
+          "center1920": [
+            248.0,
+            992.0
+          ],
+          "center1280": [
+            165.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+          "visibleTextToCheck": [
+            "소리 설정을 복원할까요?",
+            "이 분류의 값을 기본값으로 되돌립니다.\n취소하면 현재 적용한 값을 유지합니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "40%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택",
+            "켬 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / saved-소리",
+          "clickLabel": "기본값 복원",
+          "controlName": "BUTTON / 기본값 복원",
+          "center1920": [
+            248.0,
+            992.0
+          ],
+          "center1280": [
+            165.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+          "visibleTextToCheck": [
+            "소리 설정을 복원할까요?",
+            "이 분류의 값을 기본값으로 되돌립니다.\n취소하면 현재 적용한 값을 유지합니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / reset-saved-소리",
+          "clickLabel": "기본값 복원",
+          "controlName": "BUTTON / 기본값 복원",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-소리",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "60%",
+            "80%",
+            "기본값을 복원했습니다. 적용을 눌러 저장하세요.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 9,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / default-draft-from-saved-소리",
+          "clickLabel": "적용",
+          "controlName": "BUTTON / 적용",
+          "center1920": [
+            1696.0,
+            992.0
+          ],
+          "center1280": [
+            1130.667,
+            661.333
+          ],
+          "centerNormalized": [
+            0.883333,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / applied-default-소리",
+          "visibleTextToCheck": [
+            "기본 설정을 적용했습니다.",
+            "소리 기본 설정을 이 기기에 저장했습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 10,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / applied-default-소리",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / EXT_06_GeneralSettings / default-saved-소리",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "60%",
+            "80%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 11,
+          "fromScene": "MENU08 / EXT_06_GeneralSettings / default-saved-소리",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "40%/40%/켬 적용 뒤 닫아도 값을 유지한다. 복원 취소도 유지한다. 복원 확인은 실제 기본값60%/80%/끔의 미적용 상태이며 적용 뒤 같은 값이 남아야 한다."
+    },
+    {
+      "id": "STATE-05",
+      "title": "플로팅 조절 안내와 복원 취소의 선택 유지",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "설정",
+          "controlName": "BUTTON / 설정",
+          "center1920": [
+            1704.0,
+            88.0
+          ],
+          "center1280": [
+            1136.0,
+            58.667
+          ],
+          "centerNormalized": [
+            0.8875,
+            0.081481
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "조작",
+          "controlName": "BUTTON / 조작",
+          "center1920": [
+            248.0,
+            692.0
+          ],
+          "center1280": [
+            165.333,
+            461.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.640741
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "고정 / 같은 위치에서 시작",
+            "방향 조이스틱",
+            "손을 떼면 손잡이가 중앙으로 돌아옵니다.\n조이스틱의 시작 위치는 유지됩니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "고정 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / ControlsFromLobby",
+          "clickLabel": "플로팅",
+          "controlName": "BUTTON / 플로팅",
+          "center1920": [
+            1672.0,
+            364.0
+          ],
+          "center1280": [
+            1114.667,
+            242.667
+          ],
+          "centerNormalized": [
+            0.870833,
+            0.337037
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFloatingFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / ControlsFloatingFromLobby",
+          "clickLabel": "버튼 크기",
+          "controlName": "SELECT / 버튼 크기",
+          "center1920": [
+            1516.0,
+            668.0
+          ],
+          "center1280": [
+            1010.667,
+            445.333
+          ],
+          "centerNormalized": [
+            0.789583,
+            0.618519
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsParametersFloatingLobby",
+          "visibleTextToCheck": [
+            "조작 크기와 투명도",
+            "버튼 크기는 100–120%, 투명도는 0–50%입니다.\n터치 영역도 표시 크기에 맞춰 함께 조절됩니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / ControlsParametersFloatingLobby",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFloatingFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / ControlsFloatingFromLobby",
+          "clickLabel": "버튼 투명도",
+          "controlName": "SELECT / 버튼 투명도",
+          "center1920": [
+            1516.0,
+            820.0
+          ],
+          "center1280": [
+            1010.667,
+            546.667
+          ],
+          "centerNormalized": [
+            0.789583,
+            0.759259
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsParametersFloatingLobby",
+          "visibleTextToCheck": [
+            "조작 크기와 투명도",
+            "버튼 크기는 100–120%, 투명도는 0–50%입니다.\n터치 영역도 표시 크기에 맞춰 함께 조절됩니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / ControlsParametersFloatingLobby",
+          "clickLabel": "확인",
+          "controlName": "BUTTON / 확인",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFloatingFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "MENU08 / ControlsFloatingFromLobby",
+          "clickLabel": "기본값 복원",
+          "controlName": "BUTTON / 기본값 복원",
+          "center1920": [
+            248.0,
+            992.0
+          ],
+          "center1280": [
+            165.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SettingsResetFloatingLobby",
+          "visibleTextToCheck": [
+            "조작 설정을 복원할까요?",
+            "고정 조이스틱 · 크기 100% · 투명도 0%로\n되돌립니다. 복원 후 적용 버튼으로 저장하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 9,
+          "fromScene": "MENU08 / SettingsResetFloatingLobby",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFloatingFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 10,
+          "fromScene": "MENU08 / ControlsFloatingFromLobby",
+          "clickLabel": "기본값 복원",
+          "controlName": "BUTTON / 기본값 복원",
+          "center1920": [
+            248.0,
+            992.0
+          ],
+          "center1280": [
+            165.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SettingsResetFloatingLobby",
+          "visibleTextToCheck": [
+            "조작 설정을 복원할까요?",
+            "고정 조이스틱 · 크기 100% · 투명도 0%로\n되돌립니다. 복원 후 적용 버튼으로 저장하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 11,
+          "fromScene": "MENU08 / SettingsResetFloatingLobby",
+          "clickLabel": "복원",
+          "controlName": "BUTTON / 복원",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsFromLobby",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "고정 / 같은 위치에서 시작",
+            "방향 조이스틱",
+            "손을 떼면 손잡이가 중앙으로 돌아옵니다.\n조이스틱의 시작 위치는 유지됩니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "고정 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 12,
+          "fromScene": "MENU08 / ControlsFromLobby",
+          "clickLabel": "적용",
+          "controlName": "BUTTON / 적용",
+          "center1920": [
+            1696.0,
+            992.0
+          ],
+          "center1280": [
+            1130.667,
+            661.333
+          ],
+          "centerNormalized": [
+            0.883333,
+            0.918519
+          ],
+          "expectedArrivalScene": "EXT_06_GeneralSettings",
+          "visibleTextToCheck": [
+            "설정",
+            "소리 설정",
+            "70%",
+            "현재 설정이 적용되어 있습니다.",
+            "소리 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 13,
+          "fromScene": "EXT_06_GeneralSettings",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "안내 취소/확인과 복원 취소는 플로팅을 유지한다. 복원 확인만 고정100%/0%로 돌아간다. 이전 임시 플로팅 재클릭을 제거했다."
+    },
+    {
+      "id": "STATE-06",
+      "title": "예시 친구 접속·오프라인 선택·삭제 취소·초대 제약",
+      "startScene": "MENU08 / Review / page-2",
+      "coverage": [],
+      "executionStatus": "NOT_RUN",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "MENU08 / Review / page-2",
+          "clickLabel": "13 · 친구",
+          "controlName": "BUTTON / 13 · 친구",
+          "center1920": [
+            300.0,
+            604.0
+          ],
+          "center1280": [
+            200.0,
+            402.667
+          ],
+          "centerNormalized": [
+            0.15625,
+            0.559259
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / friend-1",
+          "visibleTextToCheck": [
+            "친구",
+            "동료 A · 예시",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "MENU08 / SCR_22_Social / friend-1",
+          "clickLabel": "동료 B · 예시",
+          "controlName": "SELECT / 동료 B · 예시",
+          "center1920": [
+            616.0,
+            612.0
+          ],
+          "center1280": [
+            410.667,
+            408.0
+          ],
+          "centerNormalized": [
+            0.320833,
+            0.566667
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / friend-2",
+          "visibleTextToCheck": [
+            "친구",
+            "동료 B · 예시",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / SCR_22_Social / friend-2",
+          "clickLabel": "동료 A · 예시",
+          "controlName": "SELECT / 동료 A · 예시",
+          "center1920": [
+            616.0,
+            412.0
+          ],
+          "center1280": [
+            410.667,
+            274.667
+          ],
+          "centerNormalized": [
+            0.320833,
+            0.381481
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / friend-1",
+          "visibleTextToCheck": [
+            "친구",
+            "동료 A · 예시",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / SCR_22_Social / friend-1",
+          "clickLabel": "친구 삭제",
+          "controlName": "BUTTON / 친구 삭제",
+          "center1920": [
+            1672.0,
+            832.0
+          ],
+          "center1280": [
+            1114.667,
+            554.667
+          ],
+          "centerNormalized": [
+            0.870833,
+            0.77037
+          ],
+          "expectedArrivalScene": "MENU08 / FriendDelete",
+          "visibleTextToCheck": [
+            "친구에서 삭제할까요?",
+            "동료 A · 예시를 친구 목록에서 삭제합니다.\n삭제한 뒤 다시 요청을 보낼 수 있습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / FriendDelete",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / friend-1",
+          "visibleTextToCheck": [
+            "친구",
+            "동료 A · 예시",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / SCR_22_Social / friend-1",
+          "clickLabel": "LAN 초대",
+          "controlName": "BUTTON / LAN 초대",
+          "center1920": [
+            1664.0,
+            992.0
+          ],
+          "center1280": [
+            1109.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.866667,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / FriendInviteUnavailable",
+          "visibleTextToCheck": [
+            "대기 중인 LAN 방이 필요합니다.",
+            "먼저 LAN 호스트 대기방을 열어 주세요.\n대기 중인 방에서만 친구를 초대할 수 있습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / FriendInviteUnavailable",
+          "clickLabel": "닫기",
+          "controlName": "BUTTON / 닫기",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / SCR_22_Social / friend-1",
+          "visibleTextToCheck": [
+            "친구",
+            "동료 A · 예시",
+            "친구 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "MENU08 / SCR_22_Social / friend-1",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby",
+      "note": "검토 보드2페이지를 수동 시작점으로 연다. 동료A 접속 중/B 오프라인과 선택 프로필이 바뀌는지 확인한다. 삭제 취소는 동료A를 유지하고 LAN방 미개설 초대는 제한 안내를 표시해야 한다. 실제 계정 자료가 아닌 예시다."
+    },
+    {
+      "id": "STATE-07",
+      "title": "닉네임 입력 예시·변경 결과·프로필 반영",
+      "startScene": "SCR_03_Lobby",
+      "coverage": [
+        "FIX-08-01"
+      ],
+      "executionStatus": "NOT_RUN",
+      "note": "Penpot에서 키보드 입력을 구현했다고 판단하지 않는다. 편집 가능한 입력 예시 숲빛 여행자와 실제 입력은 앱에서 진행한다는 안내를 확인한다. 확인 뒤 결과와 프로필에 같은 예시 이름이 보여야 한다.",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "SCR_03_Lobby",
+          "clickLabel": "프로필",
+          "controlName": "BUTTON / 프로필",
+          "center1920": [
+            1440.0,
+            88.0
+          ],
+          "center1280": [
+            960.0,
+            58.667
+          ],
+          "centerNormalized": [
+            0.75,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_24_Profile",
+          "visibleTextToCheck": [
+            "프로필",
+            "숲의 여행자",
+            "0",
+            "4",
+            "오프라인 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "SCR_24_Profile",
+          "clickLabel": "닉네임 변경",
+          "controlName": "BUTTON / 닉네임 변경",
+          "center1920": [
+            1696.0,
+            300.0
+          ],
+          "center1280": [
+            1130.667,
+            200.0
+          ],
+          "centerNormalized": [
+            0.883333,
+            0.277778
+          ],
+          "expectedArrivalScene": "MENU08 / NicknameEdit",
+          "visibleTextToCheck": [
+            "닉네임 변경",
+            "숲빛 여행자",
+            "닉네임 입력 시안입니다. 실제 입력은 앱에서 진행합니다.\n한글·영문 등 1–12자 · LAN 방이 열려 있으면 변경할 수 없습니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / NicknameEdit",
+          "clickLabel": "변경 확인",
+          "controlName": "BUTTON / 변경 확인",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / NicknameChangedExample",
+          "visibleTextToCheck": [
+            "닉네임을 변경했습니다.",
+            "변경한 닉네임 / 숲빛 여행자\n\n시안의 입력·저장 결과 예시입니다.\n실제 앱에서는 입력한 이름을 확인하고 저장합니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / NicknameChangedExample",
+          "clickLabel": "프로필로",
+          "controlName": "BUTTON / 프로필로",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / ProfileNicknameExample",
+          "visibleTextToCheck": [
+            "프로필",
+            "숲빛 여행자",
+            "0",
+            "4",
+            "오프라인 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / ProfileNicknameExample",
+          "clickLabel": "뒤로",
+          "controlName": "BUTTON / 뒤로",
+          "center1920": [
+            164.0,
+            88.0
+          ],
+          "center1280": [
+            109.333,
+            58.667
+          ],
+          "centerNormalized": [
+            0.085417,
+            0.081481
+          ],
+          "expectedArrivalScene": "SCR_03_Lobby",
+          "visibleTextToCheck": [
+            "FOREST ARENA",
+            "오늘의 전투를\n준비하세요.",
+            "묘령"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "SCR_03_Lobby"
+    },
+    {
+      "id": "STATE-08",
+      "title": "일시정지 출발 플로팅 안내·복원 취소",
+      "startScene": "CBT_08_Settings",
+      "coverage": [
+        "KNOWN-02"
+      ],
+      "executionStatus": "NOT_RUN",
+      "note": "로비 출발 경로와 별개다. 안내와 복원 취소는 일시정지 출발 플로팅을 유지하고 복원 확인은 CBT_08_Settings 고정 상태로 돌아간다.",
+      "steps": [
+        {
+          "step": 1,
+          "fromScene": "CBT_08_Settings",
+          "clickLabel": "플로팅",
+          "controlName": "BUTTON / 플로팅",
+          "center1920": [
+            1672.0,
+            364.0
+          ],
+          "center1280": [
+            1114.667,
+            242.667
+          ],
+          "centerNormalized": [
+            0.870833,
+            0.337037
+          ],
+          "expectedArrivalScene": "MENU08 / CBT_08_Settings / floating",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 2,
+          "fromScene": "MENU08 / CBT_08_Settings / floating",
+          "clickLabel": "버튼 크기",
+          "controlName": "SELECT / 버튼 크기",
+          "center1920": [
+            1516.0,
+            668.0
+          ],
+          "center1280": [
+            1010.667,
+            445.333
+          ],
+          "centerNormalized": [
+            0.789583,
+            0.618519
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsParametersFloating",
+          "visibleTextToCheck": [
+            "조작 크기와 투명도",
+            "버튼 크기는 100–120%, 투명도는 0–50%입니다.\n터치 영역도 표시 크기에 맞춰 함께 조절됩니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 3,
+          "fromScene": "MENU08 / ControlsParametersFloating",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / CBT_08_Settings / floating",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 4,
+          "fromScene": "MENU08 / CBT_08_Settings / floating",
+          "clickLabel": "버튼 투명도",
+          "controlName": "SELECT / 버튼 투명도",
+          "center1920": [
+            1516.0,
+            820.0
+          ],
+          "center1280": [
+            1010.667,
+            546.667
+          ],
+          "centerNormalized": [
+            0.789583,
+            0.759259
+          ],
+          "expectedArrivalScene": "MENU08 / ControlsParametersFloating",
+          "visibleTextToCheck": [
+            "조작 크기와 투명도",
+            "버튼 크기는 100–120%, 투명도는 0–50%입니다.\n터치 영역도 표시 크기에 맞춰 함께 조절됩니다."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 5,
+          "fromScene": "MENU08 / ControlsParametersFloating",
+          "clickLabel": "확인",
+          "controlName": "BUTTON / 확인",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / CBT_08_Settings / floating",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 6,
+          "fromScene": "MENU08 / CBT_08_Settings / floating",
+          "clickLabel": "기본값 복원",
+          "controlName": "BUTTON / 기본값 복원",
+          "center1920": [
+            248.0,
+            992.0
+          ],
+          "center1280": [
+            165.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SettingsResetFloating",
+          "visibleTextToCheck": [
+            "조작 설정을 복원할까요?",
+            "고정 조이스틱 · 크기 100% · 투명도 0%로\n되돌립니다. 복원 후 적용 버튼으로 저장하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 7,
+          "fromScene": "MENU08 / SettingsResetFloating",
+          "clickLabel": "취소",
+          "controlName": "BUTTON / 취소",
+          "center1920": [
+            726.0,
+            752.0
+          ],
+          "center1280": [
+            484.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.378125,
+            0.696296
+          ],
+          "expectedArrivalScene": "MENU08 / CBT_08_Settings / floating",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "플로팅 / 첫 터치에서 시작",
+            "방향 조이스틱",
+            "왼쪽 예약 영역의 첫 터치에서 시작하며\n손을 떼면 조이스틱이 숨겨집니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "플로팅 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 8,
+          "fromScene": "MENU08 / CBT_08_Settings / floating",
+          "clickLabel": "기본값 복원",
+          "controlName": "BUTTON / 기본값 복원",
+          "center1920": [
+            248.0,
+            992.0
+          ],
+          "center1280": [
+            165.333,
+            661.333
+          ],
+          "centerNormalized": [
+            0.129167,
+            0.918519
+          ],
+          "expectedArrivalScene": "MENU08 / SettingsResetFloating",
+          "visibleTextToCheck": [
+            "조작 설정을 복원할까요?",
+            "고정 조이스틱 · 크기 100% · 투명도 0%로\n되돌립니다. 복원 후 적용 버튼으로 저장하세요."
+          ],
+          "executionStatus": "NOT_RUN"
+        },
+        {
+          "step": 9,
+          "fromScene": "MENU08 / SettingsResetFloating",
+          "clickLabel": "복원",
+          "controlName": "BUTTON / 복원",
+          "center1920": [
+            1194.0,
+            752.0
+          ],
+          "center1280": [
+            796.0,
+            501.333
+          ],
+          "centerNormalized": [
+            0.621875,
+            0.696296
+          ],
+          "expectedArrivalScene": "CBT_08_Settings",
+          "visibleTextToCheck": [
+            "조작 설정",
+            "손에 익은 위치, 편안한 조작",
+            "고정 / 같은 위치에서 시작",
+            "방향 조이스틱",
+            "손을 떼면 손잡이가 중앙으로 돌아옵니다.\n조이스틱의 시작 위치는 유지됩니다.",
+            "버튼 크기",
+            "100%",
+            "버튼 투명도",
+            "0%",
+            "고정 선택"
+          ],
+          "executionStatus": "NOT_RUN"
+        }
+      ],
+      "endScene": "CBT_08_Settings"
+    }
+  ]
+}
