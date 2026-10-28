@@ -31,7 +31,9 @@ func _run() -> void:
 	selection.character_id = &"nabi"
 	var url := OS.get_environment("FOREST_ARENA_LAN_TEST_WS_URL")
 	if url.is_empty(): url = "ws://127.0.0.1:17777"
-	host.begin_host(LanInvite.host_code(url, "http://127.0.0.1:18081"), selection, "", "host")
+	var api_url := OS.get_environment("FOREST_ARENA_LAN_TEST_API_URL")
+	if api_url.is_empty(): api_url = "http://127.0.0.1:18081"
+	host.begin_host(LanInvite.host_code(url, api_url), selection, "", "host")
 	await _wait(func() -> bool: return not invite.is_empty(), 5000)
 	if not invite.is_empty(): guest.begin_join(invite[0], selection, "", "guest")
 	await _wait(func() -> bool: return host.running and guest.running, 5000)

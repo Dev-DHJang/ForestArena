@@ -1,6 +1,6 @@
 {
-  "at": "2026-10-20T14:24:15.277510+00:00",
-  "verifyCommand": "./scripts/verify.sh",
+  "at": "2026-10-28T03:43:44.834280+00:00",
+  "verifyCommand": "./scripts/verify.sh --full",
   "exitCode": 0,
   "log": "verify-final.log",
   "docsCommand": "./scripts/verify-docs.sh",
@@ -9,5 +9,9 @@
   "resourceExitCode": 0,
   "logicalAssets": 519,
   "qualityVariants": 25,
-  "restoredOnlyOwnTestReport": true
+  "sourceCommit": "dc06a32240118ca5a88ce152832e22552499edf7",
+  "fullReport": "../project-maintenance/final-verification.json",
+  "isolatedReports": true,
+  "completedChecks": 88,
+  "totalChecks": 88
 }

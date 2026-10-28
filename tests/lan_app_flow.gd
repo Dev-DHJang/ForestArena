@@ -29,7 +29,11 @@ func _run() -> void:
 	var host_selection := LoadoutSelection.new()
 	host_selection.character_id = &"nabi"
 	host_selection.accessory_id = &""
-	_check(app.lan_client.begin_host("FAH3|http://127.0.0.1:18081|ws://127.0.0.1:17777|3", host_selection, "호스트숲", "host"), "host connect")
+	var websocket_url := OS.get_environment("FOREST_ARENA_LAN_TEST_WS_URL")
+	if websocket_url.is_empty(): websocket_url = "ws://127.0.0.1:17777"
+	var api_url := OS.get_environment("FOREST_ARENA_LAN_TEST_API_URL")
+	if api_url.is_empty(): api_url = "http://127.0.0.1:18081"
+	_check(app.lan_client.begin_host(LanInvite.host_code(websocket_url, api_url), host_selection, "호스트숲", "host"), "host connect")
 	_check(await _wait_until(func() -> bool: return not app.lan_current_invite.is_empty()), "room invite")
 	app.call("_copy_lan_invite")
 	_check(app.lan_status_label != null and app.lan_status_label.text.contains("복사했습니다"), "invite copy feedback")
