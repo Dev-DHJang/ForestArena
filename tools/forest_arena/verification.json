@@ -29,6 +29,18 @@
       "godot": false
     },
     {
+      "id": "motion_consistency_evidence",
+      "command": [
+        "python3",
+        "tools/forest_arena/test_motion_consistency.py"
+      ],
+      "suites": [
+        "characters",
+        "tooling"
+      ],
+      "godot": false
+    },
+    {
       "id": "personality_concepts",
       "command": [
         "python3",

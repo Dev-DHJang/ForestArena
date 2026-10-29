@@ -1,0 +1,861 @@
+{
+  "check": "ffprobe full frame decode count / FPS / duration / dimensions",
+  "passed": 122,
+  "renderer_claim": "Apple M4 OpenGL compatibility; isolated display replay, not Android",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "idle",
+      "pass": true,
+      "decoded_frame_count": "150",
+      "duration_seconds": "5.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "run",
+      "pass": true,
+      "decoded_frame_count": "110",
+      "duration_seconds": "3.666667"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "jump",
+      "pass": true,
+      "decoded_frame_count": "64",
+      "duration_seconds": "2.133333"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_combo_01",
+      "pass": true,
+      "decoded_frame_count": "60",
+      "duration_seconds": "2.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_combo_02",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_combo_03",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_air_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_dash_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_charge",
+      "pass": true,
+      "decoded_frame_count": "231",
+      "duration_seconds": "7.700000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_down",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_up",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "death",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "evade",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "guard",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "hitstun",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "knock_down",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "launch",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "ring_out",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "spawn",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "wake_up",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_air_heavy",
+      "pass": true,
+      "decoded_frame_count": "50",
+      "duration_seconds": "1.666667"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_dash_heavy",
+      "pass": true,
+      "decoded_frame_count": "46",
+      "duration_seconds": "1.533333"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_down",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_side",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_heavy_up",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_down",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_neutral",
+      "pass": true,
+      "decoded_frame_count": "49",
+      "duration_seconds": "1.633333"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_side",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_up",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "ultimate",
+      "pass": true,
+      "decoded_frame_count": "51",
+      "duration_seconds": "1.700000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "attack_light_combo_04",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion_id": "special_scarf_sweep",
+      "pass": true,
+      "decoded_frame_count": "78",
+      "duration_seconds": "2.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "idle",
+      "pass": true,
+      "decoded_frame_count": "150",
+      "duration_seconds": "5.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "run",
+      "pass": true,
+      "decoded_frame_count": "110",
+      "duration_seconds": "3.666667"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "jump",
+      "pass": true,
+      "decoded_frame_count": "64",
+      "duration_seconds": "2.133333"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_01",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_02",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_03",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_04",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "evade",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "guard",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "hitstun",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "launch",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_charge",
+      "pass": true,
+      "decoded_frame_count": "231",
+      "duration_seconds": "7.700000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "death",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "knock_down",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "ring_out",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "spawn",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "wake_up",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_air_heavy",
+      "pass": true,
+      "decoded_frame_count": "46",
+      "duration_seconds": "1.533333"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_air_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_dash_heavy",
+      "pass": true,
+      "decoded_frame_count": "46",
+      "duration_seconds": "1.533333"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_dash_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_down",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_side",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_up",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_down",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_up",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_down",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_neutral",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_side",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_up",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "ultimate",
+      "pass": true,
+      "decoded_frame_count": "51",
+      "duration_seconds": "1.700000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "idle",
+      "pass": true,
+      "decoded_frame_count": "150",
+      "duration_seconds": "5.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "run",
+      "pass": true,
+      "decoded_frame_count": "110",
+      "duration_seconds": "3.666667"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "jump",
+      "pass": true,
+      "decoded_frame_count": "64",
+      "duration_seconds": "2.133333"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_combo_01",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_combo_02",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_air_heavy",
+      "pass": true,
+      "decoded_frame_count": "50",
+      "duration_seconds": "1.666667"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_air_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_dash_heavy",
+      "pass": true,
+      "decoded_frame_count": "46",
+      "duration_seconds": "1.533333"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_dash_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_charge",
+      "pass": true,
+      "decoded_frame_count": "231",
+      "duration_seconds": "7.700000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_down",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_side",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_heavy_up",
+      "pass": true,
+      "decoded_frame_count": "49",
+      "duration_seconds": "1.633333"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_down",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "attack_light_up",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "death",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "evade",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "guard",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "hitstun",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "knock_down",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "launch",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "ring_out",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "spawn",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_down",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_neutral",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_side",
+      "pass": true,
+      "decoded_frame_count": "57",
+      "duration_seconds": "1.900000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "special_up",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "ultimate",
+      "pass": true,
+      "decoded_frame_count": "51",
+      "duration_seconds": "1.700000"
+    },
+    {
+      "character_id": "nabi",
+      "motion_id": "wake_up",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "idle",
+      "pass": true,
+      "decoded_frame_count": "150",
+      "duration_seconds": "5.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "run",
+      "pass": true,
+      "decoded_frame_count": "110",
+      "duration_seconds": "3.666667"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "jump",
+      "pass": true,
+      "decoded_frame_count": "64",
+      "duration_seconds": "2.133333"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_01",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_02",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_03",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "guard",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "evade",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_air_heavy",
+      "pass": true,
+      "decoded_frame_count": "46",
+      "duration_seconds": "1.533333"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_air_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_dash_heavy",
+      "pass": true,
+      "decoded_frame_count": "46",
+      "duration_seconds": "1.533333"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_dash_light",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_charge",
+      "pass": true,
+      "decoded_frame_count": "231",
+      "duration_seconds": "7.700000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_down",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_side",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_up",
+      "pass": true,
+      "decoded_frame_count": "48",
+      "duration_seconds": "1.600000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_down",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_up",
+      "pass": true,
+      "decoded_frame_count": "45",
+      "duration_seconds": "1.500000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "death",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "hitstun",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "knock_down",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "launch",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "ring_out",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "spawn",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_down",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_neutral",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_side",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_up",
+      "pass": true,
+      "decoded_frame_count": "47",
+      "duration_seconds": "1.566667"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "ultimate",
+      "pass": true,
+      "decoded_frame_count": "51",
+      "duration_seconds": "1.700000"
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "wake_up",
+      "pass": true,
+      "decoded_frame_count": "90",
+      "duration_seconds": "3.000000"
+    }
+  ]
+}
