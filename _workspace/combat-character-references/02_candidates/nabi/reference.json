@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "character_id": "nabi",
+  "reference_version": "v01",
+  "status": "approved",
+  "reference_concept_asset_id": "nabi-concept-v01",
+  "reference_concept_sha256": "03fd70fd5cd09a9e426f6c0de4b3df27345f1b41ade6d006ca88f2626d4d56b4",
+  "appearance_contract_sha256": "5289707cbfbdc5816be5395be03fdbab231b1e117d291bdf5d7198c25bdf4f8e",
+  "approval": {
+    "status": "approved",
+    "record": "_workspace/combat-character-references/06_approvals/nabi.json",
+    "image_sha256": {
+      "combat": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e",
+      "front": "f0002a09935d5a5f38e90f68c9a651abc0a5a5fe74e5a60113c7b9a7311f68f6",
+      "side": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141",
+      "rear": "d244f2692cd467637fbf43f6450e6888857867e41276b94f83019ffff9aa3e05"
+    }
+  },
+  "qa": {
+    "status": "pass",
+    "record": "_workspace/combat-character-references/02_candidates/nabi/qa.json",
+    "image_sha256": {
+      "combat": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e",
+      "front": "f0002a09935d5a5f38e90f68c9a651abc0a5a5fe74e5a60113c7b9a7311f68f6",
+      "side": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141",
+      "rear": "d244f2692cd467637fbf43f6450e6888857867e41276b94f83019ffff9aa3e05"
+    }
+  },
+  "geometry": {
+    "canvas_size": [
+      1024,
+      1024
+    ],
+    "neutral_body_height": 640,
+    "foot_baseline_y": 896
+  },
+  "images": {
+    "combat": {
+      "asset_id": "nabi-motion-reference-combat-v01",
+      "path": "_workspace/combat-character-references/02_candidates/nabi/combat.png",
+      "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e",
+      "source_path": "_workspace/combat-character-references/01_sources/nabi/combat.png",
+      "source_sha256": "e732fde00db0550564ca297cfb5e7edf9f2924a62ee506e2843227126bbb2644",
+      "source_landmarks": {
+        "head_crown": [
+          815,
+          217
+        ],
+        "chin": [
+          773,
+          610
+        ],
+        "soles": [
+          [
+            457,
+            1210
+          ],
+          [
+            1015,
+            1178
+          ]
+        ]
+      },
+      "head_crown": [
+        560.6211,
+        284.851
+      ],
+      "chin": [
+        534.7719,
+        526.7257
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          340.2874,
+          896.0
+        ],
+        [
+          683.7126,
+          876.3054
+        ]
+      ],
+      "layout_scale": 0.6154572490363701,
+      "layout_offset": [
+        59.023464709231575,
+        151.2967286659922
+      ],
+      "body_height": 611.149,
+      "head_height": 243.252
+    },
+    "front": {
+      "asset_id": "nabi-motion-reference-front-v01",
+      "path": "_workspace/combat-character-references/02_candidates/nabi/front.png",
+      "sha256": "f0002a09935d5a5f38e90f68c9a651abc0a5a5fe74e5a60113c7b9a7311f68f6",
+      "source_path": "_workspace/combat-character-references/01_sources/nabi/front.png",
+      "source_sha256": "38bd2d93abf5b65b611d046676c265ab1b01fd916e680edf844fad622b467f4a",
+      "source_landmarks": {
+        "head_crown": [
+          642,
+          225
+        ],
+        "chin": [
+          642,
+          599
+        ],
+        "soles": [
+          [
+            530,
+            1209
+          ],
+          [
+            759,
+            1209
+          ]
+        ]
+      },
+      "head_crown": [
+        510.374,
+        256.0
+      ],
+      "chin": [
+        510.374,
+        499.252
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          437.5285,
+          896.0
+        ],
+        [
+          586.4715,
+          896.0
+        ]
+      ],
+      "layout_scale": 0.6504065040650406,
+      "layout_offset": [
+        92.8130081300813,
+        109.65853658536582
+      ],
+      "body_height": 640.0,
+      "head_height": 243.252
+    },
+    "side": {
+      "asset_id": "nabi-motion-reference-side-v01",
+      "path": "_workspace/combat-character-references/02_candidates/nabi/side.png",
+      "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141",
+      "source_path": "_workspace/combat-character-references/01_sources/nabi/side.png",
+      "source_sha256": "2b5c52bed813755fcf9b2672b5a37e19947f6cabb1c40f5e0723ae417faf0e6c",
+      "source_landmarks": {
+        "head_crown": [
+          748,
+          195
+        ],
+        "chin": [
+          776,
+          558
+        ],
+        "soles": [
+          [
+            733,
+            1211
+          ],
+          [
+            752,
+            1195
+          ]
+        ]
+      },
+      "head_crown": [
+        515.4646,
+        256.0
+      ],
+      "chin": [
+        533.1024,
+        484.6614
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          506.0157,
+          896.0
+        ],
+        [
+          517.9843,
+          885.9213
+        ]
+      ],
+      "layout_scale": 0.6299212598425197,
+      "layout_offset": [
+        44.283464566929126,
+        133.16535433070862
+      ],
+      "body_height": 640.0,
+      "head_height": 229.3407,
+      "notes": "반대발 중심[752,1195]은 가려져 추정. 보이는 뒤 신발 바깥끝[818,1195]을 중심으로 대신하지 않음.",
+      "soles_estimated": [
+        false,
+        true
+      ]
+    },
+    "rear": {
+      "asset_id": "nabi-motion-reference-rear-v01",
+      "path": "_workspace/combat-character-references/02_candidates/nabi/rear.png",
+      "sha256": "d244f2692cd467637fbf43f6450e6888857867e41276b94f83019ffff9aa3e05",
+      "source_path": "_workspace/combat-character-references/01_sources/nabi/rear.png",
+      "source_sha256": "710727d97df8ec3543acdc08cd7c3943c63eb05e7b52f64866158e67c505f597",
+      "source_landmarks": {
+        "head_crown": [
+          625,
+          218
+        ],
+        "chin": [
+          625,
+          598
+        ],
+        "soles": [
+          [
+            498,
+            1215
+          ],
+          [
+            734,
+            1214
+          ]
+        ]
+      },
+      "head_crown": [
+        517.7773,
+        256.0
+      ],
+      "chin": [
+        517.7773,
+        499.9318
+      ],
+      "chin_estimated": true,
+      "soles": [
+        [
+          436.2528,
+          896.0
+        ],
+        [
+          587.7472,
+          895.3581
+        ]
+      ],
+      "layout_scale": 0.641925777331996,
+      "layout_offset": [
+        116.57372116349046,
+        116.06018054162496
+      ],
+      "body_height": 640.0,
+      "head_height": 243.9318,
+      "notes": "턱[625,598]은 가려진 앞 모델 투영점. 보이는 머리/후드 경계는[625,594]."
+    }
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "character_id": "yu-ran",
+  "reference_version": "v01",
+  "status": "approved",
+  "reference_concept_asset_id": "yu-ran-concept-v01",
+  "reference_concept_sha256": "9dac313952d970164a843f32d7ebafdbdb78955891bd123a807543c55d0ddfa6",
+  "appearance_contract_sha256": "5289707cbfbdc5816be5395be03fdbab231b1e117d291bdf5d7198c25bdf4f8e",
+  "approval": {
+    "status": "approved",
+    "record": "_workspace/combat-character-references/06_approvals/yu-ran.json",
+    "image_sha256": {
+      "combat": "58b9d1ec815efc88c93298b2404d30407dd67f5ea1c543d2935385c59b1462c1",
+      "front": "c195dfaaa5a2825d383abc18b7500448e53624b11bb20bc82161671072f70b00",
+      "side": "34dbd02ce72dec241d7df82ca802e744451512a5722dbc65b6de6c9b2e9ff142",
+      "rear": "dd025eceb81de1ec4ac63a6b7c068dc03be9871f89123d6129efaa1c53671a89"
+    }
+  },
+  "qa": {
+    "status": "pass",
+    "record": "_workspace/combat-character-references/02_candidates/yu-ran/qa.json",
+    "image_sha256": {
+      "combat": "58b9d1ec815efc88c93298b2404d30407dd67f5ea1c543d2935385c59b1462c1",
+      "front": "c195dfaaa5a2825d383abc18b7500448e53624b11bb20bc82161671072f70b00",
+      "side": "34dbd02ce72dec241d7df82ca802e744451512a5722dbc65b6de6c9b2e9ff142",
+      "rear": "dd025eceb81de1ec4ac63a6b7c068dc03be9871f89123d6129efaa1c53671a89"
+    }
+  },
+  "geometry": {
+    "canvas_size": [
+      1024,
+      1024
+    ],
+    "neutral_body_height": 640,
+    "foot_baseline_y": 896
+  },
+  "images": {
+    "combat": {
+      "asset_id": "yu-ran-motion-reference-combat-v01",
+      "path": "assets/character/yu-ran/reference/v01/combat.png",
+      "sha256": "58b9d1ec815efc88c93298b2404d30407dd67f5ea1c543d2935385c59b1462c1",
+      "source_path": "_workspace/combat-character-references/01_sources/yu-ran/combat.png",
+      "source_sha256": "a3f1930d8dfd813082fda5e79a589556a6dfb449cc15c647aea0d490806efd15",
+      "source_landmarks": {
+        "head_crown": [
+          884,
+          225
+        ],
+        "chin": [
+          881,
+          584
+        ],
+        "soles": [
+          [
+            519,
+            1206
+          ],
+          [
+            1087,
+            1176
+          ]
+        ]
+      },
+      "head_crown": [
+        562.6775,
+        282.2396
+      ],
+      "chin": [
+        560.8005,
+        506.8471
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          334.316,
+          896.0
+        ],
+        [
+          689.684,
+          877.2306
+        ]
+      ],
+      "layout_scale": 0.6256477503371037,
+      "layout_offset": [
+        9.604856479305681,
+        141.46881309345292
+      ],
+      "body_height": 613.7604,
+      "head_height": 224.6154
+    },
+    "front": {
+      "asset_id": "yu-ran-motion-reference-front-v01",
+      "path": "assets/character/yu-ran/reference/v01/front.png",
+      "sha256": "c195dfaaa5a2825d383abc18b7500448e53624b11bb20bc82161671072f70b00",
+      "source_path": "_workspace/combat-character-references/01_sources/yu-ran/front.png",
+      "source_sha256": "6931362beb8f95febc1a8d17b499d9b3c5ebf0cdb3c1fcdf556dada59709a110",
+      "source_landmarks": {
+        "head_crown": [
+          690,
+          174
+        ],
+        "chin": [
+          690,
+          539
+        ],
+        "soles": [
+          [
+            571,
+            1214
+          ],
+          [
+            792,
+            1214
+          ]
+        ]
+      },
+      "head_crown": [
+        517.2308,
+        256.0
+      ],
+      "chin": [
+        517.2308,
+        480.6154
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          444.0,
+          896.0
+        ],
+        [
+          580.0,
+          896.0
+        ]
+      ],
+      "layout_scale": 0.6153846153846154,
+      "layout_offset": [
+        92.61538461538458,
+        148.9230769230769
+      ],
+      "body_height": 640.0,
+      "head_height": 224.6154
+    },
+    "side": {
+      "asset_id": "yu-ran-motion-reference-side-v01",
+      "path": "assets/character/yu-ran/reference/v01/side.png",
+      "sha256": "34dbd02ce72dec241d7df82ca802e744451512a5722dbc65b6de6c9b2e9ff142",
+      "source_path": "_workspace/combat-character-references/01_sources/yu-ran/side.png",
+      "source_sha256": "9e0f2dbba97128a80c5ce1358bf42da08f2b69e058586b6b8f56cad135654fae",
+      "source_landmarks": {
+        "head_crown": [
+          791,
+          148
+        ],
+        "chin": [
+          819,
+          495
+        ],
+        "soles": [
+          [
+            756,
+            1212
+          ],
+          [
+            765,
+            1208
+          ]
+        ]
+      },
+      "head_crown": [
+        530.3459,
+        256.0
+      ],
+      "chin": [
+        547.188,
+        464.7218
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          509.2932,
+          896.0
+        ],
+        [
+          514.7068,
+          893.594
+        ]
+      ],
+      "layout_scale": 0.6015037593984962,
+      "layout_offset": [
+        54.55639097744364,
+        166.97744360902254
+      ],
+      "body_height": 640.0,
+      "head_height": 209.4002,
+      "notes": "반대발이 완전히 가려져 중심[765,1208]을 추정. 별도로 보이는 반대발 끝은 없음.",
+      "soles_estimated": [
+        false,
+        true
+      ]
+    },
+    "rear": {
+      "asset_id": "yu-ran-motion-reference-rear-v01",
+      "path": "assets/character/yu-ran/reference/v01/rear.png",
+      "sha256": "dd025eceb81de1ec4ac63a6b7c068dc03be9871f89123d6129efaa1c53671a89",
+      "source_path": "_workspace/combat-character-references/01_sources/yu-ran/rear.png",
+      "source_sha256": "b18a68e894e21f1ca130bbd47b1319e618483289e351ae151e6da7bbc5dd2632",
+      "source_landmarks": {
+        "head_crown": [
+          569,
+          129
+        ],
+        "chin": [
+          580,
+          516
+        ],
+        "soles": [
+          [
+            491,
+            1217
+          ],
+          [
+            712,
+            1216
+          ]
+        ]
+      },
+      "head_crown": [
+        492.8824,
+        256.0
+      ],
+      "chin": [
+        499.3529,
+        483.6471
+      ],
+      "chin_estimated": true,
+      "soles": [
+        [
+          447.0,
+          896.0
+        ],
+        [
+          577.0,
+          895.4118
+        ]
+      ],
+      "layout_scale": 0.5882352941176471,
+      "layout_offset": [
+        158.1764705882353,
+        180.11764705882354
+      ],
+      "body_height": 640.0,
+      "head_height": 227.739,
+      "notes": "턱[580,516]은 긴 머리에 가려진 앞 모델 투영점. 보이는 털 칼라 위 경계는[580,493]."
+    }
+  }
+}

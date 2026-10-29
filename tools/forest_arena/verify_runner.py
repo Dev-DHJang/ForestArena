@@ -75,6 +75,8 @@ def suites_for(path):
         return {'resources', 'ui', 'characters', 'combat', 'smoke'}
     if path.startswith(('forest_arena/assets/audio/', 'assets/audio/')) or path in {'scripts/audio_director.gd', 'scripts/combat_audio.gd', 'scripts/audio_settings_store.gd'}:
         return {'audio', 'smoke'}
+    if path in {'tools/forest_arena/combat_reference.py', 'tools/forest_arena/test_combat_reference.py'}:
+        return {'characters', 'tooling'}
     if path.startswith(('assets/character/', 'tools/forest_arena/motion_', 'tools/forest_arena/review_motion', 'tools/forest_arena/register_motion')) or 'motion' in path and path.startswith('tools/forest_arena/'):
         return {'characters', 'combat', 'ui', 'smoke'}
     if path.startswith(('assets/combat/', 'assets/loadouts/', 'scripts/data/')):
