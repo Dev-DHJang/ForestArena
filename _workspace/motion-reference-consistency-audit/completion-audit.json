@@ -1,0 +1,80 @@
+{
+  "request": "00_request.md",
+  "scope": {
+    "motion_count": 122,
+    "authored_frame_count": 2000,
+    "candidate_motion_count": 87,
+    "unique_finding_count": 30,
+    "classifications": {
+      "judgment-deferred": 84,
+      "no-difference-observed": 35,
+      "difference-observed": 3
+    },
+    "per_character": {
+      "ja-hyun": {
+        "motions": 32,
+        "candidate_motions": 19,
+        "frames": 536
+      },
+      "myo-ryung": {
+        "motions": 31,
+        "candidate_motions": 31,
+        "frames": 496
+      },
+      "nabi": {
+        "motions": 29,
+        "candidate_motions": 7,
+        "frames": 488
+      },
+      "yu-ran": {
+        "motions": 30,
+        "candidate_motions": 30,
+        "frames": 480
+      }
+    }
+  },
+  "coverage": {
+    "source_manifest_animation_runtime_count": 122,
+    "unique_review_decisions": 122,
+    "reviewed_authored_frames": 2000
+  },
+  "media": {
+    "videos": 122,
+    "decoded_frames": 8797,
+    "fixed_comparison_cards": 30,
+    "evidence_fingerprints": 554
+  },
+  "unchanged_boundaries": [
+    "assets/character/",
+    "assets/combat/",
+    "scripts/",
+    "scenes/",
+    "forest_arena/data/"
+  ],
+  "independent_qa": "03_qa_r01.md final pass (source visual audit + candidate cross-check + verification)",
+  "full_verification": {
+    "path": "verification-full-result.json",
+    "source_result_path": "build/verification/20261029-222203-6f483468/result.json",
+    "sha256": "13739bb1cec5d724f83742772d56e320a09d11463fa6de3b73f48fdf8318f34c",
+    "status": "pass",
+    "completed_checks": 92,
+    "total_checks": 92,
+    "new_regressions": 7
+  },
+  "user_rework_selection": "future separate step; no rework performed",
+  "normal_slow_playback_boundary": "All media generated and decoded; actual transform/effect samples and ordered full drawings visually inspected. No claim of full perceptual playback/action-quality approval or Android verification.",
+  "remote_integration": {
+    "pull_request": "https://github.com/Dev-DHJang/ForestArena/pull/119",
+    "feature_commit": "74dabc1b79ace9c266d3994f3322622f30336ff7",
+    "final_merge_authority": "Live GitHub PR merge result and Git history; confirm after the merge action.",
+    "github_checks_at_feature_head": [],
+    "github_statuses_at_feature_head": []
+  },
+  "validated_tool_sha256": {
+    "tools/forest_arena/audit_motion_consistency.py": "8f2d95d0403acab851720a64cce1fa55a6430b4e761995fd4d9aaa4cd6e7e8ea",
+    "tools/forest_arena/motion_consistency_timeline.gd": "48235fd06d60c0abbe722a374194246a176f930b0d43e0657bf117603b163b11",
+    "tools/forest_arena/render_motion_consistency.gd": "3b849853b967411118e90d5148f4650f7e9ab4a4f020643f6a591583509819d7",
+    "tools/forest_arena/package_motion_consistency.py": "eecb2f80420af0c1d63e7245bd6cfbfe63e95fc6d6c981a83380cda49ad3ce5a",
+    "tools/forest_arena/test_motion_consistency.py": "8061b8ccdd8db9c9bc7c202387a000e92f7fc4444e1dd78ea1d8a6e392b70d4f"
+  }
+}

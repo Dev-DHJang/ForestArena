@@ -1,0 +1,2622 @@
+{
+  "schema_version": 1,
+  "reviewer": "reference_qa",
+  "status": "complete-source-board-review",
+  "target_motion_count": 61,
+  "reviewed_motion_count": 61,
+  "reviewed_frame_count": 976,
+  "frame_numbering": "1-based; observations.frames inclusive ranges",
+  "method": "61개 JPG를 view_image original로 직접 열어 승인4각도 고정1/8·모든 RAW/DISPLAY 프레임을 비교. alpha 통계만으로 판정하지 않음. runtime MP4 전체/실매치/Android·행동표현전체 통과는 주장하지 않음.",
+  "shared_findings": [
+    {
+      "id": "MYO-COLOR-01",
+      "character_id": "myo-ryung",
+      "motion_count": 31,
+      "severity": "low",
+      "confidence": "medium",
+      "description": "대표보다 붉고 포화된 분홍/머리카락·피부 음영과 강한 명암 대비. 개별 중대 결함31건 대신 공통 작화 차이1건과 영향 범위31개로 제시."
+    },
+    {
+      "id": "YU-COLOR-01",
+      "character_id": "yu-ran",
+      "motion_count": 30,
+      "severity": "low",
+      "confidence": "low",
+      "description": "갈색/피부의 약한 붉은 기운과 대비 차이 후보. 뚜렷한 비율·크기 차이로 확정하지 않음."
+    }
+  ],
+  "motions": [
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "idle",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--idle.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "호흡에 따른 귀/리본 이동과 낮은 가드를 비율 변화로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "run",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--run.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "F2~7·9~13의 다리 접힘/뻗음과 뒤쪽 귀·머리카락 흐름은 달리기 자세 변화다. 작은 셀에서 눈/장식 배치를 확정하기 어렵다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "jump",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--jump.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "F3·6~9의 무릎 접힘, F10~11의 다리 뻗음에 따른 외곽 높이 변화를 체형 변화로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_01",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_light_combo_01.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "F2~5 뻗은 주먹은 공격 원근 변화로 제외했다. 귀2개와 인간형 팔다리의 지속적 변형은 보지 못했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_02",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_light_combo_02.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "F3~7 들어 올린 무릎과 F8~10 착지 자세의 차이는 동작 차이로 제외했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_03",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_light_combo_03.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "F6~9 정면 발바닥의 짙은 빨강은 신발 밑창이 드러난 각도이며 새 발 구조로 판단하지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_combo_04",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_light_combo_04.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "F4~11 공중 회전과 킥, F12~14 착지 웅크림을 축소/신체 소실로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "evade",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--evade.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "전 프레임에서 의상의 분홍과 머리카락/피부의 붉은 명암이 승인 대표보다 더 진하고 포화돼 보인다. 대표의 옅은 흰색·분홍 재질보다 붉은 경계와 하이라이트 대비가 강하다. 동일 회색 배경의 고정1/8 기준과 RAW/DISPLAY를 직접 비교했다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "128px 원화의 눈·토끼장식·버클 세부는 대표 원화와 같은 수준으로 확정할 수 없다."
+      ],
+      "excluded_natural_changes": "F3~9 몸을 낮추고 옆으로 기울인 자세 때문에 머리/몸 높이가 줄며, 그 자체를 모델 비율 차이로 판단하지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "guard",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--guard.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F5~8 팔을 모으고 고개를 숙여 얼굴 일부가 가려진다. 가림과 웅크림은 모델 변화로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "hitstun",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--hitstun.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F2~8 뒤로 젖힘과 발 들림, F9~12 회복 웅크림은 자세 변화로 제외했다. 표정 변화는 허용 범위다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "launch",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--launch.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F2~11 앉은 듯 접힌 공중 자세에서 머리/몸 외곽 비율을 직립 수치와 비교하지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_charge",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_heavy_charge.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F3~4 웅크림과 F6~11 무릎 들기·킥에 따른 다리 길이 원근을 영구 비율 차이로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "death",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--death.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F6~16 쓰러짐과 F11~16 감긴 눈·바닥에 눌린 귀를 외형 소실로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "knock_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--knock_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F3~8 구르기, F9~16 옆으로 누워 가려진 팔·얼굴·다리는 추가/소실 판정을 보류했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "ring_out",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--ring_out.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F9~14 뒤집힌 자세와 귀의 회전은 자연 변화다. 거꾸로 보이는 작은 얼굴/손 세부의 확정은 어렵다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "spawn",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--spawn.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "분홍 의상과 은백색 머리/피부에 붉은 명암·경계가 대표 v01보다 짙고 포화돼 보인다. 같은 배경의 대표·RAW·DISPLAY 전 프레임을 직접 비교했으며 색감/명암 밀도 차이 후보로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 원화 셀에서 장식·눈·버클 세부의 동일성을 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F1~3 몸을 일으키며 머리·귀가 낮아지는 것을 배율 변화로 세지 않았다. F4~16에서는 같은 기본 모델로 보인다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "wake_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--wake_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F1~8 누움→한손 짚기→무릎 세우기는 가림·자세 변화다. F12~16 기본 자세로 돌아와 같은 모델임을 대조했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_air_heavy",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_air_heavy.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F1~6 무릎을 접고 F7~9 다리를 내미는 공중 자세라 직립 외곽 높이와 단순 비교하지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_air_light",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_air_light.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F6~8 옆으로 뻗은 다리와 F14~15 내려오는 다리의 원근 차이는 자연 변화로 제외했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_dash_heavy",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_dash_heavy.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F3~11 도약·뻗은 킥에서 가려진 반대 다리는 부위 소실로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_dash_light",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_dash_light.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F3~7 달리기와 F8~10 옆 킥 사이의 길이·폭 변화는 자세 차이로 제외했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_heavy_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F4~10 낮은 회전 자세, F7~8 후면·꼬리 노출은 허용된 각도 변화다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_side",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_heavy_side.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F5~8 수평 킥의 신발 밑창 노출과 다리 원근은 허용 변화로 제외했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_heavy_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_heavy_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "의상의 분홍 및 은백발/피부 음영이 대표 v01의 옅은 흰색·분홍보다 붉고 진하다. RAW와 실제 배율 DISPLAY 모두 같은 색감 차이를 보이며 전 프레임에 걸친 작화 대비 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        },
+        {
+          "frames": [
+            8,
+            9
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "proportion",
+          "severity": "low",
+          "confidence": "low",
+          "observation": "상향으로 완전히 편 다리가 작은 몸통에 비해 길게 읽힌다. 대표의 중립/기본 자세와 각도가 달라 실제 모델 길이 차이인지 킥의 원근/변형인지 확정할 수 없어 재검토 후보로만 남긴다."
+        }
+      ],
+      "uncertainties": [
+        "버클/토끼 머리장식/작은 눈 모델은 이 해상도에서 동일 여부 확정 불가."
+      ],
+      "excluded_natural_changes": "F4~7 도약과 F10~16 회복의 키 변화는 자연 변화다. F8~9 펼친 다리 길이는 별도 불확실 후보로 남겼다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_light_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "대표 v01보다 분홍 의상·피부/은백발의 붉은 명암이 진하고 경계 대비가 강해 보인다. RAW와 DISPLAY 전 프레임의 색감/명암 밀도 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 눈/장식/버클의 상세 외형은 셀 해상도상 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F4~8낮은 킥과 F9~11 다리 회수는 자연 자세 변화다. F12~16 기본 모델로 복귀한다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "attack_light_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--attack_light_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "대표 v01보다 분홍 의상·피부/은백발의 붉은 명암이 진하고 경계 대비가 강해 보인다. RAW와 DISPLAY 전 프레임의 색감/명암 밀도 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 눈/장식/버클의 상세 외형은 셀 해상도상 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F6~8 위로 내민 다리의 원근과 F9~11 회수 자세를 모델 변화로 세지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--special_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "대표 v01보다 분홍 의상·피부/은백발의 붉은 명암이 진하고 경계 대비가 강해 보인다. RAW와 DISPLAY 전 프레임의 색감/명암 밀도 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 눈/장식/버클의 상세 외형은 셀 해상도상 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F3~10 점프·낙하킥에서 팔다리 가림을 부위 소실로 단정하지 않았다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_neutral",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--special_neutral.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "대표 v01보다 분홍 의상·피부/은백발의 붉은 명암이 진하고 경계 대비가 강해 보인다. RAW와 DISPLAY 전 프레임의 색감/명암 밀도 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 눈/장식/버클의 상세 외형은 셀 해상도상 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F3·7·11 수평 킥과 나머지 준비 자세의 폭 변화는 동작 차이다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_side",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--special_side.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "대표 v01보다 분홍 의상·피부/은백발의 붉은 명암이 진하고 경계 대비가 강해 보인다. RAW와 DISPLAY 전 프레임의 색감/명암 밀도 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 눈/장식/버클의 상세 외형은 셀 해상도상 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F3~11 도약→옆 킥의 원근과 몸 접힘은 자연 변화로 제외했다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "special_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--special_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "대표 v01보다 분홍 의상·피부/은백발의 붉은 명암이 진하고 경계 대비가 강해 보인다. RAW와 DISPLAY 전 프레임의 색감/명암 밀도 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        },
+        {
+          "frames": [
+            7,
+            9
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "proportion",
+          "severity": "low",
+          "confidence": "low",
+          "observation": "위로 길게 편 다리가 작은 몸통 대비 길어 보이는 후보다. 기준 이미지와 각도가 달라 모델 길이 변화인지 동작의 원근/변형인지 확정하지 않았다."
+        }
+      ],
+      "uncertainties": [
+        "작은 눈/장식/버클의 상세 외형은 셀 해상도상 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F7~9 상승 킥의 펼친 다리는 별도 낮은 확신 비율 후보다. 나머지 도약/회복 높이는 자연 자세 변화다."
+    },
+    {
+      "character_id": "myo-ryung",
+      "motion_id": "ultimate",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/myo-ryung--ultimate.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "medium",
+          "observation": "대표 v01보다 분홍 의상·피부/은백발의 붉은 명암이 진하고 경계 대비가 강해 보인다. RAW와 DISPLAY 전 프레임의 색감/명암 밀도 차이로 기록한다.",
+          "shared_finding_id": "MYO-COLOR-01"
+        }
+      ],
+      "uncertainties": [
+        "작은 눈/장식/버클의 상세 외형은 셀 해상도상 확정하지 않았다."
+      ],
+      "excluded_natural_changes": "F2~13 공중 회전, F14~15 착지 웅크림은 자연 자세/머리·귀 흐름이다. 행동 정확성은 이번 감사 범위가 아니다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "idle",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--idle.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "호흡과 꼬리 곡선의 작은 움직임은 자연 변화다. 동일한 가드에 가까운 프레임끼리 기준을 비교했다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "run",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--run.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "F2~7·9~13 다리 교대·몸 기울기와 꼬리가 뒤로 펴지는 변화는 자연 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "jump",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--jump.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "F3~9 무릎 접힘과 상승/하강, F10~11 다리 뻗음을 배율 변화로 단정하지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_01",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_light_combo_01.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "F4~8 뻗은 주먹의 원근과 나머지 가드는 자연 자세 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_02",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_light_combo_02.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "F6~10 뻗은 팔과 체중 이동을 신체 비율 변화로 단정하지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_combo_03",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_light_combo_03.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "F5~10 꼬리를 앞으로 휘두르는 굵기/폭 변화는 회전과 원근이다. 그 구간을 꼬리 축소 판정에서 제외했다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "evade",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--evade.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "F4~9 낮게 엎드린 자세와 꼬리 뒤로 눕힘을 체형 변화로 세지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "guard",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--guard.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "작은 얼굴/보석/버클의 실제 길이 차이는 고해상도 원화가 없어 정량 확정하지 않았다.",
+        "초기 가드에서 머리가 작고 꼬리 부피가 줄어 보인 인상은 전체30개 비교 후 각도·꼬리곡선·셀 해상도와 분리되지 않아 확정 차이에서 제외했다."
+      ],
+      "excluded_natural_changes": "F4~8 얼굴 앞 팔의 가림과 고개 숙임을 얼굴 소실/다른 눈으로 판정하지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "hitstun",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--hitstun.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F5~9 뒤로 젖힘/표정 변화는 자연 반응이다. F1~4·12~16 같은 가드 외형으로 회복함을 대조했다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "launch",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--launch.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F2~12 공중에서 몸을 뒤로 눕힌 각도와 머리카락 흐름을 체형 위반으로 확정하지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_charge",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_heavy_charge.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F3~11 머리 위/앞으로 휘는 꼬리의 폭과 곡선 변화는 자연 동작이다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "death",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--death.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F6~16 주저앉기/누움의 높이 감소와 가려진 얼굴·팔다리는 배율/부위 소실로 세지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "knock_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--knock_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F1~16 전부 확인. 누워 회전하는 후반의 머리/몸 외곽은 직립 비율과 비교할 수 없다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "ring_out",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--ring_out.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F6~16 뒤집힌 회전에서 꼬리와 몸이 겹친다. 중복 신체·귀 추가로 보지는 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "spawn",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--spawn.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F1~6 공중 등장, F9~12 착지에서 몸을 낮추는 변화는 정상 자세 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "wake_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--wake_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F1~10 누움/무릎세우기와 F11~16 일어서기의 높이 차이를 모델 크기 변화로 세지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_air_heavy",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_air_heavy.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F6~11 꼬리가 전방으로 크게 펼쳐져 부피가 커 보이는 것은 원근/회전으로 제외했다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_air_light",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_air_light.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F5~8 한 발을 옆으로 뻗고 다른 발을 접는 공중 자세의 길이 차이는 자연 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_dash_heavy",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_dash_heavy.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F5~12 전방으로 누운 도약 자세와 꼬리 들림은 동작 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_dash_light",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_dash_light.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F3~10 전진 주먹과 몸 기울기·꼬리 흐름을 단순 축소/확대로 단정하지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_heavy_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F6~10 낮은 회전과 앞쪽 꼬리/몸 가림을 외형 소실로 세지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_side",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_heavy_side.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F6~12 전방의 큰 꼬리 폭은 원근/회전이며 기준 꼬리 두께와 직접 수치 비교하지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_heavy_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_heavy_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F6~12 상승·뒤돌기와 머리 위 꼬리 위치는 자연 변화다. 두 귀/한 꼬리는 유지된다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_light_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F3~8 낮은 가드/전진 자세는 정상 관절 변화다. 후반 기본 가드 모델로 돌아온다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "attack_light_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--attack_light_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F5~8 손을 위로 들고 상체를 펴는 변화는 정상 자세다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_down",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--special_down.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F3~9 저자세 회전에서 꼬리가 몸 앞을 가리는 것은 자연 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_neutral",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--special_neutral.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F5~11 앞쪽 꼬리의 원근과 반대손 가림은 모델 차이로 세지 않았다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_side",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--special_side.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F3~10 전진·꼬리 휘두르기 때문에 바뀐 외곽 폭은 자연 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "special_up",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--special_up.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F4~16 상승 가드/굽힌 무릎과 아래쪽 꼬리의 움직임은 자연 변화다."
+    },
+    {
+      "character_id": "yu-ran",
+      "motion_id": "ultimate",
+      "reviewed_frames": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "board": "boards/yu-ran--ultimate.jpg",
+      "classification": "shared-style-candidate",
+      "observations": [
+        {
+          "frames": [
+            1,
+            16
+          ],
+          "frame_notation": "inclusive-range",
+          "category": "palette-and-shading",
+          "severity": "low",
+          "confidence": "low",
+          "shared_finding_id": "YU-COLOR-01",
+          "observation": "대표보다 갈색·피부 음영이 약간 붉고 대비가 강해 보이는 공통 색감 후보다. 저해상도·안티앨리어싱 영향과 분리 확정하지 못했으며 뚜렷한 모델·표시 크기 위반으로 판정하지 않는다."
+        }
+      ],
+      "uncertainties": [
+        "얼굴/청록 보석/버클의 세부 치수는 이 셀 크기에서 확정 불가. 별도의 확실한 체형·표시 배율 위반은 찾지 못했다."
+      ],
+      "excluded_natural_changes": "F3~12 여러 방향으로 휘두르는 꼬리의 굵기/폭 변화는 원근과 곡선 변화로 제외했다."
+    }
+  ]
+}

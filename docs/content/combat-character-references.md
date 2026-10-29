@@ -49,3 +49,7 @@
 `python3 tools/forest_arena/test_combat_reference.py`는 실패 사례와 실제 등록된16개의 manifest→참조 세트→PNG→승인/QA 연결도 확인한다. 예를 들어 자현 제작 전에는 `python3 tools/forest_arena/combat_reference.py validate --reference assets/character/ja-hyun/reference/v01/reference.json --require-approved`를 실행한다.
 
 이름 있는 수동 재검사: **대표 이미지 다각도 비교**, **128px·좌우 반전 식별**, **승인 참조 첨부 확인**. Android 실기기 확인을 수행하지 않았으면 기기 통과로 기록하지 않는다.
+
+## 기존 모션의 차이 목록
+
+2026-10-29 등록본 전체122모션/2,000프레임을 대표 v01과 비교한 [검토 목록](../../_workspace/motion-reference-consistency-audit/review-list.md)과 [전체 프레임·재생 자료](../../_workspace/motion-reference-consistency-audit/index.html)를 남겼다. 확실히 보인 차이와 추가 비교 후보, 공통 색감의 영향 범위를 구분한다. 이 점검은 모션 재작업 승인이나 현재 런타임 교체가 아니다. 입력 해시와 범위는 [검토 방법](../../_workspace/motion-reference-consistency-audit/02_2d_animation.md)을 따른다.
