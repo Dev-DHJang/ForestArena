@@ -5,6 +5,7 @@
 - 요청: 00_request.md, 참조 데이터: 01_contract.md, 제작 접근: 02_image.md.
 - 전용 작업 폴더: /Users/jdh/.codex/worktrees/combat-character-references/ForestArena.
 - 브랜치: codex/combat-character-references. 시작 커밋: 360c6982c39746cecb11c3b46ebad363e7836aa5.
+- 제작·검증 커밋: b8f8dcb4579e443ac66fe1fd329993750631adce. origin에 push했다. 승인 대기 draft PR: https://github.com/Dev-DHJang/ForestArena/pull/118 (base develop). 이미지 채택 승인 전이므로 병합하지 않았다.
 - 네 캐릭터별 combat/front/side/rear 총16장을 제작했다. 최종 배치본은02_candidates/, 비교판은03_review/에 있다. 네 세트 모두 독립 시각 QA pass이며 qa.json과03_qa_r03.md에 실제 해시·관찰·한계를 기록했다.
 - 콘텐츠 문서·이미지/애니메이션/QA 스킬과 대표 이미지 구조 검사 도구를 추가했다. 참조의 승인·원본·출처·해시와 몸 크기를 유지하며 생성 입력에 직접 첨부하도록 했다.
 - 원본 PNG·실제 생성 프롬프트는 01_sources/에 남긴다. 초기 비율 불일치 시안은 r01/에 보존하고 정면 구성 모델을 먼저 맞추는 접근으로 변경했다.
