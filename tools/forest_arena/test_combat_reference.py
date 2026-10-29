@@ -111,5 +111,31 @@ class ReferenceTests(unittest.TestCase):
         self.assertTrue(self.check(row))
 
 
+class RegisteredCatalogTests(unittest.TestCase):
+    def test_registered_reference_catalog(self):
+        """실제 정식 등록표→세트→PNG→승인/QA 연결을 함께 확인한다."""
+        manifest = json.loads((ref.ROOT / 'assets/character/manifest.json').read_text())
+        entries = [r for r in manifest['assets'] if r.get('type') == 'motion-reference']
+        self.assertEqual(len(entries), 16)
+        self.assertEqual({r['character_id'] for r in entries}, set(ref.ROSTER))
+        self.assertEqual(len({r['asset_id'] for r in manifest['assets']}), len(manifest['assets']))
+        for cid in ref.ROSTER:
+            rows = [r for r in entries if r['character_id'] == cid]
+            self.assertEqual({r['view'] for r in rows}, set(ref.VIEWS))
+            path = f'assets/character/{cid}/reference/v01/reference.json'
+            data = json.loads((ref.ROOT / path).read_text())
+            self.assertEqual(ref.validate(ref.ROOT, data, require_approved=True), [], cid)
+            for row in rows:
+                image = data['images'][row['view']]
+                self.assertEqual(row['status'], 'approved')
+                self.assertEqual(row['reference_set_path'], path)
+                self.assertEqual(row['consumer_path'], path)
+                self.assertEqual(row['asset_id'], image['asset_id'])
+                self.assertEqual(row['path'], image['path'])
+                self.assertEqual(row['sha256'], image['sha256'])
+                self.assertEqual(row['approval_record'], data['approval']['record'])
+                self.assertEqual(row['qa_record'], data['qa']['record'])
+
+
 if __name__ == '__main__':
     unittest.main()

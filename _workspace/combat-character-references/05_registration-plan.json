@@ -1,7 +1,7 @@
 {
-  "status": "pending-user-approval",
-  "installation_allowed": false,
-  "requires": "independent QA pass and explicit user adoption of exact character sets; then revalidate source/hash before registration",
+  "status": "registered",
+  "installation_allowed": true,
+  "requires": "fulfilled: explicit user adoption and independent QA pass bound to the exact16 PNG hashes",
   "sets": [
     {
       "character_id": "ja-hyun",
@@ -130,7 +130,10 @@
           "verified_on": "2026-10-29",
           "consumer_path": "assets/character/ja-hyun/reference/v01/reference.json"
         }
-      ]
+      ],
+      "status": "registered",
+      "registered_reference": "assets/character/ja-hyun/reference/v01/reference.json",
+      "approval_record": "_workspace/combat-character-references/06_approvals/ja-hyun.json"
     },
     {
       "character_id": "myo-ryung",
@@ -259,7 +262,10 @@
           "verified_on": "2026-10-29",
           "consumer_path": "assets/character/myo-ryung/reference/v01/reference.json"
         }
-      ]
+      ],
+      "status": "registered",
+      "registered_reference": "assets/character/myo-ryung/reference/v01/reference.json",
+      "approval_record": "_workspace/combat-character-references/06_approvals/myo-ryung.json"
     },
     {
       "character_id": "nabi",
@@ -388,7 +394,10 @@
           "verified_on": "2026-10-29",
           "consumer_path": "assets/character/nabi/reference/v01/reference.json"
         }
-      ]
+      ],
+      "status": "registered",
+      "registered_reference": "assets/character/nabi/reference/v01/reference.json",
+      "approval_record": "_workspace/combat-character-references/06_approvals/nabi.json"
     },
     {
       "character_id": "yu-ran",
@@ -517,7 +526,12 @@
           "verified_on": "2026-10-29",
           "consumer_path": "assets/character/yu-ran/reference/v01/reference.json"
         }
-      ]
+      ],
+      "status": "registered",
+      "registered_reference": "assets/character/yu-ran/reference/v01/reference.json",
+      "approval_record": "_workspace/combat-character-references/06_approvals/yu-ran.json"
     }
-  ]
+  ],
+  "approved_on": "2026-10-29",
+  "installed_on": "2026-10-29"
 }
