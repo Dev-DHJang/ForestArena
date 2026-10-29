@@ -16,6 +16,7 @@ description: 작은 Android 화면용 독창적 Forest Arena 콘셉트·초상�
 - 현재 Phase, docs/content/art-and-audio.md, 용도·크기·카메라와 아트 방향.
 - 캐릭터·직업·장신구 ID, 원본성·라이선스 조건과 소비자.
 - 승인 캐릭터를 표현하면 `docs/contracts/character-appearance-v01.json`의 해당 외형 항목.
+- 대전 모션용 대표 이미지는 `docs/content/combat-character-references.md`의 세트·크기·승인 기준. 승인 콘셉트에서 정면 구성 모델을 먼저 맞추고, 같은 모델과 콘셉트를 직접 첨부해 기본 자세·측면·후면을 만든다. 후보는 `_workspace`에 보존하고 독립 QA와 캐릭터별 세트의 명시 승인 전에는 정식 자산에 등록하지 않는다.
 - 비전투 UI 이미지면 assets/ui/asset-requirements.csv의 정확한 슬롯·출력 경로·상태·승인 의존성.
 
 ## 작업 흐름

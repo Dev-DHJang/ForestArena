@@ -23,6 +23,12 @@
   ],
   "checks": [
     {
+      "id": "combat_character_references",
+      "command": ["python3", "tools/forest_arena/test_combat_reference.py"],
+      "suites": ["characters", "tooling"],
+      "godot": false
+    },
+    {
       "id": "personality_concepts",
       "command": [
         "python3",

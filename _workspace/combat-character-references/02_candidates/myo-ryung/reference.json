@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "character_id": "myo-ryung",
+  "reference_version": "v01",
+  "status": "draft",
+  "reference_concept_asset_id": "myo-ryung-concept-v01",
+  "reference_concept_sha256": "1343a179f48057ded029947a2290e59fae37e2c954b0cf5e8bd86553479b192b",
+  "appearance_contract_sha256": "5289707cbfbdc5816be5395be03fdbab231b1e117d291bdf5d7198c25bdf4f8e",
+  "approval": {
+    "status": "pending",
+    "record": null,
+    "image_sha256": {}
+  },
+  "qa": {
+    "status": "pass",
+    "record": "_workspace/combat-character-references/02_candidates/myo-ryung/qa.json",
+    "image_sha256": {
+      "combat": "4b6a1b41126d085774af81f1f59bd418f7a90c94cafa1aab00f9f8e9a43bdf3c",
+      "front": "cf1d6161c94eada87d10053c6bafaed35fbd3fa5b5ca5d800657d977c5c7b6f6",
+      "side": "f2d95a8307502b2c7e1db9ef3ab28ac6479a8ebdc01ae769b52aa5601feabc1a",
+      "rear": "33c7add664e252ad2e01bf4cd73ac2947f10cf8067585b8de4eaee865dd12d55"
+    }
+  },
+  "geometry": {
+    "canvas_size": [
+      1024,
+      1024
+    ],
+    "neutral_body_height": 640,
+    "foot_baseline_y": 896
+  },
+  "images": {
+    "combat": {
+      "asset_id": "myo-ryung-motion-reference-combat-v01",
+      "path": "_workspace/combat-character-references/02_candidates/myo-ryung/combat.png",
+      "sha256": "4b6a1b41126d085774af81f1f59bd418f7a90c94cafa1aab00f9f8e9a43bdf3c",
+      "source_path": "_workspace/combat-character-references/01_sources/myo-ryung/combat.png",
+      "source_sha256": "186e93c545789c35690d76d9848ff30b1c85e2c92e5896afd5fdb9e0e275a080",
+      "source_landmarks": {
+        "head_crown": [
+          815,
+          264
+        ],
+        "chin": [
+          800,
+          574
+        ],
+        "soles": [
+          [
+            465,
+            1224
+          ],
+          [
+            962,
+            1201
+          ]
+        ]
+      },
+      "head_crown": [
+        577.5084,
+        276.4129
+      ],
+      "chin": [
+        567.8274,
+        476.4879
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          351.6173,
+          896.0
+        ],
+        [
+          672.3827,
+          881.1557
+        ]
+      ],
+      "layout_scale": 0.6454031781209123,
+      "layout_offset": [
+        51.50483241072908,
+        106.02650998000331
+      ],
+      "body_height": 619.5871,
+      "head_height": 200.3091
+    },
+    "front": {
+      "asset_id": "myo-ryung-motion-reference-front-v01",
+      "path": "_workspace/combat-character-references/02_candidates/myo-ryung/front.png",
+      "sha256": "cf1d6161c94eada87d10053c6bafaed35fbd3fa5b5ca5d800657d977c5c7b6f6",
+      "source_path": "_workspace/combat-character-references/01_sources/myo-ryung/front.png",
+      "source_sha256": "35848b9d9314552905babd62c3dec3f61f4ee9ce7142e02034063f6f0bcd86e8",
+      "source_landmarks": {
+        "head_crown": [
+          644,
+          182
+        ],
+        "chin": [
+          646,
+          510
+        ],
+        "soles": [
+          [
+            505,
+            1230
+          ],
+          [
+            785,
+            1226
+          ]
+        ]
+      },
+      "head_crown": [
+        511.3893,
+        256.0
+      ],
+      "chin": [
+        512.6107,
+        456.3053
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          426.5038,
+          896.0
+        ],
+        [
+          597.4962,
+          893.5573
+        ]
+      ],
+      "layout_scale": 0.6106870229007634,
+      "layout_offset": [
+        118.1068702290076,
+        144.854961832061
+      ],
+      "body_height": 640.0,
+      "head_height": 200.3091
+    },
+    "side": {
+      "asset_id": "myo-ryung-motion-reference-side-v01",
+      "path": "_workspace/combat-character-references/02_candidates/myo-ryung/side.png",
+      "sha256": "f2d95a8307502b2c7e1db9ef3ab28ac6479a8ebdc01ae769b52aa5601feabc1a",
+      "source_path": "_workspace/combat-character-references/01_sources/myo-ryung/side.png",
+      "source_sha256": "636051770efa19af3dee76ee2361673b15191314f5bbcf2c94b79b3ec72747ad",
+      "source_landmarks": {
+        "head_crown": [
+          712,
+          180
+        ],
+        "chin": [
+          753,
+          490
+        ],
+        "soles": [
+          [
+            726,
+            1234
+          ],
+          [
+            745,
+            1203
+          ]
+        ]
+      },
+      "head_crown": [
+        497.7306,
+        256.0
+      ],
+      "chin": [
+        522.6262,
+        444.2353
+      ],
+      "chin_estimated": false,
+      "soles": [
+        [
+          506.2315,
+          896.0
+        ],
+        [
+          517.7685,
+          877.1765
+        ]
+      ],
+      "layout_scale": 0.6072106261859582,
+      "layout_offset": [
+        65.39658444022774,
+        146.70208728652756
+      ],
+      "body_height": 640.0,
+      "head_height": 189.8745,
+      "notes": "반대발 중심[745,1203]은 가려져 추정. 보이는 뒤 신발 바깥끝[843,1203]을 중심으로 대신하지 않음.",
+      "soles_estimated": [
+        false,
+        true
+      ]
+    },
+    "rear": {
+      "asset_id": "myo-ryung-motion-reference-rear-v01",
+      "path": "_workspace/combat-character-references/02_candidates/myo-ryung/rear.png",
+      "sha256": "33c7add664e252ad2e01bf4cd73ac2947f10cf8067585b8de4eaee865dd12d55",
+      "source_path": "_workspace/combat-character-references/01_sources/myo-ryung/rear.png",
+      "source_sha256": "2b08d43616da0435af48fce43601e25e531dc9a8e510c5acbf5bb0897c145b6e",
+      "source_landmarks": {
+        "head_crown": [
+          628,
+          215
+        ],
+        "chin": [
+          628,
+          526
+        ],
+        "soles": [
+          [
+            511,
+            1226
+          ],
+          [
+            765,
+            1225
+          ]
+        ]
+      },
+      "head_crown": [
+        505.6696,
+        256.0
+      ],
+      "chin": [
+        505.6696,
+        452.8744
+      ],
+      "chin_estimated": true,
+      "soles": [
+        [
+          431.6044,
+          896.0
+        ],
+        [
+          592.3956,
+          895.367
+        ]
+      ],
+      "layout_scale": 0.6330365974282888,
+      "layout_offset": [
+        108.12265084075176,
+        119.89713155291793
+      ],
+      "body_height": 640.0,
+      "head_height": 196.8744,
+      "notes": "턱[628,526]은 정면 구성에서 투영한 가려진 점. 보이는 머리카락/목 경계는[625,505]."
+    }
+  }
+}
