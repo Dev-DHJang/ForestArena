@@ -1,6 +1,6 @@
 # 대표 이미지 제작 상태
 
-상태: 제작·사용자 채택·정식 참조 등록·등록 후 검증 완료. 원격 통합 결과는 PR118의 상태와 아래 병합 기록을 따른다.
+상태: 제작·사용자 채택·정식 참조 등록·등록 후 검증·develop 통합 완료.
 
 - 요청: 00_request.md, 참조 데이터: 01_contract.md, 제작 접근: 02_image.md.
 - 전용 작업 폴더: /Users/jdh/.codex/worktrees/combat-character-references/ForestArena.
@@ -32,3 +32,12 @@
 ## 후속
 
 후속 모션은 docs/content/combat-character-references.md에 연결한 정식 reference.json을 승인 필수 모드로 검사하고 combat와 필요한 각도를 직접 첨부한다. 기존 모션 재생성이나 게임 배율 변경은 이번 범위에 포함하지 않는다. PR118을 develop에 통합하며 롤백은 해당 병합 커밋을 revert한다. 병합 뒤 확인한 SHA는 아래 종료 증적으로 남긴다.
+
+## 병합 결과
+
+- PR118: https://github.com/Dev-DHJang/ForestArena/pull/118 — merged,2026-10-29.
+- 검증·등록한 head:13545fa8522ff001d27cf432a9c4df5ec51e85fa. 원격 체크는 해당 head 기준0개이며 로컬 전체 검사/독립 QA로 검증했다.
+- develop 병합 SHA:4221f6cc6bee607aa6f7d2f30d1d0b2230126def. GitHub merged=true와 원격 Git 조상 관계를 확인했다.
+- 롤백:이 병합 커밋을 mainline1 기준으로 revert한다. 승인 PNG나 기존 자산을 개별적으로 덮어 복사하지 않는다.
+- 이 병합 후 식별자·종료 기록 보완만 작업 브랜치에 별도 보존한다. 기능·등록·검사·제작 기준은 모두 PR118로 develop에 반영됐다.
+- 기본 프로젝트 폴더는 갱신 전 develop@360c6982c39746cecb11c3b46ebad363e7836aa5·변경0개를 확인하고 fast-forward로4221f6cc6bee607aa6f7d2f30d1d0b2230126def에 맞췄다. 갱신 후 변경0개와 기본 폴더에서 정식 자현 세트의 승인 필수 검사 PASS를 확인했다. 전체 파일 덮어 복사는 하지 않았다.
