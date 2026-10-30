@@ -9,8 +9,8 @@ func run() -> void:
 	var catalog := LocalPlayCatalog.new()
 	var original := load("res://assets/loadouts/default_loadout_catalog.tres") as LoadoutCatalog
 	var original_moves := original.character_by_id(&"ja-hyun").base_move_set
-	check(catalog.combat.characters.size() == 4 and catalog.products.size() == 10, "all historical IDs remain in full catalog")
-	check(catalog.playable_characters().size() == 2 and catalog.playable_products().size() == 2, "only two active characters are offered")
+	check(catalog.combat.characters.size() == 4 and catalog.products.size() == 11, "all historical IDs remain in full catalog")
+	check(catalog.playable_characters().size() == 2 and catalog.playable_products().size() == 3, "two active characters and one active accessory are offered")
 	check(catalog.combat.character_by_id(&"ja-hyun").base_move_set != original_moves and original.character_by_id(&"ja-hyun").base_move_set == original_moves, "product move replacement cannot mutate source catalog")
 	var store := LocalPlayerStore.new(catalog, "user://two-fighter-%d.json" % Time.get_ticks_usec())
 	var old := LocalPlayerStore.fresh_data()
@@ -44,7 +44,7 @@ func run() -> void:
 	touch.simplified_controls = true
 	root.add_child(touch)
 	await process_frame
-	check(touch.ACTIONS.size() == 4 and not touch.ACTIONS.has(&"evade") and not touch.ACTIONS.has(&"ultimate"), "product has exactly four action buttons")
+	check(touch.ACTIONS.size() == 5 and not touch.ACTIONS.has(&"evade") and not touch.ACTIONS.has(&"ultimate"), "product has exactly five action buttons")
 	var observation := {"fighters":[{"id":"player", "on_floor":false,"air_light_used":true,"air_heavy_used":false,"air_lock":0,"special_cooldown_ticks":0,"guard_durability":100}]}
 	var copied := observation.duplicate(true)
 	touch.update_snapshot(observation)
@@ -58,7 +58,7 @@ func run() -> void:
 	check(landed == landed_copy, "landing down readiness preserves the combat snapshot")
 	landed.fighters[0].landing_down_ticks = 0
 	touch.update_snapshot(landed)
-	for action: StringName in touch.ACTIONS: check(not touch._is_action_unready(action), "wake up restores readiness from the next snapshot")
+	for action: StringName in touch.ACTIONS: check(touch._is_action_unready(action) if action == &"use_equipment" else not touch._is_action_unready(action), "wake up restores readiness; unequipped action stays disabled")
 	for action: StringName in touch.ACTIONS:
 		var rect: Rect2 = touch.diagnostic_regions()[action]
 		check(touch._action_for(rect.get_center()) == action, "button visual and hit region agree")
@@ -72,7 +72,7 @@ func run() -> void:
 				var regions: Dictionary = touch.diagnostic_regions()
 				for action: StringName in touch.ACTIONS:
 					var rect: Rect2 = regions[action]
-					check(rect.size.is_equal_approx(Vector2.ONE * (96 if action == &"attack_light" else 80) * button_scale), "four action diameters scale from approved base")
+					check(rect.size.is_equal_approx(Vector2.ONE * (96 if action == &"attack_light" else 80) * button_scale), "five action diameters scale from approved base")
 					for other: StringName in touch.ACTIONS:
 						if other != action: check(not rect.intersects(regions[other]), "scaled product buttons never overlap")
 	var bot := LocalAICommandSource.new(&"bot", 7, {"simplified_combat":true,"heavy_range":300})
@@ -85,7 +85,7 @@ func run() -> void:
 			check(command.action_id not in [&"dash",&"evade",&"ultimate"] and not (command.action_id == &"attack_heavy" and command.edge == CombatIntent.Edge.RELEASE), "AI never emits removed or charge-release commands")
 			seen[command.action_id] = true
 	check(seen.has(&"attack_heavy") and seen.has(&"attack_light"), "AI uses single heavy and light attacks")
-	check(LanInvite.PROTOCOL_VERSION == 4 and LanMatchClient.PROTOCOL_VERSION == 4, "LAN uses protocol four")
+	check(LanInvite.PROTOCOL_VERSION == 5 and LanMatchClient.PROTOCOL_VERSION == 5, "LAN uses protocol five")
 	var server: Node = load("res://server/game/lan_game_server.gd").new()
 	server.catalog = catalog.combat
 	for selection: Dictionary in [{"schema_version":1,"character_id":"myo-ryung","job_id":"","accessory_id":""},{"schema_version":1,"character_id":"nabi","job_id":"","accessory_id":"fixture-thorns"}]:
@@ -115,7 +115,7 @@ func run() -> void:
 		app.match_controller.set_physics_process(false)
 		var live_touch: Control = app.match_scene.get_node("Interface/TouchCommandSource")
 		var live_hud: Control = app.match_scene.forestlight_hud
-		check(live_touch.simplified_controls and live_touch.ACTIONS.size() == 4 and live_hud.cards.size() == count, "real product combines four buttons with %d HUD cards" % count)
+		check(live_touch.simplified_controls and live_touch.ACTIONS.size() == 5 and live_hud.cards.size() == count, "real product combines five buttons with %d HUD cards" % count)
 		for width: int in [1280,1600]:
 			root.size = Vector2i(width,720)
 			await process_frame

@@ -33,16 +33,16 @@ func run() -> void:
  Input.action_press(&'attack_light');Input.action_press(&'move_right')
  var errors: Array[String]=[]
  client.failed.connect(func(code: String) -> void:errors.append(code))
- client._handle_message(JSON.stringify({'protocol_version':4,'type':'error','code':'resume_pending'}))
+ client._handle_message(JSON.stringify({'protocol_version':5,'type':'error','code':'resume_pending'}))
  check(client.active and client.running and client._reconnecting and errors.is_empty(),'pending does not leave match or emit failed')
  check(client._reconnect_deadline_msec==deadline and client._reconnect_at_msec>Time.get_ticks_msec(),'retry has bounded backoff without extending grace')
  check(client._last_direction==CombatIntent.Direction.NEUTRAL and not Input.is_action_pressed(&'move_right') and not Input.is_action_pressed(&'attack_light'),'pending releases real input actions')
- client._handle_message(JSON.stringify({'protocol_version':4,'type':'joined','slot':1,'reconnect_token':'rotated-synthetic','names':{}}))
+ client._handle_message(JSON.stringify({'protocol_version':5,'type':'joined','slot':1,'reconnect_token':'rotated-synthetic','names':{}}))
  check(client.local_slot==1 and not client._reconnecting and client._reconnect_deadline_msec==0,'normal joined resets original reconnect state')
- client._handle_message(JSON.stringify({'protocol_version':4,'type':'error','code':'resume_rejected'}))
+ client._handle_message(JSON.stringify({'protocol_version':5,'type':'error','code':'resume_rejected'}))
  check(not client.active and errors==['resume_rejected'],'invalid resume still terminates safely')
  client.active=true;client.running=true;client._reconnecting=true;client._reconnect_deadline_msec=Time.get_ticks_msec()-1
- client._handle_message(JSON.stringify({'protocol_version':4,'type':'error','code':'resume_pending'}))
+ client._handle_message(JSON.stringify({'protocol_version':5,'type':'error','code':'resume_pending'}))
  check(not client.active,'expired pending never extends reconnect window')
  client.free();server.free();match_root.queue_free()
  await process_frame

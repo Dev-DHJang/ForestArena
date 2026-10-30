@@ -27,7 +27,7 @@ func run() -> void:
 	check(app.store.grant_first("ja-hyun"), "ordinary first grant")
 	for item: Dictionary in app.catalog.products:
 		if app.store.owns(item.id): continue
-		if app.catalog.is_playable_character(StringName(item.id)):
+		if app.catalog.is_playable_product(StringName(item.id)):
 			check(app.store.purchase(item.id), "normal active purchase " + String(item.id))
 		else:
 			var before: Dictionary = app.store.data.duplicate(true)
@@ -37,7 +37,7 @@ func run() -> void:
 	await process_frame
 	var ui: Array = qa._ui()
 	check(ui.any(func(value: Dictionary) -> bool: return value.id == "prepare/choice/모드"), "stable selection IDs")
-	check(not ui.any(func(value: Dictionary) -> bool: return value.id == "prepare/choice/장신구"), "product prepare excludes accessory selection")
+	check(ui.any(func(value: Dictionary) -> bool: return value.id == "prepare/choice/장신구") and ui.any(func(value: Dictionary) -> bool: return value.id == "prepare/choice/AI 1 장신구"), "product prepare offers owned human and AI equipment selection")
 	var selected_before: Dictionary = app.store.data.duplicate(true)
 	qa._select_config({"character": "nabi", "accessory": "fixture-iron-armor", "mode": 3})
 	check(qa.command_error == "selection_failed" and app.store.data == selected_before, "QA cannot equip archived accessory")

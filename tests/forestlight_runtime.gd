@@ -52,7 +52,7 @@ func run() -> void:
 		app._show_home()
 	app._show_prepare()
 	await frame("prepare")
-	check(app.page.find_children("*", "OptionButton", true, false).size() == 2, "mode and active AI choices retained without accessory selector")
+	check(app.page.find_children("*", "OptionButton", true, false).size() == 4, "mode, player equipment and AI configuration selectors are present")
 	check(find_button("대전 시작") != null, "native battle start retained")
 	app._show_shop()
 	await frame("shop")

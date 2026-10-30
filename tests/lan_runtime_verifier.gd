@@ -1,7 +1,7 @@
 extends Node
 
 const TIMEOUT_MSEC := 5000
-const PROTOCOL_VERSION := 4
+const PROTOCOL_VERSION := 5
 
 var websocket_url := "ws://127.0.0.1:17777"
 var clients: Array[Dictionary] = []
@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 
 
 func _run() -> void:
-	for rejected_version: int in [1, 2, 3, 99]:
+	for rejected_version: int in [1, 2, 3, 4, 99]:
 		var wrong_version := await _open_client()
 		_send_raw(wrong_version, {"type": "create_room", "protocol_version": rejected_version, "selection": _selection("nabi", "")})
 		_require((await _wait_message(wrong_version, "error")).code == "unsupported_protocol", "version_rejected_%d" % rejected_version)
@@ -40,6 +40,10 @@ func _run() -> void:
 	var loadout_error := await _wait_message(invalid_loadout, "error")
 	_require(loadout_error.code == "invalid_loadout", "invalid_loadout_rejected:" + str(loadout_error))
 	_close_client(invalid_loadout)
+	var inactive_accessory := await _open_client()
+	_send(inactive_accessory, {"type": "create_room", "access_token": "host", "selection": _selection("nabi", "fixture-thorns")})
+	_require((await _wait_message(inactive_accessory, "error")).code == "invalid_loadout", "legacy_accessory_rejected")
+	_close_client(inactive_accessory)
 	var oversized := await _open_client()
 	var oversized_peer: WebSocketMultiplayerPeer = oversized.peer
 	_require(oversized_peer.put_packet("x".repeat(8193).to_utf8_buffer()) == OK, "oversized_send")
@@ -52,7 +56,7 @@ func _run() -> void:
 	_close_client(cancelled)
 	await get_tree().create_timer(0.4).timeout
 	var host := await _open_client()
-	_send(host, {"type": "create_room", "access_token": "host", "nickname": "공격자위조", "selection": _selection("nabi", "")})
+	_send(host, {"type": "create_room", "access_token": "host", "nickname": "공격자위조", "selection": _selection("nabi", "pebble-yoyo")})
 	var created := await _wait_message(host, "room_created")
 	_require(LanInvite.parse_invite_code(String(created.invite_code)).room_code == created.room_code, "invite")
 	await _wait_message(host, "room_waiting")
@@ -67,11 +71,12 @@ func _run() -> void:
 	var guest_ready := await _wait_message(guest, "room_ready")
 	_require(host_ready.get("names") == {"1": "호스트숲", "2": "손님숲"} and guest_ready.get("names") == host_ready.get("names"), "both clients get normalized nicknames")
 	_require(host_ready.loadouts["1"].character_id == "nabi" and guest_ready.loadouts["2"].character_id == "ja-hyun", "loadouts")
+	_require(host_ready.loadouts["1"].accessory_id == "pebble-yoyo", "equipped accessory reaches room_ready")
 	var host_start := await _wait_message(host, "match_start")
 	await _wait_message(guest, "match_start")
 	var snapshot := await _wait_message(host, "snapshot")
 	_require(snapshot.state.fighters.size() == 2 and snapshot.state.fighters[0].id == "lan_host", "snapshot")
-	_require(int(snapshot.get("protocol_version", 0)) == 4, "snapshot protocol four")
+	_require(int(snapshot.get("protocol_version", 0)) == 5, "snapshot protocol five")
 	_check_combat_fields(snapshot.state)
 	var guest_snapshot := await _wait_message(guest, "snapshot")
 	_check_combat_fields(guest_snapshot.state)
@@ -81,6 +86,33 @@ func _run() -> void:
 	_require((await _wait_message(host, "error")).code == "invalid_input", "invalid_input_rejected")
 	var advanced := await _wait_snapshot_after(host, int(snapshot.state.tick))
 	_require(int(advanced.state.tick) > int(snapshot.state.tick), "input_tick")
+	# A fixed-tick server must move by velocity / 60 per authority tick,
+	# independently of the headless render rate used to poll WebSockets.
+	var steady_before := await _wait_state(host, func(state: Dictionary) -> bool:
+		var actor := _fighter(state, "lan_host")
+		return bool(actor.on_floor) and is_equal_approx(float(actor.velocity.x), 335.0), "steady_ground_movement")
+	var steady_after := await _wait_snapshot_after(host, int(steady_before.tick) + 12)
+	var ticks_moved := int(steady_after.state.tick) - int(steady_before.tick)
+	var distance_moved := float(_fighter(steady_after.state, "lan_host").position.x) - float(_fighter(steady_before, "lan_host").position.x)
+	_require(absf(distance_moved - 335.0 * float(ticks_moved) / 60.0) < 1.0, "authority movement uses fixed physics delta")
+	# Move into range using ordinary commands, then cast through the real authority.
+	var close_state := await _wait_state(host, func(state: Dictionary) -> bool:
+		return _fighter(state, "lan_guest")["position"]["x"] - _fighter(state, "lan_host")["position"]["x"] <= 150.0, "move_into_equipment_range")
+	_send(host, {"type": "input", "seq": 3, "action_id": "move", "direction": CombatIntent.Direction.RIGHT, "edge": CombatIntent.Edge.RELEASE})
+	await _wait_state(host, func(state: Dictionary) -> bool: return _fighter(state, "lan_host").state == "IDLE", "stop_before_cast")
+	var guest_hp := float(_fighter(close_state, "lan_guest")["current_hp"])
+	_send(host, {"type": "input", "seq": 4, "action_id": "use_equipment", "direction": CombatIntent.Direction.RIGHT, "edge": CombatIntent.Edge.PRESS})
+	var equipment_started := await _wait_state(host, func(state: Dictionary) -> bool: return int(_fighter(state, "lan_host").equipment_cooldown_ticks) > 0, "equipment_started")
+	var casting := _fighter(equipment_started, "lan_host")
+	_require(casting.equipment_cooldown_ticks <= 600 and casting.equipment_cooldown_ticks > 550, "server starts ten-second cooldown")
+	var hit_state := await _wait_state(host, func(state: Dictionary) -> bool: return int(_fighter(state, "lan_guest").hitstun_ticks) > 0, "equipment_hit")
+	var hit_guest := _fighter(hit_state, "lan_guest")
+	_require(int(hit_guest.hitstun_ticks) <= 30 and float(hit_guest["current_hp"]) == guest_hp, "LAN yo-yo stuns without HP damage")
+	_send(host, {"type": "input", "seq": 5, "action_id": "use_equipment", "direction": CombatIntent.Direction.RIGHT, "edge": CombatIntent.Edge.HOLD})
+	_require((await _wait_message(host, "error")).code == "invalid_input", "equipment hold input rejected")
+	_send(host, {"type": "input", "seq": 6, "action_id": "use_equipment", "direction": CombatIntent.Direction.RIGHT, "edge": CombatIntent.Edge.PRESS})
+	var cooldown_state := await _wait_snapshot_after(host, int(hit_state.tick))
+	_require(_fighter(cooldown_state.state, "lan_host").equipment_activation_serial == casting.equipment_activation_serial, "cooldown recast does not restart ability")
 	var third := await _open_client()
 	_send(third, {"type": "join_room", "room_code": created.room_code, "access_token": "third", "selection": _selection("ja-hyun", "")})
 	_require((await _wait_message(third, "error")).code == "room_full", "third_rejected")
@@ -97,7 +129,10 @@ func _run() -> void:
 	var resumed_joined := await _wait_message(resumed, "joined")
 	_require(bool(resumed_joined.resumed) and resumed_joined.slot == 1, "resume")
 	_require(resumed_joined.get("names") == host_ready.get("names"), "resume preserves names")
-	await _wait_message(resumed, "snapshot")
+	var restored := await _wait_message(resumed, "snapshot")
+	var restored_host := _fighter(restored.state, "lan_host")
+	_require(restored_host.accessory_id == "pebble-yoyo" and restored_host.equipment_cooldown_ticks > 0, "resume restores equipped cooldown")
+	_require(restored_host.equipment_activation_serial == casting.equipment_activation_serial, "resume preserves activation identity")
 	_send(guest, {"type": "leave"})
 	var host_end := await _wait_message(resumed, "match_end")
 	await _wait_message(guest, "match_end")
@@ -126,8 +161,8 @@ func _run() -> void:
 
 func _check_combat_fields(state: Dictionary) -> void:
 	for fighter: Dictionary in state.get("fighters", []):
-		for field: String in ["hitstun_ticks", "landing_down_duration_ticks", "ring_out_hidden", "ring_out_pending_ticks", "debug_geometry"]:
-			_require(fighter.has(field), "LAN4 fighter field " + field)
+		for field: String in ["hitstun_ticks", "landing_down_duration_ticks", "ring_out_hidden", "ring_out_pending_ticks", "debug_geometry", "equipment_cooldown_ticks", "equipment_phase", "equipment_tick", "equipment_phase_tick", "equipment_facing", "equipment_position", "equipment_activation_serial", "equipment_airborne"]:
+			_require(fighter.has(field), "LAN5 fighter field " + field)
 		_require(fighter.get("hitstun_ticks", -1) >= 0 and fighter.get("ring_out_pending_ticks", -1) >= 0, "nonnegative combat countdown")
 		_require(fighter.get("ring_out_hidden") is bool, "hidden flag type")
 		var geometry: Dictionary = fighter.get("debug_geometry", {})
@@ -137,6 +172,32 @@ func _check_combat_fields(state: Dictionary) -> void:
 		for box: Dictionary in boxes:
 			_require(box.has("x") and box.has("y") and box.has("w") and box.has("h") and float(box.w) > 0 and float(box.h) > 0, "world rectangle fields")
 
+
+
+func _fighter(state: Dictionary, id: String) -> Dictionary:
+	for fighter: Dictionary in state.get("fighters", []):
+		if fighter.id == id: return fighter
+	return {}
+
+
+func _wait_state(client: Dictionary, predicate: Callable, label: String) -> Dictionary:
+	var deadline := Time.get_ticks_msec() + TIMEOUT_MSEC
+	var latest: Dictionary = {}
+	while Time.get_ticks_msec() < deadline:
+		var queue: Array = client.queue
+		for index: int in range(queue.size() - 1, -1, -1):
+			var message: Dictionary = queue[index]
+			if message.get("type") == "snapshot":
+				queue.remove_at(index)
+				latest = message.state
+				if predicate.call(message.state): return message.state
+		await get_tree().process_frame
+	var actors: Array[Dictionary] = []
+	for fighter: Dictionary in latest.get("fighters", []):
+		actors.append({"id": fighter.id, "state": fighter.state, "position": fighter.position, "velocity": fighter.velocity, "equipment_phase": fighter.get("equipment_phase", "missing"), "equipment_cooldown_ticks": fighter.get("equipment_cooldown_ticks", -1), "hitstun_ticks": fighter.get("hitstun_ticks", -1)})
+	print("LAN_RUNTIME_STATE ", JSON.stringify({"condition": label, "tick": latest.get("tick", -1), "fighters": actors}))
+	_require(false, "equipment_snapshot_condition:" + label)
+	return {}
 
 func _selection(character_id: String, accessory_id: String) -> Dictionary:
 	return {"schema_version": 1, "character_id": character_id, "job_id": "", "accessory_id": accessory_id}

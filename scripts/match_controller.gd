@@ -87,6 +87,7 @@ func step_fixed_tick(poll_local_input := true) -> void:
 		fighter.advance_attack_travel(enemies, rules, _fighters())
 	PushboxResolverScript.resolve(_fighters())
 	_resolve_hits()
+	_resolve_equipment_hits()
 	_resolve_ring_outs()
 	snapshot_changed.emit(snapshot())
 
@@ -184,6 +185,8 @@ func finish_forfeit(loser_id: StringName) -> void:
 	if loser == null: return
 	set_meta("menu_forfeit", true)
 	winner_id = training_dummy.fighter_id if loser == player else player.fighter_id
+	player._stop_equipment()
+	training_dummy._stop_equipment()
 	player.state = FighterController.State.MATCH_ENDED
 	training_dummy.state = FighterController.State.MATCH_ENDED
 	match_ended.emit(winner_id)
@@ -199,7 +202,7 @@ func _poll_player_input() -> void:
 		_last_player_direction = direction
 	elif direction != CombatIntent.Direction.NEUTRAL:
 		submit_intent(CombatIntent.new(tick, player.fighter_id, &"move", direction, CombatIntent.Edge.HOLD, _context_for(player)))
-	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special"]:
+	for action: StringName in [&"jump", &"dash", &"evade", &"ultimate", &"attack_light", &"attack_heavy", &"attack_special", &"use_equipment"]:
 		if rules.simplified_combat and action in [&"dash", &"evade", &"ultimate"]: continue
 		# Ultimate has one slot, not directional variants. Keep movement separate.
 		var action_direction := CombatIntent.Direction.NEUTRAL if action == &"ultimate" else direction
@@ -333,6 +336,7 @@ func _resolve_final_losses() -> void:
 func _finish_match(payload: Dictionary) -> void:
 	_emit_presentation(&"match_end", payload)
 	for fighter: FighterController in _fighters():
+		fighter._stop_equipment()
 		fighter.state = FighterController.State.MATCH_ENDED
 	match_ended.emit(winner_id)
 
@@ -405,3 +409,20 @@ func _on_fighter_presentation(event_id: StringName, payload: Dictionary, fighter
 	payload["fighter_id"] = fighter.fighter_id
 	payload["character_id"] = fighter.character_data.character_id
 	_emit_presentation(event_id, payload)
+
+
+func _resolve_equipment_hits() -> void:
+	# Freeze same-tick candidates first so two active equipment casts can trade.
+	var candidates: Array[Dictionary] = []
+	for source: FighterController in _fighters():
+		if source.state != FighterController.State.EQUIPMENT: continue
+		for target: FighterController in _fighters():
+			if source == target or _are_allies(source, target) or not source.equipment_hits(target): continue
+			candidates.append({"source": source, "target": target, "ability": source.equipment_ability(), "serial": source.equipment_activation_serial})
+	candidates.sort_custom(func(a: Dictionary, b: Dictionary) -> bool: return "%s:%s" % [a.source.fighter_id, a.target.fighter_id] < "%s:%s" % [b.source.fighter_id, b.target.fighter_id])
+	for hit: Dictionary in candidates:
+		var source: FighterController = hit.source
+		var target: FighterController = hit.target
+		source.equipment_hit_targets[target.fighter_id] = true
+		var result := HitResolver.resolve_equipment(source, target, hit.ability)
+		_emit_presentation(&"hit_resolved", {"tick": tick, "attacker_id": source.fighter_id, "defender_id": target.fighter_id, "attack_id": String(hit.ability.ability_id), "result": HitResult.Type.keys()[result.type], "reaction": result.reaction, "action_id": &"use_equipment", "character_id": source.character_data.character_id, "activation_serial": hit.serial})

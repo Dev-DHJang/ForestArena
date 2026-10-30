@@ -15,7 +15,7 @@ signal presentation_reset
 ## Local drawing notification after an effective hit sets its reaction.
 signal hit_reaction_started
 
-enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED, FALLING_OUT }
+enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED, FALLING_OUT, EQUIPMENT }
 
 @export var fighter_id: StringName
 @export var character_data: CharacterData
@@ -88,6 +88,19 @@ var attack_strike_ready := false
 var attack_travel_failed := false
 var _attack_movement_started := false
 var _simplified_combat := false
+var equipment_phase := "idle"
+var equipment_tick := 0
+var equipment_phase_tick := 0
+var equipment_facing := 1
+var equipment_position := Vector2.ZERO
+var equipment_previous_position := Vector2.ZERO
+var equipment_activation_serial := 0
+var equipment_airborne := false
+var equipment_hit_targets: Dictionary = {}
+var _equipment_distance := 0.0
+var _equipment_return_distance := 0.0
+var _equipment_return_start := 0
+var _equipment_sweep_active := false
 
 
 func _ready() -> void:
@@ -115,6 +128,8 @@ func configure_profile(profile: RuntimeCombatProfile) -> bool:
 	combo_count = profile.move_set.combo_count
 	air_jumps_remaining = _stats().air_jump_count
 	runtime_state.reset(_stats().max_hp, 3, 100.0)
+	_stop_equipment()
+	equipment_activation_serial = 0
 	attack_restart_lock_ticks = 0
 	_reset_air_status()
 	_clear_attack_travel()
@@ -135,6 +150,8 @@ func reset_for_match(rules: CombatRules) -> void:
 	if runtime_profile == null:
 		return
 	runtime_state.reset(_stats().max_hp, rules.stocks_per_fighter, rules.guard_max_durability)
+	_stop_equipment()
+	equipment_activation_serial = 0
 	attack_restart_lock_ticks = 0
 	global_position = spawn_position
 	velocity = Vector2.ZERO
@@ -164,7 +181,7 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 	if _simplified_combat:
 		if intent.action_id in [&"dash", &"evade", &"ultimate"]: return
 		if (air_lock == 2 or landing_down_ticks > 0) and intent.action_id != &"move": return
-		if air_lock == 1 and intent.action_id in [&"jump", &"attack_light", &"attack_heavy", &"attack_special"]: return
+		if air_lock == 1 and intent.action_id in [&"jump", &"attack_light", &"attack_heavy", &"attack_special", &"use_equipment"]: return
 	if state in [State.SPAWNING, State.RING_OUT, State.DEAD, State.MATCH_ENDED, State.FALLING_OUT]: return
 	if intent.action_id == &"move":
 		input_direction = CombatIntent.Direction.NEUTRAL if intent.edge == CombatIntent.Edge.RELEASE else intent.direction
@@ -173,7 +190,10 @@ func consume_intent(intent: CombatIntent, rules: CombatRules) -> void:
 		return
 	# Direction releases can still clear a held input, but no action (including
 	# ultimate or platform drop) may bypass an effective hit's action lock.
-	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN]: return
+	if state in [State.HITSTUN, State.LAUNCH, State.KNOCK_DOWN, State.EQUIPMENT]: return
+	if intent.action_id == &"use_equipment":
+		if intent.edge == CombatIntent.Edge.PRESS: _try_equipment(intent.direction)
+		return
 	if active_attack != null and intent.edge == CombatIntent.Edge.PRESS and _try_cancel(intent, rules):
 		return
 	if attack_restart_lock_ticks > 0 and intent.action_id in [&"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]:
@@ -228,6 +248,7 @@ func release_guard() -> void:
 
 func begin_falling_out() -> void:
 	if state in [State.FALLING_OUT, State.RING_OUT, State.DEAD, State.MATCH_ENDED]: return
+	_stop_equipment()
 	_reset_air_status()
 	_clear_attack_travel()
 	release_guard()
@@ -274,6 +295,14 @@ func step_tick(rules: CombatRules) -> void:
 	if invulnerability_ticks > 0:
 		invulnerability_ticks -= 1
 	if runtime_state.special_cooldown_ticks > 0: runtime_state.special_cooldown_ticks -= 1
+	if runtime_state.equipment_cooldown_ticks > 0: runtime_state.equipment_cooldown_ticks -= 1
+	if state == State.EQUIPMENT:
+		velocity.x = 0.0
+		_apply_gravity(rules)
+		move_and_slide()
+		_advance_equipment()
+		_finish_tick()
+		return
 	if runtime_state.platform_drop_ticks > 0:
 		runtime_state.platform_drop_ticks -= 1
 		if runtime_state.platform_drop_ticks <= 0: set_collision_mask_value(4, true)
@@ -367,6 +396,8 @@ func get_debug_geometry() -> Dictionary:
 	var boxes: Array[Dictionary] = []
 	for window: Dictionary in attack_hit_windows():
 		for box: Rect2 in window.boxes: boxes.append(_debug_rect(box))
+	if _equipment_sweep_active and equipment_ability() != null:
+		boxes.append(_debug_rect(equipment_sweep_rect()))
 	return {"hurtbox": _debug_rect(get_hurtbox_rect()), "hitboxes": boxes}
 
 
@@ -393,6 +424,7 @@ func register_landed_hit(attack: AttackData) -> void:
 
 
 func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int, rules: CombatRules, reaction_override := -1) -> bool:
+	_stop_equipment()
 	current_hp = maxf(0.0, current_hp - attack.damage)
 	if current_hp <= 0.0:
 		return lose_stock(rules)
@@ -430,6 +462,7 @@ func ring_out(rules: CombatRules) -> bool:
 func lose_stock(rules: CombatRules) -> bool:
 	if state in [State.RING_OUT, State.DEAD, State.MATCH_ENDED] or stocks <= 0: return false
 	stocks -= 1
+	_stop_equipment()
 	_reset_air_status()
 	_clear_attack_travel()
 	attack_restart_lock_ticks = 0
@@ -489,6 +522,14 @@ func snapshot() -> Dictionary:
 		"guard_durability": snappedf(runtime_state.guard_durability, 0.001),
 		"guard_max": runtime_state.guard_durability if runtime_profile == null else 100.0,
 		"special_cooldown_ticks": runtime_state.special_cooldown_ticks,
+		"accessory_id": "" if runtime_profile == null else String(runtime_profile.accessory_id),
+		"equipment_ability_id": "" if equipment_ability() == null else String(equipment_ability().ability_id),
+		"equipment_reach": 0.0 if equipment_ability() == null else equipment_ability().reach,
+		"equipment_cooldown_ticks": runtime_state.equipment_cooldown_ticks,
+		"equipment_phase": equipment_phase, "equipment_tick": equipment_tick, "equipment_phase_tick": equipment_phase_tick,
+		"equipment_facing": equipment_facing,
+		"equipment_position": {"x": snappedf(equipment_position.x, 0.001), "y": snappedf(equipment_position.y, 0.001)},
+		"equipment_activation_serial": equipment_activation_serial, "equipment_airborne": equipment_airborne,
 		"ultimate_gauge": snappedf(runtime_state.ultimate_gauge, 0.001),
 		"ultimate_used_this_stock": runtime_state.ultimate_used_this_stock,
 	}
@@ -527,6 +568,16 @@ func apply_network_snapshot(value: Dictionary) -> void:
 	up_special_available = bool(value.get("up_special", up_special_available))
 	runtime_state.guard_durability = float(value.get("guard_durability", runtime_state.guard_durability))
 	runtime_state.special_cooldown_ticks = int(value.get("special_cooldown_ticks", runtime_state.special_cooldown_ticks))
+	runtime_state.equipment_cooldown_ticks = maxi(0, int(value.get("equipment_cooldown_ticks", 0)))
+	equipment_phase = String(value.get("equipment_phase", "idle"))
+	if equipment_phase not in ["idle", "startup", "extend", "return", "recovery"]: equipment_phase = "idle"
+	equipment_tick = maxi(0, int(value.get("equipment_tick", 0)))
+	equipment_phase_tick = maxi(0, int(value.get("equipment_phase_tick", 0)))
+	equipment_facing = -1 if int(value.get("equipment_facing", 1)) < 0 else 1
+	equipment_activation_serial = maxi(0, int(value.get("equipment_activation_serial", 0)))
+	equipment_airborne = bool(value.get("equipment_airborne", false))
+	var equipment_point: Dictionary = value.get("equipment_position", {})
+	equipment_position = Vector2(float(equipment_point.get("x", 0.0)), float(equipment_point.get("y", 0.0)))
 	runtime_state.ultimate_gauge = float(value.get("ultimate_gauge", runtime_state.ultimate_gauge))
 	runtime_state.ultimate_used_this_stock = bool(value.get("ultimate_used_this_stock", runtime_state.ultimate_used_this_stock))
 	attack_phase_tick = int(value.get("attack_phase_tick", attack_phase_tick))
@@ -1083,3 +1134,166 @@ func _finish_attack_travel(succeeded: bool, strike := false) -> void:
 		state = State.ATTACK_RECOVERY
 		attack_phase_tick = 0
 	_finish_tick()
+
+
+func equipment_ability() -> AccessoryAbilityData:
+	return null if runtime_profile == null else runtime_profile.active_ability
+
+
+func equipment_origin() -> Vector2:
+	var ability := equipment_ability()
+	if ability == null: return global_position
+	return global_position + Vector2(ability.origin_offset.x * equipment_facing, ability.origin_offset.y)
+
+
+func _try_equipment(direction := CombatIntent.Direction.NEUTRAL) -> void:
+	var ability := equipment_ability()
+	if ability == null or runtime_state.equipment_cooldown_ticks > 0 or active_attack != null or attack_restart_lock_ticks > 0 or air_lock > 0 or landing_down_ticks > 0: return
+	if state not in [State.IDLE, State.RUN, State.JUMP, State.FALL]: return
+	_face_ground_attack(direction)
+	equipment_facing = facing
+	locked_facing = facing
+	equipment_tick = 0
+	equipment_phase_tick = 0
+	equipment_phase = "startup"
+	equipment_airborne = not is_on_floor()
+	equipment_activation_serial += 1
+	equipment_hit_targets.clear()
+	_equipment_distance = 0.0
+	_equipment_return_start = -1
+	_equipment_return_distance = 0.0
+	_equipment_sweep_active = false
+	equipment_position = equipment_origin()
+	equipment_previous_position = equipment_position
+	runtime_state.equipment_cooldown_ticks = ability.cooldown_ticks
+	wakeup_protection_ticks = 0
+	velocity.x = 0.0
+	state = State.EQUIPMENT
+	presentation_event.emit(&"equipment_started", {"ability_id": String(ability.ability_id), "activation_serial": equipment_activation_serial})
+
+
+func _advance_equipment() -> void:
+	var ability := equipment_ability()
+	if ability == null:
+		_stop_equipment()
+		state = State.IDLE if is_on_floor() else State.FALL
+		return
+	equipment_tick += 1
+	equipment_airborne = not is_on_floor()
+	equipment_previous_position = equipment_position
+	_equipment_sweep_active = false
+	if equipment_tick <= ability.startup_ticks:
+		equipment_phase = "startup"
+		equipment_phase_tick = maxi(0, equipment_tick - 1)
+		equipment_position = equipment_origin()
+		return
+	if _equipment_return_start < 0 and equipment_tick <= ability.startup_ticks + ability.extend_ticks:
+		equipment_phase = "extend"
+		equipment_phase_tick = equipment_tick - ability.startup_ticks - 1
+		var progress := float(equipment_tick - ability.startup_ticks) / float(ability.extend_ticks)
+		var desired := equipment_origin() + Vector2(equipment_facing * ability.reach * progress, 0)
+		var fraction := _equipment_terrain_fraction(equipment_previous_position, desired)
+		equipment_position = equipment_previous_position.lerp(desired, fraction)
+		_equipment_distance = maxf(0.0, (equipment_position.x - equipment_origin().x) * equipment_facing)
+		_equipment_sweep_active = true
+		if fraction < 1.0 or equipment_tick == ability.startup_ticks + ability.extend_ticks:
+			_equipment_return_start = equipment_tick
+			_equipment_return_distance = _equipment_distance
+		return
+	if _equipment_return_start < 0:
+		_equipment_return_start = ability.startup_ticks + ability.extend_ticks
+		_equipment_return_distance = ability.reach
+	var returning_tick := equipment_tick - _equipment_return_start
+	if returning_tick <= ability.return_ticks:
+		equipment_phase = "return"
+		equipment_phase_tick = maxi(0, returning_tick - 1)
+		_equipment_distance = _equipment_return_distance * (1.0 - float(returning_tick) / float(ability.return_ticks))
+		equipment_position = equipment_origin() + Vector2(equipment_facing * _equipment_distance, 0)
+	elif returning_tick < ability.return_ticks + ability.recovery_ticks:
+		equipment_phase = "recovery"
+		equipment_phase_tick = returning_tick - ability.return_ticks - 1
+		equipment_position = equipment_origin()
+	else:
+		_stop_equipment()
+		state = State.IDLE if is_on_floor() else State.FALL
+
+
+func _equipment_terrain_fraction(from: Vector2, to: Vector2) -> float:
+	if not is_inside_tree(): return 1.0
+	var query := PhysicsShapeQueryParameters2D.new()
+	var shape := RectangleShape2D.new()
+	shape.size = equipment_ability().hitbox_size
+	query.shape = shape
+	query.transform = Transform2D(0.0, from)
+	query.motion = to - from
+	query.collision_mask = 1 # Terrain shares layer1; inspect one-way shape metadata below.
+	query.exclude = [get_rid()]
+	var space := get_world_2d().direct_space_state
+	# Direct shape queries do not apply CharacterBody's one-way collision rules.
+	# Exclude a one-way surface unless the equipment descends across its top.
+	var swept := Rect2(from - shape.size * 0.5, shape.size).merge(Rect2(to - shape.size * 0.5, shape.size))
+	var broad_shape := RectangleShape2D.new()
+	broad_shape.size = swept.size
+	var broad := PhysicsShapeQueryParameters2D.new()
+	broad.shape = broad_shape
+	broad.transform = Transform2D(0.0, swept.get_center())
+	broad.collision_mask = 1
+	broad.exclude = [get_rid()]
+	var ignored: Array[RID] = [get_rid()]
+	for overlap: Dictionary in space.intersect_shape(broad, 64):
+		var collider := overlap.get("collider") as CollisionObject2D
+		if collider == null: continue
+		var owner := collider.shape_owner_get_owner(collider.shape_find_owner(int(overlap.shape))) as CollisionShape2D
+		if owner == null or not owner.one_way_collision or owner.shape == null: continue
+		var top := owner.global_position.y + owner.shape.get_rect().position.y * absf(owner.global_scale.y)
+		if to.y <= from.y or from.y + shape.size.y * 0.5 > top + 0.1:
+			ignored.append(collider.get_rid())
+	query.exclude = ignored
+	if not space.intersect_shape(query, 1).is_empty(): return 0.0
+	var fractions := space.cast_motion(query)
+	return clampf(fractions[0], 0.0, 1.0) if fractions.size() == 2 else 1.0
+
+
+func equipment_sweep_rect() -> Rect2:
+	var ability := equipment_ability()
+	if ability == null or not _equipment_sweep_active: return Rect2()
+	return Rect2(equipment_previous_position - ability.hitbox_size * 0.5, ability.hitbox_size).merge(Rect2(equipment_position - ability.hitbox_size * 0.5, ability.hitbox_size))
+
+
+func equipment_hits(target: FighterController) -> bool:
+	if not _equipment_sweep_active or equipment_hit_targets.has(target.fighter_id) or equipment_ability() == null: return false
+	var half := equipment_ability().hitbox_size * 0.5
+	var target_box := target.get_hurtbox_rect().grow_individual(half.x, half.y, half.x, half.y)
+	if target_box.has_point(equipment_previous_position) or target_box.has_point(equipment_position): return true
+	var corners := [target_box.position, Vector2(target_box.end.x, target_box.position.y), target_box.end, Vector2(target_box.position.x, target_box.end.y)]
+	for index: int in 4:
+		if Geometry2D.segment_intersects_segment(equipment_previous_position, equipment_position, corners[index], corners[(index + 1) % 4]) != null: return true
+	return false
+
+
+func _stop_equipment() -> void:
+	equipment_phase = "idle"
+	equipment_tick = 0
+	equipment_phase_tick = 0
+	_equipment_distance = 0.0
+	_equipment_return_start = -1
+	_equipment_return_distance = 0.0
+	_equipment_sweep_active = false
+	equipment_hit_targets.clear()
+
+
+func apply_equipment_stun(ticks: int) -> void:
+	# Deliberately separate from apply_hit: no HP, velocity, launch or air-budget writes.
+	_stop_equipment()
+	_clear_attack_travel()
+	active_attack = null
+	buffered_intent = null
+	charge_attack = null
+	runtime_state.charge_ticks = 0
+	runtime_state.guarding = false
+	runtime_state.evade_ticks = 0
+	dash_ticks = 0
+	pull_ticks_remaining = 0
+	hitstun_ticks = maxi(hitstun_ticks, ticks)
+	if state != State.LAUNCH: state = State.HITSTUN
+	hit_reaction_started.emit()

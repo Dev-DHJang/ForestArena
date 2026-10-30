@@ -162,6 +162,18 @@ def timeline_errors(root: Path, timeline: dict, rows: list, selection: dict | No
             else:
                 lengths = variant.get("phase_ticks", [])
                 expected_phases = dict(zip(("startup", "active", "recovery"), lengths)) if len(lengths) == 3 and all(isinstance(n, int) and n > 0 for n in lengths) else {}
+            if str(variant.get("attack_id", "")).startswith("state:") and wanted[key].get("equipment_resource_path"):
+                lengths = variant.get("phase_ticks", [])
+                valid_lengths = len(lengths) == 4 and all(type(n) in (int,float) and math.isfinite(n) and n > 0 and int(n) == n for n in lengths)
+                expected_phases = dict(zip(("startup","extend","return","recovery"),map(int,lengths))) if valid_lengths else {}
+                spans = wanted[key].get("equipment_phase_frame_ranges", [])
+                if len(spans) != 4:
+                    errors.append(f"equipment requires four drawing phase ranges: {key}")
+                elif valid_lengths:
+                    for phase,(begin,end),ticks in zip(expected_phases,spans,lengths):
+                        visible = {sample.get("frame") for sample in samples if sample.get("phase") == phase}
+                        if end-begin > ticks or not set(range(begin,end)).issubset(visible):
+                            errors.append(f"equipment phase skips authored drawings: {key}/{phase}")
             if selection is not None and not wanted[key].get("reuse_approved_runtime", False) and spec["frame_count"] != 16 and not str(variant.get("attack_id", "")).startswith("state:") and "phase_frame_ranges" not in wanted[key]:
                 errors.append(f"variable-count attack requires explicit phase_frame_ranges: {key}")
             if selection is not None and not wanted[key].get("reuse_approved_runtime", False) and not str(variant.get("attack_id", "")).startswith("state:"):

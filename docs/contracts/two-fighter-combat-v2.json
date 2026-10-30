@@ -3,19 +3,37 @@
   "status": "implemented-contract-with-pending-motion-approval",
   "title": "Forest Arena two fighter combat v2",
   "rules_document": "docs/gameplay/two-fighter-combat-v2.md",
-  "active_character_ids": ["ja-hyun", "nabi"],
-  "owned_catalog_policy": "Keep all four character and six accessory IDs; normalize only executable selections, preserving preset and ownership history.",
+  "active_character_ids": [
+    "ja-hyun",
+    "nabi"
+  ],
+  "owned_catalog_policy": "Keep all four characters and six legacy accessory IDs; add pebble-yoyo. Preserve owned active equipment, presets and ownership history; inactive selections normalize.",
   "runtime_resources": {
     "attack_schema": 4,
     "accepted_legacy_attack_schema": 3,
     "rules_schema": 5,
     "accepted_legacy_rules_schema": 4,
     "rules": "assets/combat/two_fighter_combat_rules.tres",
-    "movesets": ["assets/combat/movesets/two_fighter_ja_hyun_moveset.tres", "assets/combat/movesets/two_fighter_nabi_moveset.tres"]
+    "movesets": [
+      "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+      "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+    ]
   },
-  "product_inputs": ["move", "jump", "attack_light", "attack_heavy", "attack_special"],
-  "excluded_inputs": ["dash", "evade", "ultimate", "charge"],
-  "lan_protocol_version": 4,
+  "product_inputs": [
+    "move",
+    "jump",
+    "attack_light",
+    "attack_heavy",
+    "attack_special",
+    "use_equipment"
+  ],
+  "excluded_inputs": [
+    "dash",
+    "evade",
+    "ultimate",
+    "charge"
+  ],
+  "lan_protocol_version": 5,
   "rules_v5_optional_fields": {
     "hitstun_multiplier": "int > 0; default1, current2; applies after weight and original clamp",
     "landing_down_ticks": "int > 0; default18, current36",
@@ -42,17 +60,52 @@
     "behind_distance": "float",
     "hit_target_only": "bool"
   },
-  "launch_modes": {"VECTOR": 0, "TOWARD_SOURCE": 1, "AWAY_FROM_SOURCE": 2},
-  "snapshot_fields": {
-    "air_light_used": "bool", "air_heavy_used": "bool",
-    "air_lock": "int", "air_lock_ticks": "int", "air_lock_expired": "bool",
-    "landing_knockdown_pending": "bool", "landing_down_ticks": "int", "wakeup_protection_ticks": "int",
-    "pull_ticks_remaining": "int", "pull_speed": "float", "pull_stop_distance": "float", "pull_anchor": "{x:number,y:number}",
-    "attack_travel_active": "bool", "attack_target_id": "string", "attack_travel_end": "{x:number,y:number}",
-    "attack_strike_ready": "bool", "attack_travel_failed": "bool", "attack_movement_started": "bool", "on_floor": "bool",
-    "hitstun_ticks": "int >= 0", "landing_down_duration_ticks": "int > 0",
-    "ring_out_hidden": "bool", "ring_out_pending_ticks": "int >= 0",
-    "debug_geometry": "{hurtbox:{} or {x:number,y:number,w:number,h:number},hitboxes:Array[{x:number,y:number,w:number,h:number}]}; authoritative world rectangles, empty during non-interactive elimination states"
+  "launch_modes": {
+    "VECTOR": 0,
+    "TOWARD_SOURCE": 1,
+    "AWAY_FROM_SOURCE": 2
   },
-  "motion_policy": "Candidate-only until independent action review and explicit approval for each new or changed motion. Existing approved motion reuse does not imply approval of new choreography."
+  "snapshot_fields": {
+    "air_light_used": "bool",
+    "air_heavy_used": "bool",
+    "air_lock": "int",
+    "air_lock_ticks": "int",
+    "air_lock_expired": "bool",
+    "landing_knockdown_pending": "bool",
+    "landing_down_ticks": "int",
+    "wakeup_protection_ticks": "int",
+    "pull_ticks_remaining": "int",
+    "pull_speed": "float",
+    "pull_stop_distance": "float",
+    "pull_anchor": "{x:number,y:number}",
+    "attack_travel_active": "bool",
+    "attack_target_id": "string",
+    "attack_travel_end": "{x:number,y:number}",
+    "attack_strike_ready": "bool",
+    "attack_travel_failed": "bool",
+    "attack_movement_started": "bool",
+    "on_floor": "bool",
+    "hitstun_ticks": "int >= 0",
+    "landing_down_duration_ticks": "int > 0",
+    "ring_out_hidden": "bool",
+    "ring_out_pending_ticks": "int >= 0",
+    "debug_geometry": "{hurtbox:{} or {x:number,y:number,w:number,h:number},hitboxes:Array[{x:number,y:number,w:number,h:number}]}; authoritative world rectangles, empty during non-interactive elimination states",
+    "accessory_id": "string",
+    "equipment_ability_id": "string",
+    "equipment_reach": "float",
+    "equipment_cooldown_ticks": "int >= 0",
+    "equipment_phase": "idle/startup/extend/return/recovery",
+    "equipment_tick": "int >= 0; whole action elapsed",
+    "equipment_phase_tick": "int >= 0; 0-based per phase, including early return",
+    "equipment_facing": "-1 or 1",
+    "equipment_position": "{x:number,y:number}",
+    "equipment_activation_serial": "int >= 0",
+    "equipment_airborne": "bool"
+  },
+  "motion_policy": "Candidate-only until independent action review and explicit approval for each new or changed motion. Existing approved motion reuse does not imply approval of new choreography.",
+  "active_accessory_ids": [
+    "",
+    "pebble-yoyo"
+  ],
+  "active_equipment_contract": "docs/gameplay/pebble-yoyo.md"
 }

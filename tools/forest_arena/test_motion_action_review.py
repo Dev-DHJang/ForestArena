@@ -246,6 +246,14 @@ class MotionLayoutTest(unittest.TestCase):
         row["frame_anchors"][0]["scarf_tips"] = [[10,50],None]
         self.assertEqual(layout(row)["frame_count"],24)
 
+    def test_equipment_phase_ranges_and_hand_anchors(self):
+        from motion_layout import layout
+        row = {"frame_count":16,"atlas_columns":8,"equipment_phase_frame_ranges":[[0,3],[3,8],[8,13],[13,16]],"frame_anchors":[{"equipment_hand":[96,75]} for _ in range(16)]}
+        self.assertEqual(layout(row)["sheet_size"],(1024,256))
+        for bad in ([[0,3],[3,8],[8,16]],[[0,3],[3,8],[7,13],[13,16]],[[0,3],[3,8],[8,13],[13,15]]):
+            with self.subTest(bad=bad), self.assertRaises(ValueError): layout(dict(row,equipment_phase_frame_ranges=bad))
+        with self.assertRaises(ValueError): layout(dict(row,frame_anchors=[{"equipment_hand":[129,75]}]*16))
+
     def test_reject_invalid_counts_atlases_durations_ranges_and_anchors(self):
         from motion_layout import layout
         invalid = [{"frame_count":n} for n in [0,17,25,33,True,24.0]]

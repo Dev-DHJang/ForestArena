@@ -503,5 +503,88 @@
         "haptics_enabled": true
       }
     }
+  },
+  {
+    "name": "owned-active-pebble-yoyo",
+    "valid": true,
+    "profile": {
+      "schema_version": 3,
+      "first_granted": true,
+      "characters": [
+        "nabi"
+      ],
+      "accessories": [
+        "pebble-yoyo"
+      ],
+      "selected_character": "nabi",
+      "selected_accessory": "pebble-yoyo",
+      "opponent_character": "ja-hyun",
+      "nickname": "플레이어",
+      "minimap": {
+        "transparency": 30,
+        "marker_style": "face",
+        "show_names": true
+      },
+      "accessibility": {
+        "text_scale": 1,
+        "reduce_visual_effects": false,
+        "haptics_enabled": true
+      }
+    }
+  },
+  {
+    "name": "unowned-pebble-yoyo",
+    "valid": false,
+    "profile": {
+      "schema_version": 3,
+      "first_granted": true,
+      "characters": [
+        "nabi"
+      ],
+      "accessories": [],
+      "selected_character": "nabi",
+      "selected_accessory": "pebble-yoyo",
+      "opponent_character": "ja-hyun",
+      "nickname": "플레이어",
+      "minimap": {
+        "transparency": 30,
+        "marker_style": "face",
+        "show_names": true
+      },
+      "accessibility": {
+        "text_scale": 1,
+        "reduce_visual_effects": false,
+        "haptics_enabled": true
+      }
+    }
+  },
+  {
+    "name": "duplicate-pebble-yoyo",
+    "valid": false,
+    "profile": {
+      "schema_version": 3,
+      "first_granted": true,
+      "characters": [
+        "nabi"
+      ],
+      "accessories": [
+        "pebble-yoyo",
+        "pebble-yoyo"
+      ],
+      "selected_character": "nabi",
+      "selected_accessory": "pebble-yoyo",
+      "opponent_character": "ja-hyun",
+      "nickname": "플레이어",
+      "minimap": {
+        "transparency": 30,
+        "marker_style": "face",
+        "show_names": true
+      },
+      "accessibility": {
+        "text_scale": 1,
+        "reduce_visual_effects": false,
+        "haptics_enabled": true
+      }
+    }
   }
 ]

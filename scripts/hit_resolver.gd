@@ -30,6 +30,9 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 		result.type = HitResult.Type.IMMUNE
 		return result
 	if not attack.ignore_armor_and_immunity and _has_rule(defender.runtime_profile, CombatRuleData.Kind.SUPER_ARMOR, attack.tags):
+		if defender.state == FighterController.State.EQUIPMENT:
+			defender._stop_equipment()
+			defender.state = FighterController.State.IDLE if defender.is_on_floor() else FighterController.State.FALL
 		result.type = HitResult.Type.ARMOR
 		result.damage = attack.damage
 		defender.current_hp = maxf(0.0, defender.current_hp - attack.damage)
@@ -85,3 +88,23 @@ static func _launch_direction(context: HitContext) -> Vector2:
 			CombatIntent.Direction.DOWN: result = Vector2(0.2, 1.0)
 	result.x *= context.source_facing
 	return result.normalized()
+
+
+static func resolve_equipment(attacker: FighterController, defender: FighterController, ability: AccessoryAbilityData) -> HitResult:
+	var result := HitResult.new()
+	if attacker == null or defender == null or attacker == defender or ability == null: return result
+	if defender.state in [FighterController.State.SPAWNING, FighterController.State.FALLING_OUT, FighterController.State.RING_OUT, FighterController.State.DEAD, FighterController.State.MATCH_ENDED, FighterController.State.KNOCK_DOWN, FighterController.State.WAKE_UP] or defender.landing_down_ticks > 0: return result
+	if defender.invulnerability_ticks > 0 or defender.wakeup_protection_ticks > 0 or _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_TAG, ability.tags):
+		result.type = HitResult.Type.IMMUNE
+		return result
+	if defender.runtime_state.guarding:
+		result.type = HitResult.Type.BLOCK
+		return result
+	if _has_rule(defender.runtime_profile, CombatRuleData.Kind.SUPER_ARMOR, ability.tags) or _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_HITSTUN, ability.tags):
+		result.type = HitResult.Type.IMMUNE
+		return result
+	result.type = HitResult.Type.HIT
+	result.hitstun_ticks = ability.stun_ticks
+	result.reaction = &"LIGHT_STAGGER"
+	defender.apply_equipment_stun(ability.stun_ticks)
+	return result

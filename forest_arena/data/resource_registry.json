@@ -2,7 +2,7 @@
   "schema_version": "2.0.0",
   "game": "Forest Arena",
   "engine": "Godot 4",
-  "logical_asset_count": 519,
+  "logical_asset_count": 521,
   "quality_dependent_count": 25,
   "assets": [
     {
@@ -6511,6 +6511,30 @@
       "format": "png",
       "width": 1920,
       "height": 1080
+    },
+    {
+      "id": "fa.accessory.pebble.yoyo",
+      "relative_path": "accessory/pebble_yoyo.png",
+      "category": "accessory",
+      "purpose": "조약돌 요요 대표 이미지",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/accessory/pebble_yoyo.png",
+      "format": "png",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "fa.accessory.pebble.yoyo.combat",
+      "relative_path": "accessory/pebble_yoyo_combat.png",
+      "category": "accessory",
+      "purpose": "조약돌 요요 전투 본체",
+      "priority": "current",
+      "quality_dependent": false,
+      "path": "res://forest_arena/assets/common/accessory/pebble_yoyo_combat.png",
+      "format": "png",
+      "width": 128,
+      "height": 128
     }
   ]
 }
