@@ -24,8 +24,14 @@
   "checks": [
     {
       "id": "combat_character_references",
-      "command": ["python3", "tools/forest_arena/test_combat_reference.py"],
-      "suites": ["characters", "tooling"],
+      "command": [
+        "python3",
+        "tools/forest_arena/test_combat_reference.py"
+      ],
+      "suites": [
+        "characters",
+        "tooling"
+      ],
       "godot": false
     },
     {
@@ -1312,6 +1318,38 @@
       "suites": [
         "ui",
         "menu",
+        "battle-ui"
+      ],
+      "godot": true
+    },
+    {
+      "id": "pebble_yoyo_combat",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/pebble_yoyo_combat.gd"
+      ],
+      "suites": [
+        "combat",
+        "ai"
+      ],
+      "godot": true
+    },
+    {
+      "id": "pebble_yoyo_ui",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/pebble_yoyo_ui.gd"
+      ],
+      "suites": [
+        "touch",
         "battle-ui"
       ],
       "godot": true

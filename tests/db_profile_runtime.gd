@@ -84,13 +84,13 @@ func run() -> void:
 			if not app.store.owns(item.id):
 				await press_qa("purchase/" + String(item.id))
 				await press_qa("menu/shop/purchase_confirm/" + String(item.id))
-		check(app.store.data.characters.size() == 2 and app.store.data.accessories.is_empty(), "shop UI persists full catalog")
+		check(app.store.data.characters.size() == 2 and app.store.data.accessories == ["pebble-yoyo"], "shop UI persists full catalog")
 		app.handle_back_request()
 		await wait_idle()
 		await press("오프라인 대전")
 		await press("자현")
 		check(app.store.data.selected_character == "ja-hyun", "character UI saves selection")
-		check(await app._change_profile("select", {"character": "ja-hyun", "accessory": "", "opponent": "nabi"}), "accessory and opponent save")
+		check(await app._change_profile("select", {"character": "ja-hyun", "accessory": "pebble-yoyo", "opponent": "nabi"}), "yo-yo and opponent save")
 		await press("로비")
 		await press("접근성 설정")
 		check(await app._change_profile("accessibility", {"text_scale": 1.3, "reduce_visual_effects": true, "haptics_enabled": false}), "settings save")
@@ -115,11 +115,11 @@ func run() -> void:
 		check(not await app._change_profile("select", {"character": "nabi", "accessory": "", "opponent": "ja-hyun"}), "stale revision rejected")
 		check(app.db_client.pending.is_empty() and app.db_client.error == "revision_conflict", "conflict refreshes latest DB and clears rejected request")
 		app.db_client.access_token = "expired-token-for-runtime-test"
-		check(await app._change_profile("select", {"character": "ja-hyun", "accessory": "", "opponent": "nabi"}), "final selection saved")
+		check(await app._change_profile("select", {"character": "ja-hyun", "accessory": "pebble-yoyo", "opponent": "nabi"}), "final equipment selection saved")
 		app._show_home()
 		await press("오프라인 대전")
 		await press("대전 시작")
-		check(app.screen == "match", "DB loadout enters real match")
+		check(app.screen == "match" and app.match_controller.player.runtime_profile.accessory_id == &"pebble-yoyo", "DB equipped loadout enters real match")
 		app._close_match()
 		# Persist rotation intent, let the server commit, and discard the response.
 		app.db_client.pending_auth = {"refresh_token": app.db_client.refresh_token, "next_refresh_token": Marshalls.raw_to_base64(Crypto.new().generate_random_bytes(32)).replace("+", "-").replace("/", "_").trim_suffix("=")}
@@ -142,8 +142,8 @@ func run() -> void:
 		await test_first_grant_conflict()
 	else:
 		check(app.db_mode, "separate process automatically reconnects DB mode")
-		check(app.store.data.selected_character == "ja-hyun" and app.store.data.selected_accessory == "" and app.store.data.opponent_character == "nabi", "restart restores DB selection")
-		check(app.store.data.characters.size() == 2 and app.store.data.accessories.is_empty(), "restart restores DB ownership")
+		check(app.store.data.selected_character == "ja-hyun" and app.store.data.selected_accessory == "pebble-yoyo" and app.store.data.opponent_character == "nabi", "restart restores DB equipment selection")
+		check(app.store.data.characters.size() == 2 and app.store.data.accessories == ["pebble-yoyo"], "restart restores DB ownership")
 		check(is_equal_approx(float(app.store.data.accessibility.text_scale), 1.3) and not app.store.data.accessibility.haptics_enabled, "restart restores settings")
 		check(app.store.data.nickname == "DB숲지기" and app.store.data.minimap == {"transparency": 65, "marker_style": "dot", "show_names": false}, "restart restores nickname and minimap")
 		var source := LocalPlayerStore.new(LocalPlayCatalog.new(), source_path)

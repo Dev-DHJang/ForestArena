@@ -12,6 +12,8 @@ export type Profile = {
   accessibility: { text_scale: number; reduce_visual_effects: boolean; haptics_enabled: boolean };
 };
 export const PLAYABLE_CHARACTERS = ["ja-hyun", "nabi"] as const;
+export const PLAYABLE_ACCESSORIES = ["pebble-yoyo"] as const;
+const playableAccessory = (id: unknown): id is string => typeof id === "string" && (PLAYABLE_ACCESSORIES as readonly string[]).includes(id);
 const playable = (id: unknown): id is string => typeof id === "string" && (PLAYABLE_CHARACTERS as readonly string[]).includes(id);
 export type SavedProfile = { profile: Profile; revision: number };
 export class ProfileError extends Error {
@@ -41,7 +43,7 @@ export function migrateProfile(value: unknown): Profile {
 export function normalizeCombatSelection(profile: Profile): Profile {
   const next = structuredClone(profile);
   if (!playable(next.opponent_character)) next.opponent_character = "ja-hyun";
-  next.selected_accessory = "";
+  if (!playableAccessory(next.selected_accessory) || !next.accessories.includes(next.selected_accessory)) next.selected_accessory = "";
   if (next.first_granted && !playable(next.selected_character)) {
     const owned = next.characters.find(playable);
     if (owned) next.selected_character = owned;
@@ -78,12 +80,12 @@ export function applyAction(profile: Profile, action: unknown, payload: unknown)
       break;
     case "purchase": {
       if (!next.first_granted || typeof payload.id !== "string") throw new ProfileError("invalid_purchase");
-      const kind = playable(payload.id) ? "characters" : undefined;
+      const kind = playable(payload.id) ? "characters" : playableAccessory(payload.id) ? "accessories" : undefined;
       if (!kind || next[kind].includes(payload.id)) throw new ProfileError("invalid_purchase");
       next[kind].push(payload.id); break;
     }
     case "select":
-      if (!playable(payload.character) || !playable(payload.opponent) || payload.accessory !== "") throw new ProfileError("inactive_combat_selection");
+      if (!playable(payload.character) || !playable(payload.opponent) || (payload.accessory !== "" && (!playableAccessory(payload.accessory) || !next.accessories.includes(payload.accessory)))) throw new ProfileError("inactive_combat_selection");
       next.selected_character = payload.character as string; next.selected_accessory = payload.accessory as string; next.opponent_character = payload.opponent as string; break;
     case "identity":
       next.nickname = normalizeNickname(payload.nickname); break;

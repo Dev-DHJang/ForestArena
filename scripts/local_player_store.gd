@@ -131,14 +131,14 @@ func grant_first(id: String) -> bool:
 
 func purchase(id: String) -> bool:
 	var item := catalog.product(id)
-	if not data.first_granted or item.is_empty() or item.kind != "character" or not catalog.is_playable_character(StringName(id)) or owns(id) or item.price != 0: return false
+	if not data.first_granted or item.is_empty() or not catalog.is_playable_product(id) or owns(id) or item.price != 0: return false
 	var next := data.duplicate(true)
 	next["characters" if item.kind == "character" else "accessories"].append(id)
 	return _commit(next)
 
 func select(character: String, accessory: String, opponent: String) -> bool:
-	if not catalog.is_playable_character(StringName(character)) or not catalog.is_playable_character(StringName(opponent)) or not accessory.is_empty():
-		error = "현재 대전은 자현·나비와 장신구 미장착만 사용할 수 있습니다."
+	if not catalog.is_playable_character(StringName(character)) or not catalog.is_playable_character(StringName(opponent)) or (not accessory.is_empty() and (not catalog.is_playable_accessory(StringName(accessory)) or not owns(accessory))):
+		error = "현재 대전은 자현·나비와 보유한 활성 장신구만 사용할 수 있습니다."
 		return false
 	var next := data.duplicate(true)
 	next.selected_character = character
@@ -204,7 +204,7 @@ func _save_failed() -> bool:
 func normalize_combat_selection(candidate: Dictionary) -> Dictionary:
 	var next := candidate.duplicate(true)
 	if not catalog.is_playable_character(StringName(next.get("opponent_character", ""))): next.opponent_character = "ja-hyun"
-	next.selected_accessory = ""
+	if not catalog.is_playable_accessory(StringName(next.get("selected_accessory", ""))) or not next.get("selected_accessory", "") in next.get("accessories", []): next.selected_accessory = ""
 	if not next.get("first_granted", false): return next
 	if catalog.is_playable_character(StringName(next.get("selected_character", ""))) and next.selected_character in next.characters: return next
 	for id: String in next.characters:

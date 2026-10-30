@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "kind": "motion-candidates",
+  "approval_status": "pending",
+  "assets": [
+    {
+      "asset_id": "ja-hyun-equipment-yoyo-ground-candidate-r02",
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "equipment_yoyo_ground",
+      "path": "_workspace/pebble-yoyo/motions/ja-hyun/ground/r02/sheet-128.png",
+      "sha256": "3baa1134448396119255a7e64a77547cffa3b5200c152fd146b00e05405fa38c",
+      "sprite_frames_path": "res://_workspace/pebble-yoyo/motions/ja-hyun/ground/r02/candidate.tres",
+      "fps": 60,
+      "loop": false,
+      "frame_count": 16,
+      "atlas_columns": 8,
+      "cell_size": 128,
+      "frame_durations": [
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "equipment_phase_frame_ranges": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          13,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "equipment_hand": [
+            58,
+            75
+          ]
+        },
+        {
+          "equipment_hand": [
+            49,
+            66
+          ]
+        },
+        {
+          "equipment_hand": [
+            42,
+            54
+          ]
+        },
+        {
+          "equipment_hand": [
+            93,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            99,
+            69
+          ]
+        },
+        {
+          "equipment_hand": [
+            102,
+            70
+          ]
+        },
+        {
+          "equipment_hand": [
+            100,
+            68
+          ]
+        },
+        {
+          "equipment_hand": [
+            97,
+            66
+          ]
+        },
+        {
+          "equipment_hand": [
+            46,
+            65
+          ]
+        },
+        {
+          "equipment_hand": [
+            61,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            64,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            66,
+            75
+          ]
+        },
+        {
+          "equipment_hand": [
+            57,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            58,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            58,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            58,
+            76
+          ]
+        }
+      ],
+      "foot_pivot_y": 120,
+      "presentation_scale": 0.9,
+      "expected_action": "지상 발 디딤을 유지하며 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "equipment_resource_path": "assets/loadouts/pebble_yoyo_accessory.tres",
+      "reference_set": "assets/character/ja-hyun/reference/v01/reference.json",
+      "reference_attachments": [
+        {
+          "path": "assets/character/ja-hyun/reference/v01/combat.png",
+          "sha256": "772c0cb806f9302e1e56ffd03e4deb8ba97c5f50bbd9c31e0536aec6defc5056"
+        },
+        {
+          "path": "assets/character/ja-hyun/reference/v01/side.png",
+          "sha256": "583eeaa647973ca868bf1fa28db301e62cc57e4cf9e1202dca3bef5c5a107f01"
+        }
+      ]
+    },
+    {
+      "asset_id": "ja-hyun-equipment-yoyo-air-candidate-r02",
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "equipment_yoyo_air",
+      "path": "_workspace/pebble-yoyo/motions/ja-hyun/air/r02/sheet-128.png",
+      "sha256": "0bd97e14cc0405341416809b96e1770e01a27280b72d068e4cdbc69e1819b2ea",
+      "sprite_frames_path": "res://_workspace/pebble-yoyo/motions/ja-hyun/air/r02/candidate.tres",
+      "fps": 60,
+      "loop": false,
+      "frame_count": 16,
+      "atlas_columns": 8,
+      "cell_size": 128,
+      "frame_durations": [
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "equipment_phase_frame_ranges": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          13,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "equipment_hand": [
+            57,
+            79
+          ]
+        },
+        {
+          "equipment_hand": [
+            50,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            53,
+            58
+          ]
+        },
+        {
+          "equipment_hand": [
+            97,
+            84
+          ]
+        },
+        {
+          "equipment_hand": [
+            102,
+            75
+          ]
+        },
+        {
+          "equipment_hand": [
+            102,
+            75
+          ]
+        },
+        {
+          "equipment_hand": [
+            102,
+            74
+          ]
+        },
+        {
+          "equipment_hand": [
+            102,
+            72
+          ]
+        },
+        {
+          "equipment_hand": [
+            97,
+            74
+          ]
+        },
+        {
+          "equipment_hand": [
+            61,
+            74
+          ]
+        },
+        {
+          "equipment_hand": [
+            98,
+            74
+          ]
+        },
+        {
+          "equipment_hand": [
+            67,
+            79
+          ]
+        },
+        {
+          "equipment_hand": [
+            64,
+            80
+          ]
+        },
+        {
+          "equipment_hand": [
+            65,
+            80
+          ]
+        },
+        {
+          "equipment_hand": [
+            64,
+            80
+          ]
+        },
+        {
+          "equipment_hand": [
+            64,
+            80
+          ]
+        }
+      ],
+      "foot_pivot_y": 120,
+      "presentation_scale": 0.9,
+      "expected_action": "공중에 무릎을 접은 채 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "equipment_resource_path": "assets/loadouts/pebble_yoyo_accessory.tres",
+      "reference_set": "assets/character/ja-hyun/reference/v01/reference.json",
+      "reference_attachments": [
+        {
+          "path": "assets/character/ja-hyun/reference/v01/combat.png",
+          "sha256": "772c0cb806f9302e1e56ffd03e4deb8ba97c5f50bbd9c31e0536aec6defc5056"
+        },
+        {
+          "path": "assets/character/ja-hyun/reference/v01/side.png",
+          "sha256": "583eeaa647973ca868bf1fa28db301e62cc57e4cf9e1202dca3bef5c5a107f01"
+        }
+      ]
+    },
+    {
+      "asset_id": "nabi-equipment-yoyo-ground-candidate-r02",
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "equipment_yoyo_ground",
+      "path": "_workspace/pebble-yoyo/motions/nabi/ground/r02/sheet-128.png",
+      "sha256": "224c8760e39ab94d359a1bee0ceedd5095a1388dd5c641d602b4e932410f8e22",
+      "sprite_frames_path": "res://_workspace/pebble-yoyo/motions/nabi/ground/r02/candidate.tres",
+      "fps": 60,
+      "loop": false,
+      "frame_count": 16,
+      "atlas_columns": 8,
+      "cell_size": 128,
+      "frame_durations": [
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "equipment_phase_frame_ranges": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          13,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "equipment_hand": [
+            48,
+            81
+          ]
+        },
+        {
+          "equipment_hand": [
+            75,
+            78
+          ]
+        },
+        {
+          "equipment_hand": [
+            49,
+            85
+          ]
+        },
+        {
+          "equipment_hand": [
+            99,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            101,
+            68
+          ]
+        },
+        {
+          "equipment_hand": [
+            100,
+            68
+          ]
+        },
+        {
+          "equipment_hand": [
+            99,
+            67
+          ]
+        },
+        {
+          "equipment_hand": [
+            100,
+            72
+          ]
+        },
+        {
+          "equipment_hand": [
+            86,
+            76
+          ]
+        },
+        {
+          "equipment_hand": [
+            68,
+            75
+          ]
+        },
+        {
+          "equipment_hand": [
+            79,
+            75
+          ]
+        },
+        {
+          "equipment_hand": [
+            70,
+            77
+          ]
+        },
+        {
+          "equipment_hand": [
+            55,
+            82
+          ]
+        },
+        {
+          "equipment_hand": [
+            61,
+            82
+          ]
+        },
+        {
+          "equipment_hand": [
+            54,
+            84
+          ]
+        },
+        {
+          "equipment_hand": [
+            54,
+            84
+          ]
+        }
+      ],
+      "foot_pivot_y": 120,
+      "presentation_scale": 0.8,
+      "expected_action": "지상 발 디딤을 유지하며 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "equipment_resource_path": "assets/loadouts/pebble_yoyo_accessory.tres",
+      "reference_set": "assets/character/nabi/reference/v01/reference.json",
+      "reference_attachments": [
+        {
+          "path": "assets/character/nabi/reference/v01/combat.png",
+          "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+        },
+        {
+          "path": "assets/character/nabi/reference/v01/side.png",
+          "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+        }
+      ]
+    },
+    {
+      "asset_id": "nabi-equipment-yoyo-air-candidate-r02",
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "equipment_yoyo_air",
+      "path": "_workspace/pebble-yoyo/motions/nabi/air/r02/sheet-128.png",
+      "sha256": "3c8cc2f52bb1dbadb4e06b118bac3212737bb48c09bbb4d107e169a527189f32",
+      "sprite_frames_path": "res://_workspace/pebble-yoyo/motions/nabi/air/r02/candidate.tres",
+      "fps": 60,
+      "loop": false,
+      "frame_count": 16,
+      "atlas_columns": 8,
+      "cell_size": 128,
+      "frame_durations": [
+        2,
+        2,
+        2,
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        3,
+        3,
+        2,
+        2,
+        2
+      ],
+      "equipment_phase_frame_ranges": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          13
+        ],
+        [
+          13,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "equipment_hand": [
+            66,
+            89
+          ]
+        },
+        {
+          "equipment_hand": [
+            49,
+            60
+          ]
+        },
+        {
+          "equipment_hand": [
+            45,
+            57
+          ]
+        },
+        {
+          "equipment_hand": [
+            56,
+            78
+          ]
+        },
+        {
+          "equipment_hand": [
+            106,
+            79
+          ]
+        },
+        {
+          "equipment_hand": [
+            106,
+            79
+          ]
+        },
+        {
+          "equipment_hand": [
+            105,
+            78
+          ]
+        },
+        {
+          "equipment_hand": [
+            104,
+            80
+          ]
+        },
+        {
+          "equipment_hand": [
+            96,
+            83
+          ]
+        },
+        {
+          "equipment_hand": [
+            92,
+            83
+          ]
+        },
+        {
+          "equipment_hand": [
+            72,
+            81
+          ]
+        },
+        {
+          "equipment_hand": [
+            74,
+            80
+          ]
+        },
+        {
+          "equipment_hand": [
+            69,
+            83
+          ]
+        },
+        {
+          "equipment_hand": [
+            67,
+            83
+          ]
+        },
+        {
+          "equipment_hand": [
+            68,
+            87
+          ]
+        },
+        {
+          "equipment_hand": [
+            69,
+            85
+          ]
+        }
+      ],
+      "foot_pivot_y": 120,
+      "presentation_scale": 0.8,
+      "expected_action": "공중에 무릎을 접은 채 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "equipment_resource_path": "assets/loadouts/pebble_yoyo_accessory.tres",
+      "reference_set": "assets/character/nabi/reference/v01/reference.json",
+      "reference_attachments": [
+        {
+          "path": "assets/character/nabi/reference/v01/combat.png",
+          "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+        },
+        {
+          "path": "assets/character/nabi/reference/v01/side.png",
+          "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+        }
+      ]
+    }
+  ],
+  "attack_sources": [
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres",
+    "assets/loadouts/pebble_yoyo_accessory.tres"
+  ],
+  "character_movesets": {
+    "ja-hyun": "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "nabi": "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  }
+}

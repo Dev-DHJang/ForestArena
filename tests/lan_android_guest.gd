@@ -1,6 +1,6 @@
 extends Node
 
-const PROTOCOL_VERSION := 4
+const PROTOCOL_VERSION := 5
 const TIMEOUT_MSEC := 60_000
 
 var peer := WebSocketMultiplayerPeer.new()

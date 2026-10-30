@@ -35,7 +35,7 @@ def local_path(root: Path, value: str, *, candidate: bool = False) -> Path:
 # layout-only candidate may change only presentation_scale, never these values.
 LAYOUT_ONLY_FIXED_FIELDS = (
     "frame_count", "atlas_columns", "cell_size", "frame_durations", "fps", "loop",
-    "phase_frame_ranges", "jump_frame_ranges", "descent_frame_range", "landing_frame_range",
+    "phase_frame_ranges", "equipment_phase_frame_ranges", "jump_frame_ranges", "descent_frame_range", "landing_frame_range",
     "landing_down_frame_range", "run_stride_px", "frame_anchors", "foot_pivot_y",
     "state_hold_frame", "state_duration_ticks", "launch_release_frame_range", "launch_release_ticks",
 )
@@ -130,6 +130,8 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
         if not isinstance(row.get("expected_action"), str) or not row["expected_action"].strip():
             raise ValueError("candidate requires an explicit expected action")
         local_path(root, row.get("action_source", ""))
+        if "equipment_resource_path" in row and local_path(root, row["equipment_resource_path"]).suffix != ".tres":
+            raise ValueError("equipment resource must be a project tres")
         copied_source = layout_only_source(root, row, manifest)
         if copied_source is not None:
             layout_sources.update(str(copied_source[field]).removeprefix("res://") for field in ("path", "sprite_frames_path"))
@@ -180,11 +182,12 @@ def load_selection(root: Path, catalog: Path, scope: Path, scope_sha256: str | N
     if any(path not in attack_sources for path in character_movesets.values()):
         raise ValueError("character_movesets must refer to explicitly pinned AttackData sources")
     mandatory = ["assets/character/manifest.json", "scripts/local_fighter_presentation.gd", "scripts/fighter_controller.gd", "docs/contracts/attack-system-v01.json", "docs/gameplay/combat.md", "tools/forest_arena/motion_review_timeline.gd", "tools/forest_arena/motion_review_candidate_frames.gd", "tools/forest_arena/motion_review_candidates.py", "tools/forest_arena/review_motion_actions.py", "tools/forest_arena/motion_layout.py"]
-    for source in ("scripts/data/attack_data.gd", "scripts/data/combat_rules.gd", "scripts/fighter_attack_effects.gd"):
+    for source in ("scripts/data/accessory_ability_data.gd", "scripts/equipment_visual.gd", "scripts/hit_resolver.gd", "scripts/match_controller.gd", "scripts/data/attack_data.gd", "scripts/data/combat_rules.gd", "scripts/fighter_attack_effects.gd"):
         if (root / source).is_file(): mandatory.append(source)
     required = set(mandatory + attack_sources) | layout_sources
     for row in rows:
         required.update(str(row[field]).removeprefix("res://") for field in ("path", "sprite_frames_path", "action_source"))
+        if "equipment_resource_path" in row: required.add(row["equipment_resource_path"])
     required.update(str(path.resolve().relative_to(root)) for path in (catalog, scope))
     for source in required: local_path(root, source)
     return {"rows": rows, "character_movesets": character_movesets, "required_sources": sorted(required), "candidate_selection": {"catalog_path": str(catalog.resolve().relative_to(root)), "catalog_sha256": digest(catalog), "scope_path": str(scope.resolve().relative_to(root)), "scope_sha256": digest(scope), "approval_status": "pending"}}

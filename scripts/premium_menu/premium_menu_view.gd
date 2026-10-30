@@ -354,6 +354,8 @@ func _action_name(value: String) -> String:
 	return String(ACTION_NAMES.get(value, value.replace("_", " ")))
 
 func _accessory_icon(id: String) -> String:
+	var item: Dictionary = app.catalog.product(id)
+	if app.catalog.is_playable_accessory(StringName(id)): return String(item.get("asset_id", "fa.icon.icon.accessory"))
 	id = id.trim_prefix("fixture-").replace("-", "_")
 	var names := {"iron_armor": "armor", "boxing_gloves": "glove", "thorns": "balance", "explosive_gloves": "jump", "ultimate_charm": "focus", "phoenix_revive": "wing"}
 	return "fa.ui.menu.v07.icon." + String(names.get(id, "gear"))
@@ -365,7 +367,33 @@ func _accessory_category(id: String) -> String:
 	return "기술"
 
 func _accessories() -> void:
-	_label("장신구는 이번 전투에서 사용하지 않습니다.\n기존 보유 기록은 유지됩니다.", main, 26, STYLE.MUTED, Rect2(100, 120, 900, 120))
+	var id: String = String(state.get("selected_id", app.store.data.selected_accessory))
+	if not app.catalog.is_playable_accessory(StringName(id)): id = String(app.catalog.PLAYABLE_ACCESSORY_IDS[0])
+	state.selected_id = id
+	var rows := _scroll(main, Rect2(0, 0, 286, 456))
+	for item: Dictionary in app.catalog.playable_products():
+		if item.kind != "accessory": continue
+		var row := _button("%s\n%s" % [item.name, _owned_label(item.id)], "update", {"selected_id": item.id}, rows, item.id == id)
+		row.icon = ForestArenaResources.load_texture(_accessory_icon(item.id))
+		row.expand_icon = true
+		row.add_theme_constant_override("icon_max_width", 62)
+		row.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		row.custom_minimum_size.y = 86
+		row.set_meta("qa_id", "menu/accessory_collection/accessory/" + String(item.id))
+	_texture(_accessory_icon(id), main, Rect2(310, 30, 390, 390))
+	var item: Dictionary = app.catalog.product(id)
+	var right := _panel_column(main, Rect2(746, 0, 406, 456))
+	_label(item.name, right, 32)
+	_label(_owned_label(id), right, 20, STYLE.MINT)
+	_label("전방 발사 · 회수", right, 23, STYLE.GOLD)
+	_label("팔에서 앞으로 나갔다 돌아옵니다.\n발사 중 요요에 맞으면 0.5초 경직.\n피해 없이 가드로 막을 수 있습니다.", right, 20)
+	_label("쿨타임 10초 · 지상·공중 사용\n사용 중 이동과 다른 행동 제한", right, 19, STYLE.MUTED)
+	_label("기존 장신구의 보유 기록은 보존됩니다.", right, 17, STYLE.MUTED)
+	if app.store.owns(id):
+		_footer_button("장신구 해제", "unequip", {})
+		_footer_button("초안에 넣기" if state.get("preset_edit", false) else "이 장신구 장착", "select", {"id": id}, true)
+	else:
+		_footer_button("상점에서 0원 획득", "open", {"id": "shop", "params": {"category": "accessory"}}, true)
 
 func _card(item: Dictionary, parent: Node, selected := false, behavior := "shop") -> void:
 	var panel := PanelContainer.new()
@@ -424,8 +452,7 @@ func _presets() -> void:
 	char_button.set_meta("qa_id", "menu/preset/edit/character")
 	_label("기본 전투 스타일 · 추가 직업 준비 중", right, 18, STYLE.MUTED)
 	_label("장신구 · " + _product_name(String(preset.get("accessory", "")), "장착 없음"), right, 23)
-	var acc_button := _button("장신구 미사용", "preset_edit", {"id": "accessory_collection"}, right)
-	acc_button.disabled = true
+	var acc_button := _button("장신구 바꾸기", "preset_edit", {"id": "accessory_collection"}, right)
 	acc_button.set_meta("qa_id", "menu/preset/edit/accessory")
 	var remove := _button("장신구 해제", "preset_clear_accessory", {}, right)
 	remove.set_meta("qa_id", "menu/preset/clear/accessory")
@@ -434,7 +461,7 @@ func _presets() -> void:
 
 func _shop() -> void:
 	var left := _scroll(main, Rect2(0, 0, 202, 456), "category_scroll")
-	for entry: Array in [["추천", "전체"], ["캐릭터", "character"]]:
+	for entry: Array in [["추천", "전체"], ["캐릭터", "character"], ["장신구", "accessory"]]:
 		var button := _button(entry[0], "update", {"category": entry[1], "scroll": 0}, left, state.category == entry[1])
 		button.set_meta("qa_id", "menu/shop/category/" + String(entry[1]))
 	_label("먼저 연습하고\n내게 맞는 동료를\n선택하세요.", left, 20, STYLE.MUTED)

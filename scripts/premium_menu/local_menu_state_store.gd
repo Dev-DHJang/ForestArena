@@ -42,7 +42,7 @@ func save_slot(index: int, character: String, accessory: String) -> bool:
 	error = ""
 	if _owner.is_empty() or index < 0 or index >= 4: return _invalid("프리셋 슬롯을 다시 선택하세요.")
 	var slot := {"character": character, "accessory": accessory}
-	if not _valid_slot(slot) or not catalog.is_playable_character(StringName(character)) or not accessory.is_empty(): return _invalid("현재 전투는 자현·나비와 장신구 미장착만 저장할 수 있습니다.")
+	if not _valid_slot(slot) or not catalog.is_playable_character(StringName(character)) or (not accessory.is_empty() and not catalog.is_playable_accessory(StringName(accessory))): return _invalid("현재 전투의 캐릭터와 활성 장신구만 저장할 수 있습니다.")
 	var next := _owners.duplicate(true)
 	next[_owner].slots[index] = slot
 	return _commit_presets(next)

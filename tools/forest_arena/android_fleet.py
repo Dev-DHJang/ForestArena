@@ -31,14 +31,16 @@ ACCESSORIES = ('', 'fixture-boxing-gloves', 'fixture-thorns', 'fixture-iron-armo
                'fixture-phoenix-revive', 'fixture-ultimate-charm', 'fixture-explosive-gloves')
 ACTIVE_CHARACTERS = ('ja-hyun', 'nabi')
 PRODUCT_ACTIONS = ('jump', 'attack_light', 'attack_heavy', 'attack_special')
+EQUIPMENT_ACTIONS = PRODUCT_ACTIONS + ('use_equipment',)
+ACTIVE_ACCESSORIES = ('', 'pebble-yoyo')
 
 
-def product_policy(protocol=4):
-    if protocol not in (1, 2, 3, 4):
+def product_policy(protocol=5):
+    if protocol not in (1, 2, 3, 4, 5):
         raise ValueError('지원하지 않는 LAN 프로토콜입니다.')
-    return {'id': 'two-fighter-no-accessories-v2' if protocol >= 3 else 'legacy-four-fighter-accessories',
+    return {'id': 'two-fighter-equipment-v3' if protocol >= 5 else 'two-fighter-no-accessories-v2' if protocol >= 3 else 'legacy-four-fighter-accessories',
             'characters': ACTIVE_CHARACTERS if protocol >= 3 else CHARACTERS,
-            'accessories': ('',) if protocol >= 3 else ACCESSORIES}
+            'accessories': ACTIVE_ACCESSORIES if protocol >= 5 else ('',) if protocol >= 3 else ACCESSORIES}
 
 
 CASES = ('DEV-01', 'UI-01', 'OFF-01', 'INPUT-01', 'LIFE-01', 'OFF-02', 'MODE-01',
@@ -80,7 +82,7 @@ def selected_serials(values):
     return serials
 
 
-def combination_jobs(device_count, protocol=4):
+def combination_jobs(device_count, protocol=5):
     if not 1 <= device_count <= 4:
         raise ValueError('device_count must be 1..4')
     jobs = [[] for _ in range(device_count)]
@@ -363,7 +365,7 @@ class ADB:
 
 
 class DeviceRun:
-    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None, current_policy=False, touch_helper=None, protocol=4):
+    def __init__(self, adb, alias, run_id, output, activity, screen_timeout=30, match_timeout=300, stall_timeout=30, clock=time.monotonic, sleep=time.sleep, install_timeout=600, apk_sha256=None, current_policy=False, touch_helper=None, protocol=5):
         self.adb, self.alias, self.run_id, self.output, self.activity = adb, alias, run_id, output, activity
         self.output.mkdir(parents=True, exist_ok=True)
         self.screen_timeout, self.match_timeout, self.stall_timeout = screen_timeout, match_timeout, stall_timeout
@@ -723,7 +725,8 @@ class DeviceRun:
         # The first character is already owned. Buy every remaining catalog ID
         # through its card and confirmation modal, with fresh state after each tap.
         purchase_groups = [('character', 'characters', self.policy['characters'])]
-        if self.protocol < 3: purchase_groups.append(('accessory', 'accessories', ACCESSORIES[1:]))
+        if self.protocol >= 5: purchase_groups.append(('accessory', 'accessories', ACTIVE_ACCESSORIES[1:]))
+        elif self.protocol < 3: purchase_groups.append(('accessory', 'accessories', ACCESSORIES[1:]))
         for category, field, products in purchase_groups:
             self.tap(id=f'menu/shop/category/{category}')
             for product_id in products:
@@ -738,7 +741,8 @@ class DeviceRun:
         profile = self.read()['profile']
         if self.protocol >= 3:
             require(set(ACTIVE_CHARACTERS).issubset(profile.get('characters', [])), '활성 두 캐릭터 구매/보유를 확인하지 못했습니다.')
-            require(profile.get('selected_character') in ACTIVE_CHARACTERS and profile.get('selected_accessory', '') == '', '현재 선택은 활성 캐릭터·장신구 미장착이어야 합니다.')
+            require(profile.get('selected_character') in ACTIVE_CHARACTERS and profile.get('selected_accessory', '') in self.policy['accessories'], '현재 선택은 활성 캐릭터·허용 장비여야 합니다.')
+            if self.protocol >= 5: require('pebble-yoyo' in profile.get('accessories', []), '조약돌 요요 무료 획득을 확인하지 못했습니다.')
         else:
             require(set(profile['characters']) == set(CHARACTERS) and set(profile['accessories']) == set(ACCESSORIES[1:])
                     and len(profile['characters']) == 4 and len(profile['accessories']) == 6,
@@ -787,11 +791,22 @@ class DeviceRun:
         validated = []
         self.case_observations = {'actual_match_selections': validated}
         for character in self.policy['characters']:
-            if self.protocol >= 3: self.assert_product_ui(self.read(), buttons=False)
+            if self.protocol >= 5:
+                self.tap(CHARACTER_LABELS[character])
+                self.wait(lambda s: s.get('profile', {}).get('selected_character') == character)
+                for accessory in self.policy['accessories']:
+                    self.select_option('장신구', accessory)
+                    self.wait(lambda s: s.get('profile', {}).get('selected_accessory') == accessory)
+                    self.start_match()
+                    observed = self.assert_config(character, accessory)
+                    validated.append({'character': character, 'accessory': accessory, **observed})
+                    self.prepare()
+                continue
+            if self.protocol >= 3: self.assert_product_ui(self.read(), buttons=False, protocol=self.protocol)
             self.tap(CHARACTER_LABELS[character])
             self.wait(lambda s: s.get('profile', {}).get('selected_character') == character)
             accessory = self.state['profile'].get('selected_accessory', '')
-            if self.protocol >= 3: require(accessory == '', '새 제품 경기에서 장신구가 선택돼 있습니다.')
+            if self.protocol >= 3: require(accessory in self.policy['accessories'], '새 제품 경기에서 허용하지 않는 장비가 선택돼 있습니다.')
             self.start_match()
             observed = self.assert_config(character, accessory)
             validated.append({'character': character, 'accessory': accessory, **observed})
@@ -804,7 +819,7 @@ class DeviceRun:
             observed = self.assert_config(character, accessory)
             validated.append({'character': character, 'accessory': accessory, **observed})
             self.prepare()
-        return {'actual_match_selections': validated, 'combat_policy': self.policy['id'], 'accessory_policy': 'not equipped' if self.protocol >= 3 else 'legacy combinations'}
+        return {'actual_match_selections': validated, 'combat_policy': self.policy['id'], 'accessory_policy': 'owned active equipment' if self.protocol >= 5 else 'not equipped' if self.protocol >= 3 else 'legacy combinations'}
 
     def assert_config(self, character, accessory):
         fighter = self.player(self.read())
@@ -812,32 +827,32 @@ class DeviceRun:
                 '선택과 실제 경기 데이터가 다릅니다.')
         observed = {'presentation': fighter.get('presentation', {})}
         if self.protocol >= 3:
-            self.validate_active_fighters(self.state)
-            observed['runtime_configuration'] = self.validate_product_profile(fighter)
+            self.validate_active_fighters(self.state, protocol=self.protocol)
+            observed['runtime_configuration'] = self.validate_product_profile(fighter, protocol=self.protocol)
             observed['combat_policy'] = self.policy['id']
         elif self.current_policy:
             observed['runtime_configuration'] = self.validate_current_profile(fighter, accessory)
         return observed
 
     @staticmethod
-    def validate_active_fighters(state):
+    def validate_active_fighters(state, protocol=3):
         fighters = state.get('snapshot', {}).get('fighters', [])
-        require(len(fighters) >= 2 and all(fighter.get('character_id') in ACTIVE_CHARACTERS and fighter.get('accessory_id', '') == '' for fighter in fighters), '실제 참가자 모두 활성 두 캐릭터·미장착이어야 합니다.')
-        return {'participant_count': len(fighters), 'combat_policy': 'two-fighter-no-accessories-v2'}
+        require(len(fighters) >= 2 and all(fighter.get('character_id') in ACTIVE_CHARACTERS and fighter.get('accessory_id', '') in product_policy(protocol)['accessories'] for fighter in fighters), '실제 참가자 모두 활성 두 캐릭터·허용 장비여야 합니다.')
+        return {'participant_count': len(fighters), 'combat_policy': product_policy(protocol)['id']}
 
     @staticmethod
-    def assert_product_ui(state, buttons=True):
+    def assert_product_ui(state, buttons=True, protocol=3):
         nodes = [node for node in state.get('ui', []) if node.get('visible', True)]
         require(not any(node.get('text') in {CHARACTER_LABELS[c] for c in CHARACTERS if c not in ACTIVE_CHARACTERS} for node in nodes), '비활성 캐릭터 선택 카드가 현재 경기 준비에 노출됐습니다.')
-        require(not any(node.get('id', '').endswith('/choice/장신구') for node in nodes), '현재 경기에서 장신구 선택 목록이 노출됐습니다.')
+        if protocol < 5: require(not any(node.get('id', '').endswith('/choice/장신구') for node in nodes), '현재 경기에서 장신구 선택 목록이 노출됐습니다.')
         if buttons:
             actions = {str(node.get('id', '')).removeprefix('touch/') for node in nodes if node.get('kind') == 'touch' and str(node.get('id', '')).startswith('touch/') and not str(node.get('id', '')).startswith('touch/move_')}
-            require(actions == set(PRODUCT_ACTIONS), '현재 터치 버튼은 점프·약·강·특수 네 개여야 합니다.')
-        return {'combat_policy': 'two-fighter-no-accessories-v2', 'action_buttons': list(PRODUCT_ACTIONS) if buttons else []}
+            require(actions == set(EQUIPMENT_ACTIONS if protocol >= 5 else PRODUCT_ACTIONS), '현재 프로토콜의 터치 행동 버튼 구성이 다릅니다.')
+        return {'combat_policy': product_policy(protocol)['id'], 'action_buttons': list(EQUIPMENT_ACTIONS if protocol >= 5 else PRODUCT_ACTIONS) if buttons else []}
 
     @staticmethod
-    def validate_product_profile(fighter):
-        require(fighter.get('character_id') in ACTIVE_CHARACTERS and fighter.get('accessory_id', '') == '', '실제 경기 편성은 활성 두 캐릭터·미장착이어야 합니다.')
+    def validate_product_profile(fighter, protocol=3):
+        require(fighter.get('character_id') in ACTIVE_CHARACTERS and fighter.get('accessory_id', '') in product_policy(protocol)['accessories'], '실제 경기 편성은 활성 두 캐릭터·허용 장비여야 합니다.')
         profile = fighter.get('runtime_profile', {})
         base, stats = profile.get('base_stats', {}), profile.get('stats', {})
         require(base and stats and set(base) == set(stats), '미장착 경기의 기준/실제 능력치 진단이 없습니다.')
@@ -845,7 +860,7 @@ class DeviceRun:
         attacks = profile.get('attack_ids', [])
         require(attacks and not any(any(word in attack for word in ('ultimate', 'dash', 'charge')) for attack in attacks), '제거된 필살기·기본 대시·차지 공격이 실제 편성에 남았습니다.')
         require(not profile.get('replacement_move_set') and not any(effect.get('cause_id') in ACCESSORIES[1:] for effect in profile.get('combat_effects', [])), '미장착 편성에 장신구 동작 교체나 효과가 남았습니다.')
-        return {'evidence_kind': 'live_runtime_configuration', 'combat_policy': 'two-fighter-no-accessories-v2', 'attack_ids': attacks, 'accessory_id': '', 'stats': stats,
+        return {'evidence_kind': 'live_runtime_configuration', 'combat_policy': product_policy(protocol)['id'], 'attack_ids': attacks, 'accessory_id': fighter.get('accessory_id', ''), 'stats': stats,
                 'legacy_accessory_effect_checks': 'outside current product policy; not executed'}
 
     @staticmethod
@@ -914,14 +929,16 @@ class DeviceRun:
 
     def inputs(self):
         self.prepare()
-        self.command('select_config', character='ja-hyun', accessory='', mode=4)
+        self.command('select_config', character='ja-hyun', accessory='pebble-yoyo' if self.protocol >= 5 else '', mode=4)
         self.start_match()
         self.command('autoplay', enabled=False)
         self.wait(lambda state: self.player(state).get('state') not in ('SPAWNING', 'DEAD', 'RING_OUT', None), label='플레이어 입력 준비')
         checked = []
-        if self.protocol >= 3: self.assert_product_ui(self.read())
+        if self.protocol >= 3: self.assert_product_ui(self.read(), protocol=self.protocol)
         self.case_observations = {'actions': checked, 'combat_policy': self.policy['id'], 'evade_positive': '미실행: 실제 방향+회피 동시 터치 수동 검사 필요'}
-        for action in ('move_right', 'move_left', 'jump', 'attack_light', 'attack_heavy', 'attack_special'):
+        actions = ('move_right', 'move_left') + (EQUIPMENT_ACTIONS if self.protocol >= 5 else PRODUCT_ACTIONS)
+        for action in actions:
+            if action == 'use_equipment': self.wait(lambda state: self.player(state).get('state') in ('IDLE', 'RUN', 'JUMP', 'FALL'), label='장비 사용 가능 상태')
             before = self.read()
             previous_seq = max((e.get('seq', 0) for e in before.get('touch_events', [])), default=0)
             combat_seq = max((e.get('seq', 0) for e in before.get('combat_events', [])), default=0)
@@ -937,6 +954,8 @@ class DeviceRun:
                     return delta_x > 1 if action == 'move_right' else delta_x < -1
                 if action == 'jump':
                     return any(e.get('state') == 'JUMP' for e in observations)
+                if action == 'use_equipment':
+                    return 0 < int(self.player(s).get('equipment_cooldown_ticks', 0)) <= 600
                 return any(self.attack_family_matches(action, e.get('attack_id')) for e in observations)
             self.wait(changed, label=f'{action} 실제 전투 상태 변화')
             checked.append(action)
@@ -1293,21 +1312,26 @@ CASE_EXPECTATIONS = {
  'MANUAL-01': '실제 Wi-Fi 수동 끄기/켜기·동시 터치·소리·진동 확인',
 }
 
-def case_expectation(case_id, protocol=4):
+def case_expectation(case_id, protocol=5):
     product = {'UI-01': '활성 두 캐릭터 실제 첫 선택·0원 구매·저장 복원; 기존 보유 보존',
                'OFF-01': '자현·나비와 장신구 미장착의 실제 경기 반영',
                'INPUT-01': '방향패드·점프·약·강·특수 네 버튼 실제 누름/해제·전투 변화; 제거 행동 미노출',
                'SOAK-01': '현재 활성 두 캐릭터·미장착 조합 실제 결과·재대전·무진행/시간 제한 확인'}
+    if protocol >= 5:
+        product.update({'UI-01': '활성 두 캐릭터와 조약돌 요요 0원 획득·보유·선택 저장 복원',
+                        'OFF-01': '자현·나비 × 미장착·조약돌 요요 네 조합의 실제 경기 반영',
+                        'INPUT-01': '방향패드·점프·약·강·특수·장비의 실제 누름/해제와 권위 사용 쿨타임 확인',
+                        'SOAK-01': '활성 두 캐릭터·요요/미장착 조합 실제 결과·재대전·무진행/시간 제한 확인'})
     return product.get(case_id, CASE_EXPECTATIONS.get(case_id, '실행 전제 및 증거 확인')) if protocol >= 3 else CASE_EXPECTATIONS.get(case_id, '실행 전제 및 증거 확인')
 
 
 class LanServer:
     """Independent game process and in-memory guest fixture per device pair."""
-    def __init__(self, bind, cidr, port, api_port, output, godot, run_id, project_root=ROOT, protocol=4):
+    def __init__(self, bind, cidr, port, api_port, output, godot, run_id, project_root=ROOT, protocol=5):
         self.bind, self.cidr, self.port, self.api_port = bind, cidr, port, api_port
         self.output, self.godot, self.run_id = output, godot, run_id
         self.output.mkdir(parents=True, exist_ok=True)
-        require(protocol in (1, 2, 3, 4), '지원하지 않는 LAN 프로토콜입니다.')
+        require(protocol in (1, 2, 3, 4, 5), '지원하지 않는 LAN 프로토콜입니다.')
         self.project_root, self.protocol = Path(project_root), protocol
         self.fixture = self.process = self.stream = None
         self.code = f'FAH{protocol}|http://{bind}:{api_port}|ws://{bind}:{port}|{protocol}' if protocol >= 2 else f'FAH1|ws://{bind}:{port}|1'
@@ -1407,7 +1431,7 @@ def _menu(device):
     device.screen('lan_menu')
 
 
-def _lan_login(device, intent, code, protocol=4):
+def _lan_login(device, intent, code, protocol=5):
     _menu(device)
     device.tap('방 만들기' if intent == 'host' else '초대 코드로 참가')
     device.screen('lan_host' if intent == 'host' else 'lan_join')
@@ -1971,8 +1995,8 @@ def parser():
     parse.add_argument('--project-root', type=Path, default=ROOT, help='APK를 만든 소스와 LAN 서버의 프로젝트 경로')
     parse.add_argument('--source-manifest', type=Path, help='원본 코드·자산 복제 내역 JSON; 실행 증거에 보존')
     parse.add_argument('--touch-helper', type=Path, help='SDK로 컴파일한 실제 복수 터치 jar; 없으면 입력 검사에서 준비')
-    parse.add_argument('--current-policy', action='store_true', help='protocol1/2의 이전 장신구 계약 검사; protocol3/4에서는 미장착 새 정책만 검사')
-    parse.add_argument('--lan-protocol', type=int, choices=(1, 2, 3, 4), default=4, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
+    parse.add_argument('--current-policy', action='store_true', help='protocol1/2의 이전 장신구 계약 검사; protocol3/4는 미장착, protocol5는 조약돌 요요 정책 검사')
+    parse.add_argument('--lan-protocol', type=int, choices=(1, 2, 3, 4, 5), default=5, help='현재 구현의 통신 버전; v1은 인증 API 없이 실행')
     parse.add_argument('--apk', type=Path, default=ROOT / 'build/android/ForestArena-debug.apk')
     parse.add_argument('--serial', '--serials', action='append', default=[], help='ADB serial; 반복 또는 쉼표 목록. 자동 전체 선택 없음')
     parse.add_argument('--case', choices=('OFF-01', 'LIFE-01', 'MODE-01', 'LAN-01', 'SOAK-01'), help='선택·장신구, 생명주기, 모드, LAN-01/02/03 또는 반복 대전 독립 재검사; DEV-01/UI-01 준비 포함')

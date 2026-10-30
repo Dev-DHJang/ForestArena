@@ -21,6 +21,7 @@ const AttackEffects := preload("res://scripts/fighter_attack_effects.gd")
 
 var fighter: FighterController
 var sprite: AnimatedSprite2D
+var equipment_effects: Node2D
 var effects: Node2D
 var character_id: StringName
 var requested_motion: StringName = &"idle"
@@ -70,6 +71,10 @@ func _ready() -> void:
 	effects.sprite = sprite
 	add_child(effects)
 	move_child(effects, 0) # Cloth reach stays behind the approved body and face.
+	equipment_effects = preload("res://scripts/equipment_visual.gd").new()
+	equipment_effects.name = "EquipmentEffects"
+	equipment_effects.fighter = fighter
+	add_child(equipment_effects)
 	sync_visual(0.0)
 
 
@@ -130,7 +135,7 @@ static func display_layout(entry: Dictionary) -> Dictionary:
 	# values win over a matching calibration, so a candidate can revise timing or
 	# attachments even when the source PNG is intentionally unchanged.
 	if not String(entry.get("sha256", "")).is_empty():
-		for field: String in ["frame_count", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors", "phase_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range", "launch_release_frame_range", "launch_release_ticks"]:
+		for field: String in ["frame_count", "frame_durations", "jump_frame_ranges", "run_stride_px", "frame_anchors", "phase_frame_ranges", "equipment_phase_frame_ranges", "descent_frame_range", "landing_frame_range", "landing_down_frame_range", "launch_release_frame_range", "launch_release_ticks"]:
 			if hash_matches and calibration.has(field): result[field] = calibration[field]
 			if entry.has(field): result[field] = entry[field]
 	return result
@@ -258,6 +263,10 @@ func sync_visual(delta: float) -> void:
 			var travel_frames: SpriteFrames = _motions.get(requested_motion)
 			if requested_motion != &"special_side" or travel_frames == null or travel_frames.get_frame_count(requested_motion) != 32:
 				requested_motion = &"run"
+	var equipment := fighter.equipment_ability()
+	var presenting_equipment := equipment != null and fighter.equipment_phase != "idle"
+	if presenting_equipment:
+		requested_motion = equipment.air_motion_id if fighter.equipment_airborne else equipment.ground_motion_id
 	if fighter.state == FighterController.State.MATCH_ENDED:
 		requested_motion = &"death" if fighter.stocks <= 0 else &"idle"
 	# Optional display-only release. Observe already-applied state/input results.
@@ -310,7 +319,13 @@ func sync_visual(delta: float) -> void:
 		effects.frame_anchors = drawing.get("frame_anchors", [])
 		effects.phase_frame_ranges = drawing.get("phase_frame_ranges", [])
 		effects.artwork_sha256 = _artwork_hash(layout)
-	if _release_selected_frame >= 0:
+	if presenting_equipment and missing_motion.is_empty():
+		var phase_index: int = {"startup":0,"extend":1,"return":2,"recovery":3}.get(fighter.equipment_phase, 0)
+		var phase_spans: Array = drawing.get("equipment_phase_frame_ranges", [[0,3],[3,8],[8,13],[13,16]])
+		var phase_span: Array = phase_spans[phase_index]
+		var phase_duration: int = [equipment.startup_ticks,equipment.extend_ticks,equipment.return_ticks,equipment.recovery_ticks][phase_index]
+		sprite.frame = timed_frame(fighter.equipment_phase_tick, phase_duration, int(phase_span[0]), mini(int(phase_span[1]), frames)) if weights.is_empty() else weighted_frame(float(fighter.equipment_phase_tick) / maxi(phase_duration - 1, 1), int(phase_span[0]), mini(int(phase_span[1]), frames), weights)
+	elif _release_selected_frame >= 0:
 		sprite.frame = _release_selected_frame
 	elif shown in [&"hitstun", &"launch"] and _reaction_duration_ticks > 0:
 		var elapsed_ticks := _reaction_duration_ticks - fighter.hitstun_ticks
@@ -384,6 +399,16 @@ func sync_visual(delta: float) -> void:
 	_previous_launcher_jump = fighter.launcher_jump_available
 	var show_protection := fighter.invulnerability_ticks > 0 and fighter.state not in [FighterController.State.DEAD, FighterController.State.MATCH_ENDED]
 	sprite.modulate = Color(1, 1, 1, 0.45) if show_protection else Color.WHITE
+
+	if equipment_effects != null:
+		equipment_effects.has_hand_anchor = false
+		var anchors: Array = drawing.get("frame_anchors", [])
+		if sprite.frame < anchors.size() and anchors[sprite.frame] is Dictionary and anchors[sprite.frame].has("equipment_hand"):
+			var point: Array = anchors[sprite.frame].equipment_hand
+			var offset := Vector2(float(point[0]) - 64.0, float(point[1]) - 64.0) * display_scale
+			if sprite.flip_h: offset.x = -offset.x
+			equipment_effects.hand_local = sprite.position + offset
+			equipment_effects.has_hand_anchor = true
 
 
 func _artwork_hash(entry: Dictionary) -> String:

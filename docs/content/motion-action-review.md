@@ -57,3 +57,5 @@ python3 tools/forest_arena/review_motion_actions.py validate --project-root . --
 공중 피격 `launch`는 로컬 전투에서 이미 정해진 남은 경직 시간에 맞춰 표시한다. 같은 상태에서 다시 맞으면 첫 그림부터 다시 시작한다. LAN 메시지에 남은 경직이 없으면 원화 FPS로 재생하고 실제로 받은 다음 상태를 따른다.
 
 선택 표시 값 `launch_release_frame_range: [begin,end)`와 `launch_release_ticks`는 함께 선언한다. 구간은 선언된 그림 수 안에 있고, 시간은 그림 수 이상인 정수 1~12틱이다. 실제 LAUNCH→JUMP/FALL 전환에서 아직 보지 못한 후반 자세를 짧게 연결하며, 마지막 자세를 이미 봤으면 반복하지 않는다. 새 공격·점프·방어·피격·착지·리셋의 결과를 받으면 바로 교체한다. 전투 경직이나 입력을 늦추지 않는다. 값이 없는 기존 자산은 이전 표시를 유지한다. 두 값은 그림 해시에 묶으며 새 연결의 실제 재생도 해당 모션의 독립 검토와 명시 승인에 포함한다.
+
+능동 장비 모션은 `equipment_phase_frame_ranges`의 준비·발사·회수·회복4구간과 프레임별 `equipment_hand`(손의 실 연결점)를 사용한다. 일반 공격의3구간 `phase_frame_ranges`와 구분한다. 표준 시간 기록 도구는 후보의 `equipment_resource_path`에서 실제 장비 시간을 읽는다. 조기 회수의 단계별 시간과 실·요요 위치는 실제 전투 코드 기록도 함께 검토한다.

@@ -27,7 +27,7 @@ func _initialize() -> void:
 			var built := LoadoutBuilder.build(selection, catalog)
 			_check(built.succeeded(), "%s/%s profile builds" % [character.character_id, accessory_id])
 			if built.succeeded(): profiles.append(built.profile)
-	_check(profiles.size() == 28, "four characters with no accessory or each of six sold accessories are covered")
+	_check(profiles.size() == 32, "four characters with no accessory or each of seven catalog accessories are covered")
 	var data_before := _data_signature(catalog)
 	for source: RuntimeCombatProfile in profiles:
 		controller.player.configure_profile(source)
