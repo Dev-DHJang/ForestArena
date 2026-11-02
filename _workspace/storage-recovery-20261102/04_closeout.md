@@ -26,4 +26,6 @@
 - 기준: `origin/develop` `c4c8dc7f52a2d72964978824ee098eb15814839f`.
 - 작업 브랜치: `codex/storage-recovery-20261102`.
 - 제거한 추적 영상은 기준 커밋 또는 Git 이력에서 복구할 수 있다. 캐시는 관련 도구 실행으로 재생성하고, 제거한 작업 폴더는 남은 브랜치에서 `git worktree add`로 다시 만들 수 있다.
-- PR·병합 정보는 원격 통합 뒤 이 문서에 확정한다.
+- 본체 커밋: `4adfdd225431ece14e2896010b0b84f06e158aab`.
+- PR: [#121](https://github.com/Dev-DHJang/ForestArena/pull/121).
+- `develop` 병합 SHA: `fd70191785e923eb8f1270d0d3babd918d4fbe0f`.
