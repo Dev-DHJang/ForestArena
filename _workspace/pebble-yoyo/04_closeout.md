@@ -1,30 +1,47 @@
 # 조약돌 요요 작업 상태
 
-## 현재 결과
+## 현재 결과 — 2026-11-02 수정 시안
 
-- 전투·상점·장착/해제·프리셋·AI별 소유 장비 선택·장비 버튼·LAN5 구현.
-- 대표 이미지와 전투 본체 생성·정적 이미지 독립 QA 통과. 기존 승인 캐릭터/모션 PNG는 변경하지 않았다.
-- 자현·나비의 지상·공중 사용 모션4개를 _workspace 후보로 제작했다. 현재 모션별 명시 승인 전이므로 runtime/manifest에는 등록하지 않았다.
-- 후보 재생: `index.html`, 정상·느린·좌우 반전 영상은 `qa-motion-r02/`. 실제 전투·표현 코드를 실행한 프레임/좌표 기록을 재구성한 자료이며 Android 화면 녹화가 아니다.
+- 상점·장착/해제·프리셋·AI별 소유 장비 선택·전투·장비 버튼·LAN5 구현은 유지한다. PR120은 draft다.
+- 사용자 피드백에 따라 r02의 외형·전환 일관성 판단을 철회했다. 이전 QA는 종 특징·규격 위주였고 현재 승인 idle/jump와의 정확한 몸 구조 및 진입 직전 재생을 놓쳤다. 과거 검토·시안은 덮어쓰지 않고 보존했다.
+- 자현 지상·공중을 현재 승인 대기·점프 모델에 맞춰 재제작했다. 얼굴·귀·머리/몸·의상 구조를 직접 비교하고, 직립한 공중 중간 시안도 폐기·보존한 뒤 낮은 기존 점프 모델로 다시 제작했다.
+- 나비는 가장 낮은 신발 주변만 잡던 기준을 버리고 양발·몸 위치를 맞췄다. 기존 idle 자체의 열별 약10px 이동도 발견해 그림·프레임·시간을 유지한 몸 위치 기준점 후보를 추가했다. idle0의 기존 표시 위치를 보존한다.
+- 요요 대표·전투 이미지는 둥근 돌 원반·청록 나선·얇은 금속 테두리로 교체했다. 전투 본체는 정면 원형으로 중심축을12틱마다 한 바퀴 돈다. 좌우 방향을 반영하고 조기 벽 회수를 포함해 손에 잡힌 뒤 회전이 멈춘다. 판정·실제 이동 경로·경직·쿨타임은 변경하지 않았다.
+- 캐릭터 검토 후보는 요요4종과 나비 idle 위치 보정1종, 총5종이다. 기존 승인 캐릭터 runtime PNG·TRES·manifest는 변경하지 않았다. 사용자 채택 승인은 아직 없다.
 
-## 검증
+## 재생·검토 자료
 
-- `tests/pebble_yoyo_combat.gd`, 장비 UI/회수 연결, 두 캐릭터 제품, 저장·AI 흐름·프리셋·프로필 카탈로그 검사 통과.
-- API16개, Android fleet 도구150개, 모션 검토 도구91개 통과. 실제 Android 기기 결과가 아니다.
-- 실제 LAN은 `build/verification/pebble-yoyo/lan-runtime-focused-r03.log`에서 장비 사용·무피해 경직·쿨타임·재접속·앱 흐름·결과 저장을 통과했다.
-- LAN에서 발견한 기존 가변 시간 이동 문제를 수정했다. socket/deadline 처리는 _process, 권위60Hz 전투는 _physics_process로 옮기고 이동거리=속도×틱/60 회귀를 추가했다.
-- 첫 전체 검사는 새 카탈로그 항목 수에 대한 과거 기대값 때문에 실패했다. 이후 잔여 검사는 Android QA의 과거 장비 차단 기대값과 실제 LAN 이동 문제를 발견했고 수정했다. 최종 `./scripts/verify.sh --full`은93개 검사와 Godot 가져오기(총94단계)를541.8초에 모두 통과했다. 결과: `build/verification/20261030-133517-8642756e/result.json`, 요약: `build/verification/pebble-yoyo/full-r02.log`.
-- 원본을 source/로 이동한 뒤 남은 미참조 representative-source.png.import 하나를 정리했다. 게임 자산·코드 바이트를 바꾸지 않았으므로 같은 통과 검사를 반복하지 않았다.
-- 기존 엔진 종료 시 ObjectDB/리소스 정리 진단은 기능 검사 통과와 별도다. 파싱·스크립트 오류를 통과로 처리하지 않는다.
+- 현행 검토 페이지: `index.html`.
+- 정상·느린·실제 좌우 재생: `qa-motion-r03/trace-{normal,slow}{,-flip}.mp4`.
+- 나비 대기 기존/보정 비교2주기: `qa-motion-r03/nabi-idle-before-after-{normal,slow}.mp4`.
+- 실제 전투·표시 코드를 실행한 `game-timeline-r03.json`에는 진입 전27틱·사용48틱·복귀 후24틱의 좌우8개 시퀀스와 idle16그림×좌우32개 진입·복귀 기록이 있다. 요요 위치·회전 각도는 실제 표시 함수에서 읽었다.
+- 정상 공중 기록은 모든16그림·4구간과 이후 jump 복귀를 실행 중 단언한다. 처음 기록은 회복 끝에 착지해 공중 전 구간을 검토할 수 없었다. 그 기록·영상은 `qa-motion-r03/landing-r03/`에 별도 보존하고 충분히 높은 시작점으로 완결 공중 자료를 다시 만들었다.
+- 제작 실제 참조와 검토용 비교판을 구분했다. 마지막 참조 메타데이터 정리 전후8개 시퀀스792표본 및32probe가 정확히 같음을 `metadata-reconciliation-r03.json`에 기록했다. PNG·앵커·시간·영상은 그 정리에서 바뀌지 않았다.
+- 최종 공식 검토는 `review-r05/motion-review.json`이다. r03은 과거 r02 시안, r04는 참조 정리 전의 미확인 자료다. 이전 통과를 새 시안에 재사용하지 않는다.
+- 영상은 실제 코드 기록의 검토용 재현이며 실제 게임 화면 촬영·Android 실기기 검증이 아니다.
 
-## 승인·미확인
+## 이번 수정 검증
 
-- 네 모션의 최종 독립 QA는 정상·느린·좌우 반전 재생과 전체64프레임을 확인해 모두 pass다. 검토 기록은54개 소스 해시를 고정하고 명시 catalog/scope를 지정한 --require-pass를 통과했다. 사용자 명시 승인·등록은 남아 있다. 후보는 `candidate-catalog.json`·`candidate-scope.json`, 검토 기록은 `review-r03/motion-review.json`이다.
-- Android 실기기의 엄지 접근성·중단/복귀·성능은 미실행이다.
+- presentation/touch17개 검사와 Godot 가져오기 통과: `build/verification/20261030-185200-b0227f61/result.json`.
+- 조기 벽 회수 정지까지 보완한 장비 UI 회귀 통과: `build/verification/pebble-yoyo/revision-round-spin-r02.log`.
+- 모션 검토/등록 도구95개 검사 통과: `revision-motion-tools-r02.log`. 기존 PNG와 시간을 유지하면서 scale 또는 body_root만 바꾸는 제한, 다른 손·무기·천 앵커 변경 거부, 유한 셀 좌표, 승인 없는 설치 시 쓰기 없음과 승인 후 픽셀 보존 회귀를 포함한다.
+- 논리 리소스521개 검사, 문서 검사, Python 문법·후보5개 preflight·표준 시간 기록, 공중 완결 단언·32진입/복귀 수치 검사 통과. 수치 검사는 시각 판정을 대신하지 않는다.
+- 정적 이미지·회전 코드 독립 검토 pass: `03_qa_revision_art_r01.md`. 도구 독립 검토 pass: `03_qa_revision_tools_r01.md`.
+- 다섯 후보는 최종 독립 시각 검토 pass 및 `--require-pass` 검증을 통과했다. `03_qa_revision_motion_r01.md`와 `review-r05/motion-review.json`의88개 소스 해시를 고정했다. 공식 검토 SHA는9075e39a01c59cc378bce98513bb5ca467546b286fe9af34c4da68c22f2a3d08이다.
+- `registration-plan-r03.json`은5개 등록 대상의 읽기 전용 계획이며 writes=false다. 계획 SHA는f7d4b5f5c011c95845b2391116a668107e4e48240190c6aa67e52d32bedba416이고 명시 사용자 승인 기록이 없어 설치할 수 없는 상태를 확인했다. 채택 질문에 최종 영상3종 링크를 제시했다.
+- 현재 생산 코드·문서·검사85개 해시는 `source-fingerprints.json`에 고정했다. 이전 전체 검사 당시 해시는 `history-r02/`에 보존했다.
 
-## Git·다음 작업
+## 기존 구현 검사 이력과 남은 확인
 
-- 기준: c4c8dc7f52a2d72964978824ee098eb15814839f, 작업 브랜치 codex/pebble-yoyo.
-- 전용 폴더: /Users/jdh/.codex/worktrees/pebble-yoyo/ForestArena. 저장 공간 부족으로 일반 체크아웃이 실패해 동일한 깨끗한 기준커밋의 추적 파일을 새 빈 폴더에 APFS copy-on-write 복제했다. 기본 폴더와 다른 작업은 수정하지 않았다. 앱 관리 작업 폴더 등록은 지원되지 않아 명시 경로를 사용한다.
-- 최종 QA·검사 통과. 구현 commit `681bf889a46057f9683e3da3d104035fa025b8ff`를 push하고 [draft PR120](https://github.com/Dev-DHJang/ForestArena/pull/120)을 만들었다. 사용자 모션 승인과 등록 전에는 draft를 유지한다. 사용자 모션 승인 후 정식 PNG/SpriteFrames/manifest를 등록하고 관련 검사를 수행한 뒤 develop 병합한다.
-- 되돌릴 때 게임·API·LAN 소비자를 같은 묶음으로 처리한다. 이미 저장된 pebble-yoyo 보유 ID를 읽을 수 있는 카탈로그 호환을 보존하며 보유 데이터를 삭제하지 않는다.
+- 최초 구현의 최종 `./scripts/verify.sh --full`은93개 검사와 Godot 가져오기(총94단계)를541.8초에 통과했다: `build/verification/20261030-133517-8642756e/result.json`, `full-r02.log`. 이 결과를 이번 수정이나 미등록 후보의 새 전체 통과로 기록하지 않는다.
+- 기존 API16개·fleet150개 및 실제 LAN의 장비·무피해 경직·쿨타임·재접속·고정60Hz 이동거리 회귀가 통과했다. 관련 없는 같은 검사를 이번 표시 수정 때문에 반복하지 않았다.
+- 새 모션의 개별 사용자 채택, 정식 등록, 등록된 게임 재생 확인과 최종 전체 검사 뒤 develop 병합이 남아 있다. 구체적인 읽기 전용 등록 계획과 승인 조건은 `registration-r03.md`를 따른다. 사용자 승인 발언·승인 파일을 미리 만들지 않는다.
+- 실제 Android의 엄지 접근성·중단/복귀·성능은 미실행이다. 기존 엔진 종료 시 ObjectDB/리소스 정리 진단은 기능 검사와 별도이며 파싱·스크립트 오류를 통과로 처리하지 않는다.
+
+## Git·복구
+
+- 기준: c4c8dc7f52a2d72964978824ee098eb15814839f, 브랜치 codex/pebble-yoyo, 전용 폴더 /Users/jdh/.codex/worktrees/pebble-yoyo/ForestArena.
+- 공간 부족으로 일반 체크아웃이 실패해 동일한 깨끗한 기준커밋의 추적 파일을 새 폴더에 APFS copy-on-write 복제했다. 기본 폴더와 다른 작업은 수정하지 않았다. 앱 관리 작업 폴더 등록은 지원되지 않아 명시 경로를 사용한다.
+- 기존 구현 commit681bf889a46057f9683e3da3d104035fa025b8ff 및 종료 기록cb6d6309fd41d679e052d98ffee6d824dc7bbd59를 push한 [draft PR120](https://github.com/Dev-DHJang/ForestArena/pull/120)에 이번 수정을 이어간다. 모션 채택·등록 전에는 draft를 유지한다.
+- 정식 등록은 표준 등록기의 승인·검토 해시 확인과 사전 백업을 사용한다. 기존 PNG를 덮어쓰지 않고 새 버전 경로를 쓰며, 나비 idle의 기존 논리 ID·SpriteFrames 소비자 경로는 유지한다.
+- 되돌릴 때 게임·API·LAN 소비자는 같은 묶음으로 처리하고 이미 저장된 pebble-yoyo 보유 ID를 읽을 수 있는 카탈로그 호환을 유지한다. 보유 데이터는 삭제하지 않는다.

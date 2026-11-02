@@ -1,0 +1,479 @@
+{
+  "character_id": "nabi",
+  "motion_id": "equipment_yoyo_air",
+  "status": "candidate-pending-independent-review-and-user-approval",
+  "frame_count": 16,
+  "cell_size": [
+    128,
+    128
+  ],
+  "columns": 8,
+  "source_grid": [
+    4,
+    4
+  ],
+  "common_scale": 0.29,
+  "foot_pivot_y": 104,
+  "presentation_scale": 0.8488372093023255,
+  "equipment_phase_frame_ranges": [
+    [
+      0,
+      3
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      13,
+      16
+    ]
+  ],
+  "frame_durations": [
+    2,
+    2,
+    2,
+    4,
+    4,
+    4,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    3,
+    2,
+    2,
+    2
+  ],
+  "reference_version": "v01",
+  "reference_set": "assets/character/nabi/reference/v01/reference.json",
+  "reference_attachments": [
+    {
+      "path": "assets/character/nabi/reference/v01/combat.png",
+      "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+    },
+    {
+      "path": "assets/character/nabi/reference/v01/side.png",
+      "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+    },
+    {
+      "path": "_workspace/pebble-yoyo/revision-r03-inputs/nabi-jump-approved.png",
+      "sha256": "f123196efeacb8943dee49a500aad4d18b4f668f277094bf099b8ddd9d69bfa3"
+    }
+  ],
+  "source_path": "_workspace/pebble-yoyo/motions/nabi/air/r03/source.png",
+  "source_sha256": "1b0ab27503ab4d68d0c4e59bf13f11bbe51a7c2437a9210cae01158b94d3d553",
+  "sheet_sha256": "328813a775c52abb1d47efbfca6162424eb3e051aef38f33c5a7c80fb4cd18ff",
+  "packing": [
+    {
+      "source_rect": [
+        0,
+        0,
+        320,
+        307
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        10,
+        15
+      ],
+      "body_column_source_x": 185.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 306,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        320,
+        0,
+        639,
+        307
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        11,
+        16
+      ],
+      "body_column_source_x": 182.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 305,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        639,
+        0,
+        959,
+        307
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        11,
+        16
+      ],
+      "body_column_source_x": 182.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 305,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        959,
+        0,
+        1279,
+        307
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        8,
+        16
+      ],
+      "body_column_source_x": 194.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 303,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        0,
+        307,
+        320,
+        615
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        8,
+        16
+      ],
+      "body_column_source_x": 192.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 302,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        320,
+        307,
+        639,
+        615
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        7,
+        16
+      ],
+      "body_column_source_x": 196.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 302,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        639,
+        307,
+        962,
+        615
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        7,
+        16
+      ],
+      "body_column_source_x": 196.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 303,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        962,
+        307,
+        1279,
+        615
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        7,
+        16
+      ],
+      "body_column_source_x": 197.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 303,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        0,
+        615,
+        320,
+        922
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        9,
+        18
+      ],
+      "body_column_source_x": 190.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 295,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        320,
+        615,
+        639,
+        922
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        8,
+        19
+      ],
+      "body_column_source_x": 194.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 294,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        639,
+        615,
+        959,
+        922
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        8,
+        19
+      ],
+      "body_column_source_x": 193.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 294,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        959,
+        615,
+        1279,
+        922
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        9,
+        18
+      ],
+      "body_column_source_x": 190.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 296,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        0,
+        922,
+        320,
+        1230
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        10,
+        22
+      ],
+      "body_column_source_x": 187.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 284,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        320,
+        922,
+        639,
+        1230
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        11,
+        22
+      ],
+      "body_column_source_x": 184.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 282,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        639,
+        922,
+        959,
+        1230
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        9,
+        22
+      ],
+      "body_column_source_x": 189.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 283,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        959,
+        922,
+        1279,
+        1230
+      ],
+      "common_scale": 0.29,
+      "translation": [
+        8,
+        22
+      ],
+      "body_column_source_x": 193.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 284,
+      "foot_baseline_target_y": 104,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    }
+  ],
+  "whole_figure_boundary_endpoints": [],
+  "frame_anchors": [
+    {
+      "equipment_hand": [
+        75,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        75,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        76,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        86,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        86,
+        60
+      ]
+    },
+    {
+      "equipment_hand": [
+        88,
+        61
+      ]
+    },
+    {
+      "equipment_hand": [
+        92,
+        61
+      ]
+    },
+    {
+      "equipment_hand": [
+        94,
+        61
+      ]
+    },
+    {
+      "equipment_hand": [
+        88,
+        63
+      ]
+    },
+    {
+      "equipment_hand": [
+        79,
+        64
+      ]
+    },
+    {
+      "equipment_hand": [
+        76,
+        64
+      ]
+    },
+    {
+      "equipment_hand": [
+        75,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        75,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        75,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        75,
+        65
+      ]
+    },
+    {
+      "equipment_hand": [
+        75,
+        65
+      ]
+    }
+  ],
+  "size_basis": "approved runtime idle or jump model, head/body and two-shoe silhouette; one uniform source scale per motion; exact approved idle whole-figure entry/recovery endpoint on ground"
+}

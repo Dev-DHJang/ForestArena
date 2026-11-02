@@ -75,6 +75,16 @@ func run() -> void:
 	fighter.equipment_position = fighter.global_position + Vector2(150,-32)
 	var state_before := fighter.snapshot().duplicate(true)
 	check(effect.display_tip().is_equal_approx(Vector2(150,-32)), "outbound drawing exactly matches authoritative projectile")
+	fighter.equipment_tick = 6
+	check(is_zero_approx(effect.display_rotation()), "round yo-yo begins flight without a rotation jump")
+	fighter.equipment_tick = 9
+	check(is_equal_approx(effect.display_rotation(), PI / 2.0), "round yo-yo makes a quarter turn in three flight ticks")
+	fighter.equipment_tick = 18
+	check(is_equal_approx(effect.display_rotation(), TAU), "round yo-yo completes a circular turn in twelve flight ticks")
+	fighter.equipment_facing = -1
+	check(is_equal_approx(effect.display_rotation(), -TAU), "left-facing circular rotation mirrors direction")
+	fighter.equipment_facing = 1
+	fighter.equipment_tick = 0
 	check(fighter.snapshot() == state_before, "display tip cannot change combat state")
 	fighter.equipment_phase = "return"
 	fighter.equipment_position = fighter.equipment_origin()
@@ -82,6 +92,18 @@ func run() -> void:
 	check(effect.display_tip().is_equal_approx(effect.hand_local), "non-hitting return ends in animated palm")
 	fighter.equipment_phase = "recovery"
 	check(effect.display_tip().is_equal_approx(effect.hand_local), "catch does not jump on return to recovery")
+	fighter.equipment_tick = 43
+	fighter.equipment_phase_tick = 0
+	var caught_rotation: float = effect.display_rotation()
+	fighter.equipment_tick = 47
+	fighter.equipment_phase_tick = 4
+	check(is_equal_approx(caught_rotation,effect.display_rotation()), "caught yo-yo stops spinning during recovery")
+	fighter.equipment_tick = 26
+	fighter.equipment_phase_tick = 0
+	var wall_catch_rotation: float = effect.display_rotation()
+	fighter.equipment_tick = 30
+	fighter.equipment_phase_tick = 4
+	check(is_equal_approx(wall_catch_rotation,effect.display_rotation()), "early wall return freezes rotation at actual catch")
 	arena.queue_free()
 	touch.queue_free()
 	await process_frame

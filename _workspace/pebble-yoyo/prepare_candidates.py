@@ -1,4 +1,4 @@
-"""원화를 다시 그리지 않고 공통 배율·발 기준 이동으로 모션 후보를 포장한다."""
+"""과거 r02 재현 전용. 현행 수정은 prepare_revision_r03.py 및 build_candidate_catalog.py를 사용한다."""
 from pathlib import Path
 from PIL import Image, ImageDraw
 import numpy as np, json, hashlib, shutil

@@ -1,0 +1,104 @@
+{
+  "provider": "OpenAI built-in image_gen",
+  "transparent_background": true,
+  "calls": [
+    {
+      "motion": "ja-hyun/equipment_yoyo_ground",
+      "output": "motions/ja-hyun/ground/r03/source.png",
+      "inputs": [
+        {
+          "path": "assets/character/ja-hyun/reference/v01/combat.png",
+          "sha256": "772c0cb806f9302e1e56ffd03e4deb8ba97c5f50bbd9c31e0536aec6defc5056"
+        },
+        {
+          "path": "assets/character/ja-hyun/reference/v01/side.png",
+          "sha256": "583eeaa647973ca868bf1fa28db301e62cc57e4cf9e1202dca3bef5c5a107f01"
+        },
+        {
+          "path": "_workspace/pebble-yoyo/revision-r03-inputs/ja-hyun-idle-approved.png",
+          "sha256": "34cbc01c9033990e06c661954f1320587658a1e56dc0b541efada6d14c3049e0"
+        }
+      ],
+      "prompt": "Use case: identity-preserve. Asset type: transparent 4 by 4 animation sprite sheet, exactly sixteen fully visible separate whole figures in equal cells, ordered left to right top to bottom. Primary request: a grounded yoyo-casting motion for the EXACT SAME silver-haired human mouse fighter in the attachments. Image 1 and 2: approved design and side construction. Image 3: EXISTING IN-GAME IDLE frames and the STRICT model/proportion/low-stance target; match this slimmer compact model, same smaller round ears, same face, jacket outline, black knee-length pants, footwear, thin pink tail and cobalt ribbons. Do not make a taller/chubbier redesign. Full character facing right 3/4 in every cell. Both feet stay planted at identical x coordinates and same baseline in ALL cells, pelvis and head stay at the low idle-guard height shown in image 3. Only throwing arm and slight shoulder twist move. Frames1-3 low fighting guard opening the front fist and drawing it slightly back; frames4-8 forward arm casts and extends to the right with palm visible; frames9-13 subtle reeling wrist and bent elbow return; frames14-16 same original low guard. No stepping, rising, crouching lower, turning around, or shifting sideways. Body scale and head size identical in every cell. No yoyo, no string, no held props, no effects: these are drawn by game code. Original unbranded blue/white/black outfit and animal features remain exact. Clean polished semi-dimensional game illustration matching attachments, not a new costume. Transparent alpha background; no text, cell lines, floor or shadows. Each cell generously padded, with all ears/ribbon/tail/soles inside and wide truly transparent gaps. Preserve skinny human limbs, two round mouse ears and ONE thin hairless pink tail.",
+      "output_sha256": "bcc95bc69880d9eeb435e8f5f8e7c87c46c53ca7b79d7ef432429375e33b3c8e"
+    },
+    {
+      "motion": "ja-hyun/equipment_yoyo_air",
+      "output": "motions/ja-hyun/air/r03/source-spacing-input.png",
+      "status": "원본 모델 수정은 채택, 행 경계 여백 부족으로 다음 호출에서 배치만 수정",
+      "inputs": [
+        {
+          "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/jump-r02.png",
+          "sha256": "e352bc68aa97d81bfde58c230cc1be9faaa3e916d68caea9e041e45233293abe"
+        },
+        {
+          "path": "assets/character/ja-hyun/reference/v01/combat.png",
+          "sha256": "772c0cb806f9302e1e56ffd03e4deb8ba97c5f50bbd9c31e0536aec6defc5056"
+        },
+        {
+          "path": "assets/character/ja-hyun/reference/v01/side.png",
+          "sha256": "583eeaa647973ca868bf1fa28db301e62cc57e4cf9e1202dca3bef5c5a107f01"
+        }
+      ],
+      "prompt": "Use case: identity-preserve EDIT. Image1 is the EXACT existing approved game animation MODEL, not loose inspiration: preserve its small head and ears, forward-leaning compact body construction, thin legs, angular shoes, face shape, thin jacket, hair outline and precise clothing arrangement. Images2/3 only clarify species/costume details; do NOT substitute their bigger round head model. Make a4x4 sheet of16 separate whole airborne yo-yo-casting poses using the exact airborne character construction in the FIRST16 figures of image1. The same already-drawn character: same 3/4 right facing, body leaning forward, knees folded, head size/proportions identical; only change forward wrist/forearm to throw and retrieve. Frames1-3 slight backward wrist windup,4-8 forward open-palm cast,9-13 wrist reels forearm back,14-16 return original airborne jump guard. Keep body/head leaning down as in the first image, don't straighten torso or enlarge ears/head. NO feet planted, no grounded figures. This is a modification of the actual gameplay sheet, preserve exact model continuity, not a new reimagined character. White/cobalt/black human streetwear mouse man, silver-blue hair, two round ears, ONE thin pink mouse tail and long cobalt ribbons. No yo-yo or string. Real transparent alpha; remove the original pastel backdrop entirely.4columns4rows equal cells and wide clear transparent gutters around all parts; no clipping, grid, shadow, text or effects.",
+      "output_sha256": "664086bd6cd6a9d0f037048a322bab9b77c951f116fd62c5e003b81aa97d5ac3"
+    },
+    {
+      "motion": "ja-hyun/equipment_yoyo_air",
+      "output": "motions/ja-hyun/air/r03/source.png",
+      "inputs": [
+        {
+          "path": "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/source-spacing-input.png",
+          "sha256": "664086bd6cd6a9d0f037048a322bab9b77c951f116fd62c5e003b81aa97d5ac3"
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Preserve these exact sixteen character poses, exact face/model/body proportions and costume. Change ONLY layout spacing: uniformly reduce every complete figure to80percent of its current size, center each reduced whole figure in its existing equal4x4 cell. This is for sprite extraction; add very wide truly transparent gaps at every horizontal and vertical cell boundary and20pixel margin at all canvas edges. Keep exact arm poses and compact forward-leaning model from input, no redesign. The third-column figures currently meet at the row3/4 boundary: separate them with clear transparent space. Output real alpha transparent background (no pastel backdrop or shadows), no text, no lines, sixteen complete unclipped figures.",
+      "output_sha256": "2f2126985c0d4ac1ed8176892b84185f0e41d87fec4413fb7110d85fd013ca8a"
+    },
+    {
+      "motion": "nabi/equipment_yoyo_ground",
+      "output": "motions/nabi/ground/r03/source.png",
+      "inputs": [
+        {
+          "path": "assets/character/nabi/reference/v01/combat.png",
+          "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+        },
+        {
+          "path": "assets/character/nabi/reference/v01/side.png",
+          "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+        },
+        {
+          "path": "_workspace/pebble-yoyo/revision-r03-inputs/nabi-idle-approved.png",
+          "sha256": "1b4b2129859fa619aa80f3432924c5941d9687813f611136d86ec4899f52a817"
+        }
+      ],
+      "prompt": "Use case: identity-preserve. Asset type: transparent sprite sheet4columns by4rows, sixteen separate whole figures. Primary request: grounded yoyo-cast forearm animation, MATCH EXACT existing in-game low crouching idle character image3. Image1/2 approved identity detail only. Critical: DO NOT RISE to taller standing pose or center the head over straightened legs; lock the low forward entry crouch silhouette and slim proportions from image3 throughout ALL frames. Short human cat woman with violet-black hair, two dark cat ears pink inner fur, one large curved dark violet tail, black/purple/white cropped fighter jacket and skirt-shorts, purple/white sneakers and lavender claw guards (throwing hand can open with claws tucked). Both planted feet and bent knee/pelvis stay at EXACT same positions in every cell, head height and head size fixed, same right3/4 facing. Frames1-3 original low guard front fist drawing slightly back;4-8 extend throwing arm straight to right (open palm);9-13 reel front wrist inward;14-16 return same original low guard. No walking, hopping, changes in body angle or sideways shift. No yo-yo or string; runtime draws these. Do not replace outfit, face or tail. Preserve exact original game model rather than more detailed new rendition. All sixteen have same head/body proportions and fixed overall body scale. 4x4 equal cells with large transparent gutters, each figure occupies at most75percent of cell height/width; no clipping ears, tail, fingers or soles. Real transparent alpha, no ground/shadow, no text/labels/grid/effects.",
+      "output_sha256": "13d1a4df331300e27f1f865ad8e72274a9da78f5ab7c2f2355492e5eda24f982"
+    },
+    {
+      "motion": "nabi/equipment_yoyo_air",
+      "output": "motions/nabi/air/r03/source.png",
+      "inputs": [
+        {
+          "path": "assets/character/nabi/reference/v01/combat.png",
+          "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+        },
+        {
+          "path": "assets/character/nabi/reference/v01/side.png",
+          "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+        },
+        {
+          "path": "_workspace/pebble-yoyo/revision-r03-inputs/nabi-jump-approved.png",
+          "sha256": "f123196efeacb8943dee49a500aad4d18b4f668f277094bf099b8ddd9d69bfa3"
+        }
+      ],
+      "prompt": "Use case: identity-preserve. Transparent 4x4 animation sheet,16 fully visible separated whole figures. Create airborne yo-yo casting arm motion matching EXACT existing game model in image3 (approved current jump). Images1/2 are detail references; image3 compact low tucking body and small head/ears is the locked actual-game model. Violet-black haired adult human cat woman, two cat ears pink inner fur, one large dark-violet curved tail, exact black/purple/white cropped fighter jacket and skirt shorts, purple-white sneakers and human legs/hands. Facing right3/4, both knees tucked in same airborne forward-leaning pose throughout. Same head/body size, pelvis point and tucking foot positions in every cell; no upright straight legs, no new costume or changed face/head structure. Frames1-3 airborne guard draws front wrist back;4-8 throw arm extends right with open palm and visually tucked lavender claws;9-13 reel wrist and elbow inward;14-16 return exact airborne guard. Only forearm, wrist and slight shoulder twist move; body remains compact and still. No yoyo/string/effects drawn; game renders them. Same polished game sprite rendering as image3. Exactly4columns4rows equal cells with large genuinely transparent gutters. Each whole figure at most75percent cell width/height; ears/tail/hair/soles/fingers all fully padded, no clipping. No shadows, floor, grid, text or labels; real transparent alpha.",
+      "output_sha256": "1b0ab27503ab4d68d0c4e59bf13f11bbe51a7c2437a9210cae01158b94d3d553"
+    }
+  ],
+  "notes": [
+    "첫 자현 공중 시안 source-first-attempt.png은 낮은 승인 jump와 상체 구조가 달라 폐기했다.",
+    "나비 보라 배경처럼 보이는 RGB의 alpha는0이다. Python 배경 제거·부위 재그림은 수행하지 않았다.",
+    "나비 idle은 생성 그림이 아니며 승인 PNG를 바이트 그대로 복사하고 body_root 표시 메타데이터만 수정했다."
+  ]
+}

@@ -518,6 +518,42 @@ class CandidateMotionReviewTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "only in its PNG reference"):
             self.check_input()
 
+    def test_layout_only_body_placement_keeps_pixels_timing_and_approval_pending(self):
+        approved = self.make_layout_only()
+        before_png, before_tres = self.sheet.read_bytes(), self.sprite.read_bytes()
+        anchors = [{"body_root": [64 - index % 4 * 10, 124]} for index in range(16)]
+        self.update_catalog(lambda doc: doc["assets"][0].update(presentation_scale=1.0, frame_anchors=anchors))
+        selected = self.check_input()
+        self.assertEqual(selected["rows"][0]["frame_anchors"], anchors)
+        self.assertEqual(selected["rows"][0]["type"], "animation-candidate")
+        self.assertIn(approved["path"], selected["required_sources"])
+        self.assertEqual((before_png, before_tres), (self.sheet.read_bytes(), self.sprite.read_bytes()))
+
+    def test_layout_only_body_placement_cannot_change_other_attachments(self):
+        self.make_layout_only()
+        attached = [{"claw_hand": [20, 30]} for _ in range(16)]
+        manifest = read(self.fixture.manifest)
+        manifest["assets"][0]["frame_anchors"] = attached
+        write(self.fixture.manifest, manifest)
+        anchors = [{**frame, "body_root": [64, 124]} for frame in attached]
+        self.update_catalog(lambda doc: doc["assets"][0].update(presentation_scale=1.0, frame_anchors=anchors))
+        self.check_input()
+        for replacement in ({"claw_hand": [21, 30]}, {}, {"claw_hand": [20, 30], "equipment_hand": [40, 50]}):
+            with self.subTest(replacement=replacement):
+                changed = [dict(frame) for frame in anchors]
+                changed[0] = {**replacement, "body_root": [64, 124]}
+                self.update_catalog(lambda doc: doc["assets"][0].update(frame_anchors=changed))
+                with self.assertRaisesRegex(ValueError, "only body_root"):
+                    self.check_input()
+
+    def test_layout_only_body_root_requires_finite_cell_points(self):
+        self.make_layout_only()
+        for point in ([True, 124], [-1, 124], [64, 129], [float("nan"), 124], [64], "64,124"):
+            with self.subTest(point=point):
+                self.update_catalog(lambda doc: doc["assets"][0].update(presentation_scale=1.0, frame_anchors=[{"body_root": point} for _ in range(16)]))
+                with self.assertRaises(ValueError):
+                    self.check_input()
+
     def test_pending_candidate_is_blocked_not_automatically_passed(self):
         self.assertEqual(self.review["motions"][0]["status"], "blocked")
         self.assertEqual(self.check_review(), [])
@@ -806,6 +842,27 @@ class MotionRegistrationTest(unittest.TestCase):
             install(self.root, plan, pending, self.backup)
         self.assertEqual(before, self.snapshot())
         self.assertFalse(self.backup.exists())
+
+    def test_body_root_only_registration_preserves_art_and_requires_approval(self):
+        from register_motion_candidates import install
+        approved = self.fixture.make_layout_only("assets/character/test/animation/runtime/guard_24f_v01.png",
+                                                "assets/character/test/animation/runtime/guard.tres")
+        anchors = [{"body_root": [64 - index % 4 * 10, 124]} for index in range(24)]
+        self.fixture.update_catalog(lambda doc: doc["assets"][0].update(presentation_scale=1.0, frame_anchors=anchors))
+        self.prepare_art(24)
+        before = self.snapshot()
+        plan, pending = self.plan()
+        self.assertEqual(before, self.snapshot())
+        result = json.loads(pending["assets/character/manifest.json"])["assets"][0]
+        self.assertEqual(result["frame_anchors"], anchors)
+        self.assertNotIn("layout_only_from_asset_id", result)
+        self.assertEqual(pending[result["path"]], (self.root / approved["path"]).read_bytes())
+        with self.assertRaisesRegex(ValueError, "human approval.*missing"):
+            install(self.root, plan, pending, self.backup)
+        self.assertEqual(before, self.snapshot())
+        self.fixture_approval(plan)  # Synthetic temporary fixture decision only.
+        install(self.root, plan, pending, self.backup)
+        self.assertEqual((self.root / result["path"]).read_bytes(), (self.root / approved["path"]).read_bytes())
 
     def test_missing_approval_refuses_before_any_write_or_backup(self):
         from register_motion_candidates import install

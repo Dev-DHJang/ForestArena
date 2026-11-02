@@ -32,17 +32,17 @@ def local_path(root: Path, value: str, *, candidate: bool = False) -> Path:
 
 
 # These fields affect the actual selected drawing, placement or playback. A
-# layout-only candidate may change only presentation_scale, never these values.
+# layout-only candidate may change scale or body placement, never these values.
 LAYOUT_ONLY_FIXED_FIELDS = (
     "frame_count", "atlas_columns", "cell_size", "frame_durations", "fps", "loop",
     "phase_frame_ranges", "equipment_phase_frame_ranges", "jump_frame_ranges", "descent_frame_range", "landing_frame_range",
-    "landing_down_frame_range", "run_stride_px", "frame_anchors", "foot_pivot_y",
+    "landing_down_frame_range", "run_stride_px", "foot_pivot_y",
     "state_hold_frame", "state_duration_ticks", "launch_release_frame_range", "launch_release_ticks",
 )
 
 
 def layout_only_source(root: Path, row: dict, manifest: list[dict]) -> dict | None:
-    """Verify a copied approved drawing whose pending change is only its scale."""
+    """Verify copied approved art with only pending scale/body-root changes."""
     if "layout_only_from_asset_id" not in row:
         return None
     identifier = row["layout_only_from_asset_id"]
@@ -57,10 +57,18 @@ def layout_only_source(root: Path, row: dict, manifest: list[dict]) -> dict | No
     scale = row.get("presentation_scale")
     if isinstance(scale, bool) or not isinstance(scale, (int, float)) or not math.isfinite(scale) or scale <= 0:
         raise ValueError("layout-only presentation_scale must be finite and positive")
-    if scale == source.get("presentation_scale", 1.0):
-        raise ValueError("layout-only candidate must change presentation_scale")
     if any(row.get(field) != source.get(field) for field in LAYOUT_ONLY_FIXED_FIELDS):
         raise ValueError("layout-only candidate cannot change frame composition or playback metadata")
+    count = layout(row)["frame_count"]
+    old_anchors = source.get("frame_anchors", [{} for _ in range(count)])
+    new_anchors = row.get("frame_anchors", [{} for _ in range(count)])
+    # Body placement is display-only; weapon/cloth attachment edits require a
+    # normal new-art candidate, not this exception for already published bytes.
+    without_body = lambda anchors: [{key: value for key, value in frame.items() if key != "body_root"} for frame in anchors]
+    if without_body(old_anchors) != without_body(new_anchors):
+        raise ValueError("layout-only candidate may change only body_root anchors")
+    if scale == source.get("presentation_scale", 1.0) and new_anchors == old_anchors:
+        raise ValueError("layout-only candidate must change scale or body_root")
     approved_png = local_path(root, source.get("path", ""))
     candidate_png = local_path(root, row.get("path", ""), candidate=True)
     png_sha = digest(approved_png)

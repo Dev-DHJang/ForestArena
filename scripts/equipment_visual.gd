@@ -5,6 +5,21 @@ var hand_local := Vector2.ZERO
 var has_hand_anchor := false
 var _texture: Texture2D
 var _texture_id: StringName
+const SPIN_TICKS_PER_TURN := 12.0
+
+func display_rotation() -> float:
+	# The face-on round disc spins about its axle; its world path/hitbox stays
+	# entirely under combat authority. Hold the caught disc still in the palm.
+	if fighter.equipment_phase == "startup": return 0.0
+	var ability := fighter.equipment_ability()
+	if ability == null: return 0.0
+	var flight_tick := float(fighter.equipment_tick - ability.startup_ticks)
+	if fighter.equipment_phase == "recovery":
+		# A wall can start return early. Freeze at the actual catch tick rather
+		# than assuming every cast reached the full outbound duration.
+		flight_tick -= fighter.equipment_phase_tick + 1
+	flight_tick = clampf(flight_tick, 0.0, ability.extend_ticks + ability.return_ticks)
+	return flight_tick * TAU / SPIN_TICKS_PER_TURN * fighter.equipment_facing
 
 func _process(_delta: float) -> void:
 	queue_redraw()
@@ -38,6 +53,6 @@ func _draw() -> void:
 		draw_line(root_point, tip, Color("fff0ca"), 1.8, true)
 	if _texture != null:
 		# Rotation changes only the drawing, never the authoritative square hitbox.
-		draw_set_transform(tip, float(fighter.equipment_tick) * 0.5 * fighter.equipment_facing)
+		draw_set_transform(tip, display_rotation())
 		draw_texture_rect(_texture, Rect2(Vector2(-14,-14),Vector2(28,28)), false)
 		draw_set_transform(Vector2.ZERO)
