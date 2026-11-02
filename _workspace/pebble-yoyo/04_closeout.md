@@ -43,5 +43,6 @@
 - 기준: c4c8dc7f52a2d72964978824ee098eb15814839f, 브랜치 codex/pebble-yoyo, 전용 폴더 /Users/jdh/.codex/worktrees/pebble-yoyo/ForestArena.
 - 공간 부족으로 일반 체크아웃이 실패해 동일한 깨끗한 기준커밋의 추적 파일을 새 폴더에 APFS copy-on-write 복제했다. 기본 폴더와 다른 작업은 수정하지 않았다. 앱 관리 작업 폴더 등록은 지원되지 않아 명시 경로를 사용한다.
 - 기존 구현 commit681bf889a46057f9683e3da3d104035fa025b8ff 및 종료 기록cb6d6309fd41d679e052d98ffee6d824dc7bbd59를 push한 [draft PR120](https://github.com/Dev-DHJang/ForestArena/pull/120)에 이번 수정을 이어간다. 모션 채택·등록 전에는 draft를 유지한다.
+- 이번 수정과 독립 검토 자료 commit은0d7db46a9ff7986c9f545a1c7d5ee9ef5f7ebe4d이다. 사용자 채택 질문은 최종 r03 요요4종·나비 idle 보정1종을 명시했다. 답변 대기 중에는 캐릭터 runtime/manifest 등록·develop 병합을 하지 않는다.
 - 정식 등록은 표준 등록기의 승인·검토 해시 확인과 사전 백업을 사용한다. 기존 PNG를 덮어쓰지 않고 새 버전 경로를 쓰며, 나비 idle의 기존 논리 ID·SpriteFrames 소비자 경로는 유지한다.
 - 되돌릴 때 게임·API·LAN 소비자는 같은 묶음으로 처리하고 이미 저장된 pebble-yoyo 보유 ID를 읽을 수 있는 카탈로그 호환을 유지한다. 보유 데이터는 삭제하지 않는다.
