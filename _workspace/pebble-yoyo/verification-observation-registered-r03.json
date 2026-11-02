@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "kind": "observed-verification-summary-not-original-runner-output",
+  "command": "./scripts/verify.sh --full",
+  "observed_result": {
+    "status": "pass",
+    "total_checks": 94,
+    "completed_checks": 94,
+    "named_checks": 93,
+    "godot_import_steps": 1,
+    "elapsed_seconds": 545.801
+  },
+  "original_result_path": "build/verification/20261102-205122-a0ea3fc7/result.json",
+  "original_log_path": "build/verification/pebble-yoyo/full-registered-r03.log",
+  "verified_tree_record": "_workspace/pebble-yoyo/source-fingerprints.json",
+  "verified_tree_record_sha256": "afd47fdd24bc6f73c0377d7472c714c9d80733f15e5a00a8f2c17bb971f50420",
+  "registration_commit": "e49e06766edf52bc48a930a531b4f43f1f0f348f",
+  "verification_observation": "The assistant directly observed the runner PASS line and parsed result.json status=pass, completed_checks=94, total_checks=94 before the concurrent cleanup removed the clean merged worktree. These values were committed in e49e0676 closeout/source-fingerprints. This record is a recovery summary, not a fabricated original stdout or result.json.",
+  "recovery": "Tracked approved art, review, approval, receipt and runtime evidence were restored from Git at the same named worktree path and the worktree was locked during active closeout. Ignored build logs/result files were not in Git and were removed with that checkout.",
+  "original_result_file_currently_present": false,
+  "original_log_currently_present": false,
+  "post_merge_tested_101_files_unchanged": true
+}
