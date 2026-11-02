@@ -189,6 +189,14 @@ func commands_for_tick(tick: int, match_snapshot: Dictionary) -> Array[CombatInt
 			if action == &"attack_special": action = &""
 			if action == &"attack_light" and actor.get("air_light_used", false): action = &"attack_heavy" if not actor.get("air_heavy_used", false) else &""
 			if action == &"attack_heavy" and actor.get("air_heavy_used", false): action = &"attack_light" if not actor.get("air_light_used", false) else &""
+	# Equipment uses only the same visible snapshot and common intent path.
+	# Keep the stage-recovery and platform actions above higher priority.
+	var equipment_reach := float(actor.get("equipment_reach", 0.0))
+	var safely_inside_floor := position.x >= ground_left + 80.0 and position.x <= ground_right - 80.0
+	if not String(actor.get("equipment_ability_id", "")).is_empty() and int(actor.get("equipment_cooldown_ticks", 0)) == 0 and String(actor.get("state", "")) in ["IDLE", "RUN", "JUMP", "FALL"] and int(actor.get("air_lock", 0)) == 0 and safely_inside_floor and not opponent.is_empty() and absf(delta.y) <= 32.0 and absf(delta.x) >= 60.0 and absf(delta.x) <= equipment_reach and action in [&"", &"attack_light", &"attack_heavy"] and _rng.randi_range(0, 3) == 0:
+		action = &"use_equipment"
+		action_direction = toward
+		direction = toward
 	_set_direction(commands, tick, direction, context)
 	if not action.is_empty(): commands.append(_intent(tick, action, action_direction, context))
 	return commands

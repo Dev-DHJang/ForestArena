@@ -51,8 +51,8 @@ var _fixed_joystick_rect := Rect2()
 
 func _ready() -> void:
 	if simplified_controls:
-		ACTIONS = [&"jump", &"attack_light", &"attack_heavy", &"attack_special"]
-		ACTION_LABELS = ["점프", "약", "강", "특수"]
+		ACTIONS = [&"jump", &"attack_light", &"attack_heavy", &"attack_special", &"use_equipment"]
+		ACTION_LABELS = ["점프", "약", "강", "특수", "장비"]
 	elif extended_actions:
 		ACTIONS = [&"evade", &"jump", &"attack_light", &"attack_heavy", &"attack_special", &"ultimate"]
 		ACTION_LABELS = ["회피", "점프", "약", "강", "특수", "궁극기"]
@@ -163,7 +163,7 @@ func _layout_visuals() -> void:
 			&"attack_light": Vector2(200, 160), &"attack_heavy": Vector2(90, 236),
 			&"attack_special": Vector2(306, 208), &"jump": Vector2(104, 60),
 			&"dash": Vector2(294, 60), &"evade": Vector2(294, 60),
-			&"ultimate": Vector2(218, 310),
+			&"ultimate": Vector2(218, 310), &"use_equipment": Vector2(320, 80),
 		}
 		if simplified_controls: centers[&"jump"] = Vector2(90, 60)
 		for action: StringName in ACTIONS:
@@ -193,7 +193,7 @@ func _layout_visuals() -> void:
 		var visual: TextureRect = _action_visuals[ACTIONS[index]]
 		visual.position = Vector2(viewport_size.x * (0.51 + index * 0.095), viewport_size.y * 0.76)
 		visual.size = Vector2(viewport_size.x * 0.08, viewport_size.y * 0.14)
-		if extended_actions:
+		if extended_actions or simplified_controls:
 			visual.position = Vector2(viewport_size.x * (0.64 + (index % 3) * 0.10), viewport_size.y * (0.62 + (index / 3) * 0.17))
 	_missing_label.position = Vector2(viewport_size.x * 0.48, viewport_size.y * 0.70)
 	_missing_label.size = Vector2(viewport_size.x * 0.50, 32.0)
@@ -391,7 +391,7 @@ func _action_for(position: Vector2) -> StringName:
 	var size := get_viewport_rect().size
 	var normalized := position / size
 	if normalized.x < SAFE_EDGE_RATIO or normalized.x > 1.0 - SAFE_EDGE_RATIO or normalized.y < 0.58: return &""
-	if extended_actions and normalized.x >= 0.50:
+	if (extended_actions or simplified_controls) and normalized.x >= 0.50:
 		for action: StringName in ACTIONS:
 			var visual: TextureRect = _action_visuals[action]
 			if Rect2(visual.position, visual.size).has_point(position): return action
@@ -420,6 +420,7 @@ func _joystick_action(position: Vector2) -> StringName:
 
 
 func _forestlight_action_id(action: StringName, state: String) -> String:
+	if action == &"use_equipment": return ACTION_PRESSED_ID if state == "pressed" else ACTION_DEFAULT_ID
 	var key: String = FORESTLIGHT_ACTIONS[action]
 	return "fa.ui.forestlight.%s.%s" % [key, state] if key == "primary" else "fa.ui.forestlight.action.%s.%s" % [key, state]
 
@@ -444,10 +445,10 @@ func _notification(what: int) -> void:
 
 
 func _build_status_visuals() -> void:
-	for action: StringName in ([&"attack_light", &"attack_heavy", &"attack_special"] if simplified_controls else [&"attack_special", &"ultimate"]):
+	for action: StringName in ([&"attack_light", &"attack_heavy", &"attack_special", &"use_equipment"] if simplified_controls else [&"attack_special", &"ultimate"]):
 		if not _action_visuals.has(action): continue
 		var label := Label.new()
-		label.name = "SpecialReadiness" if action == &"attack_special" else "UltimateReadiness"
+		label.name = "EquipmentReadiness" if action == &"use_equipment" else ("SpecialReadiness" if action == &"attack_special" else "UltimateReadiness")
 		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.add_theme_color_override("font_color", Color("f4f9ee"))
@@ -499,6 +500,10 @@ func update_snapshot(snapshot: Dictionary) -> void:
 	if _status_labels.has(&"attack_special"):
 		var cooldown := int(_local_snapshot.get("special_cooldown_ticks", 0))
 		_status_labels[&"attack_special"].text = (("지상 전용" if not _local_snapshot.get("on_floor", false) else "준비") if cooldown <= 0 else "%.1f초" % (float(cooldown) / _tick_rate)) if simplified_controls else ("준비" if cooldown <= 0 else "%.1f초" % (float(cooldown) / _tick_rate))
+	if _status_labels.has(&"use_equipment"):
+		var cooldown := int(_local_snapshot.get("equipment_cooldown_ticks", 0))
+		var phase := String(_local_snapshot.get("equipment_phase", "idle"))
+		_status_labels[&"use_equipment"].text = "미장착" if not _equipment_equipped() else ("사용 중" if phase != "idle" else ("%.1f초" % (float(cooldown) / _tick_rate) if cooldown > 0 else ("행동 불가" if _is_action_unready(&"use_equipment") else "준비")))
 	if _status_labels.has(&"ultimate"):
 		var used := bool(_local_snapshot.get("ultimate_used_this_stock", false))
 		var gauge := float(_local_snapshot.get("ultimate_gauge", 0))
@@ -512,8 +517,15 @@ func update_snapshot(snapshot: Dictionary) -> void:
 	_refresh_visuals()
 
 
+func _equipment_equipped() -> bool:
+	return not String(_local_snapshot.get("accessory_id", _local_snapshot.get("runtime_profile", {}).get("accessory_id", ""))).is_empty()
+
+
 func _is_action_unready(action: StringName) -> bool:
+	if action == &"use_equipment":
+		return not _equipment_equipped() or int(_local_snapshot.get("equipment_cooldown_ticks", 0)) > 0 or String(_local_snapshot.get("equipment_phase", "idle")) != "idle" or int(_local_snapshot.get("air_lock", 0)) > 0 or int(_local_snapshot.get("landing_down_ticks", 0)) > 0 or String(_local_snapshot.get("state", "IDLE")) not in ["IDLE", "RUN", "JUMP", "FALL"]
 	if _local_snapshot.is_empty(): return false
+	if String(_local_snapshot.get("equipment_phase", "idle")) != "idle": return true
 	if simplified_controls:
 		if int(_local_snapshot.get("air_lock", 0)) > 0 or int(_local_snapshot.get("landing_down_ticks", 0)) > 0: return action in [&"jump", &"attack_light", &"attack_heavy", &"attack_special"]
 		if action == &"attack_special" and not _local_snapshot.get("on_floor", false): return true

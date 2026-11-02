@@ -1,0 +1,724 @@
+{
+  "type": "animation-candidate",
+  "character_id": "nabi",
+  "visual_state_id": "idle",
+  "path": "_workspace/pebble-yoyo/motions/nabi/idle/r03/sheet-128.png",
+  "sprite_frames_path": "res://_workspace/pebble-yoyo/motions/nabi/idle/r03/candidate.tres",
+  "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+  "source_paths": [
+    "assets/character/nabi/animation/runtime/idle_16f_body-fit-v01.png"
+  ],
+  "source_sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+  "conversion": {
+    "method": "PNG bytes unchanged; only frame body_root anchors correct horizontal drawing drift; source idle frame0 position retained",
+    "two_shoe_midpoint_pixels": [
+      82.0,
+      71.5,
+      60.0,
+      49.5,
+      83.0,
+      72.5,
+      62.0,
+      52.5,
+      82.0,
+      73.0,
+      62.5,
+      52.5,
+      82.0,
+      73.0,
+      62.5,
+      54.5
+    ],
+    "target_midpoint_pixels": 82.0
+  },
+  "source_path": "assets/character/nabi/animation/runtime/idle_16f_body-fit-v01.png",
+  "source_sheet_sha256": [
+    "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56"
+  ],
+  "creation": {
+    "method": "exact approved PNG bytes and SpriteFrames frame/time reuse; drawing body_root metadata only",
+    "provider": "project-local deterministic metadata",
+    "version": "pebble-yoyo-idle-root-r03"
+  },
+  "rights": {
+    "status": "existing approved art reused unchanged; new body_root layout requires explicit user adoption",
+    "references": [
+      "docs/contracts/character-appearance-v01.json",
+      "_workspace/pebble-yoyo/05_revision_request.md"
+    ]
+  },
+  "status": "unapproved-workspace-only",
+  "layout_revision": {
+    "kind": "whole-figure display-size candidate",
+    "source_runtime_png": "assets/character/nabi/animation/runtime/idle_16f_natural-v03.png",
+    "source_runtime_png_sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+    "source_runtime_tres": "res://assets/character/nabi/animation/runtime/idle.tres",
+    "source_runtime_tres_sha256": "4b3d28602c4b63edad764d38a087f98392c6b6b27674ebca94c4465978bcd869",
+    "uniform_display_factor": 0.92,
+    "prior_display_scale": 0.9884452139126042,
+    "figure_pixels_changed": false,
+    "intrinsic_body_ratios_changed": false,
+    "assessment": "candidate; independent body-proportion and transition review pending"
+  },
+  "registration_history": [
+    {
+      "asset_id": "nabi-idle-16f-v01",
+      "character_id": "nabi",
+      "type": "animation-runtime",
+      "path": "assets/character/nabi/animation/runtime/idle_16f.png",
+      "creation": {
+        "method": "built-in image generation, one approved idle style master; exact approved review-cell packing",
+        "provider": "OpenAI built-in image generation + project-local normalization",
+        "version": "character-motion-proportion-unification-nabi-v01"
+      },
+      "rights": {
+        "status": "derived from approved nabi concept; no additional external rights verification asserted",
+        "references": [
+          "User explicitly approved the complete 59-motion Nabi and Yu-Ran chibi review set, 2026-10-07",
+          "User explicitly approved 119 replacement motion candidates, 2026-10-08; external license verification not asserted",
+          "2026-10-17: User approved all29 remade Nabi motions; external license verification not asserted."
+        ]
+      },
+      "verified_on": "2026-10-17",
+      "sha256": "c766ba882bbaabdbf2605a20a4f0d9885c9f4a7197fe985949e44fd9d96d682c",
+      "modifications": [
+        "Used the approved target concept for identity and completed Ja-Hyun/Myo-Ryung motions for style and timing reference only.",
+        "Removed alpha below 8, discarded detached cross-cell fragments, and packed 16 RGBA 128x128 cells at foot pivot (64,124).",
+        "Preserved the existing logical asset ID, visual state ID, SpriteFrames path, FPS, loop setting, and combat authority boundary.",
+        "2026-10-08: Installed hash-bound approved candidate; preserved runtime path, SpriteFrames, frame count, FPS, loop and combat timing.",
+        "2026-10-17: Packed exact approved4x4 cells into2048x128, no resize; presentation_scale1.0/foot124; IDs/FPS/loop/combat unchanged."
+      ],
+      "frame_count": 16,
+      "fps": 8,
+      "loop": true,
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+      "foot_pivot_y": 124,
+      "motion_unification": {
+        "report_sha256": "f0e494aaf1364c10d61dabfc8d7166682580a7b2475b88a3b5c291447de6a5d9",
+        "source_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/01_style_reference/approved-idle-source.png",
+        "source_sha256": "818ca0ff794c5311b99a658044ff286a666f9bdc7a29d40b1378304d26a2270b",
+        "review_path": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/04_review/idle/idle-r01-clean.png",
+        "review_sha256": "b4ecbe6b85d732fad2465f4d9cfb42a27921a8118f057dff40817312e131d656",
+        "source_scale": 0.3769633507853403,
+        "approval_record": "_workspace/character-motion-proportion-unification/07_nabi-style-locked/approval-all-29.json"
+      },
+      "visual_state_id": "idle",
+      "presentation_scale": 1.0
+    },
+    {
+      "type": "animation-runtime",
+      "character_id": "nabi",
+      "visual_state_id": "idle",
+      "path": "assets/character/nabi/animation/runtime/idle_16f_natural-v03.png",
+      "sprite_frames_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+      "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "source_paths": [
+        "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png"
+      ],
+      "source_sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.3014354066985646,
+        "per_source_uniform_scales": [
+          0.3014354066985646
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 0.9884452139126042,
+        "source_baseline_y": 278.0,
+        "target_baseline_y": 123.0,
+        "frame_bounds": [
+          [
+            31,
+            43,
+            113,
+            123
+          ],
+          [
+            21,
+            42,
+            102,
+            122
+          ],
+          [
+            12,
+            42,
+            91,
+            123
+          ],
+          [
+            2,
+            42,
+            81,
+            123
+          ],
+          [
+            31,
+            41,
+            115,
+            127
+          ],
+          [
+            21,
+            40,
+            104,
+            126
+          ],
+          [
+            11,
+            40,
+            94,
+            126
+          ],
+          [
+            1,
+            40,
+            84,
+            127
+          ],
+          [
+            33,
+            44,
+            115,
+            125
+          ],
+          [
+            22,
+            43,
+            106,
+            125
+          ],
+          [
+            11,
+            44,
+            96,
+            125
+          ],
+          [
+            2,
+            44,
+            86,
+            126
+          ],
+          [
+            31,
+            43,
+            113,
+            121
+          ],
+          [
+            21,
+            43,
+            104,
+            121
+          ],
+          [
+            11,
+            43,
+            94,
+            121
+          ],
+          [
+            3,
+            43,
+            86,
+            121
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-idle-r07-head.json",
+        "spec_sha256": "10909d4b758c32089d275f5ac56c2a411e3492ff5b4e6926d7850bcc40322f90"
+      },
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+      "source_sheet_sha256": [
+        "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56"
+      ],
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+            "sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 8.0,
+      "loop": true,
+      "presentation_scale": 0.9884452139126042,
+      "foot_pivot_y": 123.0,
+      "asset_id": "nabi-idle-16f-v01",
+      "consumer_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+      "motion_registration": {
+        "catalog_path": "_workspace/motion-naturalness-v1/remaining-candidate-catalog-r10.json",
+        "catalog_sha256": "005960d9a5ec54d29a7ca637905eaee64b33ecb6308a527debc53d46bfbed324",
+        "scope_path": "_workspace/motion-naturalness-v1/remaining-candidate-scope-r10.json",
+        "scope_sha256": "54be4c0ae721c40fc752c358b2411d10158335b300a36b5b8440982c6eb0aad9",
+        "qa_review_path": "_workspace/motion-naturalness-v1/qa/remaining-candidate-review-r10-final/motion-review.json",
+        "qa_review_sha256": "f1fa2b12da11abf14e09db5e25a96d3b5b07a0fa96c8e871a1bd5ff80d4fd4c1",
+        "candidate_png_path": "_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_16f_r07-head.png",
+        "candidate_sprite_frames_path": "res://_workspace/motion-naturalness-v1/candidates/remaining/nabi/idle_r07-head.tres",
+        "candidate_sprite_frames_sha256": "69a65bab71666e10ba8aa9a51fc1e24c0a4bf972d0661b1981060eea8449a215",
+        "approval_record": "_workspace/motion-naturalness-v1/remaining-user-motion-registration-approval-r10.json",
+        "provenance": {
+          "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+          "source_sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+          "creation": {
+            "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+            "provider": "OpenAI built-in image generation",
+            "version": "remaining-motion-r07-head-proposal",
+            "source_inputs": [
+              {
+                "path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+                "sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+                "frame_range": [
+                  0,
+                  16
+                ]
+              }
+            ]
+          },
+          "rights": {
+            "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+            "references": [
+              "assets/character/manifest.json",
+              "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+            ]
+          },
+          "conversion": {
+            "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+            "uniform_scale": 0.3014354066985646,
+            "per_source_uniform_scales": [
+              0.3014354066985646
+            ],
+            "source_scale_multipliers": [
+              1.0
+            ],
+            "reference_scale": 0.33,
+            "presentation_scale": 0.9884452139126042,
+            "source_baseline_y": 278.0,
+            "target_baseline_y": 123.0,
+            "frame_bounds": [
+              [
+                31,
+                43,
+                113,
+                123
+              ],
+              [
+                21,
+                42,
+                102,
+                122
+              ],
+              [
+                12,
+                42,
+                91,
+                123
+              ],
+              [
+                2,
+                42,
+                81,
+                123
+              ],
+              [
+                31,
+                41,
+                115,
+                127
+              ],
+              [
+                21,
+                40,
+                104,
+                126
+              ],
+              [
+                11,
+                40,
+                94,
+                126
+              ],
+              [
+                1,
+                40,
+                84,
+                127
+              ],
+              [
+                33,
+                44,
+                115,
+                125
+              ],
+              [
+                22,
+                43,
+                106,
+                125
+              ],
+              [
+                11,
+                44,
+                96,
+                125
+              ],
+              [
+                2,
+                44,
+                86,
+                126
+              ],
+              [
+                31,
+                43,
+                113,
+                121
+              ],
+              [
+                21,
+                43,
+                104,
+                121
+              ],
+              [
+                11,
+                43,
+                94,
+                121
+              ],
+              [
+                3,
+                43,
+                86,
+                121
+              ]
+            ],
+            "unassigned_small_regions": [],
+            "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-idle-r07-head.json",
+            "spec_sha256": "10909d4b758c32089d275f5ac56c2a411e3492ff5b4e6926d7850bcc40322f90"
+          }
+        }
+      }
+    }
+  ],
+  "frame_count": 16,
+  "atlas_columns": 16,
+  "cell_size": 128,
+  "frame_durations": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "fps": 8.0,
+  "loop": true,
+  "presentation_scale": 0.909369596799596,
+  "foot_pivot_y": 123.0,
+  "asset_id": "nabi-idle-body-root-candidate-r03",
+  "consumer_path": "res://assets/character/nabi/animation/runtime/idle.tres",
+  "motion_registration": {
+    "catalog_path": "_workspace/fighter-presentation-fixes/nabi/registration-catalog-r03.json",
+    "catalog_sha256": "e1993020e578cc95df02847bed8db98ab92821029e53f361f158ab1fc2db6c4c",
+    "scope_path": "_workspace/fighter-presentation-fixes/nabi/registration-scope-r03.json",
+    "scope_sha256": "eba2fe9096d3bc919702b0c0c413acd2c1a6d8fe72a611296b1684eb0aa3ae1d",
+    "qa_review_path": "_workspace/fighter-presentation-fixes/nabi/formal-review-r03/motion-review.json",
+    "qa_review_sha256": "f97196c3d24c6a6b6ecaa70accbac344c61b4275969f4c7521f63d346796781d",
+    "candidate_png_path": "_workspace/fighter-presentation-fixes/nabi/candidates/idle_16f_body-fit-r01.png",
+    "candidate_sprite_frames_path": "res://_workspace/fighter-presentation-fixes/nabi/candidates/idle_body-fit-r01.tres",
+    "candidate_sprite_frames_sha256": "49f9b015c2089ea3ead21ac948b839374ec3d692fa203abcc0e9a470f265a8f6",
+    "approval_record": "_workspace/fighter-presentation-fixes/user-motion-approval-r03.json",
+    "provenance": {
+      "source_path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+      "source_sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+      "creation": {
+        "method": "built-in image_gen source poses; deterministic original-figure atlas layout",
+        "provider": "OpenAI built-in image generation",
+        "version": "remaining-motion-r07-head-proposal",
+        "source_inputs": [
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+            "sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56",
+            "frame_range": [
+              0,
+              16
+            ]
+          }
+        ]
+      },
+      "rights": {
+        "status": "derivative of the approved character appearance; separate per-motion user approval required; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/remaining-motion-brief.json"
+        ]
+      },
+      "conversion": {
+        "method": "original connected figures; uniform scale per source sheet, shared display scale and cell placement; no per-pose or body-part warping",
+        "uniform_scale": 0.3014354066985646,
+        "per_source_uniform_scales": [
+          0.3014354066985646
+        ],
+        "source_scale_multipliers": [
+          1.0
+        ],
+        "reference_scale": 0.33,
+        "presentation_scale": 0.9884452139126042,
+        "source_baseline_y": 278.0,
+        "target_baseline_y": 123.0,
+        "frame_bounds": [
+          [
+            31,
+            43,
+            113,
+            123
+          ],
+          [
+            21,
+            42,
+            102,
+            122
+          ],
+          [
+            12,
+            42,
+            91,
+            123
+          ],
+          [
+            2,
+            42,
+            81,
+            123
+          ],
+          [
+            31,
+            41,
+            115,
+            127
+          ],
+          [
+            21,
+            40,
+            104,
+            126
+          ],
+          [
+            11,
+            40,
+            94,
+            126
+          ],
+          [
+            1,
+            40,
+            84,
+            127
+          ],
+          [
+            33,
+            44,
+            115,
+            125
+          ],
+          [
+            22,
+            43,
+            106,
+            125
+          ],
+          [
+            11,
+            44,
+            96,
+            125
+          ],
+          [
+            2,
+            44,
+            86,
+            126
+          ],
+          [
+            31,
+            43,
+            113,
+            121
+          ],
+          [
+            21,
+            43,
+            104,
+            121
+          ],
+          [
+            11,
+            43,
+            94,
+            121
+          ],
+          [
+            3,
+            43,
+            86,
+            121
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/motion-naturalness-v1/remaining/layout-specs/nabi-idle-r07-head.json",
+        "spec_sha256": "10909d4b758c32089d275f5ac56c2a411e3492ff5b4e6926d7850bcc40322f90"
+      }
+    }
+  },
+  "layout_only_from_asset_id": "nabi-idle-16f-v01",
+  "frame_anchors": [
+    {
+      "body_root": [
+        64.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        53.5,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        42.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        31.5,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        65.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        54.5,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        44.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        34.5,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        64.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        55.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        44.5,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        34.5,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        64.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        55.0,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        44.5,
+        123.0
+      ]
+    },
+    {
+      "body_root": [
+        36.5,
+        123.0
+      ]
+    }
+  ],
+  "expected_action": "기존 승인 대기의 모든 그림·순서·시간·그림 픽셀을 유지하며 양발의 중점을 frame0과 같은 화면 위치에 고정한다. 네 열마다 약10px씩 미끄러지던 표시를 body_root 앵커만으로 보정하여 장비 진입과 복귀 위치를 잇는다.",
+  "action_source": "docs/content/motion-action-review.md"
+}

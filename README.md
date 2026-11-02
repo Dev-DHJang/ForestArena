@@ -70,7 +70,7 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
   PostgreSQL에 저장한다. DB가 비어 있으면 유효한 기기 저장을 한 번 이전하고 원본은 보존한다.
   DB 모드는 다음 실행에도 복원되며 저장 실패 시 재시도를 안내한다.
 
-- 로컬 플레이: 현재 [자현·나비 전투 v2](docs/gameplay/two-fighter-combat-v2.md)를 적용하며 두 캐릭터와 장신구 미장착으로 경기한다. 기존 보유·전적은 보존한다. AI·연습·
+- 로컬 플레이: 현재 [자현·나비 전투 v2](docs/gameplay/two-fighter-combat-v2.md)를 적용하며 두 캐릭터와 미장착 또는 [조약돌 요요](docs/gameplay/pebble-yoyo.md)로 경기한다. 기존 보유·전적은 보존한다. AI·연습·
   최대 8명 Solo·Team 경기, 결과·재대전이 연결됐다. Story는 보상·성장이 없는 프롤로그로
   명시한다. [로컬 AI 안내](docs/gameplay/local-ai-play.md)를 참고한다.
 - 무료 APK 데모: 기존 debug 앱 ID・서명을 유지하고 같은 네트워크의 1대1 한 경기를
@@ -89,7 +89,7 @@ Forest Arena는 발판이 있는 경기장에서 3등신 동물 캐릭터가 상
   터치·중단/복귀와 20:9 시각 검사.
 - 미확인: 최신 전체 모션 묶음의 실제 물리 Android 기기 터치·중단/복귀·성능 재검.
 - 개발 기반: 기존 PostgreSQL·TypeScript 개발 흐름을 유지하며, 별도 데모 DB/API와 Godot LAN headless
-  서버가 자현·나비 미장착 1대1을60Hz로 판정하고20Hz 상태를 전송한다. LAN protocol4는 이전1·2·3과 함께 사용할 수 없다.
+  서버가 자현·나비와 허용 장비의 1대1을60Hz로 판정하고20Hz 상태를 전송한다. LAN protocol5는 이전1·2·3·4와 함께 사용할 수 없다.
 - 미구현: Story 대화·보상·성장·경제, 복수 장신구 동시 장착, 클라우드·8인 정식 온라인,
   출시용 서명·AAB·스토어 등록.
 

@@ -327,6 +327,8 @@ func run_state_coverage() -> void:
 		if params.has("selected_id"):
 			if menu in ["character_collection", "character_detail"] and not app.catalog.is_playable_character(StringName(params.selected_id)):
 				check(app.catalog.is_playable_character(StringName(app.menu_router.state.selected_id)) and app.catalog.contains(params.selected_id, "character"), "archived design selection falls back to active while original catalog remains: " + String(row.design_screen))
+			elif menu in ["accessory_collection", "accessory_detail"] and not app.catalog.is_playable_accessory(StringName(params.selected_id)):
+				check(app.catalog.is_playable_accessory(StringName(app.menu_router.state.selected_id)) and app.catalog.contains(params.selected_id, "accessory"), "archived equipment design falls back to active while original catalog remains: " + String(row.design_screen))
 			else: check(app.menu_router.state.selected_id == params.selected_id, "state visible item matches requested real catalog ID: " + String(row.design_screen))
 		var passed := true
 		for index: int in range(start, checks.size()):
@@ -418,7 +420,7 @@ func run_ownership_checks() -> void:
 	await open_menu("character_collection", {"selected_id": "myo-ryung"})
 	check(app.catalog.is_playable_character(StringName(app.menu_router.state.selected_id)) and button("menu/character_collection/character/myo-ryung") == null, "archived owned character is unavailable in current selection")
 	await open_menu("accessory_collection", {"selected_id": "fixture-iron-armor"})
-	check(button("menu/accessory_collection/select") == null and "사용하지 않" in labels(), "accessory page explains no combat equipment")
+	check(button("menu/accessory_collection/select") != null and app.menu_router.state.selected_id == "pebble-yoyo" and button("menu/accessory_collection/accessory/fixture-iron-armor") == null, "equipment page offers only active yo-yo")
 	check(not app.store.select("myo-ryung", "", "nabi") and not app.store.select("nabi", "fixture-iron-armor", "ja-hyun"), "owned archived items cannot enter current combat")
 	check(app.store.data == before, "archived selection rejection preserves full profile")
 	await open_menu("collection", {"category": "character", "filter": "보유"})
@@ -444,13 +446,20 @@ func run_preset_checks() -> void:
 		await press("menu/character_collection/character/" + CHARACTERS[index])
 		await press("menu/character_collection/select")
 		check(app.menu_router.state.id == "preset", "preset character chooser returns to draft")
-		check(button("menu/preset/edit/accessory").disabled, "new preset equipment edit is disabled")
+		check(not button("menu/preset/edit/accessory").disabled, "equipment preset editing is available")
+		var equipment := "pebble-yoyo" if index % 2 == 0 else ""
+		if not equipment.is_empty():
+			await press("menu/preset/edit/accessory")
+			await press("menu/accessory_collection/accessory/pebble-yoyo")
+			await press("menu/accessory_collection/select")
+			check(app.menu_router.state.id == "preset", "equipment chooser returns to draft")
+		else: await press("menu/preset/clear/accessory")
 		await press("menu/preset/preset_save")
-		check(app.menu_store.slots[index] == {"character": CHARACTERS[index], "accessory": ""}, "slot %d stores active unequipped draft" % index)
+		check(app.menu_store.slots[index] == {"character": CHARACTERS[index], "accessory": equipment}, "slot %d stores active equipment draft" % index)
 		check(app.store.data == actual_before, "slot %d draft save leaves actual loadout unchanged" % index)
 		await press("menu/preset/preset_apply")
 		check(app.screen == "prepare", "slot %d apply opens real prepare" % index)
-		check(app.store.data.selected_character == CHARACTERS[index] and app.store.data.selected_accessory == "", "slot %d applies chosen active loadout" % index)
+		check(app.store.data.selected_character == CHARACTERS[index] and app.store.data.selected_accessory == equipment, "slot %d applies chosen active loadout" % index)
 	var restored = load("res://scripts/premium_menu/local_menu_state_store.gd").new(qa_dir, app.catalog)
 	check(restored.load_presets(app._menu_owner_key(), {"character": app.store.data.selected_character, "accessory": app.store.data.selected_accessory}), "menu presets reopen isolated disk file")
 	check(restored.slots == app.menu_store.slots and restored.selected_slot == 3, "all four slots and active slot survive reopen")

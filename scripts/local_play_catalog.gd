@@ -10,6 +10,7 @@ const ACCESSORIES := [
 	["phoenix_revive", "활공 장신구", "중력 -5% · 공중 속도 -5%"],
 ]
 const PLAYABLE_IDS := ["ja-hyun", "nabi"]
+const PLAYABLE_ACCESSORY_IDS := ["pebble-yoyo"]
 var combat: LoadoutCatalog
 var products: Array[Dictionary] = []
 
@@ -29,6 +30,10 @@ func _init(simplified := true) -> void:
 		var accessory := load("res://assets/loadouts/fixtures/%s_accessory.tres" % entry[0]) as AccessoryData
 		combat.accessories.append(accessory)
 		products.append({"kind": "accessory", "id": String(accessory.accessory_id), "name": entry[1], "description": entry[2], "price": 0, "asset_id": "fa.icon.icon.accessory"})
+
+	var yoyo := load("res://assets/loadouts/pebble_yoyo_accessory.tres") as AccessoryData
+	combat.accessories.append(yoyo)
+	products.append({"kind": "accessory", "id": "pebble-yoyo", "name": "조약돌 요요", "description": "전방으로 발사·회수 · 발사 중 적중 시 0.5초 경직 · 쿨타임 10초", "price": 0, "asset_id": "fa.accessory.pebble.yoyo"})
 
 func product(id: String) -> Dictionary:
 	for item: Dictionary in products:
@@ -52,5 +57,18 @@ func is_playable_character(id: StringName) -> bool:
 func playable_products() -> Array[Dictionary]:
 	var result: Array[Dictionary] = []
 	for item: Dictionary in products:
-		if item.kind == "character" and is_playable_character(StringName(item.id)): result.append(item)
+		if is_playable_product(item.id): result.append(item)
+	return result
+
+
+func is_playable_accessory(id: StringName) -> bool:
+	return String(id) in PLAYABLE_ACCESSORY_IDS
+
+func is_playable_product(id: String) -> bool:
+	return is_playable_character(StringName(id)) or is_playable_accessory(StringName(id))
+
+func playable_accessories() -> Array[AccessoryData]:
+	var result: Array[AccessoryData] = []
+	for accessory: AccessoryData in combat.accessories:
+		if is_playable_accessory(accessory.accessory_id): result.append(accessory)
 	return result

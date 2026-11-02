@@ -16,6 +16,7 @@ var respawn_ticks := 0
 ## Zero means an ordinary full-HP return; effects may specify the next return HP.
 var pending_respawn_hp := 0.0
 var special_cooldown_ticks := 0
+var equipment_cooldown_ticks := 0
 var ultimate_gauge := 0.0
 var ultimate_used_this_stock := false
 var evade_ticks := 0
@@ -39,6 +40,7 @@ func reset(max_hp: float, initial_stocks: int, guard_max: float) -> void:
 	respawn_ticks = 0
 	pending_respawn_hp = 0.0
 	special_cooldown_ticks = 0
+	equipment_cooldown_ticks = 0
 	ultimate_gauge = 0.0
 	ultimate_used_this_stock = false
 	evade_ticks = 0

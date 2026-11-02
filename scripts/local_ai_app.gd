@@ -41,6 +41,8 @@ var last_back_request_msec := -BACK_REQUEST_DEBOUNCE_MSEC
 var selected_mode: LocalMatchConfig.Mode = LocalMatchConfig.Mode.AI
 var solo_participant_count := 4
 var team_size := 2
+## App-session setup only; equipment ownership is checked again before each match.
+var ai_accessories: Dictionary = {}
 var active_config: LocalMatchConfig
 var haptic_request_count := 0
 var lan_client: LanMatchClient
@@ -369,7 +371,7 @@ func _show_lan_host() -> void:
 	screen = "lan_host"
 	_new_page("LAN 방 만들기")
 	_label("Mac 호스트 연결 코드", 18)
-	_line_input("FAH4|http://192.168.x.x:3001|ws://192.168.x.x:7778|4", lan_host_code, func(value: String) -> void: lan_host_code = value)
+	_line_input("FAH5|http://192.168.x.x:3001|ws://192.168.x.x:7778|5", lan_host_code, func(value: String) -> void: lan_host_code = value)
 	_button("연결 코드 붙여넣기", _paste_lan_host_code)
 	_lan_loadout_controls(_show_lan_host)
 	_button("방 생성", _begin_lan_host)
@@ -381,7 +383,7 @@ func _show_lan_join() -> void:
 	screen = "lan_join"
 	_new_page("LAN 방 참가")
 	_label("방장이 전달한 한 줄 초대 코드", 18)
-	_line_input("FA4|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|4", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
+	_line_input("FA5|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|5", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
 	_button("초대 코드 붙여넣기", _paste_lan_invite_code)
 	_lan_loadout_controls(_show_lan_join)
 	_button("방 참가", _begin_lan_join)
@@ -417,13 +419,13 @@ func _lan_loadout_controls(refresh: Callable) -> void:
 	_character_cards(true, func(id: String) -> void:
 		if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}): message = store.error
 		refresh.call())
-	_label("장신구는 현재 대전에서 사용하지 않습니다.", 18)
+	_player_accessory_choice(refresh)
 
 
 func _selected_lan_loadout() -> LoadoutSelection:
 	var selection := LoadoutSelection.new()
 	selection.character_id = StringName(store.data.selected_character)
-	selection.accessory_id = &""
+	selection.accessory_id = StringName(store.data.selected_accessory)
 	return selection
 
 
@@ -993,19 +995,47 @@ func _show_prepare() -> void:
 		_choice_labels("팀 인원", ["1 대 1", "2 대 2", "3 대 3", "4 대 4"], team_size - 1, func(index: int) -> void:
 			team_size = index + 1
 			_show_prepare())
-	_label("장신구는 현재 대전에서 사용하지 않습니다.", 18)
+	_player_accessory_choice(_show_prepare)
 	var opponents: Array = []
 	for character: CharacterData in catalog.playable_characters(): opponents.append(String(character.character_id))
 	_choice("AI 캐릭터", opponents, store.data.opponent_character, func(id: String) -> void:
 		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": store.data.selected_accessory, "opponent": id}): message = store.error
 		_show_prepare())
-	_label("숲의 경기장 · 중앙 통과형 발판 · 양끝 낭떠러지 · 3 STOCK · 온라인 없음", 18)
+	var total := solo_participant_count if selected_mode == LocalMatchConfig.Mode.SOLO else (team_size * 2 if selected_mode == LocalMatchConfig.Mode.TEAM else 2)
+	for ai_index: int in range(1, total):
+		_choice("AI %d 장신구" % ai_index, owned_active_accessory_ids(), ai_accessory_for(ai_index), func(id: String) -> void:
+			set_ai_accessory(ai_index, id)
+			_show_prepare())
+	if selected_mode == LocalMatchConfig.Mode.PRACTICE: _label("연습 허수아비는 장비를 자동 사용하지 않습니다.", 18)
+	_label("숲의 경기장 · 중앙 통과형 발판 · 양끝 낭떠러지 · 3 STOCK", 18)
 	body = outer
 	var actions := HBoxContainer.new()
 	actions.add_theme_constant_override("separation", 16)
 	body.add_child(actions)
 	_button("로비", _show_home, actions)
 	_button("대전 시작", start_match, actions)
+
+
+func owned_active_accessory_ids() -> Array:
+	var ids: Array = [""]
+	for id: String in catalog.PLAYABLE_ACCESSORY_IDS:
+		if store.owns(id): ids.append(id)
+	return ids
+
+func _player_accessory_choice(refresh: Callable) -> void:
+	_choice("장신구", owned_active_accessory_ids(), store.data.selected_accessory, func(id: String) -> void:
+		if not await _change_profile("select", {"character": store.data.selected_character, "accessory": id, "opponent": store.data.opponent_character}): message = store.error
+		refresh.call())
+
+func set_ai_accessory(index: int, id: String) -> bool:
+	if index < 1 or index > 7 or not id in owned_active_accessory_ids(): return false
+	ai_accessories[index] = id
+	return true
+
+func ai_accessory_for(index: int) -> String:
+	var id: String = String(ai_accessories.get(index, ""))
+	return id if id in owned_active_accessory_ids() else ""
+
 
 func _choice(title: String, ids: Array, selected: String, callback: Callable) -> void:
 	var row := HBoxContainer.new()
@@ -1128,7 +1158,7 @@ func start_match() -> void:
 
 
 func _build_match_config() -> LocalMatchConfig:
-	if not store.valid(store.data) or not store.data.first_granted or not catalog.is_playable_character(StringName(store.data.selected_character)) or not catalog.is_playable_character(StringName(store.data.opponent_character)) or not store.data.selected_accessory.is_empty(): return null
+	if not store.valid(store.data) or not store.data.first_granted or not catalog.is_playable_character(StringName(store.data.selected_character)) or not catalog.is_playable_character(StringName(store.data.opponent_character)) or (not store.data.selected_accessory.is_empty() and (not catalog.is_playable_accessory(StringName(store.data.selected_accessory)) or not store.owns(store.data.selected_accessory))): return null
 	var config := LocalMatchConfig.new()
 	config.mode = selected_mode
 	config.seed = 3001
@@ -1140,7 +1170,7 @@ func _build_match_config() -> LocalMatchConfig:
 	for index: int in total:
 		var selection := LoadoutSelection.new()
 		selection.character_id = StringName(store.data.selected_character) if index == 0 else character_ids[(character_ids.find(StringName(store.data.opponent_character)) + index - 1) % character_ids.size()]
-		selection.accessory_id = &"" if index == 0 else &""
+		selection.accessory_id = StringName(store.data.selected_accessory if index == 0 else ai_accessory_for(index))
 		var participant := LocalMatchParticipant.new()
 		participant.participant_id = &"player" if index == 0 else StringName("ai_%d" % index)
 		participant.selection = selection

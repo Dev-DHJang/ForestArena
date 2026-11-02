@@ -1,11 +1,11 @@
 extends Node
 
-const PROTOCOL_VERSION := 4
+const PROTOCOL_VERSION := 5
 const SNAPSHOT_INTERVAL_TICKS := 3
 const RECONNECT_GRACE_MSEC := 60_000
 const REMATCH_GRACE_MSEC := 20_000
 const MAX_PACKET_BYTES := 8192
-const ALLOWED_ACTIONS: Array[String] = ["move", "jump", "attack_light", "attack_heavy", "attack_special"]
+const ALLOWED_ACTIONS: Array[String] = ["move", "jump", "attack_light", "attack_heavy", "attack_special", "use_equipment"]
 const MATCH_SCENE := preload("res://server/game/lan_authority_match.tscn")
 const ROOM_ALPHABET := "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 
@@ -87,23 +87,29 @@ func _ready() -> void:
 	print("FOREST_ARENA_LAN_READY %s" % LanInvite.host_code(advertised_url, api_url))
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	peer.poll()
 	while peer.get_available_packet_count() > 0:
 		var sender := peer.get_packet_peer()
 		var packet := peer.get_packet()
 		_handle_packet(sender, packet.get_string_from_utf8())
 	_flush_disconnects()
-	if running:
-		tick_accumulator += delta
-		var tick_seconds := 1.0 / float(controller.rules.physics_ticks_per_second)
-		while tick_accumulator >= tick_seconds and running:
-			tick_accumulator -= tick_seconds
-			controller.step_fixed_tick(false)
-			if controller.tick % SNAPSHOT_INTERVAL_TICKS == 0: _broadcast_snapshot()
 	_check_deadlines()
 	if not room_code.is_empty() and clients.size() == 1 and not running and not ended and Time.get_ticks_msec() - last_room_heartbeat_msec >= 30_000:
 		_register_room("waiting")
+
+
+func _physics_process(delta: float) -> void:
+	# CharacterBody2D.move_and_slide uses physics delta only inside a physics
+	# callback. Calling the fixed-tick combat loop from _process made movement
+	# depend on the headless render rate despite counting sixty ticks per second.
+	if not running: return
+	tick_accumulator += delta
+	var tick_seconds := 1.0 / float(controller.rules.physics_ticks_per_second)
+	while tick_accumulator >= tick_seconds and running:
+		tick_accumulator -= tick_seconds
+		controller.step_fixed_tick(false)
+		if controller.tick % SNAPSHOT_INTERVAL_TICKS == 0: _broadcast_snapshot()
 
 
 func _handle_packet(peer_id: int, raw: String) -> void:
@@ -272,7 +278,7 @@ func _selection_from(value: Variant) -> LoadoutSelection:
 	selection.character_id = StringName(source.get("character_id", ""))
 	selection.job_id = StringName(source.get("job_id", ""))
 	selection.accessory_id = StringName(source.get("accessory_id", ""))
-	if not selection.is_valid_definition() or not LocalPlayCatalog.PLAYABLE_IDS.has(String(selection.character_id)) or not selection.job_id.is_empty() or not selection.accessory_id.is_empty(): return null
+	if not selection.is_valid_definition() or not LocalPlayCatalog.PLAYABLE_IDS.has(String(selection.character_id)) or not selection.job_id.is_empty() or (not selection.accessory_id.is_empty() and String(selection.accessory_id) not in LocalPlayCatalog.PLAYABLE_ACCESSORY_IDS): return null
 	if catalog.character_by_id(selection.character_id) == null: return null
 	if not selection.job_id.is_empty() and catalog.job_by_id(selection.job_id) == null: return null
 	if not selection.accessory_id.is_empty() and catalog.accessory_by_id(selection.accessory_id) == null: return null
@@ -292,7 +298,7 @@ func _input_message(peer_id: int, message: Dictionary) -> void:
 	var action := String(message.get("action_id", ""))
 	var direction := int(message.get("direction", -1))
 	var edge := int(message.get("edge", -1))
-	if action not in ALLOWED_ACTIONS or direction < 0 or direction > CombatIntent.Direction.DOWN or edge < 0 or edge > CombatIntent.Edge.RELEASE:
+	if (action == "use_equipment" and edge != CombatIntent.Edge.PRESS) or action not in ALLOWED_ACTIONS or direction < 0 or direction > CombatIntent.Direction.DOWN or edge < 0 or edge > CombatIntent.Edge.RELEASE:
 		_send(peer_id, {"type": "error", "code": "invalid_input"})
 		return
 	client.last_seq = seq

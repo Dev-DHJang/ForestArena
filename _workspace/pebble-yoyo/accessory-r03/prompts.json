@@ -1,0 +1,16 @@
+{
+  "tool": "OpenAI built-in image_gen",
+  "transparent_background": true,
+  "prompts": [
+    {
+      "input": "assets/accessory/pebble-yoyo/source/representative.png",
+      "output": "representative-source.png",
+      "prompt": "Use case: precise-object-edit. Asset type: Forest Arena mobile game accessory representative icon, original stone yo-yo. Edit the attached grey pebble yo-yo into a more elegant crafted river-stone yo-yo. Preserve the recognizable natural grey polished stone, teal mineral inlay and warm bronze axle. Change the silhouette from bulky lumpy oval to a balanced ROUND circular palm-sized double-disc yo-yo, smooth bevelled river-pebble edges, tasteful thin bronze rim, off-centre flowing teal mineral vein like a restrained spiral in the front stone face so its spin is legible. Premium animation-game rendering, confident clean silhouette, pleasing slate blue-grey stone shading, restrained warm edge highlights. Three-quarter product view showing the circular front face and narrow central cord groove, one short ivory cord loop; no long loose cord. Center the complete object with generous transparent margins. Genuine transparent RGBA background, no ground shadow, no letters, symbols, tiers, stars, rarity glow, text or watermark. This is an accessory design refinement; do not add characters, scenery or extra objects."
+    },
+    {
+      "input": "_workspace/pebble-yoyo/accessory-r03/representative-source.png",
+      "output": "combat-source.png",
+      "prompt": "Use case: precise-object-edit. Asset type: tiny 2D mobile fighting-game yo-yo combat sprite, front view. Use the attached newly designed circular river-stone yo-yo as exact material and design reference. Show ONE true circular disc, directly face-on orthographic camera: equal width and height, center at exact image center, circular outer rim, grey-blue polished natural pebble stone front face with the SAME flowing teal mineral spiral inset and very thin bronze rim as attached. This is the front face of that same yo-yo, not two overlapping ovals. It must rotate smoothly around its own central axle in 2D, so perfectly centered circular silhouette. A slight bevel and dimensional shading, readable broad teal swirl at 28px size. No cord or cord loop visible, no second disc sticking out, no holes, handles, supports, magic effects, cast shadows, motion lines, text or watermarks. Object fills central 78 percent of a square canvas, transparent margins all sides. Genuine transparent RGBA background. Preserve stone/teal/bronze colors and original crafted-pebble character."
+    }
+  ]
+}

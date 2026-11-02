@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="AccessoryData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/accessory_data.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/data/accessory_ability_data.gd" id="2"]
+
+[sub_resource type="Resource" id="Ability"]
+script = ExtResource("2")
+ability_id = &"pebble-yoyo"
+texture_id = &"fa.accessory.pebble.yoyo.combat"
+cooldown_ticks = 600
+startup_ticks = 6
+extend_ticks = 18
+return_ticks = 18
+recovery_ticks = 6
+reach = 180.0
+hitbox_size = Vector2(28, 28)
+origin_offset = Vector2(24, -32)
+stun_ticks = 30
+ground_motion_id = &"equipment_yoyo_ground"
+air_motion_id = &"equipment_yoyo_air"
+
+[resource]
+script = ExtResource("1")
+accessory_id = &"pebble-yoyo"
+active_ability = SubResource("Ability")

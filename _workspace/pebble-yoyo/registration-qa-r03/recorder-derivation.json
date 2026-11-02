@@ -1,0 +1,12 @@
+{
+  "source": "_workspace/pebble-yoyo/record_preview.gd",
+  "source_sha256": "7fca6f4328aab41faa2053300c1a94f3e6ed5a143c432023cb6f265ea82f0937",
+  "script": "_workspace/pebble-yoyo/registration-qa-r03/record_registered_preview.gd",
+  "script_sha256": "7c3fd068c311e5a089630583793d2b51ff6607ed280dd6dc0f5e692e02eac086",
+  "changes": [
+    "removed candidate ImageTexture/SpriteFrames/layout and Nabi idle layout injection",
+    "assert registered motion and16frames loaded",
+    "separate output path and PASS label; all simulation/pre/postroll/probes unchanged",
+    "defer SceneTree quit after run returns to release local Resource refs; recorded output unchanged"
+  ]
+}

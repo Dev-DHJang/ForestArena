@@ -4,6 +4,7 @@ extends Resource
 ## Phase 2 accessories intentionally have no rarity or grade field.
 @export var schema_version: int = 2
 @export var accessory_id: StringName
+@export var active_ability: AccessoryAbilityData
 @export var stat_modifiers: Array[StatModifier] = []
 @export var move_slot_patches: Array[MoveSlotPatch] = []
 @export var replacement_move_set: MoveSetData
@@ -16,6 +17,7 @@ extends Resource
 
 func is_valid_definition() -> bool:
 	if schema_version != 2 or accessory_id.is_empty(): return false
+	if active_ability != null and not active_ability.is_valid_definition(): return false
 	var stats: Dictionary = {}
 	for modifier: StatModifier in stat_modifiers:
 		if modifier == null or not modifier.is_valid_definition() or stats.has(modifier.field_key()): return false

@@ -66,3 +66,20 @@ test("two-fighter normalization retains historical ownership and rejects inactiv
   for(const id of ["myo-ryung","yu-ran","fixture-boxing-gloves"]) assert.throws(()=>applyAction(next,"purchase",{id}));
   assert.throws(()=>applyAction(next,"select",{character:"ja-hyun",accessory:"fixture-boxing-gloves",opponent:"nabi"}));
 });
+
+
+test("yo-yo free acquisition, ownership, normalization and selection match local policy", () => {
+  const initial = applyAction(fresh(), "grant_first", {id: "nabi"});
+  assert.throws(() => applyAction(initial, "select", {character: "nabi", accessory: "pebble-yoyo", opponent: "ja-hyun"}));
+  const owned = applyAction(initial, "purchase", {id: "pebble-yoyo"});
+  assert.deepEqual(initial.accessories, []);
+  assert.deepEqual(owned.accessories, ["pebble-yoyo"]);
+  assert.throws(() => applyAction(owned, "purchase", {id: "pebble-yoyo"}));
+  const equipped = applyAction(owned, "select", {character: "nabi", accessory: "pebble-yoyo", opponent: "ja-hyun"});
+  assert.equal(equipped.selected_accessory, "pebble-yoyo");
+  assert.deepEqual(migrateProfile(equipped), equipped);
+  const unequipped = applyAction(equipped, "select", {character: "nabi", accessory: "", opponent: "ja-hyun"});
+  assert.equal(unequipped.selected_accessory, "");
+  assert.deepEqual(unequipped.accessories, ["pebble-yoyo"]);
+  assert.throws(() => applyAction(equipped, "purchase", {id: "fixture-iron-armor"}));
+});

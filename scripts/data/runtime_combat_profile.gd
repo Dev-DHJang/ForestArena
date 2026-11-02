@@ -7,6 +7,7 @@ var schema_version := SCHEMA_VERSION
 var character_id: StringName
 var job_id: StringName
 var accessory_id: StringName
+var active_ability: AccessoryAbilityData
 var stats: CharacterStats
 var move_set: MoveSetData
 var combat_rules: Array[CombatRuleData] = []
@@ -16,4 +17,4 @@ var tags: Array[StringName] = []
 
 
 func is_valid_definition() -> bool:
-	return schema_version == SCHEMA_VERSION and not character_id.is_empty() and stats != null and stats.is_valid_base_profile() and move_set != null and move_set.is_valid_definition()
+	return (active_ability == null or active_ability.is_valid_definition()) and schema_version == SCHEMA_VERSION and not character_id.is_empty() and stats != null and stats.is_valid_base_profile() and move_set != null and move_set.is_valid_definition()

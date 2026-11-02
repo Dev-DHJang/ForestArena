@@ -29,6 +29,7 @@ func _initialize() -> void:
 	check(store.slots == [seed, {}, {}, {}] and store.selected_slot == 0, "four slots with current only in slot zero")
 	for index: int in 4:
 		check(store.save_slot(index, "ja-hyun", ""), "save each of four slots")
+	check(store.save_slot(0, "ja-hyun", "pebble-yoyo") and store.slots[0].accessory == "pebble-yoyo", "active yo-yo preset survives save")
 	check(store.set_active_slot(3), "select last slot")
 	var reload := STORE.new(ROOT, catalog)
 	check(reload.load_presets("device", seed) and reload.slots == store.slots and reload.selected_slot == 3, "presets survive re-instantiation")

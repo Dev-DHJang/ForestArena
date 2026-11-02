@@ -1,0 +1,918 @@
+{
+  "schema_version": 1,
+  "reviewer": "yoyo_menu: independent Forest Arena QA, 2026-11-02",
+  "sources": {
+    "_workspace/pebble-yoyo/candidate-catalog.json": "f0234bfe2b3152562529c0d3818ac51f38c88f14b6dab4d659c741697336542c",
+    "_workspace/pebble-yoyo/candidate-scope.json": "831b356ba440a6d90580181e1237832996d7da867ea658dc2456a5b19059e7f1",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/candidate.tres": "00dde5cc6724db17f956300aa1d7104584596e3cb27d35023b1f3941c9598ff7",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/sheet-128.png": "b5823de23ab0a17b06205bebe781255ebf21779184379006951f7ace95cf5a4b",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/candidate.tres": "6631d219db1938a540b5003311c6b747c5647de11f926fcc1daf9350b438936b",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/sheet-128.png": "b7025c9107d0ae2e0bab1499bac1f3a910680bde41b59049235b9d260d31ba62",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/candidate.tres": "321e3822804e6da673b0660c5d77b9ee04ee1243b6b18c7e57cd96362a63093e",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/sheet-128.png": "328813a775c52abb1d47efbfca6162424eb3e051aef38f33c5a7c80fb4cd18ff",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/candidate.tres": "da62fceb0839554454602eba2b10aee2fc88f11dfb442e3edd6dae7dd8d57712",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/sheet-128.png": "92b84c94919849ca12d5e43b67e44d99da377bb3e0797b5ddcf599d8c2732719",
+    "_workspace/pebble-yoyo/motions/nabi/idle/r03/candidate.tres": "eb56cb19befbad07fa96d6de29f1845d9ad1cb392df986de94d828fd9e5b2eb2",
+    "_workspace/pebble-yoyo/motions/nabi/idle/r03/sheet-128.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "fdb3ace56dfe1350e3c3d3a294da90994dd51a697b77cd4f095abe5fda6d3e12",
+    "assets/character/nabi/animation/runtime/idle.tres": "9bdb29eee528fef39506adaf10939b601f9829343e978adbe2b46e9ea4828315",
+    "assets/character/nabi/animation/runtime/idle_16f_body-fit-v01.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "1049bc19fd8558841b8b99578ae6ffe5ced690a92ba3a7652fa60975481ba246",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "7a24ab9828830dfe9a61f12acafba425838ac37ecfc1b4b8d93de76d76b76e5c",
+    "assets/loadouts/pebble_yoyo_accessory.tres": "f8dc367f9cf78543a0d4c91d521d504b1bbfcf1fef150726fbd19035d59eb36b",
+    "docs/content/motion-action-review.md": "c6c7bc5aa2ebe985425a61cafd76bf37d75db75c84446acb9e5093cdbfb4e259",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "docs/gameplay/pebble-yoyo.md": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/accessory_ability_data.gd": "4b6c1101c1055207dd4eec8d81c38c6111fa18287c60851af738f467b1c68781",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "60651f6283714d382efd41cca16fd7454021ac5258652fa21016dce6b1f5e808",
+    "scripts/equipment_visual.gd": "0689b9a7bc24d3550e911ccd76bf223169148c09921f73f92deb71bbe081dfbf",
+    "scripts/fighter_attack_effects.gd": "bb3d20e00127829266169b0d0463333fafec5179d80da23e084c6a5a81876915",
+    "scripts/fighter_controller.gd": "6355e67e5b7de0e4a1052f99c3086e77d5ab27c868ee82cb32717844787c8a8b",
+    "scripts/hit_resolver.gd": "d86c4830c16ecf307c176a0347f2327e61d1198447ed084dc4b8e8ff0a5d4f4f",
+    "scripts/local_fighter_presentation.gd": "0396b4471a446a230770164c7f049ec238982080d2aecefadc36ee4fb7824e56",
+    "scripts/match_controller.gd": "08957799759d0d02f97e12a00840004a21b03618b211158c17f6529365bd37e6",
+    "tools/forest_arena/motion_layout.py": "64ef966a8887211c7b3cf68b5f6bf082cd621fe34cbc43bece22aa52a82235c5",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "8a5372f535f33462086666693d434146d37ae195aed7ec919a110cc924328e79",
+    "tools/forest_arena/motion_review_timeline.gd": "1e7dc43c714280878c1a75fff213bd28899bf0f9d149e70a4f44825a2f877eb3",
+    "tools/forest_arena/review_motion_actions.py": "8cfe59d490251bc01eb87d4420ec8bdd24a5612ca132626fa9703481b864f2f9",
+    "_workspace/pebble-yoyo/game-timeline-r03.json": "62487e32576a42c73b36214f2fbad31d2fbc0a77aaee12610e3ffd8aff18ffc8",
+    "_workspace/pebble-yoyo/record_preview.gd": "7fca6f4328aab41faa2053300c1a94f3e6ed5a143c432023cb6f265ea82f0937",
+    "_workspace/pebble-yoyo/qa-motion-r03/final-evidence-sha256.json": "27cf706ed3dd376c63909c73dd620a29ca6d3edb0e46057f345d8da4b4560a5c",
+    "_workspace/pebble-yoyo/qa-motion-r03/metadata-reconciliation-r03.json": "a7229efa9489e5586bce16f2d397d1240128d3b58eafa4162d662761547078c4",
+    "_workspace/pebble-yoyo/qa-motion-r03/metadata-before-r03/game-timeline-r03.json": "198381f3e524166050403dfa76dde50f2cc7d7117923ed3713b31ac782298fa6",
+    "_workspace/pebble-yoyo/qa-motion-r03/reconstruction.json": "5ddd6e21fd44ba0b7b4510aa59d0d85edf924fd8e6aacc83df2ecf0dc9aef3cc",
+    "_workspace/pebble-yoyo/qa-motion-r03/render_trace_review.py": "e42c93e5e8a91a9b5c5d620c8adcba38e9dc1505a940053b5a1058b2d7db09f6",
+    "_workspace/pebble-yoyo/qa-motion-r03/render_idle_comparison.py": "ce67f59da2e68be120cc1d50df6798fb249d0a27e2c7867b026b1ec6a80650d8",
+    "_workspace/pebble-yoyo/qa-motion-r03/verify_transition_trace.py": "03b8346300474f571773420b7241057ad356ab23ebdff030d1b432ed07520a44",
+    "_workspace/pebble-yoyo/qa-motion-r03/idle-entry-probes.json": "4466a809c78de0133769a89c0363042234e3c902a392bf503b50fc98ad2e3d43",
+    "_workspace/pebble-yoyo/02_animation_revision_r03.md": "b9bb0b2bc3dd06f30e0cfea26b708d0be5298afb8312bc92c75dc1dcbdfd4d92",
+    "_workspace/pebble-yoyo/motion-prompts-r03.json": "e435035eedda25700b596b78ea1ac88ae489196eafb6a5fd58dc2ae54ae37b54",
+    "_workspace/pebble-yoyo/prepare_revision_r03.py": "d4518ace4f912dc767ffa32010ae910aa73cacfe49fce886332849382c7a9208",
+    "_workspace/pebble-yoyo/index.html": "29d376733a67962f2ddc6af50a5112bc3be453c2ab60b559ca49662acebab5fb",
+    "docs/contracts/character-appearance-v01.json": "5289707cbfbdc5816be5395be03fdbab231b1e117d291bdf5d7198c25bdf4f8e",
+    "forest_arena/assets/common/accessory/pebble_yoyo_combat.png": "6578ca6bd40d9d29567611939695d43917b870a82f9b1e3c80a154ec42d29ab8",
+    "_workspace/pebble-yoyo/review-r05/independent-numeric-r03.json": "975c44edbb758487f84b84aaebb2869c32dd1b94ad0428bd38e67c385dd0ffa1",
+    "_workspace/pebble-yoyo/review-r05/independent-actual-trace-checks.json": "28162fae6abe7afddf1ba28db6e4247829a80bf82a7e4b955d5654382dbac9ac",
+    "_workspace/pebble-yoyo/review-r05/independent-observations-r03.json": "663f045bf9bb2c318591dc38cfe067ab82f579527f39ffab3949b70f66ca14cb",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-slow-flip.mp4": "bc881125070de2a782fd25c39e54c66d17c1d18e7d9523f57f2dd07a4970c9fc",
+    "_workspace/pebble-yoyo/qa-motion-r03/nabi-idle-before-after-slow.mp4": "ae22ebd90074501d7aa8b1883eb16b24f862e1707dcc5f15900a43e5c5a66b71",
+    "_workspace/pebble-yoyo/qa-motion-r03/nabi-idle-before-after-normal.mp4": "999cfdf1077fcdf059f7e396833c49f2b580b52312ae9fed762724fa29826c8a",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-normal-flip.mp4": "6d5ac244b762402d1d22e2ea8344024332085afbd3a69c6561ac962a2fcbb394",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-slow.mp4": "6160aee966809e86926ea67eed0f90b97c4fa2093f9989e3a77a0c86efe7001f",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-normal.mp4": "94cf2012a567f10c9759da86c9db99e37435ab44ccc47040b4dfce544797b6f2",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi__equipment_yoyo_air.png": "6c91e2bcaf431b21fab4f3404c5eab01fa14802e88916b9776c3aa0be63b2242",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi-32entry-facing--1.png": "4ff11e0c1d3c73e2397c6d1405e35f4e7a8c577ac04e4ee196688d98d767b426",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi__idle.png": "e36eca9d92a142aab9ef697fa66958b94f1e199d61ea100d08673ccbe41ab1a4",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/ja-hyun__equipment_yoyo_ground.png": "a8e26169a7f11c99d4b1613e93876958809533935d4d7ce74a17c0123a402982",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi-32entry-facing-1.png": "5decd1d2ed0ee7a6d8f68f7b966b13760ff8392a41c123718b2a01c707a4e2aa",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi__equipment_yoyo_ground.png": "a16a790d173996988288c65281721c3e868069c0f521296d0965a459d42aaa38",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/ja-hyun__equipment_yoyo_air.png": "24aa45ae4f47ae009e7277e749eb7678f85d9aa996d5c771f61e58bd513f0fc2",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/candidate.json": "dfa84787f8ea870aef8b16ad4a312708e9c083c37f1989098276e4e303471b88",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/candidate.json": "609c2c2ea12d7eaf486662d3372abe541ab0ba33471e27cb07a62ebfa6a7fb87",
+    "_workspace/pebble-yoyo/motions/nabi/idle/r03/candidate.json": "ef19d770f3fd953fada88341befff906b124df36ce868e53aeada93e936c2c79",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/candidate.json": "8af02da04446c4da9e08ed995c902964220bc73d321800d845f54c144fe2563d",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/candidate.json": "b24af5c240d7c7e82d84b3fc06691fe132e7d765f01ce0605e895296ea54a8e4",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/contact.png": "0bc2d73028a685fffd7872fabce946e06c0d5d5a69679086b7b0e0cf6033b287",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/contact.png": "579210eb7738302735a1a5f3d0d72ae4da6738c5045c6c59e2c0c4cd5b86ef8f",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/contact.png": "f03f3f3eb6d5315dd43839f43f96e6fe1dd4b5a7663c9df649deffa3fd4b3fe6",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/contact.png": "386250c1119d0a19b510f84ea5af6850123e98882628eb057a3ff9a60ff3a5f8",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/anchor-grid.png": "8b6ed7351a6bc37bcbf1274a225e2f5d185b373afb1b32fa80afde5e7ae80e9b",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/anchor-grid.png": "7b97ca71a08020c502e96e81cd25a5d7f1c082be5adf2066d97f6f5aac313590",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/anchor-grid.png": "41edeee243f9c7beaf34352ea110d658a4bcc7305f96c8991148ffe79e73653d",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/anchor-grid.png": "f2edf7029bf7bfbe2dda9221567d5d68f96eb453219318b071ed47b4a262a6e1",
+    "_workspace/pebble-yoyo/revision-r03-inputs/ja-hyun-idle-approved.png": "34cbc01c9033990e06c661954f1320587658a1e56dc0b541efada6d14c3049e0",
+    "_workspace/pebble-yoyo/revision-r03-inputs/nabi-jump-approved.png": "f123196efeacb8943dee49a500aad4d18b4f668f277094bf099b8ddd9d69bfa3",
+    "_workspace/pebble-yoyo/revision-r03-inputs/nabi-idle-approved.png": "1b4b2129859fa619aa80f3432924c5941d9687813f611136d86ec4899f52a817",
+    "_workspace/pebble-yoyo/revision-r03-inputs/ja-hyun-jump-approved.png": "e88cdd671f43e3210058cbf097ecbc72f1709360e16f383bb09fc1aae57bd009"
+  },
+  "timeline_sha256": "86c3e6aaacfd8fd5d5c62e54fbfad4a3eb54b9b3f4f930578223bba61f67f463",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "equipment_yoyo_air",
+      "path": "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/sheet-128.png",
+      "sha256": "b5823de23ab0a17b06205bebe781255ebf21779184379006951f7ace95cf5a4b",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/candidate.tres",
+      "sprite_frames_sha256": "00dde5cc6724db17f956300aa1d7104584596e3cb27d35023b1f3941c9598ff7",
+      "expected_action": "공중에 무릎을 접은 채 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/ja-hyun__equipment_yoyo_air.jpg": "a7427fda4a7e8a2f9c280d435bbbd1016b95c1738e885507d9e002b8609921c2",
+        "sheets/ja-hyun__equipment_yoyo_air.png": "b5823de23ab0a17b06205bebe781255ebf21779184379006951f7ace95cf5a4b"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_air",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "현재 승인 jump와 둥근 귀·흰 머리·얼굴·몸통/팔다리·파란 리본을 직접 대조했다. 지상처럼 서지 않고 무릎이 접힌 공중 자세에서 팔을 내밀고 잡는다. 보완한99틱 실제 trace는16그림과4단계 전부 공중 모션으로 선택하고 종료 뒤 jump로 돌아온다. 정상/0.25배속/실제 왼쪽 재생과 마지막14·15그림을 확인했다. 배율0.85에서 손·실 연결과 마지막 회수의 손 일치, 잡은 각도 정지 및 전체 윤곽을 확인했다. 실제 display_rotation을 사용한 정면 원형 본체의 청록 나선이 축을 중심으로 회전하며, 기울어진 두 타원 덩어리가 뒤집히던 인상을 제거했다. 실제 좌우 trace의 회전 부호가 반대이고 회복 각도는 정지한다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "equipment_yoyo_ground",
+      "path": "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/sheet-128.png",
+      "sha256": "b7025c9107d0ae2e0bab1499bac1f3a910680bde41b59049235b9d260d31ba62",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/candidate.tres",
+      "sprite_frames_sha256": "6631d219db1938a540b5003311c6b747c5647de11f926fcc1daf9350b438936b",
+      "expected_action": "지상 발 디딤을 유지하며 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/ja-hyun__equipment_yoyo_ground.jpg": "fe81659827129f3aadaece0ab7a81e838bea4eb4bd51213dc52f46f87bc618a8",
+        "sheets/ja-hyun__equipment_yoyo_ground.png": "b7025c9107d0ae2e0bab1499bac1f3a910680bde41b59049235b9d260d31ba62"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_ground",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "승인 idle의 낮은 자세·머리/귀/얼굴·재킷/바지 구조와 전체16그림을 직접 대조했다. 준비0~2→손을 앞에 펴는3~7→당겨 잡는8~12→기존 대기로 이어지는13~15가 읽힌다. 이전 r02의 커진 머리·상체 모델 교체를 재현하지 않았다. 실제 정상/0.25배속/좌우 재생의 손과 실 연결, 회수 끝 손 일치, 잡은 뒤 정지, idle 진입 전후를 확인했다. 몸 기준 배율0.85와 지상 발 디딤을 유지하며 잘린 신체가 없다. 실제 display_rotation을 사용한 정면 원형 본체의 청록 나선이 축을 중심으로 회전하며, 기울어진 두 타원 덩어리가 뒤집히던 인상을 제거했다. 실제 좌우 trace의 회전 부호가 반대이고 회복 각도는 정지한다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "equipment_yoyo_air",
+      "path": "_workspace/pebble-yoyo/motions/nabi/air/r03/sheet-128.png",
+      "sha256": "328813a775c52abb1d47efbfca6162424eb3e051aef38f33c5a7c80fb4cd18ff",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/nabi/air/r03/candidate.tres",
+      "sprite_frames_sha256": "321e3822804e6da673b0660c5d77b9ee04ee1243b6b18c7e57cd96362a63093e",
+      "expected_action": "공중에 무릎을 접은 채 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/nabi__equipment_yoyo_air.jpg": "ec5f8605391f5be8113f6bd635c0355368cc7d18e7c3b4d9b969c0299c1b0ffa",
+        "sheets/nabi__equipment_yoyo_air.png": "328813a775c52abb1d47efbfca6162424eb3e051aef38f33c5a7c80fb4cd18ff"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_air",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "승인 jump와 얼굴·귀·머리/몸 비율·의상·굵은 꼬리/방울을 전체16그림으로 직접 대조했다. 접힌 무릎의 공중 자세에서 준비→전방 손 펴기→회수/잡기가 읽힌다. 보완한 실제99틱 재생은마지막13~15도 공중 모션이고 이후 승인 jump로 복귀한다. 정상/0.25배속/실제 좌우 재생, 손·실 연결, 마지막 손 위치 및 정지한 잡기 각도를 확인했다. 배율0.8488372093의 작은 표시에서도 캐릭터 구조를 유지하고 불투명 배경/잘림이 없다. 실제 display_rotation을 사용한 정면 원형 본체의 청록 나선이 축을 중심으로 회전하며, 기울어진 두 타원 덩어리가 뒤집히던 인상을 제거했다. 실제 좌우 trace의 회전 부호가 반대이고 회복 각도는 정지한다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "equipment_yoyo_ground",
+      "path": "_workspace/pebble-yoyo/motions/nabi/ground/r03/sheet-128.png",
+      "sha256": "92b84c94919849ca12d5e43b67e44d99da377bb3e0797b5ddcf599d8c2732719",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/nabi/ground/r03/candidate.tres",
+      "sprite_frames_sha256": "da62fceb0839554454602eba2b10aee2fc88f11dfb442e3edd6dae7dd8d57712",
+      "expected_action": "지상 발 디딤을 유지하며 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/nabi__equipment_yoyo_ground.jpg": "584e09cfd6f7fe350d87b451965fbc462e40db9fd90e3dbdb7c4fd85e0c8b12f",
+        "sheets/nabi__equipment_yoyo_ground.png": "92b84c94919849ca12d5e43b67e44d99da377bb3e0797b5ddcf599d8c2732719"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_ground",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "승인 idle의 얼굴·머리/귀·검정/보라 재킷·다리·굵은 꼬리/방울을 전체16그림과 직접 대조했다. 준비0~2 뒤 손을 펼쳐3~7에서 앞으로 던지고8~12에서 잡아13~15를 거쳐 대기로 돌아간다. 승인 PNG 그대로인 새 idle 보정과 연결한32개 좌우 진입 비교에서 열별 가로 점프가 사라지고 첫 idle 위치를 유지한다. 실제 정상/0.25배속/좌우와 작은 표시 배율0.9093695968에서도 손·실·원형 본체가 이어지며 신체 잘림이 없다. 실제 display_rotation을 사용한 정면 원형 본체의 청록 나선이 축을 중심으로 회전하며, 기울어진 두 타원 덩어리가 뒤집히던 인상을 제거했다. 실제 좌우 trace의 회전 부호가 반대이고 회복 각도는 정지한다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "idle",
+      "path": "_workspace/pebble-yoyo/motions/nabi/idle/r03/sheet-128.png",
+      "sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/nabi/idle/r03/candidate.tres",
+      "sprite_frames_sha256": "eb56cb19befbad07fa96d6de29f1845d9ad1cb392df986de94d828fd9e5b2eb2",
+      "expected_action": "기존 승인 대기의 모든 그림·순서·시간·그림 픽셀을 유지하며 양발의 중점을 frame0과 같은 화면 위치에 고정한다. 네 열마다 약10px씩 미끄러지던 표시를 body_root 앵커만으로 보정하여 장비 진입과 복귀 위치를 잇는다.",
+      "action_source": "docs/content/motion-action-review.md",
+      "action_source_sha256": "c6c7bc5aa2ebe985425a61cafd76bf37d75db75c84446acb9e5093cdbfb4e259",
+      "materials": {
+        "boards/nabi__idle.jpg": "6e3cbf0152a1d30b0b644ec861865499a81944812c86dd9e0c9f6e39f6ed45c8",
+        "sheets/nabi__idle.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:idle",
+          "sequence": [
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              0,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              1,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              2,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              3,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              4,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              5,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              6,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              7,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              8,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              9,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              10,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              11,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              12,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              13,
+              "idle",
+              "idle",
+              133.3333333333336
+            ],
+            [
+              14,
+              "idle",
+              "idle",
+              116.6666666666669
+            ],
+            [
+              15,
+              "idle",
+              "idle",
+              133.3333333333336
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "현재 승인 idle PNG와 바이트가 완전히 같고 FPS8·16프레임 순서/시간·반복·배율·발 기준점을 보존함을 대조했다. body_root의 가로 이동만 보정해 기존 첫 그림 위치를 유지한다. 전체16그림의 작은 표시와32개 좌우 BEFORE→ENTRY→AFTER 실제 좌표 비교판, 정상4초/0.25배속16초 전후 비교 영상으로 호흡/꼬리를 유지하면서 열마다 약10px씩 미끄러지던 오류 제거를 확인했다. 독립 알파64 하단 신발밴드 측정은 보정 후17.5~18.5px 범위로 열별 드리프트가 없다. 단일 요요 앵커 조정으로 숨기지 않고 모든 idle 진입을 보정한다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/pebble-yoyo/candidate-catalog.json",
+    "catalog_sha256": "f0234bfe2b3152562529c0d3818ac51f38c88f14b6dab4d659c741697336542c",
+    "scope_path": "_workspace/pebble-yoyo/candidate-scope.json",
+    "scope_sha256": "831b356ba440a6d90580181e1237832996d7da867ea658dc2456a5b19059e7f1",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "qa",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "e5bec22323fc8101a65f02acb80bb6bac7de91b35ad5b8a1b50eedfa8116f7d7",
+    "timeline.json": "86c3e6aaacfd8fd5d5c62e54fbfad4a3eb54b9b3f4f930578223bba61f67f463"
+  },
+  "supplemental_materials": {
+    "_workspace/pebble-yoyo/game-timeline-r03.json": "62487e32576a42c73b36214f2fbad31d2fbc0a77aaee12610e3ffd8aff18ffc8",
+    "_workspace/pebble-yoyo/record_preview.gd": "7fca6f4328aab41faa2053300c1a94f3e6ed5a143c432023cb6f265ea82f0937",
+    "_workspace/pebble-yoyo/qa-motion-r03/final-evidence-sha256.json": "27cf706ed3dd376c63909c73dd620a29ca6d3edb0e46057f345d8da4b4560a5c",
+    "_workspace/pebble-yoyo/qa-motion-r03/metadata-reconciliation-r03.json": "a7229efa9489e5586bce16f2d397d1240128d3b58eafa4162d662761547078c4",
+    "_workspace/pebble-yoyo/qa-motion-r03/metadata-before-r03/game-timeline-r03.json": "198381f3e524166050403dfa76dde50f2cc7d7117923ed3713b31ac782298fa6",
+    "_workspace/pebble-yoyo/qa-motion-r03/reconstruction.json": "5ddd6e21fd44ba0b7b4510aa59d0d85edf924fd8e6aacc83df2ecf0dc9aef3cc",
+    "_workspace/pebble-yoyo/qa-motion-r03/render_trace_review.py": "e42c93e5e8a91a9b5c5d620c8adcba38e9dc1505a940053b5a1058b2d7db09f6",
+    "_workspace/pebble-yoyo/qa-motion-r03/render_idle_comparison.py": "ce67f59da2e68be120cc1d50df6798fb249d0a27e2c7867b026b1ec6a80650d8",
+    "_workspace/pebble-yoyo/qa-motion-r03/verify_transition_trace.py": "03b8346300474f571773420b7241057ad356ab23ebdff030d1b432ed07520a44",
+    "_workspace/pebble-yoyo/qa-motion-r03/idle-entry-probes.json": "4466a809c78de0133769a89c0363042234e3c902a392bf503b50fc98ad2e3d43",
+    "_workspace/pebble-yoyo/02_animation_revision_r03.md": "b9bb0b2bc3dd06f30e0cfea26b708d0be5298afb8312bc92c75dc1dcbdfd4d92",
+    "_workspace/pebble-yoyo/motion-prompts-r03.json": "e435035eedda25700b596b78ea1ac88ae489196eafb6a5fd58dc2ae54ae37b54",
+    "_workspace/pebble-yoyo/prepare_revision_r03.py": "d4518ace4f912dc767ffa32010ae910aa73cacfe49fce886332849382c7a9208",
+    "_workspace/pebble-yoyo/index.html": "29d376733a67962f2ddc6af50a5112bc3be453c2ab60b559ca49662acebab5fb",
+    "docs/contracts/character-appearance-v01.json": "5289707cbfbdc5816be5395be03fdbab231b1e117d291bdf5d7198c25bdf4f8e",
+    "forest_arena/assets/common/accessory/pebble_yoyo_combat.png": "6578ca6bd40d9d29567611939695d43917b870a82f9b1e3c80a154ec42d29ab8",
+    "_workspace/pebble-yoyo/review-r05/independent-numeric-r03.json": "975c44edbb758487f84b84aaebb2869c32dd1b94ad0428bd38e67c385dd0ffa1",
+    "_workspace/pebble-yoyo/review-r05/independent-actual-trace-checks.json": "28162fae6abe7afddf1ba28db6e4247829a80bf82a7e4b955d5654382dbac9ac",
+    "_workspace/pebble-yoyo/review-r05/independent-observations-r03.json": "663f045bf9bb2c318591dc38cfe067ab82f579527f39ffab3949b70f66ca14cb",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-slow-flip.mp4": "bc881125070de2a782fd25c39e54c66d17c1d18e7d9523f57f2dd07a4970c9fc",
+    "_workspace/pebble-yoyo/qa-motion-r03/nabi-idle-before-after-slow.mp4": "ae22ebd90074501d7aa8b1883eb16b24f862e1707dcc5f15900a43e5c5a66b71",
+    "_workspace/pebble-yoyo/qa-motion-r03/nabi-idle-before-after-normal.mp4": "999cfdf1077fcdf059f7e396833c49f2b580b52312ae9fed762724fa29826c8a",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-normal-flip.mp4": "6d5ac244b762402d1d22e2ea8344024332085afbd3a69c6561ac962a2fcbb394",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-slow.mp4": "6160aee966809e86926ea67eed0f90b97c4fa2093f9989e3a77a0c86efe7001f",
+    "_workspace/pebble-yoyo/qa-motion-r03/trace-normal.mp4": "94cf2012a567f10c9759da86c9db99e37435ab44ccc47040b4dfce544797b6f2",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi__equipment_yoyo_air.png": "6c91e2bcaf431b21fab4f3404c5eab01fa14802e88916b9776c3aa0be63b2242",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi-32entry-facing--1.png": "4ff11e0c1d3c73e2397c6d1405e35f4e7a8c577ac04e4ee196688d98d767b426",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi__idle.png": "e36eca9d92a142aab9ef697fa66958b94f1e199d61ea100d08673ccbe41ab1a4",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/ja-hyun__equipment_yoyo_ground.png": "a8e26169a7f11c99d4b1613e93876958809533935d4d7ce74a17c0123a402982",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi-32entry-facing-1.png": "5decd1d2ed0ee7a6d8f68f7b966b13760ff8392a41c123718b2a01c707a4e2aa",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/nabi__equipment_yoyo_ground.png": "a16a790d173996988288c65281721c3e868069c0f521296d0965a459d42aaa38",
+    "_workspace/pebble-yoyo/review-r05/independent-boards/ja-hyun__equipment_yoyo_air.png": "24aa45ae4f47ae009e7277e749eb7678f85d9aa996d5c771f61e58bd513f0fc2",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/candidate.json": "dfa84787f8ea870aef8b16ad4a312708e9c083c37f1989098276e4e303471b88",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/candidate.json": "609c2c2ea12d7eaf486662d3372abe541ab0ba33471e27cb07a62ebfa6a7fb87",
+    "_workspace/pebble-yoyo/motions/nabi/idle/r03/candidate.json": "ef19d770f3fd953fada88341befff906b124df36ce868e53aeada93e936c2c79",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/candidate.json": "8af02da04446c4da9e08ed995c902964220bc73d321800d845f54c144fe2563d",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/candidate.json": "b24af5c240d7c7e82d84b3fc06691fe132e7d765f01ce0605e895296ea54a8e4",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/contact.png": "0bc2d73028a685fffd7872fabce946e06c0d5d5a69679086b7b0e0cf6033b287",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/contact.png": "579210eb7738302735a1a5f3d0d72ae4da6738c5045c6c59e2c0c4cd5b86ef8f",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/contact.png": "f03f3f3eb6d5315dd43839f43f96e6fe1dd4b5a7663c9df649deffa3fd4b3fe6",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/contact.png": "386250c1119d0a19b510f84ea5af6850123e98882628eb057a3ff9a60ff3a5f8",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/anchor-grid.png": "8b6ed7351a6bc37bcbf1274a225e2f5d185b373afb1b32fa80afde5e7ae80e9b",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/anchor-grid.png": "7b97ca71a08020c502e96e81cd25a5d7f1c082be5adf2066d97f6f5aac313590",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r03/anchor-grid.png": "41edeee243f9c7beaf34352ea110d658a4bcc7305f96c8991148ffe79e73653d",
+    "_workspace/pebble-yoyo/motions/nabi/air/r03/anchor-grid.png": "f2edf7029bf7bfbe2dda9221567d5d68f96eb453219318b071ed47b4a262a6e1",
+    "_workspace/pebble-yoyo/revision-r03-inputs/ja-hyun-idle-approved.png": "34cbc01c9033990e06c661954f1320587658a1e56dc0b541efada6d14c3049e0",
+    "_workspace/pebble-yoyo/revision-r03-inputs/nabi-jump-approved.png": "f123196efeacb8943dee49a500aad4d18b4f668f277094bf099b8ddd9d69bfa3",
+    "_workspace/pebble-yoyo/revision-r03-inputs/nabi-idle-approved.png": "1b4b2129859fa619aa80f3432924c5941d9687813f611136d86ec4899f52a817",
+    "_workspace/pebble-yoyo/revision-r03-inputs/ja-hyun-jump-approved.png": "e88cdd671f43e3210058cbf097ecbc72f1709360e16f383bb09fc1aae57bd009"
+  },
+  "review_method": "Whole-frame visual comparison with current approved idle/jump; actual-code 99-tick traces with 27-tick preroll and24-tick postroll,32 left/right idle entry probes; native QuickTime normal and0.25x right/left replay plus end/catch/frame scrubbing; independent display-scale boards. Offline reconstruction, not Android/device capture. Previous r02 pass is superseded."
+}

@@ -7,10 +7,10 @@ func check(ok: bool, label: String) -> void:
 
 func _initialize() -> void:
 	var local := LocalPlayCatalog.new(false)
-	check(local.combat.characters.size() == 4 and local.combat.accessories.size() == 6, "catalog coverage")
+	check(local.combat.characters.size() == 4 and local.combat.accessories.size() == 7, "catalog coverage")
 	var stable_ids := ["fixture-iron-armor", "fixture-boxing-gloves", "fixture-thorns", "fixture-explosive-gloves", "fixture-ultimate-charm", "fixture-phoenix-revive"]
 	for accessory: AccessoryData in local.combat.accessories:
-		check(stable_ids.has(String(accessory.accessory_id)), "legacy owned ID retained")
+		check(stable_ids.has(String(accessory.accessory_id)) or accessory.accessory_id == &"pebble-yoyo", "legacy owned IDs and new equipment retained")
 		check(accessory.is_valid_definition(), "valid sidegrade " + String(accessory.accessory_id))
 		check(accessory.combat_rules.is_empty(), "no permanent armor/immunity")
 		var product := local.product(String(accessory.accessory_id))

@@ -187,6 +187,31 @@ func _run() -> void:
 						for frame_index: int in range(int(bounds[0]),int(bounds[1])):
 							if not visible.has(frame_index): errors.append("candidate authored drawing skipped by actual phase playback: %s/%s/%s frame %d" % [id,motion,phase_name,frame_index])
 				variants.append({"attack_id": String(attack.attack_id), "phase_ticks": lengths, "self_impulse": [attack.self_impulse.x, attack.self_impulse.y], "samples": samples})
+			if entry.has("equipment_resource_path"):
+				_reset(presentation,fighter)
+				var accessory := load("res://" + String(entry.equipment_resource_path)) as AccessoryData
+				if accessory == null or accessory.active_ability == null:
+					errors.append("missing equipment resource for " + motion)
+					continue
+				profile.active_ability = accessory.active_ability.duplicate(true)
+				var ability := profile.active_ability
+				if motion not in [String(ability.ground_motion_id),String(ability.air_motion_id)]:
+					errors.append("equipment motion not declared by ability: " + motion)
+					continue
+				var lengths := [ability.startup_ticks,ability.extend_ticks,ability.return_ticks,ability.recovery_ticks]
+				var samples: Array[Dictionary] = []
+				fighter.equipment_tick = 0
+				fighter.equipment_airborne = motion == String(ability.air_motion_id)
+				for phase_index: int in 4:
+					fighter.state = FighterController.State.EQUIPMENT
+					fighter.equipment_phase = ["startup","extend","return","recovery"][phase_index]
+					for tick: int in int(lengths[phase_index]):
+						fighter.equipment_phase_tick = tick
+						fighter.equipment_tick += 1
+						samples.append(_sample(presentation,fighter,1.0/60.0,fighter.equipment_phase))
+				variants.append({"attack_id":"state:"+motion,"phase_ticks":lengths,"stimulus":"loaded ability phase clocks; real cast trajectory recorded separately in pebble-yoyo/game-timeline.json","samples":samples})
+				fighter._stop_equipment()
+				profile.active_ability = null
 			if variants.is_empty() or motion == "attack_heavy_charge":
 				_reset(presentation, fighter)
 				var samples: Array[Dictionary] = []

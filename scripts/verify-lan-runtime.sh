@@ -89,7 +89,7 @@ ids = [r['route'].split('/')[-2] for r in registered]
 assert len(ids) == len(set(ids)), 'rematches must have unique UUIDs'
 for value in ids: uuid.UUID(value)
 first = registered[0]['payload']['participants']
-assert [(r['player_id'],r['character_id'],r['accessory_id']) for r in first] == [('host','nabi',''),('guest','ja-hyun','')]
+assert [(r['player_id'],r['character_id'],r['accessory_id']) for r in first] == [('host','nabi','pebble-yoyo'),('guest','ja-hyun','')]
 for result in results:
     assert result['route'].split('/')[-2] in ids
     assert result['payload']['reason'] in ('combat','draw','disconnect')

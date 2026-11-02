@@ -18,13 +18,16 @@ static func resolve(intents: Array[CombatIntent]) -> Array[CombatIntent]:
 		var down := group.any(func(intent: CombatIntent) -> bool: return intent.action_id == &"move" and intent.direction == CombatIntent.Direction.DOWN and intent.edge != CombatIntent.Edge.RELEASE)
 		var jump: CombatIntent = _first_press(group, &"jump")
 		var attack: CombatIntent = _first_attack(group)
+		var equipment: CombatIntent = _first_press(group, &"use_equipment")
 		for intent: CombatIntent in group:
 			if intent.action_id == &"move": result.append(intent)
-		# Priority is platform drop, then down directional attack, then bare-down guard.
+		# Priority: drop > ordinary attack > equipment > bare-down guard > jump.
 		if down and jump != null:
 			result.append(CombatIntent.new(jump.tick, fighter_id, &"drop_platform", CombatIntent.Direction.DOWN, CombatIntent.Edge.PRESS, jump.context))
 		elif attack != null:
 			result.append(attack)
+		elif equipment != null:
+			result.append(equipment)
 		elif down:
 			var move: CombatIntent = group.filter(func(intent: CombatIntent) -> bool: return intent.action_id == &"move")[0]
 			result.append(CombatIntent.new(move.tick, fighter_id, &"guard", CombatIntent.Direction.DOWN, CombatIntent.Edge.HOLD, move.context))

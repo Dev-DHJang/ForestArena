@@ -46,7 +46,7 @@ func open_client() -> Dictionary:
 	return client
 
 func send(client: Dictionary, message: Dictionary) -> void:
-	message.protocol_version = 4
+	message.protocol_version = 5
 	check(client.peer.put_packet(JSON.stringify(message).to_utf8_buffer()) == OK, "normal LAN v2 input sends")
 
 func message(client: Dictionary, kind: String) -> Dictionary:

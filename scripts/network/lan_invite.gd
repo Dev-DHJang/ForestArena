@@ -1,9 +1,9 @@
 class_name LanInvite
 extends RefCounted
 
-const PROTOCOL_VERSION := 4
-const HOST_PREFIX := "FAH4"
-const INVITE_PREFIX := "FA4"
+const PROTOCOL_VERSION := 5
+const HOST_PREFIX := "FAH5"
+const INVITE_PREFIX := "FA5"
 const ROOM_CODE_LENGTH := 8
 
 
@@ -20,7 +20,7 @@ static func invite_code(websocket_url: String, room_code: String, api_url: Strin
 
 static func parse_host_code(value: String) -> Dictionary:
 	var parts := value.strip_edges().split("|", true)
-	if parts[0] in ["FAH1", "FAH2", "FAH3"]: return {"error": "unsupported_protocol"}
+	if parts[0] in ["FAH1", "FAH2", "FAH3", "FAH4"]: return {"error": "unsupported_protocol"}
 	if parts.size() != 4 or parts[0] != HOST_PREFIX or parts[3] != str(PROTOCOL_VERSION):
 		return {"error": "invalid_host_code"}
 	if not valid_endpoint_pair(parts[2], parts[1]): return {"error": "invalid_private_endpoint"}
@@ -29,7 +29,7 @@ static func parse_host_code(value: String) -> Dictionary:
 
 static func parse_invite_code(value: String) -> Dictionary:
 	var parts := value.strip_edges().split("|", true)
-	if parts[0] in ["FA1", "FA2", "FA3"]: return {"error": "unsupported_protocol"}
+	if parts[0] in ["FA1", "FA2", "FA3", "FA4"]: return {"error": "unsupported_protocol"}
 	if parts.size() != 5 or parts[0] != INVITE_PREFIX or parts[4] != str(PROTOCOL_VERSION):
 		return {"error": "invalid_invite_code"}
 	if not valid_endpoint_pair(parts[2], parts[1]): return {"error": "invalid_private_endpoint"}

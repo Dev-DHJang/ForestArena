@@ -131,6 +131,16 @@ func _on_action(action_id: String, payload: Dictionary = {}) -> void:
 		"service": await _service_action(payload)
 		"select": await _select(String(payload.id))
 		"purchase": await _purchase(String(payload.id))
+		"unequip":
+			if state.get("preset_edit", false):
+				_preset_draft.accessory = ""
+				open("preset")
+			else:
+				busy = true
+				var ok: bool = await app._change_profile("select", {"character": app.store.data.selected_character, "accessory": "", "opponent": app.store.data.opponent_character})
+				busy = false
+				state.message = "장신구를 해제했습니다." if ok else app.store.error
+				_rebuild()
 		"nickname": await _nickname(String(payload.value))
 		"retry_db": app._retry_db()
 		"retry_local": _retry_local()
@@ -177,7 +187,7 @@ func _retry_local() -> void:
 
 func _select(id: String, redraw := true) -> bool:
 	var item: Dictionary = app.catalog.product(id)
-	if item.is_empty() or item.kind != "character" or not app.catalog.is_playable_character(StringName(id)) or not app.store.owns(id):
+	if item.is_empty() or not app.catalog.is_playable_product(id) or not app.store.owns(id):
 		if redraw: view.confirm("아직 보유하지 않았습니다", "상점에서 0원 무료 구매 후 선택할 수 있습니다.", "상점으로", func() -> void: open("shop", {"category": item.get("kind", "전체")}))
 		return false
 	if state.get("preset_edit", false):
@@ -188,7 +198,7 @@ func _select(id: String, redraw := true) -> bool:
 		_rebuild()
 		return true
 	var character: String = id if item.kind == "character" else String(app.store.data.selected_character)
-	var accessory: String = ""
+	var accessory: String = id if item.kind == "accessory" else String(app.store.data.selected_accessory)
 	busy = true
 	var ok: bool = await app._change_profile("select", {"character": character, "accessory": accessory, "opponent": app.store.data.opponent_character})
 	busy = false
@@ -217,16 +227,20 @@ func _nickname(value: String) -> void:
 func _valid_preset(value: Dictionary) -> bool:
 	var character: String = String(value.get("character", ""))
 	var accessory: String = String(value.get("accessory", ""))
-	return app.catalog.is_playable_character(StringName(character)) and app.store.owns(character) and accessory.is_empty()
+	return app.catalog.is_playable_character(StringName(character)) and app.store.owns(character) and (accessory.is_empty() or (app.catalog.is_playable_accessory(StringName(accessory)) and app.store.owns(accessory)))
 
 func _apply_preset() -> void:
+	var requested_accessory: String = String(_preset_draft.get("accessory", ""))
+	if app.catalog.is_playable_accessory(StringName(requested_accessory)) and not app.store.owns(requested_accessory):
+		view.confirm("보유하지 않은 장신구입니다", "상점에서 획득하거나 장신구를 해제한 뒤 적용하세요.", "확인", func() -> void: pass)
+		return
 	var original_draft := _preset_draft.duplicate(true)
 	if not _preset_draft.is_empty():
 		var candidate: Dictionary = app.store.data.duplicate(true)
 		candidate.selected_character = _preset_draft.get("character", "")
-		candidate.selected_accessory = ""
+		candidate.selected_accessory = _preset_draft.get("accessory", "")
 		candidate = app.store.normalize_combat_selection(candidate)
-		_preset_draft = {"character": candidate.selected_character, "accessory": ""}
+		_preset_draft = {"character": candidate.selected_character, "accessory": candidate.selected_accessory}
 	if not _valid_preset(_preset_draft):
 		view.confirm("선택이 필요합니다", "보유한 캐릭터와 장신구로 편성을 완성하세요.", "확인", func() -> void: pass)
 		return

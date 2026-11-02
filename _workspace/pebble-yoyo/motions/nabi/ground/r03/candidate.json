@@ -1,0 +1,606 @@
+{
+  "character_id": "nabi",
+  "motion_id": "equipment_yoyo_ground",
+  "status": "candidate-pending-independent-review-and-user-approval",
+  "frame_count": 16,
+  "cell_size": [
+    128,
+    128
+  ],
+  "columns": 8,
+  "source_grid": [
+    4,
+    4
+  ],
+  "common_scale": 0.34,
+  "foot_pivot_y": 123,
+  "presentation_scale": 0.909369596799596,
+  "equipment_phase_frame_ranges": [
+    [
+      0,
+      3
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      13,
+      16
+    ]
+  ],
+  "frame_durations": [
+    2,
+    2,
+    2,
+    4,
+    4,
+    4,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    3,
+    2,
+    2,
+    2
+  ],
+  "reference_version": "v01",
+  "reference_set": "assets/character/nabi/reference/v01/reference.json",
+  "reference_attachments": [
+    {
+      "path": "assets/character/nabi/reference/v01/combat.png",
+      "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+    },
+    {
+      "path": "assets/character/nabi/reference/v01/side.png",
+      "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+    },
+    {
+      "path": "_workspace/pebble-yoyo/revision-r03-inputs/nabi-idle-approved.png",
+      "sha256": "1b4b2129859fa619aa80f3432924c5941d9687813f611136d86ec4899f52a817"
+    }
+  ],
+  "source_path": "_workspace/pebble-yoyo/motions/nabi/ground/r03/source.png",
+  "source_sha256": "13d1a4df331300e27f1f865ad8e72274a9da78f5ab7c2f2355492e5eda24f982",
+  "sheet_sha256": "92b84c94919849ca12d5e43b67e44d99da377bb3e0797b5ddcf599d8c2732719",
+  "packing": [
+    {
+      "source_rect": [
+        0,
+        0,
+        384,
+        263
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -3,
+        34
+      ],
+      "body_column_source_x": 198.0,
+      "two_shoe_region_x": [
+        87,
+        309
+      ],
+      "foot_baseline_source_y": 263,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        384,
+        0,
+        768,
+        263
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        4,
+        34
+      ],
+      "body_column_source_x": 176.0,
+      "two_shoe_region_x": [
+        64,
+        288
+      ],
+      "foot_baseline_source_y": 263,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        768,
+        0,
+        1152,
+        263
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        2,
+        34
+      ],
+      "body_column_source_x": 183.0,
+      "two_shoe_region_x": [
+        70,
+        296
+      ],
+      "foot_baseline_source_y": 263,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1152,
+        0,
+        1536,
+        263
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -1,
+        34
+      ],
+      "body_column_source_x": 191.5,
+      "two_shoe_region_x": [
+        78,
+        305
+      ],
+      "foot_baseline_source_y": 263,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        0,
+        263,
+        384,
+        515
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -3,
+        37
+      ],
+      "body_column_source_x": 198.5,
+      "two_shoe_region_x": [
+        87,
+        310
+      ],
+      "foot_baseline_source_y": 252,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        384,
+        263,
+        768,
+        515
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        4,
+        37
+      ],
+      "body_column_source_x": 177.5,
+      "two_shoe_region_x": [
+        64,
+        291
+      ],
+      "foot_baseline_source_y": 252,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        768,
+        263,
+        1152,
+        515
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        2,
+        37
+      ],
+      "body_column_source_x": 183.5,
+      "two_shoe_region_x": [
+        69,
+        298
+      ],
+      "foot_baseline_source_y": 252,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1152,
+        263,
+        1536,
+        515
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -1,
+        37
+      ],
+      "body_column_source_x": 191.5,
+      "two_shoe_region_x": [
+        78,
+        305
+      ],
+      "foot_baseline_source_y": 252,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        0,
+        515,
+        384,
+        768
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -4,
+        37
+      ],
+      "body_column_source_x": 199.0,
+      "two_shoe_region_x": [
+        88,
+        310
+      ],
+      "foot_baseline_source_y": 252,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        384,
+        515,
+        768,
+        768
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        4,
+        37
+      ],
+      "body_column_source_x": 177.0,
+      "two_shoe_region_x": [
+        64,
+        290
+      ],
+      "foot_baseline_source_y": 253,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        768,
+        515,
+        1152,
+        768
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        1,
+        37
+      ],
+      "body_column_source_x": 184.0,
+      "two_shoe_region_x": [
+        71,
+        297
+      ],
+      "foot_baseline_source_y": 253,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1152,
+        515,
+        1536,
+        768
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -1,
+        37
+      ],
+      "body_column_source_x": 192.5,
+      "two_shoe_region_x": [
+        79,
+        306
+      ],
+      "foot_baseline_source_y": 253,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        0,
+        768,
+        384,
+        1024
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -4,
+        40
+      ],
+      "body_column_source_x": 199.5,
+      "two_shoe_region_x": [
+        86,
+        313
+      ],
+      "foot_baseline_source_y": 245,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        384,
+        768,
+        768,
+        1024
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        4,
+        40
+      ],
+      "body_column_source_x": 177.5,
+      "two_shoe_region_x": [
+        63,
+        292
+      ],
+      "foot_baseline_source_y": 245,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        768,
+        768,
+        1152,
+        1024
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        2,
+        40
+      ],
+      "body_column_source_x": 183.5,
+      "two_shoe_region_x": [
+        68,
+        299
+      ],
+      "foot_baseline_source_y": 245,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1152,
+        768,
+        1536,
+        1024
+      ],
+      "common_scale": 0.34,
+      "translation": [
+        -1,
+        40
+      ],
+      "body_column_source_x": 191.0,
+      "two_shoe_region_x": [
+        77,
+        305
+      ],
+      "foot_baseline_source_y": 245,
+      "foot_baseline_target_y": 123,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    }
+  ],
+  "whole_figure_boundary_endpoints": [
+    {
+      "frame": 0,
+      "source_path": "assets/character/nabi/animation/runtime/idle_16f_body-fit-v01.png",
+      "source_frame": 0,
+      "source_sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "operation": "whole-cell exact copy, no resize or part edits"
+    },
+    {
+      "frame": 15,
+      "source_path": "assets/character/nabi/animation/runtime/idle_16f_body-fit-v01.png",
+      "source_frame": 0,
+      "source_sha256": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450",
+      "operation": "whole-cell exact copy, no resize or part edits"
+    }
+  ],
+  "frame_anchors": [
+    {
+      "body_root": [
+        64,
+        123
+      ],
+      "equipment_hand": [
+        101,
+        88
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        86,
+        87
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        86,
+        87
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        88,
+        87
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        104,
+        81
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        104,
+        81
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        104,
+        81
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        109,
+        82
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        92,
+        83
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        91,
+        84
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        90,
+        84
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        91,
+        84
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        91,
+        84
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        90,
+        84
+      ]
+    },
+    {
+      "body_root": [
+        46,
+        123
+      ],
+      "equipment_hand": [
+        90,
+        84
+      ]
+    },
+    {
+      "body_root": [
+        64,
+        123
+      ],
+      "equipment_hand": [
+        101,
+        88
+      ]
+    }
+  ],
+  "size_basis": "approved runtime idle or jump model, head/body and two-shoe silhouette; one uniform source scale per motion; exact approved idle whole-figure entry/recovery endpoint on ground"
+}

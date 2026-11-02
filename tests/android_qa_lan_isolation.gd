@@ -77,7 +77,7 @@ func _open(url: String) -> Dictionary:
 	_check(client.peer.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED, "connection opens")
 	return client
 func _send(client: Dictionary, value: Dictionary) -> void:
-	value.protocol_version = 4
+	value.protocol_version = 5
 	_check(client.peer.put_packet(JSON.stringify(value).to_utf8_buffer()) == OK, "normal LAN v4 message sends")
 func _message(client: Dictionary, kind: String) -> Dictionary:
 	var deadline := Time.get_ticks_msec() + TIMEOUT_MSEC

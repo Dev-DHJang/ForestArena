@@ -1,0 +1,487 @@
+{
+  "character_id": "ja-hyun",
+  "motion_id": "equipment_yoyo_air",
+  "status": "candidate-pending-independent-review-and-user-approval",
+  "frame_count": 16,
+  "cell_size": [
+    128,
+    128
+  ],
+  "columns": 8,
+  "source_grid": [
+    4,
+    4
+  ],
+  "common_scale": 0.375,
+  "foot_pivot_y": 117,
+  "presentation_scale": 0.85,
+  "equipment_phase_frame_ranges": [
+    [
+      0,
+      3
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      13,
+      16
+    ]
+  ],
+  "frame_durations": [
+    2,
+    2,
+    2,
+    4,
+    4,
+    4,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    3,
+    2,
+    2,
+    2
+  ],
+  "reference_version": "v01",
+  "reference_set": "assets/character/ja-hyun/reference/v01/reference.json",
+  "reference_attachments": [
+    {
+      "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/jump-r02.png",
+      "sha256": "e352bc68aa97d81bfde58c230cc1be9faaa3e916d68caea9e041e45233293abe",
+      "role": "exact approved runtime animation source model"
+    },
+    {
+      "path": "assets/character/ja-hyun/reference/v01/combat.png",
+      "sha256": "772c0cb806f9302e1e56ffd03e4deb8ba97c5f50bbd9c31e0536aec6defc5056"
+    },
+    {
+      "path": "assets/character/ja-hyun/reference/v01/side.png",
+      "sha256": "583eeaa647973ca868bf1fa28db301e62cc57e4cf9e1202dca3bef5c5a107f01"
+    }
+  ],
+  "source_path": "_workspace/pebble-yoyo/motions/ja-hyun/air/r03/source.png",
+  "source_sha256": "2f2126985c0d4ac1ed8176892b84185f0e41d87fec4413fb7110d85fd013ca8a",
+  "sheet_sha256": "b5823de23ab0a17b06205bebe781255ebf21779184379006951f7ace95cf5a4b",
+  "packing": [
+    {
+      "source_rect": [
+        0,
+        0,
+        384,
+        256
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -39,
+        27
+      ],
+      "body_column_source_x": 274.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 240,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        384,
+        0,
+        768,
+        256
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -27,
+        27
+      ],
+      "body_column_source_x": 243.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 241,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        768,
+        0,
+        1152,
+        256
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -6,
+        26
+      ],
+      "body_column_source_x": 187.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 242,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        1152,
+        0,
+        1536,
+        256
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        7,
+        27
+      ],
+      "body_column_source_x": 153.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 240,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        0,
+        256,
+        384,
+        512
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -41,
+        30
+      ],
+      "body_column_source_x": 279.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 233,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        384,
+        256,
+        768,
+        512
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -27,
+        30
+      ],
+      "body_column_source_x": 242.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 233,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        768,
+        256,
+        1152,
+        512
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -7,
+        29
+      ],
+      "body_column_source_x": 189.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 234,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        1152,
+        256,
+        1536,
+        512
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        5,
+        30
+      ],
+      "body_column_source_x": 157.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 231,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        0,
+        512,
+        384,
+        768
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -40,
+        33
+      ],
+      "body_column_source_x": 277.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 223,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        384,
+        512,
+        768,
+        768
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -26,
+        33
+      ],
+      "body_column_source_x": 239.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 224,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        768,
+        512,
+        1152,
+        768
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -6,
+        32
+      ],
+      "body_column_source_x": 188.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 227,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        1152,
+        512,
+        1536,
+        768
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        4,
+        32
+      ],
+      "body_column_source_x": 159.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 226,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        0,
+        768,
+        384,
+        1024
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -40,
+        38
+      ],
+      "body_column_source_x": 276.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 211,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        384,
+        768,
+        768,
+        1024
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -26,
+        38
+      ],
+      "body_column_source_x": 241.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 212,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        768,
+        768,
+        1152,
+        1024
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        -6,
+        38
+      ],
+      "body_column_source_x": 187.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 212,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    },
+    {
+      "source_rect": [
+        1152,
+        768,
+        1536,
+        1024
+      ],
+      "common_scale": 0.375,
+      "translation": [
+        4,
+        38
+      ],
+      "body_column_source_x": 161.0,
+      "two_shoe_region_x": null,
+      "foot_baseline_source_y": 211,
+      "foot_baseline_target_y": 117,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "hand-checked face core landmark, uniform scale, no tucked-foot recentring"
+    }
+  ],
+  "whole_figure_boundary_endpoints": [],
+  "frame_anchors": [
+    {
+      "equipment_hand": [
+        78,
+        90
+      ]
+    },
+    {
+      "equipment_hand": [
+        78,
+        90
+      ]
+    },
+    {
+      "equipment_hand": [
+        88,
+        85
+      ]
+    },
+    {
+      "equipment_hand": [
+        98,
+        84
+      ]
+    },
+    {
+      "equipment_hand": [
+        94,
+        80
+      ]
+    },
+    {
+      "equipment_hand": [
+        97,
+        81
+      ]
+    },
+    {
+      "equipment_hand": [
+        98,
+        81
+      ]
+    },
+    {
+      "equipment_hand": [
+        97,
+        81
+      ]
+    },
+    {
+      "equipment_hand": [
+        82,
+        87
+      ]
+    },
+    {
+      "equipment_hand": [
+        82,
+        86
+      ]
+    },
+    {
+      "equipment_hand": [
+        80,
+        85
+      ]
+    },
+    {
+      "equipment_hand": [
+        80,
+        84
+      ]
+    },
+    {
+      "equipment_hand": [
+        78,
+        82
+      ]
+    },
+    {
+      "equipment_hand": [
+        78,
+        82
+      ]
+    },
+    {
+      "equipment_hand": [
+        78,
+        82
+      ]
+    },
+    {
+      "equipment_hand": [
+        78,
+        82
+      ]
+    }
+  ],
+  "size_basis": "approved runtime idle or jump model, head/body and two-shoe silhouette; one uniform source scale per motion; exact approved idle whole-figure entry/recovery endpoint on ground",
+  "comparison_references": [
+    {
+      "path": "_workspace/pebble-yoyo/revision-r03-inputs/ja-hyun-jump-approved.png",
+      "sha256": "e88cdd671f43e3210058cbf097ecbc72f1709360e16f383bb09fc1aae57bd009",
+      "role": "review comparison only; not attached to selected generation chain"
+    }
+  ]
+}

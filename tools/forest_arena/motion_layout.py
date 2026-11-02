@@ -69,6 +69,8 @@ def layout(row: dict) -> dict:
     durations = [_positive(value, "frame_durations") for value in durations]
     if "phase_frame_ranges" in row:
         _ranges(row["phase_frame_ranges"], count, "phase_frame_ranges", 3)
+    if "equipment_phase_frame_ranges" in row:
+        _ranges(row["equipment_phase_frame_ranges"], count, "equipment_phase_frame_ranges", 4)
     if "jump_frame_ranges" in row:
         ranges = row["jump_frame_ranges"]
         keys = ("ascent", "apex", "descent", "landing")
@@ -106,9 +108,9 @@ def layout(row: dict) -> dict:
         def point(value):
             return isinstance(value, list) and len(value) == 2 and all(not isinstance(n, bool) and isinstance(n, (float, int)) and math.isfinite(n) and 0 <= n <= cell for n in value)
         for frame in anchors:
-            if not isinstance(frame, dict) or set(frame) - {"scarf_root", "scarf_hand", "scarf_tips", "claw_hand", "claw_tip", "body_root"}:
+            if not isinstance(frame, dict) or set(frame) - {"scarf_root", "scarf_hand", "scarf_tips", "claw_hand", "claw_tip", "body_root", "equipment_hand"}:
                 raise ValueError("frame_anchors contains an unknown anchor")
-            if any(not point(frame[key]) for key in ("scarf_root", "scarf_hand", "claw_hand", "claw_tip", "body_root") if key in frame):
+            if any(not point(frame[key]) for key in ("scarf_root", "scarf_hand", "claw_hand", "claw_tip", "body_root", "equipment_hand") if key in frame):
                 raise ValueError("frame_anchors points must be finite cell coordinates")
             if "scarf_tips" in frame:
                 tips = frame["scarf_tips"]

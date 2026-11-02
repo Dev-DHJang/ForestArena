@@ -62,7 +62,7 @@ def verify_capacity(project_root, protocol, godot, output):
 
 def main():
     parse = argparse.ArgumentParser(description='정원용 임시 참가자를 실제 Godot LAN 서버에서 확인')
-    parse.add_argument('--project-root', type=Path, default=ROOT, help='LAN v2 프로젝트')
+    parse.add_argument('--project-root', type=Path, default=ROOT, help='현재 LAN v5 프로젝트')
     parse.add_argument('--v1-project-root', type=Path, help='기존 LAN v1 프로젝트; 생략하면 v1 미실행')
     parse.add_argument('--godot', default=shutil.which('godot') or 'godot')
     parse.add_argument('--output', type=Path, default=ROOT/'artifacts/android-fleet-capacity')
@@ -71,7 +71,7 @@ def main():
     output.mkdir(parents=True, exist_ok=False)
     (output/'.gdignore').touch()
     results = []
-    for protocol, project in ((1, args.v1_project_root), (2, args.project_root)):
+    for protocol, project in ((1, args.v1_project_root), (5, args.project_root)):
         if not project:
             results.append({'protocol_version': protocol, 'status': '미실행', 'message': '검사 프로젝트 미지정'})
             continue

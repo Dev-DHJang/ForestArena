@@ -49,6 +49,8 @@ static func _job_chain(leaf_id: StringName, catalog: LoadoutCatalog):
 
 
 static func _apply_layer(profile: RuntimeCombatProfile, layer: Resource) -> StringName:
+	if layer is AccessoryData and layer.active_ability != null:
+		profile.active_ability = layer.active_ability.duplicate(true) as AccessoryAbilityData
 	var modifiers: Array[StatModifier] = layer.get("stat_modifiers") as Array[StatModifier]
 	var patches: Array[MoveSlotPatch] = layer.get("move_slot_patches") as Array[MoveSlotPatch]
 	var stat_writes: Dictionary = {}

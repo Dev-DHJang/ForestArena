@@ -17,6 +17,17 @@ func _initialize() -> void:
 		if not store.owns(item.id): check(store.purchase(item.id), "purchase " + item.id)
 		check(not store.purchase(item.id), "duplicate " + item.id)
 	check(not store.purchase("unknown"), "unknown product")
+	check(store.select("nabi", "pebble-yoyo", "ja-hyun"), "purchased yo-yo can be equipped")
+	var equipped_reload := LocalPlayerStore.new(catalog, path)
+	check(equipped_reload.load_profile() and equipped_reload.data.selected_accessory == "pebble-yoyo", "yo-yo remains equipped after reopen")
+	check(store.select("ja-hyun", "pebble-yoyo", "nabi") and store.data.selected_accessory == "pebble-yoyo", "changing character preserves equipped yo-yo")
+	check(not store.purchase("fixture-iron-armor") and not store.select("nabi", "fixture-iron-armor", "ja-hyun"), "historical equipment stays inactive")
+	var unowned := LocalPlayerStore.new(catalog, "user://unowned-yoyo-%d.json" % Time.get_ticks_usec())
+	unowned.data = LocalPlayerStore.fresh_data()
+	unowned.data.first_granted = true
+	unowned.data.characters = ["nabi"]
+	unowned.data.selected_character = "nabi"
+	check(not unowned.select("nabi", "pebble-yoyo", "ja-hyun"), "unowned yo-yo cannot be equipped")
 	check(store.select("nabi", "", "nabi"), "mirror selection")
 	var reload := LocalPlayerStore.new(catalog, path)
 	check(reload.load_profile(), "restart loads")

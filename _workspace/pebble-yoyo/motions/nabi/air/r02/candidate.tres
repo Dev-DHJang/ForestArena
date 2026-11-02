@@ -1,0 +1,85 @@
+[gd_resource type="SpriteFrames" load_steps=18 format=3]
+
+[ext_resource type="Texture2D" path="res://_workspace/pebble-yoyo/motions/nabi/air/r02/sheet-128.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="frame_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_1"]
+atlas = ExtResource("1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_2"]
+atlas = ExtResource("1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_3"]
+atlas = ExtResource("1")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_4"]
+atlas = ExtResource("1")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_5"]
+atlas = ExtResource("1")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_6"]
+atlas = ExtResource("1")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_7"]
+atlas = ExtResource("1")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_8"]
+atlas = ExtResource("1")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_9"]
+atlas = ExtResource("1")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_10"]
+atlas = ExtResource("1")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_11"]
+atlas = ExtResource("1")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_12"]
+atlas = ExtResource("1")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_13"]
+atlas = ExtResource("1")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_14"]
+atlas = ExtResource("1")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="frame_15"]
+atlas = ExtResource("1")
+region = Rect2(896, 128, 128, 128)
+
+[resource]
+animations = [{"frames": [{"duration": 2, "texture": SubResource("frame_0")},
+{"duration": 2, "texture": SubResource("frame_1")},
+{"duration": 2, "texture": SubResource("frame_2")},
+{"duration": 4, "texture": SubResource("frame_3")},
+{"duration": 4, "texture": SubResource("frame_4")},
+{"duration": 4, "texture": SubResource("frame_5")},
+{"duration": 3, "texture": SubResource("frame_6")},
+{"duration": 3, "texture": SubResource("frame_7")},
+{"duration": 4, "texture": SubResource("frame_8")},
+{"duration": 4, "texture": SubResource("frame_9")},
+{"duration": 4, "texture": SubResource("frame_10")},
+{"duration": 3, "texture": SubResource("frame_11")},
+{"duration": 3, "texture": SubResource("frame_12")},
+{"duration": 2, "texture": SubResource("frame_13")},
+{"duration": 2, "texture": SubResource("frame_14")},
+{"duration": 2, "texture": SubResource("frame_15")}], "loop": false, "name": &"equipment_yoyo_air", "speed": 60.0}]

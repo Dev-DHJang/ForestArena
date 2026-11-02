@@ -1,0 +1,542 @@
+{
+  "character_id": "ja-hyun",
+  "motion_id": "equipment_yoyo_ground",
+  "status": "candidate-pending-independent-review-and-user-approval",
+  "frame_count": 16,
+  "cell_size": [
+    128,
+    128
+  ],
+  "columns": 8,
+  "source_grid": [
+    4,
+    4
+  ],
+  "common_scale": 0.3353,
+  "foot_pivot_y": 124,
+  "presentation_scale": 0.85,
+  "equipment_phase_frame_ranges": [
+    [
+      0,
+      3
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      13,
+      16
+    ]
+  ],
+  "frame_durations": [
+    2,
+    2,
+    2,
+    4,
+    4,
+    4,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    3,
+    2,
+    2,
+    2
+  ],
+  "reference_version": "v01",
+  "reference_set": "assets/character/ja-hyun/reference/v01/reference.json",
+  "reference_attachments": [
+    {
+      "path": "assets/character/ja-hyun/reference/v01/combat.png",
+      "sha256": "772c0cb806f9302e1e56ffd03e4deb8ba97c5f50bbd9c31e0536aec6defc5056"
+    },
+    {
+      "path": "assets/character/ja-hyun/reference/v01/side.png",
+      "sha256": "583eeaa647973ca868bf1fa28db301e62cc57e4cf9e1202dca3bef5c5a107f01"
+    },
+    {
+      "path": "_workspace/pebble-yoyo/revision-r03-inputs/ja-hyun-idle-approved.png",
+      "sha256": "34cbc01c9033990e06c661954f1320587658a1e56dc0b541efada6d14c3049e0"
+    }
+  ],
+  "source_path": "_workspace/pebble-yoyo/motions/ja-hyun/ground/r03/source.png",
+  "source_sha256": "bcc95bc69880d9eeb435e8f5f8e7c87c46c53ca7b79d7ef432429375e33b3c8e",
+  "sheet_sha256": "b7025c9107d0ae2e0bab1499bac1f3a910680bde41b59049235b9d260d31ba62",
+  "packing": [
+    {
+      "source_rect": [
+        0,
+        0,
+        362,
+        273
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        32
+      ],
+      "body_column_source_x": 185.0,
+      "two_shoe_region_x": [
+        69,
+        301
+      ],
+      "foot_baseline_source_y": 273,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        362,
+        0,
+        724,
+        273
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        1,
+        32
+      ],
+      "body_column_source_x": 187.5,
+      "two_shoe_region_x": [
+        71,
+        304
+      ],
+      "foot_baseline_source_y": 273,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        724,
+        0,
+        1086,
+        273
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        32
+      ],
+      "body_column_source_x": 185.0,
+      "two_shoe_region_x": [
+        68,
+        302
+      ],
+      "foot_baseline_source_y": 273,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1086,
+        0,
+        1448,
+        273
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        3,
+        32
+      ],
+      "body_column_source_x": 181.0,
+      "two_shoe_region_x": [
+        63,
+        299
+      ],
+      "foot_baseline_source_y": 273,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        0,
+        273,
+        362,
+        543
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 185.5,
+      "two_shoe_region_x": [
+        69,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        362,
+        273,
+        724,
+        543
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        1,
+        33
+      ],
+      "body_column_source_x": 186.5,
+      "two_shoe_region_x": [
+        70,
+        303
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        724,
+        273,
+        1086,
+        543
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 186.0,
+      "two_shoe_region_x": [
+        70,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1086,
+        273,
+        1448,
+        543
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        1,
+        33
+      ],
+      "body_column_source_x": 186.5,
+      "two_shoe_region_x": [
+        71,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        0,
+        543,
+        362,
+        814
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 184.0,
+      "two_shoe_region_x": [
+        66,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        362,
+        543,
+        724,
+        814
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 186.0,
+      "two_shoe_region_x": [
+        70,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        724,
+        543,
+        1086,
+        814
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 186.0,
+      "two_shoe_region_x": [
+        70,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1086,
+        543,
+        1448,
+        814
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 184.5,
+      "two_shoe_region_x": [
+        68,
+        301
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        0,
+        814,
+        362,
+        1086
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 184.5,
+      "two_shoe_region_x": [
+        67,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        362,
+        814,
+        724,
+        1086
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 184.5,
+      "two_shoe_region_x": [
+        67,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        724,
+        814,
+        1086,
+        1086
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 185.5,
+      "two_shoe_region_x": [
+        69,
+        302
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    },
+    {
+      "source_rect": [
+        1086,
+        814,
+        1448,
+        1086
+      ],
+      "common_scale": 0.3353,
+      "translation": [
+        2,
+        33
+      ],
+      "body_column_source_x": 185.0,
+      "two_shoe_region_x": [
+        69,
+        301
+      ],
+      "foot_baseline_source_y": 270,
+      "foot_baseline_target_y": 124,
+      "target_two_shoe_midpoint_x": 64,
+      "landmark_method": "both visible soles in hand-checked55px shoe band, never lowest shoe only"
+    }
+  ],
+  "whole_figure_boundary_endpoints": [
+    {
+      "frame": 0,
+      "source_path": "assets/character/ja-hyun/animation/runtime/idle_16f_natural-v03.png",
+      "source_frame": 0,
+      "source_sha256": "dd58ca2cdf014730a364308025a3c05754b8e9c0cc0923b2c523192692361292",
+      "operation": "whole-cell exact copy, no resize or part edits"
+    },
+    {
+      "frame": 15,
+      "source_path": "assets/character/ja-hyun/animation/runtime/idle_16f_natural-v03.png",
+      "source_frame": 0,
+      "source_sha256": "dd58ca2cdf014730a364308025a3c05754b8e9c0cc0923b2c523192692361292",
+      "operation": "whole-cell exact copy, no resize or part edits"
+    }
+  ],
+  "frame_anchors": [
+    {
+      "equipment_hand": [
+        81,
+        79
+      ]
+    },
+    {
+      "equipment_hand": [
+        85,
+        78
+      ]
+    },
+    {
+      "equipment_hand": [
+        85,
+        79
+      ]
+    },
+    {
+      "equipment_hand": [
+        94,
+        79
+      ]
+    },
+    {
+      "equipment_hand": [
+        99,
+        75
+      ]
+    },
+    {
+      "equipment_hand": [
+        99,
+        75
+      ]
+    },
+    {
+      "equipment_hand": [
+        105,
+        74
+      ]
+    },
+    {
+      "equipment_hand": [
+        108,
+        75
+      ]
+    },
+    {
+      "equipment_hand": [
+        89,
+        77
+      ]
+    },
+    {
+      "equipment_hand": [
+        85,
+        78
+      ]
+    },
+    {
+      "equipment_hand": [
+        84,
+        78
+      ]
+    },
+    {
+      "equipment_hand": [
+        85,
+        78
+      ]
+    },
+    {
+      "equipment_hand": [
+        85,
+        78
+      ]
+    },
+    {
+      "equipment_hand": [
+        85,
+        79
+      ]
+    },
+    {
+      "equipment_hand": [
+        85,
+        79
+      ]
+    },
+    {
+      "equipment_hand": [
+        81,
+        79
+      ]
+    }
+  ],
+  "size_basis": "approved runtime idle or jump model, head/body and two-shoe silhouette; one uniform source scale per motion; exact approved idle whole-figure entry/recovery endpoint on ground"
+}

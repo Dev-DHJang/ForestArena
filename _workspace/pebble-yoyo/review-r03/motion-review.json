@@ -1,0 +1,604 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/yoyo_menu",
+  "sources": {
+    "_workspace/pebble-yoyo/candidate-catalog.json": "7228372d85e98e43a6289dbb56ea83980f4d52efd90e482a76ab1f34049bbb35",
+    "_workspace/pebble-yoyo/candidate-scope.json": "7f5fc7629b3da698b64de0a02d7b42cf4958352407e4af747113c7213ca90ead",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r02/candidate.tres": "a959c9a5a33ff13df0e2c36b80b4019fda0fe3d90a486ac6ac94e0d79d0a80ce",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r02/sheet-128.png": "0bd97e14cc0405341416809b96e1770e01a27280b72d068e4cdbc69e1819b2ea",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r02/candidate.tres": "cdb792b3878334a1455aef720cbaf5c528106dd7fcf949d4ff66530fb4cb72af",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r02/sheet-128.png": "3baa1134448396119255a7e64a77547cffa3b5200c152fd146b00e05405fa38c",
+    "_workspace/pebble-yoyo/motions/nabi/air/r02/candidate.tres": "3bd746feb80cdc840f83c9267f20c05e13fdd0e1db379b8b2b05578a9da0e4f7",
+    "_workspace/pebble-yoyo/motions/nabi/air/r02/sheet-128.png": "3c8cc2f52bb1dbadb4e06b118bac3212737bb48c09bbb4d107e169a527189f32",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r02/candidate.tres": "333b55f9e2dabff490001165cabb6d6d20ae3460003f814905863f37695e57c0",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r02/sheet-128.png": "224c8760e39ab94d359a1bee0ceedd5095a1388dd5c641d602b4e932410f8e22",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "fdb3ace56dfe1350e3c3d3a294da90994dd51a697b77cd4f095abe5fda6d3e12",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "1049bc19fd8558841b8b99578ae6ffe5ced690a92ba3a7652fa60975481ba246",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "7a24ab9828830dfe9a61f12acafba425838ac37ecfc1b4b8d93de76d76b76e5c",
+    "assets/loadouts/pebble_yoyo_accessory.tres": "f8dc367f9cf78543a0d4c91d521d504b1bbfcf1fef150726fbd19035d59eb36b",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "docs/gameplay/pebble-yoyo.md": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/accessory_ability_data.gd": "4b6c1101c1055207dd4eec8d81c38c6111fa18287c60851af738f467b1c68781",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "60651f6283714d382efd41cca16fd7454021ac5258652fa21016dce6b1f5e808",
+    "scripts/equipment_visual.gd": "448ff0a84663afe2826d1fd948592dd9514ff9b06332dcf764dbc0113f235d9b",
+    "scripts/fighter_attack_effects.gd": "bb3d20e00127829266169b0d0463333fafec5179d80da23e084c6a5a81876915",
+    "scripts/fighter_controller.gd": "6355e67e5b7de0e4a1052f99c3086e77d5ab27c868ee82cb32717844787c8a8b",
+    "scripts/hit_resolver.gd": "d86c4830c16ecf307c176a0347f2327e61d1198447ed084dc4b8e8ff0a5d4f4f",
+    "scripts/local_fighter_presentation.gd": "0396b4471a446a230770164c7f049ec238982080d2aecefadc36ee4fb7824e56",
+    "scripts/match_controller.gd": "08957799759d0d02f97e12a00840004a21b03618b211158c17f6529365bd37e6",
+    "tools/forest_arena/motion_layout.py": "64ef966a8887211c7b3cf68b5f6bf082cd621fe34cbc43bece22aa52a82235c5",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "afe4ff5169a2c8e1f6dad869c7041d83041cc7091f682fa17b8e7f5b17368530",
+    "tools/forest_arena/motion_review_timeline.gd": "1e7dc43c714280878c1a75fff213bd28899bf0f9d149e70a4f44825a2f877eb3",
+    "tools/forest_arena/review_motion_actions.py": "8cfe59d490251bc01eb87d4420ec8bdd24a5612ca132626fa9703481b864f2f9",
+    "_workspace/pebble-yoyo/game-timeline.json": "eaf8e4f6c6b38e440d8138b6bd21fbfc74c72a204fdd2281a13e9715789d462e",
+    "_workspace/pebble-yoyo/landing-timeline.json": "a25b7358e14786ef3ae60598aadda290001444c0ba3596ffd1f796cebaacd153",
+    "_workspace/pebble-yoyo/record_preview.gd": "c0ed67d4b1805d79d08174ce49929b180496bcbed0bc8d5734c5095cd18e3833",
+    "_workspace/pebble-yoyo/qa-motion-r02/render_trace_review.py": "275ed394cea8b033785d572b6af15116be96a9947fe9e190bf2191098a03ca86",
+    "_workspace/pebble-yoyo/qa-motion-r02/actual-code-comparison.json": "3ff995f8634f6ec453f63c620a2f6d7a303ccda1533242fc5aa3dc59d7d6d14b",
+    "_workspace/pebble-yoyo/03_qa_motion_r03.md": "a9e7d70796eda2bfc85a63d487a181e138a8a4ae090d79db838c35eea7cb7ec9",
+    "_workspace/pebble-yoyo/motions/ja-hyun/ground/r02/candidate.json": "b09c64d28571f4ea5a4f489bc83998da35f46837df8dfb7a631a6c23f3ff13b8",
+    "_workspace/pebble-yoyo/motions/ja-hyun/air/r02/candidate.json": "f054bc8184f78a5870e1e02f2d83ef233aa5cdaf8af1b0c5005279c68240ab48",
+    "_workspace/pebble-yoyo/motions/nabi/ground/r02/candidate.json": "3ef2aa3d153ed686e89cdf01f476902f8a1d60f8cb581abe8a78a06423ab8643",
+    "_workspace/pebble-yoyo/motions/nabi/air/r02/candidate.json": "f3e0776ec83ab9ccd27f73a56a6e654829ae16fa45450ba38213299dd5bb1f3f",
+    "_workspace/pebble-yoyo/qa-motion-r02/trace-slow-flip.mp4": "3e5091baa09503584277b6893163ca54fc1b53b0a69a63973fcd565ef320b224",
+    "_workspace/pebble-yoyo/qa-motion-r02/trace-normal-flip.mp4": "b49d5c158debe04a107ddf2bc06f0f6725204c5e30d0b1abd3f5ddc1ecefa63a",
+    "_workspace/pebble-yoyo/qa-motion-r02/trace-slow.mp4": "0d2c413846408bedc11df778de95ee224fe8e65566a9e6e8e4f44e4bab0d7998",
+    "_workspace/pebble-yoyo/qa-motion-r02/trace-normal.mp4": "7884baa26180038e8ebcf2ed6482d24ebea8645f25ab4c06850ce49cd5e500c2",
+    "assets/character/ja-hyun/reference/v01/reference.json": "7404d2b3654acd85821d9a4f871da80493b99d756fc6c873237f1240f9131d37",
+    "assets/character/ja-hyun/reference/v01/combat.png": "772c0cb806f9302e1e56ffd03e4deb8ba97c5f50bbd9c31e0536aec6defc5056",
+    "assets/character/ja-hyun/reference/v01/side.png": "583eeaa647973ca868bf1fa28db301e62cc57e4cf9e1202dca3bef5c5a107f01",
+    "assets/character/nabi/reference/v01/reference.json": "78a06ce14dc3f01de6827afc73f2f51943fd2f22de6f074c2f8c48484d05035c",
+    "assets/character/nabi/reference/v01/combat.png": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e",
+    "assets/character/nabi/reference/v01/side.png": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+  },
+  "timeline_sha256": "66c654d25d5620178a2ccf0a462324f2ba2471db8e53f10ad1c8b4bce62294af",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "equipment_yoyo_air",
+      "path": "_workspace/pebble-yoyo/motions/ja-hyun/air/r02/sheet-128.png",
+      "sha256": "0bd97e14cc0405341416809b96e1770e01a27280b72d068e4cdbc69e1819b2ea",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/ja-hyun/air/r02/candidate.tres",
+      "sprite_frames_sha256": "a959c9a5a33ff13df0e2c36b80b4019fda0fe3d90a486ac6ac94e0d79d0a80ce",
+      "expected_action": "공중에 무릎을 접은 채 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/ja-hyun__equipment_yoyo_air.jpg": "89a27081a0b4d8500f7c2c006ca66ec0adfd4465c46deca130c366ce2d122e90",
+        "sheets/ja-hyun__equipment_yoyo_air.png": "0bd97e14cc0405341416809b96e1770e01a27280b72d068e4cdbc69e1819b2ea"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_air",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "무릎을 굽힌 떠 있는 자세를 유지하며 팔을 준비하고 앞으로 던진 뒤 손목을 돌려 요요를 회수한다.9~10번의 손목 전환은 실을 끌어오는 동작으로 읽히며 지상 디딤으로 바뀌지 않는다. 종료 뒤 실제 표시 코드의 기존 jump 프레임으로 이어진다. 귀·얼굴·의상·꼬리는 승인 참조와 일관된다. 전체16프레임 비교판과 승인 combat·side를 직접 대조했고, 실제 표시 코드의49틱 기록으로 재현한 네 모션의1×·0.25× 영상을 네이티브 QuickTime에서 실행하며 투척·최대 전개·회수·종료 장면을 확인했다.0.25× 좌우 반전과128px 셀/실제 표시 배율(자현0.9·나비0.8, 카메라1.5)도 확인했다. 이 영상은 실제 코드 기록 재현이며 게임 화면 캡처·물리 Android 통과가 아니다. 구체적 관찰과 수정 이력은03_qa_motion_r03.md에 기록했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "ja-hyun",
+      "motion": "equipment_yoyo_ground",
+      "path": "_workspace/pebble-yoyo/motions/ja-hyun/ground/r02/sheet-128.png",
+      "sha256": "3baa1134448396119255a7e64a77547cffa3b5200c152fd146b00e05405fa38c",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/ja-hyun/ground/r02/candidate.tres",
+      "sprite_frames_sha256": "cdb792b3878334a1455aef720cbaf5c528106dd7fcf949d4ff66530fb4cb72af",
+      "expected_action": "지상 발 디딤을 유지하며 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/ja-hyun__equipment_yoyo_ground.jpg": "f6aa23aaa16516f261d71fec28bf0312ee13420968bea3729e2eb110f7a62204",
+        "sheets/ja-hyun__equipment_yoyo_ground.png": "3baa1134448396119255a7e64a77547cffa3b5200c152fd146b00e05405fa38c"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_ground",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "0~2번 준비에서 한 팔을 몸 쪽·위로 거두고3~7번에 전방으로 뻗어 요요를 내보낸다.8~12번에서 주먹을 당겨 회수하고13~15번에 경계 자세로 복귀한다. 양발 접지·낮은 자세와 흰 머리·푸른 장식·가느다란 꼬리의 크기가 유지된다. 교정한 손바닥 좌표에서 실이 시작하고 회수 끝에 요요가 손으로 이어진다. 전체16프레임 비교판과 승인 combat·side를 직접 대조했고, 실제 표시 코드의49틱 기록으로 재현한 네 모션의1×·0.25× 영상을 네이티브 QuickTime에서 실행하며 투척·최대 전개·회수·종료 장면을 확인했다.0.25× 좌우 반전과128px 셀/실제 표시 배율(자현0.9·나비0.8, 카메라1.5)도 확인했다. 이 영상은 실제 코드 기록 재현이며 게임 화면 캡처·물리 Android 통과가 아니다. 구체적 관찰과 수정 이력은03_qa_motion_r03.md에 기록했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "equipment_yoyo_air",
+      "path": "_workspace/pebble-yoyo/motions/nabi/air/r02/sheet-128.png",
+      "sha256": "3c8cc2f52bb1dbadb4e06b118bac3212737bb48c09bbb4d107e169a527189f32",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/nabi/air/r02/candidate.tres",
+      "sprite_frames_sha256": "3bd746feb80cdc840f83c9267f20c05e13fdd0e1db379b8b2b05578a9da0e4f7",
+      "expected_action": "공중에 무릎을 접은 채 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/nabi__equipment_yoyo_air.jpg": "c08038751ba0215c95c32aff2df370beaac478d4cba629edb2545ee264b6af5b",
+        "sheets/nabi__equipment_yoyo_air.png": "3c8cc2f52bb1dbadb4e06b118bac3212737bb48c09bbb4d107e169a527189f32"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_air",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_air",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_air",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_air",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "두 무릎을 접은 공중 자세로 팔을 뒤/위로 준비하고 전방 투척·회수를 한다. 지상에서 발을 디디는 모션과 구별되고 회수 중에도 공중 자세가 유지된다. 실 시작점은 장갑의 손바닥에 붙고 회수 끝에서 요요가 손으로 돌아온다. 얼굴·의상·꼬리 외형은 승인 참조와 일관된다. 전체16프레임 비교판과 승인 combat·side를 직접 대조했고, 실제 표시 코드의49틱 기록으로 재현한 네 모션의1×·0.25× 영상을 네이티브 QuickTime에서 실행하며 투척·최대 전개·회수·종료 장면을 확인했다.0.25× 좌우 반전과128px 셀/실제 표시 배율(자현0.9·나비0.8, 카메라1.5)도 확인했다. 이 영상은 실제 코드 기록 재현이며 게임 화면 캡처·물리 Android 통과가 아니다. 구체적 관찰과 수정 이력은03_qa_motion_r03.md에 기록했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "equipment_yoyo_ground",
+      "path": "_workspace/pebble-yoyo/motions/nabi/ground/r02/sheet-128.png",
+      "sha256": "224c8760e39ab94d359a1bee0ceedd5095a1388dd5c641d602b4e932410f8e22",
+      "sprite_frames_path": "_workspace/pebble-yoyo/motions/nabi/ground/r02/candidate.tres",
+      "sprite_frames_sha256": "333b55f9e2dabff490001165cabb6d6d20ae3460003f814905863f37695e57c0",
+      "expected_action": "지상 발 디딤을 유지하며 팔을 준비하고 전방으로 요요를 던져18틱 동안 늘린 뒤18틱 동안 회수하고 전투 자세로 복귀한다. 실·요요는 별도 표시하고 손 연결·좌우 반전·몸 크기를 유지한다.",
+      "action_source": "docs/gameplay/pebble-yoyo.md",
+      "action_source_sha256": "2412214d9a9b6daf13a03c7e0d1646142c6c9accf84ec9f04ec2b491a22fa4ad",
+      "materials": {
+        "boards/nabi__equipment_yoyo_ground.jpg": "e66ddb257b7e078b21369bb40a9893ae8885649a1a7156726c92999317d47b17",
+        "sheets/nabi__equipment_yoyo_ground.png": "224c8760e39ab94d359a1bee0ceedd5095a1388dd5c641d602b4e932410f8e22"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:equipment_yoyo_ground",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              1,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              3,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              4,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              5,
+              "extend",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              6,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              7,
+              "extend",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              8,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              9,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              10,
+              "return",
+              "equipment_yoyo_ground",
+              66.6666666666668
+            ],
+            [
+              11,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              12,
+              "return",
+              "equipment_yoyo_ground",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ],
+            [
+              15,
+              "recovery",
+              "equipment_yoyo_ground",
+              33.3333333333334
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "팔을 몸 쪽으로 거둔 준비 뒤3~7번에서 장갑 낀 팔을 전방으로 뻗는다.8~12번에서 손을 당겨 회수하고13~15번은 경계 자세를 회복한다. 접지한 신발과 굽힌 무릎, 보라색 머리·귀·방울 달린 꼬리의 크기가 유지된다. 손끝·귀·신발의 잘림이 없고 실 접점이 손바닥에 붙는다. 전체16프레임 비교판과 승인 combat·side를 직접 대조했고, 실제 표시 코드의49틱 기록으로 재현한 네 모션의1×·0.25× 영상을 네이티브 QuickTime에서 실행하며 투척·최대 전개·회수·종료 장면을 확인했다.0.25× 좌우 반전과128px 셀/실제 표시 배율(자현0.9·나비0.8, 카메라1.5)도 확인했다. 이 영상은 실제 코드 기록 재현이며 게임 화면 캡처·물리 Android 통과가 아니다. 구체적 관찰과 수정 이력은03_qa_motion_r03.md에 기록했다.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/pebble-yoyo/candidate-catalog.json",
+    "catalog_sha256": "7228372d85e98e43a6289dbb56ea83980f4d52efd90e482a76ab1f34049bbb35",
+    "scope_path": "_workspace/pebble-yoyo/candidate-scope.json",
+    "scope_sha256": "7f5fc7629b3da698b64de0a02d7b42cf4958352407e4af747113c7213ca90ead",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "qa",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "04331ec6ed393ffd073564b6c4f026a25c2b7b932d9a00cdddc5febb7a0729e2",
+    "timeline.json": "66c654d25d5620178a2ccf0a462324f2ba2471db8e53f10ad1c8b4bce62294af"
+  }
+}

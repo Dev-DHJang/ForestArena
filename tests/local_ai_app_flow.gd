@@ -43,7 +43,7 @@ func run() -> void:
 		if confirm != null: confirm.pressed.emit()
 		await create_timer(0.24).timeout
 		await process_frame
-	check(app.store.data.characters.size() == 2 and app.store.data.accessories.is_empty(), "shop buttons purchase both active characters without accessories")
+	check(app.store.data.characters.size() == 2 and app.store.data.accessories == ["pebble-yoyo"], "shop buttons purchase both active characters and yo-yo")
 	app.handle_back_request(500)
 	await create_timer(0.24).timeout
 	await process_frame
@@ -84,9 +84,9 @@ func run() -> void:
 	await create_timer(0.24).timeout
 	await process_frame
 	var choices := find_options(app)
-	check(choices.size() == 2, "mode and active AI selectors exist without equipment")
-	if choices.size() == 2:
-		select_option(choices[1], "나비")
+	check(choices.size() == 4, "mode, player equipment, AI character and AI equipment selectors exist")
+	if choices.size() == 4:
+		select_option(choices[2], "나비")
 		await create_timer(0.24).timeout
 		await process_frame
 	var start_button := find_button(app, "대전 시작")
@@ -116,6 +116,21 @@ func run() -> void:
 		else:
 			check(app.match_controller.bot_source != null, "local mode %d connects AI" % mode)
 		app._close_match()
+	app.selected_mode = LocalMatchConfig.Mode.SOLO
+	app.solo_participant_count = 4
+	check(app.set_ai_accessory(1, "pebble-yoyo") and app.set_ai_accessory(3, "pebble-yoyo"), "AI slots accept owned yo-yo")
+	check(not app.set_ai_accessory(2, "fixture-iron-armor") and not app.set_ai_accessory(0, "pebble-yoyo"), "AI slots reject legacy items and human slot")
+	app.start_match()
+	await physics_frame
+	var configured: Dictionary = {}
+	for fighter: FighterController in app.match_controller.call("_fighters"): configured[String(fighter.fighter_id)] = String(fighter.runtime_profile.accessory_id)
+	check(configured.get("ai_1") == "pebble-yoyo" and configured.get("ai_2") == "" and configured.get("ai_3") == "pebble-yoyo", "per-AI equipment choices reach real runtime independently")
+	app.start_match()
+	await physics_frame
+	check(app.active_config.participants[1].selection.accessory_id == &"pebble-yoyo", "rematch preserves AI equipment")
+	app._close_match()
+	app.set_ai_accessory(1, "")
+	app.set_ai_accessory(3, "")
 	app.selected_mode = LocalMatchConfig.Mode.AI
 	app.start_match()
 	await physics_frame

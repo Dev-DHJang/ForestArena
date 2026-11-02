@@ -1291,11 +1291,11 @@ class RunnerTests(unittest.TestCase):
         with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata(manifest, '/tmp/other')
         with self.assertRaises(fleet.Failure): fleet.source_manifest_metadata({**manifest, 'files': {}}, '/tmp/snapshot')
 
-    def test_explicit_project_and_lan_protocol_default_v4_preserves_v1(self):
+    def test_explicit_project_and_lan_protocol_default_v5_preserves_v1(self):
         args = fleet.parser().parse_args(['--project-root', '/tmp/snapshot', '--lan-protocol', '1'])
         self.assertEqual(args.project_root, Path('/tmp/snapshot'))
         self.assertEqual(args.lan_protocol, 1)
-        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 4)
+        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 5)
         v1 = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output, 'godot', 'run', '/tmp/snapshot', 1)
         self.assertEqual(v1.code, 'FAH1|ws://192.168.1.2:7777|1')
         self.assertEqual(v1.project_root, Path('/tmp/snapshot'))
@@ -1528,7 +1528,7 @@ class ProductV3Tests(unittest.TestCase):
         self.output = Path(self.temp.name)
         self.clock = Clock()
         self.adb = FakeADB([])
-        self.device = fleet.DeviceRun(self.adb, 'device-1', 'run', self.output, 'Game', clock=self.clock.time, sleep=self.clock.sleep)
+        self.device = fleet.DeviceRun(self.adb, 'device-1', 'run', self.output, 'Game', clock=self.clock.time, sleep=self.clock.sleep, protocol=4)
 
     @staticmethod
     def fighter(character='ja-hyun'):
@@ -1540,24 +1540,24 @@ class ProductV3Tests(unittest.TestCase):
     def ui():
         return [{'id': 'touch/'+action, 'kind': 'touch', 'visible': True} for action in ('move_up', 'move_down', 'move_left', 'move_right')+fleet.PRODUCT_ACTIONS]
 
-    def test_protocol_four_default_and_legacy_codes_preserved(self):
-        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 4)
+    def test_protocol_five_default_and_legacy_codes_preserved(self):
+        self.assertEqual(fleet.parser().parse_args([]).lan_protocol, 5)
         self.assertEqual(self.device.protocol, 4)
-        for protocol in (1, 2, 3, 4):
+        for protocol in (1, 2, 3, 4, 5):
             server = fleet.LanServer('192.168.1.2', '192.168.1.0/24', 7777, 8888, self.output/str(protocol), 'godot', 'run', protocol=protocol)
             expected = 'FAH1|ws://192.168.1.2:7777|1' if protocol == 1 else f'FAH{protocol}|http://192.168.1.2:8888|ws://192.168.1.2:7777|{protocol}'
             self.assertEqual(server.code, expected)
 
     def test_product_jobs_never_empty_for_four_devices_and_never_legacy_combos(self):
         for count in range(1, 5):
-            jobs = fleet.combination_jobs(count)
+            jobs = fleet.combination_jobs(count, protocol=4)
             self.assertEqual(len(jobs), count)
             self.assertTrue(all(jobs))
             self.assertEqual({(job['character'], job['accessory']) for group in jobs for job in group}, {('ja-hyun', ''), ('nabi', '')})
         self.assertEqual(sum(map(len, fleet.combination_jobs(4, protocol=2))), 28)
 
     def test_new_policy_ignores_legacy_current_policy_flag_and_validates_runtime(self):
-        d = fleet.DeviceRun(self.adb, 'device-1', 'run', self.output/'current', 'Game', current_policy=True)
+        d = fleet.DeviceRun(self.adb, 'device-1', 'run', self.output/'current', 'Game', current_policy=True, protocol=4)
         self.assertFalse(d.current_policy)
         d.state = {'snapshot': {'fighters': [self.fighter(), {**self.fighter('nabi'), 'id': 'ai'}]}}
         d.read = lambda: d.state
@@ -1674,6 +1674,50 @@ class ProductV3Tests(unittest.TestCase):
         self.assertEqual(result['summary']['combat_policy'], 'two-fighter-no-accessories-v2')
 
 
+
+
+class EquipmentV5Tests(unittest.TestCase):
+    def test_default_jobs_include_only_active_owned_equipment_candidates(self):
+        self.assertEqual(fleet.product_policy()['id'], 'two-fighter-equipment-v3')
+        self.assertEqual(fleet.product_policy()['accessories'], ('', 'pebble-yoyo'))
+        for count in range(1, 5):
+            jobs = fleet.combination_jobs(count)
+            self.assertTrue(all(jobs))
+            self.assertEqual({(j['character'], j['accessory']) for group in jobs for j in group},
+                             {(c, a) for c in fleet.ACTIVE_CHARACTERS for a in ('', 'pebble-yoyo')})
+
+    def test_equipment_button_required_only_for_lan5(self):
+        old = ProductV3Tests.ui()
+        equipped = old + [{'id': 'touch/use_equipment', 'kind': 'touch', 'visible': True}]
+        fleet.DeviceRun.assert_product_ui(equipped_state := {'ui': equipped}, protocol=5)
+        with self.assertRaises(fleet.Failure): fleet.DeviceRun.assert_product_ui({'ui': old}, protocol=5)
+        with self.assertRaises(fleet.Failure): fleet.DeviceRun.assert_product_ui(equipped_state, protocol=4)
+
+    def test_equipped_profile_preserves_base_combat_and_rejects_legacy_effects(self):
+        fighter = ProductV3Tests.fighter()
+        fighter['accessory_id'] = 'pebble-yoyo'
+        observed = fleet.DeviceRun.validate_product_profile(fighter, protocol=5)
+        self.assertEqual(observed['accessory_id'], 'pebble-yoyo')
+        self.assertEqual(observed['combat_policy'], 'two-fighter-equipment-v3')
+        with self.assertRaises(fleet.Failure): fleet.DeviceRun.validate_product_profile(fighter, protocol=4)
+        bad = {**fighter, 'accessory_id': 'fixture-thorns'}
+        with self.assertRaises(fleet.Failure): fleet.DeviceRun.validate_product_profile(bad, protocol=5)
+
+    def test_selection_runs_all_four_actual_equipment_combinations(self):
+        with tempfile.TemporaryDirectory() as temp:
+            d = fleet.DeviceRun(Mock(), 'device-1', 'run', Path(temp), 'Game')
+            d.state = {'profile': {'selected_character': 'ja-hyun', 'selected_accessory': ''}, 'ui': []}
+            d.prepare = Mock()
+            d.read = lambda: d.state
+            d.tap = lambda name: d.state['profile'].update(selected_character=next(key for key,value in fleet.CHARACTER_LABELS.items() if value == name))
+            d.wait = lambda predicate, **kwargs: d.state if predicate(d.state) else self.fail('selection predicate failed')
+            d.select_option = lambda label, value: d.state['profile'].update(selected_accessory=value)
+            d.start_match = Mock()
+            d.assert_config = Mock(return_value={})
+            observed = d.selections()
+            self.assertEqual([(row['character'], row['accessory']) for row in observed['actual_match_selections']],
+                             [('ja-hyun',''), ('ja-hyun','pebble-yoyo'), ('nabi',''), ('nabi','pebble-yoyo')])
+            self.assertEqual(d.start_match.call_count, 4)
 
 class AuthFixtureTests(unittest.TestCase):
     def setUp(self): self.api = GuestFixture('127.0.0.1',0,'service')
