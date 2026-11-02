@@ -1,0 +1,53 @@
+--- _workspace/pebble-yoyo/record_preview.gd
++++ _workspace/pebble-yoyo/registration-qa-r03/record_registered_preview.gd
+@@ -1,5 +1,5 @@
+ extends SceneTree
+-## Actual before/cast/after code trace, candidates injected in memory only.
++## Registration QA: actual runtime resources, no candidate texture/frames/layout injection.
+ const Presentation = preload("res://scripts/local_fighter_presentation.gd")
+ func _initialize() -> void: call_deferred("run")
+ func run() -> void:
+@@ -42,24 +42,9 @@
+ 				visual.set_process(false)
+ 				visual._reset_playback()
+ 				visual.sync_visual(0.0)
+-				var texture := ImageTexture.create_from_image(Image.load_from_file(directory+"/sheet-128.png"))
+-				var frames := SpriteFrames.new()
+ 				var id := StringName(metadata.motion_id)
+-				frames.add_animation(id)
+-				frames.set_animation_loop(id,false)
+-				frames.set_animation_speed(id,60)
+-				for index: int in 16:
+-					var atlas := AtlasTexture.new()
+-					atlas.atlas = texture
+-					atlas.region = Rect2((index % int(metadata.columns))*128,(index / int(metadata.columns))*128,128,128)
+-					frames.add_frame(id,atlas,float(metadata.frame_durations[index]))
+-				visual._motions[id] = frames
+-				var layout := metadata.duplicate(true)
+-				layout.sha256 = metadata.sheet_sha256
+-				visual._motion_layouts[id] = layout
+-				if character == "nabi":
+-					var idle_layout: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://_workspace/pebble-yoyo/motions/nabi/idle/r03/candidate.json"))
+-					visual._motion_layouts[&"idle"] = idle_layout
++				assert(visual._motions.has(id), "registered runtime motion missing")
++				assert(visual._motions[id].get_frame_count(id) == 16, "registered runtime frame count differs")
+ 				var trace := {"character":character,"mode":mode,"motion_id":id,"facing":direction,"metadata":metadata,"frames":[]}
+ 				for tick: int in range(-27,72):
+ 					if tick == 0: controller.submit_intent(CombatIntent.new(controller.tick+1,actor.fighter_id,&"use_equipment"))
+@@ -100,13 +85,13 @@
+ 							visual.sync_visual(1.0/60.0)
+ 							probe.cast.append(probe_sample(visual))
+ 						result.idle_entry_probes.append(probe)
+-	var file := FileAccess.open("res://_workspace/pebble-yoyo/game-timeline-r03.json",FileAccess.WRITE)
++	var file := FileAccess.open("res://_workspace/pebble-yoyo/registration-qa-r03/runtime-timeline.json",FileAccess.WRITE)
+ 	file.store_string(JSON.stringify(result,"  "))
+ 	file.close()
+ 	arena.queue_free()
+ 	await process_frame
+-	print("PEBBLE_YOYO_PREVIEW_TIMELINE_R03: PASS")
+-	quit()
++	print("PEBBLE_YOYO_REGISTERED_TIMELINE_R03: PASS")
++	call_deferred("quit")
+ 
+ func probe_sample(visual: Node) -> Dictionary:
+ 	var sprite: AnimatedSprite2D = visual.sprite

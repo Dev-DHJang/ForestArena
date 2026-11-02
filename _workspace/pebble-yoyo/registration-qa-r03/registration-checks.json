@@ -1,0 +1,86 @@
+{
+  "status": "pass",
+  "plan_sha256": "f7d4b5f5c011c95845b2391116a668107e4e48240190c6aa67e52d32bedba416",
+  "historical_QA_hashes_bridged_to_backup": [
+    "assets/character/manifest.json",
+    "assets/character/nabi/animation/runtime/idle.tres"
+  ],
+  "motions": [
+    {
+      "character": "ja-hyun",
+      "motion": "equipment_yoyo_ground",
+      "png_exact": true,
+      "SpriteFrames_reference_only_change": true,
+      "display_metadata_exact": true
+    },
+    {
+      "character": "ja-hyun",
+      "motion": "equipment_yoyo_air",
+      "png_exact": true,
+      "SpriteFrames_reference_only_change": true,
+      "display_metadata_exact": true
+    },
+    {
+      "character": "nabi",
+      "motion": "equipment_yoyo_ground",
+      "png_exact": true,
+      "SpriteFrames_reference_only_change": true,
+      "display_metadata_exact": true
+    },
+    {
+      "character": "nabi",
+      "motion": "equipment_yoyo_air",
+      "png_exact": true,
+      "SpriteFrames_reference_only_change": true,
+      "display_metadata_exact": true
+    },
+    {
+      "character": "nabi",
+      "motion": "idle",
+      "png_exact": true,
+      "SpriteFrames_reference_only_change": true,
+      "display_metadata_exact": true
+    }
+  ],
+  "manifest_original_rows": 146,
+  "manifest_prefix_rows_identical_except_nabi_idle": true,
+  "manifest_only_new_tail_rows": 4,
+  "actual_motion_traces": 8,
+  "actual_samples_exact": 792,
+  "idle_entry_probes_exact": 32,
+  "probe_samples_exact": 1600,
+  "new_motion_rgba_texture_upper_bound_bytes": 4194304,
+  "memory_scope": "RGBA four new sheets only; excludes mipmaps/driver overhead; not measured on Android",
+  "registered_assets_add_sprite_nodes_or_draw_commands": false,
+  "cleanup_note": "Godot exited0 and trace comparison passed; existing headless exit Resource/ObjectDB warnings remain, see runtime logs. No production code changed to pursue them.",
+  "sources": {
+    "_workspace/pebble-yoyo/registration-receipt-r03.json": "88191d0c8618bd9fd3c570893f73e415f91a1d13bb5e853b9e7747e34b94873d",
+    "_workspace/pebble-yoyo/registration-plan-r03.json": "fdf3d83fddfa2d5a802eab9a06fb2c6cb020ffe9b8281fe21b010acdae7f0475",
+    "_workspace/pebble-yoyo/user-motion-approval-r03.json": "313ec7c5072cc9d3ab2cdc750af8e39987647212c04bddac2209d8d35b7b14f3",
+    "_workspace/pebble-yoyo/review-r05/motion-review.json": "9075e39a01c59cc378bce98513bb5ca467546b286fe9af34c4da68c22f2a3d08",
+    "_workspace/pebble-yoyo/candidate-catalog.json": "f0234bfe2b3152562529c0d3818ac51f38c88f14b6dab4d659c741697336542c",
+    "_workspace/pebble-yoyo/candidate-scope.json": "831b356ba440a6d90580181e1237832996d7da867ea658dc2456a5b19059e7f1",
+    "_workspace/pebble-yoyo/game-timeline-r03.json": "62487e32576a42c73b36214f2fbad31d2fbc0a77aaee12610e3ffd8aff18ffc8",
+    "_workspace/pebble-yoyo/registration-qa-r03/runtime-timeline.json": "62487e32576a42c73b36214f2fbad31d2fbc0a77aaee12610e3ffd8aff18ffc8",
+    "_workspace/pebble-yoyo/registration-qa-r03/record_registered_preview.gd": "7c3fd068c311e5a089630583793d2b51ff6607ed280dd6dc0f5e692e02eac086",
+    "_workspace/pebble-yoyo/registration-qa-r03/verify_registration.py": "ef3c1f792225059dbd265eb4e65c5af254dcf48d03edab60a136558e1904e38a",
+    "_workspace/pebble-yoyo/registration-qa-r03/recorder-derivation.json": "0123e381971fd6c93bc583c914aa2c68101b9f2e6d3354d081504723fae9b654",
+    "_workspace/pebble-yoyo/registration-qa-r03/recorder.diff": "16b1b2a53ceaffc68876c80ba5300634992c13436b5596f65e4e822585d12dcd",
+    "_workspace/pebble-yoyo/registration-backup-r03/assets/character/manifest.json": "fdb3ace56dfe1350e3c3d3a294da90994dd51a697b77cd4f095abe5fda6d3e12",
+    "_workspace/pebble-yoyo/registration-backup-r03/assets/character/nabi/animation/runtime/idle.tres": "9bdb29eee528fef39506adaf10939b601f9829343e978adbe2b46e9ea4828315",
+    "build/verification/pebble-yoyo/registration-qa-import-r01.log": "99d185a0582e76736d04bcc386386e34d4bd9e8d65f1a6056164fe75a0597541",
+    "build/verification/pebble-yoyo/registration-qa-runtime-r01.log": "7fae70e10b7c5f46cddd071eccd312be4224a59203feaa132e249915a0721d05",
+    "build/verification/pebble-yoyo/registration-qa-runtime-r02.log": "7b58c16423a0407ea31aad51287d261d0d5ad0306e98b30ac8ffe6d3e40886f7",
+    "assets/character/ja-hyun/animation/runtime/equipment_yoyo_air.tres": "54a3ddc831e9485aebc6db7c6f42a5aa31868eca81ffc03ab0c5c255a6e7e5c0",
+    "assets/character/ja-hyun/animation/runtime/equipment_yoyo_air_16f_v01.png": "b5823de23ab0a17b06205bebe781255ebf21779184379006951f7ace95cf5a4b",
+    "assets/character/ja-hyun/animation/runtime/equipment_yoyo_ground.tres": "8eb83bd7b68cbcd4add4a7ad83f65721550be84a81f78336d795b12b666205ba",
+    "assets/character/ja-hyun/animation/runtime/equipment_yoyo_ground_16f_v01.png": "b7025c9107d0ae2e0bab1499bac1f3a910680bde41b59049235b9d260d31ba62",
+    "assets/character/manifest.json": "b26820ce0e80afe875f346a8600665e3196600364455cca677dcdb4b26972ba9",
+    "assets/character/nabi/animation/runtime/equipment_yoyo_air.tres": "3c7725e7e7277c12f7fc694aa59742590a44e7c0d4d5622e1bb17760dfa8d9b4",
+    "assets/character/nabi/animation/runtime/equipment_yoyo_air_16f_v01.png": "328813a775c52abb1d47efbfca6162424eb3e051aef38f33c5a7c80fb4cd18ff",
+    "assets/character/nabi/animation/runtime/equipment_yoyo_ground.tres": "449210de178042e098f1e3c8702c637acbddb7f5966daf06569fedd90d1ab895",
+    "assets/character/nabi/animation/runtime/equipment_yoyo_ground_16f_v01.png": "92b84c94919849ca12d5e43b67e44d99da377bb3e0797b5ddcf599d8c2732719",
+    "assets/character/nabi/animation/runtime/idle.tres": "ac3379154acbd7d26524af02813de6532a23a39d246ca765b6f4ceb42c2ef06a",
+    "assets/character/nabi/animation/runtime/idle_16f_yoyo-anchor-v01.png": "21fc85a7c581a9af606305ccad83edc7910d326a521c066eb816027a882e6450"
+  }
+}
