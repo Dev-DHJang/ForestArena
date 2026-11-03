@@ -1,0 +1,24 @@
+artifact-equip-confirm attempt 1
+Traceback (most recent call last):
+  File "/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/collection-r01/export_png.py", line 5, in <module>
+    r=call("const S=storage.menu09c;const b=S.boards["+json.dumps(key)+"];if(!b)throw Error('Missing board');return Array.from(await b.export({type:'png',scale:1}));")
+  File "/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/collection-r01/bootstrap.py", line 7, in call
+    with urllib.request.urlopen(req,timeout=150) as r:j=json.load(r)
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 189, in urlopen
+    return opener.open(url, data, timeout)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 495, in open
+    response = meth(req, response)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 604, in http_response
+    response = self.parent.error(
+        'http', request, response, code, msg, hdrs)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 533, in error
+    return self._call_chain(*args)
+           ~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 466, in _call_chain
+    result = func(*args)
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py", line 613, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 500: Internal Server Error
+

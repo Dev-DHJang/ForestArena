@@ -1,0 +1,1 @@
+if(penpot.currentFile.id!=='d8ac01df-6646-81d2-8008-a3696fea940e')throw Error('Wrong file');const v=await penpot.currentFile.saveVersion('MENU09 대표 r01 승인 · 캐릭터·신기 r01 검토대기');return{label:v.label,createdAt:v.createdAt,isAutosave:v.isAutosave,file:penpot.currentFile.id,page:storage.menu09c.page.id,revn:penpot.currentFile.revn};

@@ -16,7 +16,9 @@ register=json.loads((P/'screen-register.json').read_text())['screens']
 assert len(register)==21 and len({r['source_name'] for r in register})==21
 for r in register:
  if hashlib.sha256((P/r['reference_copy']).read_bytes()).hexdigest()!=r['source_sha256']:errors.append([r['source_name'],'source changed'])
- if r['approval_status']!='pending' or r['runtime_approved']:errors.append([r['title'],'approval gate violated'])
+ if r['runtime_approved']:errors.append([r['title'],'runtime approval gate violated'])
+ if r['approval_status']=='approved' and not (r.get('approval_evidence') and r.get('approved_revision')==r['revision']):errors.append([r['title'],'missing explicit approval evidence'])
+ if r['approval_status'] not in ['pending','approved']:errors.append([r['title'],'unknown approval state'])
 for key,dest in [('room-leave','room'),('room-ready-leave','room-ready')]:
  b=next(e for e in scenes[key]['elements'] if e['name']=='MODAL / cancel')
  if b['dest']!=dest:errors.append([key,'cancel loses state'])
