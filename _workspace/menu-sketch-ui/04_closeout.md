@@ -28,3 +28,11 @@
 전용 작업 폴더는 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`, 브랜치는 `codex/menu-sketch-ui`, 시작 기준은 `bc7171e5a9de7c52c4d7418ae2483e0cdccf173b`다. 요청·설계·검사·이미지 기록과 용어 설명을 저장소에 남긴다. 통합 정보는 후속 PR 링크와 Git 기록을 따른다.
 
 저장소 기록을 되돌릴 때는 해당 PR의 통합 커밋을 revert한다. Penpot은 이전 v08와 새 MENU09 영역을 함께 보존했다. 파일 전체 복원이나 기존 영역 삭제는 실행하지 않았다.
+
+### 실제 통합 기록
+
+- 시안·검사 자료 커밋: `614915fe8087821915466452171146b2bcd86904`.
+- [PR #124](https://github.com/Dev-DHJang/ForestArena/pull/124)를 `develop`에 병합했다. 병합 커밋은 `832ec4a0054b5575fbe32284a80a2925bf35f5d1`이다.
+- 통합 대상은 Penpot 설계 증거와 용어 설명이다. 사용자 화면 승인이나 실제 게임 UI 개발을 완료한 것으로 해석하지 않는다.
+- 병합 뒤에는 이 통합 기록만 `codex/menu-sketch-ui-closeout`에서 추가했다. 기본 게임 코드는 전체 검사 통과 기준과 같다.
+- 저장소의 시안 자료 통합을 되돌리는 명령은 `git revert -m 1 832ec4a0054b5575fbe32284a80a2925bf35f5d1`이다. 이 명령은 안내만 기록했으며 실행하지 않았다. Penpot 원본과 저장 버전은 별도로 보존한다.
