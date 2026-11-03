@@ -28,6 +28,14 @@
 
 ## Git과 되돌리기
 
-전용 폴더 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`, 브랜치 `codex/menu09-collection-r01`, 시작 기준 `8fa908b055167ec6e27bc316fab49e311d5e581f`다. 이 변경은 승인 기록과 Penpot 설계·검사·미리보기 자료만 포함한다. 실제 PR과 병합 결과는 완료 뒤 아래에 기록한다.
+전용 폴더 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`, 브랜치 `codex/menu09-collection-r01`, 시작 기준 `8fa908b055167ec6e27bc316fab49e311d5e581f`다. 이 변경은 승인 기록과 Penpot 설계·검사·미리보기 자료만 포함한다. 설계·검사 자료는 아래 PR로 develop에 통합했다.
 
 저장소는 해당 통합 커밋을 revert하면 되돌릴 수 있다. Penpot은 새 페이지를 보존한 상태에서 이전 저장 버전을 검토할 수 있다. 승인된 기존 페이지를 삭제하거나 파일 전체를 복원하지 않았다.
+
+### 실제 통합 기록
+
+- 설계·승인·검토 자료 커밋: `90c12355935cd007f09196dd046def9e9aa29506`.
+- [PR #126](https://github.com/Dev-DHJang/ForestArena/pull/126)를 `develop`에 병합했다. 실제 병합 커밋은 `608aca4b0461abf0039d76121b792ef8e6873391`이다.
+- 이 통합은 설계 자료와 기존 대표 승인 기록이며 새 캐릭터·신기3종의 사용자 승인을 의미하지 않는다.
+- 저장소 자료를 되돌리는 안내: `git revert -m 1 608aca4b0461abf0039d76121b792ef8e6873391`. 실행하지 않았다. Penpot은 별도 저장 버전으로 보존한다.
+- 병합 뒤 이 실제 통합 기록과 진단 로그의 마지막 빈 줄만 별도 마무리 브랜치에 기록했다. 게임 코드는 전체 검사 통과 기준과 같다. 기본 작업 폴더의 다른 작업 자료는 수정하지 않았다.
