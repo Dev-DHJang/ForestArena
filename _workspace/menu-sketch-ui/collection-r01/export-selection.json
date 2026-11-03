@@ -1,0 +1,31 @@
+{
+  "native_boards": 46,
+  "export_keys": [
+    "collection-home",
+    "collection-stats",
+    "skills-light",
+    "skills-heavy",
+    "skills-jump-light",
+    "skills-jump-heavy",
+    "skills-special",
+    "story-1",
+    "story-2",
+    "artifact-all",
+    "artifact-defense",
+    "artifact-attack",
+    "artifact-equipped",
+    "artifact-empty",
+    "artifact-equip-confirm",
+    "artifact-all-yoyo",
+    "artifact-defense-yoyo",
+    "artifact-empty-yoyo",
+    "video-artifact-yoyo-equipped",
+    "video-loading",
+    "video-error",
+    "skills-light-wide",
+    "story-1-wide",
+    "artifact-all-wide",
+    "collection-handoff"
+  ],
+  "reason": "21 references require per-screen PNG; this batch exports all 3 reference screens, tab variants and distinct equipment/empty/loading/error states. Repeated modal underlays remain editable native boards with full native audit and actual viewer navigation evidence."
+}
