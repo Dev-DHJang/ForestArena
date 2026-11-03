@@ -1,0 +1,30 @@
+# MENU09 대표안 검토 자료
+
+2026-11-04. 전체21종 중 대표3장의 첫 검토 단위다. 개별 화면은 승인 대기이며 나머지18장은 대표안 방향 승인 뒤 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
+
+## 먼저 볼 자료
+
+- `exports/representative-review.png`: 대표3장 연락표.
+- `exports/viewer-*-reloaded.png`: 새 Penpot 뷰어에서 실제 표시한 화면.
+- `approval-register.md`, `screen-register.json`:21종 대응·현재 승인 상태.
+- `02_ui.md`, `03_qa_r01.md`, `04_closeout.md`: 제작·독립 QA·진행과 통합 기록.
+- `references/`: 사용자 제공21개 JPEG의 바이트 보존 사본. 출처와 SHA-256은 화면 등록표에 있다.
+
+## Penpot
+
+편집 원본은 Forest_Arena_UI의23_MENU09_Review, 전달 안내는24_MENU09_Handoff에 있다. 모든 글자와 버튼·도표는 편집 가능하다. `MENU09 대표안 r01` 흐름으로 실제 이동을 검토한다.
+
+API로 화면을 추가한 뒤에는 편집기에서 해당 페이지를 실제 표시하고 글자 배치 계산을 마친 다음 저장해야 한다. 이번에는 새 뷰어 탭을 열어19단계·실제 한글 표시를 다시 확인했다. 보기 전용 화면의 글자 누락을 데이터 존재 검사만으로 통과시키지 않는다.
+
+1920 PNG는 대표·지원상태14종,20:9비교3종은 실제2400×1080이다. `*-wide-1920.png`의1920은 설계 기준을 뜻하며 실제 크기는export-index.json에 기록했다. 대표1280×720은 실제 PNG의 LANCZOS 축소본이다.
+
+## 재검사
+
+```sh
+python3 _workspace/menu-sketch-ui/check_spec.py
+node _workspace/menu-sketch-ui/check_preservation_metrics.cjs
+```
+
+첫 검사는21개 참조·해시·안전여백·조작크기·이동과 승인 대기를 확인한다. 두 번째는 실제 Penpot을 변경하지 않고6개 기존 화면의 텍스트 높이 캐시 차이를 검증한다. 제작 전 원본1586개·공식24화면·컴포넌트586개 보존 근거는preservation-summary.json과 개별 원시 기록에 있다.
+
+`baseline.js`와inventory는 작업 시작 전 원본 조사 기록이다. 기존MENU09가 있는 상태에서 시작 전 기준을 다시 캡처해 덮어쓰지 않는다. `scene-spec.json`이 새 설계 명세이며 `build_spec.py`로 재생성한다. Penpot 기록과 현재 화면을 확인한 뒤 필요한 새 버전만 제작하고, 승인된 프레임을 자동 덮어쓰지 않는다.

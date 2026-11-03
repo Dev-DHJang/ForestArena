@@ -1,0 +1,10 @@
+const S=storage.menu09;let page=penpotUtils.getPageByName('24_MENU09_Handoff');if(!page){page=penpot.createPage();page.name='24_MENU09_Handoff';}if(penpot.currentPage.id!==page.id)await penpot.openPage(page);let b=page.root.children.find(s=>s.name==='MENU09 / Handoff / Review guide');if(b)return{existing:true,id:b.id};b=penpot.createBoard();b.name='MENU09 / Handoff / Review guide';b.resize(1920,1080);b.fills=[{fillColor:'#10181C',fillOpacity:1}];S.put(page.root,b,0,0);b.setPluginData('menu09-owned','true');
+const t=(name,text,x,y,w,size=30,color='text',weight='500')=>S.text(b,{name,text,x,y,w,h:size*1.5*text.split('\n').length,size,color,weight,align:'left'});
+t('BRAND','FOREST ARENA · MENU09',96,48,1728,28,'gold','600');t('TITLE','손그림 기반 메뉴 · 대표안 검토',96,104,1728,52,'text','700');t('STATUS','대표 3 / 전체 21 · 화면 승인 대기 · 실제 개발 전',96,184,1728,30,'mint');
+for(const[x,y]of[[96,272],[984,272],[96,568],[984,568]])S.rect(b,'HANDOFF / panel',x,y,840,256,'panel',1,16);
+t('REVIEW / title','01  이번 검토 범위',128,296,776,34,'gold','600');t('REVIEW / content','메인 로비 · 캐릭터 스탯 · 일반/AI 대전방\n대표 3장 + 지원 상태 11장 + 20:9 비교 3장\n나머지 18장은 공통 방향 승인 뒤 설계',128,360,776,28);
+t('ASSETS / title','02  MISSING ASSETS · 대표 3장 0개',1016,296,776,34,'gold','600');t('ASSETS / content','기존 v08 배경 · 승인 원화 4종 재사용\n한국어 텍스트 · 버튼 · 도표는 편집 가능\n다음 묶음의 필요 자산은 설계할 때 등록',1016,360,776,28);
+t('RULES / title','03  설계와 데이터 기준',128,592,776,34,'gold','600');t('RULES / content','1920×1080 · 8px 간격 · 조작 최소 72px\n안전 여백 좌우 96px / 상하 48px\n신기 무등급 · 최대 8명 / 팀당 1~4명',128,656,776,28);
+t('GATES / title','04  승인과 실제 개발',1016,592,776,34,'gold','600');t('GATES / content','시각 승인과 서비스 규칙 승인은 별개\n가격 · 보상 · 시즌 · 결제 규칙은 미정\nGodot · API · 저장 형식 · 게임 규칙 변경 없음',1016,656,776,28);
+t('TOKENS','v08 색상 · Noto Sans KR · 원본 컴포넌트 재사용',96,872,1728,28,'muted');['bg','panel','text','muted','gold','mint'].forEach((c,i)=>{S.rect(b,'TOKEN / '+c,96+i*288,936,80,72,c,1,8);t('TOKEN / label '+c,c,192+i*288,952,168,26,'muted');});
+S.handoff={page,id:b.id};return{page:page.id,board:b.id};

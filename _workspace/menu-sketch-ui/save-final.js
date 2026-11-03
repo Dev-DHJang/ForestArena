@@ -1,0 +1,1 @@
+if(penpot.currentFile.id!=='d8ac01df-6646-81d2-8008-a3696fea940e')throw Error('Wrong target');const v=await penpot.currentFile.saveVersion('MENU09 대표3장 r01 · 재로드 검증 · 승인대기');return{label:v.label,createdAt:v.createdAt,isAutosave:v.isAutosave,file:penpot.currentFile.id,revn:penpot.currentFile.revn};

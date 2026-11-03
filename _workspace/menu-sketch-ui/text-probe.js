@@ -1,0 +1,1 @@
+const S=storage.menu09;const t=S.boards.lobby.children.find(s=>s.name==='PLAYER');if(t.characters!=='숲의 여행자')throw Error('Unexpected text');t.characters='숲의 여행자 ·';return {id:t.id,font:t.fontFamily,characters:t.characters,revn:penpot.currentFile.revn};

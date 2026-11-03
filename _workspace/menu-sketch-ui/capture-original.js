@@ -1,0 +1,1 @@
+const S=storage.menu09;const b=penpotUtils.getPageByName('04_Lobby_Meta').root.children.find(b=>b.name==='SCR_03_Lobby');return{beforeHash:S.baseline.flatMap(p=>p.boards).find(v=>v.id===b.id).hash,snap:S.snap(b)};
