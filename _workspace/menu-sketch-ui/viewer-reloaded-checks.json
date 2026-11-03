@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-04",
+  "freshTab": true,
+  "zoom": "fit",
+  "steps": [
+    {
+      "action": "캐릭터",
+      "expected": "character-stats",
+      "actual": "MENU09 / SCR_05_CharacterDetail / character-stats",
+      "pass": true
+    },
+    {
+      "action": "기술",
+      "expected": "character-pending",
+      "actual": "MENU09 / Review / character-pending",
+      "pass": true
+    },
+    {
+      "action": "닫기",
+      "expected": "character-stats",
+      "actual": "MENU09 / SCR_05_CharacterDetail / character-stats",
+      "pass": true
+    },
+    {
+      "action": "←",
+      "expected": "lobby",
+      "actual": "MENU09 / SCR_03_Lobby / lobby",
+      "pass": true
+    },
+    {
+      "action": "일반대전",
+      "expected": "room",
+      "actual": "MENU09 / SCR_10_PartyLobby / room",
+      "pass": true
+    },
+    {
+      "action": "캐릭터 변경",
+      "expected": "character-from-room",
+      "actual": "MENU09 / Review / character-from-room",
+      "pass": true
+    },
+    {
+      "action": "←",
+      "expected": "room",
+      "actual": "MENU09 / SCR_10_PartyLobby / room",
+      "pass": true
+    },
+    {
+      "action": "준비하기",
+      "expected": "room-ready",
+      "actual": "MENU09 / SCR_10_PartyLobby / room-ready",
+      "pass": true
+    },
+    {
+      "action": "캐릭터 변경",
+      "expected": "character-from-room-ready",
+      "actual": "MENU09 / Review / character-from-room-ready",
+      "pass": true
+    },
+    {
+      "action": "대전방으로 돌아가기",
+      "expected": "room-ready",
+      "actual": "MENU09 / SCR_10_PartyLobby / room-ready",
+      "pass": true
+    },
+    {
+      "action": "대전 시작",
+      "expected": "room-ready-pending",
+      "actual": "MENU09 / Review / room-ready-pending",
+      "pass": true
+    },
+    {
+      "action": "닫기",
+      "expected": "room-ready",
+      "actual": "MENU09 / SCR_10_PartyLobby / room-ready",
+      "pass": true
+    },
+    {
+      "action": "←",
+      "expected": "room-ready-leave",
+      "actual": "MENU09 / Review / room-ready-leave",
+      "pass": true
+    },
+    {
+      "action": "취소",
+      "expected": "room-ready",
+      "actual": "MENU09 / SCR_10_PartyLobby / room-ready",
+      "pass": true
+    },
+    {
+      "action": "준비 취소",
+      "expected": "room",
+      "actual": "MENU09 / SCR_10_PartyLobby / room",
+      "pass": true
+    },
+    {
+      "action": "나가기",
+      "expected": "room-leave",
+      "actual": "MENU09 / Review / room-leave",
+      "pass": true
+    },
+    {
+      "action": "나가기",
+      "expected": "lobby",
+      "actual": "MENU09 / SCR_03_Lobby / lobby",
+      "pass": true
+    },
+    {
+      "action": "상점",
+      "expected": "lobby-pending",
+      "actual": "MENU09 / Review / lobby-pending",
+      "pass": true
+    },
+    {
+      "action": "닫기",
+      "expected": "lobby",
+      "actual": "MENU09 / SCR_03_Lobby / lobby",
+      "pass": true
+    }
+  ]
+}

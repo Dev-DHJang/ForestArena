@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-03",
+  "method": "actual Penpot viewer, CUA native accessibility actions with fresh state checks",
+  "viewport_zoom": "fit 64.54%",
+  "steps": [
+    {
+      "action": "로비→일반대전",
+      "expected_board_key": "room",
+      "observed_board_key": "room",
+      "pass": true
+    },
+    {
+      "action": "준비하기",
+      "expected_board_key": "room-ready",
+      "observed_board_key": "room-ready",
+      "pass": true
+    },
+    {
+      "action": "캐릭터 변경",
+      "expected_board_key": "character-from-room-ready",
+      "observed_board_key": "character-from-room-ready",
+      "pass": true
+    },
+    {
+      "action": "뒤로",
+      "expected_board_key": "room-ready",
+      "observed_board_key": "room-ready",
+      "pass": true
+    },
+    {
+      "action": "상단 뒤로",
+      "expected_board_key": "room-ready-leave",
+      "observed_board_key": "room-ready-leave",
+      "pass": true
+    },
+    {
+      "action": "확인창 밖 뒤로 좌표 클릭",
+      "expected_board_key": "room-ready-leave",
+      "observed_board_key": "room-ready-leave",
+      "pass": true
+    },
+    {
+      "action": "취소",
+      "expected_board_key": "room-ready",
+      "observed_board_key": "room-ready",
+      "pass": true
+    },
+    {
+      "action": "준비 취소",
+      "expected_board_key": "room",
+      "observed_board_key": "room",
+      "pass": true
+    },
+    {
+      "action": "캐릭터 변경",
+      "expected_board_key": "character-from-room",
+      "observed_board_key": "character-from-room",
+      "pass": true
+    },
+    {
+      "action": "기술",
+      "expected_board_key": "character-from-room-pending",
+      "observed_board_key": "character-from-room-pending",
+      "pass": true
+    },
+    {
+      "action": "닫기",
+      "expected_board_key": "character-from-room",
+      "observed_board_key": "character-from-room",
+      "pass": true
+    },
+    {
+      "action": "대전방으로 돌아가기",
+      "expected_board_key": "room",
+      "observed_board_key": "room",
+      "pass": true
+    },
+    {
+      "action": "나가기",
+      "expected_board_key": "room-leave",
+      "observed_board_key": "room-leave",
+      "pass": true
+    },
+    {
+      "action": "취소",
+      "expected_board_key": "room",
+      "observed_board_key": "room",
+      "pass": true
+    },
+    {
+      "action": "준비하기",
+      "expected_board_key": "room-ready",
+      "observed_board_key": "room-ready",
+      "pass": true
+    },
+    {
+      "action": "대전 시작",
+      "expected_board_key": "room-ready-pending",
+      "observed_board_key": "room-ready-pending",
+      "pass": true
+    },
+    {
+      "action": "닫기",
+      "expected_board_key": "room-ready",
+      "observed_board_key": "room-ready",
+      "pass": true
+    },
+    {
+      "action": "나가기",
+      "expected_board_key": "room-ready-leave",
+      "observed_board_key": "room-ready-leave",
+      "pass": true
+    },
+    {
+      "action": "나가기 확인",
+      "expected_board_key": "lobby",
+      "observed_board_key": "lobby",
+      "pass": true
+    },
+    {
+      "action": "캐릭터",
+      "expected_board_key": "character-stats",
+      "observed_board_key": "character-stats",
+      "pass": true
+    },
+    {
+      "action": "뒤로",
+      "expected_board_key": "lobby",
+      "observed_board_key": "lobby",
+      "pass": true
+    },
+    {
+      "action": "상점",
+      "expected_board_key": "lobby-pending",
+      "observed_board_key": "lobby-pending",
+      "pass": true
+    },
+    {
+      "action": "닫기",
+      "expected_board_key": "lobby",
+      "observed_board_key": "lobby",
+      "pass": true
+    }
+  ],
+  "note": "The first pending-modal AX activation was unsupported; a native coordinate click outside the modal subsequently left its frame unchanged."
+}

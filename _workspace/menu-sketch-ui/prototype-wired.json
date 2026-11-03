@@ -1,0 +1,788 @@
+{
+  "success": true,
+  "result": {
+    "page": "62887074-f5da-808f-8008-e3af3af06588",
+    "boards": {
+      "lobby": {
+        "id": "62887074-f5da-808f-8008-e3af42b3ef31",
+        "name": "MENU09 / SCR_03_Lobby / lobby"
+      },
+      "character-stats": {
+        "id": "62887074-f5da-808f-8008-e3af43ff60c1",
+        "name": "MENU09 / SCR_05_CharacterDetail / character-stats"
+      },
+      "room": {
+        "id": "62887074-f5da-808f-8008-e3af4502ffe8",
+        "name": "MENU09 / SCR_10_PartyLobby / room"
+      },
+      "room-ready": {
+        "id": "62887074-f5da-808f-8008-e3afd6d4e4eb",
+        "name": "MENU09 / SCR_10_PartyLobby / room-ready"
+      },
+      "lobby-pending": {
+        "id": "62887074-f5da-808f-8008-e3afd88c94e4",
+        "name": "MENU09 / Review / lobby-pending"
+      },
+      "character-pending": {
+        "id": "62887074-f5da-808f-8008-e3afda720b10",
+        "name": "MENU09 / Review / character-pending"
+      },
+      "room-pending": {
+        "id": "62887074-f5da-808f-8008-e3afdc1a705d",
+        "name": "MENU09 / Review / room-pending"
+      },
+      "room-ready-pending": {
+        "id": "62887074-f5da-808f-8008-e3afde6ea242",
+        "name": "MENU09 / Review / room-ready-pending"
+      },
+      "room-leave": {
+        "id": "62887074-f5da-808f-8008-e3afe0f00a7c",
+        "name": "MENU09 / Review / room-leave"
+      },
+      "room-ready-leave": {
+        "id": "62887074-f5da-808f-8008-e3afe3d15baa",
+        "name": "MENU09 / Review / room-ready-leave"
+      },
+      "lobby-wide": {
+        "id": "62887074-f5da-808f-8008-e3afe6d97c57",
+        "name": "MENU09 / Compare20x9 / lobby"
+      },
+      "character-stats-wide": {
+        "id": "62887074-f5da-808f-8008-e3afe95d6ebf",
+        "name": "MENU09 / Compare20x9 / character-stats"
+      },
+      "room-wide": {
+        "id": "62887074-f5da-808f-8008-e3afeb8016a8",
+        "name": "MENU09 / Compare20x9 / room"
+      },
+      "character-from-room": {
+        "id": "62887074-f5da-808f-8008-e3b05d8a5f2f",
+        "name": "MENU09 / Review / character-from-room"
+      },
+      "character-from-room-pending": {
+        "id": "62887074-f5da-808f-8008-e3b0656d41c3",
+        "name": "MENU09 / Review / character-from-room-pending"
+      },
+      "character-from-room-ready": {
+        "id": "62887074-f5da-808f-8008-e3b06e0870fc",
+        "name": "MENU09 / Review / character-from-room-ready"
+      },
+      "character-from-room-ready-pending": {
+        "id": "62887074-f5da-808f-8008-e3b075d09749",
+        "name": "MENU09 / Review / character-from-room-ready-pending"
+      }
+    },
+    "links": [
+      {
+        "key": "lobby",
+        "links": [
+          {
+            "name": "PROFILE",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "NOTICE",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "MAIL",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "SETTINGS",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "STORY",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "NORMAL",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af4502ffe8"
+              }
+            ]
+          },
+          {
+            "name": "RANKED",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "NAV / 상점",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "NAV / 캐릭터",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af43ff60c1"
+              }
+            ]
+          },
+          {
+            "name": "NAV / 신기",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "NAV / 미션",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "NAV / 업적",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          },
+          {
+            "name": "NAV / 친구",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd88c94e4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "character-stats",
+        "links": [
+          {
+            "name": "BACK",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af42b3ef31"
+              }
+            ]
+          },
+          {
+            "name": "TAB / 기술",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afda720b10"
+              }
+            ]
+          },
+          {
+            "name": "TAB / 스토리",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afda720b10"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit ja-hyun",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afda720b10"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit nabi",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afda720b10"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit yu-ran",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afda720b10"
+              }
+            ]
+          },
+          {
+            "name": "PRACTICE",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af4502ffe8"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "room",
+        "links": [
+          {
+            "name": "BACK",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afe0f00a7c"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / character",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b05d8a5f2f"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / artifact",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afdc1a705d"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / AI",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afdc1a705d"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / ready",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd6d4e4eb"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / leave",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afe0f00a7c"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "room-ready",
+        "links": [
+          {
+            "name": "BACK",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afe3d15baa"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / character",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b06e0870fc"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / artifact",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afde6ea242"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / AI",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afde6ea242"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / ready",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afde6ea242"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / leave",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afe3d15baa"
+              }
+            ]
+          },
+          {
+            "name": "ROOM / cancel ready",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af4502ffe8"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "lobby-pending",
+        "links": [
+          {
+            "name": "MODAL / close",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af42b3ef31"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "character-pending",
+        "links": [
+          {
+            "name": "MODAL / close",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af43ff60c1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "room-pending",
+        "links": [
+          {
+            "name": "MODAL / close",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af4502ffe8"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "room-ready-pending",
+        "links": [
+          {
+            "name": "MODAL / close",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd6d4e4eb"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "room-leave",
+        "links": [
+          {
+            "name": "MODAL / cancel",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af4502ffe8"
+              }
+            ]
+          },
+          {
+            "name": "MODAL / confirm",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af42b3ef31"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "room-ready-leave",
+        "links": [
+          {
+            "name": "MODAL / cancel",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd6d4e4eb"
+              }
+            ]
+          },
+          {
+            "name": "MODAL / confirm",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af42b3ef31"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "character-from-room",
+        "links": [
+          {
+            "name": "BACK",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af4502ffe8"
+              }
+            ]
+          },
+          {
+            "name": "TAB / 기술",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b0656d41c3"
+              }
+            ]
+          },
+          {
+            "name": "TAB / 스토리",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b0656d41c3"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit ja-hyun",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b0656d41c3"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit nabi",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b0656d41c3"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit yu-ran",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b0656d41c3"
+              }
+            ]
+          },
+          {
+            "name": "PRACTICE",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3af4502ffe8"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "character-from-room-pending",
+        "links": [
+          {
+            "name": "MODAL / close",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b05d8a5f2f"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "character-from-room-ready",
+        "links": [
+          {
+            "name": "BACK",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd6d4e4eb"
+              }
+            ]
+          },
+          {
+            "name": "TAB / 기술",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b075d09749"
+              }
+            ]
+          },
+          {
+            "name": "TAB / 스토리",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b075d09749"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit ja-hyun",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b075d09749"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit nabi",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b075d09749"
+              }
+            ]
+          },
+          {
+            "name": "ROSTER / hit yu-ran",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b075d09749"
+              }
+            ]
+          },
+          {
+            "name": "PRACTICE",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3afd6d4e4eb"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "character-from-room-ready-pending",
+        "links": [
+          {
+            "name": "MODAL / close",
+            "count": 1,
+            "actions": [
+              {
+                "trigger": "click",
+                "type": "navigate-to",
+                "destination": "62887074-f5da-808f-8008-e3b06e0870fc"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "key": "lobby-wide",
+        "links": []
+      },
+      {
+        "key": "character-stats-wide",
+        "links": []
+      },
+      {
+        "key": "room-wide",
+        "links": []
+      }
+    ]
+  },
+  "log": ""
+}

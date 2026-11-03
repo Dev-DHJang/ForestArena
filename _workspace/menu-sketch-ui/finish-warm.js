@@ -1,0 +1,1 @@
+const S=storage.menu09;const page=penpotUtils.getPageByName('24_MENU09_Handoff'),t=page.root.children[0].children.find(s=>s.id===S.handoffTitle.id);t.characters=S.handoffTitle.characters;await penpot.openPage(S.page);penpot.selection=[S.boards.lobby];penpot.viewport.zoom=.35;penpot.viewport.center={x:960,y:540};return{restored:t.characters,review:S.page.id};
