@@ -1,0 +1,376 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "action": "fresh viewer",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "주간",
+      "frame": "mission-weekly",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "집계 안내",
+      "frame": "mission-weekly",
+      "dialog": true,
+      "contains": "미션 집계 안내",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mission-weekly",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "출석",
+      "frame": "mission-attendance",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "4 · 오늘",
+      "frame": "mission-attendance",
+      "dialog": true,
+      "contains": "출석 운영은 미정이에요",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mission-attendance",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "오늘 출석 확인 · 시안",
+      "frame": "mission-attendance",
+      "dialog": true,
+      "contains": "출석 확인 동작 미리보기",
+      "status": "pass"
+    },
+    {
+      "action": "비활성 보상 포인터",
+      "frame": "mission-attendance",
+      "dialog": true,
+      "contains": "출석 확인 동작 미리보기",
+      "status": "pass"
+    },
+    {
+      "action": "모달 배경 주간 포인터 차단",
+      "frame": "mission-attendance",
+      "dialog": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mission-attendance",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "28",
+      "frame": "mission-attendance",
+      "dialog": true,
+      "contains": "출석 운영은 미정이에요",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mission-attendance",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "업적",
+      "frame": "achievements",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "대전",
+      "frame": "achievements-combat",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "달성 ✓",
+      "frame": "achievements-combat",
+      "dialog": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "achievements-combat",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "수집",
+      "frame": "achievements-collection",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미정 항목 보기",
+      "frame": "achievements-collection",
+      "dialog": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "achievements-collection",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "기술",
+      "frame": "achievements-skills",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미정 항목 보기",
+      "frame": "achievements-skills",
+      "dialog": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "achievements-skills",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "achievements",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "mission-entry",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미션",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "새로고침",
+      "frame": "mission-loading",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "검토 닫기",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "달성 ✓",
+      "frame": "mission-daily",
+      "dialog": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 안내",
+      "frame": "mission-handoff",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "빈 목록",
+      "frame": "mission-empty",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "집계 안내",
+      "frame": "mission-empty",
+      "dialog": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mission-empty",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "일일로 돌아가기",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 mission-handoff",
+      "frame": "mission-handoff",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "모두 달성",
+      "frame": "mission-complete",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "일일로 돌아가기",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 mission-handoff",
+      "frame": "mission-handoff",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "오류",
+      "frame": "mission-error",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "다시 시도",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "mission-entry",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "친구",
+      "frame": "mission-entry",
+      "dialog": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mission-entry",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미션",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "문구 수정 후 새로 열기",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "업적",
+      "frame": "achievements",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "대전",
+      "frame": "achievements-combat",
+      "dialog": false,
+      "contains": "현재 플레이 가능한 캐릭터는 자현·나비예요. 다른 캐릭터의 지원은 미정입니다.",
+      "status": "pass"
+    },
+    {
+      "action": "달성 ✓",
+      "frame": "achievements-combat",
+      "dialog": true,
+      "contains": "현재는 보상 수령 없이 기록만 확인해요.",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "achievements-combat",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "achievements",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "mission-entry",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미션",
+      "frame": "mission-daily",
+      "dialog": false,
+      "contains": null,
+      "status": "pass"
+    }
+  ]
+}

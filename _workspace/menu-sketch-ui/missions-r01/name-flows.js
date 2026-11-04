@@ -1,0 +1,1 @@
+const S=storage.menu09m;for(const f of S.page.flows){const key=f.startingBoard.getPluginData('menu09-key');f.name=key==='mission-daily'?'MENU09 미션·출석·업적 r01':key==='mission-handoff'?'MENU09 미션 검토 안내':'MENU09 상태 / '+key;}return true;
