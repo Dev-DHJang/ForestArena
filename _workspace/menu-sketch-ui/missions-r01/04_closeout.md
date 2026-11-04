@@ -35,3 +35,11 @@
 전용 폴더 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`,브랜치 `codex/menu09-missions-r01`,시작 기준 `4cf0f8853bc1267b4feb0d873444173d23e11d3e`다. 승인 기록·설계·미리보기·검증 자료만 통합한다. 실제 통합 결과는 후속 기록에 남긴다.
 
 저장소 자료는 해당 통합 커밋을 revert해 되돌린다. Penpot은 이전 승인 페이지와 저장 버전을 보존했다. 필요한 새 미션 영역만 검토하고 다른 승인 페이지를 포함한 파일 전체 복원은 실행하지 않는다.
+
+### 실제 통합 기록
+
+- 시안·상점 승인·QA 자료 커밋: `ffdb1ae60de83e0928d69d2053d6ee659cf81263`.
+- [PR #132](https://github.com/Dev-DHJang/ForestArena/pull/132)을 `develop`에 병합했다. 실제 병합 커밋은 `660e8a3a00f8058433bf21871bf87b9345feb92e`다.
+- 이 통합은 설계와 이전 상점 승인 기록이다. 새 미션·출석·업적3종 사용자 승인이나 실제 게임 UI 개발을 뜻하지 않는다.
+- 저장소 자료 되돌리기 안내는 `git revert -m 1 660e8a3a00f8058433bf21871bf87b9345feb92e`이며 실행하지 않았다. Penpot 저장 버전과 기존 승인 페이지는 별도로 보존한다.
+- 병합 뒤 실제 통합 정보만 `codex/menu09-missions-closeout`에 기록했다. 기본 폴더와 다른 사용자의 작업을 수정하지 않았다. 게임 코드는 전체 검사 통과 기준과 같다.
