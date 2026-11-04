@@ -1,0 +1,1 @@
+if(penpot.currentFile.id!=='d8ac01df-6646-81d2-8008-a3696fea940e')throw Error('Wrong file');const v=await penpot.currentFile.saveVersion('MENU09 상점 r02 · 캐릭터 목록 우선 · 검토대기');return{label:v.label,createdAt:v.createdAt,file:penpot.currentFile.id,page:storage.menu09s.page.id,revn:penpot.currentFile.revn,isAutosave:v.isAutosave};
