@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "reused_from": "../missions-r01/verification-summary.json",
+  "tested_source_commit": "4cf0f8853bc1267b4feb0d873444173d23e11d3e",
+  "current_base_commit": "2d96d43baa585b774b80b2bd615d9fa6446f55e3",
+  "changed_paths_since_test": 119,
+  "runtime_changes": [],
+  "command": "./scripts/verify.sh --full",
+  "total_checks": 94,
+  "completed_checks": 94,
+  "elapsed_seconds": 540.916,
+  "result_path": "build/verification/20261104-133023-fec1b4ab/result.json",
+  "reason": "Only MENU09 design evidence and approval records changed; no game code, assets, contracts, tests, dependencies or verification scripts changed. Completed full checks reused; new Penpot and related docs/syntax checks are separate.",
+  "current_worktree_change_count": 159,
+  "current_worktree_outside_design_scope": []
+}
