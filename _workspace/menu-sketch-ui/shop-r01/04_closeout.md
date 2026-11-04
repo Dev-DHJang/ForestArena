@@ -35,6 +35,14 @@
 
 ## Git과 되돌리기
 
-전용 폴더 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`, 브랜치 `codex/menu09-shop-r01`, 시작 기준 `69a7db135911ca6e3399003ee036f22d07eb4425`다. 승인 기록과 Penpot 설계·검사·미리보기 자료만 통합한다. 실제 PR·병합 결과는 완료 뒤 기록한다.
+전용 폴더 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`, 브랜치 `codex/menu09-shop-r01`, 시작 기준 `69a7db135911ca6e3399003ee036f22d07eb4425`다. 승인 기록과 Penpot 설계·검사·미리보기 자료만 통합한다. 실제 통합 결과는 아래에 기록했다.
 
 저장소 자료는 해당 통합 커밋을 revert하면 되돌릴 수 있다. Penpot은 이전 승인 페이지·별도 새 페이지와 저장 버전으로 보존했다. 전체 파일 복원이나 기존 승인 화면의 삭제는 실행하지 않았다.
+
+### 실제 통합 기록
+
+- 시안·승인·검사 자료 커밋: `8c286bc6d2ab16bba52fec2e94ebf0fa3f905b97`.
+- [PR #128](https://github.com/Dev-DHJang/ForestArena/pull/128)을 `develop`에 병합했다. 실제 병합 커밋은 `0eee4afb99d0854b2f403264b85a01c6fcb66bf4`다.
+- 이 통합은 설계 자료와 이전 캐릭터·신기 승인 기록이다. 새 상점5종 사용자 승인이나 실제 게임 UI 개발을 뜻하지 않는다.
+- 되돌리기 안내는 `git revert -m 1 0eee4afb99d0854b2f403264b85a01c6fcb66bf4`이며 실행하지 않았다. Penpot 저장 버전과 승인 원본은 별도로 보존한다.
+- 병합 뒤 실제 통합 정보만 별도 마무리 브랜치에 기록했다. 기본 작업 폴더와 다른 사용자의 작업을 수정하지 않았으며 게임 코드는 전체 검사 통과 기준과 같다.
