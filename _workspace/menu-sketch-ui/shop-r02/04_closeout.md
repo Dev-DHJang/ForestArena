@@ -11,7 +11,7 @@
 - PNG18개: 네이티브8·1280축소4·연락표1·실제 뷰어5. 크기·해시와20:9 비교를 기록했다. 미변경 신기·재화 본문과 기존 미수록26개 목록은 shop-r01 기록을 재사용한다.
 - `preservation-summary.json`:기존 승인63보드 재귀 해시 변화0건. 원래24페이지·1,586루트·586개 컴포넌트 정의 보존. `protected-navigation.json`:700개 조작 요소·231개 연결 문제0건.
 - `./scripts/verify.sh --full`:가져오기1회+검사93개,총94단계 pass,538.982초. 기준 `cd301ca34839e79fbb04e3aa94140017453de937`,실제 결과 `build/verification/20261104-121641-e558b1c5/result.json`,요약 `verification-summary.json`. 이후 변경은 작업 기록·미리보기뿐이다.
-- `check_spec.py`, 기존21종 참조 검사, Python/JavaScript 문법과 문서 검사 pass. 독립 QA는 `03_qa_r01.md`를 따른다. 실제 Android 확인·게임 UI 개발·경제/결제 승인은 수행하지 않았다.
+- `check_spec.py`, 기존21종 참조 검사, Python/JavaScript 문법과 문서 검사 pass. 독립 QA `03_qa_r01.md`는 pass다. 실제 Android 확인·게임 UI 개발·경제/결제 승인은 수행하지 않았다.
 
 ## 승인과 다음 작업
 
