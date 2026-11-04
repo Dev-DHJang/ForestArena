@@ -1,6 +1,6 @@
 # MENU09 손그림 기반 UI 검토 자료
 
-2026-11-04. 현재21종 중18종을 설계했다. 대표3장 r01·캐릭터·신기3종 collection-r01·상점5종 shop-r02·미션/출석/업적3종 missions-r01은 사용자 승인 완료다. 생활 메뉴4종 life-r01은 검토 대기이며 남은 대전 준비3종은 후속 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
+2026-11-05. 현재21종 중18종을 설계했다. 대표3장 r01·캐릭터·신기3종 collection-r01·상점5종 shop-r02·미션/출석/업적3종 missions-r01은 사용자 승인 완료다. 생활 메뉴4종 life-r02는 검토 대기이며 남은 대전 준비3종은 후속 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
 
 ## 먼저 볼 자료
 
@@ -33,4 +33,4 @@ node _workspace/menu-sketch-ui/check_preservation_metrics.cjs
 
 ## 최신 검토 묶음
 
-생활 메뉴4종의 최신 검토 자료는 [life-r01/README.md](life-r01/README.md)와 [4종 미리보기](life-r01/exports/life-review.png)다. 최신 검토 안내는 Penpot의28_MENU09_Life / life-handoff다. 기존 승인 페이지와 제작 당시 안내·PNG는 이력으로 보존한다. 전체 승인 상태의 현재 기준은 `screen-register.json`과 `approval-register.md`다.
+생활 메뉴4종의 최신 검토 자료는 [life-r02/README.md](life-r02/README.md)와 [4종 미리보기](life-r02/exports/life-review.png)다. 최신 검토 안내는 Penpot의28_MENU09_Life / life-handoff다. 기존 승인 페이지와 제작 당시 안내·PNG는 이력으로 보존한다. 전체 승인 상태의 현재 기준은 `screen-register.json`과 `approval-register.md`다.

@@ -1,0 +1,1150 @@
+[
+  {
+    "key": "settings-profile",
+    "oldKey": "settings-profile",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "BACK",
+        "x": 96,
+        "y": 48,
+        "w": 80,
+        "h": 80,
+        "text": "←",
+        "dest": "settings-account",
+        "state": "ghost",
+        "size": 36,
+        "icon": null
+      },
+      {
+        "kind": "text",
+        "name": "TITLE",
+        "x": 208,
+        "y": 48,
+        "w": 1200,
+        "h": 75,
+        "text": "설정 · 프로필",
+        "size": 52,
+        "color": "text",
+        "weight": "700",
+        "align": "left"
+      },
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": "settings-effects",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-sound",
+    "oldKey": "settings-sound",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": "settings-effects",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-effects",
+    "oldKey": "settings-effects",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-accessibility",
+    "oldKey": "settings-accessibility",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-minimap",
+    "oldKey": "settings-minimap",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-controls",
+    "oldKey": "settings-controls",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-debug",
+    "oldKey": "settings-debug",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-notifications",
+    "oldKey": "settings-notifications",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": "settings-effects",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-account",
+    "oldKey": "settings-account",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": "settings-effects",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "ACCOUNT / profile",
+        "x": 456,
+        "y": 648,
+        "w": 600,
+        "h": 88,
+        "text": "프로필 관리",
+        "dest": "settings-profile",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-info",
+    "oldKey": "settings-info",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": "settings-effects",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": null,
+        "state": "selected",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-sound-dirty",
+    "oldKey": "settings-sound-dirty",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": "settings-discard-graphics",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-discard-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-discard-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-discard-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-sound-applied",
+    "oldKey": "settings-sound-applied",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": "settings-effects",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": "settings-notifications",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": "settings-account",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": "settings-info",
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-discard-entry",
+    "oldKey": "settings-discard-entry",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-discard-graphics",
+    "oldKey": "settings-discard-view",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-discard-notifications",
+    "oldKey": "settings-discard-notifications",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-discard-account",
+    "oldKey": "settings-discard-account",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "settings-discard-info",
+    "oldKey": "settings-discard-info",
+    "remove": [
+      "TAB / profile",
+      "TAB / view"
+    ],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "TAB / graphics",
+        "x": 96,
+        "y": 224,
+        "w": 264,
+        "h": 88,
+        "text": "그래픽",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / notifications",
+        "x": 96,
+        "y": 448,
+        "w": 264,
+        "h": 88,
+        "text": "알림",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / account",
+        "x": 96,
+        "y": 560,
+        "w": 264,
+        "h": 88,
+        "text": "계정",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      },
+      {
+        "kind": "button",
+        "name": "TAB / info",
+        "x": 96,
+        "y": 672,
+        "w": 264,
+        "h": 88,
+        "text": "정보",
+        "dest": null,
+        "state": "default",
+        "size": 30,
+        "icon": null
+      }
+    ]
+  },
+  {
+    "key": "life-entry",
+    "oldKey": "life-entry",
+    "remove": [],
+    "edits": [
+      {
+        "kind": "button",
+        "name": "SETTINGS",
+        "x": 1736,
+        "y": 48,
+        "w": 88,
+        "h": 88,
+        "text": "설정",
+        "dest": "settings-effects",
+        "state": "default",
+        "icon": null,
+        "size": 26
+      }
+    ]
+  },
+  {
+    "key": "life-handoff",
+    "oldKey": "life-handoff",
+    "remove": [
+      "GUIDE / settings-profile"
+    ],
+    "edits": [
+      {
+        "kind": "text",
+        "name": "GUIDE / title",
+        "x": 96,
+        "y": 208,
+        "w": 1728,
+        "h": 61,
+        "text": "life-r02 · 친구·우편함·공지사항·설정",
+        "size": 42,
+        "color": "gold",
+        "weight": "600",
+        "align": "left"
+      },
+      {
+        "kind": "button",
+        "name": "GUIDE / settings-effects",
+        "x": 1416,
+        "y": 568,
+        "w": 408,
+        "h": 80,
+        "text": "설정",
+        "dest": "settings-effects",
+        "state": "default",
+        "size": 28,
+        "icon": null
+      }
+    ]
+  }
+]
