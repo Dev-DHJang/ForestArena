@@ -22,3 +22,11 @@
 전용 폴더 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`,브랜치 `codex/menu09-shop-character-list`,시작 기준 `cd301ca34839e79fbb04e3aa94140017453de937`다. 저장소에는 설계·검증·승인 대기 기록만 통합한다. 실제 결과는 후속 통합 기록에 남긴다.
 
 저장소는 해당 통합 커밋을 revert해 되돌린다. Penpot은 shop-r01 리비전1010과 새1012를 보존한다. 되돌릴 때에는 해당 상점 보드만 검토해 적용하고 다른 승인 페이지를 포함하는 파일 전체 복원은 실행하지 않는다.
+
+### 실제 통합 기록
+
+- 시안 자료 커밋 `291a9e76`, 독립 QA 최종 기록 커밋 `c78f317ca4183a9018f16d728046936a128a5f53`.
+- [PR #130](https://github.com/Dev-DHJang/ForestArena/pull/130)을 `develop`에 병합했다. 실제 병합 커밋은 `1de06648d2149274365cf644513d46d753cf6a46`이다.
+- 이 통합은 Penpot 설계·검사·승인 대기 기록이다. 상점 UI 사용자 승인이나 실제 게임 개발 착수를 뜻하지 않는다.
+- 저장소 자료 되돌리기 안내는 `git revert -m 1 1de06648d2149274365cf644513d46d753cf6a46`이며 실행하지 않았다. Penpot 저장 버전은 별도로 보존한다.
+- 병합 뒤 실제 통합 결과만 `codex/menu09-shop-character-list-closeout`에 기록했다. 사용량 중단 뒤 저장된 QA pass와 완료 검사를 확인했으며 변경 없는 검사는 반복하지 않았다. 실행 중단·일시정지된 goal은 없었다. 기본 작업 폴더와 다른 사용자의 작업은 수정하지 않았다.
