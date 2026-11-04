@@ -1,0 +1,1 @@
+const S=storage.menu09m;const b=S.boards['mission-daily'];penpot.selection=[b];penpot.viewport.center={x:b.x+960,y:b.y+540};penpot.viewport.zoom=.35;return{page:S.page.id,boards:Object.fromEntries(Object.entries(S.boards).map(([k,b])=>[k,{id:b.id,name:b.name}])),flows:S.page.flows.map(f=>({name:f.name,start:f.startingBoard.id}))};

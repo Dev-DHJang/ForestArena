@@ -1,6 +1,6 @@
 # MENU09 손그림 기반 UI 검토 자료
 
-2026-11-04. 현재21종 중11종을 설계했다. 대표3장 r01과 캐릭터·신기3종 collection-r01은 사용자의 각 “승인한다.” 답변으로 승인됐다. 상점5종 shop-r02는 검토 대기이며 나머지10종은 후속 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
+2026-11-04. 현재21종 중14종을 설계했다. 대표3장 r01·캐릭터·신기3종 collection-r01·상점5종 shop-r02는 사용자 승인 완료다. 미션·출석·업적3종 missions-r01은 검토 대기이며 나머지7종은 후속 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
 
 ## 먼저 볼 자료
 
@@ -33,4 +33,4 @@ node _workspace/menu-sketch-ui/check_preservation_metrics.cjs
 
 ## 최신 검토 묶음
 
-상점5종의 최신 검토 자료는 [shop-r02/README.md](shop-r02/README.md)와 [캐릭터 목록·상세 미리보기](shop-r02/exports/character-flow-review.png)다. 신기·재화 본문은 기존 [5종 미리보기](shop-r01/exports/shop-review.png)를 재사용하되 캐릭터 탭은 새 목록으로 연결된다. 최신 검토 안내는 Penpot의26_MENU09_Shop / handoff다. 기존23_MENU09_Review·24_MENU09_Handoff·25_MENU09_Collection의 제작 당시 안내와 PNG는 이력을 보존한다. 전체 승인 상태의 현재 기준은 `screen-register.json`과 `approval-register.md`다.
+미션·출석·업적3종의 최신 검토 자료는 [missions-r01/README.md](missions-r01/README.md)와 [3종 미리보기](missions-r01/exports/missions-review.png)다. 최신 검토 안내는 Penpot의27_MENU09_Missions / mission-handoff다. 기존 승인 페이지와 제작 당시 안내·PNG는 이력으로 보존한다. 전체 승인 상태의 현재 기준은 `screen-register.json`과 `approval-register.md`다.

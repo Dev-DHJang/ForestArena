@@ -1,0 +1,111 @@
+{
+  "page": "e7a04c12-8c16-8028-8008-e478bacd52ea",
+  "boards": {
+    "mission-daily": {
+      "id": "e7a04c12-8c16-8028-8008-e478c6d677b4",
+      "name": "MENU09 / Missions-r01 / mission-daily"
+    },
+    "mission-weekly": {
+      "id": "e7a04c12-8c16-8028-8008-e478d39d0bd7",
+      "name": "MENU09 / Missions-r01 / mission-weekly"
+    },
+    "mission-attendance": {
+      "id": "e7a04c12-8c16-8028-8008-e478dfbed47d",
+      "name": "MENU09 / Missions-r01 / mission-attendance"
+    },
+    "achievements": {
+      "id": "e7a04c12-8c16-8028-8008-e4791013bfb5",
+      "name": "MENU09 / Missions-r01 / achievements"
+    },
+    "achievements-combat": {
+      "id": "e7a04c12-8c16-8028-8008-e479169c33e9",
+      "name": "MENU09 / Missions-r01 / achievements-combat"
+    },
+    "achievements-collection": {
+      "id": "e7a04c12-8c16-8028-8008-e479211cf77c",
+      "name": "MENU09 / Missions-r01 / achievements-collection"
+    },
+    "achievements-skills": {
+      "id": "e7a04c12-8c16-8028-8008-e47928f058de",
+      "name": "MENU09 / Missions-r01 / achievements-skills"
+    },
+    "mission-empty": {
+      "id": "e7a04c12-8c16-8028-8008-e47931ab0215",
+      "name": "MENU09 / Missions-r01 / mission-empty"
+    },
+    "mission-complete": {
+      "id": "e7a04c12-8c16-8028-8008-e4793a8a0474",
+      "name": "MENU09 / Missions-r01 / mission-complete"
+    },
+    "mission-error": {
+      "id": "e7a04c12-8c16-8028-8008-e479446917f3",
+      "name": "MENU09 / Missions-r01 / mission-error"
+    },
+    "mission-rules": {
+      "id": "e7a04c12-8c16-8028-8008-e4794d639d09",
+      "name": "MENU09 / Missions-r01 / mission-rules"
+    },
+    "attendance-info": {
+      "id": "e7a04c12-8c16-8028-8008-e4794ee1e966",
+      "name": "MENU09 / Missions-r01 / attendance-info"
+    },
+    "attendance-check": {
+      "id": "e7a04c12-8c16-8028-8008-e479514a2503",
+      "name": "MENU09 / Missions-r01 / attendance-check"
+    },
+    "achievement-info": {
+      "id": "e7a04c12-8c16-8028-8008-e479541b6989",
+      "name": "MENU09 / Missions-r01 / achievement-info"
+    },
+    "entry-pending": {
+      "id": "e7a04c12-8c16-8028-8008-e4795597193d",
+      "name": "MENU09 / Missions-r01 / entry-pending"
+    },
+    "mission-loading": {
+      "id": "e7a04c12-8c16-8028-8008-e47957132675",
+      "name": "MENU09 / Missions-r01 / mission-loading"
+    },
+    "mission-entry": {
+      "id": "e7a04c12-8c16-8028-8008-e47965f275fc",
+      "name": "MENU09 / Missions-r01 / mission-entry"
+    },
+    "mission-handoff": {
+      "id": "e7a04c12-8c16-8028-8008-e479a80362e7",
+      "name": "MENU09 / Missions-r01 / mission-handoff"
+    },
+    "mission-daily-wide": {
+      "id": "e7a04c12-8c16-8028-8008-e479b74e0faa",
+      "name": "MENU09 / Missions-r01 / mission-daily-wide"
+    },
+    "mission-attendance-wide": {
+      "id": "e7a04c12-8c16-8028-8008-e479b80e4b67",
+      "name": "MENU09 / Missions-r01 / mission-attendance-wide"
+    },
+    "achievements-wide": {
+      "id": "e7a04c12-8c16-8028-8008-e479b9135ef3",
+      "name": "MENU09 / Missions-r01 / achievements-wide"
+    }
+  },
+  "flows": [
+    {
+      "name": "MENU09 미션·출석·업적 r01",
+      "start": "e7a04c12-8c16-8028-8008-e478c6d677b4"
+    },
+    {
+      "name": "MENU09 상태 / mission-empty",
+      "start": "e7a04c12-8c16-8028-8008-e47931ab0215"
+    },
+    {
+      "name": "MENU09 상태 / mission-complete",
+      "start": "e7a04c12-8c16-8028-8008-e4793a8a0474"
+    },
+    {
+      "name": "MENU09 상태 / mission-error",
+      "start": "e7a04c12-8c16-8028-8008-e479446917f3"
+    },
+    {
+      "name": "MENU09 미션 검토 안내",
+      "start": "e7a04c12-8c16-8028-8008-e479a80362e7"
+    }
+  ]
+}
