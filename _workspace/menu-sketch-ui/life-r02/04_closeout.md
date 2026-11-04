@@ -29,3 +29,11 @@ Penpot Forest_Arena_UI /28_MENU09_Life,저장 버전1029: `MENU09 미션 r01 승
 전용 폴더 /Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena,브랜치 codex/menu09-life-graphics-fix,시작develop58c649efcf973026efc60e11f76b03af635cc26e다. 이전 PR134 실제 병합 기록을 남긴 b3700c01735ff97e3db3a1b37fe92c33f11b726a 위에서 이번 교정 자료만 통합한다. 실제 PR·병합 결과는 아래 후속 통합 기록으로 남긴다.
 
 Git은 교정 통합 커밋을 revert한다. Penpot은 다른 승인 페이지까지 포함하는 파일 전체 복원을 하지 않고 r01보존 버전1026을 참고해 생활 미승인 영역만 복원한다. 이후 사용자가 승인한 영역이 생기면 덮어쓰지 않고 새 검토 버전을 만든다.
+
+### 실제 통합 기록
+
+- 교정·검증·독립 QA 자료 커밋은 `54839734effb309a1cbc8c529ad2c9f7b5053e74`다.
+- [PR #135](https://github.com/Dev-DHJang/ForestArena/pull/135)을 develop에 병합했다. 실제 병합 커밋은 `d208adcf725062266b6b9e3b3f559833e8ff3967`이다. 예상 head와 실제 head가 일치한 상태에서 병합했다.
+- 이 통합은 미승인 설계·이전 승인 기록·검증 증거다. 새 생활4종 사용자 승인이나 실제 개발 착수를 뜻하지 않는다.
+- 저장소 되돌리기 안내는 `git revert -m 1 d208adcf725062266b6b9e3b3f559833e8ff3967`이다. Penpot은 저장 버전1026/1029를 보존하며 다른 승인 페이지까지 복원하지 않는다.
+- 이 실제 통합 증적만 `codex/menu09-life-r02-closeout`에서 추가한다. 설계·기능·검사 입력이 바뀌지 않아 통과 검사를 반복하지 않는다.
