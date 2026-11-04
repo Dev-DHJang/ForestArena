@@ -1,6 +1,6 @@
-# MENU09 대표안 검토 자료
+# MENU09 손그림 기반 UI 검토 자료
 
-2026-11-04. 전체21종 중 대표3장의 첫 검토 단위다. 대표3장 r01은 2026-11-04 사용자 “승인한다.” 답변으로 승인됐다. 다음3종은 `collection-r01/`에서 검토 대기이며 나머지15종은 후속 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
+2026-11-04. 현재21종 중11종을 설계했다. 대표3장 r01과 캐릭터·신기3종 collection-r01은 사용자의 각 “승인한다.” 답변으로 승인됐다. 상점5종 shop-r01은 검토 대기이며 나머지10종은 후속 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
 
 ## 먼저 볼 자료
 
@@ -30,3 +30,7 @@ node _workspace/menu-sketch-ui/check_preservation_metrics.cjs
 `baseline.js`와inventory는 작업 시작 전 원본 조사 기록이다. 기존MENU09가 있는 상태에서 시작 전 기준을 다시 캡처해 덮어쓰지 않는다. `scene-spec.json`이 새 설계 명세이며 `build_spec.py`로 재생성한다. Penpot 기록과 현재 화면을 확인한 뒤 필요한 새 버전만 제작하고, 승인된 프레임을 자동 덮어쓰지 않는다.
 
 캐릭터·신기 후속 묶음은 [collection-r01/02_ui.md](collection-r01/02_ui.md)와 해당 PNG·QA 기록에서 검토한다. 대표 승인 기록은 `approval-register.md`에 있으며 실제 개발 착수와 구분한다.
+
+## 최신 검토 묶음
+
+상점5종은 [shop-r01/README.md](shop-r01/README.md)와 [5종 미리보기](shop-r01/exports/shop-review.png)에서 확인한다. 최신 검토 안내는 Penpot의26_MENU09_Shop / handoff다. 기존23_MENU09_Review·24_MENU09_Handoff·25_MENU09_Collection의 제작 당시 안내와 PNG는 이력을 보존한다. 전체 승인 상태의 현재 기준은 `screen-register.json`과 `approval-register.md`다.
