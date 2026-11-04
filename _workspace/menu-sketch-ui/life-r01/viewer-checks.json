@@ -1,0 +1,1175 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "action": "fresh viewer",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "검색",
+      "frame": "friends",
+      "overlay": true,
+      "contains": "닉네임을 입력해 주세요",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "정확한 닉네임 입력 (1~12자)",
+      "frame": "friends-query",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "검색",
+      "frame": "friends-result",
+      "overlay": false,
+      "contains": "새솔",
+      "status": "pass"
+    },
+    {
+      "action": "친구 신청",
+      "frame": "friends-result",
+      "overlay": true,
+      "contains": "본인·이미 친구·중복 신청은 보낼 수 없어요.",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-result",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "받은 신청",
+      "frame": "friends-received",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "수락",
+      "frame": "friends-received",
+      "overlay": true,
+      "contains": "친구 신청 수락",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-received",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "거절",
+      "frame": "friends-received",
+      "overlay": true,
+      "contains": "친구 신청 거절",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-received",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보낸 신청",
+      "frame": "friends-sent",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "요청 취소",
+      "frame": "friends-sent",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-sent",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "최근 상대",
+      "frame": "friends-recent",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "친구 신청",
+      "frame": "friends-recent",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-recent",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "받은 초대",
+      "frame": "friends-invites",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "참가",
+      "frame": "friends-invites",
+      "overlay": true,
+      "contains": "LAN 대기방 참가",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-invites",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "만료 초대 참가 비활성",
+      "frame": "friends-invites",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫힌 방 참가 비활성",
+      "frame": "friends-invites",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "상태 보기",
+      "frame": "friends-invites",
+      "overlay": true,
+      "contains": "참가할 수 없는 초대",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-invites",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "거절",
+      "frame": "friends-invites",
+      "overlay": true,
+      "contains": "받은 초대 거절",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends-invites",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "친구",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "초대",
+      "frame": "friends",
+      "overlay": true,
+      "contains": "대기방으로 초대",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "삭제",
+      "frame": "friends",
+      "overlay": true,
+      "contains": "친구 삭제 확인",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "새로고침",
+      "frame": "friends-loading",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "검토 닫기",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "life-entry",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편",
+      "frame": "mailbox",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미선택 지우기 비활성",
+      "frame": "mailbox",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 1",
+      "frame": "mailbox-selected",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 2",
+      "frame": "mailbox-selected-3",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 3",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 1",
+      "frame": "mailbox-selected-6",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 2",
+      "frame": "mailbox-selected-4",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 1",
+      "frame": "mailbox-selected-5",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 3",
+      "frame": "mailbox-selected",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 1",
+      "frame": "mailbox",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 2",
+      "frame": "mailbox-selected-2",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 2",
+      "frame": "mailbox",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 1",
+      "frame": "mailbox-selected",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 2",
+      "frame": "mailbox-selected-3",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 체크 3",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "안내 우편 A",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "안내 우편 B",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "읽은 우편 C",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "모두 받기",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "수령 비활성 포인터",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "확인창 뒤 체크 입력 차단",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "지우기",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "모두 지우기",
+      "frame": "mailbox-selected-7",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "mailbox-selected-7",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "life-entry",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "공지",
+      "frame": "notices",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "안내 B",
+      "frame": "notices-second",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "안내 A",
+      "frame": "notices",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "진행 이벤트",
+      "frame": "notices-events",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "운영 안내",
+      "frame": "notices-events",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "notices-events",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "지난 이벤트",
+      "frame": "notices-past",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "공지사항",
+      "frame": "notices",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "×",
+      "frame": "life-entry",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "설정",
+      "frame": "settings-profile",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "프로필 관리",
+      "frame": "settings-profile",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-profile",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "사운드",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": "65%",
+      "status": "pass"
+    },
+    {
+      "action": "취소",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": "60%",
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "적용",
+      "frame": "settings-sound-applied",
+      "overlay": false,
+      "contains": "65%",
+      "status": "pass"
+    },
+    {
+      "action": "65%",
+      "frame": "settings-sound-applied",
+      "overlay": true,
+      "contains": "설정 값 조절 안내",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-sound-applied",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "프로필",
+      "frame": "settings-profile",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "사운드",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "프로필",
+      "frame": "settings-discard-profile",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "계속 편집",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": "65%",
+      "status": "pass"
+    },
+    {
+      "action": "프로필",
+      "frame": "settings-discard-profile",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "변경 버리기",
+      "frame": "settings-profile",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "사운드",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "화면·조작",
+      "frame": "settings-discard-view",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "변경 버리기",
+      "frame": "settings-effects",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "사운드",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "알림",
+      "frame": "settings-discard-notifications",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "변경 버리기",
+      "frame": "settings-notifications",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "사운드",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "계정",
+      "frame": "settings-discard-account",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "변경 버리기",
+      "frame": "settings-account",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "사운드",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "정보",
+      "frame": "settings-discard-info",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "변경 버리기",
+      "frame": "settings-info",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "사운드",
+      "frame": "settings-sound",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "60%",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "settings-discard-entry",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "변경 버리기",
+      "frame": "life-entry",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "설정",
+      "frame": "settings-profile",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "화면·조작",
+      "frame": "settings-effects",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "□ 꺼짐",
+      "frame": "settings-effects",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-effects",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "접근성",
+      "frame": "settings-accessibility",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "100%",
+      "frame": "settings-accessibility",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-accessibility",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미니맵",
+      "frame": "settings-minimap",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "30%",
+      "frame": "settings-minimap",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "미완료 검사 재연결",
+      "frame": "settings-minimap",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "30%",
+      "frame": "settings-minimap",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-minimap",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "조작",
+      "frame": "settings-controls",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "고정",
+      "frame": "settings-controls",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-controls",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "임시 디버깅",
+      "frame": "settings-debug",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "알림",
+      "frame": "settings-notifications",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "알림 허용 비활성",
+      "frame": "settings-notifications",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "계정",
+      "frame": "settings-account",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "연결 상태",
+      "frame": "settings-account",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-account",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "로그아웃",
+      "frame": "settings-account",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "로그아웃 최종 비활성",
+      "frame": "settings-account",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-account",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "정보",
+      "frame": "settings-info",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "게임 종료",
+      "frame": "settings-info",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-info",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "life-entry",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "검토 안내 선택",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "친구 없음",
+      "frame": "friends-empty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "돌아가기",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 life-handoff",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "검색 없음",
+      "frame": "friends-no-result",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "돌아가기",
+      "frame": "friends-query",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 life-handoff",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "친구 오류",
+      "frame": "friends-error",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "다시 시도",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 life-handoff",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "빈 우편함",
+      "frame": "mailbox-empty",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "돌아가기",
+      "frame": "mailbox",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 life-handoff",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "우편 오류",
+      "frame": "mailbox-error",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "다시 시도",
+      "frame": "mailbox",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 life-handoff",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "공지 오류",
+      "frame": "notices-error",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "다시 시도",
+      "frame": "notices",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 life-handoff",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "저장 실패",
+      "frame": "settings-save-error",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "편집으로 돌아가기",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": "65%",
+      "status": "pass"
+    },
+    {
+      "action": "기본값",
+      "frame": "settings-sound-dirty",
+      "overlay": true,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "frame": "settings-sound-dirty",
+      "overlay": false,
+      "contains": "65%",
+      "status": "pass"
+    },
+    {
+      "action": "보드 선택 life-handoff",
+      "frame": "life-handoff",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "대전 중 초대",
+      "frame": "friends-invites-busy",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "대전 중 참가 비활성",
+      "frame": "friends-invites-busy",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "frame": "life-entry",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    },
+    {
+      "action": "친구",
+      "frame": "friends",
+      "overlay": false,
+      "contains": null,
+      "status": "pass"
+    }
+  ],
+  "recovery": "Completed 120 checks were loaded from the saved checkpoint after a browser runtime timeout; remaining checks continued in a fresh viewer without changing design data."
+}
