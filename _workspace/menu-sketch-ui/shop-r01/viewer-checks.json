@@ -1,0 +1,779 @@
+{
+  "date": "2026-11-04",
+  "source": "actual newly opened Penpot viewer",
+  "overlay_field": "dialog visibility; shop-loading is a standalone state with a static dialog",
+  "checks": [
+    {
+      "action": "강공격",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "action": "▶",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": true,
+      "status": "pass"
+    },
+    {
+      "action": "background 조약돌 tab pointer click",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": true,
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "조약돌 · 미정",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "가격 확정 후 구매",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "획득 전 연습",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-character-myo-ryung-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 약",
+      "expected": "shop-character-myo-ryung-jump-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 강",
+      "expected": "shop-character-myo-ryung-jump-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "특수",
+      "expected": "shop-character-myo-ryung-special",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "약공격",
+      "expected": "shop-character-myo-ryung-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "자현",
+      "expected": "shop-character-ja-hyun-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "보유 중 · 무료 기본 지급",
+      "expected": "shop-character-ja-hyun-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "강공격",
+      "expected": "shop-character-ja-hyun-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 약",
+      "expected": "shop-character-ja-hyun-jump-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 강",
+      "expected": "shop-character-ja-hyun-jump-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "특수",
+      "expected": "shop-character-ja-hyun-special",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "약공격",
+      "expected": "shop-character-ja-hyun-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "나비",
+      "expected": "shop-character-nabi-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "강공격",
+      "expected": "shop-character-nabi-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 약",
+      "expected": "shop-character-nabi-jump-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 강",
+      "expected": "shop-character-nabi-jump-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "특수",
+      "expected": "shop-character-nabi-special",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "약공격",
+      "expected": "shop-character-nabi-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "유란",
+      "expected": "shop-character-yu-ran-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "강공격",
+      "expected": "shop-character-yu-ran-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 약",
+      "expected": "shop-character-yu-ran-jump-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "점프 강",
+      "expected": "shop-character-yu-ran-jump-heavy",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "특수",
+      "expected": "shop-character-yu-ran-special",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "약공격",
+      "expected": "shop-character-yu-ran-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "무지개돌 · 미정",
+      "expected": "shop-character-yu-ran-light",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-character-yu-ran-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "신기",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-pebble-yoyo-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구매 조건 확인",
+      "expected": "shop-artifact-pebble-yoyo-from-all",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-pebble-yoyo-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-iron-armor-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구매 조건 확인",
+      "expected": "shop-artifact-iron-armor-from-all",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-iron-armor-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-boxing-gloves-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구매 조건 확인",
+      "expected": "shop-artifact-boxing-gloves-from-all",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-boxing-gloves-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-thorns-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구매 조건 확인",
+      "expected": "shop-artifact-thorns-from-all",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-thorns-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-explosive-gloves-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구매 조건 확인",
+      "expected": "shop-artifact-explosive-gloves-from-all",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-explosive-gloves-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-ultimate-charm-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구매 조건 확인",
+      "expected": "shop-artifact-ultimate-charm-from-all",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-ultimate-charm-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-phoenix-revive-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구매 조건 확인",
+      "expected": "shop-artifact-phoenix-revive-from-all",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-phoenix-revive-from-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "공격",
+      "expected": "shop-artifacts-attack",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-pebble-yoyo-from-attack",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "획득 전 연습",
+      "expected": "shop-artifact-pebble-yoyo-from-attack",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-artifact-pebble-yoyo-from-attack",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-attack",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "방어",
+      "expected": "shop-artifacts-defense",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-iron-armor-from-defense",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-defense",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "특수",
+      "expected": "shop-artifacts-special",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상세 보기",
+      "expected": "shop-artifact-thorns-from-special",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-artifacts-special",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "전체",
+      "expected": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "조약돌",
+      "expected": "shop-stone",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구성 보기",
+      "expected": "shop-stone",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "조건 확정 후 구매",
+      "expected": "shop-stone",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-stone",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구성 보기",
+      "expected": "shop-stone",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-stone",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구성 보기",
+      "expected": "shop-stone",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-stone",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "무지개돌",
+      "expected": "shop-rainbow",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구성 보기",
+      "expected": "shop-rainbow",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-rainbow",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구성 보기",
+      "expected": "shop-rainbow",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-rainbow",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "구성 보기",
+      "expected": "shop-rainbow",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-rainbow",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "←",
+      "expected": "shop-entry",
+      "frameName": "entry",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "action": "친구",
+      "expected": "shop-entry",
+      "frameName": "entry",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-entry",
+      "frameName": "entry",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상점",
+      "expected": "shop-character-myo-ryung-light",
+      "frameName": "shop-character-myo-ryung-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "board-picker:handoff",
+      "expected": "shop-handoff",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "action": "누락 자산",
+      "expected": "shop-missing",
+      "frameName": "missing-assets",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "검토 안내",
+      "expected": "shop-handoff",
+      "frameName": "handoff",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "오류 상태",
+      "expected": "shop-handoff",
+      "frameName": "handoff",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-handoff",
+      "frameName": "handoff",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "오류 상태",
+      "expected": "shop-handoff",
+      "frameName": "handoff",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "다시 시도",
+      "expected": "shop-loading",
+      "frameName": "shop-loading",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-character-myo-ryung-light",
+      "frameName": "shop-character-myo-ryung-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "board-picker:handoff",
+      "expected": "shop-handoff",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "action": "빈 목록",
+      "expected": "shop-empty",
+      "frameName": "shop-empty",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "전체 상품 보기",
+      "expected": "shop-artifacts-all",
+      "frameName": "shop-artifacts-all",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "board-picker:handoff",
+      "expected": "shop-handoff",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "action": "잔액 부족",
+      "expected": "shop-handoff",
+      "frameName": "handoff",
+      "overlay": true,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "닫기",
+      "expected": "shop-handoff",
+      "frameName": "handoff",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    },
+    {
+      "action": "상점 보기",
+      "expected": "shop-character-myo-ryung-light",
+      "frameName": "shop-character-myo-ryung-light",
+      "overlay": false,
+      "activation": "click",
+      "status": "pass"
+    }
+  ]
+}
