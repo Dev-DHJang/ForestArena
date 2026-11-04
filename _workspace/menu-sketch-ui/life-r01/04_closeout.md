@@ -37,3 +37,11 @@
 전용 폴더 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`,브랜치 `codex/menu09-life-r01`,시작 기준 `2d96d43baa585b774b80b2bd615d9fa6446f55e3`다. 승인 기록·설계·미리보기·검증 자료만 통합한다. 실제 통합 결과는 후속 기록에 남긴다.
 
 저장소 자료는 해당 통합 커밋을 revert해 되돌린다. Penpot은 기존 승인 페이지와 저장 버전을 보존한다. 필요한 새 생활 영역만 검토하고 다른 승인 영역을 포함하는 파일 전체 복원은 실행하지 않는다.
+
+### 실제 통합 기록
+
+- 시안·미션 승인·독립 QA 자료 커밋: `2d5744e2b74b1f32c7c2802f5f3c2d957fa00ea7`.
+- [PR #134](https://github.com/Dev-DHJang/ForestArena/pull/134)을 `develop`에 병합했다. 실제 병합 커밋은 `58c649efcf973026efc60e11f76b03af635cc26e`다.
+- 이 통합은 설계와 이전 미션 승인 기록이다. 새 생활4종 사용자 승인이나 실제 게임 UI 개발을 뜻하지 않는다.
+- 저장소 자료 되돌리기 안내는 `git revert -m 1 58c649efcf973026efc60e11f76b03af635cc26e`이며 실행하지 않았다. Penpot 저장 버전과 기존 승인 페이지는 별도로 보존한다.
+- 초기 push의 GitHub 서버 오류 뒤 원격 브랜치가 생기지 않았음을 확인하고 재시도해 성공했다. 병합 뒤 실제 통합 정보만 `codex/menu09-life-closeout`에 기록했다. 기본 폴더와 다른 사용자의 작업은 수정하지 않았다.

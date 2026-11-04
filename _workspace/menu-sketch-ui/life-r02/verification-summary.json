@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "reused_from": "../life-r01/verification-summary.json",
+  "tested_source_commit": "4cf0f8853bc1267b4feb0d873444173d23e11d3e",
+  "current_base_commit": "58c649efcf973026efc60e11f76b03af635cc26e",
+  "changed_paths_since_test": 272,
+  "current_worktree_change_count": 77,
+  "runtime_changes": [],
+  "command": "./scripts/verify.sh --full",
+  "total_checks": 94,
+  "completed_checks": 94,
+  "elapsed_seconds": 540.916,
+  "result_path": "build/verification/20261104-133023-fec1b4ab/result.json",
+  "reason": "Only MENU09 design records/previews changed. Passed unchanged game checks reused; correction spec/native/PNG/viewer/docs/syntax checked separately.",
+  "new_doc_result": "build/verification/20261105-003511-0dc676f9/result.json",
+  "first_doc_failure": "build/verification/20261105-003445-fa30a6ea/result.json (incidental Finder docs/.DS_Store; quarantined metadata only; tracked docs unchanged)",
+  "android": "not-run",
+  "delivery_checks": {
+    "png_hash_size": 33,
+    "reused_native_byte_identity": 3,
+    "delivery_links": "pass",
+    "git_diff_check": "pass",
+    "spec": 74,
+    "references": 21,
+    "syntax_files": 13,
+    "viewer_steps": 50
+  }
+}
