@@ -21,3 +21,10 @@ UI 승인은 미수록 자산29종의 신규 제작·등록이나 경제·보상
 전용 폴더 /Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena,브랜치 codex/menu09-final-approval,시작 developc38dc83a4ca64271fbfab7bb798a358a087fb39e다. 변경은 _workspace/menu-sketch-ui/의 승인·전달 기록이다. 실제 PR·통합 커밋과 되돌리기 정보는 아래 후속 통합 기록에 남긴다.
 
 Git은 승인 기록 통합 커밋을 revert한다. Penpot에서는 설계나 이전233개 승인을 되돌리지 않고 마지막51개의 승인 메타데이터만 검토 대상으로 전환한다. 최종 검토1038과 승인 완료1039 저장을 보존하고 파일 전체를 과거 버전으로 덮지 않는다.
+
+### 실제 통합 기록
+
+- 승인·전달·보존 증거 커밋은 `3e77d6765ab11d623024f340d1a89caeb9a720cf`다.
+- [PR #139](https://github.com/Dev-DHJang/ForestArena/pull/139)을 develop에 병합했다. 실제 병합 커밋은 `e456898c2d5abd6cd0d3055096ee9c8682832931`이다. 예상 head와 실제 head가 일치한 상태에서 통합했다.
+- 되돌리기 안내는 `git revert -m 1 e456898c2d5abd6cd0d3055096ee9c8682832931`이다. 디자인과 이전 승인은 보존하고 마지막 승인 기록만 재검토한다.
+- 이 실제 통합 증적만 codex/menu09-final-approval-closeout에서 추가한다. 같은 디자인·기능 검사는 반복하지 않는다.
