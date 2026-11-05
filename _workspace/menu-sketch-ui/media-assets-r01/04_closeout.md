@@ -11,3 +11,10 @@ Penpot 직접 내보내기 5장과 실제 뷰어 캡처 8장을 남겼다. 내�
 전체 회귀 검사 93개와 가져오기 준비 1단계가 547.2초에 통과했다. 결과는 `build/verification/20261105-125030-04a97446/result.json`이다. 새 미디어·검토 기록은 `_workspace/menu-sketch-ui/`에 있다. 상세 검사 경로와 변경 범위는 [verification-summary.json](verification-summary.json)을 따른다.
 
 전용 작업 폴더는 `/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena`다. 작업 브랜치는 `codex/menu09-media-assets`, 시작 기준은 `origin/develop`의 `01b573d619a55b8b8eb09c3476bce9c67aa5d02e`다. Penpot에서 이전 UI를 검토할 때는 1039와 원본 페이지를 사용한다. Git 되돌리기는 통합 기록의 실제 병합 커밋을 기준으로 한다.
+
+## 저장소 통합
+
+- 제작·반영 커밋은 `901146eada4a8dac4d9990d7d6d78af21c033729`이다.
+- [PR #143](https://github.com/Dev-DHJang/ForestArena/pull/143)을 `develop`에 병합했다. GitHub가 확인한 병합 커밋은 `9a095ddd50018773d91433b96615da86f903c65e`다. 검증한 작업 커밋과 PR의 최종 커밋이 일치했다.
+- Git에서 자산과 전달 자료를 되돌릴 때는 `git revert -m 1 9a095ddd50018773d91433b96615da86f903c65e`를 사용한다. Penpot에는 원본 승인본 1039와 미디어 저장본 1055가 별도로 있다.
+- 이 병합 기록만 후속 문서 커밋으로 추가했다. 전체 회귀 결과는 위 기록을 사용했다. 로컬 인코딩 로그와 복제 작업 중간 스냅샷은 `build/menu09-media-logs/`에 보관한다.
