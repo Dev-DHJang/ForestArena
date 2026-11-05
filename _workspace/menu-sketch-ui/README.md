@@ -1,6 +1,6 @@
 # MENU09 손그림 기반 UI 검토 자료
 
-2026-11-05. 현재21종 중18종을 설계했다. 대표3장 r01·캐릭터·신기3종 collection-r01·상점5종 shop-r02·미션/출석/업적3종 missions-r01은 사용자 승인 완료다. 생활 메뉴4종 life-r02는 검토 대기이며 남은 대전 준비3종은 후속 제작한다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
+2026-11-05. 현재21종을 설계했다. 대표3장 r01·캐릭터·신기3종 collection-r01·상점5종 shop-r02·미션/출석/업적3종 missions-r01·생활 메뉴4종 life-r02는 사용자 승인 완료다. 마지막 대전 준비3종 match-r01은 별도 검토 대기다. Godot 메뉴·API·저장·게임 규칙 변경은 없다.
 
 ## 먼저 볼 자료
 
@@ -12,7 +12,7 @@
 
 ## Penpot
 
-편집 원본은 Forest_Arena_UI의 MENU09 페이지23·25·26·27·28에 있다. 현재 검토는28_MENU09_Life다.24_MENU09_Handoff는 첫 대표 묶음의 전달 이력이다. 모든 글자와 버튼·도표는 편집 가능하다. `MENU09 대표안 r01` 흐름으로 실제 이동을 검토한다.
+편집 원본은 Forest_Arena_UI의 MENU09 페이지23·25·26·27·28·29에 있다. 현재 검토는29_MENU09_Match다.24_MENU09_Handoff는 첫 대표 묶음의 전달 이력이다. 모든 글자와 버튼·도표는 편집 가능하다. `MENU09 대표안 r01` 흐름으로 실제 이동을 검토한다.
 
 API로 화면을 추가한 뒤에는 편집기에서 해당 페이지를 실제 표시하고 글자 배치 계산을 마친 다음 저장해야 한다. 이번에는 새 뷰어 탭을 열어19단계·실제 한글 표시를 다시 확인했다. 보기 전용 화면의 글자 누락을 데이터 존재 검사만으로 통과시키지 않는다.
 
@@ -33,4 +33,4 @@ node _workspace/menu-sketch-ui/check_preservation_metrics.cjs
 
 ## 최신 검토 묶음
 
-생활 메뉴4종의 최신 검토 자료는 [life-r02/README.md](life-r02/README.md)와 [4종 미리보기](life-r02/exports/life-review.png)다. 최신 검토 안내는 Penpot의28_MENU09_Life / life-handoff다. 기존 승인 페이지와 제작 당시 안내·PNG는 이력으로 보존한다. 전체 승인 상태의 현재 기준은 `screen-register.json`과 `approval-register.md`다.
+대전 준비3종의 최신 검토 자료는 [match-r01/README.md](match-r01/README.md)와 [3종 미리보기](match-r01/exports/match-review.png)다. 전체 전달 기준은 [개발 전달 색인](05_handoff.md),참조·승인 상태는 `screen-register.json`과 `approval-register.md`다. 생활4종 life-r02는 승인 완료이며 구버전의 안내·PNG·QA는 이력으로 보존한다. 최신 검토 안내는29_MENU09_Match / match-handoff다.

@@ -1,0 +1,1697 @@
+{
+  "status": "pass",
+  "date": "2026-11-05",
+  "version": 1038,
+  "steps": [
+    {
+      "label": "최종 목록 시작",
+      "base": "rooms",
+      "view": "rooms",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "코드 입력 문맥 보존",
+      "base": "rooms",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "코드 예시 전환은 한 층",
+      "base": "rooms",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "코드 예시 취소 원래 목록",
+      "base": "rooms",
+      "view": "rooms",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "만들기 입력 문맥 보존",
+      "base": "rooms",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 만들기 전환은 한 층",
+      "base": "rooms",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "만들기 취소 원래 목록",
+      "base": "rooms",
+      "view": "rooms",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo 코드 열기",
+      "base": "rooms-solo",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo 코드 예시",
+      "base": "rooms-solo",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo 코드 취소 문맥 보존",
+      "base": "rooms-solo",
+      "view": "rooms-solo",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo 만들기 열기",
+      "base": "rooms-solo",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo 팀 만들기 전환",
+      "base": "rooms-solo",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo 만들기 취소 문맥 보존",
+      "base": "rooms-solo",
+      "view": "rooms-solo",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team 코드 열기",
+      "base": "rooms-team",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team 코드 예시",
+      "base": "rooms-team",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team 코드 취소 문맥 보존",
+      "base": "rooms-team",
+      "view": "rooms-team",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team 만들기 열기",
+      "base": "rooms-team",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team 팀 만들기 전환",
+      "base": "rooms-team",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team 만들기 취소 문맥 보존",
+      "base": "rooms-team",
+      "view": "rooms-team",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 코드 열기",
+      "base": "rooms-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 코드 예시",
+      "base": "rooms-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 코드 취소 문맥 보존",
+      "base": "rooms-selected",
+      "view": "rooms-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 만들기 열기",
+      "base": "rooms-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 팀 만들기 전환",
+      "base": "rooms-selected",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 만들기 취소 문맥 보존",
+      "base": "rooms-selected",
+      "view": "rooms-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-full-selected 코드 열기",
+      "base": "rooms-full-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-full-selected 코드 예시",
+      "base": "rooms-full-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-full-selected 코드 취소 문맥 보존",
+      "base": "rooms-full-selected",
+      "view": "rooms-full-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-full-selected 만들기 열기",
+      "base": "rooms-full-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-full-selected 팀 만들기 전환",
+      "base": "rooms-full-selected",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-full-selected 만들기 취소 문맥 보존",
+      "base": "rooms-full-selected",
+      "view": "rooms-full-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 열기",
+      "base": "rooms-team-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 예시",
+      "base": "rooms-team-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 취소 문맥 보존",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 만들기 열기",
+      "base": "rooms-team-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 팀 만들기 전환",
+      "base": "rooms-team-selected",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 만들기 취소 문맥 보존",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 열기",
+      "base": "rooms-empty",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 예시",
+      "base": "rooms-empty",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 취소 문맥 보존",
+      "base": "rooms-empty",
+      "view": "rooms-empty",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 만들기 열기",
+      "base": "rooms-empty",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 팀 만들기 전환",
+      "base": "rooms-empty",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 만들기 취소 문맥 보존",
+      "base": "rooms-empty",
+      "view": "rooms-empty",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 열기",
+      "base": "rooms-solo-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 예시",
+      "base": "rooms-solo-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 취소 문맥 보존",
+      "base": "rooms-solo-selected",
+      "view": "rooms-solo-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 만들기 열기",
+      "base": "rooms-solo-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 팀 만들기 전환",
+      "base": "rooms-solo-selected",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 만들기 취소 문맥 보존",
+      "base": "rooms-solo-selected",
+      "view": "rooms-solo-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-full 코드 열기",
+      "base": "rooms-solo-full",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-full 코드 예시",
+      "base": "rooms-solo-full",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-full 코드 취소 문맥 보존",
+      "base": "rooms-solo-full",
+      "view": "rooms-solo-full",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-full 만들기 열기",
+      "base": "rooms-solo-full",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-full 팀 만들기 전환",
+      "base": "rooms-solo-full",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-full 만들기 취소 문맥 보존",
+      "base": "rooms-solo-full",
+      "view": "rooms-solo-full",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 뒤로용 열기",
+      "base": "rooms-solo-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 뒤로 문맥 보존",
+      "base": "rooms-solo-selected",
+      "view": "rooms-solo-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 만들기 뒤로용 열기",
+      "base": "rooms-solo-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 만들기 뒤로 문맥 보존",
+      "base": "rooms-solo-selected",
+      "view": "rooms-solo-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 만들기 준비 경로",
+      "base": "rooms-solo-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 만들기 방 시안",
+      "base": "rooms-solo-selected",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 완료",
+      "base": "rooms-solo-selected",
+      "view": "room-normal-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 시작 안내",
+      "base": "rooms-solo-selected",
+      "view": "start-info",
+      "under": "room-normal-ready",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 미정 실제 시작 차단",
+      "base": "rooms-solo-selected",
+      "view": "start-info",
+      "under": "room-normal-ready",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 시작 안내 닫아 준비 유지",
+      "base": "rooms-solo-selected",
+      "view": "room-normal-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 후 나가기 확인",
+      "base": "rooms-solo-selected",
+      "view": "room-normal-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 나가기 취소 준비 유지",
+      "base": "rooms-solo-selected",
+      "view": "room-normal-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 취소",
+      "base": "rooms-solo-selected",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 방 나가기 확인",
+      "base": "rooms-solo-selected",
+      "view": "room-normal-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 방 나가서 원래 목록",
+      "base": "rooms-solo-selected",
+      "view": "rooms-solo-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 뒤로용 열기",
+      "base": "rooms-team-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 뒤로 문맥 보존",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 만들기 뒤로용 열기",
+      "base": "rooms-team-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 만들기 뒤로 문맥 보존",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 만들기 준비 경로",
+      "base": "rooms-team-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 만들기 팀 선택",
+      "base": "rooms-team-selected",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 만들기 방 시안",
+      "base": "rooms-team-selected",
+      "view": "room-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 완료",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 시작 안내",
+      "base": "rooms-team-selected",
+      "view": "start-info",
+      "under": "room-team-ready",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 미정 실제 시작 차단",
+      "base": "rooms-team-selected",
+      "view": "start-info",
+      "under": "room-team-ready",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 시작 안내 닫아 준비 유지",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 후 나가기 확인",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 나가기 취소 준비 유지",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 취소",
+      "base": "rooms-team-selected",
+      "view": "room-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 방 나가기 확인",
+      "base": "rooms-team-selected",
+      "view": "room-team-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 방 나가서 원래 목록",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 뒤로용 열기",
+      "base": "rooms-empty",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 뒤로 문맥 보존",
+      "base": "rooms-empty",
+      "view": "rooms-empty",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 만들기 뒤로용 열기",
+      "base": "rooms-empty",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 만들기 뒤로 문맥 보존",
+      "base": "rooms-empty",
+      "view": "rooms-empty",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 만들기 준비 경로",
+      "base": "rooms-empty",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 만들기 팀 선택",
+      "base": "rooms-empty",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 만들기 방 시안",
+      "base": "rooms-empty",
+      "view": "room-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 준비 완료",
+      "base": "rooms-empty",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 시작 안내",
+      "base": "rooms-empty",
+      "view": "start-info",
+      "under": "room-team-ready",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 미정 실제 시작 차단",
+      "base": "rooms-empty",
+      "view": "start-info",
+      "under": "room-team-ready",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 시작 안내 닫아 준비 유지",
+      "base": "rooms-empty",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 준비 후 나가기 확인",
+      "base": "rooms-empty",
+      "view": "room-team-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 나가기 취소 준비 유지",
+      "base": "rooms-empty",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 준비 취소",
+      "base": "rooms-empty",
+      "view": "room-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 방 나가기 확인",
+      "base": "rooms-empty",
+      "view": "room-team-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 방 나가서 원래 목록",
+      "base": "rooms-empty",
+      "view": "rooms-empty",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 입력",
+      "base": "rooms-solo-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 전체 코드 예시",
+      "base": "rooms-solo-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 오류 안내",
+      "base": "rooms-solo-selected",
+      "view": "code-unavailable",
+      "under": "code-filled",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 오류 배경 클릭 유지",
+      "base": "rooms-solo-selected",
+      "view": "code-unavailable",
+      "under": "code-filled",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 오류 닫기",
+      "base": "rooms-solo-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드로 방 시안",
+      "base": "rooms-solo-selected",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 방 나가기",
+      "base": "rooms-solo-selected",
+      "view": "room-normal-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 코드 방 나가서 기원목록",
+      "base": "rooms-solo-selected",
+      "view": "rooms-solo-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 입력",
+      "base": "rooms-team-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 전체 코드 예시",
+      "base": "rooms-team-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 오류 안내",
+      "base": "rooms-team-selected",
+      "view": "code-unavailable",
+      "under": "code-filled",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 오류 배경 클릭 유지",
+      "base": "rooms-team-selected",
+      "view": "code-unavailable",
+      "under": "code-filled",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 오류 닫기",
+      "base": "rooms-team-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드로 방 시안",
+      "base": "rooms-team-selected",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 방 나가기",
+      "base": "rooms-team-selected",
+      "view": "room-normal-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 코드 방 나가서 기원목록",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 입력",
+      "base": "rooms-empty",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 전체 코드 예시",
+      "base": "rooms-empty",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 오류 안내",
+      "base": "rooms-empty",
+      "view": "code-unavailable",
+      "under": "code-filled",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 오류 배경 클릭 유지",
+      "base": "rooms-empty",
+      "view": "code-unavailable",
+      "under": "code-filled",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 오류 닫기",
+      "base": "rooms-empty",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드로 방 시안",
+      "base": "rooms-empty",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 방 나가기",
+      "base": "rooms-empty",
+      "view": "room-normal-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-empty 코드 방 나가서 기원목록",
+      "base": "rooms-empty",
+      "view": "rooms-empty",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "일반 선택 최종",
+      "base": "mode-select",
+      "view": "mode-select",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "AI 전체화면 열기",
+      "base": "mode-select",
+      "view": "ai-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 캐릭터 안내",
+      "base": "mode-select",
+      "view": "room-functions-info",
+      "under": "ai-room",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 안내 닫기 방 유지",
+      "base": "mode-select",
+      "view": "ai-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비",
+      "base": "mode-select",
+      "view": "ai-room-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비완료 나가기",
+      "base": "mode-select",
+      "view": "ai-room-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비완료 나가기 취소",
+      "base": "mode-select",
+      "view": "ai-room-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비 취소",
+      "base": "mode-select",
+      "view": "ai-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 나가기 확인",
+      "base": "mode-select",
+      "view": "ai-room-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "나가기 뒤 배경 버튼 차단",
+      "base": "mode-select",
+      "view": "ai-room-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 나가기 취소",
+      "base": "mode-select",
+      "view": "ai-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 다시 준비",
+      "base": "mode-select",
+      "view": "ai-room-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비 나가기 재확인",
+      "base": "mode-select",
+      "view": "ai-room-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비 나가 일반 선택 유지",
+      "base": "mode-select",
+      "view": "mode-select",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "AI 미준비 나가기용 열기",
+      "base": "mode-select",
+      "view": "ai-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 미준비 나가기 확인",
+      "base": "mode-select",
+      "view": "ai-room-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "AI 미준비 나가 일반 선택 유지",
+      "base": "mode-select",
+      "view": "mode-select",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 직접 입장",
+      "base": "rooms-selected",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 직접 준비",
+      "base": "rooms-selected",
+      "view": "room-normal-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 준비 나가기 확인",
+      "base": "rooms-selected",
+      "view": "room-normal-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 준비 나가기 취소",
+      "base": "rooms-selected",
+      "view": "room-normal-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 준비 취소",
+      "base": "rooms-selected",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 미준비 나가기 확인",
+      "base": "rooms-selected",
+      "view": "room-normal-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 미준비 나가기 취소",
+      "base": "rooms-selected",
+      "view": "room-normal",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 재준비",
+      "base": "rooms-selected",
+      "view": "room-normal-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 준비 재나가기",
+      "base": "rooms-selected",
+      "view": "room-normal-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-selected 준비 나가 선택 유지",
+      "base": "rooms-selected",
+      "view": "rooms-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 직접 입장",
+      "base": "rooms-solo-selected",
+      "view": "room-solo",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 직접 준비",
+      "base": "rooms-solo-selected",
+      "view": "room-solo-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 나가기 확인",
+      "base": "rooms-solo-selected",
+      "view": "room-solo-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 나가기 취소",
+      "base": "rooms-solo-selected",
+      "view": "room-solo-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 취소",
+      "base": "rooms-solo-selected",
+      "view": "room-solo",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 미준비 나가기 확인",
+      "base": "rooms-solo-selected",
+      "view": "room-solo-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 미준비 나가기 취소",
+      "base": "rooms-solo-selected",
+      "view": "room-solo",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 재준비",
+      "base": "rooms-solo-selected",
+      "view": "room-solo-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 재나가기",
+      "base": "rooms-solo-selected",
+      "view": "room-solo-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-solo-selected 준비 나가 선택 유지",
+      "base": "rooms-solo-selected",
+      "view": "rooms-solo-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 직접 입장",
+      "base": "rooms-team-selected",
+      "view": "room-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 직접 준비",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 나가기 확인",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 나가기 취소",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 취소",
+      "base": "rooms-team-selected",
+      "view": "room-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 미준비 나가기 확인",
+      "base": "rooms-team-selected",
+      "view": "room-team-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 미준비 나가기 취소",
+      "base": "rooms-team-selected",
+      "view": "room-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 재준비",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 재나가기",
+      "base": "rooms-team-selected",
+      "view": "room-team-ready-leave",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "rooms-team-selected 준비 나가 선택 유지",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 코드 입력 예시",
+      "base": "rooms-team-selected",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "최종 코드 값 예시",
+      "base": "rooms-team-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "최종 코드 오류",
+      "base": "rooms-team-selected",
+      "view": "code-unavailable",
+      "under": "code-filled",
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "최종 코드 오류 닫기",
+      "base": "rooms-team-selected",
+      "view": "code-filled",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "최종 코드 취소",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 만들기 예시",
+      "base": "rooms-team-selected",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "최종 만들기 팀 선택",
+      "base": "rooms-team-selected",
+      "view": "create-team",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "최종 만들기 취소",
+      "base": "rooms-team-selected",
+      "view": "rooms-team-selected",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 랭킹 표시",
+      "base": "rank-lobby",
+      "view": "rank-lobby",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 파티 안내",
+      "base": "rank-lobby",
+      "view": "rank-party-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 미정 파티 실행 차단",
+      "base": "rank-lobby",
+      "view": "rank-party-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 파티 안내 닫기",
+      "base": "rank-lobby",
+      "view": "rank-lobby",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 친구 목록",
+      "base": "rank-friends",
+      "view": "rank-friends",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 초대 안내",
+      "base": "rank-friends",
+      "view": "rank-invite-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 미정 초대 차단",
+      "base": "rank-friends",
+      "view": "rank-invite-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 초대 안내 닫기",
+      "base": "rank-friends",
+      "view": "rank-friends",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 친구 뒤로",
+      "base": "rank-lobby",
+      "view": "rank-lobby",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 자동 매칭 안내",
+      "base": "rank-lobby",
+      "view": "rank-match-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 자동 매칭 차단",
+      "base": "rank-lobby",
+      "view": "rank-match-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 자동 매칭 닫기",
+      "base": "rank-lobby",
+      "view": "rank-lobby",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 검토 안내",
+      "base": "match-handoff",
+      "view": "match-handoff",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "안내에서 코드 입력",
+      "base": "match-handoff",
+      "view": "code-input",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "안내에서 코드 뒤로 복귀",
+      "base": "match-handoff",
+      "view": "match-handoff",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "안내에서 만들기",
+      "base": "match-handoff",
+      "view": "create-room",
+      "under": false,
+      "fullscreenStack": 1,
+      "status": "pass"
+    },
+    {
+      "label": "안내에서 만들기 취소 복귀",
+      "base": "match-handoff",
+      "view": "match-handoff",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 랭크 로딩",
+      "base": "match-handoff",
+      "view": "rank-loading",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 로딩 닫아 안내 유지",
+      "base": "match-handoff",
+      "view": "match-handoff",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 랭크 오류",
+      "base": "rank-error",
+      "view": "rank-error",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 오류 재시도",
+      "base": "rank-lobby",
+      "view": "rank-lobby",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 방 목록 오류",
+      "base": "rooms-error",
+      "view": "rooms-error",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "방 목록 오류 재시도",
+      "base": "rooms",
+      "view": "rooms",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 새로고침 로딩",
+      "base": "rooms",
+      "view": "rooms-loading",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "로딩 닫아 목록 유지",
+      "base": "rooms",
+      "view": "rooms",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "목록 뒤로 일반 선택",
+      "base": "mode-select",
+      "view": "mode-select",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "최종 일반 자동 매칭 안내",
+      "base": "mode-select",
+      "view": "normal-match-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "일반 미정 매칭 차단",
+      "base": "mode-select",
+      "view": "normal-match-info",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    },
+    {
+      "label": "일반 매칭 닫기",
+      "base": "mode-select",
+      "view": "mode-select",
+      "under": false,
+      "fullscreenStack": 0,
+      "status": "pass"
+    }
+  ],
+  "checks": {
+    "all9ListOriginsCancel": true,
+    "soloTeamEmptyEnterLeave": true,
+    "fullscreenStackExactlyOne": true,
+    "nestedPopupClosePreservesDraft": true,
+    "aiAnd4RoomContexts": true,
+    "blockedUnapprovedActions": true
+  },
+  "historical": "viewer-before-context-fix.json contains128superseded steps; not included in this210",
+  "android": "not-run"
+}
