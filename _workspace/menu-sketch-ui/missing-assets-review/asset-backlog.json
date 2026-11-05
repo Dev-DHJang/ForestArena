@@ -1,0 +1,420 @@
+{
+  "scope": "Approved MENU0921reference designs; missing means not supplied to approved UI, not necessarily no source file exists.",
+  "date": "2026-11-05",
+  "counts": {
+    "total": 29,
+    "images": 7,
+    "accessory_images": 6,
+    "rank_images": 1,
+    "videos": 22,
+    "character_videos": 20,
+    "accessory_videos": 2,
+    "rank_reuse_candidates": 1
+  },
+  "slots": [
+    {
+      "slot": "IMG/accessory/boxing-gloves",
+      "name": "복싱 글러브",
+      "group": "신기 이미지",
+      "aspect": "1:1",
+      "status": "승인된 전용 이미지 미수록",
+      "next_step": "외형 시안 제작·개별 승인 후 배치",
+      "active_gameplay": false,
+      "data_id": "fixture-boxing-gloves",
+      "candidate_paths": [],
+      "note": "기존6종은 현재 경기 비활성. 표시명과 옛 내부 ID의 뜻을 혼동하지 않음."
+    },
+    {
+      "slot": "IMG/accessory/explosive-gloves",
+      "name": "도약 장갑",
+      "group": "신기 이미지",
+      "aspect": "1:1",
+      "status": "승인된 전용 이미지 미수록",
+      "next_step": "외형 시안 제작·개별 승인 후 배치",
+      "active_gameplay": false,
+      "data_id": "fixture-explosive-gloves",
+      "candidate_paths": [],
+      "note": "기존6종은 현재 경기 비활성. 표시명과 옛 내부 ID의 뜻을 혼동하지 않음."
+    },
+    {
+      "slot": "IMG/accessory/iron-armor",
+      "name": "철갑옷",
+      "group": "신기 이미지",
+      "aspect": "1:1",
+      "status": "승인된 전용 이미지 미수록",
+      "next_step": "외형 시안 제작·개별 승인 후 배치",
+      "active_gameplay": false,
+      "data_id": "fixture-iron-armor",
+      "candidate_paths": [],
+      "note": "기존6종은 현재 경기 비활성. 표시명과 옛 내부 ID의 뜻을 혼동하지 않음."
+    },
+    {
+      "slot": "IMG/accessory/phoenix-revive",
+      "name": "활공 신기",
+      "group": "신기 이미지",
+      "aspect": "1:1",
+      "status": "승인된 전용 이미지 미수록",
+      "next_step": "외형 시안 제작·개별 승인 후 배치",
+      "active_gameplay": false,
+      "data_id": "fixture-phoenix-revive",
+      "candidate_paths": [],
+      "note": "기존6종은 현재 경기 비활성. 표시명과 옛 내부 ID의 뜻을 혼동하지 않음."
+    },
+    {
+      "slot": "IMG/accessory/thorns",
+      "name": "균형 신기",
+      "group": "신기 이미지",
+      "aspect": "1:1",
+      "status": "승인된 전용 이미지 미수록",
+      "next_step": "외형 시안 제작·개별 승인 후 배치",
+      "active_gameplay": false,
+      "data_id": "fixture-thorns",
+      "candidate_paths": [],
+      "note": "기존6종은 현재 경기 비활성. 표시명과 옛 내부 ID의 뜻을 혼동하지 않음."
+    },
+    {
+      "slot": "IMG/accessory/ultimate-charm",
+      "name": "집중 신기",
+      "group": "신기 이미지",
+      "aspect": "1:1",
+      "status": "승인된 전용 이미지 미수록",
+      "next_step": "외형 시안 제작·개별 승인 후 배치",
+      "active_gameplay": false,
+      "data_id": "fixture-ultimate-charm",
+      "candidate_paths": [],
+      "note": "기존6종은 현재 경기 비활성. 표시명과 옛 내부 ID의 뜻을 혼동하지 않음."
+    },
+    {
+      "slot": "IMG/rank/emblem/silver-3",
+      "name": "실버3 랭크 문양",
+      "group": "랭크 이미지",
+      "aspect": "1:1",
+      "status": "전용 슬롯 미수록·기존 파일 재사용 검토",
+      "next_step": "기존 실버 문양의 승인·품질·실버3 적용 범위 확인",
+      "active_gameplay": false,
+      "data_id": "fa.rank.rank.silver (기존 실버 파일)",
+      "candidate_paths": [
+        "forest_arena/assets/common/rank/rank_silver.png"
+      ],
+      "note": "파일 존재·리소스 등록은 실버3 전용 승인 증거가 아님. 등급·시즌 운영은 미정.",
+      "candidate_sha256": "d5613f51644c9a517714fa75b0a6d8e37b81dbfaff9f200231101e32ec05092b"
+    },
+    {
+      "slot": "VIDEO/accessory/iron-armor",
+      "name": "철갑옷 소개 영상",
+      "group": "신기 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록",
+      "next_step": "비활성 신기의 소개 범위 결정 후 영상 구성",
+      "active_gameplay": false,
+      "data_id": "fixture-iron-armor",
+      "candidate_paths": [],
+      "note": "철갑옷 현재 비활성. 현재 플레이 가능한 기능처럼 연출하지 않음."
+    },
+    {
+      "slot": "VIDEO/accessory/pebble-yoyo",
+      "name": "조약돌 요요 소개 영상",
+      "group": "신기 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록",
+      "next_step": "기존 기능·모션을 활용한 촬영/편집 검토",
+      "active_gameplay": true,
+      "data_id": "pebble-yoyo",
+      "candidate_paths": [
+        "assets/character/ja-hyun/animation/runtime/equipment_yoyo_ground.tres",
+        "assets/character/ja-hyun/animation/runtime/equipment_yoyo_air.tres",
+        "assets/character/nabi/animation/runtime/equipment_yoyo_ground.tres",
+        "assets/character/nabi/animation/runtime/equipment_yoyo_air.tres"
+      ],
+      "note": "요요 이미지는 이미 배치되어 제외."
+    },
+    {
+      "slot": "VIDEO/ja-hyun/heavy",
+      "name": "자현 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "ja-hyun",
+      "candidate_paths": [
+        "assets/character/ja-hyun/animation/runtime/local_ai_v01/attack_heavy_side_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/ja-hyun/jump-heavy",
+      "name": "자현 공중 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "ja-hyun",
+      "candidate_paths": [
+        "assets/character/ja-hyun/animation/runtime/attack_air_heavy_16f_natural-v03.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/ja-hyun/jump-light",
+      "name": "자현 공중 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "ja-hyun",
+      "candidate_paths": [
+        "assets/character/ja-hyun/animation/runtime/attack_air_light_16f_natural-v03.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/ja-hyun/light",
+      "name": "자현 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "ja-hyun",
+      "candidate_paths": [
+        "assets/character/ja-hyun/animation/runtime/attack_light_combo_01_16f_natural-v02.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/ja-hyun/special",
+      "name": "자현 특수공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "ja-hyun",
+      "candidate_paths": [
+        "assets/character/ja-hyun/animation/runtime/special_neutral_16f_natural-v03.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/myo-ryung/heavy",
+      "name": "묘령 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "myo-ryung",
+      "candidate_paths": [
+        "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_heavy_side_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/myo-ryung/jump-heavy",
+      "name": "묘령 공중 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "myo-ryung",
+      "candidate_paths": [
+        "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_heavy_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/myo-ryung/jump-light",
+      "name": "묘령 공중 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "myo-ryung",
+      "candidate_paths": [
+        "assets/character/myo-ryung/animation/runtime/local_ai_v01/attack_air_light_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/myo-ryung/light",
+      "name": "묘령 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "myo-ryung",
+      "candidate_paths": [
+        "assets/character/myo-ryung/animation/runtime/attack_light_combo_01_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/myo-ryung/special",
+      "name": "묘령 특수공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "myo-ryung",
+      "candidate_paths": [
+        "assets/character/myo-ryung/animation/runtime/local_ai_v01/special_neutral_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/nabi/heavy",
+      "name": "나비 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "nabi",
+      "candidate_paths": [
+        "assets/character/nabi/animation/runtime/local_ai_v01/attack_heavy_side_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/nabi/jump-heavy",
+      "name": "나비 공중 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "nabi",
+      "candidate_paths": [
+        "assets/character/nabi/animation/runtime/attack_air_heavy_16f_body-fit-v01.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/nabi/jump-light",
+      "name": "나비 공중 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "nabi",
+      "candidate_paths": [
+        "assets/character/nabi/animation/runtime/attack_air_light_16f_body-fit-v01.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/nabi/light",
+      "name": "나비 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "nabi",
+      "candidate_paths": [
+        "assets/character/nabi/animation/runtime/local_ai_v01/attack_light_combo_01_16f_body-fit-v01.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/nabi/special",
+      "name": "나비 특수공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": true,
+      "data_id": "nabi",
+      "candidate_paths": [
+        "assets/character/nabi/animation/runtime/local_ai_v01/special_neutral_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/yu-ran/heavy",
+      "name": "유란 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "yu-ran",
+      "candidate_paths": [
+        "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_heavy_side_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/yu-ran/jump-heavy",
+      "name": "유란 공중 강공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "yu-ran",
+      "candidate_paths": [
+        "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_heavy_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/yu-ran/jump-light",
+      "name": "유란 공중 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "yu-ran",
+      "candidate_paths": [
+        "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_air_light_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/yu-ran/light",
+      "name": "유란 약공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "yu-ran",
+      "candidate_paths": [
+        "assets/character/yu-ran/animation/runtime/local_ai_v01/attack_light_combo_01_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    },
+    {
+      "slot": "VIDEO/yu-ran/special",
+      "name": "유란 특수공격 영상",
+      "group": "캐릭터 기술 영상",
+      "aspect": "16:9",
+      "status": "완성 소개 영상 미수록·모션 자료 존재",
+      "next_step": "최종 연결 모션·촬영 범위 확인 후 녹화/편집",
+      "active_gameplay": false,
+      "data_id": "yu-ran",
+      "candidate_paths": [
+        "assets/character/yu-ran/animation/runtime/local_ai_v01/special_neutral_16f.png"
+      ],
+      "note": "모션 파일과 UI 재생용 완성 영상은 별개. 이 조사는 개별 모션 승인·재생 검증을 새로 수행한 것이 아님."
+    }
+  ],
+  "encoded_video_scan_roots": [
+    "assets",
+    "forest_arena/assets"
+  ],
+  "encoded_video_files": [],
+  "approval_changes": false,
+  "penpot_changes": false,
+  "runtime_changes": false
+}
