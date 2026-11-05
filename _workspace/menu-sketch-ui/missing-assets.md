@@ -1,6 +1,8 @@
+> 최신 공급 현황: [media-assets-r01 · 이미지7·영상22 공급/검토 대기](media-assets-r01/README.md). 아래 누락 수는 제작 전 이력이다.
+
 > 누락 항목 추림: [이미지7·영상22 및 재사용 후보](missing-assets-review/02_assets.md). 총29개 슬롯은 유지하며,파일 존재와 UI용 최종 승인 여부를 구분한다.
 
-> 현재 전체MENU09 미수록 기준은 [match-r01 합집합29종](match-r01/missing-assets-union.json)이다. 아래 대표안 제작 당시 목록은 이력으로 보존한다.
+> 승인 당시 전체MENU09 미수록 기준은 [match-r01 합집합29종](match-r01/missing-assets-union.json)이다. 아래 대표안 제작 당시 목록은 이력으로 보존한다.
 
 # MISSING ASSETS
 

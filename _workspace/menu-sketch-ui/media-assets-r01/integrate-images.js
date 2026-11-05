@@ -1,0 +1,11 @@
+const M=storage.media09;const p=penpot.currentPage;if(!Object.values(M.pages).includes(p.id))throw Error('Only media copies may be changed');
+const walk=s=>[s,...(s.children||[]).flatMap(walk)];let count=0;
+for(const b of p.root.children){let changed=false;const a=walk(b);const put=(s,slot)=>{const m=M.images[slot];if(!m)throw Error('Missing '+slot);s.fills=[{fillImage:m,fillOpacity:1}];s.strokes=[];s.setPluginData('menu09-image-slot',slot);s.setPluginData('menu09-media-revision','media-assets-r01');M.placements.push({page:p.name,board:b.getPluginData('menu09-key'),boardId:b.id,shape:s.id,slot,kind:'image',mediaId:m.id});count++;changed=true;};
+ for(const s of a){if(s.type==='rectangle'&&s.name.startsWith('IMG / item ')){const id=s.name.slice('IMG / item '.length);if(M.images['IMG/accessory/'+id]){put(s,'IMG/accessory/'+id);const t=a.find(x=>x.name===s.name+' / slot');if(t)t.hidden=true;}}
+ if(s.name==='IMG / selected-artifact'){const t=a.find(x=>x.name==='IMG / selected-artifact / slot');const slot=t?.characters?.replace(/\s/g,'');if(M.images[slot]){put(s,slot);t.hidden=true;}}
+ if(s.name==='ARTIFACT / image'){const t=a.find(x=>x.name==='ARTIFACT / image / slot');const slot=t?.characters?.replace(/\s/g,'');if(M.images[slot]){put(s,slot);t.hidden=true;const n=a.find(x=>x.name==='ARTIFACT / image / missing');if(n)n.hidden=true;}}
+ if(s.getPluginData('menu09-image-slot')==='IMG/rank/emblem/silver-3'){put(s,'IMG/rank/emblem/silver-3');const oldx=s.parentX,oldy=s.parentY,oldw=s.width,oldh=s.height;const side=Math.min(oldw,oldh);s.resize(side,side);penpotUtils.setParentXY(s,oldx+(oldw-side)/2,oldy+(oldh-side)/2);s.name='IMG / reused silver emblem';const t=a.find(x=>x.name==='MISSING / rank slot');if(t)t.hidden=true;}
+ }
+ b.setPluginData('menu09-source-page',p.name.includes('Collection')?'25_MENU09_Collection':p.name.includes('Shop')?'26_MENU09_Shop':p.name.includes('Match')?'29_MENU09_Match':'23_MENU09_Review');b.setPluginData('menu09-media-revision','media-assets-r01');b.setPluginData('menu09-approval',changed?'review-pending-media':'approved-layout-copy');if(changed)b.name=b.name.replace(/MENU09 \/ [^/]+ \//,'MENU09 / Media-r01 /');
+}
+p.setPluginData('menu09-media-status','review-pending-media');return{page:p.name,imagePlacements:count};

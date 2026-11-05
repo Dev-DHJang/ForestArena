@@ -1,0 +1,476 @@
+{
+  "status": "pass",
+  "source_baseline_count": 684,
+  "source_errors": [],
+  "expected_slots": 29,
+  "image_slots": 7,
+  "videos": [
+    {
+      "slot": "VIDEO/ja-hyun/heavy",
+      "sha256": "f4324b089907e90bf9e2c491372d9ec526113d3e370c4133630d674deb83c81e",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_heavy_side",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/ja-hyun/jump-light",
+      "sha256": "20e7ac062503fd1e288fd175b13e04c4debee969225ab733e025734dfec524a9",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_light",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/ja-hyun/jump-heavy",
+      "sha256": "7dd7736d66977b06946696118293729dc7bc62121b2ca3360c4f6176643b6bea",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_heavy",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/nabi/jump-light",
+      "sha256": "a947d53365080c258c060897177ee68c60cfbcc5a21165eac099b76d7515597e",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_light",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/nabi/jump-heavy",
+      "sha256": "ca04e7343a70cd5c93e5398f9666d9a519fd2fa52b50dcb01b99fd4f7b098705",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_heavy",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/myo-ryung/heavy",
+      "sha256": "76787ba1f0406d49f96fb4c79daab19a680bf07d3276d32ddfd37fb66d4e3b01",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_heavy_side",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/myo-ryung/jump-light",
+      "sha256": "730bd41bbaa925f9b86824cfb469669c4265cc4093e6002cfc2db535e9418ee7",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_light",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/myo-ryung/jump-heavy",
+      "sha256": "6e74c10fbf99b48e947f481bf8f959b4f6a18ea8116db68742c12fb24d1835a0",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_heavy",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/myo-ryung/special",
+      "sha256": "0ff86f9f428a1199fb763ff39966e30068eb8172793e353f25960c625ff076a7",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "special_neutral",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/yu-ran/heavy",
+      "sha256": "3afbd95cf9f532ac580ee4b33e4d5d04d6b39a64386f941facd03920bea990e2",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_heavy_side",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/yu-ran/jump-light",
+      "sha256": "d897bc7f7460ecc43b1462c77deeab0f0956228251b46c359b69cccfe514e817",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_light",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/yu-ran/jump-heavy",
+      "sha256": "bc5708d5dc9ca5f08d6177bfb69cae706d3c34b349e3603974d5dfbb9337bd7a",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_air_heavy",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/yu-ran/special",
+      "sha256": "70b7986ae0e4be0296fcf00f34bb1343f0e80bded435626e4db2e426e92c5172",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "special_neutral",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/accessory/pebble-yoyo",
+      "sha256": "d35d42bf3017f85b7ffebf04964e8c28dd3053d76b513037c1b8c54df3b260a8",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 7.2,
+      "frames": 432,
+      "source": [
+        {
+          "motion": "equipment_yoyo_ground",
+          "frames": 16,
+          "fps": 60.0,
+          "sha_match": true
+        },
+        {
+          "motion": "equipment_yoyo_air",
+          "frames": 16,
+          "fps": 60.0,
+          "sha_match": true
+        },
+        {
+          "motion": "equipment_yoyo_ground",
+          "frames": 16,
+          "fps": 60.0,
+          "sha_match": true
+        },
+        {
+          "motion": "equipment_yoyo_air",
+          "frames": 16,
+          "fps": 60.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/accessory/iron-armor",
+      "sha256": "65a69acd81cb2e5fa7559755c109ca6640adbabe3d6e71409058433d31600369",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.0,
+      "frames": 240,
+      "source": [],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/ja-hyun/light",
+      "sha256": "bcb0bc524a35c29000ef1f6ca3653f2d96f647ac89805232fb8cd9e937b6de7e",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 12.066667,
+      "frames": 724,
+      "source": [
+        {
+          "motion": "attack_light_combo_01",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_02",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_01",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_04",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/nabi/light",
+      "sha256": "24da0212501d5eb559186c66b5fb5f0c266db9078bdc8d196b292ecb82dc1bfc",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 9.4,
+      "frames": 564,
+      "source": [
+        {
+          "motion": "attack_light_combo_01",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_up",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_02",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/myo-ryung/light",
+      "sha256": "4731d51ffb888434ff52ecde6b77f1186f6ad7b46193838563a8401c2441fd02",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 12.066667,
+      "frames": 724,
+      "source": [
+        {
+          "motion": "attack_light_combo_01",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_02",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_03",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_04",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/yu-ran/light",
+      "sha256": "43c16beb29852392012615f6e3dcb0e40a4b9c807abd54953df783743e0156cc",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 9.4,
+      "frames": 564,
+      "source": [
+        {
+          "motion": "attack_light_combo_01",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_02",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        },
+        {
+          "motion": "attack_light_combo_03",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/ja-hyun/special",
+      "sha256": "c1fe91e1218b622665230e30610f7a5117a5bf23372e400375f20747aae44b47",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "special_scarf_sweep",
+          "frames": 32,
+          "fps": 24.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/nabi/heavy",
+      "sha256": "e0c8fca1c58f852eafac4259bab4d049047164477de66401e3a4c4ced0f6703c",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "attack_heavy_up",
+          "frames": 16,
+          "fps": 12.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    },
+    {
+      "slot": "VIDEO/nabi/special",
+      "sha256": "5af6b2cbfd2dcd2eb68eb78fbda2cffdb6ff768c066044834c3caf8f5dfad969",
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "duration": 4.066667,
+      "frames": 244,
+      "source": [
+        {
+          "motion": "special_side",
+          "frames": 32,
+          "fps": 24.0,
+          "sha_match": true
+        }
+      ],
+      "decode": "pass"
+    }
+  ]
+}
