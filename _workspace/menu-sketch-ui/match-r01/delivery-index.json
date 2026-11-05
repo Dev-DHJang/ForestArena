@@ -1,5 +1,5 @@
 {
-  "scope": "all21 reference designs;18approved3pending",
+  "scope": "all21 reference designs approved; runtime remains unapproved",
   "register": "../screen-register.json",
   "approval_register": "../approval-register.md",
   "handoff": "../05_handoff.md",
@@ -35,13 +35,15 @@
       "title": "랭킹대전 로비",
       "group": "match",
       "design_status": "ready-for-review",
-      "approval_status": "pending",
+      "approval_status": "approved",
       "revision": "match-r01",
       "penpot_board_id": "2e6ebb69-a5b6-8066-8008-e568647f0d33",
       "runtime_approved": false,
       "reference_copy": "references/02.jpeg",
       "penpot_page_id": "2e6ebb69-a5b6-8066-8008-e56728b52ace",
-      "preview": "match-r01/exports/rank-lobby-1280.png"
+      "preview": "match-r01/exports/rank-lobby-1280.png",
+      "approved_revision": "match-r01",
+      "approval_evidence": "2026-11-05 이 채팅 사용자: 승인한다. 일반대전 선택·방 목록·랭킹 로비 match-r01 및 전달 상태·비교 UI 승인."
     },
     {
       "source_file": "/Users/jdh/Downloads/포레스트아레나/메인로비.jpeg",
@@ -319,13 +321,15 @@
       "title": "일반대전 방 목록",
       "group": "match",
       "design_status": "ready-for-review",
-      "approval_status": "pending",
+      "approval_status": "approved",
       "revision": "match-r01",
       "penpot_board_id": "2e6ebb69-a5b6-8066-8008-e567406b1aae",
       "runtime_approved": false,
       "reference_copy": "references/16.jpeg",
       "penpot_page_id": "2e6ebb69-a5b6-8066-8008-e56728b52ace",
-      "preview": "match-r01/exports/rooms-1280.png"
+      "preview": "match-r01/exports/rooms-1280.png",
+      "approved_revision": "match-r01",
+      "approval_evidence": "2026-11-05 이 채팅 사용자: 승인한다. 일반대전 선택·방 목록·랭킹 로비 match-r01 및 전달 상태·비교 UI 승인."
     },
     {
       "source_file": "/Users/jdh/Downloads/포레스트아레나/일반대전-목록.jpeg",
@@ -336,13 +340,15 @@
       "title": "일반대전 선택",
       "group": "match",
       "design_status": "ready-for-review",
-      "approval_status": "pending",
+      "approval_status": "approved",
       "revision": "match-r01",
       "penpot_board_id": "2e6ebb69-a5b6-8066-8008-e56729b3232e",
       "runtime_approved": false,
       "reference_copy": "references/17.jpeg",
       "penpot_page_id": "2e6ebb69-a5b6-8066-8008-e56728b52ace",
-      "preview": "match-r01/exports/mode-select-1280.png"
+      "preview": "match-r01/exports/mode-select-1280.png",
+      "approved_revision": "match-r01",
+      "approval_evidence": "2026-11-05 이 채팅 사용자: 승인한다. 일반대전 선택·방 목록·랭킹 로비 match-r01 및 전달 상태·비교 UI 승인."
     },
     {
       "source_file": "/Users/jdh/Downloads/포레스트아레나/친구.jpeg",
@@ -422,5 +428,6 @@
       "approval_evidence": "캐릭터 기술·스토리·신기 상세 collection-r01 승인 요청에 사용자 답변: 승인한다.",
       "approved_revision": "collection-r01"
     }
-  ]
+  ],
+  "final_approval": "../final-approval/04_closeout.md"
 }
