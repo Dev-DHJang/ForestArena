@@ -1,0 +1,41 @@
+{
+  "status": "pass",
+  "tested_source_commit": "4cf0f8853bc1267b4feb0d873444173d23e11d3e",
+  "current_base_commit": "2be85c0292893ff342cb50001c80996627442d61",
+  "changed_paths_since_test": 347,
+  "current_worktree_change_count": 166,
+  "runtime_changes": [],
+  "reused_from": "../life-r02/verification-summary.json",
+  "command": "./scripts/verify.sh --full",
+  "total_checks": 94,
+  "completed_checks": 94,
+  "elapsed_seconds": 540.916,
+  "result_path": "build/verification/20261104-133023-fec1b4ab/result.json",
+  "reason": "Only MENU09 design records and previews changed; no game code, runtime assets, contracts, test inputs, dependencies, or verification scripts changed.",
+  "related_docs_result": "build/verification/20261105-070159-06c7d4e7/result.json",
+  "delivery_checks": {
+    "native_boards": 51,
+    "native_texts": 1053,
+    "component_instances": 354,
+    "links": 244,
+    "protected_boards": 233,
+    "protected_controls": 2106,
+    "protected_links": 1237,
+    "native_png": 23,
+    "reduced": 3,
+    "contact_sheet": 1,
+    "viewer_png": 13,
+    "png_total": 40,
+    "viewer_steps": 210,
+    "syntax_files": 25,
+    "reference_count": 21,
+    "visual_reuse_boards": 51
+  },
+  "android": "not-run",
+  "independent_qa": {
+    "status": "pass",
+    "record": "03_qa_r01.md",
+    "sha256": "2c3da114d487d9415df8172f7d2e0c09b1d4d393157a9685243ab09b979ede2f",
+    "viewer_execution_repeated": false
+  }
+}

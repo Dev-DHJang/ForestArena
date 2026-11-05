@@ -1,0 +1,158 @@
+[
+  {
+    "key": "rooms",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rooms 994518"
+  },
+  {
+    "key": "rank-lobby",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rank-lobby 835888"
+  },
+  {
+    "key": "rooms-solo-selected",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rooms-solo-selected 1045351"
+  },
+  {
+    "key": "rooms-solo-full",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rooms-solo-full 1041723"
+  },
+  {
+    "key": "rooms-team-selected",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rooms-team-selected 1075413"
+  },
+  {
+    "key": "code-input",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "code-input 923642"
+  },
+  {
+    "key": "code-filled",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "code-filled 925749"
+  },
+  {
+    "key": "create-room",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "create-room 848344"
+  },
+  {
+    "key": "create-team",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "create-team 848563"
+  },
+  {
+    "key": "rank-friends",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rank-friends 1078187"
+  },
+  {
+    "key": "ai-room",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "ai-room 898091"
+  },
+  {
+    "key": "room-normal",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "room-normal 903916"
+  },
+  {
+    "key": "room-solo",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "room-solo 903916"
+  },
+  {
+    "key": "room-team",
+    "attempt": 1,
+    "status": "failed",
+    "detail": "nternal Server Error\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/export_png.py\", line 5, in <module>\n    r=call(\"const S=storage.match09;const b=S.boards[\"+json.dumps(key)+\"];if(!b)throw Error('Missing board');return Array.from(await b.export({type:'png',scale:1}));\")\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/bootstrap.py\", line 9, in call\n    except urllib.error.HTTPError as e:raise RuntimeError(e.read().decode()[:2000]) from e\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: {\"error\":\"Error handling task: http error\"}\n"
+  },
+  {
+    "key": "room-team",
+    "attempt": 2,
+    "status": "pass",
+    "detail": "room-team 904794"
+  },
+  {
+    "key": "room-team-ready",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "room-team-ready 900492"
+  },
+  {
+    "key": "rooms-empty",
+    "attempt": 1,
+    "status": "failed",
+    "detail": "nternal Server Error\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/export_png.py\", line 5, in <module>\n    r=call(\"const S=storage.match09;const b=S.boards[\"+json.dumps(key)+\"];if(!b)throw Error('Missing board');return Array.from(await b.export({type:'png',scale:1}));\")\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/bootstrap.py\", line 9, in call\n    except urllib.error.HTTPError as e:raise RuntimeError(e.read().decode()[:2000]) from e\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: {\"error\":\"Error handling task: http error\"}\n"
+  },
+  {
+    "key": "rooms-empty",
+    "attempt": 2,
+    "status": "pass",
+    "detail": "rooms-empty 882345"
+  },
+  {
+    "key": "rooms-error",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rooms-error 725164"
+  },
+  {
+    "key": "rank-error",
+    "attempt": 1,
+    "status": "failed",
+    "detail": "nternal Server Error\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/export_png.py\", line 5, in <module>\n    r=call(\"const S=storage.match09;const b=S.boards[\"+json.dumps(key)+\"];if(!b)throw Error('Missing board');return Array.from(await b.export({type:'png',scale:1}));\")\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/bootstrap.py\", line 9, in call\n    except urllib.error.HTTPError as e:raise RuntimeError(e.read().decode()[:2000]) from e\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: {\"error\":\"Error handling task: http error\"}\n"
+  },
+  {
+    "key": "rank-error",
+    "attempt": 2,
+    "status": "pass",
+    "detail": "rank-error 732693"
+  },
+  {
+    "key": "match-handoff",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "match-handoff 1126002"
+  },
+  {
+    "key": "mode-select-wide",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "mode-select-wide 1250954"
+  },
+  {
+    "key": "rooms-wide",
+    "attempt": 1,
+    "status": "failed",
+    "detail": "nternal Server Error\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/export_png.py\", line 5, in <module>\n    r=call(\"const S=storage.match09;const b=S.boards[\"+json.dumps(key)+\"];if(!b)throw Error('Missing board');return Array.from(await b.export({type:'png',scale:1}));\")\n  File \"/Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena/_workspace/menu-sketch-ui/match-r01/bootstrap.py\", line 9, in call\n    except urllib.error.HTTPError as e:raise RuntimeError(e.read().decode()[:2000]) from e\n                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: {\"error\":\"Error handling task: http error\"}\n"
+  },
+  {
+    "key": "rooms-wide",
+    "attempt": 2,
+    "status": "pass",
+    "detail": "rooms-wide 1294745"
+  },
+  {
+    "key": "rank-lobby-wide",
+    "attempt": 1,
+    "status": "pass",
+    "detail": "rank-lobby-wide 1157441"
+  }
+]

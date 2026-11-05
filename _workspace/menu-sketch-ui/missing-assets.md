@@ -1,3 +1,5 @@
+> 현재 전체MENU09 미수록 기준은 [match-r01 합집합29종](match-r01/missing-assets-union.json)이다. 아래 대표안 제작 당시 목록은 이력으로 보존한다.
+
 # MISSING ASSETS
 
 대표3장과 현재 지원상태에 누락 이미지·플레이스홀더0개. 기존 v08 배경1개와 승인 원화4종을 재사용하며 image-mapping.csv에 출처·해시를 연결했다.

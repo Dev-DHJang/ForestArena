@@ -1,0 +1,774 @@
+{
+  "status": "fix",
+  "steps": [
+    {
+      "label": "저장 후 랭킹 한글·슬롯 표시",
+      "frame": "rank-lobby",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 파티 안내 열기",
+      "frame": "rank-lobby",
+      "overlay": "파티 찾기 준비 중",
+      "status": "pass"
+    },
+    {
+      "label": "미정 파티 찾기 실행 차단",
+      "frame": "rank-lobby",
+      "overlay": "파티 찾기 준비 중",
+      "status": "pass"
+    },
+    {
+      "label": "안내 배경 클릭 유지",
+      "frame": "rank-lobby",
+      "overlay": "파티 찾기 준비 중",
+      "status": "pass"
+    },
+    {
+      "label": "파티 안내 닫기",
+      "frame": "rank-lobby",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 친구 목록",
+      "frame": "rank-friends",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 친구 초대 안내",
+      "frame": "rank-friends",
+      "overlay": "랭크 파티 초대 조건 미정",
+      "status": "pass"
+    },
+    {
+      "label": "미정 초대 실행 차단",
+      "frame": "rank-friends",
+      "overlay": "랭크 파티 초대 조건 미정",
+      "status": "pass"
+    },
+    {
+      "label": "초대 안내 닫아 목록 유지",
+      "frame": "rank-friends",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "친구 목록 뒤로",
+      "frame": "rank-lobby",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭킹 매칭 안내",
+      "frame": "rank-lobby",
+      "overlay": "랭킹 자동 매칭 준비 중",
+      "status": "pass"
+    },
+    {
+      "label": "랭킹 매칭 실행 차단",
+      "frame": "rank-lobby",
+      "overlay": "랭킹 자동 매칭 준비 중",
+      "status": "pass"
+    },
+    {
+      "label": "랭킹 매칭 안내 닫기",
+      "frame": "rank-lobby",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭킹 뒤로 로비",
+      "frame": "match-entry",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반대전 진입",
+      "frame": "mode-select",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 자동 매칭 안내",
+      "frame": "mode-select",
+      "overlay": "자동 매칭 준비 중",
+      "status": "pass"
+    },
+    {
+      "label": "일반 매칭 실행 차단",
+      "frame": "mode-select",
+      "overlay": "자동 매칭 준비 중",
+      "status": "pass"
+    },
+    {
+      "label": "일반 매칭 안내 닫기",
+      "frame": "mode-select",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 방 진입",
+      "frame": "ai-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비",
+      "frame": "ai-room-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비 취소",
+      "frame": "ai-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 나가기 확인",
+      "frame": "ai-room-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 나가기 취소",
+      "frame": "ai-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 다시 나가기",
+      "frame": "ai-room-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 나가서 선택 복귀",
+      "frame": "mode-select",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "로비 방 목록 진입",
+      "frame": "rooms",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "미선택 입장 비활성",
+      "frame": "rooms",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "가득 찬 방 선택",
+      "frame": "rooms-full-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "가득 찬 방 입장 차단",
+      "frame": "rooms-full-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "참가 가능 방 선택",
+      "frame": "rooms-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인전 방 입장 시안",
+      "frame": "room-normal",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 방 준비",
+      "frame": "room-normal-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "시작은 안내만 열기",
+      "frame": "room-normal-ready",
+      "overlay": "대전 준비 흐름 검토",
+      "status": "pass"
+    },
+    {
+      "label": "실제 경기 시작 차단",
+      "frame": "room-normal-ready",
+      "overlay": "대전 준비 흐름 검토",
+      "status": "pass"
+    },
+    {
+      "label": "시작 안내 닫아 준비 유지",
+      "frame": "room-normal-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "준비 상태 나가기",
+      "frame": "room-normal-ready-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "준비 상태 나가기 취소",
+      "frame": "room-normal-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 준비 취소",
+      "frame": "room-normal",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 방 뒤로 확인",
+      "frame": "room-normal-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 방 나가서 선택 유지",
+      "frame": "rooms-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인전 필터",
+      "frame": "rooms-solo",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인전 필터 선택 유지",
+      "frame": "rooms-solo-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "필터 문맥 개인전 입장",
+      "frame": "room-solo",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인전 방 준비",
+      "frame": "room-solo-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "필터 방 준비 상태 나가기",
+      "frame": "room-solo-ready-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "필터 준비 나가기 취소",
+      "frame": "room-solo-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "필터 준비 취소",
+      "frame": "room-solo",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "필터 방 나가기 확인",
+      "frame": "room-solo-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "나가서 개인전 필터 선택 유지",
+      "frame": "rooms-solo-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인전 필터 가득참 선택",
+      "frame": "rooms-solo-full",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인전 필터 가득참 입장 차단",
+      "frame": "rooms-solo-full",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 필터",
+      "frame": "rooms-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 방 선택",
+      "frame": "rooms-team-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 입장",
+      "frame": "room-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "정정 후 A·B팀 표시",
+      "frame": "room-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 준비 표시",
+      "frame": "room-team-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 준비 나가기 확인",
+      "frame": "room-team-ready-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 준비 나가기 취소",
+      "frame": "room-team-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 준비 취소",
+      "frame": "room-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 나가기 확인",
+      "frame": "room-team-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 나가기 취소",
+      "frame": "room-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 재나가기",
+      "frame": "room-team-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 목록 선택 복귀",
+      "frame": "rooms-team-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "코드 입력 열기",
+      "frame": "code-input",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "미입력 코드 입장 안내",
+      "frame": "code-input",
+      "overlay": "전체 초대 코드를 입력해 주세요",
+      "status": "pass"
+    },
+    {
+      "label": "코드 미입력 안내 닫기",
+      "frame": "code-input",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "전체 코드 예시 입력",
+      "frame": "code-filled",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "코드 참가 불가 안내",
+      "frame": "code-filled",
+      "overlay": "방에 참가할 수 없어요",
+      "status": "pass"
+    },
+    {
+      "label": "코드 오류 닫아 입력 유지",
+      "frame": "code-filled",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "코드 입력 후 입장 시안",
+      "frame": "room-normal",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "코드 경로 방 나가기",
+      "frame": "room-normal-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "코드 경로 나가 목록 복귀",
+      "frame": "rooms-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "코드 입력 다시 열기",
+      "frame": "code-input",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "코드 입력 취소",
+      "frame": "rooms",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "방 만들기 진입",
+      "frame": "create-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "방 제목 입력 안내",
+      "frame": "create-room",
+      "overlay": "방 제목 입력 시안",
+      "status": "pass"
+    },
+    {
+      "label": "방 제목 안내 닫기",
+      "frame": "create-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 만들기 선택",
+      "frame": "create-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀전 만들기 준비 시안",
+      "frame": "room-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "만들기 경로 팀전 나가기",
+      "frame": "room-team-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "만들기 팀전 목록 복귀",
+      "frame": "rooms-team-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "다시 방 만들기",
+      "frame": "create-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인전 만들기 준비 시안",
+      "frame": "room-normal",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "만들기 개인전 나가기",
+      "frame": "room-normal-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "만들기 개인전 목록 복귀",
+      "frame": "rooms-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "방 만들기 취소 검토",
+      "frame": "create-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "방 만들기 취소",
+      "frame": "rooms",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "목록 뒤로 일반 선택",
+      "frame": "mode-select",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비완료 나가기용 진입",
+      "frame": "ai-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비완료 확인",
+      "frame": "ai-room-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비완료 나가기 확인",
+      "frame": "ai-room-ready-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "AI 준비완료 나가 선택 복귀",
+      "frame": "mode-select",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 준비완료 나가기용 목록",
+      "frame": "rooms",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 준비완료 나가기용 선택",
+      "frame": "rooms-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 준비완료 나가기용 입장",
+      "frame": "room-normal",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 준비완료 나가기용 준비",
+      "frame": "room-normal-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 준비완료 나가기 확인",
+      "frame": "room-normal-ready-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 준비완료 나가 선택 유지",
+      "frame": "rooms-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인 필터 준비완료 나가기용 필터",
+      "frame": "rooms-solo",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인 필터 준비완료 선택",
+      "frame": "rooms-solo-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인 필터 준비완료 입장",
+      "frame": "room-solo",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인 필터 준비완료 준비",
+      "frame": "room-solo-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인 필터 준비완료 나가기",
+      "frame": "room-solo-ready-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "개인 필터 준비완료 나가 선택 유지",
+      "frame": "rooms-solo-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀 준비완료 나가기용 필터",
+      "frame": "rooms-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀 준비완료 나가기용 선택",
+      "frame": "rooms-team-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀 준비완료 나가기용 입장",
+      "frame": "room-team",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀 준비완료 나가기용 준비",
+      "frame": "room-team-ready",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀 준비완료 나가기 확인",
+      "frame": "room-team-ready-leave",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "팀 준비완료 나가 선택 유지",
+      "frame": "rooms-team-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "새로고침 로딩",
+      "frame": "rooms-team-selected",
+      "overlay": "방 목록을 불러오는 중",
+      "status": "pass"
+    },
+    {
+      "label": "로딩 닫아 필터 선택 유지",
+      "frame": "rooms-team-selected",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "전체 검토 안내 진입",
+      "frame": "match-handoff",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "빈 방 목록 검토",
+      "frame": "rooms-empty",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "빈 목록 새로고침",
+      "frame": "rooms-empty",
+      "overlay": "방 목록을 불러오는 중",
+      "status": "pass"
+    },
+    {
+      "label": "빈 목록 로딩 닫기",
+      "frame": "rooms-empty",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "빈 목록 만들기 진입",
+      "frame": "create-room",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "빈 목록 경로 만들기 취소",
+      "frame": "rooms",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "방 목록 오류 검토",
+      "frame": "rooms-error",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "방 목록 오류 재시도 시안",
+      "frame": "rooms",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 로딩 안내",
+      "frame": "match-handoff",
+      "overlay": "랭크 정보를 불러오는 중",
+      "status": "pass"
+    },
+    {
+      "label": "랭크 로딩 닫기 안내 복귀",
+      "frame": "match-handoff",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 조회 오류",
+      "frame": "rank-error",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭크 조회 오류 재시도",
+      "frame": "rank-lobby",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "일반 선택20:9 표시",
+      "frame": "mode-select-wide",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "방 목록20:9 표시",
+      "frame": "rooms-wide",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "랭킹20:9 표시",
+      "frame": "rank-lobby-wide",
+      "overlay": false,
+      "status": "pass"
+    },
+    {
+      "label": "최종 일반 선택 표시",
+      "frame": "mode-select",
+      "overlay": false,
+      "status": "pass"
+    }
+  ],
+  "reason": "Shared forms reset source filter/selection/empty state; context-preserving overlays supersede these128steps. Layout observations retained only as history."
+}
