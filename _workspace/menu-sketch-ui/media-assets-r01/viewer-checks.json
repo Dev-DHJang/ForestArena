@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-05",
+  "environment": "macOS Chrome, Penpot 실제 보기 모드와 127.0.0.1:4471 검토 서버",
+  "checks": [
+    {"flow": "미디어 검토 시작", "observed": "신기 원화 6종과 한국어 레이블 표시", "png": "exports/viewer-overview.png"},
+    {"flow": "검토 시작 → 캐릭터·신기 → 강공격 → 재생", "observed": "묘령 가로 강공격 제목과 포스터. VIDEO/myo-ryung/heavy만 새 탭에 열려 1배속 4.066667초 재생 완료", "png": "exports/viewer-skills-heavy.png"},
+    {"flow": "검토 시작 → 상점 신기 → 철갑옷 상세 → 신기 목록", "observed": "기존 요요와 신규 원화 6종, 철갑옷 상세 이미지·무게 +5% 표시, 목록 복귀", "png": "exports/viewer-shop-artifacts.png", "detail_png": "exports/viewer-shop-iron-armor.png"},
+    {"flow": "상점 신기 → 캐릭터 목록 → 자현 상세 → 캐릭터 목록", "observed": "4개 캐릭터 목록에서 선택한 자현 상세의 4타 연계 포스터 표시, 목록 복귀", "png": "exports/viewer-shop-ja-hyun.png"},
+    {"flow": "검토 시작 → 랭킹 로비", "observed": "기존 실버 문양과 실버 3 예시 텍스트 표시. 원본의 흰 배경 흔적 보존", "png": "exports/viewer-rank-lobby.png"},
+    {"flow": "캐릭터 기술 20:9 보드", "observed": "2400×1080 설계 보드에서 포스터, 탭, 제목, 안전 여백 확인", "png": "exports/viewer-skills-light-wide.png"},
+    {"flow": "신기 상세 철갑옷 → 재생", "observed": "VIDEO/accessory/iron-armor 슬롯의 비활성 정보 영상과 상태 문구가 표시되고 4초 영상 재생 시작", "png": "exports/viewer-collection-iron-armor.png"}
+  ],
+  "native_exports": 5,
+  "viewer_pngs": 8,
+  "export_note": "일부 보드의 내보내기 서버 응답이 실패해 해당 대표 화면은 실제 보기 모드 PNG를 사용했다.",
+  "android_device": "미실행"
+}
