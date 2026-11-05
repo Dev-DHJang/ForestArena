@@ -11,3 +11,10 @@
 29개중복제거·기존합집합일치·7/22분류·후보경로실재·CSV일치·문서링크를검사했다. 자산생성·이미지교체·Penpot수정·런타임등록·실제게임개발은없다. UI210단계나같은게임검사는반복하지않았다.
 
 전용폴더 /Users/jdh/.codex/worktrees/menu-sketch-ui/ForestArena,브랜치codex/menu09-missing-assets,시작develop3b9a40c39515fd089ae3803adf8b83440c191e8c. 변경은_workspace/menu-sketch-ui/의목록·전달링크뿐이다. 실제PR·병합·되돌리기증적은아래에남긴다. Git통합커밋을revert하면목록변경을되돌릴수있으며기존누락29원본과승인UI는그대로다.
+
+## 실제 통합 기록
+
+- 목록·근거·검증 커밋은 `e81d0bdcabd35bfd21dc6be7996230f0a0b690c1`이다.
+- [PR #141](https://github.com/Dev-DHJang/ForestArena/pull/141)을 develop에 병합했다. 실제 병합 커밋은 `0c75d88d878c99a1407d5887a719ab10486a6c34`다. 예상 head와 실제 head가 일치한 상태에서 통합했다.
+- 되돌리기는 `git revert -m 1 0c75d88d878c99a1407d5887a719ab10486a6c34`로 목록·전달 링크 변경만 대상으로 한다. 자산·게임·Penpot 변경은 없다.
+- 이 통합 증적만 codex/menu09-missing-assets-closeout에서 추가한다. 같은 UI·게임 검사는 반복하지 않는다.
