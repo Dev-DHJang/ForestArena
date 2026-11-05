@@ -24,3 +24,5 @@
 Penpot 감사·실제 뷰어·PNG·독립 QA와 Android 실기기는 별도로 기록한다. 실제 Android를 실행하지 않은 결과를 기기 통과로 표시하지 않는다. 개발을 시작할 때 승인 UI의 기능 연결, 전체 값 조합, 기기 저장·재실행, 한글 입력, 실제 실패 복구와 Android 터치·접근성을 별도 검증한다.
 
 최종 Penpot 승인 저장은1039 `MENU09 손그림21종 UI 설계 승인 완료 · 2026-11-05`다. [승인 마무리 기록](final-approval/04_closeout.md)과 [전후 보존 확인](final-approval/approval-check.json)을 참고한다. PNG 안의 검토 대기 표기는 제작 당시 주석이며 현재 승인 여부는 등록표를 따른다.
+
+누락29개를 이미지7·영상22로 추린 [자산 제작 검토 목록](missing-assets-review/02_assets.md)과 [개별29항목CSV](missing-assets-review/asset-backlog.csv)를 참고한다. 기존 실버 문양과 모션 자료는 재사용 검토 후보이며 이 목록만으로 자산 승인을 변경하지 않는다.
