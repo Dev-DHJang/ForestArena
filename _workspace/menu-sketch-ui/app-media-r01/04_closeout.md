@@ -11,3 +11,5 @@
 최신 debug APK는 `build/android/ForestArena-debug.apk`, SHA256 `e8f2c2ca718acd8b76e97c1c33687bdcc85aac7e62a178757dd3179191f1d295`다. APK 패키지·브랜딩 검사와 미디어 50개 포함을 확인했다. 이 APK의 Android 실기기 재생·복귀는 기기 연결이 없어 미실행이다. 이전 Chrome 검토 페이지의 물리 기기 결과는 [별도 기록](../media-assets-r01/android-device-r01/02_mobile.md)을 따른다.
 
 작업 브랜치는 `codex/menu09-runtime`, 기준 커밋은 `f116eb3f2dc7515bcc896ba302dc9ef507d51cbf`다. 실기기 검증 결과, PR·병합과 되돌리기 정보를 이어 기록한다.
+
+2026-11-11. 구현과 증적은 [초안 PR #145](https://github.com/Dev-DHJang/ForestArena/pull/145)에 올렸다. 구현 커밋은 `2e91615bb20ee503acc72a77e2d914f57aaa1f14`이다. Galaxy S23 Ultra가 ADB 목록에 다시 나타나면 위 APK의 재생·일시정지·복귀와 대표 화면 터치를 확인한다. 이후 QA 결과와 변경 없는 APK 해시를 대조하고 PR 상태와 병합 기록을 갱신한다.
