@@ -25,13 +25,21 @@ func run() -> void:
 	await create_timer(0.24).timeout
 	await process_frame
 	check(app.screen == "home" and app.store.owns("nabi"), "first character button grants and opens home")
-	var shop_button := find_button(app, "상점 · 모두 0원")
+	var shop_button := find_button(app, "상점")
 	check(shop_button != null, "shop button exists")
 	if shop_button != null: shop_button.pressed.emit()
 	await create_timer(0.24).timeout
 	await process_frame
 	for item: Dictionary in app.catalog.playable_products():
 		if app.store.owns(item.id): continue
+		var category_button := find_qa(app, "menu/shop/category/" + String(item.kind))
+		if category_button != null: category_button.pressed.emit()
+		await create_timer(0.24).timeout
+		var detail := find_qa(app, "menu/shop/detail/" + String(item.id))
+		check(detail != null, "shop product detail entry: " + String(item.id))
+		if detail == null: continue
+		detail.pressed.emit()
+		await create_timer(0.24).timeout
 		var product_button := find_qa(app, "purchase/" + String(item.id))
 		check(product_button != null, "native product " + String(item.id))
 		if product_button == null: continue
@@ -43,6 +51,9 @@ func run() -> void:
 		if confirm != null: confirm.pressed.emit()
 		await create_timer(0.24).timeout
 		await process_frame
+		var back := find_qa(app, "menu/shop_detail/back")
+		if back != null: back.pressed.emit()
+		await create_timer(0.24).timeout
 	check(app.store.data.characters.size() == 2 and app.store.data.accessories == ["pebble-yoyo"], "shop buttons purchase both active characters and yo-yo")
 	app.handle_back_request(500)
 	await create_timer(0.24).timeout
