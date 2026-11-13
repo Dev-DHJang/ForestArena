@@ -293,9 +293,13 @@ func run_state_coverage() -> void:
 			"open_product_modal":
 				var product_id := String(params.product_id)
 				if app.catalog.is_playable_character(StringName(product_id)):
-					await press("purchase/" + product_id)
-					check(is_instance_valid(app.menu_router.view.modal), "state native shop modal: " + String(row.design_screen))
-					await press("menu/shop/modal_cancel")
+					await press("menu/shop/detail/" + product_id)
+					check(app.menu_router.state.id == "shop_detail", "product opens dedicated native detail: " + String(row.design_screen))
+					if not app.store.owns(product_id):
+						await press("purchase/" + product_id)
+						check(is_instance_valid(app.menu_router.view.modal), "purchase confirmation follows detail")
+						await press("menu/shop_detail/modal_cancel")
+					await press("menu/shop_detail/back")
 				else:
 					var profile_before: Dictionary = app.store.data.duplicate(true)
 					check(button("purchase/" + product_id) == null and not app.store.purchase(product_id), "archived product unavailable: " + product_id)
@@ -403,10 +407,12 @@ func run_ownership_checks() -> void:
 	for product: Dictionary in app.catalog.playable_products():
 		if app.store.owns(String(product.id)): continue
 		check(int(product.price) == 0, "existing free price: " + String(product.id))
+		await press("menu/shop/detail/" + String(product.id))
 		await press("purchase/" + String(product.id))
 		check(is_instance_valid(app.menu_router.view.modal), "purchase opens native confirmation: " + String(product.id))
 		await press("menu/shop/purchase_confirm/" + String(product.id))
 		check(app.store.owns(String(product.id)), "confirmed free purchase updates ownership: " + String(product.id))
+		await press("menu/shop_detail/back")
 	await open_menu("character_collection", {"selected_id": "nabi"})
 	await press("menu/character_collection/select")
 	check(app.store.data.selected_character == "nabi", "owned active character selection applies real profile")
@@ -427,7 +433,7 @@ func run_ownership_checks() -> void:
 	await press("menu/collection/read/myo-ryung")
 	check("읽기 전용" in labels(), "codex detail explains readonly record")
 	check(button("menu/collection/select") == null and button("menu/collection/purchase") == null, "codex detail has no selection or purchase")
-	await press("menu/collection/modal_confirm")
+	await press("menu/collection_detail/back")
 	check(app.store.data == before, "codex detail leaves archived ownership and selection unchanged")
 
 func run_preset_checks() -> void:
@@ -486,7 +492,7 @@ func run_settings_checks() -> void:
 	await press("menu/settings/settings_cancel")
 	check(app.menu_router._draft.music == baseline.music, "cancel restores sound draft")
 	await set_slider("menu/settings/draft/music", changed)
-	await press("menu/settings/category/accessibility")
+	await press("menu/settings/category/effects")
 	check(is_instance_valid(app.menu_router.view.modal) and app.menu_router.state.category == "sound", "dirty category switch requires native confirmation")
 	await press("menu/settings/modal_cancel")
 	check(app.menu_router._draft.music == changed, "category cancel preserves edited draft")
@@ -503,6 +509,7 @@ func run_settings_checks() -> void:
 	check("저장하지 못" in labels(), "failed sound save shows user error")
 	audio.settings_path = original_audio_path
 	await press("menu/settings/settings_cancel")
+	await press("menu/settings/category/effects")
 	await press("menu/settings/category/accessibility")
 	var old_accessibility: Dictionary = app.store.data.accessibility.duplicate(true)
 	await press("menu/settings/draft/text_scale/1.3")

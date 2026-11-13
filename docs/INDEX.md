@@ -31,6 +31,7 @@
 | 이동·공격·승패는 어떻게 동작하는가? | [전투 규칙](gameplay/combat.md) | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md), [공격 데이터 형식](contracts/attack-system-v01.json) |
 | 자현·묘령·나비는 어떻게 싸우는가? | [캐릭터별 전투 가이드](gameplay/character-combat-guide.md) | [전투 규칙](gameplay/combat.md) |
 | 메뉴의 기록·친구·순위는 어떻게 동작하는가? | [실제 메뉴 기능](ui/menu-features-v01.md) | 통합 프로필·미션·사회 기능·승패 순위 |
+| 최신 MENU09 앱 메뉴는 어떻게 동작하는가? | [MENU09 실제 앱 메뉴](ui/menu09-runtime-v01.md) | 로비·화면·영상·미정 기능 |
 | 실제 프리미엄 메뉴는 어떻게 동작하는가? | [프리미엄 메뉴 v07 앱 연결](ui/premium-menu-runtime-v07.md) | 기기 저장·조작 설정·실제 검사 |
 | 로비와 메뉴의 최신 설계는 어디에 있는가? | [메뉴 시안 v08](ui/premium-menu-v08.md) | [프리미엄 메뉴 v07](ui/premium-menu-v07.md), 큰 원화·메뉴 탐색·상반신 아이콘 |
 | 타이틀과 화면 이동 로딩은 어떻게 동작하는가? | [타이틀·화면 로딩](ui/title-loading.md) | 시작 준비·진입·오류·검증 |

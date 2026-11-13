@@ -78,12 +78,15 @@ func run() -> void:
 			finish()
 			return
 		check(app.db_client.revision == 1, "import revision")
-		await press("상점 · 모두 0원")
+		await press("상점")
 		# Choose specific shop rows so the test is independent of catalog ordering.
 		for item: Dictionary in app.catalog.playable_products():
 			if not app.store.owns(item.id):
+				await press_qa("menu/shop/category/" + String(item.kind))
+				await press_qa("menu/shop/detail/" + String(item.id))
 				await press_qa("purchase/" + String(item.id))
 				await press_qa("menu/shop/purchase_confirm/" + String(item.id))
+				await press_qa("menu/shop_detail/back")
 		check(app.store.data.characters.size() == 2 and app.store.data.accessories == ["pebble-yoyo"], "shop UI persists full catalog")
 		app.handle_back_request()
 		await wait_idle()

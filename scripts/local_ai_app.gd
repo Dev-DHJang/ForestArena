@@ -9,6 +9,7 @@ const FORESTLIGHT := preload("res://scripts/forestlight_ui.gd")
 const MENU_ROUTER = preload("res://scripts/premium_menu/premium_menu_router.gd")
 const MENU_STORE = preload("res://scripts/premium_menu/local_menu_state_store.gd")
 const TRANSITION = preload("res://scripts/screen_transition.gd")
+const MENU09_MATCH = preload("res://scripts/menu09_match_view.gd")
 var async_navigation := false
 var resource_retainer: Node
 var transitions: ScreenTransition
@@ -60,6 +61,11 @@ var demo_api_url := ""
 var demo_generation := 0
 var qa_session: AndroidQaSession
 var _qa_button_counts: Dictionary = {}
+var menu09_match_view: Menu09MatchView
+var menu09_room_filter := "전체"
+var _menu09_rooms_from_mode := false
+var _menu09_prepare_entry := ""
+var _menu09_ready := false
 
 func _ready() -> void:
 	if OS.is_debug_build() and Array(OS.get_cmdline_user_args()).any(func(value: String) -> bool: return value.begins_with("--qa-run=")):
@@ -125,6 +131,7 @@ func _attach_qa_session() -> void:
 	if qa_session != null: add_child(qa_session)
 
 func _new_page(title: String, background := true) -> void:
+	menu09_match_view = null
 	if menu_router != null: menu_router.reset()
 	_qa_button_counts.clear()
 	ForestArenaAudio.set_context(screen)
@@ -258,93 +265,59 @@ func _character_cards(owned_only: bool, callback: Callable, compact := false) ->
 
 func _show_home() -> void:
 	if _queue_navigation("home", _show_home): return
+	_menu09_rooms_from_mode = false
+	_menu09_prepare_entry = ""
+	_menu09_ready = false
 	screen = "home"
 	var home_message := message
-	_new_page("Forest Arena · 대전 로비")
-	page.get_node("ForestlightContent").hide()
-	var canvas := Control.new()
-	canvas.name = "LobbyCanvas"
-	page.add_child(canvas)
-	canvas.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
-	canvas.offset_left = -640
-	canvas.offset_right = 640
-	canvas.offset_top = -360
-	canvas.offset_bottom = 360
-	canvas.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var character := FORESTLIGHT.image(canvas, "LobbyCharacter", "lobby.character")
-	if store.data.selected_character != "ja-hyun":
-		character.texture = catalog.combat.character_by_id(StringName(store.data.selected_character)).concept_image
-	character.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	character.anchor_left = 0.33
-	character.anchor_right = 0.67
-	character.anchor_top = 0.10
-	character.anchor_bottom = 0.81
-	var heading := Label.new()
-	heading.text = "FOREST ARENA"
-	heading.add_theme_font_size_override("font_size", 32)
-	heading.add_theme_color_override("font_outline_color", FORESTLIGHT.LIGHT)
-	heading.add_theme_constant_override("outline_size", 5)
-	canvas.add_child(heading)
-	heading.position = Vector2(64, 30)
-	var profile := _button("접근성 설정", _show_accessibility, canvas)
-	profile.position = Vector2(1010, 28)
-	profile.size = Vector2(206, 58)
-	profile.icon = FORESTLIGHT.texture("icon.settings")
-	profile.expand_icon = true
-	profile.add_theme_constant_override("icon_max_width", 32)
-	var roster := PanelContainer.new()
-	roster.name = "LobbyLoadout"
-	roster.add_theme_stylebox_override("panel", FORESTLIGHT.style("panel.default", 20.0))
-	canvas.add_child(roster)
-	roster.position = Vector2(64, 144)
-	roster.size = Vector2(284, 220)
-	var roster_text := Label.new()
-	roster_text.text = "현재 편성\n\n" + String(catalog.product(store.data.selected_character).name) + "\n장신구 · " + ("미장착" if store.data.selected_accessory.is_empty() else String(catalog.product(store.data.selected_accessory).name)) + "\n\n" + ("로컬 DB에 저장합니다 · 변경 번호 %d" % db_client.revision if db_mode else "구매와 선택은 이 기기에 저장됩니다.")
-	roster_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	roster_text.add_theme_font_size_override("font_size", 20)
-	roster_text.add_theme_color_override("font_color", FORESTLIGHT.LIGHT)
-	roster.add_child(roster_text)
-	if not home_message.is_empty():
-		var notice := PanelContainer.new()
-		notice.add_theme_stylebox_override("panel", FORESTLIGHT.style("panel.default"))
-		canvas.add_child(notice)
-		notice.position = Vector2(64, 466)
-		notice.size = Vector2(284, 110)
-		var notice_text := Label.new()
-		notice_text.text = home_message
-		notice_text.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-		notice_text.add_theme_color_override("font_color", FORESTLIGHT.LIGHT)
-		notice.add_child(notice_text)
-	var play := _button("오프라인 대전", _show_prepare, canvas)
-	play.position = Vector2(936, 484)
-	play.size = Vector2(280, 80)
-	play.icon = FORESTLIGHT.texture("icon.play")
-	play.expand_icon = true
-	play.add_theme_constant_override("icon_max_width", 42)
-	var lan := _button("LAN 1:1 · 같은 Wi-Fi", _show_lan_menu, canvas)
-	lan.position = Vector2(936, 394)
-	lan.size = Vector2(280, 64)
-	var navigation := HBoxContainer.new()
-	navigation.name = "LobbyNavigation"
-	navigation.add_theme_constant_override("separation", 8)
-	canvas.add_child(navigation)
-	navigation.position = Vector2(64, 598)
-	navigation.size = Vector2(1152, 80)
-	var menus := ["캐릭터", "장신구", "프리셋", "미션", "친구", "상점 · 모두 0원"]
-	var icons := ["character", "accessory", "job", "mission", "social", "shop"]
-	for index: int in menus.size():
-		var menu_ids := ["character_collection", "accessory_collection", "preset", "mission", "social", "shop"]
-		var menu := _button(menus[index], _show_premium_menu.bind(menu_ids[index]), navigation)
-		menu.custom_minimum_size = Vector2(180, 72)
-		menu.add_theme_font_size_override("font_size", roundi(18 * _text_scale()))
-		FORESTLIGHT.skin_button(menu, "nav")
-		menu.icon = FORESTLIGHT.texture("icon." + icons[index])
-		menu.expand_icon = true
-		menu.add_theme_constant_override("icon_max_width", 36)
-	if not demo_mode:
-		var storage := _button("저장 모드 · " + ("로컬 DB" if db_mode else "기기 저장"), _show_db_connection, canvas)
-		storage.position = Vector2(64, 390)
-		storage.size = Vector2(284, 58)
+	_new_page("Forest Arena · 대전 로비", false)
+	menu09_match_view = MENU09_MATCH.new(self, "SCR_03_Lobby")
+	menu09_match_view.lobby(home_message)
+
+func _show_mode_select() -> void:
+	if _queue_navigation("mode_select", _show_mode_select): return
+	screen = "mode_select"
+	_new_page("일반대전", false)
+	menu09_match_view = MENU09_MATCH.new(self, "SCR_09_ModeSelect")
+	menu09_match_view.modes()
+
+func _show_rank_lobby() -> void:
+	if _queue_navigation("rank_lobby", _show_rank_lobby): return
+	screen = "rank_lobby"
+	_new_page("랭킹대전", false)
+	menu09_match_view = MENU09_MATCH.new(self, "SCR_23_Rank")
+	menu09_match_view.rank()
+
+func _open_local_prepare(mode: LocalMatchConfig.Mode, entry := "") -> void:
+	selected_mode = mode
+	_menu09_prepare_entry = entry
+	_menu09_ready = false
+	_show_prepare()
+
+func _open_offline_direct() -> void:
+	_menu09_prepare_entry = ""
+	_menu09_ready = false
+	_show_prepare()
+
+func _open_rooms_from_mode() -> void:
+	_menu09_rooms_from_mode = true
+	_show_lan_menu()
+
+func _open_lan_direct() -> void:
+	_menu09_rooms_from_mode = false
+	_show_lan_menu()
+
+func _back_from_rooms() -> void:
+	if _menu09_rooms_from_mode: _show_mode_select()
+	else: _show_home()
+
+func _select_menu09_room_filter(value: String) -> void:
+	menu09_room_filter = value
+	_show_lan_menu()
+
+func _refresh_menu09_rooms() -> void:
+	message = "공개 방 목록은 아직 제공되지 않습니다. 초대 코드로 입장할 수 있어요."
+	_show_lan_menu()
 
 func _show_unavailable(feature: String) -> void:
 	if _queue_navigation("unavailable", _show_unavailable.bind(feature)): return
@@ -357,38 +330,40 @@ func _show_unavailable(feature: String) -> void:
 func _show_lan_menu() -> void:
 	if _queue_navigation("lan_menu", _show_lan_menu): return
 	screen = "lan_menu"
-	_new_page("LAN 1:1 · 같은 Wi-Fi")
-	_label("Mac에서 ./scripts/demo-server.sh start를 실행한 뒤 표시되는 한 줄 연결 코드를 사용합니다.", 18)
-	_label("무료 APK 데모 · 같은 네트워크 1대1 · 게스트와 닉네임은 로컬 서버에 저장됩니다.", 18)
-	if not demo_guest.nickname.is_empty(): _label("온라인 닉네임: " + demo_guest.nickname, 18)
-	_button("방 만들기", _show_lan_host)
-	_button("초대 코드로 참가", _show_lan_join)
-	_button("로비", _show_home)
-
+	var notice := message
+	_new_page("일반대전 · 방 목록", false)
+	menu09_match_view = MENU09_MATCH.new(self, "SCR_10_PartyLobby")
+	menu09_match_view.rooms(notice)
 
 func _show_lan_host() -> void:
 	if _queue_navigation("lan_host", _show_lan_host): return
-	screen = "lan_host"
-	_new_page("LAN 방 만들기")
-	_label("Mac 호스트 연결 코드", 18)
-	_line_input("FAH5|http://192.168.x.x:3001|ws://192.168.x.x:7778|5", lan_host_code, func(value: String) -> void: lan_host_code = value)
-	_button("연결 코드 붙여넣기", _paste_lan_host_code)
-	_lan_loadout_controls(_show_lan_host)
-	_button("방 생성", _begin_lan_host)
-	_button("LAN 메뉴", _show_lan_menu)
-
+	_show_menu09_lan_code(true)
 
 func _show_lan_join() -> void:
 	if _queue_navigation("lan_join", _show_lan_join): return
-	screen = "lan_join"
-	_new_page("LAN 방 참가")
-	_label("방장이 전달한 한 줄 초대 코드", 18)
-	_line_input("FA5|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|5", lan_invite_code, func(value: String) -> void: lan_invite_code = value)
-	_button("초대 코드 붙여넣기", _paste_lan_invite_code)
-	_lan_loadout_controls(_show_lan_join)
-	_button("방 참가", _begin_lan_join)
-	_button("LAN 메뉴", _show_lan_menu)
+	_show_menu09_lan_code(false)
 
+func _show_menu09_lan_code(host: bool) -> void:
+	screen = "lan_host" if host else "lan_join"
+	var notice := message
+	_new_page("LAN 방 만들기" if host else "LAN 방 참가", false)
+	var ui := MENU09_MATCH.new(self, "SCR_10_PartyLobby")
+	menu09_match_view = ui
+	ui.heading("방 만들기" if host else "초대 코드로 입장", "같은 Wi-Fi에서 이용하는 LAN 1:1 대전", _show_lan_menu)
+	body = ui.form_column()
+	_label("Mac 호스트 연결 코드" if host else "방장이 전달한 한 줄 초대 코드", 21)
+	var hint := "FAH5로 시작하는 전체 코드" if host else "FA5로 시작하는 전체 코드"
+	var input := _line_input(hint, lan_host_code if host else lan_invite_code, func(value: String) -> void:
+		if host: lan_host_code = value
+		else: lan_invite_code = value)
+	input.custom_minimum_size = Vector2(0, 72)
+	input.set_meta("qa_id", screen + "/input/" + ("FAH5|http://192.168.x.x:3001|ws://192.168.x.x:7778|5" if host else "FA5|http://192.168.x.x:3001|ws://192.168.x.x:7778|ABCDEFGH|5"))
+	if not notice.is_empty(): _label(notice, 17)
+	_lan_loadout_controls(_show_lan_host if host else _show_lan_join)
+	if db_mode and not db_client.pending.is_empty(): _button("DB 저장 재시도", _retry_db)
+	ui.button("LAN 메뉴", _show_lan_menu, Rect2(64, 613, 310, 72))
+	ui.button("연결 코드 붙여넣기" if host else "초대 코드 붙여넣기", _paste_lan_host_code if host else _paste_lan_invite_code, Rect2(386, 613, 400, 72))
+	ui.button("방 생성" if host else "방 참가", _begin_lan_host if host else _begin_lan_join, Rect2(798, 613, 418, 72), true)
 
 func _line_input(placeholder: String, value: String, callback: Callable) -> LineEdit:
 	var input := LineEdit.new()
@@ -551,16 +526,28 @@ func _show_lan_waiting(invite_code: String) -> void:
 	if _queue_navigation("lan_waiting", _show_lan_waiting.bind(invite_code)): return
 	lan_current_invite = invite_code
 	screen = "lan_waiting"
-	_new_page("LAN 방 · 참가자 대기", false)
-	_label("내 닉네임: " + demo_guest.nickname, 18)
-	_label("아래 한 줄 초대 코드를 같은 Wi-Fi의 참가자에게 전달하세요.", 18)
+	_new_page("일반대전 · LAN 방", false)
+	var ui := MENU09_MATCH.new(self, "SCR_10_PartyLobby")
+	menu09_match_view = ui
+	ui.heading("같은 Wi-Fi 대전방", "초대 코드를 공유하면 두 번째 참가자가 입장할 수 있어요", _confirm_menu09_leave_lan)
+	ui.roster(null, true)
+	body = ui.room_settings()
+	_label("대전 방식 · LAN 1:1", 18)
+	_label("기본 경기장 · 숲의 경기장", 18)
+	_label("내 캐릭터 · " + String(catalog.product(store.data.selected_character).get("name", "")), 18)
+	lan_status_label = _label("참가자를 기다리는 중", 18)
 	var code := _line_input("", invite_code, func(_value: String) -> void: pass)
 	code.editable = false
-	lan_status_label = _label("참가자를 기다리는 중", 18)
-	_button("초대 코드 복사", _copy_lan_invite)
-	_button("친구 초대", func() -> void: _show_premium_menu("social", {"category": "friends", "entry_context": "lan_room"}))
-	_button("방 닫기", _leave_lan_to_menu)
+	code.custom_minimum_size = Vector2(0, 60)
+	code.set_meta("qa_id", "lan_waiting/invite_code")
+	ui.button("초대 코드 복사", _copy_lan_invite, Rect2(64, 521, 376, 72), true)
+	ui.button("친구 초대", func() -> void: _show_premium_menu("social", {"category": "friends", "entry_context": "lan_room"}), Rect2(454, 521, 380, 72))
+	ui.button("방 닫기", _confirm_menu09_leave_lan, Rect2(899, 607, 317, 72))
 
+func _confirm_menu09_leave_lan() -> void:
+	if _menu09_rooms_from_mode and menu09_match_view != null:
+		menu09_match_view.info("대전방을 닫을까요?", "방을 닫으면 현재 초대 코드로 입장할 수 없습니다.", _leave_lan_to_menu, "방 닫기")
+	else: _leave_lan_to_menu()
 
 func return_menu_lan_room() -> void:
 	if lan_client.active and not lan_client.running and lan_client.local_slot == 1 and not lan_current_invite.is_empty():
@@ -809,6 +796,7 @@ func _display_premium_view(next_view: Control, menu_id: String) -> void:
 		layer.remove_child(page)
 		page.queue_free()
 	page = next_view
+	menu09_match_view = null
 	body = null
 	screen = "accessibility" if menu_id == "settings" else menu_id
 	ForestArenaAudio.set_context("pause" if menu_router.state.get("entry_context", "lobby") == "pause" else "home")
@@ -966,24 +954,19 @@ func _save_minimap_settings(settings: Dictionary) -> void:
 func _show_prepare() -> void:
 	if _queue_navigation("prepare", _show_prepare): return
 	screen = "prepare"
-	_new_page("대전 준비 · " + _mode_name(selected_mode))
-	var outer := body
-	var columns := HBoxContainer.new()
-	columns.add_theme_constant_override("separation", 24)
-	outer.add_child(columns)
-	var roster := VBoxContainer.new()
-	roster.custom_minimum_size.x = 480
-	columns.add_child(roster)
-	var choices := VBoxContainer.new()
-	choices.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	choices.add_theme_constant_override("separation", 14)
-	columns.add_child(choices)
-	body = roster
-	_label("내 캐릭터: " + catalog.product(store.data.selected_character).name)
-	_character_cards(true, func(id: String) -> void:
-		if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}): message = store.error
-		_show_prepare(), true)
-	body = choices
+	var notice := message
+	_new_page("대전 준비 · " + _mode_name(selected_mode), false)
+	var ui := MENU09_MATCH.new(self, "SCR_10_PartyLobby")
+	menu09_match_view = ui
+	ui.heading("숲의 연습방" if selected_mode == LocalMatchConfig.Mode.AI else "오프라인 대전방", _mode_name(selected_mode), _back_from_prepare)
+	ui.roster(_build_match_config())
+	var x := 64.0
+	for character: CharacterData in catalog.playable_characters():
+		var id := String(character.character_id)
+		if not store.owns(id): continue
+		ui.button(character.display_name, _select_menu09_prepare_character.bind(id), Rect2(x, 515, 134, 72), id == store.data.selected_character, _menu09_ready, 18)
+		x += 144.0
+	body = ui.room_settings()
 	_choice_labels("모드", ["스토리 프롤로그 · 첫 기록인장", "Solo · 각자전", "Team · 팀전", "AI · 1대1", "연습"], int(selected_mode), func(index: int) -> void:
 		selected_mode = index as LocalMatchConfig.Mode
 		_show_prepare())
@@ -1007,14 +990,60 @@ func _show_prepare() -> void:
 			set_ai_accessory(ai_index, id)
 			_show_prepare())
 	if selected_mode == LocalMatchConfig.Mode.PRACTICE: _label("연습 허수아비는 장비를 자동 사용하지 않습니다.", 18)
-	_label("숲의 경기장 · 중앙 통과형 발판 · 양끝 낭떠러지 · 3 STOCK", 18)
-	body = outer
-	var actions := HBoxContainer.new()
-	actions.add_theme_constant_override("separation", 16)
-	body.add_child(actions)
-	_button("로비", _show_home, actions)
-	_button("대전 시작", start_match, actions)
+	_label("숲의 경기장 · 3 STOCK", 17)
+	if db_mode and not db_client.pending.is_empty():
+		_button("DB 저장 재시도", _retry_db)
+	for node: Node in body.find_children("*", "OptionButton", true, false):
+		(node as OptionButton).disabled = _menu09_ready
+	if not notice.is_empty(): ui.label(notice, Rect2(365, 521, 494, 58), 16, PremiumMenuTheme.GOLD)
+	ui.button("캐릭터 변경", _show_premium_menu.bind("character_collection", {"entry_context": "prepare"}), Rect2(64, 613, 249, 72), false, _menu09_ready)
+	ui.button("신기 변경", _show_premium_menu.bind("accessory_collection", {"entry_context": "prepare"}), Rect2(325, 613, 249, 72), false, _menu09_ready)
+	var can_add_ai := (selected_mode == LocalMatchConfig.Mode.SOLO and solo_participant_count < 8) or (selected_mode == LocalMatchConfig.Mode.TEAM and team_size < 4)
+	ui.button("AI 추가", _add_menu09_room_ai, Rect2(586, 613, 272, 72), false, _menu09_ready or not can_add_ai)
+	var ready_flow := not _menu09_prepare_entry.is_empty()
+	if ready_flow and not _menu09_ready:
+		ui.button("준비하기", _set_menu09_ready.bind(true), Rect2(899, 518, 317, 72), true)
+	else:
+		ui.button("대전 시작", _start_menu09_match, Rect2(899, 518, 317, 72), true)
+	if _menu09_ready:
+		ui.button("준비 취소", _set_menu09_ready.bind(false), Rect2(899, 613, 151, 72), false, false, 18)
+		ui.button("나가기", _back_from_prepare, Rect2(1064, 613, 152, 72), false, false, 18)
+	else:
+		ui.button("나가기" if ready_flow else "로비", _back_from_prepare, Rect2(899, 613, 317, 72))
 
+func _select_menu09_prepare_character(id: String) -> void:
+	if _menu09_ready: return
+	if not await _change_profile("select", {"character": id, "accessory": store.data.selected_accessory, "opponent": store.data.opponent_character}):
+		message = store.error
+	_show_prepare()
+
+func _add_menu09_room_ai() -> void:
+	if _menu09_ready: return
+	if selected_mode == LocalMatchConfig.Mode.SOLO: solo_participant_count = mini(8, solo_participant_count + 2)
+	elif selected_mode == LocalMatchConfig.Mode.TEAM: team_size = mini(4, team_size + 1)
+	_show_prepare()
+
+func _set_menu09_ready(value: bool) -> void:
+	_menu09_ready = value
+	_show_prepare()
+
+func _start_menu09_match() -> void:
+	_menu09_ready = false
+	start_match()
+
+func _back_from_prepare() -> void:
+	if _menu09_prepare_entry.is_empty():
+		_show_home()
+		return
+	menu09_match_view.info("대전방에서 나갈까요?", "일반대전의 이전 화면으로 돌아갑니다.", _leave_menu09_prepare, "나가기")
+
+func _leave_menu09_prepare() -> void:
+	var entry := _menu09_prepare_entry
+	_menu09_prepare_entry = ""
+	_menu09_ready = false
+	if entry == "lan_menu": _show_lan_menu()
+	elif entry == "mode_select": _show_mode_select()
+	else: _show_home()
 
 func owned_active_accessory_ids() -> Array:
 	var ids: Array = [""]
@@ -1038,15 +1067,7 @@ func ai_accessory_for(index: int) -> String:
 
 
 func _choice(title: String, ids: Array, selected: String, callback: Callable) -> void:
-	var row := HBoxContainer.new()
-	body.add_child(row)
-	var label := Label.new()
-	label.text = title
-	label.custom_minimum_size.x = 150
-	row.add_child(label)
-	var options := OptionButton.new()
-	options.set_meta("qa_id", screen + "/choice/" + title)
-	options.custom_minimum_size = Vector2(320, 58)
+	var options := _choice_row(title)
 	options.set_meta("qa_values", ids.duplicate())
 	for id: String in ids:
 		options.add_item("미장착" if id == "" else String(catalog.product(id).name))
@@ -1054,26 +1075,36 @@ func _choice(title: String, ids: Array, selected: String, callback: Callable) ->
 	options.item_selected.connect(func(index: int) -> void:
 		ForestArenaAudio.play_event(&"ui_select", {})
 		callback.call(ids[index]))
-	row.add_child(options)
-
 
 func _choice_labels(title: String, labels: Array[String], selected_index: int, callback: Callable) -> void:
-	var row := HBoxContainer.new()
-	body.add_child(row)
-	var label := Label.new()
-	label.text = title
-	label.custom_minimum_size.x = 150
-	row.add_child(label)
-	var options := OptionButton.new()
-	options.set_meta("qa_id", screen + "/choice/" + title)
-	options.custom_minimum_size = Vector2(320, 58)
+	var options := _choice_row(title)
 	for item: String in labels: options.add_item(item)
 	options.select(maxi(0, selected_index))
 	options.item_selected.connect(func(index: int) -> void:
 		ForestArenaAudio.play_event(&"ui_select", {})
 		callback.call(index))
-	row.add_child(options)
 
+func _choice_row(title: String) -> OptionButton:
+	var compact := bool(body.get_meta("menu09_room_options", false))
+	var row := HBoxContainer.new()
+	body.add_child(row)
+	var label := Label.new()
+	label.text = title.replace("장신구", "신기")
+	label.custom_minimum_size.x = 91 if compact else 150
+	if compact:
+		label.add_theme_font_size_override("font_size", roundi(15 * _text_scale()))
+		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	row.add_child(label)
+	var options := OptionButton.new()
+	options.set_meta("qa_id", screen + "/choice/" + title)
+	options.custom_minimum_size = Vector2(155, 72) if compact else Vector2(320, 58)
+	if compact:
+		options.fit_to_longest_item = false
+		options.clip_text = true
+		options.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		options.add_theme_font_size_override("font_size", roundi(16 * _text_scale()))
+	row.add_child(options)
+	return options
 
 func _toggle(title: String, enabled: bool, callback: Callable) -> void:
 	var row := HBoxContainer.new()
@@ -1301,16 +1332,21 @@ func handle_back_request(request_msec: int = -1) -> void:
 	last_back_request_msec = now_msec
 	if menu_router != null and is_instance_valid(menu_router.view) and menu_router.view == page:
 		if menu_router.handle_back(): return
+	if menu09_match_view != null and menu09_match_view.close_overlay(): return
 	match screen:
-		"shop", "prepare", "accessibility", "unavailable":
+		"shop", "accessibility", "unavailable", "mode_select", "rank_lobby":
 			_show_home()
+		"prepare":
+			_back_from_prepare()
 		"lan_menu":
-			_show_home()
+			_back_from_rooms()
 		"demo_login", "demo_nickname", "demo_guest_error", "demo_guest_reset":
 			_cancel_demo_login()
 		"lan_host", "lan_join":
 			_show_lan_menu()
-		"lan_connecting", "lan_waiting", "lan_result", "lan_rematch_wait":
+		"lan_waiting":
+			_confirm_menu09_leave_lan()
+		"lan_connecting", "lan_result", "lan_rematch_wait":
 			_leave_lan_to_menu()
 		"lan_match":
 			_show_lan_leave_confirm()
@@ -1580,8 +1616,9 @@ func _queue_navigation(target: String, build: Callable, extra_paths: Array[Strin
 	if transitions.busy: return true
 	if target == screen and target not in ["match", "lan_match"]: return false
 	var prefixes: Array[String] = ["fa.ui.forestlight."]
-	if target in MENU_ROUTER.IDS: prefixes.append("fa.ui.menu.v07.")
+	if target in MENU_ROUTER.IDS or target in ["home", "mode_select", "lan_menu", "rank_lobby", "prepare", "lan_host", "lan_join", "lan_waiting"]: prefixes.append("fa.ui.menu.v07.")
 	var paths := UiResourcePreparer.ui_paths(prefixes)
+	if target == "rank_lobby": paths.append(ForestArenaResources.resource_path("fa.rank.rank.silver"))
 	paths.append_array(extra_paths)
 	transitions.navigate(build, paths, (func() -> void: pass) if is_instance_valid(page) else Callable())
 	return true

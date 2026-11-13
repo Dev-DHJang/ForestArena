@@ -1,0 +1,152 @@
+{
+	"android_device": "not-run",
+	"checks": [
+		{
+			"name": "isolated fixture grants Ja-hyun",
+			"pass": true
+		},
+		{
+			"name": "app opens video player: ja-hyun.light",
+			"pass": true
+		},
+		{
+			"name": "resource manager and app use native Theora: ja-hyun.light",
+			"pass": true
+		},
+		{
+			"name": "logical ID resolves the selected app clip: ja-hyun.light",
+			"pass": true
+		},
+		{
+			"name": "app stream is advancing: ja-hyun.light",
+			"pass": true
+		},
+		{
+			"name": "native 960x540 video texture: ja-hyun.light",
+			"pass": true
+		},
+		{
+			"name": "native render saved: character-video-playing",
+			"pass": true
+		},
+		{
+			"name": "pause holds the stream position",
+			"pass": true
+		},
+		{
+			"name": "native render saved: character-video-paused",
+			"pass": true
+		},
+		{
+			"name": "resume advances the same stream",
+			"pass": true
+		},
+		{
+			"name": "Android back handler closes the player modal",
+			"pass": true
+		},
+		{
+			"name": "back restores the current technique screen",
+			"pass": true
+		},
+		{
+			"name": "modal close frees the player",
+			"pass": true
+		},
+		{
+			"name": "defense category opens iron armor",
+			"pass": true
+		},
+		{
+			"name": "app opens video player: accessory.iron-armor",
+			"pass": true
+		},
+		{
+			"name": "resource manager and app use native Theora: accessory.iron-armor",
+			"pass": true
+		},
+		{
+			"name": "logical ID resolves the selected app clip: accessory.iron-armor",
+			"pass": true
+		},
+		{
+			"name": "app stream is advancing: accessory.iron-armor",
+			"pass": true
+		},
+		{
+			"name": "native 960x540 video texture: accessory.iron-armor",
+			"pass": true
+		},
+		{
+			"name": "iron armor reaches the app completion state",
+			"pass": true
+		},
+		{
+			"name": "native render saved: artifact-video-completed",
+			"pass": true
+		},
+		{
+			"name": "replay restarts the ended clip",
+			"pass": true
+		},
+		{
+			"name": "explicit close releases the video player",
+			"pass": true
+		},
+		{
+			"name": "app opens video player: nabi.heavy",
+			"pass": true
+		},
+		{
+			"name": "resource manager and app use native Theora: nabi.heavy",
+			"pass": true
+		},
+		{
+			"name": "logical ID resolves the selected app clip: nabi.heavy",
+			"pass": true
+		},
+		{
+			"name": "app stream is advancing: nabi.heavy",
+			"pass": true
+		},
+		{
+			"name": "native 960x540 video texture: nabi.heavy",
+			"pass": true
+		},
+		{
+			"name": "native render saved: shop-video-playing",
+			"pass": true
+		},
+		{
+			"name": "application pause notification pauses the app player",
+			"pass": true
+		},
+		{
+			"name": "shop video close retains selected product",
+			"pass": true
+		},
+		{
+			"name": "shop detail returns to the character list",
+			"pass": true
+		}
+	],
+	"display": "macOS",
+	"failures": 0,
+	"samples": [
+		{
+			"key": "ja-hyun.light",
+			"position": 0.275244,
+			"resource_path": "res://forest_arena/assets/ui/menu09-media/videos/ja-hyun-light.ogv"
+		},
+		{
+			"key": "accessory.iron-armor",
+			"position": 0.271883333333333,
+			"resource_path": "res://forest_arena/assets/ui/menu09-media/videos/accessory-iron-armor.ogv"
+		},
+		{
+			"key": "nabi.heavy",
+			"position": 0.275,
+			"resource_path": "res://forest_arena/assets/ui/menu09-media/videos/nabi-heavy.ogv"
+		}
+	]
+}
