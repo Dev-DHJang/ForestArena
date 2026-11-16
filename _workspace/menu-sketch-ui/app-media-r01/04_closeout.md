@@ -13,3 +13,7 @@
 작업 브랜치는 `codex/menu09-runtime`, 기준 커밋은 `f116eb3f2dc7515bcc896ba302dc9ef507d51cbf`다. 실기기 검증 결과, PR·병합과 되돌리기 정보를 이어 기록한다.
 
 2026-11-11. 구현과 증적은 [초안 PR #145](https://github.com/Dev-DHJang/ForestArena/pull/145)에 올렸다. 구현 커밋은 `2e91615bb20ee503acc72a77e2d914f57aaa1f14`이다. Galaxy S23 Ultra가 ADB 목록에 다시 나타나면 위 APK의 재생·일시정지·복귀와 대표 화면 터치를 확인한다. 이후 QA 결과와 변경 없는 APK 해시를 대조하고 PR 상태와 병합 기록을 갱신한다.
+
+2026-11-16 실기기 r02에서 원본 APK의 자현 기술 영상 재생·일시정지·이어 재생과 상점 상세 이동을 확인했고, 일반 저장 해시가 유지됐다. 상점 상세 능력치 값이 잘리는 시각 결함을 발견해 값 레이블을 수정했다. 새 APK SHA256은 `f9115f093c42a4ba88d6674206f39617b9052a419fcf2036cd5e31a42d59ed8d`이며 패키지 검사를 통과했다. 새 APK 설치 중 ADB가 끊겨 r03은 blocked다. 수정본의 실기기 화면은 연결 복구 후 새 실행으로 검증한다. [r02 결과](android-device-r02/04_closeout.md) · [r03 연결 단절](android-device-r03/04_closeout.md)
+
+수정본에 대한 UI 관련 15개 검사와 Godot 가져오기 단계는 `build/verification/20261116-220605-b24a7f39/result.json`에서 통과했다. 독립 능력치 레이아웃 검사는 [r02 QA](03_qa_r02.md)를 따른다. 실기기 수정본 확인을 완료한 뒤 PR #145의 최종 통합 여부를 결정한다.

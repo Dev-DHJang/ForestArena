@@ -465,7 +465,10 @@ func _stats_summary(character: CharacterData, parent: VBoxContainer, show_chart 
 		var line := HBoxContainer.new()
 		values_parent.add_child(line)
 		_label(row[0], line, 22, STYLE.MUTED).size_flags_horizontal = SIZE_EXPAND_FILL
-		_label(row[1], line, 22, STYLE.TEXT)
+		var value := _label(row[1], line, 22, STYLE.TEXT)
+		value.custom_minimum_size.x = 88
+		value.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		value.autowrap_mode = TextServer.AUTOWRAP_OFF
 
 func _stat_values(stats: CharacterStats) -> Array[float]:
 	return [stats.max_hp, stats.ground_speed, stats.air_speed, stats.jump_velocity, stats.weight]
