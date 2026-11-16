@@ -2,7 +2,7 @@ class_name PremiumMenuRouter
 extends RefCounted
 
 const VIEW = preload("res://scripts/premium_menu/premium_menu_view.gd")
-const IDS := ["character_collection", "character_detail", "accessory_collection", "accessory_detail", "preset", "shop", "collection", "mission", "social", "rank", "profile", "settings", "controls"]
+const IDS := ["character_collection", "character_detail", "accessory_collection", "accessory_detail", "preset", "shop", "shop_detail", "collection", "collection_detail", "mission", "social", "rank", "profile", "settings", "controls", "mail", "notices"]
 var app: Node
 var state: Dictionary = {}
 var view: Control
@@ -42,11 +42,12 @@ func open(menu_id: String, params: Dictionary = {}) -> void:
 		if state.id != menu_id and not params.get("replace", false): _history.append(state.duplicate(true))
 	var next: Dictionary = _remembered.get(menu_id, {}).duplicate(true)
 	var context: String = String(state.get("entry_context", "lobby"))
-	next.merge({"id": menu_id, "filter": "전체", "tab": "기술", "category": "전체", "scroll": 0, "entry_context": context}, false)
+	next.merge({"id": menu_id, "filter": "전체", "tab": "기술", "category": "character" if menu_id == "shop" else "전체", "scroll": 0, "entry_context": context}, false)
 	next.merge(params, true)
 	next.id = menu_id
 	next.erase("replace")
 	if not params.has("preset_edit"): next.erase("preset_edit")
+	if not params.has("browse_only"): next.erase("browse_only")
 	state = next
 	_load_local()
 	if menu_id in ["settings", "controls"]: _begin_settings()
@@ -88,6 +89,11 @@ func handle_back() -> bool:
 	if state.is_empty(): return false
 	if busy: return true
 	if is_instance_valid(view) and view.close_modal(): return true
+	if state.id == "mission" and state.get("category") in ["achievement", "achievements"] and not String(state.get("achievement_group", "")).is_empty():
+		state.achievement_group = ""
+		state.detail_scroll = 0
+		_rebuild()
+		return true
 	if _dirty():
 		view.confirm("변경한 설정을 버릴까요?", "적용하지 않은 변경은 저장되지 않습니다.", "버리고 돌아가기", func() -> void:
 			_draft = _baseline.duplicate(true)
@@ -108,6 +114,7 @@ func _go_back() -> void:
 	state = {}
 	view = null
 	if context == "lan_room": app.return_menu_lan_room()
+	elif context == "rank_lobby": app._show_rank_lobby()
 	elif context == "pause": app.pause_match()
 	elif context == "prepare": app._show_prepare()
 	else: app._show_home()
@@ -126,6 +133,7 @@ func _on_action(action_id: String, payload: Dictionary = {}) -> void:
 					open(payload.id, payload.get("params", {})))
 			else: open(payload.id, payload.get("params", {}))
 		"update":
+			if state.id == "shop" and payload.has("category"): state.filter = "전체"
 			state.merge(payload, true)
 			_rebuild()
 		"service": await _service_action(payload)
@@ -139,7 +147,7 @@ func _on_action(action_id: String, payload: Dictionary = {}) -> void:
 				busy = true
 				var ok: bool = await app._change_profile("select", {"character": app.store.data.selected_character, "accessory": "", "opponent": app.store.data.opponent_character})
 				busy = false
-				state.message = "장신구를 해제했습니다." if ok else app.store.error
+				state.message = "신기를 해제했습니다." if ok else app.store.error
 				_rebuild()
 		"nickname": await _nickname(String(payload.value))
 		"retry_db": app._retry_db()
@@ -207,7 +215,7 @@ func _select(id: String, redraw := true) -> bool:
 	return ok
 
 func _purchase(id: String) -> void:
-	if app.store.owns(id): return
+	if not app.catalog.is_playable_product(id) or app.store.owns(id): return
 	busy = true
 	var ok: bool = await app._change_profile("purchase", {"id": id})
 	busy = false
@@ -265,13 +273,14 @@ func _settings_category() -> String:
 	return "controls" if state.id == "controls" else String(state.get("category", "sound"))
 
 func _begin_settings() -> void:
-	if state.id == "settings" and state.get("category", "전체") == "전체": state.category = "sound"
+	if state.id == "settings" and state.get("category", "전체") == "전체": state.category = "effects"
 	match _settings_category():
 		"sound": _draft = {"music": ForestArenaAudio.music_level, "effects": ForestArenaAudio.effects_level, "muted": ForestArenaAudio.muted}
 		"effects", "accessibility": _draft = app.store.data.accessibility.duplicate(true)
 		"minimap": _draft = app.store.data.minimap.duplicate(true)
 		"controls": _draft = app.menu_store.controls.duplicate(true)
 		"debug": _draft = {"show_combat_ranges": app.debug_hitboxes_enabled}
+		_: _draft = {}
 	_baseline = _draft.duplicate(true)
 
 func _dirty() -> bool:

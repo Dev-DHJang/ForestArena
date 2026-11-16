@@ -1,0 +1,43 @@
+{
+  "status": "pass",
+  "device": "Galaxy S23 Ultra (SM-S918N)",
+  "android": "16",
+  "apk_sha256": "f9115f093c42a4ba88d6674206f39617b9052a419fcf2036cd5e31a42d59ed8d",
+  "input": "ADB touch",
+  "qa_profile": "isolated",
+  "checks": [
+    {
+      "name": "물리 기기 설치 및 가로 화면",
+      "pass": true
+    },
+    {
+      "name": "격리 검사 프로필 시작",
+      "pass": true
+    },
+    {
+      "name": "기술 영상 화면 진행",
+      "pass": true
+    },
+    {
+      "name": "영상 일시정지",
+      "pass": true
+    },
+    {
+      "name": "닫기 후 기술 화면 유지",
+      "pass": true
+    },
+    {
+      "name": "상점 캐릭터 목록에서 상세 진입",
+      "pass": true
+    },
+    {
+      "name": "상점 상세에서 목록 복귀",
+      "pass": true
+    },
+    {
+      "name": "일반 저장 파일 보존",
+      "pass": true
+    }
+  ],
+  "run_output": "build/menu09-android-smoke/d1790d7fe7a14c80a2c9a772a753e37d"
+}

@@ -720,7 +720,8 @@ class DeviceRun:
         self.evidence('first-selection')
         self.tap(id=cards[0]['id'])
         self.screen('home')
-        self.tap('상점 · 모두 0원')
+        shop_text = '상점' if any(item.get('text') == '상점' for item in self.read().get('ui', [])) else '상점 · 모두 0원'
+        self.tap(shop_text)
         self.screen('shop')
         # The first character is already owned. Buy every remaining catalog ID
         # through its card and confirmation modal, with fresh state after each tap.
@@ -732,11 +733,19 @@ class DeviceRun:
             for product_id in products:
                 if product_id in self.read().get('profile', {}).get(field, []):
                     continue
+                detail_id = f'menu/shop/detail/{product_id}'
+                has_detail = any(item.get('id') == detail_id for item in self.read().get('ui', []))
+                if has_detail:
+                    self.tap(id=detail_id)
+                    self.screen('shop_detail')
                 self.tap(id=f'purchase/{product_id}')
                 self.tap(id=f'menu/shop/purchase_confirm/{product_id}')
                 self.wait(lambda s, product_id=product_id, field=field:
-                          s.get('screen') == 'shop' and product_id in s.get('profile', {}).get(field, []),
+                          s.get('screen') in ('shop', 'shop_detail') and product_id in s.get('profile', {}).get(field, []),
                           label=f'상점 구매 저장 {product_id}')
+                if has_detail:
+                    self.tap(id='menu/shop_detail/back')
+                    self.screen('shop')
         self.evidence('shop-owned')
         profile = self.read()['profile']
         if self.protocol >= 3:

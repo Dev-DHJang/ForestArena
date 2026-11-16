@@ -1,0 +1,44 @@
+{
+  "status": "fix",
+  "device": "Galaxy S23 Ultra (SM-S918N)",
+  "android": "16",
+  "apk_sha256": "e8f2c2ca718acd8b76e97c1c33687bdcc85aac7e62a178757dd3179191f1d295",
+  "input": "ADB touch",
+  "qa_profile": "isolated",
+  "checks": [
+    {
+      "name": "물리 기기 설치 및 가로 화면",
+      "pass": true
+    },
+    {
+      "name": "격리 검사 프로필 시작",
+      "pass": true
+    },
+    {
+      "name": "기술 영상 화면 진행",
+      "pass": true
+    },
+    {
+      "name": "영상 일시정지",
+      "pass": true
+    },
+    {
+      "name": "닫기 후 기술 화면 유지",
+      "pass": true
+    },
+    {
+      "name": "상점 캐릭터 목록에서 상세 진입",
+      "pass": true
+    },
+    {
+      "name": "상점 상세에서 목록 복귀",
+      "pass": true
+    },
+    {
+      "name": "일반 저장 파일 보존",
+      "pass": true
+    }
+  ],
+  "run_output": "build/menu09-android-smoke/2693a20788c3494ca214ed59030f2289",
+  "visual_finding": "상점 캐릭터 상세의 능력치 숫자가 좁은 영역에 세로로 줄바꿈되고 잘림"
+}

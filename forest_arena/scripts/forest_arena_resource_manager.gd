@@ -51,3 +51,10 @@ func load_audio(id: String) -> AudioStream:
     var stream := load(p) as AudioStream
     if stream == null: push_warning("FOREST_ARENA_RESOURCE_MISSING id=%s reason=audio-load" % id)
     return stream
+
+func load_video(id: String) -> VideoStream:
+    var path := resource_path(id)
+    if path.is_empty() or not ResourceLoader.exists(path, "VideoStream"):
+        push_warning("FOREST_ARENA_RESOURCE_MISSING id=%s reason=video-load" % id)
+        return null
+    return ResourceLoader.load(path, "VideoStream", ResourceLoader.CACHE_MODE_IGNORE) as VideoStream
