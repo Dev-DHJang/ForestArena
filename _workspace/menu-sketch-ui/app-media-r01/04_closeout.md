@@ -21,3 +21,10 @@
 ### 실기기 재연결 후 수정 확인
 
 Galaxy S23 Ultra, Android 16에서 수정 APK `f9115f093c42a4ba88d6674206f39617b9052a419fcf2036cd5e31a42d59ed8d`를 설치하고 영상 재생·일시정지·닫기, 상점 캐릭터 목록과 상세 왕복 및 일반 저장 파일 보존을 확인했다. 화면 캡처를 직접 확인해 능력치 다섯 값이 잘리지 않음을 확인했다. 범위와 증거는 `android-device-r04/04_closeout.md`에 기록했다.
+
+### 최종 통합과 복구
+
+- 최종 전체 검사: 93개 통과, `build/verification/20261116-221720-61158b2a/result.json` (Godot 가져오기 포함 94단계).
+- 구현 PR: https://github.com/Dev-DHJang/ForestArena/pull/145
+- `develop` 병합 커밋: `76e752f1389090e768ed185e4da670f7d026ec65`.
+- 통합 이전 기준: `f116eb3f2dc7515bcc896ba302dc9ef507d51cbf`. 되돌려야 할 때는 병합 커밋에 대해 `git revert -m 1 76e752f1389090e768ed185e4da670f7d026ec65`를 별도 브랜치에서 검토한다. 후속 변경과 저장 데이터 영향은 실행 전 확인한다.
