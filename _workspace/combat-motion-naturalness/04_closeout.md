@@ -24,7 +24,7 @@
 
 - 전용 폴더: `/Users/jdh/.codex/worktrees/combat-motion-naturalness/ForestArena`.
 - 브랜치: `codex/combat-motion-naturalness`; 기준 `33b23c7ee17a8f42d4e8b5ecca3d70c582e2b65f`.
-- 전투 코드 커밋 `0dca066bf433b4345adf50e9c36eb077a4165139` push 완료. [초안 PR147](https://github.com/Dev-DHJang/ForestArena/pull/147), 대상 develop. 모션별 승인과 필수 미확인이 남아 병합하지 않았으며 병합 SHA는 없다. 후속 증적 커밋도 같은 브랜치에 보존한다.
+- 전투 코드 커밋 `0dca066bf433b4345adf50e9c36eb077a4165139` push 완료. [초안 PR147](https://github.com/Dev-DHJang/ForestArena/pull/147), 대상 develop. 모션별 승인과 필수 미확인이 남아 병합하지 않았으며 병합 SHA는 없다. 검토 원본·자료 보존 커밋 `7a3e3ee7`도 같은 브랜치에 push했다.
 - 기존 승인 PNG·SpriteFrames·manifest는 변경하지 않았다. 코드 롤백은 이 브랜치의 전투 수정 커밋을 revert하는 방식으로 수행하고, 다른 채팅의 변경을 되돌리지 않는다.
 
 재개: 네 모션별 사용자 승인→승인 자산만 등록→영향 검사·필수 미확인 처리→PR 통합 및 병합/롤백 SHA 기록. 코드는 이미 전체 검사를 통과했으므로 승인 대기 중 같은 검사를 반복하지 않는다. 등록으로 리소스가 바뀌면 관련 검사 및 최종 통합 전 전체 검사를 수행한다.
