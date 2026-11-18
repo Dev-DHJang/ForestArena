@@ -10,6 +10,11 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 		return result
 	var attack := context.attack
 	var defender := context.defender
+	# Grounded down is a complete protected reaction, not a new combo target.
+	# Airborne launch/tumble remains hittable until actual landing.
+	if rules.simplified_combat and (defender.landing_down_ticks > 0 or (defender.state == FighterController.State.KNOCK_DOWN and defender.is_on_floor())):
+		result.type = HitResult.Type.IMMUNE
+		return result
 	if defender.wakeup_protection_ticks > 0 and not attack.ignore_armor_and_immunity:
 		result.type = HitResult.Type.IMMUNE
 		return result
@@ -49,6 +54,8 @@ static func resolve(context: HitContext, rules: CombatRules) -> HitResult:
 	var reaction: int = attack.hit_reaction
 	if _has_rule(defender.runtime_profile, CombatRuleData.Kind.IMMUNE_KNOCKDOWN, attack.tags) and reaction in [AttackData.HitReaction.KNOCK_DOWN, AttackData.HitReaction.SLAM, AttackData.HitReaction.CRUMPLE]:
 		reaction = AttackData.HitReaction.NORMAL_HIT
+	if rules.simplified_combat and reaction == AttackData.HitReaction.KNOCK_DOWN and defender.is_on_floor():
+		result.hitstun_ticks = rules.landing_down_ticks
 	result.reaction = AttackData.HitReaction.keys()[reaction]
 	defender.apply_hit(attack, result.knockback, result.hitstun_ticks, rules, reaction)
 	if attack.pull_ticks > 0 and defender.state not in [FighterController.State.RING_OUT, FighterController.State.DEAD]:

@@ -12,9 +12,10 @@ attack_id = &"ja-hyun-light-01"
 action_id = &"attack_light"
 startup_ticks = 8
 active_ticks = 4
-recovery_ticks = 18
+recovery_ticks = 12
 damage = 4.0
 knockback = 120.0
+launch_vector = Vector2(1, 0)
 fixed_hitstun_ticks = 16
 guard_damage = 4.0
 guard_hitstun_ticks = 3
@@ -31,7 +32,7 @@ script = ExtResource("4_link")
 from_attack_id = &"ja-hyun-light-01"
 input_action_id = &"attack_light"
 window_start_tick = -12
-window_end_tick = 17
+window_end_tick = 11
 next_attack_id = &"ja-hyun-light-02"
 
 [sub_resource type="Resource" id="Attack_light_02"]
@@ -41,9 +42,10 @@ attack_id = &"ja-hyun-light-02"
 action_id = &"attack_light"
 startup_ticks = 8
 active_ticks = 4
-recovery_ticks = 18
+recovery_ticks = 12
 damage = 4.0
 knockback = 120.0
+launch_vector = Vector2(1, 0)
 fixed_hitstun_ticks = 16
 guard_damage = 4.0
 guard_hitstun_ticks = 3
@@ -60,7 +62,7 @@ script = ExtResource("4_link")
 from_attack_id = &"ja-hyun-light-02"
 input_action_id = &"attack_light"
 window_start_tick = -12
-window_end_tick = 17
+window_end_tick = 11
 next_attack_id = &"ja-hyun-light-03"
 
 [sub_resource type="Resource" id="Attack_light_03"]
@@ -70,9 +72,10 @@ attack_id = &"ja-hyun-light-03"
 action_id = &"attack_light"
 startup_ticks = 8
 active_ticks = 4
-recovery_ticks = 18
+recovery_ticks = 12
 damage = 4.0
 knockback = 120.0
+launch_vector = Vector2(1, 0)
 fixed_hitstun_ticks = 16
 guard_damage = 4.0
 guard_hitstun_ticks = 3
@@ -89,7 +92,7 @@ script = ExtResource("4_link")
 from_attack_id = &"ja-hyun-light-03"
 input_action_id = &"attack_light"
 window_start_tick = -12
-window_end_tick = 17
+window_end_tick = 11
 next_attack_id = &"ja-hyun-light-04"
 
 [sub_resource type="Resource" id="Attack_light_04"]

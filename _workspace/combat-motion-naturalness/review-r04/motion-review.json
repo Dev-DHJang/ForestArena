@@ -1,0 +1,584 @@
+{
+  "schema_version": 1,
+  "reviewer": "combat_plan_review",
+  "sources": {
+    "_workspace/combat-motion-naturalness/candidates/catalog-r04.json": "8cac76b6062322ddb27691e6db187be972f371024dd5fe1b8b59e4f9e055f77b",
+    "_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.png": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f",
+    "_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.tres": "521e089e9c6bc26d6f51f962d3b4d756ccee7b13919f88bd266e47f39af5a0dc",
+    "_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.png": "46204e4a074fa21901d5d7f3adbcc95851db5a9bee57949213884aa57d594d10",
+    "_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.tres": "13afced316607296ebce63a9daf43ffb233366197a81199768f7b18bde6c4c0d",
+    "_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.png": "efcfba256ed902c3b0b4a967200a59fdb5d03dede6757219233c6182a40ff4fb",
+    "_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.tres": "d833340635032dd1cbc348f33b9e08910bd236082974e832d2d666592c5ea25c",
+    "_workspace/combat-motion-naturalness/candidates/scope-r04.json": "66305d72e7193447c9267c275409dae45c1c52820efb2cf538ce77bed2eb1993",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_04.tres": "b92c88918aa0e7af3e252a2f4cddd5ff13647ab0509eb0d013462beb3f670a0d",
+    "assets/character/ja-hyun/animation/runtime/attack_light_combo_04_16f_natural-v02.png": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/manifest.json": "b26820ce0e80afe875f346a8600665e3196600364455cca677dcdb4b26972ba9",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "4e6d0d5a6ea119aebd257b05b4bc7924748a44a5b87a6fd39b4ea43415b66297",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "70341a6fb6408a2d10e84f88dceb7f2d2bc78110954be1b6105399e5c6ca723b",
+    "docs/contracts/attack-system-v01.json": "f0e11986f0b68b6aab18619466b79ca9f58fae4ec25014e38cb0f1a2e8eebbe7",
+    "docs/gameplay/combat.md": "b43a1c039e6c2523eb268892989165e3a06a7dbcabc2599ca72452198296bf8d",
+    "docs/gameplay/two-fighter-combat-v2.md": "4d94d9bf0387cd8f76ca1fcc17a2d6a3068b01932e0fd09b123fb79e037d1fe3",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scripts/data/accessory_ability_data.gd": "4b6c1101c1055207dd4eec8d81c38c6111fa18287c60851af738f467b1c68781",
+    "scripts/data/attack_data.gd": "9e4eb8c27cbf80b35e327938084bcfae416f01720c284fae8eed80291523a69a",
+    "scripts/data/combat_rules.gd": "60651f6283714d382efd41cca16fd7454021ac5258652fa21016dce6b1f5e808",
+    "scripts/equipment_visual.gd": "0689b9a7bc24d3550e911ccd76bf223169148c09921f73f92deb71bbe081dfbf",
+    "scripts/fighter_attack_effects.gd": "a35f85f004146e137fadfc662c8b2181d1fe543a8ffae3d4eadf7d77d53f21d1",
+    "scripts/fighter_controller.gd": "a465b25adfe5ce81b41a8edc6eb0536859df7e1a15db6c010a666f152d877bad",
+    "scripts/hit_resolver.gd": "017036726149aa5bead775bc3d29fc8c4c15e092d81d236e14e8fdaccc5d41ed",
+    "scripts/local_fighter_presentation.gd": "54c5858be9e8aa1b636f57d38fd9b7b4ce8702e6f4592aa3aca94b14f1f88a51",
+    "scripts/match_controller.gd": "08957799759d0d02f97e12a00840004a21b03618b211158c17f6529365bd37e6",
+    "tools/forest_arena/motion_layout.py": "64ef966a8887211c7b3cf68b5f6bf082cd621fe34cbc43bece22aa52a82235c5",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4",
+    "tools/forest_arena/motion_review_candidates.py": "8a5372f535f33462086666693d434146d37ae195aed7ec919a110cc924328e79",
+    "tools/forest_arena/motion_review_timeline.gd": "1e7dc43c714280878c1a75fff213bd28899bf0f9d149e70a4f44825a2f877eb3",
+    "tools/forest_arena/review_motion_actions.py": "8cfe59d490251bc01eb87d4420ec8bdd24a5612ca132626fa9703481b864f2f9"
+  },
+  "timeline_sha256": "a583ae583c4702f043ad06fee919d086905e2daeab87b132533098684fa64724",
+  "motions": [
+    {
+      "character_id": "ja-hyun",
+      "motion": "attack_light_combo_04",
+      "path": "_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.png",
+      "sha256": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f",
+      "sprite_frames_path": "_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.tres",
+      "sprite_frames_sha256": "521e089e9c6bc26d6f51f962d3b4d756ccee7b13919f88bd266e47f39af5a0dc",
+      "expected_action": "왼손·오른손·왼손 뒤 마지막 킥. 머리·몸 크기는 중간타·대기와 일치한다.",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "action_source_sha256": "4d94d9bf0387cd8f76ca1fcc17a2d6a3068b01932e0fd09b123fb79e037d1fe3",
+      "materials": {
+        "boards/ja-hyun__attack_light_combo_04.jpg": "d11fa165670f3d85847153ced18cefe32a7928957206600c9ecb125c12bf8a1f",
+        "sheets/ja-hyun__attack_light_combo_04.png": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "ja-hyun-light-04",
+          "sequence": [
+            [
+              0,
+              "startup",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              1,
+              "startup",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              2,
+              "startup",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              3,
+              "startup",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              4,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              5,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              6,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              7,
+              "active",
+              "attack_light_combo_04",
+              16.6666666666667
+            ],
+            [
+              8,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              9,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              10,
+              "recovery",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              11,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              12,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              13,
+              "recovery",
+              "attack_light_combo_04",
+              33.3333333333334
+            ],
+            [
+              14,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ],
+            [
+              15,
+              "recovery",
+              "attack_light_combo_04",
+              50.0000000000001
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "독립 검토: 전체16그림 및 실제콤보324틱, 작은좌우반전의변경모션구간을 확인. 큰체형변화가 해소되고 접지/방향/회복 순서에 새차단결함없음. Chrome1배속/0.5배속 재생 시작·진행표본화면·완료와 최종idle 확인. 시점별화면관찰이며 사람의연속체감/프레임손실측정/Android통과를 뜻하지않음.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "knock_down",
+      "path": "_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.png",
+      "sha256": "46204e4a074fa21901d5d7f3adbcc95851db5a9bee57949213884aa57d594d10",
+      "sprite_frames_path": "_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.tres",
+      "sprite_frames_sha256": "13afced316607296ebce63a9daf43ffb233366197a81199768f7b18bde6c4c0d",
+      "expected_action": "피격 뒤 중심을 낮추고 옆으로 넘어져 눕는다. 중간에 다시 서거나 떠서 앉지 않고 새 기상의 첫 누운 자세로 이어진다.",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "action_source_sha256": "4d94d9bf0387cd8f76ca1fcc17a2d6a3068b01932e0fd09b123fb79e037d1fe3",
+      "materials": {
+        "boards/nabi__knock_down.jpg": "59e17b1144152ae618b270f519e19d622a8cd544e14f4583eef5235bba8bce12",
+        "sheets/nabi__knock_down.png": "46204e4a074fa21901d5d7f3adbcc95851db5a9bee57949213884aa57d594d10"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:knock_down",
+          "sequence": [
+            [
+              0,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              1,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              2,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              3,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              4,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              5,
+              "knock_down",
+              "knock_down",
+              100.0000000000002
+            ],
+            [
+              6,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              7,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              8,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              9,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              10,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              11,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:landing-down-18",
+          "sequence": [
+            [
+              12,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ],
+            [
+              13,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              14,
+              "knock_down",
+              "knock_down",
+              66.6666666666668
+            ],
+            [
+              15,
+              "knock_down",
+              "knock_down",
+              83.3333333333335
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "독립 검토: 전체16그림 및 실제콤보324틱, 작은좌우반전의변경모션구간을 확인. 큰체형변화가 해소되고 접지/방향/회복 순서에 새차단결함없음. Chrome1배속/0.5배속 재생 시작·진행표본화면·완료와 최종idle 확인. 시점별화면관찰이며 사람의연속체감/프레임손실측정/Android통과를 뜻하지않음.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    },
+    {
+      "character_id": "nabi",
+      "motion": "wake_up",
+      "path": "_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.png",
+      "sha256": "efcfba256ed902c3b0b4a967200a59fdb5d03dede6757219233c6182a40ff4fb",
+      "sprite_frames_path": "_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.tres",
+      "sprite_frames_sha256": "d833340635032dd1cbc348f33b9e08910bd236082974e832d2d666592c5ea25c",
+      "expected_action": "누운 자세에서 손 짚기→앉기→무릎→낮고 넓은 전투 대기 자세로 일어난다. 마지막에 높이 솟았다 내려앉지 않는다. 기상 보호12틱 안에 표현하고 입력 복구를 지연하지 않는다.",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "action_source_sha256": "4d94d9bf0387cd8f76ca1fcc17a2d6a3068b01932e0fd09b123fb79e037d1fe3",
+      "materials": {
+        "boards/nabi__wake_up.jpg": "6bda4f0e1dd163c4e7b777f600496bbd8652cece0c7a0e4923d04a10a56baddc",
+        "sheets/nabi__wake_up.png": "efcfba256ed902c3b0b4a967200a59fdb5d03dede6757219233c6182a40ff4fb"
+      },
+      "runtime_variants": [
+        {
+          "attack_id": "state:wake_up",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              100.0000000000002
+            ],
+            [
+              3,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              100.0000000000002
+            ],
+            [
+              6,
+              "wake_up",
+              "wake_up",
+              66.6666666666668
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              9,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              12,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              83.3333333333335
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              766.6666666666686
+            ]
+          ]
+        },
+        {
+          "attack_id": "state:wakeup-protection-12",
+          "sequence": [
+            [
+              0,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              1,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              2,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              4,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              5,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              7,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              8,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              10,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              11,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              13,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              14,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ],
+            [
+              15,
+              "wake_up",
+              "wake_up",
+              16.6666666666667
+            ]
+          ]
+        }
+      ],
+      "checks": {
+        "all_frames": true,
+        "normal_playback": true,
+        "slow_playback": true,
+        "runtime_timing": true,
+        "mirrored": true,
+        "small_scale": true
+      },
+      "status": "pass",
+      "observations": "독립 검토: 전체16그림 및 실제콤보324틱, 작은좌우반전의변경모션구간을 확인. 큰체형변화가 해소되고 접지/방향/회복 순서에 새차단결함없음. Chrome1배속/0.5배속 재생 시작·진행표본화면·완료와 최종idle 확인. 시점별화면관찰이며 사람의연속체감/프레임손실측정/Android통과를 뜻하지않음.",
+      "issues": [],
+      "drafts": [],
+      "asset_type": "animation-candidate",
+      "reuse_approved_runtime": false
+    }
+  ],
+  "candidate_selection": {
+    "catalog_path": "_workspace/combat-motion-naturalness/candidates/catalog-r04.json",
+    "catalog_sha256": "8cac76b6062322ddb27691e6db187be972f371024dd5fe1b8b59e4f9e055f77b",
+    "scope_path": "_workspace/combat-motion-naturalness/candidates/scope-r04.json",
+    "scope_sha256": "66305d72e7193447c9267c275409dae45c1c52820efb2cf538ce77bed2eb1993",
+    "approval_status": "pending"
+  },
+  "reviewer_role": "qa",
+  "approval_status": "pending",
+  "evidence_sha256": {
+    "index.html": "ce32b68808530641276a3f7c6c0e27e957450ea9c1eb340f93650786908a7972",
+    "timeline.json": "a583ae583c4702f043ad06fee919d086905e2daeab87b132533098684fa64724"
+  },
+  "inspection_limits": [
+    "Browser playback was observed through discrete UI captures plus complete static frame sequences, not uninterrupted human viewing.",
+    "No physical Android device."
+  ],
+  "supplemental_evidence": {
+    "live/nabi-candidate-sequence-1.jpg": "8f04204a5a9197857e13b3eb7080d5bd54a962b5d1c8c399cbba809081b86582",
+    "live/nabi-candidate-sequence-3.jpg": "e0148bdecf13c271be714725baab0476540dbb9bbef9f869f25a5ce76242dc75",
+    "live/nabi-candidate-sequence-2.jpg": "1f9e157dae82949f859cc9bc0a2cf239fcf65fd00b3aad8765af60c306543eac",
+    "live/ja-hyun-before.mp4": "8617ee6d6fb44603551f92f57293e7e0c00a4be6407d32ae71c2b7af021896cf",
+    "live/small-flipped-state-report.json": "f4199a4b9ac9e45d1cb80ba443a16b85d2215f069f99d32b0182de0ce233535d",
+    "live/ja-hyun-candidate.mp4": "173995c24ed14c9ba51c71ba05c9c142704266ebc99f36f91351924a071224b6",
+    "live/nabi-small-flipped.mp4": "1a4f1817e4a7299d57227313c2c898bc0ada07d62a77cd5a4d15b33b9dd39eb8",
+    "live/ja-hyun-candidate-sequence-2.jpg": "e0c9aae8dd5f046c2c6434cc427134ed48ec59e3dc43c96c3746afb68d21e276",
+    "live/nabi-candidate.mp4": "83ba69de6397e9d32a416bda741c9cdfb164a4570f2e800e6ab3989c4b85dacd",
+    "live/nabi-small-flipped-sequence-1.jpg": "789cd014a0808495cff64bd2914910a82900de2c8b0313c4ecbac2bb19f31237",
+    "live/ja-hyun-candidate-sequence-3.jpg": "04dcf8c391c43c69b3af587cba661d60cd2b940365eaa2c1ce2fcdc9f80ad53b",
+    "live/ja-hyun-candidate-sequence-1.jpg": "f272240eac972885d6c626d0dcc7a20df52ee1bce7adb61781c0271f547fcb94",
+    "live/nabi-small-flipped-sequence-2.jpg": "499ca5c03550a88bb10ded071a5394bb9f1937e457b46f62a79f07a2e751c6ec",
+    "live/nabi-small-flipped-sequence-3.jpg": "6d158749885f53b2142866c52c2930b15277ab4df1f876cf185eaf564f96ec10",
+    "live/ja-hyun-small-flipped-sequence-1.jpg": "40d85701249926ced179d86bcffaff2f57d40b78d50ccd35499bdede9eeae0c4",
+    "live/ja-hyun-small-flipped.mp4": "3c3cd6d10d553d1c3db620cf2ea417928568ef9920dcd8ef07fc5490c4f6eeaa",
+    "live/ja-hyun-small-flipped-sequence-2.jpg": "d39db78716a5ffb7427d6c80c9cfecd82c1baf6e282bf5d8aefd1ca7509b7ef1",
+    "live/ja-hyun-small-flipped-sequence-3.jpg": "c5e5fbd0d86b05a6bbcf7ad7829a3527f5dc0077190c6db22e43c20175f5686b",
+    "live/nabi-before.mp4": "b7e74b90cf1108152c3b1675208264445a3cf7b4687b547b1ac90d18dc001b74",
+    "live/nabi-down-wake-idle-every-tick.jpg": "074ced06e5edcc57124a73ffe167cc607f0e225288ba6a19bc0bb9250c874be5",
+    "live/candidate-state-report.json": "5da6212262a482bcfd0edaada9412a61d5fec6dfda93b1c9734a2e4a9a780553"
+  }
+}

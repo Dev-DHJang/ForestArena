@@ -42,7 +42,7 @@
     "ring_out_confirm_ticks": "int > 0; current60"
   },
   "current_guard_break_ticks": 60,
-  "combo_buffer": "Middle ground-light PRESS only: recovery-relative -12..17, one reservation, starts after recovery; no HOLD or finisher reservation",
+  "combo_buffer": "Middle ground-light PRESS only: recovery-relative -12..11, one reservation across 24 ticks, starts after recovery; no HOLD or finisher reservation",
   "falling_ring_out_state": "FALLING_OUT appended to preserve prior enum values; lower-bound-only, hidden after lower bound+256, stock charged once after60 hidden ticks",
   "debug_setting": "Session-only local bool, defaultfalse; displays authoritative geometry without changing combat",
   "presentation_boundary": "UI, sprites and procedural effects read values only; they never resolve damage, action restriction, hit detection or winner.",
@@ -107,5 +107,21 @@
     "",
     "pebble-yoyo"
   ],
-  "active_equipment_contract": "docs/gameplay/pebble-yoyo.md"
+  "active_equipment_contract": "docs/gameplay/pebble-yoyo.md",
+  "ground_combo_timing": {
+    "middle_ticks": [
+      8,
+      4,
+      12
+    ],
+    "finisher_ticks": [
+      10,
+      4,
+      22
+    ],
+    "middle_pushback": "horizontal; retain weight-based speed; range-edge whiffs allowed; no automatic chase",
+    "ground_down_ticks": 36,
+    "wakeup_protection_ticks": 12,
+    "down_hits": "simplified combat: grounded down ignores ordinary attack damage, relaunch and stun refresh"
+  }
 }

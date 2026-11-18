@@ -14,6 +14,8 @@ signal presentation_event(event_id: StringName, payload: Dictionary)
 signal presentation_reset
 ## Local drawing notification after an effective hit sets its reaction.
 signal hit_reaction_started
+## Client-only observation after applying a received snapshot; not wire state.
+signal network_snapshot_applied(on_floor: bool)
 
 enum State { SPAWNING, IDLE, RUN, JUMP, FALL, DASH, EVADE, CHARGE, ATTACK_STARTUP, ATTACK_ACTIVE, ATTACK_RECOVERY, GUARD, HITSTUN, LAUNCH, KNOCK_DOWN, WAKE_UP, RING_OUT, DEAD, MATCH_ENDED, FALLING_OUT, EQUIPMENT }
 
@@ -346,7 +348,7 @@ func step_tick(rules: CombatRules) -> void:
 		if landing_down_ticks > 0: landing_down_ticks = maxi(1, hitstun_ticks)
 		# Ordinary grounded stagger slows with the same fixed-tick ground drag.
 		# Launch/knock-down motion remains distinct and keeps its authored momentum.
-		if state == State.HITSTUN and is_on_floor() and pull_ticks_remaining <= 0:
+		if (state == State.HITSTUN or (state == State.KNOCK_DOWN and landing_down_ticks > 0)) and is_on_floor() and pull_ticks_remaining <= 0:
 			velocity.x = move_toward(velocity.x, 0.0, rules.ground_deceleration / float(rules.physics_ticks_per_second))
 		_apply_gravity(rules)
 		move_and_slide()
@@ -447,6 +449,11 @@ func apply_hit(attack: AttackData, knockback_velocity: Vector2, stun_ticks: int,
 	match reaction:
 		AttackData.HitReaction.KNOCK_DOWN, AttackData.HitReaction.SLAM, AttackData.HitReaction.CRUMPLE:
 			state = State.KNOCK_DOWN
+			if rules.simplified_combat and reaction == AttackData.HitReaction.KNOCK_DOWN:
+				if is_on_floor():
+					_begin_grounded_down(rules.landing_down_ticks)
+				else:
+					landing_knockdown_pending = true
 		AttackData.HitReaction.LAUNCH, AttackData.HitReaction.GROUND_BOUNCE, AttackData.HitReaction.WALL_BOUNCE:
 			state = State.LAUNCH
 		_:
@@ -596,6 +603,7 @@ func apply_network_snapshot(value: Dictionary) -> void:
 	var state_name := String(value.get("state", ""))
 	var state_index := State.keys().find(state_name)
 	if state_index >= 0: state = state_index as State
+	network_snapshot_applied.emit(bool(value.get("on_floor", false)))
 	queue_redraw()
 
 
@@ -1035,9 +1043,17 @@ func _check_air_landing() -> void:
 		active_attack = null
 		buffered_intent = null
 		velocity = Vector2.ZERO
-		hitstun_ticks = landing_down_duration_ticks
-		landing_down_ticks = landing_down_duration_ticks
-		state = State.KNOCK_DOWN
+		_begin_grounded_down(landing_down_duration_ticks)
+
+
+func _begin_grounded_down(duration: int) -> void:
+	landing_down_duration_ticks = duration
+	hitstun_ticks = duration
+	landing_down_ticks = duration
+	landing_knockdown_pending = false
+	air_lock = 0
+	air_lock_ticks = 0
+	state = State.KNOCK_DOWN
 
 
 func begin_pull(anchor: Vector2, speed: float, ticks: int, stop_distance: float) -> void:

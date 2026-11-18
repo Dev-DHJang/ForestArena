@@ -1,0 +1,706 @@
+{
+  "schema_version": 1,
+  "kind": "motion-candidates",
+  "approval_status": "pending",
+  "assets": [
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_04",
+      "path": "_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.png",
+      "sprite_frames_path": "res://_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.tres",
+      "sha256": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+      "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7",
+      "conversion": {
+        "explicit_pose_offsets": {},
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.2619047619047619,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.2619047619047619,
+        "translation": [
+          16.33333333333333,
+          40.45238095238095
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            35,
+            62,
+            98,
+            124
+          ],
+          [
+            28,
+            52,
+            88,
+            124
+          ],
+          [
+            37,
+            50,
+            96,
+            124
+          ],
+          [
+            35,
+            47,
+            89,
+            124
+          ],
+          [
+            31,
+            45,
+            105,
+            124
+          ],
+          [
+            25,
+            46,
+            103,
+            124
+          ],
+          [
+            27,
+            47,
+            107,
+            124
+          ],
+          [
+            31,
+            46,
+            88,
+            124
+          ],
+          [
+            34,
+            45,
+            88,
+            124
+          ],
+          [
+            32,
+            45,
+            88,
+            124
+          ],
+          [
+            29,
+            46,
+            98,
+            124
+          ],
+          [
+            30,
+            45,
+            94,
+            124
+          ],
+          [
+            45,
+            51,
+            106,
+            124
+          ],
+          [
+            28,
+            60,
+            90,
+            124
+          ],
+          [
+            30,
+            56,
+            94,
+            124
+          ],
+          [
+            36,
+            56,
+            92,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_calibration": {
+          "method": "whole-pose placement only; two sole centers averaged for standing poses, single support sole center for knee raise/kick; world sole-center offset equals approved idle +1px",
+          "sole_center_x": [
+            69.0,
+            60.5,
+            63.5,
+            63.5,
+            61.5,
+            57.0,
+            59.0,
+            63.5,
+            66.5,
+            63.0,
+            71.25,
+            67.5,
+            80.25,
+            63.0,
+            65.5,
+            65.5
+          ],
+          "shared_ready_endpoint": 15,
+          "review_status": "pending independent actual-motion QA"
+        },
+        "source_layout_record": {
+          "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.json",
+          "sha256": "713f2f556a29dabf716ac46afe30e701418442054d9248612459f96cde10b757"
+        }
+      },
+      "asset_id": "ja-hyun-attack_light_combo_04-naturalness-r01",
+      "creation": {
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+        "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7"
+      },
+      "rights": {
+        "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "body_root": [
+            68.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            59.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            60.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            56.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            58.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            65.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.367125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            66.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            79.367125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.617125,
+            124
+          ]
+        }
+      ],
+      "presentation_scale": 1.2685829145728642,
+      "foot_pivot_y": 124,
+      "layout_only_from_asset_id": "ja-hyun-attack-light-combo-04-16f-v01",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "expected_action": "왼손·오른손·왼손 뒤 마지막 킥. 머리·몸 크기는 중간타·대기와 일치한다."
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "knock_down",
+      "path": "_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.png",
+      "sprite_frames_path": "res://_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.tres",
+      "sha256": "46204e4a074fa21901d5d7f3adbcc95851db5a9bee57949213884aa57d594d10",
+      "source_sha256": "89c6ff710bdf597c810c3e196329d769680769b190999fc09db3aa35eeabeae1",
+      "conversion": {
+        "source_grid": [
+          4,
+          4
+        ],
+        "source_size": [
+          1254,
+          1254
+        ],
+        "source_cell": 313.5,
+        "common_pixel_scale": 0.4082934609250399,
+        "target_cell": 128,
+        "target_grid": [
+          16,
+          1
+        ],
+        "method": "fixed-cell extraction; no per-pose resize"
+      },
+      "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-knockdown-r01-source.png",
+      "creation": {
+        "method": "built-in imagegen candidate; fixed 4x4 grid extraction at common scale",
+        "provider": "OpenAI image_gen",
+        "version": "r01",
+        "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-knockdown-r01-source.png",
+        "reference_images": [
+          {
+            "path": "assets/character/nabi/reference/v01/combat.png",
+            "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/front.png",
+            "sha256": "f0002a09935d5a5f38e90f68c9a651abc0a5a5fe74e5a60113c7b9a7311f68f6"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/side.png",
+            "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+          }
+        ]
+      },
+      "rights": {
+        "status": "generated from project approved character references",
+        "references": [
+          "assets/character/nabi/reference/v01/reference.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "frame_anchors": [
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            126.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            126.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            127.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            127.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            122.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        }
+      ],
+      "presentation_scale": 0.8,
+      "foot_pivot_y": 125.0,
+      "state_hold_frame": 15,
+      "asset_id": "nabi-knock-down-naturalness-r02",
+      "landing_down_frame_range": [
+        12,
+        16
+      ],
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "expected_action": "피격 뒤 중심을 낮추고 옆으로 넘어져 눕는다. 중간에 다시 서거나 떠서 앉지 않고 새 기상의 첫 누운 자세로 이어진다."
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "wake_up",
+      "path": "_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.png",
+      "sprite_frames_path": "res://_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.tres",
+      "sha256": "efcfba256ed902c3b0b4a967200a59fdb5d03dede6757219233c6182a40ff4fb",
+      "source_sha256": "6c7588d2021393c98ae98704b26ef1ca9574f22968afe79fb726d2bcdff38961",
+      "conversion": {
+        "source_grid": [
+          4,
+          4
+        ],
+        "source_size": [
+          1254,
+          1254
+        ],
+        "source_cell": 313.5,
+        "common_pixel_scale": 0.4082934609250399,
+        "target_cell": 128,
+        "target_grid": [
+          16,
+          1
+        ],
+        "method": "fixed-cell extraction; no per-pose resize"
+      },
+      "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-wakeup-r02-source.png",
+      "creation": {
+        "method": "built-in imagegen endpoint pose edit; fixed 4x4 extraction at one common scale",
+        "provider": "OpenAI image_gen",
+        "version": "r02",
+        "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-wakeup-r02-source.png",
+        "reference_images": [
+          {
+            "path": "_workspace/combat-motion-naturalness/candidates/nabi-wakeup-r01-source.png",
+            "sha256": "2e3c8e6f9ca3bd0fe8b95e2fae30671e1869f4a772226560e1f816efaa8b8373"
+          },
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+            "sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/combat.png",
+            "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/front.png",
+            "sha256": "f0002a09935d5a5f38e90f68c9a651abc0a5a5fe74e5a60113c7b9a7311f68f6"
+          }
+        ]
+      },
+      "rights": {
+        "status": "generated from project approved character references",
+        "references": [
+          "assets/character/nabi/reference/v01/reference.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "frame_anchors": [
+        {
+          "body_root": [
+            68.0,
+            118.0
+          ]
+        },
+        {
+          "body_root": [
+            68.0,
+            118.0
+          ]
+        },
+        {
+          "body_root": [
+            67.0,
+            119.0
+          ]
+        },
+        {
+          "body_root": [
+            66.0,
+            120.0
+          ]
+        },
+        {
+          "body_root": [
+            65.0,
+            116.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            115.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            115.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            115.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            113.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            112.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            112.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            112.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            117.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            116.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            117.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            116.0
+          ]
+        }
+      ],
+      "presentation_scale": 0.8,
+      "foot_pivot_y": 125.0,
+      "asset_id": "nabi-wake-up-naturalness-r02",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "expected_action": "누운 자세에서 손 짚기→앉기→무릎→낮고 넓은 전투 대기 자세로 일어난다. 마지막에 높이 솟았다 내려앉지 않는다. 기상 보호12틱 안에 표현하고 입력 복구를 지연하지 않는다."
+    }
+  ],
+  "attack_sources": [
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  ],
+  "character_movesets": {
+    "ja-hyun": "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "nabi": "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  }
+}

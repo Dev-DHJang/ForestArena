@@ -52,6 +52,14 @@ var _local_hit_events_pending := 0
 var _last_event_epoch := -1
 var _last_event_sequence := -1
 var _last_event_tick := -1
+var _network_playback := false
+var _network_grounded := false
+var _network_elapsed_ticks := 0.0
+var _network_sample_pending := false
+var _network_sample_key: Array = []
+var _down_from_ground := false
+var _previous_down_ticks := 0
+var _network_reaction_waiting_sample := false
 
 
 func _ready() -> void:
@@ -59,6 +67,7 @@ func _ready() -> void:
 	fighter = get_parent() as FighterController
 	fighter.presentation_reset.connect(_reset_playback)
 	fighter.hit_reaction_started.connect(_on_hit_reaction_started)
+	fighter.network_snapshot_applied.connect(_on_network_snapshot_applied)
 	sprite = AnimatedSprite2D.new()
 	sprite.name = "ApprovedCharacterSprite"
 	# Existing normalized cells place the feet near their lower edge. The fighter
@@ -165,6 +174,31 @@ func _reset_playback() -> void:
 	_reaction_restart_pending = false
 	_reaction_duration_ticks = 0
 	_local_hit_events_pending = 0
+	_network_playback = false
+	_network_elapsed_ticks = 0.0
+	_network_sample_pending = false
+	_network_sample_key.clear()
+	_network_reaction_waiting_sample = false
+	_down_from_ground = false
+	_previous_down_ticks = 0
+
+
+func _on_network_snapshot_applied(on_floor: bool) -> void:
+	_network_playback = true
+	_network_grounded = on_floor
+	var sample: Array = [fighter.state, fighter.activation_serial, fighter.attack_phase_tick, fighter.hitstun_ticks, fighter.landing_down_ticks, fighter.wakeup_protection_ticks, fighter.equipment_phase, fighter.equipment_phase_tick]
+	if _network_reaction_waiting_sample:
+		# HIT may arrive before its timer snapshot. Hold the initial impact until
+		# that sample supplies a duration; never reuse the previous hit's clock.
+		_network_reaction_waiting_sample = false
+		_reaction_duration_ticks = maxi(0, fighter.hitstun_ticks)
+		_network_elapsed_ticks = 0.0
+		_network_sample_pending = true
+	# Duplicate samples cannot rewind an already displayed pose.
+	if sample == _network_sample_key: return
+	_network_sample_key = sample
+	_network_elapsed_ticks = 0.0
+	_network_sample_pending = true
 
 
 func _on_hit_reaction_started() -> void:
@@ -198,6 +232,10 @@ func play_combat_event(event_id: StringName, payload: Dictionary) -> void:
 	_reaction_restart_pending = true
 	# LAN4 supplies remaining hitstun; obey the received state and duration.
 	_reaction_duration_ticks = maxi(0, fighter.hitstun_ticks)
+	if _network_playback:
+		_network_elapsed_ticks = 0.0
+		_network_sample_pending = true
+		_network_reaction_waiting_sample = true
 
 
 func sync_visual(delta: float) -> void:
@@ -217,6 +255,21 @@ func sync_visual(delta: float) -> void:
 		for motion: StringName in paths:
 			_motions[motion] = load(paths[motion]) as SpriteFrames
 		_reset_playback()
+	# Smooth at most one 20Hz interval. Never invent the next combat phase.
+	if _network_playback:
+		if _network_sample_pending:
+			_network_sample_pending = false
+		else:
+			_network_elapsed_ticks = minf(3.0, _network_elapsed_ticks + maxf(delta, 0.0) * 60.0)
+	var display_extra := int(floor(_network_elapsed_ticks + 0.00001)) if _network_playback else 0
+	var display_attack_tick := fighter.attack_phase_tick
+	if fighter.active_attack != null and _network_playback:
+		var phase_duration: int = fighter.active_attack.startup_ticks
+		if fighter.state == FighterController.State.ATTACK_ACTIVE: phase_duration = fighter.active_attack.active_ticks
+		elif fighter.state == FighterController.State.ATTACK_RECOVERY: phase_duration = fighter.active_attack.recovery_ticks
+		display_attack_tick = mini(display_attack_tick + display_extra, phase_duration - 1)
+	if effects != null: effects.presentation_phase_tick = display_attack_tick if _network_playback else -1
+	var grounded := _network_grounded if _network_playback else fighter.is_on_floor()
 	requested_motion = STATE_MOTIONS.get(fighter.state, &"idle")
 	if _previous_state == FighterController.State.RING_OUT and fighter.state == FighterController.State.IDLE and fighter.stocks > 0:
 		_spawn_elapsed = 0.0
@@ -234,7 +287,7 @@ func sync_visual(delta: float) -> void:
 			requested_motion = &"jump"
 		else:
 			_landing_elapsed = -1.0
-	if fighter.wakeup_protection_ticks > 0 and (fighter.state == FighterController.State.WAKE_UP or (fighter.state == FighterController.State.IDLE and fighter.is_on_floor())):
+	if fighter.wakeup_protection_ticks > 0 and (fighter.state == FighterController.State.WAKE_UP or (fighter.state == FighterController.State.IDLE and grounded)):
 		requested_motion = &"wake_up"
 	if _spawn_elapsed >= 0.0:
 		if fighter.state != FighterController.State.IDLE or fighter.active_attack != null or not _motions.has(&"spawn"):
@@ -293,6 +346,10 @@ func sync_visual(delta: float) -> void:
 	sprite.position.x = 0.0
 	sprite.position.y = fighter.ground_contact_offset_y() - (float(drawing.foot_pivot_y) - 64.0) * display_scale
 	sprite.flip_h = fighter.facing < 0
+	# A ground hit must show the fall, while an airborne landing may start prone.
+	if shown == &"knock_down" and fighter.landing_down_ticks > 0 and _previous_down_ticks <= 0:
+		_down_from_ground = _last_motion != &"knock_down" and _last_motion != &"launch" and grounded
+	_previous_down_ticks = fighter.landing_down_ticks
 	var reaction_motion := shown in [&"hitstun", &"launch", &"knock_down"]
 	var restarted_motion := shown != _last_motion or fighter.activation_serial != _last_activation or (_reaction_restart_pending and reaction_motion)
 	if shown in [&"hitstun", &"launch"] and shown != _last_motion and not _reaction_restart_pending:
@@ -328,14 +385,14 @@ func sync_visual(delta: float) -> void:
 	elif _release_selected_frame >= 0:
 		sprite.frame = _release_selected_frame
 	elif shown in [&"hitstun", &"launch"] and _reaction_duration_ticks > 0:
-		var elapsed_ticks := _reaction_duration_ticks - fighter.hitstun_ticks
+		var elapsed_ticks := 0 if _network_reaction_waiting_sample else _reaction_duration_ticks - fighter.hitstun_ticks + display_extra
 		sprite.frame = timed_frame(elapsed_ticks, _reaction_duration_ticks, 0, frames) if weights.is_empty() else weighted_frame(float(elapsed_ticks) / maxi(_reaction_duration_ticks - 1, 1), 0, frames, weights)
 	elif shown == &"knock_down" and fighter.landing_down_ticks > 0:
-		var span: Array = drawing.get("landing_down_frame_range", [12,16])
+		var span: Array = [0, frames] if _down_from_ground else drawing.get("landing_down_frame_range", [12,16])
 		var duration := maxi(1, fighter.landing_down_duration_ticks)
-		sprite.frame = timed_frame(duration - fighter.landing_down_ticks,duration,int(span[0]),int(span[1])) if weights.is_empty() else weighted_frame(float(duration-fighter.landing_down_ticks)/maxi(1,duration-1),int(span[0]),int(span[1]),weights)
+		sprite.frame = timed_frame(duration - fighter.landing_down_ticks + display_extra,duration,int(span[0]),int(span[1])) if weights.is_empty() else weighted_frame(float(duration-fighter.landing_down_ticks+display_extra)/maxi(1,duration-1),int(span[0]),int(span[1]),weights)
 	elif shown == &"wake_up" and fighter.wakeup_protection_ticks > 0:
-		sprite.frame = timed_frame(12 - fighter.wakeup_protection_ticks,12,0,frames) if weights.is_empty() else weighted_frame(float(12-fighter.wakeup_protection_ticks)/11.0,0,frames,weights)
+		sprite.frame = timed_frame(12 - fighter.wakeup_protection_ticks + display_extra,12,0,frames) if weights.is_empty() else weighted_frame(float(12-fighter.wakeup_protection_ticks+display_extra)/11.0,0,frames,weights)
 	elif shown == &"jump" and missing_motion.is_empty() and fighter.active_attack == null:
 		if airborne:
 			var stage := 0 if fighter.velocity.y < -60.0 else (2 if fighter.velocity.y > 60.0 else 1)
@@ -358,7 +415,7 @@ func sync_visual(delta: float) -> void:
 			sprite.frame = weighted_frame(_landing_elapsed / 0.25, int(span[0]), int(span[1]), weights)
 			_landing_elapsed += delta
 	elif present_attack and missing_motion.is_empty() and shown != &"run":
-		sprite.frame = attack_frame(fighter.active_attack, fighter.state, fighter.attack_phase_tick, frames, drawing.get("phase_frame_ranges", layout.get("phase_frame_ranges", [])), weights)
+		sprite.frame = attack_frame(fighter.active_attack, fighter.state, display_attack_tick, frames, drawing.get("phase_frame_ranges", layout.get("phase_frame_ranges", [])), weights)
 	elif shown == &"guard" and layout.has("state_hold_frame"):
 		# Stop before the approved sheet's release poses, regardless of looping flags.
 		var index := playback_frame(_elapsed, sprite.sprite_frames.get_animation_speed(shown), 0, frames, weights, false)
