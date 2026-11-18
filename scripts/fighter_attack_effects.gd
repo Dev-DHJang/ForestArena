@@ -24,6 +24,8 @@ var sprite: AnimatedSprite2D
 var frame_anchors: Array = []
 var phase_frame_ranges: Array = []
 var artwork_sha256 := ""
+# Optional client display clock; never written back into the fighter.
+var presentation_phase_tick := -1
 var _scarf: Texture2D
 # Canvas commands hold RIDs: retain mesh resources until the next redraw.
 var _meshes: Array[ArrayMesh] = []
@@ -32,17 +34,20 @@ var _cloth_clock_ticks := -1.0
 func _process(_delta: float) -> void:
 	queue_redraw()
 
+func _attack_tick() -> int:
+	return presentation_phase_tick if presentation_phase_tick >= 0 else fighter.attack_phase_tick
+
 func effect_envelope() -> Vector2:
 	# x: normalised sweep time; y: opacity. Recovery has a brief diminishing tail.
 	if fighter == null or fighter.active_attack == null: return Vector2.ZERO
 	var attack := fighter.active_attack
 	match fighter.state:
 		FighterController.State.ATTACK_STARTUP:
-			return Vector2(float(fighter.attack_phase_tick) / maxi(attack.startup_ticks, 1), 0.65)
+			return Vector2(float(_attack_tick()) / maxi(attack.startup_ticks, 1), 0.65)
 		FighterController.State.ATTACK_ACTIVE:
-			return Vector2(float(fighter.attack_phase_tick) / maxi(attack.active_ticks - 1, 1), 1.0)
+			return Vector2(float(_attack_tick()) / maxi(attack.active_ticks - 1, 1), 1.0)
 		FighterController.State.ATTACK_RECOVERY:
-			return Vector2(1.0, maxf(0.0, 1.0 - float(fighter.attack_phase_tick) / 7.0))
+			return Vector2(1.0, maxf(0.0, 1.0 - float(_attack_tick()) / 7.0))
 	return Vector2.ZERO
 
 func _anchor(pixel: Vector2) -> Vector2:
@@ -126,7 +131,7 @@ func scarf_afterimages() -> Array[Dictionary]:
 	var recovering := fighter.state == FighterController.State.ATTACK_RECOVERY
 	var frame := last if recovering else sprite.frame
 	if frame < first or frame > last: return traces
-	var fade := maxf(0.0, 1.0 - float(fighter.attack_phase_tick) / 5.0) if recovering else 1.0
+	var fade := maxf(0.0, 1.0 - float(_attack_tick()) / 5.0) if recovering else 1.0
 	if fade <= 0.0: return traces
 	for age: int in 3:
 		var index := frame - age
@@ -134,7 +139,7 @@ func scarf_afterimages() -> Array[Dictionary]:
 		if not frame_anchors[index] is Dictionary: continue
 		var path := held_scarf_path(frame_anchors[index])
 		if path.is_empty(): continue
-		var pulse := float(posmod(fighter.attack_phase_tick + age, 3)) / 2.0
+		var pulse := float(posmod(_attack_tick() + age, 3)) / 2.0
 		path["opacity"] = [0.48, 0.29, 0.14][age] * fade
 		path["width"] = 6.0 - float(age)
 		path["from"] = 0.08 + pulse * 0.12
@@ -147,7 +152,7 @@ func scarf_afterimages() -> Array[Dictionary]:
 	var collar := _anchor(_pixel_point(current.scarf_root))
 	var grip := _anchor(_pixel_point(current.scarf_hand))
 	var sign_x := -1.0 if sprite.flip_h else 1.0
-	var sweep_tick := fighter.active_attack.active_ticks - 1 if recovering else fighter.attack_phase_tick
+	var sweep_tick := fighter.active_attack.active_ticks - 1 if recovering else _attack_tick()
 	var sweep_step := int(sweep_tick / 6)
 	# Start/end and two controls in local world space, relative to the collar.
 	# Lower sweeps stay above the feet; overhead sweeps reach the upper field.
@@ -362,7 +367,7 @@ func _draw() -> void:
 		elif not preparing and (attack.activation_context == AttackData.ActivationContext.AIR or (attack.action_id == &"attack_special" and fighter.attack_strike_ready)):
 			var strike_progress := progress
 			if attack.action_id == &"attack_special":
-				strike_progress = clampf(float(fighter.attack_phase_tick - (attack.active_ticks - 4)) / 3.0,0.0,1.0) if not recovering else 1.0
+				strike_progress = clampf(float(_attack_tick() - (attack.active_ticks - 4)) / 3.0,0.0,1.0) if not recovering else 1.0
 			_slash(Vector2(38*sign_x,-48), strike_progress, envelope.y)
 
 static func cloth_center(start: Vector2, control: Vector2, tip: Vector2, t: float, wave_axis: Vector2, phase: float, wave_strength: float) -> Vector2:
@@ -378,7 +383,7 @@ func continuous_scarf_path(anchors: Dictionary) -> Dictionary:
 	var phase := [FighterController.State.ATTACK_STARTUP, FighterController.State.ATTACK_ACTIVE, FighterController.State.ATTACK_RECOVERY].find(fighter.state)
 	var key := "scarf_hand" if attack.visual_state_id == &"attack_air_heavy" else "scarf_root"
 	if not _valid_pixel_point(anchors.get(key)): return {}
-	var relative := ScarfPaths.sample(attack.visual_state_id, phase, float(fighter.attack_phase_tick),
+	var relative := ScarfPaths.sample(attack.visual_state_id, phase, float(_attack_tick()),
 		Vector3(attack.startup_ticks, attack.active_ticks, attack.recovery_ticks),
 		attack.hitbox_offset.x + attack.hitbox_size.x * 0.40, sprite.flip_h)
 	if relative.is_empty(): return {}
@@ -392,7 +397,7 @@ func _cloth(start: Vector2, control: Vector2, tip: Vector2, opacity: float, widt
 	if _scarf == null: return
 	var texture_size := _scarf.get_size()
 	var wave_axis := (tip-start).normalized().orthogonal() * float(fighter.facing)
-	var cloth_tick := _cloth_clock_ticks if _cloth_clock_ticks >= 0.0 else float(fighter.attack_phase_tick)
+	var cloth_tick := _cloth_clock_ticks if _cloth_clock_ticks >= 0.0 else float(_attack_tick())
 	var wave_phase := cloth_tick * 0.45
 	var vertices := PackedVector2Array()
 	var uvs := PackedVector2Array()

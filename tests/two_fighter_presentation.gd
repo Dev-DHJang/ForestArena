@@ -33,7 +33,11 @@ func run() -> void:
 		check(visual.sprite.frame==16,"actual landing starts the first approved grounded pose")
 		visual.sync_visual(0.0)
 		check(visual.sprite.frame==23,"landing reaches the approved standing end within 0.25 seconds")
+		# An air knockdown is observed before its real landing. Ground finishers
+		# are covered separately and must include the falling poses.
 		fighter.state=FighterController.State.KNOCK_DOWN
+		fighter.landing_down_ticks=0
+		visual.sync_visual(0)
 		fighter.landing_down_duration_ticks=36
 		for remaining: int in range(36,0,-1):
 			fighter.landing_down_ticks=remaining

@@ -1353,6 +1353,36 @@
         "battle-ui"
       ],
       "godot": true
+    },
+    {
+      "id": "combat_motion_naturalness",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_motion_naturalness.gd"
+      ],
+      "suites": [
+        "combat"
+      ],
+      "godot": true
+    },
+    {
+      "id": "combat_network_presentation",
+      "command": [
+        "godot",
+        "--headless",
+        "--path",
+        ".",
+        "--script",
+        "res://tests/combat_network_presentation.gd"
+      ],
+      "suites": [
+        "presentation"
+      ],
+      "godot": true
     }
   ]
 }

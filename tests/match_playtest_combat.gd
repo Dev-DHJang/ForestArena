@@ -15,7 +15,9 @@ func _initialize() -> void:
 	var controller := scene.get_node("MatchController") as MatchController
 	controller.set_physics_process(false)
 	controller.bot_source = null
-	var catalog := Catalog.new().combat
+	# This suite covers the legacy four-fighter defensive-gap rules.
+	# The active two-fighter connected combos have their own real-input suite.
+	var catalog := Catalog.new(false).combat
 	var profiles: Array[RuntimeCombatProfile] = []
 	var accessory_ids: Array[StringName] = [&""]
 	for accessory: AccessoryData in catalog.accessories: accessory_ids.append(accessory.accessory_id)

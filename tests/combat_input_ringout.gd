@@ -88,7 +88,7 @@ func _test_doubled_times() -> void:
 
 func _test_buffer_boundaries() -> void:
 	for id: StringName in [&"ja-hyun", &"nabi"]:
-		for phase: Array in [[FighterController.State.ATTACK_STARTUP, 0], [FighterController.State.ATTACK_STARTUP, 7], [FighterController.State.ATTACK_ACTIVE, 0], [FighterController.State.ATTACK_ACTIVE, 3], [FighterController.State.ATTACK_RECOVERY, 0], [FighterController.State.ATTACK_RECOVERY, 17]]:
+		for phase: Array in [[FighterController.State.ATTACK_STARTUP, 0], [FighterController.State.ATTACK_STARTUP, 7], [FighterController.State.ATTACK_ACTIVE, 0], [FighterController.State.ATTACK_ACTIVE, 3], [FighterController.State.ATTACK_RECOVERY, 0], [FighterController.State.ATTACK_RECOVERY, 11]]:
 			setup(id)
 			var fighter := controller.player
 			fighter.consume_intent(intent(fighter, &"attack_light"), controller.rules)
