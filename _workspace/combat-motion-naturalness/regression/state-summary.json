@@ -1,0 +1,1599 @@
+{
+  "android_device_test": false,
+  "approval_status": "pending",
+  "checks": 7735,
+  "errors": [],
+  "platform_lifecycle_ignored_for_capture": true,
+  "sources": {
+    "_workspace/hit-reaction-restart-v1/runtime-only-catalog.json": "2e6add986f38629e041163b30c98292f46178154fdd54bb895ca64402f7333a4",
+    "_workspace/motion-naturalness-v1/render-pilot.gd": "1afa1e4f3a090d1430d7de82fc5756a1eddfd781a3426dec19012cfd1da43b83",
+    "assets/character/ja-hyun/character.tres": "c1f3cb55c380f0b169cb6fbb7d385e63a7b7b69216b782a8ab619c5b4a12ba96",
+    "assets/character/nabi/character.tres": "edf0251b976e98872045e04fe8ddd8d3b5c7b2e4313eacb945fd3e0fe24b8c93",
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres": "4e6d0d5a6ea119aebd257b05b4bc7924748a44a5b87a6fd39b4ea43415b66297",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres": "70341a6fb6408a2d10e84f88dceb7f2d2bc78110954be1b6105399e5c6ca723b",
+    "assets/combat/stages/forest_ledge_stage.tres": "e59fb407d80ea294a082b32d176ace8445f3dd065939fef35c4b6c6821c9fc4c",
+    "assets/combat/two_fighter_combat_rules.tres": "c23aefbd290f67d6e12454ee8ac7f9607f1ab824c862d3dda5ef2955aaea1e42",
+    "forest_arena/data/character_display_layout_v01.json": "2bb29521bed7449f91e22aad551323c3280f2825eaa8202660182f71d3c274ea",
+    "scenes/main.tscn": "61ce864245b997adc64821fa833e887d7e4fb539acbbee5a512570ca8ff38a38",
+    "scripts/arena_visual.gd": "b3eb9fae3cab8338b36c6ce21eeec490b7022b98fe8ca8de70ff57679b13d1a7",
+    "scripts/combat_camera.gd": "7754287b26162c8db3927ffcdffcf67ae02ee37861262805a5f87da0edf1ef2c",
+    "scripts/combo_controller.gd": "540bcdb6313f326f18efe4529763debae755f8a6f406ac2310b65325916b96ce",
+    "scripts/fighter_attack_effects.gd": "a35f85f004146e137fadfc662c8b2181d1fe543a8ffae3d4eadf7d77d53f21d1",
+    "scripts/fighter_controller.gd": "a465b25adfe5ce81b41a8edc6eb0536859df7e1a15db6c010a666f152d877bad",
+    "scripts/local_fighter_presentation.gd": "54c5858be9e8aa1b636f57d38fd9b7b4ce8702e6f4592aa3aca94b14f1f88a51",
+    "scripts/main.gd": "efde820a106d33ed11639fa8e4e704200e9e14ba5b212e682a9bd97dc41dfb1c",
+    "scripts/match_controller.gd": "08957799759d0d02f97e12a00840004a21b03618b211158c17f6529365bd37e6",
+    "scripts/stage_controller.gd": "64bcc7ce9ab5b2ebb321e04157d5c19d192e25498e4ee7676e9ca015b8f6703c",
+    "tools/forest_arena/motion_review_candidate_frames.gd": "9d0282f42e5f83a239d3e2aeb418e09709aabe98743547d9e216f7b6d6d85bb4"
+  },
+  "scenarios": [
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "ja-hyun",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 13,
+          "tick": 18
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 14,
+          "tick": 19
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 15,
+          "tick": 20
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 16,
+          "tick": 21
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 17,
+          "tick": 22
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 18,
+          "tick": 23
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 19,
+          "tick": 24
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 20,
+          "tick": 25
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 21,
+          "tick": 26
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 22,
+          "tick": 27
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 23,
+          "tick": 28
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 24,
+          "tick": 29
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 25,
+          "tick": 30
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 26,
+          "tick": 31
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 27,
+          "tick": 32
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 28,
+          "tick": 33
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 29,
+          "tick": 34
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 30,
+          "tick": 35
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 31,
+          "tick": 36
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 32,
+          "tick": 37
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 33,
+          "tick": 38
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 34,
+          "tick": 39
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 35,
+          "tick": 40
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 36,
+          "tick": 41
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 37,
+          "tick": 42
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 38,
+          "tick": 43
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 39,
+          "tick": 44
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 40,
+          "tick": 45
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 41,
+          "tick": 46
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 42,
+          "tick": 47
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 43,
+          "tick": 48
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 44,
+          "tick": 49
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 45,
+          "tick": 50
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 46,
+          "tick": 51
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 47,
+          "tick": 52
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 48,
+          "tick": 53
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 49,
+          "tick": 54
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 50,
+          "tick": 55
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 51,
+          "tick": 56
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 52,
+          "tick": 57
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 53,
+          "tick": 58
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 54,
+          "tick": 59
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 55,
+          "tick": 60
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 56,
+          "tick": 61
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 57,
+          "tick": 62
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 58,
+          "tick": 63
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 59,
+          "tick": 64
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 60,
+          "tick": 65
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 61,
+          "tick": 66
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 62,
+          "tick": 67
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 63,
+          "tick": 68
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 64,
+          "tick": 69
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 65,
+          "tick": 70
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 66,
+          "tick": 71
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 67,
+          "tick": 72
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 68,
+          "tick": 73
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 69,
+          "tick": 74
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 70,
+          "tick": 75
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 71,
+          "tick": 76
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "RELEASE",
+          "fighter_id": "pilot-player",
+          "frame": 72,
+          "tick": 77
+        }
+      ],
+      "name": "ja-hyun__run-stop",
+      "scenario": "run-stop",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "ja-hyun",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "jump",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        }
+      ],
+      "name": "ja-hyun__jump-land",
+      "scenario": "jump-land",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "ja-hyun-light-01",
+        "ja-hyun-light-02",
+        "ja-hyun-light-03",
+        "ja-hyun-light-04"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "ja-hyun",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 162,
+      "inputs": [
+        {
+          "action": "attack_light",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_light",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 22,
+          "tick": 27
+        },
+        {
+          "action": "attack_light",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 46,
+          "tick": 51
+        },
+        {
+          "action": "attack_light",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 70,
+          "tick": 75
+        }
+      ],
+      "name": "ja-hyun__full-combo",
+      "scenario": "full-combo",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "ja-hyun-heavy"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "ja-hyun",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "attack_heavy",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_heavy",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "RELEASE",
+          "fighter_id": "pilot-player",
+          "frame": 14,
+          "tick": 19
+        }
+      ],
+      "name": "ja-hyun__heavy-ground",
+      "scenario": "heavy-ground",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "ja-hyun-special"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "ja-hyun",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "attack_special",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        }
+      ],
+      "name": "ja-hyun__special",
+      "scenario": "special",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "ja-hyun-air-heavy"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "ja-hyun",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "jump",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_heavy",
+          "context": "AIR",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 30,
+          "tick": 35
+        }
+      ],
+      "name": "ja-hyun__air-heavy",
+      "scenario": "air-heavy",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "ja-hyun-air-light"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "ja-hyun",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "jump",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_light",
+          "context": "AIR",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 30,
+          "tick": 35
+        }
+      ],
+      "name": "ja-hyun__air-light",
+      "scenario": "air-light",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "nabi",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 13,
+          "tick": 18
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 14,
+          "tick": 19
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 15,
+          "tick": 20
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 16,
+          "tick": 21
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 17,
+          "tick": 22
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 18,
+          "tick": 23
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 19,
+          "tick": 24
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 20,
+          "tick": 25
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 21,
+          "tick": 26
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 22,
+          "tick": 27
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 23,
+          "tick": 28
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 24,
+          "tick": 29
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 25,
+          "tick": 30
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 26,
+          "tick": 31
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 27,
+          "tick": 32
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 28,
+          "tick": 33
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 29,
+          "tick": 34
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 30,
+          "tick": 35
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 31,
+          "tick": 36
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 32,
+          "tick": 37
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 33,
+          "tick": 38
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 34,
+          "tick": 39
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 35,
+          "tick": 40
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 36,
+          "tick": 41
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 37,
+          "tick": 42
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 38,
+          "tick": 43
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 39,
+          "tick": 44
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 40,
+          "tick": 45
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 41,
+          "tick": 46
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 42,
+          "tick": 47
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 43,
+          "tick": 48
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 44,
+          "tick": 49
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 45,
+          "tick": 50
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 46,
+          "tick": 51
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 47,
+          "tick": 52
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 48,
+          "tick": 53
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 49,
+          "tick": 54
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 50,
+          "tick": 55
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 51,
+          "tick": 56
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 52,
+          "tick": 57
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 53,
+          "tick": 58
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 54,
+          "tick": 59
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 55,
+          "tick": 60
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 56,
+          "tick": 61
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 57,
+          "tick": 62
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 58,
+          "tick": 63
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 59,
+          "tick": 64
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 60,
+          "tick": 65
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 61,
+          "tick": 66
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 62,
+          "tick": 67
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 63,
+          "tick": 68
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 64,
+          "tick": 69
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 65,
+          "tick": 70
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 66,
+          "tick": 71
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 67,
+          "tick": 72
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 68,
+          "tick": 73
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 69,
+          "tick": 74
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 70,
+          "tick": 75
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "HOLD",
+          "fighter_id": "pilot-player",
+          "frame": 71,
+          "tick": 76
+        },
+        {
+          "action": "move",
+          "context": "GROUND",
+          "direction": "RIGHT",
+          "edge": "RELEASE",
+          "fighter_id": "pilot-player",
+          "frame": 72,
+          "tick": 77
+        }
+      ],
+      "name": "nabi__run-stop",
+      "scenario": "run-stop",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "nabi",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "jump",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        }
+      ],
+      "name": "nabi__jump-land",
+      "scenario": "jump-land",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "nabi-light-01",
+        "nabi-light-02",
+        "nabi-light-03"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "nabi",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 162,
+      "inputs": [
+        {
+          "action": "attack_light",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_light",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 22,
+          "tick": 27
+        },
+        {
+          "action": "attack_light",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 46,
+          "tick": 51
+        }
+      ],
+      "name": "nabi__full-combo",
+      "scenario": "full-combo",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "nabi-heavy"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "nabi",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "attack_heavy",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_heavy",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "RELEASE",
+          "fighter_id": "pilot-player",
+          "frame": 14,
+          "tick": 19
+        }
+      ],
+      "name": "nabi__heavy-ground",
+      "scenario": "heavy-ground",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "nabi-special"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "nabi",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "attack_special",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        }
+      ],
+      "name": "nabi__special",
+      "scenario": "special",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "nabi-air-heavy"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "nabi",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "jump",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_heavy",
+          "context": "AIR",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 30,
+          "tick": 35
+        }
+      ],
+      "name": "nabi__air-heavy",
+      "scenario": "air-heavy",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    },
+    {
+      "actual_fixed_tick": true,
+      "attacks_seen": [
+        "nabi-air-light"
+      ],
+      "camera_zoom": 1.5,
+      "capture_stride": 3,
+      "character_id": "nabi",
+      "flipped": false,
+      "fps": 60,
+      "frame_count": 120,
+      "inputs": [
+        {
+          "action": "jump",
+          "context": "GROUND",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 12,
+          "tick": 17
+        },
+        {
+          "action": "attack_light",
+          "context": "AIR",
+          "direction": "NEUTRAL",
+          "edge": "PRESS",
+          "fighter_id": "pilot-player",
+          "frame": 30,
+          "tick": 35
+        }
+      ],
+      "name": "nabi__air-light",
+      "scenario": "air-light",
+      "small": false,
+      "state_only": false,
+      "synthetic_phases": false
+    }
+  ]
+}

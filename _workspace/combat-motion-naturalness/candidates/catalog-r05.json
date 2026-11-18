@@ -1,0 +1,1743 @@
+{
+  "schema_version": 1,
+  "kind": "motion-candidates",
+  "approval_status": "pending",
+  "assets": [
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "attack_light_combo_04",
+      "path": "_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.png",
+      "sprite_frames_path": "res://_workspace/combat-motion-naturalness/candidates/ja-hyun-attack_light_combo_04-r01.tres",
+      "sha256": "7a24de2b900beb63ed9e2ba2f0e29b0700dec8aeb506f9d24ada3e295e99f48f",
+      "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+      "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7",
+      "conversion": {
+        "explicit_pose_offsets": {},
+        "ground_anchor_offsets": {},
+        "reference_scale": 0.2619047619047619,
+        "padding_shift_y": 0,
+        "uniform_scale": 0.2619047619047619,
+        "translation": [
+          16.33333333333333,
+          40.45238095238095
+        ],
+        "ground_reference_start": 0,
+        "frame_bounds": [
+          [
+            35,
+            62,
+            98,
+            124
+          ],
+          [
+            28,
+            52,
+            88,
+            124
+          ],
+          [
+            37,
+            50,
+            96,
+            124
+          ],
+          [
+            35,
+            47,
+            89,
+            124
+          ],
+          [
+            31,
+            45,
+            105,
+            124
+          ],
+          [
+            25,
+            46,
+            103,
+            124
+          ],
+          [
+            27,
+            47,
+            107,
+            124
+          ],
+          [
+            31,
+            46,
+            88,
+            124
+          ],
+          [
+            34,
+            45,
+            88,
+            124
+          ],
+          [
+            32,
+            45,
+            88,
+            124
+          ],
+          [
+            29,
+            46,
+            98,
+            124
+          ],
+          [
+            30,
+            45,
+            94,
+            124
+          ],
+          [
+            45,
+            51,
+            106,
+            124
+          ],
+          [
+            28,
+            60,
+            90,
+            124
+          ],
+          [
+            30,
+            56,
+            94,
+            124
+          ],
+          [
+            36,
+            56,
+            92,
+            124
+          ]
+        ],
+        "source_selection": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "unassigned_small_regions": [],
+        "method": "connected original figure regions; uniform scale and cell-relative translation; no pose repainting",
+        "ground_calibration": {
+          "method": "whole-pose placement only; two sole centers averaged for standing poses, single support sole center for knee raise/kick; world sole-center offset equals approved idle +1px",
+          "sole_center_x": [
+            69.0,
+            60.5,
+            63.5,
+            63.5,
+            61.5,
+            57.0,
+            59.0,
+            63.5,
+            66.5,
+            63.0,
+            71.25,
+            67.5,
+            80.25,
+            63.0,
+            65.5,
+            65.5
+          ],
+          "shared_ready_endpoint": 15,
+          "review_status": "pending independent actual-motion QA"
+        },
+        "source_layout_record": {
+          "path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.json",
+          "sha256": "713f2f556a29dabf716ac46afe30e701418442054d9248612459f96cde10b757"
+        }
+      },
+      "asset_id": "ja-hyun-attack_light_combo_04-naturalness-r01",
+      "creation": {
+        "method": "built-in image_gen original poses followed by source figure separation and uniform layout conversion",
+        "provider": "OpenAI built-in image generation",
+        "version": "motion-naturalness-pilot-v01",
+        "source_path": "_workspace/motion-naturalness-v1/drafts/ja-hyun/attack_light_combo_04-r05-combined.png",
+        "source_sha256": "68a59d25baf28a602dd56d411c89f818903f1dd9fc0c86b75d3ec80818e92bb7"
+      },
+      "rights": {
+        "status": "derived from the previously approved ja-hyun appearance; per-motion publication is recorded in a separate explicit user approval record; external license verification not asserted",
+        "references": [
+          "assets/character/manifest.json",
+          "_workspace/motion-naturalness-v1/00_request.md"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          8,
+          16
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "body_root": [
+            68.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            59.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            60.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            56.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            58.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            65.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            70.367125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            66.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            79.367125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            62.117125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.617125,
+            124
+          ]
+        },
+        {
+          "body_root": [
+            64.617125,
+            124
+          ]
+        }
+      ],
+      "presentation_scale": 1.2685829145728642,
+      "foot_pivot_y": 124,
+      "layout_only_from_asset_id": "ja-hyun-attack-light-combo-04-16f-v01",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "expected_action": "왼손·오른손·왼손 뒤 마지막 킥. 머리·몸 크기는 중간타·대기와 일치한다."
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "knock_down",
+      "path": "_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.png",
+      "sprite_frames_path": "res://_workspace/combat-motion-naturalness/candidates/nabi-knock_down-r01.tres",
+      "sha256": "46204e4a074fa21901d5d7f3adbcc95851db5a9bee57949213884aa57d594d10",
+      "source_sha256": "89c6ff710bdf597c810c3e196329d769680769b190999fc09db3aa35eeabeae1",
+      "conversion": {
+        "source_grid": [
+          4,
+          4
+        ],
+        "source_size": [
+          1254,
+          1254
+        ],
+        "source_cell": 313.5,
+        "common_pixel_scale": 0.4082934609250399,
+        "target_cell": 128,
+        "target_grid": [
+          16,
+          1
+        ],
+        "method": "fixed-cell extraction; no per-pose resize"
+      },
+      "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-knockdown-r01-source.png",
+      "creation": {
+        "method": "built-in imagegen candidate; fixed 4x4 grid extraction at common scale",
+        "provider": "OpenAI image_gen",
+        "version": "r01",
+        "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-knockdown-r01-source.png",
+        "reference_images": [
+          {
+            "path": "assets/character/nabi/reference/v01/combat.png",
+            "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/front.png",
+            "sha256": "f0002a09935d5a5f38e90f68c9a651abc0a5a5fe74e5a60113c7b9a7311f68f6"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/side.png",
+            "sha256": "f1c8a8e858b3b7793cbfc2acd03af58b593edc0e7c2a867037509afe1c2b9141"
+          }
+        ]
+      },
+      "rights": {
+        "status": "generated from project approved character references",
+        "references": [
+          "assets/character/nabi/reference/v01/reference.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "frame_anchors": [
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            125.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            126.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            126.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            127.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            127.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            122.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            123.0
+          ]
+        }
+      ],
+      "presentation_scale": 0.71,
+      "foot_pivot_y": 125.0,
+      "state_hold_frame": 15,
+      "asset_id": "nabi-knock-down-naturalness-r02",
+      "landing_down_frame_range": [
+        12,
+        16
+      ],
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "expected_action": "피격 뒤 중심을 낮추고 옆으로 넘어져 눕는다. 중간에 다시 서거나 떠서 앉지 않고 새 기상의 첫 누운 자세로 이어진다."
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "nabi",
+      "visual_state_id": "wake_up",
+      "path": "_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.png",
+      "sprite_frames_path": "res://_workspace/combat-motion-naturalness/candidates/nabi-wake_up-r02.tres",
+      "sha256": "efcfba256ed902c3b0b4a967200a59fdb5d03dede6757219233c6182a40ff4fb",
+      "source_sha256": "6c7588d2021393c98ae98704b26ef1ca9574f22968afe79fb726d2bcdff38961",
+      "conversion": {
+        "source_grid": [
+          4,
+          4
+        ],
+        "source_size": [
+          1254,
+          1254
+        ],
+        "source_cell": 313.5,
+        "common_pixel_scale": 0.4082934609250399,
+        "target_cell": 128,
+        "target_grid": [
+          16,
+          1
+        ],
+        "method": "fixed-cell extraction; no per-pose resize"
+      },
+      "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-wakeup-r02-source.png",
+      "creation": {
+        "method": "built-in imagegen endpoint pose edit; fixed 4x4 extraction at one common scale",
+        "provider": "OpenAI image_gen",
+        "version": "r02",
+        "source_path": "_workspace/combat-motion-naturalness/candidates/nabi-wakeup-r02-source.png",
+        "reference_images": [
+          {
+            "path": "_workspace/combat-motion-naturalness/candidates/nabi-wakeup-r01-source.png",
+            "sha256": "2e3c8e6f9ca3bd0fe8b95e2fae30671e1869f4a772226560e1f816efaa8b8373"
+          },
+          {
+            "path": "_workspace/motion-naturalness-v1/remaining/nabi/idle-r02.png",
+            "sha256": "94c6149c21430148d413e3c6ba12f482c650b516e4c9e67ed14010b8e81f3d56"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/combat.png",
+            "sha256": "c93479dd800e4dc77b6e93110119dc2ddde4f9913a499895b7961fe76650e25e"
+          },
+          {
+            "path": "assets/character/nabi/reference/v01/front.png",
+            "sha256": "f0002a09935d5a5f38e90f68c9a651abc0a5a5fe74e5a60113c7b9a7311f68f6"
+          }
+        ]
+      },
+      "rights": {
+        "status": "generated from project approved character references",
+        "references": [
+          "assets/character/nabi/reference/v01/reference.json"
+        ]
+      },
+      "frame_count": 16,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 12.0,
+      "loop": false,
+      "frame_anchors": [
+        {
+          "body_root": [
+            68.0,
+            118.0
+          ]
+        },
+        {
+          "body_root": [
+            68.0,
+            118.0
+          ]
+        },
+        {
+          "body_root": [
+            67.0,
+            119.0
+          ]
+        },
+        {
+          "body_root": [
+            66.0,
+            120.0
+          ]
+        },
+        {
+          "body_root": [
+            65.0,
+            116.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            115.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            115.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            115.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            113.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            112.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            112.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            112.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            117.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            116.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            117.0
+          ]
+        },
+        {
+          "body_root": [
+            64.0,
+            116.0
+          ]
+        }
+      ],
+      "presentation_scale": 0.71,
+      "foot_pivot_y": 125.0,
+      "asset_id": "nabi-wake-up-naturalness-r02",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md",
+      "expected_action": "누운 자세에서 손 짚기→앉기→무릎→낮고 넓은 전투 대기 자세로 일어난다. 마지막에 높이 솟았다 내려앉지 않는다. 기상 보호12틱 안에 표현하고 입력 복구를 지연하지 않는다."
+    },
+    {
+      "type": "animation-candidate",
+      "character_id": "ja-hyun",
+      "visual_state_id": "special_scarf_sweep",
+      "path": "_workspace/combat-motion-naturalness/candidates/ja-hyun-special_scarf_sweep-r01.png",
+      "sprite_frames_path": "res://_workspace/combat-motion-naturalness/candidates/ja-hyun-special_scarf_sweep-r01.tres",
+      "sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+      "source_paths": [
+        "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png",
+        "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png",
+        "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png"
+      ],
+      "source_sha256": "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+      "conversion": {
+        "method": "original connected figures; whole-motion uniform scale and cell placement only; no pose repainting",
+        "uniform_scale": 0.24585365853658536,
+        "reference_scale": 0.3353,
+        "presentation_scale": 1.159246527777778,
+        "source_baseline_y": 310.0,
+        "target_baseline_y": 104.0,
+        "frame_bounds": [
+          [
+            41,
+            47,
+            88,
+            104
+          ],
+          [
+            38,
+            47,
+            88,
+            104
+          ],
+          [
+            40,
+            46,
+            88,
+            103
+          ],
+          [
+            30,
+            48,
+            89,
+            104
+          ],
+          [
+            38,
+            41,
+            100,
+            102
+          ],
+          [
+            38,
+            46,
+            92,
+            102
+          ],
+          [
+            40,
+            47,
+            120,
+            102
+          ],
+          [
+            41,
+            47,
+            97,
+            102
+          ],
+          [
+            38,
+            34,
+            93,
+            97
+          ],
+          [
+            36,
+            42,
+            93,
+            97
+          ],
+          [
+            39,
+            42,
+            119,
+            97
+          ],
+          [
+            37,
+            44,
+            97,
+            97
+          ],
+          [
+            38,
+            33,
+            101,
+            89
+          ],
+          [
+            40,
+            36,
+            95,
+            89
+          ],
+          [
+            43,
+            31,
+            96,
+            89
+          ],
+          [
+            42,
+            36,
+            90,
+            89
+          ],
+          [
+            32,
+            47,
+            96,
+            108
+          ],
+          [
+            41,
+            47,
+            98,
+            108
+          ],
+          [
+            37,
+            37,
+            96,
+            104
+          ],
+          [
+            37,
+            49,
+            96,
+            108
+          ],
+          [
+            38,
+            46,
+            127,
+            108
+          ],
+          [
+            40,
+            48,
+            98,
+            108
+          ],
+          [
+            33,
+            42,
+            93,
+            108
+          ],
+          [
+            37,
+            49,
+            97,
+            108
+          ],
+          [
+            38,
+            33,
+            94,
+            107
+          ],
+          [
+            27,
+            48,
+            97,
+            108
+          ],
+          [
+            36,
+            50,
+            124,
+            108
+          ],
+          [
+            36,
+            48,
+            96,
+            108
+          ],
+          [
+            40,
+            38,
+            97,
+            97
+          ],
+          [
+            41,
+            38,
+            96,
+            97
+          ],
+          [
+            38,
+            38,
+            92,
+            97
+          ],
+          [
+            36,
+            38,
+            91,
+            97
+          ]
+        ],
+        "unassigned_small_regions": [],
+        "spec_path": "_workspace/ja-scarf-barrage-v1/layout-r02.json",
+        "spec_sha256": "073765c6714f144bb69aa74ae7c9936c5afeb4eeb487d93a3bc9b7de34cc5ea4",
+        "base_layout_spec_path": "_workspace/ja-scarf-barrage-v1/layout-r01.json",
+        "base_layout_spec_sha256": "46f5ed138a180e9a03cf8aff3a73ebcb5fcb5a72add039cbd1b3659d48896586",
+        "single_pose_revision": {
+          "kind": "single-generated-pose-revision",
+          "base_candidate_record": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r01.json",
+          "base_record_sha256": "dc43e294bb8fe3f2ee9f6efa30f481cd231a407fc0bd8f98b507d9d43d601082",
+          "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png",
+          "source_sha256": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+          "frame_index": 18,
+          "uniform_scale_before_pixel_rounding": 0.05285853658536585,
+          "canvas_size": [
+            62,
+            71
+          ],
+          "placement": [
+            34,
+            37
+          ],
+          "body_root": [
+            63.97,
+            103.91
+          ],
+          "method": "new image_gen pose; uniform resize and whole-pose placement only; other31 cells unchanged"
+        },
+        "display_phase_revision": {
+          "kind": "display-phase-revision",
+          "base_candidate_record": "_workspace/ja-scarf-barrage-v1/candidates/ja-hyun/special_scarf_sweep_barrage-r02.json",
+          "png_sha256": "eb45df179bef4d1f3ff2a1abb873f82e473ab48a5083c3f4aabd8a8613c27dd3",
+          "phase_frame_ranges": [
+            [
+              0,
+              4
+            ],
+            [
+              4,
+              27
+            ],
+            [
+              27,
+              32
+            ]
+          ],
+          "reason": "F28 already retracts the held tail; final active F27 remains the outward swing. Recovery follows last active heading and returns to the short painted tail.",
+          "actual_attack_timings_60hz": [
+            12,
+            60,
+            24
+          ]
+        }
+      },
+      "actual_attack_timings_60hz": [
+        12,
+        60,
+        24
+      ],
+      "source_path": "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png",
+      "creation": {
+        "method": "built-in image_gen original poses on two sheets and single-pose F19 correction; connected figures uniformly packaged without repainting",
+        "provider": "OpenAI built-in image generation",
+        "version": "ja-scarf-barrage-v1-r02-f19-r02",
+        "source_inputs": [
+          {
+            "path": "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.png",
+            "sha256": "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+            "role": "frames 1-16"
+          },
+          {
+            "path": "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.png",
+            "sha256": "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+            "role": "frames 17-32 before F19 correction"
+          },
+          {
+            "path": "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.png",
+            "sha256": "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539",
+            "role": "frame 19 replacement"
+          }
+        ]
+      },
+      "rights": {
+        "status": "derived from the user-approved Ja-hyun concept and own generated poses; no reference video frame or audio copied; no additional external license verification asserted; publication awaits separate per-motion user approval",
+        "references": [
+          "assets/character/ja-hyun/concept/ja-hyun-concept-v01.png",
+          "assets/character/manifest.json",
+          "_workspace/ja-scarf-barrage-v1/00_request.md",
+          "_workspace/ja-scarf-barrage-v1/source/barrage-a-r02.json",
+          "_workspace/ja-scarf-barrage-v1/source/barrage-b-r01.json",
+          "_workspace/ja-scarf-barrage-v1/source/barrage-f19-r02.json"
+        ]
+      },
+      "source_sheet_sha256": [
+        "146177ed4a3e5b7145b290a9b6ad910375ef12c7c66269f93bb05bd931e94917",
+        "61f688a89148cccec93e213808fc81edd9e55bfc1b8ed58a568d4ca3464c913c",
+        "3842b1c6cab51955221ed3a6934165587f04ed0c40f53f30bcb625bc2050b539"
+      ],
+      "frame_count": 32,
+      "atlas_columns": 16,
+      "cell_size": 128,
+      "frame_durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "fps": 24.0,
+      "loop": false,
+      "phase_frame_ranges": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          27
+        ],
+        [
+          27,
+          32
+        ]
+      ],
+      "frame_anchors": [
+        {
+          "scarf_root": [
+            68.49,
+            76.22
+          ],
+          "scarf_hand": [
+            69.96,
+            78.19
+          ],
+          "scarf_tips": [
+            [
+              73.65,
+              93.18
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            67.87,
+            77.2
+          ],
+          "scarf_hand": [
+            65.91,
+            79.66
+          ],
+          "scarf_tips": [
+            [
+              69.84,
+              95.4
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            65.29,
+            75.97
+          ],
+          "scarf_hand": [
+            54.47,
+            72.78
+          ],
+          "scarf_tips": [
+            [
+              55.46,
+              96.62
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            67.87,
+            78.19
+          ],
+          "scarf_hand": [
+            57.3,
+            74.25
+          ],
+          "scarf_tips": [
+            [
+              31.24,
+              71.79
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            103.51
+          ]
+        },
+        {
+          "scarf_root": [
+            79.55,
+            74.13
+          ],
+          "scarf_hand": [
+            64.31,
+            54.71
+          ],
+          "scarf_tips": [
+            [
+              41.44,
+              51.02
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            75.49,
+            76.34
+          ],
+          "scarf_hand": [
+            69.84,
+            79.29
+          ],
+          "scarf_tips": [
+            [
+              38.86,
+              71.67
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            70.21,
+            76.59
+          ],
+          "scarf_hand": [
+            78.32,
+            76.1
+          ],
+          "scarf_tips": [
+            [
+              115.94,
+              76.59
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            71.56,
+            75.11
+          ],
+          "scarf_hand": [
+            68.86,
+            87.16
+          ],
+          "scarf_tips": [
+            [
+              95.65,
+              73.64
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            102.16
+          ]
+        },
+        {
+          "scarf_root": [
+            66.52,
+            70.56
+          ],
+          "scarf_hand": [
+            86.43,
+            54.83
+          ],
+          "scarf_tips": [
+            [
+              75.12,
+              38.36
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            97.12
+          ]
+        },
+        {
+          "scarf_root": [
+            71.56,
+            73.51
+          ],
+          "scarf_hand": [
+            65.66,
+            68.6
+          ],
+          "scarf_tips": [
+            [
+              36.89,
+              60.98
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.87
+          ]
+        },
+        {
+          "scarf_root": [
+            69.22,
+            72.04
+          ],
+          "scarf_hand": [
+            77.09,
+            71.55
+          ],
+          "scarf_tips": [
+            [
+              116.43,
+              66.88
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.87
+          ]
+        },
+        {
+          "scarf_root": [
+            67.63,
+            74.74
+          ],
+          "scarf_hand": [
+            62.96,
+            83.35
+          ],
+          "scarf_tips": [
+            [
+              94.67,
+              73.02
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.38
+          ]
+        },
+        {
+          "scarf_root": [
+            78.57,
+            66.26
+          ],
+          "scarf_hand": [
+            63.32,
+            45.86
+          ],
+          "scarf_tips": [
+            [
+              40.95,
+              38.97
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            74.02,
+            68.23
+          ],
+          "scarf_hand": [
+            83.85,
+            66.75
+          ],
+          "scarf_tips": [
+            [
+              43.78,
+              58.89
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            67.5,
+            68.23
+          ],
+          "scarf_hand": [
+            80.29,
+            51.26
+          ],
+          "scarf_tips": [
+            [
+              94.79,
+              31.84
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            67.38,
+            69.46
+          ],
+          "scarf_hand": [
+            68.12,
+            68.72
+          ],
+          "scarf_tips": [
+            [
+              50.66,
+              61.34
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            88.63
+          ]
+        },
+        {
+          "scarf_root": [
+            70.45,
+            78.43
+          ],
+          "scarf_hand": [
+            77.09,
+            83.35
+          ],
+          "scarf_tips": [
+            [
+              33.08,
+              89.49
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.93
+          ]
+        },
+        {
+          "scarf_root": [
+            76.23,
+            79.41
+          ],
+          "scarf_hand": [
+            75.49,
+            61.71
+          ],
+          "scarf_tips": [
+            [
+              44.02,
+              49.42
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.93
+          ]
+        },
+        {
+          "scarf_root": [
+            61.34,
+            68.86
+          ],
+          "scarf_hand": [
+            78.56,
+            55.59
+          ],
+          "body_root": [
+            63.97,
+            103.91
+          ],
+          "scarf_tips": [
+            [
+              95.32,
+              37.64
+            ],
+            null
+          ]
+        },
+        {
+          "scarf_root": [
+            67.38,
+            80.64
+          ],
+          "scarf_hand": [
+            57.55,
+            90.23
+          ],
+          "scarf_tips": [
+            [
+              94.42,
+              88.51
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.93
+          ]
+        },
+        {
+          "scarf_root": [
+            70.45,
+            77.32
+          ],
+          "scarf_hand": [
+            79.8,
+            79.05
+          ],
+          "scarf_tips": [
+            [
+              124.3,
+              78.8
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            73.04,
+            79.29
+          ],
+          "scarf_hand": [
+            78.2,
+            83.23
+          ],
+          "scarf_tips": [
+            [
+              48.2,
+              88.63
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            71.44,
+            79.05
+          ],
+          "scarf_hand": [
+            59.64,
+            60.12
+          ],
+          "scarf_tips": [
+            [
+              35.54,
+              44.38
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            70.82,
+            82.0
+          ],
+          "scarf_hand": [
+            60.25,
+            92.32
+          ],
+          "scarf_tips": [
+            [
+              94.92,
+              74.87
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.81
+          ]
+        },
+        {
+          "scarf_root": [
+            71.44,
+            79.66
+          ],
+          "scarf_hand": [
+            73.65,
+            55.32
+          ],
+          "scarf_tips": [
+            [
+              62.59,
+              38.85
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            106.95
+          ]
+        },
+        {
+          "scarf_root": [
+            72.3,
+            78.68
+          ],
+          "scarf_hand": [
+            70.33,
+            79.66
+          ],
+          "scarf_tips": [
+            [
+              26.81,
+              64.91
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.2
+          ]
+        },
+        {
+          "scarf_root": [
+            70.45,
+            79.17
+          ],
+          "scarf_hand": [
+            81.52,
+            79.66
+          ],
+          "scarf_tips": [
+            [
+              118.15,
+              68.6
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.44
+          ]
+        },
+        {
+          "scarf_root": [
+            70.82,
+            80.15
+          ],
+          "scarf_hand": [
+            67.38,
+            81.87
+          ],
+          "scarf_tips": [
+            [
+              94.92,
+              93.43
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            107.44
+          ]
+        },
+        {
+          "scarf_root": [
+            69.96,
+            68.97
+          ],
+          "scarf_hand": [
+            71.68,
+            70.44
+          ],
+          "scarf_tips": [
+            [
+              77.58,
+              89.13
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        },
+        {
+          "scarf_root": [
+            70.82,
+            69.95
+          ],
+          "scarf_hand": [
+            68.86,
+            77.57
+          ],
+          "scarf_tips": [
+            [
+              75.0,
+              93.8
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        },
+        {
+          "scarf_root": [
+            69.96,
+            69.95
+          ],
+          "scarf_tips": [
+            [
+              68.49,
+              87.65
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        },
+        {
+          "scarf_root": [
+            67.87,
+            70.93
+          ],
+          "scarf_tips": [
+            [
+              66.64,
+              87.9
+            ],
+            null
+          ],
+          "body_root": [
+            64.0,
+            96.75
+          ]
+        }
+      ],
+      "presentation_scale": 1.3679109027777778,
+      "foot_pivot_y": 104.0,
+      "asset_id": "ja-hyun-special-scarf-sweep-naturalness-r01",
+      "layout_only_from_asset_id": "ja-hyun-special-scarf-sweep-32f-barrage-v01",
+      "expected_action": "전투 대기와 같은 체형 크기로 목도리를 준비하고 연속 휘두르기 뒤 회수한다. 준비/종료 때 얼굴·머리 크기가 줄었다 커지지 않는다.",
+      "action_source": "docs/gameplay/two-fighter-combat-v2.md"
+    }
+  ],
+  "attack_sources": [
+    "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  ],
+  "character_movesets": {
+    "ja-hyun": "assets/combat/movesets/two_fighter_ja_hyun_moveset.tres",
+    "nabi": "assets/combat/movesets/two_fighter_nabi_moveset.tres"
+  }
+}
